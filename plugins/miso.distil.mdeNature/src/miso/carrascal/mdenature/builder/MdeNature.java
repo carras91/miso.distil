@@ -11,7 +11,7 @@ public class MdeNature implements IProjectNature {
 	/**
 	 * ID of this project nature
 	 */
-	public static final String MDE_NATURE_ID = "miso.carrascal.mdeNature.mdeNature";
+	public static final String MDE_NATURE_ID = "miso.distil.mdeNature.mdeNature";
 	public static final String XTEXT_NATURE_ID = "org.eclipse.xtext.ui.shared.xtextNature";
 	public static final String MAVEN_NATURE_ID = "org.eclipse.m2e.core.maven2Nature";
 

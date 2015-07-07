@@ -26,8 +26,8 @@ import org.osgi.framework.Bundle;
 public class ConvertToMaven {
 	
 	private static String PATH = "/resources/";
-	private static String PLUGIN_ID = "miso.carrascal.mdeNature";
-	private static String REPO_ID = "miso.carrascal.cloudModelServices";
+	private static String PLUGIN_ID = "miso.distil.mdeNature";
+	private static String REPO_ID = "miso.distil.cloudModelServices";
 	private static String PATH_JAR = "/target/";
 	private static String POM = "pom.xml";
 	private static String JAR = "miso.carrascal.cloudModelServices-jar-with-dependencies.jar";

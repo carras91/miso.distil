@@ -2,3 +2,11 @@
 /.generateHtmlLinks.java._trace
 /.generateHtmlView.java._trace
 /.generateHtmlSpark.java._trace
+/.generateHtmlJson.xtendbin
+/.generateHtmlLinks.xtendbin
+/.generateHtmlSpark.xtendbin
+/.generateHtmlView.xtendbin
+/generateHtmlJson.java
+/generateHtmlLinks.java
+/generateHtmlSpark.java
+/generateHtmlView.java
