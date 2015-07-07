@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/miso.carrascal.codeGeneratorModel/src" modelPluginID="miso.carrascal.codeGeneratorModel"
+    modelName="CodeGeneratorModel" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" copyrightFields="false" importOrganizing="true">
+  <foreignModel>codeGeneratorModel.ecore</foreignModel>
+  <genPackages prefix="CodeGeneratorModel" disposableProviderFactory="true" ecorePackage="codeGeneratorModel.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="codeGeneratorModel.ecore#//DataEnum">
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//DataEnum/Boolean"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//DataEnum/Double"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//DataEnum/Integer"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//DataEnum/String"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="codeGeneratorModel.ecore#//FormatEnum">
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//FormatEnum/XMI"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//FormatEnum/BINARY"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//FormatEnum/TEXT"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//FormatEnum/XML"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//FormatEnum/JSON"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//FormatEnum/ATL"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//FormatEnum/ZIP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="codeGeneratorModel.ecore#//ServiceEnum">
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//ServiceEnum/upload"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//ServiceEnum/download"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//ServiceEnum/update"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//ServiceEnum/read"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//ServiceEnum/readAll"/>
+      <genEnumLiterals ecoreEnumLiteral="codeGeneratorModel.ecore#//ServiceEnum/search"/>
+    </genEnums>
+    <genClasses ecoreClass="codeGeneratorModel.ecore#//Root">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//Root/artifacts"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//Root/entities"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//Root/services"/>
+    </genClasses>
+    <genClasses ecoreClass="codeGeneratorModel.ecore#//Artifact">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//Artifact/extension"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//Artifact/format"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//Artifact/basicServices"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="codeGeneratorModel.ecore#//AbstractEntity">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//AbstractEntity/attributes"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//AbstractEntity/name"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="codeGeneratorModel.ecore#//Attribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//Attribute/name"/>
+    </genClasses>
+    <genClasses ecoreClass="codeGeneratorModel.ecore#//SimpleAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//SimpleAttribute/many"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//SimpleAttribute/data"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//SimpleAttribute/required"/>
+    </genClasses>
+    <genClasses ecoreClass="codeGeneratorModel.ecore#//Entity"/>
+    <genClasses ecoreClass="codeGeneratorModel.ecore#//SimpleService">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//SimpleService/input"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//SimpleService/output"/>
+    </genClasses>
+    <genClasses ecoreClass="codeGeneratorModel.ecore#//MultiService">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//MultiService/services"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//MultiService/parallel"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="codeGeneratorModel.ecore#//Service">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//Service/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//Service/when"/>
+    </genClasses>
+    <genClasses ecoreClass="codeGeneratorModel.ecore#//OnService">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//OnService/artifact"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute codeGeneratorModel.ecore#//OnService/whenServices"/>
+    </genClasses>
+    <genClasses ecoreClass="codeGeneratorModel.ecore#//MultiAttribute">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference codeGeneratorModel.ecore#//MultiAttribute/type"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

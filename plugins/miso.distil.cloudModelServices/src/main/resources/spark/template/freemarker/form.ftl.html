@@ -1,0 +1,43 @@
+	<h3>Please, fill in the online form</h3>	
+	<#if EMPTY??>
+		<div align="center">
+			<font color="red" size="4">${EMPTY}</font>
+		</div>
+	</#if>
+
+    <form class="form-horizontal" role="form" id='${FORM.getId()}' method='${FORM.getMethod()}' action="${FORM.getUrl()}" enctype="${FORM.getEnctype()}">
+
+    	<#if TEXTS??><#list TEXTS as TEXT>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label" for="${TEXT.getId()}">${TEXT.getLabel()}: </label>
+	            <div class="col-sm-5">
+	                <input class="form-control" type='text' id="${TEXT.getId()}" name='${TEXT.getName()}' placeholder="${TEXT.getPlaceHolder()}" value="${TEXT.getValue()}" />
+	            </div>
+	        </div>
+        </#list></#if>
+        
+        <#if RADIOS??><#list RADIOS as RADIO>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label" for="${RADIO.getId()}">${RADIO.getLabel()}: </label>
+	            <div class="col-sm-5">
+	                <input type='radio' id="${RADIO.getId()}" name='${RADIO.getName()}' value="true" <#if RADIO.getChecked()>checked</#if>/>True
+	                <input type='radio' id="${RADIO.getId()}" name='${RADIO.getName()}' value="false" <#if !RADIO.getChecked()>checked</#if>/>False
+	            </div>
+	        </div> 
+        </#list></#if>   
+        
+        <#if FILES??><#list FILES as FILE>
+	        <div class="form-group">
+	            <label class="col-sm-3 control-label" for="${FILE.getId()}">${FILE.getLabel()}: </label>
+	            <div class="col-sm-5">
+	                <input type='file' id='${FILE.getId()}' name='${FILE.getName()}' />
+	            </div>
+	        </div> 
+        </#list></#if>
+        
+        <#if HIDDENS??><#list HIDDENS as HIDDEN>       
+        	<input type='hidden' name='${HIDDEN.getName()}' value="${HIDDEN.getValue()}" />
+        </#list></#if>
+
+    </form>
+    <input type='submit'value='${FORM.getButton()}' class="btn btn-primary" form='${FORM.getId()}' />	    
