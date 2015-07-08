@@ -29,6 +29,8 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 /**
  * This class contains custom validation rules.
  * 
+ * @author Carlos Carrascal
+ * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */
 @SuppressWarnings("all")

@@ -1,14 +1,14 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>miso.carrascal</groupId>
-	<artifactId>mdeCloudServicesExample</artifactId>
+	<groupId>miso.distil</groupId>
+	<artifactId>Example</artifactId>
 	<version>0.0.1</version>
-  	<name>Mde Cloud Services Example</name>
+  	<name>MDE Service Specification Language Example</name>
 	<packaging>jar</packaging>
 	<dependencies>
 		<dependency>
-			<groupId>miso.carrascal</groupId>
+			<groupId>miso.distil</groupId>
 			<artifactId>cloudModelServices</artifactId>
 			<version>0.0.1</version>
 		</dependency>
@@ -35,7 +35,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 	<build>
-		<finalName>miso.carrascal.mdeCloudServicesExample</finalName>
+		<finalName>miso.distil.Example</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -108,4 +108,7 @@
 			</plugin>
 		</plugins>
 	</build>
+	<organization>
+		<name>miso.carrascal</name>
+	</organization>
 </project>

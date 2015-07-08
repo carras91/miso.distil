@@ -2,6 +2,11 @@ package miso.carrascal.codeGenerator.generator
 
 import codeGeneratorModel.Artifact
 
+/*
+ * Packages to generate and from cloudModelServices
+ * 
+ * @author Carlos Carrascal
+ */
 class packages {
 	
 	// miso/carrascal

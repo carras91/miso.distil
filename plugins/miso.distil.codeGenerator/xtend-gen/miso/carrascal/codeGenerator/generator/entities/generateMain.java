@@ -4,11 +4,21 @@ import com.google.inject.Inject;
 import miso.carrascal.codeGenerator.generator.packages;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * To write Main.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateMain {
   @Inject
   private packages pack;
   
+  /**
+   * To write Main.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
@@ -21,6 +31,20 @@ public class generateMain {
     _builder.append(".CloudModelServices;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated main class");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class Main {");
     _builder.newLine();
     _builder.newLine();
@@ -29,6 +53,9 @@ public class generateMain {
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("System.out.println(\"Running\");");
+    _builder.newLine();
+    _builder.append("\t\t");
+    _builder.append("// Call cloudModelServices to start all spark server");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("CloudModelServices.run();");

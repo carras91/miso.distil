@@ -5,10 +5,20 @@ import codeGeneratorModel.Artifact
 import codeGeneratorModel.ServiceEnum
 import org.eclipse.emf.common.util.EList
 
+/*
+ * To write BasicXXXSpark.java
+ * 
+ * @author Carlos Carrascal
+ */
 class generateBasicSpark {
 	
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
-		
+
+	/*
+	 * To write Basic<artifact.name>Spark.java
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val name = artifact.name»
@@ -28,8 +38,14 @@ class generateBasicSpark {
 		import «pack.MisoBasic».JsonTransformer;
 		import «pack.MisoBasic».BasicInterfaceSpark;
 
+		/**
+		 * Auto-generated spark server
+		 * 
+		 * @author miso.distil.codeGenerator
+		 */
 		public final class Basic«name»Spark implements BasicInterfaceSpark {
 
+			// URL's
 			«IF basicServices.contains(ServiceEnum.READ_LITERAL)»
 				public static String ReadJson = "/json/«namelow»/read/";
 				public static String ReadIdJson = ReadJson + Basic«name»Param.IdGet;
@@ -54,6 +70,11 @@ class generateBasicSpark {
 				public static String DownloadFileIdJson = DownloadFileJson + Basic«name»Param.IdGet;
 			«ENDIF»
 
+			/**
+			 * Auto-generated spark service. It initializes all url's
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			@Override
 			public void runService() {
 		

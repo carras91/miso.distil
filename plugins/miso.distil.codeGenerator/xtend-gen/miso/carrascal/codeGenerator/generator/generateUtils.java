@@ -21,6 +21,11 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
+/**
+ * Some methos used everywhere
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateUtils {
   @Inject
@@ -28,6 +33,11 @@ public class generateUtils {
   
   private HashMap<Artifact, List<Pair<Attribute, List<String>>>> nestedTree = new HashMap<Artifact, List<Pair<Attribute, List<String>>>>();
   
+  /**
+   * To write the chain ".getX().getY()..." from the attribute number "pos" in artifact
+   * 
+   * @author Carlos Carrascal
+   */
   public String getNestedGets(final Integer pos, final Artifact artifact) {
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
     Pair<Attribute, List<String>> _get = _nestedTree.get((pos).intValue());
@@ -67,6 +77,11 @@ public class generateUtils {
     return (_plus_4 + _builder_4);
   }
   
+  /**
+   * To write a string "att1, att2, att3, ..." from the attributes inside the multiattribute number pos in artifact
+   * 
+   * @author Carlos Carrascal
+   */
   public String getNestedAtt(final Integer pos, final Artifact artifact) {
     String parentName = this.getNewAttName(pos, artifact);
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
@@ -97,6 +112,11 @@ public class generateUtils {
     return nestedAtt;
   }
   
+  /**
+   * To get an attribute name by his position inside nestedTree
+   * 
+   * @author Carlos Carrascal
+   */
   public String getNewAttName(final Integer pos, final Artifact artifact) {
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
     Pair<Attribute, List<String>> _get = _nestedTree.get((pos).intValue());
@@ -119,6 +139,11 @@ public class generateUtils {
     return newName;
   }
   
+  /**
+   * To get an attribute name
+   * 
+   * @author Carlos Carrascal
+   */
   public String getNewAttName(final Attribute att, final Artifact artifact) {
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
     for (final Pair<Attribute, List<String>> pair : _nestedTree) {
@@ -146,6 +171,11 @@ public class generateUtils {
     return null;
   }
   
+  /**
+   * To fill nestedTree and return artifact's attributes information
+   * 
+   * @author Carlos Carrascal
+   */
   private List<Pair<Attribute, List<String>>> getNestedTree(final Artifact artifact) {
     Set<Artifact> _keySet = this.nestedTree.keySet();
     boolean _contains = _keySet.contains(artifact);
@@ -171,6 +201,11 @@ public class generateUtils {
     }
   }
   
+  /**
+   * To get for each attribute his path in an ascendent way (recursive)
+   * 
+   * @author Carlos Carrascal
+   */
   private List<Pair<Attribute, List<String>>> getNested(final MultiAttribute att, final List<String> parent) {
     final ArrayList<Pair<Attribute, List<String>>> list = new ArrayList<Pair<Attribute, List<String>>>();
     Entity _type = att.getType();
@@ -190,6 +225,11 @@ public class generateUtils {
     return list;
   }
   
+  /**
+   * To write "import java.util.List;" if needed
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence getImportList(final EList<Attribute> atts) {
     CharSequence _xblockexpression = null;
     {
@@ -228,6 +268,11 @@ public class generateUtils {
     return _xblockexpression;
   }
   
+  /**
+   * To write imports from atts
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence getImportCompose(final EList<Attribute> atts) {
     CharSequence _xblockexpression = null;
     {
@@ -271,6 +316,11 @@ public class generateUtils {
     return _xblockexpression;
   }
   
+  /**
+   * To get a list of nested attributes (simple and multi) (recursive)
+   * 
+   * @author Carlos Carrascal
+   */
   public EList<Attribute> getAllNestedAttributes(final EList<Attribute> atts) {
     final EList<Attribute> list = new BasicEList<Attribute>();
     final Consumer<Attribute> _function = (Attribute it) -> {
@@ -286,6 +336,11 @@ public class generateUtils {
     return list;
   }
   
+  /**
+   * To get a list of nested attributes (but not multiattributes) (recursive)
+   * 
+   * @author Carlos Carrascal
+   */
   public EList<Attribute> getNestedAttributes(final Attribute att) {
     final EList<Attribute> list = new BasicEList<Attribute>();
     if ((att instanceof SimpleAttribute)) {
@@ -302,6 +357,11 @@ public class generateUtils {
     return list;
   }
   
+  /**
+   * To write the class name of att
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence getTypeName(final Attribute att) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -331,6 +391,11 @@ public class generateUtils {
     return _builder;
   }
   
+  /**
+   * To write private attributes
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence getPrivateAttributes(final EList<Attribute> atts) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -348,6 +413,11 @@ public class generateUtils {
     return _builder;
   }
   
+  /**
+   * To write getters and setters
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence getGetSetAtt(final EList<Attribute> atts) {
     StringConcatenation _builder = new StringConcatenation();
     {
@@ -406,6 +476,11 @@ public class generateUtils {
     return _builder;
   }
   
+  /**
+   * To write toString method
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence getToStringAtts(final EList<Attribute> atts) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("@Override");

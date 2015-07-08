@@ -13,11 +13,21 @@ import miso.carrascal.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * To write ServicesSpark.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateServicesSpark {
   @Inject
   private packages pack;
   
+  /**
+   * To get each artifacts list of services and when they are triggered
+   * 
+   * @author Carlos Carrascal
+   */
   public HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>> info(final EList<Service> services) {
     HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>> map = new HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>>();
     for (final Service service : services) {
@@ -62,6 +72,11 @@ public class generateServicesSpark {
     return map;
   }
   
+  /**
+   * To write ServicesSpark.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final EList<Service> services) {
     StringConcatenation _builder = new StringConcatenation();
     HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>> map = this.info(services);
@@ -236,8 +251,25 @@ public class generateServicesSpark {
       }
     }
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated services spark server");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public final class ServicesSpark implements BasicInterfaceSpark {");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("// URL\'s");
     _builder.newLine();
     {
       for(final Service service : services) {
@@ -253,6 +285,21 @@ public class generateServicesSpark {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* Auto-generated services spark service. It initializes all services url\'s");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@Override");

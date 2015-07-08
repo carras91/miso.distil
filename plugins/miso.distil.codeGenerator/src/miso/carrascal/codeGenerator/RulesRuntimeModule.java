@@ -11,6 +11,10 @@ import com.google.inject.Binder;
 import com.google.inject.Singleton;
 
 /**
+ * To register generator.GeneratorOutputConfiguration
+ * 
+ * @author Carlos Carrascal
+ * 
  * Use this class to register components to be used at runtime / without the Equinox extension registry.
  */
 public class RulesRuntimeModule extends miso.carrascal.codeGenerator.AbstractRulesRuntimeModule {

@@ -9,11 +9,21 @@ import miso.carrascal.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * To write XXXService.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateSimpleService {
   @Inject
   private packages pack;
   
+  /**
+   * To write <simpleService.name>Service.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final SimpleService simpleService) {
     StringConcatenation _builder = new StringConcatenation();
     int position = 0;
@@ -131,6 +141,20 @@ public class generateSimpleService {
         _builder.newLine();
       }
     }
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated service class");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class Service");
     String _name_6 = simpleService.getName();
     _builder.append(_name_6, "");
@@ -138,11 +162,29 @@ public class generateSimpleService {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* Auto-generated service constructor");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("public Service");
     String _name_7 = simpleService.getName();
     _builder.append(_name_7, "\t");
     _builder.append("() {");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t\t");
+    _builder.append("// Input classes");
+    _builder.newLine();
     {
       EList _input_1 = simpleService.getInput();
       for(final AbstractEntity input_1 : ((EList<AbstractEntity>) _input_1)) {
@@ -154,6 +196,9 @@ public class generateSimpleService {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t\t");
+    _builder.append("// Outpu classes");
+    _builder.newLine();
     {
       EList _output_1 = simpleService.getOutput();
       for(final AbstractEntity output_1 : ((EList<AbstractEntity>) _output_1)) {
@@ -170,19 +215,31 @@ public class generateSimpleService {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("// Method call");
+    _builder.append("/**");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("// If triggered :");
+    _builder.append("\t ");
+    _builder.append("* Method called automatically");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("//\t- after upload, download, update, read -> artifacts.size = 1, (request, response) from these services");
+    _builder.append("\t ");
+    _builder.append("* If triggered :");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("//\t- after readAll, search -> the results of these services, (request, response) from these services");
+    _builder.append("\t ");
+    _builder.append("* - after upload, download, update, read -> artifacts.size = 1, (request, response) from these services");
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("// \t- on request -> artifacts.size = 0, , (request, response) sent by user");
+    _builder.append("\t ");
+    _builder.append("* - after readAll, search -> the results of these services, (request, response) from these services");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* - on request -> artifacts.size = 0, , (request, response) sent by user");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@Override");
@@ -204,6 +261,21 @@ public class generateSimpleService {
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* Execution method. It uses an object\'s list (see the constructor input order) and generates other object\'s list (see the constructor output order)");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@Override");

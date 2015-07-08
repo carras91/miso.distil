@@ -7,6 +7,11 @@ import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IOutputConfigurationProvider;
 import org.eclipse.xtext.generator.OutputConfiguration;
 
+/*
+ * New output configuration with default and "only once" generation options
+ * 
+ * @author Carlos Carrascal
+ */
 public class GeneratorOutputConfiguration implements IOutputConfigurationProvider {
 
 	public static final String GEN_ONCE_OUTPUT = "gen-once";

@@ -8,6 +8,11 @@ import miso.carrascal.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * To write <artifact>.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateArtifactClass {
   @Inject
@@ -16,6 +21,11 @@ public class generateArtifactClass {
   @Inject
   private packages pack;
   
+  /**
+   * To write <artifact.name>.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     final EList<Attribute> atts = artifact.getAttributes();
@@ -37,6 +47,20 @@ public class generateArtifactClass {
     _builder.append("import java.util.List;");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated artifact class");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class ");
     String _name = artifact.getName();
     _builder.append(_name, "");
@@ -47,9 +71,15 @@ public class generateArtifactClass {
     _builder.append("private static final long serialVersionUID = 1L;");
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("// Attributes");
+    _builder.newLine();
+    _builder.append("\t");
     CharSequence _privateAttributes = this.genUti.getPrivateAttributes(atts);
     _builder.append(_privateAttributes, "\t");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("// Empty constructor");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public ");
@@ -65,15 +95,25 @@ public class generateArtifactClass {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("// Full constructor");
+    _builder.newLine();
+    _builder.append("\t");
     CharSequence _constructorArtifact = this.getConstructorArtifact(artifact);
     _builder.append(_constructorArtifact, "\t");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("// Getters and setters");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
     CharSequence _getSetAtt = this.genUti.getGetSetAtt(atts);
     _builder.append(_getSetAtt, "\t");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("\t");
+    _builder.append("// To string method");
+    _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
     CharSequence _toStringAtts = this.genUti.getToStringAtts(atts);
@@ -84,6 +124,11 @@ public class generateArtifactClass {
     return _builder;
   }
   
+  /**
+   * To write the full constructor of artifact
+   * 
+   * @author Carlos Carrascal
+   */
   private CharSequence getConstructorArtifact(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     final EList<Attribute> atts = artifact.getAttributes();

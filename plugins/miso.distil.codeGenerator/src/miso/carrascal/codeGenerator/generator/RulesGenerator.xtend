@@ -39,7 +39,9 @@ import codeGeneratorModel.MultiService
 import codeGeneratorModel.Service
 
 /**
- * Generates code from your model files on save.
+ * This class contains custom generation rules. 
+ * 
+ * @author Carlos Carrascal
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */
@@ -88,7 +90,7 @@ class RulesGenerator implements IGenerator {
 		    	genEnti.write(it))
 		]
 		
-		// Services
+		// Simple services (once)
 		resource.allContents.filter(SimpleService).forEach[
 			fsa.generateFile(
 				pack.ServicesStr + "/" + "Service" + it.name + ".java",
@@ -96,12 +98,14 @@ class RulesGenerator implements IGenerator {
 		    	genSimSer.write(it))
 		]
 		
+		// Multi services (overwrite)
 		resource.allContents.filter(MultiService).forEach[
 			fsa.generateFile(
 				pack.ServicesStr + "/" + "Service" + it.name + ".java",
 		    	genMulSer.write(it))
 		]
 		
+		// Spark services (overwrite)
 		if(!resource.allContents.filter(Root).last.services.empty) {
 			fsa.generateFile(
 					pack.ServicesStr + "/" + "ServicesSpark.java",
@@ -119,6 +123,7 @@ class RulesGenerator implements IGenerator {
 			    packageArtifact + artifact.name + ".java",
 			    genArtifact.write(artifact))
 
+			// Update/Upload methods (once)
 			if(!artifact.basicServices.empty) {
 				fsa.generateFile(
 					packageArtifact + artifact.name + "Json.java",
@@ -126,6 +131,7 @@ class RulesGenerator implements IGenerator {
 					genJso.write(artifact))
 			}
 			
+			// Html custom cover (once)
 			if(artifact.basicServices.contains(ServiceEnum.READ_LITERAL) || artifact.basicServices.contains(ServiceEnum.READ_ALL_LITERAL) || 
 				artifact.basicServices.contains(ServiceEnum.UPDATE_LITERAL) || artifact.basicServices.contains(ServiceEnum.UPLOAD_LITERAL) ||
 				artifact.basicServices.contains(ServiceEnum.SEARCH_LITERAL))
@@ -137,7 +143,6 @@ class RulesGenerator implements IGenerator {
 			}
 							
 			// Basic files (overwrite)
-					
 			if(!artifact.basicServices.empty)
 			{
 				fsa.generateFile(
@@ -171,6 +176,7 @@ class RulesGenerator implements IGenerator {
 					genHtmJso.write(artifact))
 			}
 			
+			// Lings (overwrite)
 			if(artifact.basicServices.contains(ServiceEnum.READ_LITERAL) || artifact.basicServices.contains(ServiceEnum.DOWNLOAD_LITERAL) || 
 				artifact.basicServices.contains(ServiceEnum.UPDATE_LITERAL) || artifact.basicServices.contains(ServiceEnum.UPLOAD_LITERAL))
 			{

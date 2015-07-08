@@ -21,39 +21,39 @@
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.jdt.core" version="3.10.2" match="greaterOrEqual"/>
-      <import plugin="miso.carrascal.cloudModelServices" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="miso.distil.cloudModelServices" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
-         id="miso.carrascal.cloudModelServices"
+         id="miso.distil.cloudModelServices"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="miso.carrascal.codeGenerator"
+         id="miso.distil.codeGenerator"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="miso.carrascal.codeGenerator.model"
+         id="miso.distil.codeGenerator.model"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="miso.carrascal.codeGenerator.ui"
+         id="miso.distil.codeGenerator.ui"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="miso.carrascal.mdeNature"
+         id="miso.distil.nature"
          download-size="0"
          install-size="0"
          version="0.0.0"

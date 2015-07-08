@@ -7,11 +7,21 @@ import miso.carrascal.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * To write HtmlXXXJson.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateHtmlJson {
   @Inject
   private packages pack;
   
+  /**
+   * To write Html<artifact.name>Json.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     EList<ServiceEnum> basicServices = artifact.getBasicServices();
@@ -157,6 +167,20 @@ public class generateHtmlJson {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated html methods");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class Html");
     _builder.append(name, "");
     _builder.append("Json implements HtmlInterfaceJson {");
@@ -209,6 +233,21 @@ public class generateHtmlJson {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* Auto-generated empty constructor");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("public Html");
     _builder.append(name, "\t");
     _builder.append("Json() {");
@@ -219,6 +258,21 @@ public class generateHtmlJson {
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* Auto-generated constructor with a custom view");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public Html");
@@ -237,6 +291,25 @@ public class generateHtmlJson {
     {
       boolean _contains_15 = basicServices.contains(ServiceEnum.READ_LITERAL);
       if (_contains_15) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to read the information from an artifact");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
@@ -301,6 +374,25 @@ public class generateHtmlJson {
     {
       boolean _contains_16 = basicServices.contains(ServiceEnum.READ_ALL_LITERAL);
       if (_contains_16) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to read the information from an artifact\'s list");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
@@ -372,6 +464,25 @@ public class generateHtmlJson {
       boolean _contains_17 = basicServices.contains(ServiceEnum.SEARCH_LITERAL);
       if (_contains_17) {
         _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to construct the search form");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
         _builder.append("\t");
@@ -404,6 +515,25 @@ public class generateHtmlJson {
     {
       boolean _contains_18 = basicServices.contains(ServiceEnum.SEARCH_LITERAL);
       if (_contains_18) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to read the information from the result list of a search");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
@@ -517,6 +647,25 @@ public class generateHtmlJson {
       boolean _contains_19 = basicServices.contains(ServiceEnum.UPDATE_LITERAL);
       if (_contains_19) {
         _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to construct the update form");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
         _builder.append("\t");
@@ -582,6 +731,25 @@ public class generateHtmlJson {
     {
       boolean _contains_20 = basicServices.contains(ServiceEnum.UPLOAD_LITERAL);
       if (_contains_20) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to construct the upload form");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();

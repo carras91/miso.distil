@@ -11,12 +11,22 @@ import java.util.HashMap
 import org.eclipse.emf.common.util.BasicEList
 import com.google.inject.Inject
 
+/*
+ * Some methos used everywhere
+ * 
+ * @author Carlos Carrascal
+ */
 class generateUtils {
 
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
 	
 	private var HashMap<Artifact, List<Pair<Attribute, List<String>>>> nestedTree = new HashMap<Artifact, List<Pair<Attribute, List<String>>>>()
 
+	/*
+	 * To write the chain ".getX().getY()..." from the attribute number "pos" in artifact
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def getNestedGets(Integer pos, Artifact artifact) {
 		var list = artifact.nestedTree.get(pos).value
 		var name = artifact.nestedTree.get(pos).key.name
@@ -30,6 +40,11 @@ class generateUtils {
 		return nestedGets + '''.get''' + name.toString.toFirstUpper + '''()'''
 	}
 	
+	/*
+	 * To write a string "att1, att2, att3, ..." from the attributes inside the multiattribute number pos in artifact
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def getNestedAtt(Integer pos, Artifact artifact) {
 		var parentName = getNewAttName(pos, artifact)
 		var atts = (artifact.nestedTree.get(pos).key as MultiAttribute).type.attributes
@@ -44,6 +59,11 @@ class generateUtils {
 		return nestedAtt
 	}
 	
+	/*
+	 * To get an attribute name by his position inside nestedTree
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def getNewAttName(Integer pos, Artifact artifact) {
 		var newName = artifact.nestedTree.get(pos).key.name
 		var reverseList = artifact.nestedTree.get(pos).value.reverseView 
@@ -53,6 +73,11 @@ class generateUtils {
 		return newName
 	}
 	
+	/*
+	 * To get an attribute name
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def getNewAttName(Attribute att, Artifact artifact) {
 		for(pair : artifact.nestedTree) {
 			if(pair.key.equals(att)) {
@@ -65,6 +90,11 @@ class generateUtils {
 		}
 	}
 	
+	/*
+	 * To fill nestedTree and return artifact's attributes information
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	private def List<Pair<Attribute, List<String>>> getNestedTree(Artifact artifact) {
 		if(nestedTree.keySet.contains(artifact)) {
 			return nestedTree.get(artifact)
@@ -83,6 +113,11 @@ class generateUtils {
 		}
 	}
 	
+	/*
+	 * To get for each attribute his path in an ascendent way (recursive)
+	 * 
+	 * @author Carlos Carrascal 
+	 */
 	private def List<Pair<Attribute, List<String>>> getNested(MultiAttribute att, List<String> parent) {
 		val list = new ArrayList<Pair<Attribute, List<String>>>
 		att.type.attributes.forEach[
@@ -96,6 +131,11 @@ class generateUtils {
 		return list
 	}
 	
+	/*
+	 * To write "import java.util.List;" if needed
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def getImportList(EList<Attribute> atts) {
 		var presentList = false 
 		'''«FOR att:atts»
@@ -108,6 +148,11 @@ class generateUtils {
 		'''	
 	}
 	
+	/*
+	 * To write imports from atts
+	 * 
+	 * @author Carlos Carrascal 
+	 */
 	def getImportCompose(EList<Attribute> atts) {
 		var nameList = new ArrayList() 
 		'''
@@ -122,6 +167,11 @@ class generateUtils {
 		'''
 	}
 	
+	/*
+	 * To get a list of nested attributes (simple and multi) (recursive)
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def EList<Attribute> getAllNestedAttributes(EList<Attribute> atts) {
 		val EList<Attribute> list = new BasicEList<Attribute>()
 		atts.forEach[
@@ -133,6 +183,11 @@ class generateUtils {
 		return list
 	}
 	
+	/*
+	 * To get a list of nested attributes (but not multiattributes) (recursive)
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def EList<Attribute> getNestedAttributes(Attribute att) {
 		val EList<Attribute> list = new BasicEList<Attribute>()
 		if(att instanceof SimpleAttribute) {
@@ -145,24 +200,29 @@ class generateUtils {
 		return list
 	}
 		
-		
+	/*
+	 * To write the class name of att
+	 * 
+	 * @author Carlos Carrascal 
+	 */
 	def getTypeName(Attribute att) '''«IF att instanceof MultiAttribute»«att.type.name»«ELSE»«val sa = att as SimpleAttribute»«IF sa.many»List<«ENDIF»«sa.data.toString»«IF sa.many»>«ENDIF»«ENDIF»'''
 
+	/*
+	 * To write private attributes
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def getPrivateAttributes(EList<Attribute> atts) '''
 		«FOR att : atts»
 			private «att.typeName» «att.name»;
 		«ENDFOR»
 	'''	
 	
-//	def getTypeName(Reference ref) '''«IF ref.many»List<«ENDIF»String«IF ref.many»>«ENDIF»'''
-//	
-//	
-//	def getPrivateReferences(EList<Reference> refs) '''
-//		«FOR ref : refs»
-//			private «ref.typeName» «ref.name»;
-//		«ENDFOR»
-//	'''
-	
+	/*
+	 * To write getters and setters
+	 * 
+	 * @author Carlos Carrascal
+	 */	
 	def getGetSetAtt(EList<Attribute> atts) '''
 		«FOR att : atts»
 			public «att.typeName» get«att.name.toFirstUpper»() {
@@ -178,21 +238,11 @@ class generateUtils {
 		«ENDFOR»
 	'''
 	
-//	def getGetSetRef(EList<Reference> refs) '''
-//		«FOR ref : refs»
-//			public «ref.typeName» get«ref.name.toFirstUpper»() {
-//				return «ref.name»;
-//			}
-//
-//			public void set«ref.name.toFirstUpper»(«ref.typeName» «ref.name») {
-//				this.«ref.name» = «ref.name»;
-//			}
-//			«IF !refs.last.equals(ref)»
-//
-//			«ENDIF»
-//		«ENDFOR»
-//	'''
-	
+	/*
+	 * To write toString method
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def getToStringAtts(EList<Attribute> atts) '''
 			@Override
 			public String toString() {
@@ -206,21 +256,4 @@ class generateUtils {
 				«ENDIF»
 			}
 	'''	
-	
-//	def getToStringRefs(EList<Attribute> atts, EList<Reference> refs) '''
-//			@Override
-//			public String toString() {
-//				«IF atts.empty && refs.empty»
-//					return "";
-//				«ELSE»
-//					return 
-//						«FOR att : atts»
-//							"(«att.name» : " + «att.name».toString()«IF atts.last.equals(att) && refs.isEmpty» + ")";«ELSE» + ")" + «ENDIF»
-//						«ENDFOR»
-//						«FOR ref : refs»
-//							"(«ref.name» : " + «ref.name».toString()«IF refs.last.equals(ref)» + ")";«ELSE» + ")" + «ENDIF»
-//						«ENDFOR»
-//				«ENDIF»
-//			}
-//	'''	
 }

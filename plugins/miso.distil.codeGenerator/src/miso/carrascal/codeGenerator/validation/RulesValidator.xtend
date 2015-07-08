@@ -11,7 +11,6 @@ import codeGeneratorModel.Entity
 import codeGeneratorModel.Root
 import codeGeneratorModel.Artifact
 import codeGeneratorModel.MultiAttribute
-//import codeGeneratorModel.Reference
 import java.util.List
 import java.util.ArrayList
 import codeGeneratorModel.Service
@@ -26,6 +25,8 @@ import codeGeneratorModel.OnService
 
 /**
  * This class contains custom validation rules. 
+ * 
+ * @author Carlos Carrascal
  *
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#validation
  */

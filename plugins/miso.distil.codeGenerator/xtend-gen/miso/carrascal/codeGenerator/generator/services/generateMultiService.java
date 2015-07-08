@@ -7,11 +7,21 @@ import miso.carrascal.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * To write XXXService.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateMultiService {
   @Inject
   private packages pack;
   
+  /**
+   * To write <multiService.name>Service.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final MultiService multiService) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
@@ -24,11 +34,40 @@ public class generateMultiService {
     _builder.append(".MultiServiceAbstractJson;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated multi service class");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class Service");
     String _name = multiService.getName();
     _builder.append(_name, "");
     _builder.append(" extends MultiServiceAbstractJson {");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* Auto-generated multi service constructor");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public Service");

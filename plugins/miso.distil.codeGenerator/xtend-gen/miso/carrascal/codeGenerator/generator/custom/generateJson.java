@@ -14,6 +14,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
+/**
+ * To write XXXJson.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateJson {
   @Inject
@@ -22,6 +27,11 @@ public class generateJson {
   @Inject
   private packages pack;
   
+  /**
+   * To write <artifact.name>Json.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     EList<ServiceEnum> basicServices = artifact.getBasicServices();
@@ -166,11 +176,39 @@ public class generateJson {
       }
     }
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated custom json methods");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class ");
     _builder.append(name, "");
     _builder.append("Json extends BasicAbstractJson {");
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* Auto-generated empty constructor");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public ");
@@ -189,6 +227,25 @@ public class generateJson {
     {
       boolean _contains_11 = basicServices.contains(ServiceEnum.UPDATE_LITERAL);
       if (_contains_11) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to cusomice the update method");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
@@ -696,6 +753,25 @@ public class generateJson {
     {
       boolean _contains_12 = basicServices.contains(ServiceEnum.UPLOAD_LITERAL);
       if (_contains_12) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to cusomice the upload method");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();

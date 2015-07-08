@@ -5,10 +5,20 @@ import com.google.inject.Inject
 import codeGeneratorModel.ServiceEnum
 import org.eclipse.emf.common.util.EList
 
+/*
+ * To write CustomXXXHtml.java
+ * 
+ * @author Carlos Carrascal
+ */
 class generateCustomHtml {
 	
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
-		
+
+	/*
+	 * To write Custom<artifact.name>Html.java
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val namelow = artifact.name.toLowerCase»
@@ -44,8 +54,18 @@ class generateCustomHtml {
 		«ENDIF»
 		import «pack.getArtifactChar(artifact)».«name»;
 
+		/**
+		 * Auto-generated custom html spark server
+		 * 
+		 * @author miso.distil.codeGenerator
+		 */
 		public class Custom«name»Html implements HtmlInterfaceView<«name»>, BasicInterfaceSpark
 		{
+			/**
+			 * Auto-generated custom spark service. It overwrites some html URL's
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			@Override
 			public void runService() {
 
@@ -73,6 +93,11 @@ class generateCustomHtml {
 			}
 
 			«IF basicServices.contains(ServiceEnum.READ_LITERAL)»
+				/**
+				 * Auto-generated method to customice the information from an artifact
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public List<HtmlEntry> constructInfoReadOne(«name» «namelow») {
 					List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
@@ -84,6 +109,11 @@ class generateCustomHtml {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL_LITERAL)»
+				/**
+				 * Auto-generated method to customice the information from an artifact's list
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public List<List<HtmlEntry>> constructInfoReadAll(List<«name»> «namelow»s) {
 					List<List<HtmlEntry>> multientries = new ArrayList<List<HtmlEntry>>();
@@ -99,6 +129,11 @@ class generateCustomHtml {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH_LITERAL)»
+				/**
+				 * Auto-generated method to customice the search form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public Map<String, Object> constructSearchForm() {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -127,6 +162,11 @@ class generateCustomHtml {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE_LITERAL)»
+				/**
+				 * Auto-generated method to customice the update form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public Map<String, Object> constructUpdateForm(«name» «namelow») {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -161,6 +201,11 @@ class generateCustomHtml {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD_LITERAL)»
+				/**
+				 * Auto-generated method to customice the upload form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public Map<String, Object> constructUploadForm(Request req) {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();

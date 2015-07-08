@@ -5,10 +5,20 @@ import codeGeneratorModel.Artifact
 import codeGeneratorModel.ServiceEnum
 import org.eclipse.emf.common.util.EList
 
+/*
+ * To write HtmlXXXSpark.java
+ * 
+ * @author Carlos Carrascal
+ */
 class generateHtmlSpark { 
 	
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
-		
+
+	/*
+	 * To write Html<artifact.name>Spark.java
+	 * 
+	 * @author Carlos Carrascal
+	 */		
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val name = artifact.name»
@@ -34,9 +44,15 @@ class generateHtmlSpark {
 		«ENDIF»
 		import «pack.getArtifactChar(artifact)».Custom«name»Html;
 		import «pack.getHtmlChar(artifact)».Html«name»Json;
-		
+
+		/**
+		 * Auto-generated html spark server
+		 * 
+		 * @author miso.distil.codeGenerator
+		 */
 		public final class Html«name»Spark implements BasicInterfaceSpark {
 
+			// URL's
 			«IF basicServices.contains(ServiceEnum.READ_LITERAL)»
 				public static String ReadHTML = "/html/«namelow»/read/";
 				public static String ReadIdHTML = ReadHTML + Basic«name»Param.IdGet;
@@ -59,6 +75,11 @@ class generateHtmlSpark {
 				public static String UploadFormHTML = "/html/«namelow»/upload";
 			«ENDIF»
 
+			/**
+			 * Auto-generated html spark service. It initializes all html url's
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			@Override
 			public void runService() {
 		
@@ -104,6 +125,11 @@ class generateHtmlSpark {
 			}
 			«IF basicServices.contains(ServiceEnum.READ_ALL_LITERAL) || basicServices.contains(ServiceEnum.UPLOAD_LITERAL) || basicServices.contains(ServiceEnum.SEARCH_LITERAL)»
 
+				/**
+				 * Auto-generated layout service. It add's to the html layout some permanents links
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				private void addLayout() {
 					List<HtmlLayout> layouts = new ArrayList<HtmlLayout>();
 					«IF basicServices.contains(ServiceEnum.READ_ALL_LITERAL)»
@@ -122,6 +148,11 @@ class generateHtmlSpark {
 			private static Html«name»Json HTML = new Html«name»Json(new Custom«name»Html());
 
 			«IF basicServices.contains(ServiceEnum.READ_LITERAL)»
+				/**
+				 * Auto-generated method to overwrite the information from an artifact
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				public static void overWriteInfoReadOne() {
 					get(ReadIdHTML,
 						(request, response) -> HTML.getRead(request, response), 
@@ -130,6 +161,11 @@ class generateHtmlSpark {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL_LITERAL)»
+				/**
+				 * Auto-generated method to overwrite the information from an artifact's list
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				public static void overWriteInfoReadAll() {
 					get(ReadAllHTML,
 						(request, response) -> HTML.getReadAll(request, response), 
@@ -142,6 +178,11 @@ class generateHtmlSpark {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH_LITERAL)»
+				/**
+				 * Auto-generated method to overwrite the search form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				public static void overWriteSearchForm() {
 					get(SearchFormHTML,
 						(request, response) -> HTML.getSearchForm(), 
@@ -150,6 +191,11 @@ class generateHtmlSpark {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE_LITERAL)»
+				/**
+				 * Auto-generated method to overwrite the update form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				public static void overWriteUpdateForm() {
 					get(UpdateFormIdHTML,
 						(request, response) -> HTML.getUpdateForm(request, response), 
@@ -158,6 +204,11 @@ class generateHtmlSpark {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD_LITERAL)»
+				/**
+				 * Auto-generated method to overwrite the upload form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				public static void overWriteUploadForm() {
 					get(UploadFormHTML,
 						(request, response) -> HTML.getUploadForm(request, response), 

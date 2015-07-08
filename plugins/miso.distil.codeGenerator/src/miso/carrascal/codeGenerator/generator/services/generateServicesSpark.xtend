@@ -9,10 +9,20 @@ import codeGeneratorModel.Artifact
 import codeGeneratorModel.ServiceEnum
 import codeGeneratorModel.OnService
 
+/*
+ * To write ServicesSpark.java
+ * 
+ * @author Carlos Carrascal
+ */
 class generateServicesSpark {
 	
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
-	
+
+	/*
+	 * To get each artifacts list of services and when they are triggered
+	 * 
+	 * @author Carlos Carrascal
+	 */
 	def info(EList<Service> services) {
 		var map = new HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>>()
 		for(service : services) {
@@ -40,7 +50,12 @@ class generateServicesSpark {
 		}
 		return map
 	}
-		
+
+	/*
+	 * To write ServicesSpark.java
+	 * 
+	 * @author Carlos Carrascal
+	 */	
 	def write(EList<Service> services) '''
 		«var map = services.info»
 		package «pack.ServicesCha»;
@@ -82,12 +97,23 @@ class generateServicesSpark {
 			«ENDIF»
 		«ENDFOR»
 
+		/**
+		 * Auto-generated services spark server
+		 * 
+		 * @author miso.distil.codeGenerator
+		 */
 		public final class ServicesSpark implements BasicInterfaceSpark {
 
+			// URL's
 			«FOR service : services»
 				public static String «service.name»Url = "/service/«service.name.toLowerCase»/";
 			«ENDFOR»
 
+			/**
+			 * Auto-generated services spark service. It initializes all services url's
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			@Override
 			public void runService() {
 				«FOR service : services»

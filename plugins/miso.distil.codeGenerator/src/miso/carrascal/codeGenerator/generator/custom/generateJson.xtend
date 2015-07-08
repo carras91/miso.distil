@@ -6,20 +6,28 @@ import codeGeneratorModel.Attribute
 import org.eclipse.emf.common.util.EList
 import codeGeneratorModel.DataEnum
 import codeGeneratorModel.MultiAttribute
-//import codeGeneratorModel.Reference
 import codeGeneratorModel.SimpleAttribute
 import codeGeneratorModel.ServiceEnum
 
+/*
+ * To write XXXJson.java
+ * 
+ * @author Carlos Carrascal
+ */
 class generateJson {
 	
 	@Inject miso.carrascal.codeGenerator.generator.generateUtils genUti
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
-		
+
+	/*
+	 * To write <artifact.name>Json.java
+	 * 
+	 * @author Carlos Carrascal
+	 */	
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«var EList<Attribute> atts = artifact.attributes»
 		«val EList<Attribute> allAtts = genUti.getAllNestedAttributes(artifact.attributes)»
-«««		«val EList<Reference> refs = artifact.references»
 		«val namelow = artifact.name.toLowerCase»
 		«val name = artifact.name»
 		«var pos = -1»
@@ -59,14 +67,29 @@ class generateJson {
 			import «pack.getBasicChar(artifact)».Basic«name»Param;
 			«genUti.getImportCompose(allAtts)»
 		«ENDIF»
-		
+
+		/**
+		 * Auto-generated custom json methods
+		 * 
+		 * @author miso.distil.codeGenerator
+		 */
 		public class «name»Json extends BasicAbstractJson {
-			
+
+			/**
+			 * Auto-generated empty constructor
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			public «name»Json() {
 				super(«name».class);	
 			}
 
 			«IF basicServices.contains(ServiceEnum.UPDATE_LITERAL)»
+				/**
+				 * Auto-generated method to cusomice the update method
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public Object postUpdate(Request req, Response res) {
 					// Basic Params
@@ -84,15 +107,6 @@ class generateJson {
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
-«««					«FOR ref:refs»
-«««						«IF ref.required»
-«««							«IF ref.many»
-«««								«genUti.getTypeName(ref)» «ref.name» = null;
-«««							«ELSE»
-«««								«genUti.getTypeName(ref)» «ref.name» = "";
-«««	 						«ENDIF»
-«««	 					«ENDIF»
-«««	 				«ENDFOR»
 
 					try {
 						«{pos = -1; null}»
@@ -121,15 +135,6 @@ class generateJson {
 								«ENDIF»
 							«ENDIF»
 						«ENDFOR»
-«««						«FOR ref:refs»
-«««							«IF ref.required»
-«««								«IF ref.many»
-«««									«ref.name» = Utils.StringToListString(map.get(Basic«name»Param.«ref.name.toFirstUpper»));
-«««								«ELSE»
-«««									«ref.name» = map.get(Basic«name»Param.«ref.name.toFirstUpper»);
-«««								«ENDIF»
-«««							«ENDIF»
-«««						«ENDFOR»
 					} catch(Exception e) {
 						e.printStackTrace();
 						return Basic«name»Codes.Param_error;
@@ -152,15 +157,6 @@ class generateJson {
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
-«««					«FOR ref:refs»
-«««						«IF !ref.required»
-«««							«IF ref.many»
-«««								«genUti.getTypeName(ref)» «ref.name» = null;
-«««							«ELSE»
-«««								«genUti.getTypeName(ref)» «ref.name» = "";
-«««	 						«ENDIF»
-«««	 					«ENDIF»
-«««	 				«ENDFOR»
 
 					//Composed params
 					«{pos = -1; null}»
@@ -174,7 +170,6 @@ class generateJson {
 					«ENDFOR»
 					
 					// Create new «name»
-«««					«name» new«name» = new «name»(old«name».getObjectName(), old«name».getFileSize(), Utils.tagsStringToList(tags)«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»«FOR ref:refs», «ref.name»«ENDFOR»);
 					«name» new«name» = new «name»(old«name».getObjectName(), old«name».getFileSize(), Utils.tagsStringToList(tags)«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»);
 
 					// Save new «name» and delete old «name»
@@ -191,6 +186,11 @@ class generateJson {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD_LITERAL)»
+				/**
+				 * Auto-generated method to cusomice the upload method
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public Object postUpload(Request req, Response res) {
 					// There is a file
@@ -234,16 +234,6 @@ class generateJson {
 								«ENDIF»
 							«ENDIF»
 						«ENDFOR»
-«««						«FOR ref:refs»
-«««							«IF ref.required»
-«««								«val type = genUti.getTypeName(ref)»
-«««								«IF ref.many»
-«««									«type» «ref.name» = Utils.StringToListString(req.raw().getParameter(Basic«name»Param.«ref.name.toFirstUpper»));
-«««								«ELSE»
-«««									«type» «ref.name» = req.raw().getParameter(Basic«name»Param.«ref.name.toFirstUpper»);
-«««								«ENDIF»
-«««							«ENDIF»
-«««						«ENDFOR»
 
 						if(fileContent == null || fileName == null) {
 							return Basic«name»Codes.Param_emptyfile;
@@ -262,15 +252,6 @@ class generateJson {
 								«ENDIF»
 							«ENDIF»
 						«ENDFOR»
-«««						«FOR ref:refs»
-«««							«IF !ref.required»
-«««								«IF ref.many»
-«««									«genUti.getTypeName(ref)» «ref.name» = null;
-«««								«ELSE»
-«««									«genUti.getTypeName(ref)» «ref.name» = "";
-«««		 						«ENDIF»
-«««		 					«ENDIF»
-«««		 				«ENDFOR»
 
 						//Composed params
 						«{pos = -1; null}»
@@ -284,7 +265,6 @@ class generateJson {
 						«ENDFOR»
 
 						// Create new «name»
-«««						«name» «namelow» = new «name»(fileName, fileSize, tags«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»«FOR ref:refs», «ref.name»«ENDFOR»);
 						«name» «namelow» = new «name»(fileName, fileSize, tags«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»);
 
 						if(!RecordDB.getDefault().save(«namelow», fileContent)) {

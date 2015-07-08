@@ -5,10 +5,20 @@ import com.google.inject.Inject
 import codeGeneratorModel.ServiceEnum
 import org.eclipse.emf.common.util.EList
 
+/*
+ * To write HtmlXXXJson.java
+ * 
+ * @author Carlos Carrascal
+ */
 class generateHtmlJson {
 
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
-		
+
+	/*
+	 * To write Html<artifact.name>Json.java
+	 * 
+	 * @author Carlos Carrascal
+	 */	
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val namelow = artifact.name.toLowerCase»
@@ -43,6 +53,11 @@ class generateHtmlJson {
 		import «pack.getArtifactChar(artifact)».Custom«name»Html;
 		import «pack.getArtifactChar(artifact)».«name»;
 
+		/**
+		 * Auto-generated html methods
+		 * 
+		 * @author miso.distil.codeGenerator
+		 */
 		public class Html«name»Json implements HtmlInterfaceJson {
 
 			«IF basicServices.contains(ServiceEnum.READ_LITERAL) || basicServices.contains(ServiceEnum.READ_ALL_LITERAL) ||
@@ -52,15 +67,30 @@ class generateHtmlJson {
 			private Html«name»View View = new Html«name»View();
 			private HtmlInterfaceView<«name»> customView;
 
+			/**
+			 * Auto-generated empty constructor
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			public Html«name»Json() {
 				customView = View;
 			}
 
+			/**
+			 * Auto-generated constructor with a custom view
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			public Html«name»Json(Custom«name»Html View) {
 				customView = View;
 			}
 
 			«IF basicServices.contains(ServiceEnum.READ_LITERAL)»
+				/**
+				 * Auto-generated method to read the information from an artifact
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public ModelAndView getRead(Request req, Response res) {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -78,6 +108,11 @@ class generateHtmlJson {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL_LITERAL)»
+				/**
+				 * Auto-generated method to read the information from an artifact's list
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public ModelAndView getReadAll(Request req, Response res) {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -95,6 +130,11 @@ class generateHtmlJson {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH_LITERAL)»
+				/**
+				 * Auto-generated method to construct the search form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public ModelAndView getSearchForm() {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -106,6 +146,11 @@ class generateHtmlJson {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH_LITERAL)»
+				/**
+				 * Auto-generated method to read the information from the result list of a search
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public ModelAndView getSearch(Request req, Response res) {	
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -132,6 +177,11 @@ class generateHtmlJson {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE_LITERAL)»
+				/**
+				 * Auto-generated method to construct the update form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public ModelAndView getUpdateForm(Request req, Response res) {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -149,6 +199,11 @@ class generateHtmlJson {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD_LITERAL)»
+				/**
+				 * Auto-generated method to construct the upload form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public ModelAndView getUploadForm(Request req, Response res) {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();

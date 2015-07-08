@@ -7,10 +7,20 @@ import codeGeneratorModel.AbstractEntity
 import org.eclipse.emf.common.util.EList
 import java.util.ArrayList
 
+/*
+ * To write XXXService.java
+ * 
+ * @author Carlos Carrascal
+ */
 class generateSimpleService {
 	
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
-		
+	
+	/*
+	 * To write <simpleService.name>Service.java
+	 * 
+	 * @author Carlos Carrascal
+	 */		
 	def write(SimpleService simpleService) '''
 		«var position = 0»
 		«var nameList = new ArrayList<String>()»
@@ -48,22 +58,38 @@ class generateSimpleService {
 		«IF !nameList.empty»
 
 		«ENDIF»
+		/**
+		 * Auto-generated service class
+		 * 
+		 * @author miso.distil.codeGenerator
+		 */
 		public class Service«simpleService.name» extends ServiceAbstractJson {
 
+			/**
+			 * Auto-generated service constructor
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			public Service«simpleService.name»() {
+				// Input classes
 				«FOR input : simpleService.input as EList<AbstractEntity>»
 					addInputClass(«input.name».class);
 				«ENDFOR»
+				// Outpu classes
 				«FOR output : simpleService.output as EList<AbstractEntity>»
 					addOutputClass(«output.name».class);
 				«ENDFOR»
 			}
 
-			// Method call
-			// If triggered :
-			//	- after upload, download, update, read -> artifacts.size = 1, (request, response) from these services
-			//	- after readAll, search -> the results of these services, (request, response) from these services
-			// 	- on request -> artifacts.size = 0, , (request, response) sent by user
+			/**
+			 * Method called automatically
+			 * If triggered :
+			 * - after upload, download, update, read -> artifacts.size = 1, (request, response) from these services
+			 * - after readAll, search -> the results of these services, (request, response) from these services
+			 * - on request -> artifacts.size = 0, , (request, response) sent by user
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			@Override
 			public List<Object> runService(Request req, Response res, List<? extends AbstractPersistentClass> artifacts) {
 				List<Object> input = new ArrayList<Object>();
@@ -72,7 +98,12 @@ class generateSimpleService {
 
 				return this.exeService(input);
 			}
-		
+
+			/**
+			 * Execution method. It uses an object's list (see the constructor input order) and generates other object's list (see the constructor output order)
+			 * 
+			 * @author miso.distil.codeGenerator
+			 */
 			@Override
 			public List<Object> exeService(List<Object> input) {
 				List<Object> output = new ArrayList<Object>();

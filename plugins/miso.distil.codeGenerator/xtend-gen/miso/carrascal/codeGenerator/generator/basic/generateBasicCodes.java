@@ -8,6 +8,11 @@ import miso.carrascal.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * To write BasicXXXCodes.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateBasicCodes {
   @Inject
@@ -16,6 +21,11 @@ public class generateBasicCodes {
   @Inject
   private packages pack;
   
+  /**
+   * To write Basic<artifact.name>Codes.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     final String name = artifact.getName();
@@ -36,6 +46,20 @@ public class generateBasicCodes {
     _builder.append(".BasicAbstractCodes;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated error codes");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class Basic");
     _builder.append(name, "");
     _builder.append("Codes extends BasicAbstractCodes {");
@@ -43,6 +67,10 @@ public class generateBasicCodes {
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public static String Param_error = \"ParameterError : Parameter is incorrect\";");
+    _builder.newLine();
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("// Parameters errors");
     _builder.newLine();
     _builder.append("\t");
     Object _xblockexpression = null;
@@ -73,6 +101,7 @@ public class generateBasicCodes {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.newLine();
     _builder.append("\t");
     _builder.append("public static String Param_emptyfilename = \"ParameterError : Filename is empty\";");
     _builder.newLine();

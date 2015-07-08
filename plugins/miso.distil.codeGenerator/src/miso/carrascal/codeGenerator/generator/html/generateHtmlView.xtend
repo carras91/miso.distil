@@ -5,21 +5,29 @@ import codeGeneratorModel.DataEnum
 import codeGeneratorModel.Artifact
 import com.google.inject.Inject
 import org.eclipse.emf.common.util.EList
-//import codeGeneratorModel.Reference
 import codeGeneratorModel.SimpleAttribute
 import codeGeneratorModel.ServiceEnum
 
+/*
+ * To write HtmlXXXView.java
+ * 
+ * @author Carlos Carrascal
+ */
 class generateHtmlView {
 	
 	@Inject miso.carrascal.codeGenerator.generator.generateUtils genUti
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
-		
+
+	/*
+	 * To write Html<artifact.name>View.java
+	 * 
+	 * @author Carlos Carrascal
+	 */				
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val namelow = artifact.name.toLowerCase»
 		«val name = artifact.name»
 		«val EList<Attribute> allAtts = genUti.getAllNestedAttributes(artifact.attributes)»
-«««		«val EList<Reference> refs = artifact.references»
 		«var pos = -1»
 		package «pack.getHtmlChar(artifact)»;
 
@@ -49,12 +57,6 @@ class generateHtmlView {
 					«ENDIF»
 				«ENDIF»
 			«ENDFOR»
-«««			«FOR ref:refs»
-«««				«IF ref.many && !util»
-«««					«{util = true; null}»
-«««					import «pack.MisoUtils».Utils;
-«««				«ENDIF»
-«««			«ENDFOR»
 		«ENDIF»
 		
 		«IF basicServices.contains(ServiceEnum.SEARCH_LITERAL) || basicServices.contains(ServiceEnum.UPLOAD_LITERAL) || basicServices.contains(ServiceEnum.UPDATE_LITERAL)»
@@ -68,6 +70,11 @@ class generateHtmlView {
 		public class Html«name»View implements HtmlInterfaceView<«name»>{
 
 			«IF basicServices.contains(ServiceEnum.READ_LITERAL)»
+				/**
+				 * Auto-generated method to construct the information from an artifact
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public List<HtmlEntry> constructInfoReadOne(«name» «namelow») {
 					List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
@@ -90,11 +97,6 @@ class generateHtmlView {
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
-«««					«FOR ref:refs»
-«««						«IF ref.type.basicServices.contains(ServiceEnum.SEARCH_LITERAL)»
-«««							entries.add(new HtmlEntry("«ref.name.toFirstUpper» : " + Html«name»Links.get«ref.name.toFirstUpper»NameLink(«namelow»), EntrySize.H5));
-«««						«ENDIF»
-«««					«ENDFOR»
 					«IF basicServices.contains(ServiceEnum.DOWNLOAD_LITERAL)»
 						entries.add(new HtmlEntry(Html«name»Links.getDownloadZipJsonLink(«namelow») + " | " + Html«name»Links.getDownloadFileJsonLink(«namelow»), EntrySize.H5));
 					«ELSEIF basicServices.contains(ServiceEnum.UPDATE_LITERAL)»
@@ -102,13 +104,17 @@ class generateHtmlView {
 					«ELSEIF basicServices.contains(ServiceEnum.UPLOAD_LITERAL)»
 						entries.add(new HtmlEntry(Html«name»Links.getDeleteFormJsonLink(«namelow»), EntrySize.H5));
 					«ENDIF»
-«««				entries.add(new HtmlEntry(«namelow».getFiltersETypeJson(), EntrySize.P));
 
 					return entries;
 				}
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL_LITERAL)»
+				/**
+				 * Auto-generated method to construct the information from an artifact's list
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public List<List<HtmlEntry>> constructInfoReadAll(List<«name»> «namelow»s) {
 					List<List<HtmlEntry>> multientries = new ArrayList<List<HtmlEntry>>();
@@ -133,6 +139,11 @@ class generateHtmlView {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH_LITERAL)»
+				/**
+				 * Auto-generated method to construct the search form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public Map<String, Object> constructSearchForm() {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -155,6 +166,11 @@ class generateHtmlView {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE_LITERAL)»
+				/**
+				 * Auto-generated method to construct the update form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public Map<String, Object> constructUpdateForm(«name» «namelow») {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -179,15 +195,6 @@ class generateHtmlView {
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
-«««					«FOR ref:refs»
-«««						«IF ref.required»
-«««							«IF ref.many»
-«««								texts.add(new HtmlText(Basic«name»Param.«ref.name.toFirstUpper», Utils.ListToString(«namelow».get«ref.name.toFirstUpper»()), "«ref.name» (Id1,Id2,...)", "«ref.name»", ""));
-«««							«ELSE»
-«««								texts.add(new HtmlText(Basic«name»Param.«ref.name.toFirstUpper», «namelow».get«ref.name.toFirstUpper»(), "«ref.name»", "«ref.name»", ""));
-«««							«ENDIF»
-«««						«ENDIF»
-«««					«ENDFOR»
 					viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 					List<HtmlRadio> radios = new ArrayList<HtmlRadio>();
@@ -203,12 +210,6 @@ class generateHtmlView {
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
-«««				radios.add(new HtmlRadio(Basic«name»Param.EClass, "Filter "+Basic«name»Param.EClass, "filters", «namelow».getFilters().get(EType.EClass)));
-«««				radios.add(new HtmlRadio(Basic«name»Param.EAbstract, "Filter "+Basic«name»Param.EAbstract, "filters", «namelow».getFilters().get(EType.EAbstract)));
-«««				radios.add(new HtmlRadio(Basic«name»Param.EInterface, "Filter "+Basic«name»Param.EInterface, "filters", «namelow».getFilters().get(EType.EInterface)));
-«««				radios.add(new HtmlRadio(Basic«name»Param.ESuperType, "Filter "+Basic«name»Param.ESuperType, "filters", «namelow».getFilters().get(EType.ESuperType)));
-«««				radios.add(new HtmlRadio(Basic«name»Param.EAttribute, "Filter "+Basic«name»Param.EAttribute, "filters", «namelow».getFilters().get(EType.EAttribute)));
-«««				radios.add(new HtmlRadio(Basic«name»Param.EReference, "Filter "+Basic«name»Param.EReference, "filters", «namelow».getFilters().get(EType.EReference)));
 					viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 					List<HtmlHidden> hiddens = new ArrayList<HtmlHidden>();
@@ -219,6 +220,11 @@ class generateHtmlView {
 
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD_LITERAL)»
+				/**
+				 * Auto-generated method to construct the upload form
+				 * 
+				 * @author miso.distil.codeGenerator
+				 */
 				@Override
 				public Map<String, Object> constructUploadForm(Request req) {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
@@ -242,15 +248,6 @@ class generateHtmlView {
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
-«««					«FOR ref:refs»
-«««						«IF ref.required»
-«««							«IF ref.many»
-«««								texts.add(new HtmlText(Basic«name»Param.«ref.name.toFirstUpper», "", "«ref.name» (ID from related «ref.type.name» as (Id1,Id2,...))", "«ref.name»", "Enter valid list of Id"));
-«««							«ELSE»
-«««								texts.add(new HtmlText(Basic«name»Param.«ref.name.toFirstUpper», "", "«ref.name» (ID from related «ref.type.name»)", "«ref.name»", "Enter valid Id"));
-«««							«ENDIF»
-«««						«ENDIF»
-«««					«ENDFOR»
 					viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 					List<HtmlRadio> radios = new ArrayList<HtmlRadio>();
@@ -266,12 +263,6 @@ class generateHtmlView {
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
-«««				radios.add(new HtmlRadio(Basic«name»Param.EClass, "Filter "+Basic«name»Param.EClass, "filters", true));
-«««				radios.add(new HtmlRadio(Basic«name»Param.EAbstract, "Filter "+Basic«name»Param.EAbstract, "filters", true));
-«««				radios.add(new HtmlRadio(Basic«name»Param.EInterface, "Filter "+Basic«name»Param.EInterface, "filters", true));
-«««				radios.add(new HtmlRadio(Basic«name»Param.ESuperType, "Filter "+Basic«name»Param.ESuperType, "filters", true));
-«««				radios.add(new HtmlRadio(Basic«name»Param.EAttribute, "Filter "+Basic«name»Param.EAttribute, "filters", true));
-«««				radios.add(new HtmlRadio(Basic«name»Param.EReference, "Filter "+Basic«name»Param.EReference, "filters", true));
 					viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 					List<HtmlFile> file = new ArrayList<HtmlFile>();

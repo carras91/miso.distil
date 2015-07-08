@@ -12,6 +12,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
+/**
+ * To write HtmlXXXView.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateHtmlView {
   @Inject
@@ -20,6 +25,11 @@ public class generateHtmlView {
   @Inject
   private packages pack;
   
+  /**
+   * To write Html<artifact.name>View.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     EList<ServiceEnum> basicServices = artifact.getBasicServices();
@@ -216,6 +226,25 @@ public class generateHtmlView {
       boolean _contains_14 = basicServices.contains(ServiceEnum.READ_LITERAL);
       if (_contains_14) {
         _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to construct the information from an artifact");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
         _builder.append("\t");
@@ -368,34 +397,37 @@ public class generateHtmlView {
           boolean _contains_15 = basicServices.contains(ServiceEnum.DOWNLOAD_LITERAL);
           if (_contains_15) {
             _builder.append("\t");
+            _builder.append("\t");
             _builder.append("entries.add(new HtmlEntry(Html");
-            _builder.append(name, "\t");
+            _builder.append(name, "\t\t");
             _builder.append("Links.getDownloadZipJsonLink(");
-            _builder.append(namelow, "\t");
+            _builder.append(namelow, "\t\t");
             _builder.append(") + \" | \" + Html");
-            _builder.append(name, "\t");
+            _builder.append(name, "\t\t");
             _builder.append("Links.getDownloadFileJsonLink(");
-            _builder.append(namelow, "\t");
+            _builder.append(namelow, "\t\t");
             _builder.append("), EntrySize.H5));");
             _builder.newLineIfNotEmpty();
           } else {
             boolean _contains_16 = basicServices.contains(ServiceEnum.UPDATE_LITERAL);
             if (_contains_16) {
               _builder.append("\t");
+              _builder.append("\t");
               _builder.append("entries.add(new HtmlEntry(Html");
-              _builder.append(name, "\t");
+              _builder.append(name, "\t\t");
               _builder.append("Links.getUpdateHtmlLink(");
-              _builder.append(namelow, "\t");
+              _builder.append(namelow, "\t\t");
               _builder.append("), EntrySize.H5));");
               _builder.newLineIfNotEmpty();
             } else {
               boolean _contains_17 = basicServices.contains(ServiceEnum.UPLOAD_LITERAL);
               if (_contains_17) {
                 _builder.append("\t");
+                _builder.append("\t");
                 _builder.append("entries.add(new HtmlEntry(Html");
-                _builder.append(name, "\t");
+                _builder.append(name, "\t\t");
                 _builder.append("Links.getDeleteFormJsonLink(");
-                _builder.append(namelow, "\t");
+                _builder.append(namelow, "\t\t");
                 _builder.append("), EntrySize.H5));");
                 _builder.newLineIfNotEmpty();
               }
@@ -416,6 +448,25 @@ public class generateHtmlView {
     {
       boolean _contains_18 = basicServices.contains(ServiceEnum.READ_ALL_LITERAL);
       if (_contains_18) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to construct the information from an artifact\'s list");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
@@ -523,6 +574,25 @@ public class generateHtmlView {
       boolean _contains_23 = basicServices.contains(ServiceEnum.SEARCH_LITERAL);
       if (_contains_23) {
         _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to construct the search form");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
         _builder.append("\t");
@@ -601,6 +671,25 @@ public class generateHtmlView {
     {
       boolean _contains_24 = basicServices.contains(ServiceEnum.UPDATE_LITERAL);
       if (_contains_24) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to construct the update form");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();
@@ -882,6 +971,25 @@ public class generateHtmlView {
     {
       boolean _contains_25 = basicServices.contains(ServiceEnum.UPLOAD_LITERAL);
       if (_contains_25) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated method to construct the upload form");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("@Override");
         _builder.newLine();

@@ -3,40 +3,40 @@
 <plugin>
 
    <extension
-         id="mdeNatureBuilder"
-         name="Mde Nature Builder"
+         id="distilNatureBuilder"
+         name="Distil Nature Builder"
          point="org.eclipse.core.resources.builders">
       <builder
             hasNature="true">
          <run
-               class="miso.carrascal.mdenature.builder.MdeNatureBuilder">
+               class="miso.carrascal.nature.builder.DistilNatureBuilder">
          </run>
       </builder>
    </extension>
    <extension
-         id="mdeNature"
-         name="Mde Nature"
+         id="distilNature"
+         name="Distil Nature"
          point="org.eclipse.core.resources.natures">
       <runtime>
          <run
-               class="miso.carrascal.mdenature.builder.MdeNature">
+               class="miso.carrascal.nature.builder.DistilNature">
          </run>
       </runtime>
       <builder
-            id="miso.carrascal.mdeNature.mdeNatureBuilder">
+            id="miso.distil.nature.distilNatureBuilder">
       </builder>
    </extension>
    <extension
          point="org.eclipse.ui.commands">
       <category
-            name="Mde Nature commands"
-            id="miso.carrascal.mdeNature.mdeNature.category">
+            name="Distil Nature commands"
+            id="miso.distil.nature.category">
       </category>
       <command
-            name="Add/RemoveMde Nature"
-            defaultHandler="miso.carrascal.mdenature.builder.AddRemoveMdeNatureHandler"
-            categoryId="miso.carrascal.mdeNature.mdeNature.category"
-            id="miso.carrascal.mdeNature.addRemoveMde Nature">
+            name="Add/Remove Distil Nature"
+            defaultHandler="miso.carrascal.nature.builder.AddRemoveDistilNatureHandler"
+            categoryId="miso.distil.nature.category"
+            id="miso.distil.nature.addRemoveDistilNature">
       </command>
    </extension>
    <extension
@@ -44,8 +44,8 @@
       <menuContribution
             locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
          <command
-               commandId="miso.carrascal.mdeNature.addRemoveMde Nature"
-               label="Remove Mde Nature"
+               commandId="miso.distil.nature.addRemoveDistilNature"
+               label="Remove Distil Nature"
                style="push">
             <visibleWhen
                   checkEnabled="false">
@@ -58,7 +58,7 @@
                      <adapt
                            type="org.eclipse.core.resources.IProject">
                         <test
-                              value="miso.carrascal.mdeNature.mdeNature"
+                              value="miso.distil.nature.distilNature"
                               property="org.eclipse.core.resources.projectNature">
                         </test>
                      </adapt>
@@ -67,8 +67,8 @@
             </visibleWhen>
          </command>
          <command
-               commandId="miso.carrascal.mdeNature.addRemoveMde Nature"
-               label="Add Mde Nature"
+               commandId="miso.distil.nature.addRemoveDistilNature"
+               label="Add Distil Nature"
                style="push">
             <visibleWhen
                   checkEnabled="false">
@@ -82,7 +82,7 @@
                            type="org.eclipse.core.resources.IProject">
                         <not>
                            <test
-                                 value="miso.carrascal.mdeNature.mdeNature"
+                                 value="miso.distil.nature.distilNature"
                                  property="org.eclipse.core.resources.projectNature">
                            </test>
                         </not>

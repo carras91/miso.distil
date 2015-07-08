@@ -42,7 +42,9 @@ import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
- * Generates code from your model files on save.
+ * This class contains custom generation rules.
+ * 
+ * @author Carlos Carrascal
  * 
  * See https://www.eclipse.org/Xtext/documentation/303_runtime_concepts.html#code-generation
  */

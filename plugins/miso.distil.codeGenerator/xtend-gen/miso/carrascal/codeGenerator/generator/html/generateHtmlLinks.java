@@ -7,11 +7,21 @@ import miso.carrascal.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
+/**
+ * To write HtmlXXXLinks.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateHtmlLinks {
   @Inject
   private packages pack;
   
+  /**
+   * To write Html<artifact.name>Links.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     EList<ServiceEnum> basicServices = artifact.getBasicServices();
@@ -26,7 +36,6 @@ public class generateHtmlLinks {
     _builder.append(_htmlChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
-    _builder.newLine();
     _builder.newLine();
     {
       boolean _contains = basicServices.contains(ServiceEnum.UPLOAD_LITERAL);
@@ -74,6 +83,20 @@ public class generateHtmlLinks {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated html links");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class Html");
     _builder.append(name, "");
     _builder.append("Links {");
@@ -82,6 +105,25 @@ public class generateHtmlLinks {
     {
       boolean _contains_4 = basicServices.contains(ServiceEnum.READ_LITERAL);
       if (_contains_4) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated link to the service read one json");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String getReadJsonLink(");
         _builder.append(name, "\t");
@@ -100,6 +142,25 @@ public class generateHtmlLinks {
         _builder.append("\t");
         _builder.append("}");
         _builder.newLine();
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated link to the service read one html");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String getReadHtmlLink(");
@@ -128,6 +189,25 @@ public class generateHtmlLinks {
       boolean _contains_5 = basicServices.contains(ServiceEnum.DOWNLOAD_LITERAL);
       if (_contains_5) {
         _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated link to the service download zip");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("public static String getDownloadZipJsonLink(");
         _builder.append(name, "\t");
         _builder.append(" ");
@@ -145,6 +225,25 @@ public class generateHtmlLinks {
         _builder.append("\t");
         _builder.append("}");
         _builder.newLine();
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated link to the service download file");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String getDownloadFileJsonLink(");
@@ -172,6 +271,25 @@ public class generateHtmlLinks {
     {
       boolean _contains_6 = basicServices.contains(ServiceEnum.UPLOAD_LITERAL);
       if (_contains_6) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated link to the service delete");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String getDeleteFormJsonLink(");
         _builder.append(name, "\t");
@@ -222,6 +340,25 @@ public class generateHtmlLinks {
     {
       boolean _contains_7 = basicServices.contains(ServiceEnum.UPDATE_LITERAL);
       if (_contains_7) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Auto-generated link to the service update form html");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* ");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String getUpdateHtmlLink(");
         _builder.append(name, "\t");

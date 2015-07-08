@@ -10,6 +10,11 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
+/**
+ * To write BasicXXXParam.java
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class generateBasicParam {
   @Inject
@@ -18,6 +23,11 @@ public class generateBasicParam {
   @Inject
   private packages pack;
   
+  /**
+   * To write Basic<artifact.name>Param.java
+   * 
+   * @author Carlos Carrascal
+   */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     final String name = artifact.getName();
@@ -42,10 +52,27 @@ public class generateBasicParam {
     _builder.append(".BasicAbstractParam;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated parameters");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class Basic");
     _builder.append(name, "");
     _builder.append("Param extends BasicAbstractParam {");
     _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("// Attributes parameters");
+    _builder.newLine();
     _builder.append("\t");
     Object _xblockexpression = null;
     {
@@ -88,7 +115,25 @@ public class generateBasicParam {
     }
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("// List with all parameters");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("private static List<String> values = new ArrayList<String>();");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("* Auto-generated list with all parameters");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public static List<String> values() {");

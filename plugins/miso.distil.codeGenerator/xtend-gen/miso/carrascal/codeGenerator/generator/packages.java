@@ -4,6 +4,11 @@ import codeGeneratorModel.Artifact;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 
+/**
+ * Packages to generate and from cloudModelServices
+ * 
+ * @author Carlos Carrascal
+ */
 @SuppressWarnings("all")
 public class packages {
   public final String RootStri = "miso/carrascal";
