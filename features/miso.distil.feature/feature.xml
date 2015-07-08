@@ -5,6 +5,10 @@
       version="1.0.0.qualifier"
       provider-name="miso.carrascal">
 
+   <url>
+      <update label="MDE Service Specification Language Update Site" url="http://carras91.github.io/miso.distil/"/>
+   </url>
+
    <requires>
       <import plugin="org.eclipse.xtext"/>
       <import plugin="org.eclipse.xtext.xbase.lib"/>
