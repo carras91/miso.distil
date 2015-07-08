@@ -1,0 +1,1 @@
+web: java -jar target/miso.distil.Example-jar-with-dependencies.jar

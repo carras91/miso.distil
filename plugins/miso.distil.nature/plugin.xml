@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+   <extension
+         id="distilNatureBuilder"
+         name="Distil Nature Builder"
+         point="org.eclipse.core.resources.builders">
+      <builder
+            hasNature="true">
+         <run
+               class="miso.carrascal.nature.builder.DistilNatureBuilder">
+         </run>
+      </builder>
+   </extension>
+   <extension
+         id="distilNature"
+         name="Distil Nature"
+         point="org.eclipse.core.resources.natures">
+      <runtime>
+         <run
+               class="miso.carrascal.nature.builder.DistilNature">
+         </run>
+      </runtime>
+      <builder
+            id="miso.distil.nature.distilNatureBuilder">
+      </builder>
+   </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <category
+            name="Distil Nature commands"
+            id="miso.distil.nature.category">
+      </category>
+      <command
+            name="Add/Remove Distil Nature"
+            defaultHandler="miso.carrascal.nature.builder.AddRemoveDistilNatureHandler"
+            categoryId="miso.distil.nature.category"
+            id="miso.distil.nature.addRemoveDistilNature">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
+         <command
+               commandId="miso.distil.nature.addRemoveDistilNature"
+               label="Remove Distil Nature"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.core.resources.IProject">
+                        <test
+                              value="miso.distil.nature.distilNature"
+                              property="org.eclipse.core.resources.projectNature">
+                        </test>
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+         <command
+               commandId="miso.distil.nature.addRemoveDistilNature"
+               label="Add Distil Nature"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="selection">
+                  <count
+                        value="1">
+                  </count>
+                  <iterate>
+                     <adapt
+                           type="org.eclipse.core.resources.IProject">
+                        <not>
+                           <test
+                                 value="miso.distil.nature.distilNature"
+                                 property="org.eclipse.core.resources.projectNature">
+                           </test>
+                        </not>
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         id="xmlProblem"
+         name="XML Problem"
+         point="org.eclipse.core.resources.markers">
+      <super
+            type="org.eclipse.core.resources.problemmarker">
+      </super>
+      <persistent
+            value="true">
+      </persistent>
+   </extension>
+
+</plugin>

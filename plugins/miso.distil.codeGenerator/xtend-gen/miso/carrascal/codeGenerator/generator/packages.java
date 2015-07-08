@@ -11,9 +11,9 @@ import org.eclipse.xtext.xbase.lib.Functions.Function0;
  */
 @SuppressWarnings("all")
 public class packages {
-  public final String RootStri = "miso/carrascal";
+  public final String RootMisoStri = "miso/carrascal";
   
-  public final String RootChar = new Function0<String>() {
+  public final String RootMisoChar = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append("miso.carrascal");
@@ -24,7 +24,7 @@ public class packages {
   public final String Miso = new Function0<String>() {
     public String apply() {
       StringConcatenation _builder = new StringConcatenation();
-      _builder.append(packages.this.RootChar, "");
+      _builder.append(packages.this.RootMisoChar, "");
       _builder.append(".cloudModelServices");
       return _builder.toString();
     }
@@ -71,6 +71,16 @@ public class packages {
       StringConcatenation _builder = new StringConcatenation();
       _builder.append(packages.this.MisoAbstract, "");
       _builder.append(".services");
+      return _builder.toString();
+    }
+  }.apply();
+  
+  public final String RootStri = "miso/distil";
+  
+  public final String RootChar = new Function0<String>() {
+    public String apply() {
+      StringConcatenation _builder = new StringConcatenation();
+      _builder.append("miso.distil");
       return _builder.toString();
     }
   }.apply();
