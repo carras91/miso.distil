@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class DownloadUtils {
 
-	/*
+	/**
 	 * It sets response's content type and header and generate a zip
 	 * 
 	 * @param res http servlet response
@@ -39,7 +39,7 @@ public class DownloadUtils {
 		downloadZip(IS, res.getOutputStream(), fileName);
 	}
 	
-	/*
+	/**
 	 * It generates a zip (attention: appropiate content and header config needed)
 	 * 
 	 * @param IS information to write
@@ -72,7 +72,7 @@ public class DownloadUtils {
 	    bufferedInputStream.close();
 	}
 	
-	/*
+	/**
 	 * It sets response's content type and header and generate a file
 	 * 
 	 * @param res http servlet response
@@ -93,7 +93,7 @@ public class DownloadUtils {
 		downloadFile(IS, res.getOutputStream());
 	}
 	
-	/*
+	/**
 	 * It generates a file (attention: appropiate content and header config needed)
 	 * 
 	 * @param IS information to write

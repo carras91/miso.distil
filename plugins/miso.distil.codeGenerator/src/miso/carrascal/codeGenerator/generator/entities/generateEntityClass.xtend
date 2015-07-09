@@ -5,7 +5,7 @@ import org.eclipse.emf.common.util.EList
 import codeGeneratorModel.Attribute
 import codeGeneratorModel.Entity
 
-/*
+/**
  * To write <entity>.java
  * 
  * @author Carlos Carrascal
@@ -15,7 +15,7 @@ class generateEntityClass {
 	@Inject miso.carrascal.codeGenerator.generator.generateUtils genUti
 	@Inject miso.carrascal.codeGenerator.generator.packages pack
 	
-	/*
+	/**
 	 * To write <entity.name>.java
 	 * 
 	 * @author Carlos Carrascal
