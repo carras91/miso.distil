@@ -43,6 +43,10 @@ public class ConvertToMaven {
 	 */
 	private static String REPO_ID = "miso.distil.cloudModelServices";
 	/**
+	 * Pom path from REPO_ID
+	 */
+	private static String PATH_POM = "";
+	/**
 	 * Jar path from REPO_ID
 	 */
 	private static String PATH_JAR = "/target/";
@@ -122,6 +126,23 @@ public class ConvertToMaven {
 	}
 	
 	/**
+	 * Create folder "nameFolder" inside srcFolder
+	 * @author Carlos Carrascal
+	 *  
+	 * @param srcFolder
+	 * @param nameFolder
+	 * @return the new folder
+	 * @throws CoreException
+	 */
+	private static IFolder getFolder(IContainer srcFolder, String nameFolder) throws CoreException {
+		IFolder newFolder = srcFolder.getFolder(new Path(nameFolder));
+		if(!newFolder.exists()) {
+			newFolder.create(true, true, null);
+		}
+		return newFolder;
+	}
+	
+	/**
 	 * Copy cloudModelServices jar and pom inside repo/miso/distil/cloudModelServices/0.0.1
 	 * @author Carlos Carrascal
 	 * 
@@ -132,20 +153,20 @@ public class ConvertToMaven {
 	 */
 	private static void copyRepo(IProject project) throws URISyntaxException, IOException, CoreException {
 		// repo
-		IFolder repo = project.getFolder("repo");					
+		IFolder repo = getFolder(project, "repo");
 		// repo/miso
-		IFolder srcMiso = repo.getFolder("miso");	
+		IFolder srcMiso = getFolder(repo, "miso");
 		// repo/miso/distil
-		IFolder srcMainDistil = srcMiso.getFolder("distil");			
+		IFolder srcMainDistil = getFolder(srcMiso, "distil");		
 		// repo/miso/distil/cloudModelServices
-		IFolder srcMainDistilCloud = srcMainDistil.getFolder("cloudModelServices");
+		IFolder srcMainDistilCloud = getFolder(srcMainDistil, "cloudModelServices");
 		// repo/miso/distil/cloudModelServices/0.0.1
-		IFolder srcMainDistilCloudVersion = srcMainDistilCloud.getFolder("0.0.1");
+		IFolder srcMainDistilCloudVersion = getFolder(srcMainDistilCloud, "0.0.1");
 		
 		// REPO_ID plugin
 		Bundle bundle = Platform.getBundle(REPO_ID);
 		// Root folder
-		URL url_root = bundle.getEntry("");
+		URL url_root = bundle.getEntry(PATH_POM);
 		URL extended_url_root = FileLocator.toFileURL(url_root);
 		File root = new File(extended_url_root.toURI());
 		// jar folder
@@ -187,13 +208,13 @@ public class ConvertToMaven {
 	 */
 	private static void addSource(IProject project) throws CoreException {
 		// src
-		IFolder src = project.getFolder("src");
+		IFolder src = getFolder(project, "src");
 		// src/main
-		IFolder srcMain = src.getFolder("main");
+		IFolder srcMain = getFolder(src, "main");
 		// src/main/java
-		IFolder srcMainJava = srcMain.getFolder("java");			
+		IFolder srcMainJava = getFolder(srcMain, "java");	
 		// src/main/resources
-		IFolder srcMainResources = srcMain.getFolder("resources");
+		IFolder srcMainResources = getFolder(srcMain, "resources");
 		
 		// Set java and resources as source folder
 		IJavaProject javaProject = JavaCore.create(project);

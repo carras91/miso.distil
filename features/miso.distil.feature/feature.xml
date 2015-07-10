@@ -6,7 +6,7 @@
       provider-name="miso.carrascal">
 
    <url>
-      <update label="MDE Service Specification Language Update Site" url="http://carras91.github.io/miso.distil/"/>
+      <update label="MDE Service Specification Language Update Site" url="https://raw.githubusercontent.com/carras91/miso.distil/master/updateSite/site.xml"/>
    </url>
 
    <requires>
@@ -24,10 +24,10 @@
       <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.core.resources"/>
+      <import feature="org.eclipse.xtext.sdk" version="2.9.0.v201505220408"/>
       <import plugin="org.eclipse.jdt.core" version="3.10.2" match="greaterOrEqual"/>
       <import plugin="miso.distil.cloudModelServices" version="1.0.0" match="greaterOrEqual"/>
-      <import feature="org.eclipse.m2e.feature" version="1.6.0.20150526-2032" match="greaterOrEqual"/>
-      <import feature="org.eclipse.xtext.sdk" version="2.9.0.v201505220408" match="greaterOrEqual"/>
+      <import feature="org.eclipse.m2e.feature" version="1.6.0.20150526-2032"/>
    </requires>
 
    <plugin
