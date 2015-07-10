@@ -54,6 +54,7 @@ public class CodeGeneratorModelFactoryImpl extends EFactoryImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
 			case CodeGeneratorModelPackage.ROOT: return createRoot();
@@ -74,6 +75,7 @@ public class CodeGeneratorModelFactoryImpl extends EFactoryImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
 		switch (eDataType.getClassifierID()) {
 			case CodeGeneratorModelPackage.DATA_ENUM:
@@ -92,6 +94,7 @@ public class CodeGeneratorModelFactoryImpl extends EFactoryImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
 		switch (eDataType.getClassifierID()) {
 			case CodeGeneratorModelPackage.DATA_ENUM:
@@ -260,6 +263,7 @@ public class CodeGeneratorModelFactoryImpl extends EFactoryImpl implements CodeG
 	 * @deprecated
 	 * @generated
 	 */
+	@Deprecated
 	public static CodeGeneratorModelPackage getPackage() {
 		return CodeGeneratorModelPackage.eINSTANCE;
 	}

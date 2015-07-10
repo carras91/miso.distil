@@ -38,7 +38,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_URI = "http://miso/carrascal/code/generator/model";
+	String eNS_URI = "http://miso/distil/codeGeneratorModel";
 
 	/**
 	 * The package namespace name.
@@ -46,7 +46,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	String eNS_PREFIX = "miso.carrascal.codegeneratormodel";
+	String eNS_PREFIX = "miso.distil.codeGeneratorModel";
 
 	/**
 	 * The singleton instance of the package.
@@ -103,6 +103,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int ROOT_FEATURE_COUNT = 3;
 
 	/**
+	 * The number of operations of the '<em>Root</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.AbstractEntityImpl <em>Abstract Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -138,6 +147,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ABSTRACT_ENTITY_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Abstract Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ABSTRACT_ENTITY_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.ArtifactImpl <em>Artifact</em>}' class.
@@ -204,6 +222,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int ARTIFACT_FEATURE_COUNT = ABSTRACT_ENTITY_FEATURE_COUNT + 3;
 
 	/**
+	 * The number of operations of the '<em>Artifact</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_OPERATION_COUNT = ABSTRACT_ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.AttributeImpl <em>Attribute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -230,6 +257,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int ATTRIBUTE_FEATURE_COUNT = 1;
+
+	/**
+	 * The number of operations of the '<em>Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.SimpleAttributeImpl <em>Simple Attribute</em>}' class.
@@ -287,6 +323,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int SIMPLE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 3;
 
 	/**
+	 * The number of operations of the '<em>Simple Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.EntityImpl <em>Entity</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -324,6 +369,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int ENTITY_FEATURE_COUNT = ABSTRACT_ENTITY_FEATURE_COUNT + 0;
 
 	/**
+	 * The number of operations of the '<em>Entity</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTITY_OPERATION_COUNT = ABSTRACT_ENTITY_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.ServiceImpl <em>Service</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -359,6 +413,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int SERVICE_FEATURE_COUNT = 2;
+
+	/**
+	 * The number of operations of the '<em>Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_OPERATION_COUNT = 0;
 
 	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.SimpleServiceImpl <em>Simple Service</em>}' class.
@@ -416,6 +479,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int SIMPLE_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 2;
 
 	/**
+	 * The number of operations of the '<em>Simple Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SIMPLE_SERVICE_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.MultiServiceImpl <em>Multi Service</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -471,6 +543,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int MULTI_SERVICE_FEATURE_COUNT = SERVICE_FEATURE_COUNT + 2;
 
 	/**
+	 * The number of operations of the '<em>Multi Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_SERVICE_OPERATION_COUNT = SERVICE_OPERATION_COUNT + 0;
+
+	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.OnServiceImpl <em>On Service</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -508,6 +589,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int ON_SERVICE_FEATURE_COUNT = 2;
 
 	/**
+	 * The number of operations of the '<em>On Service</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ON_SERVICE_OPERATION_COUNT = 0;
+
+	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.MultiAttributeImpl <em>Multi Attribute</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -543,6 +633,15 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @ordered
 	 */
 	int MULTI_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Multi Attribute</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int MULTI_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link codeGeneratorModel.DataEnum <em>Data Enum</em>}' enum.

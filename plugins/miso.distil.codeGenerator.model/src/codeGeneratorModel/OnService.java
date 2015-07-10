@@ -63,9 +63,9 @@ public interface OnService extends EObject {
 	 * @return the value of the '<em>When Services</em>' attribute list.
 	 * @see codeGeneratorModel.ServiceEnum
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getOnService_WhenServices()
-	 * @model default="upload" dataType="codeGeneratorModel.ServiceEnum" required="true"
+	 * @model default="upload" required="true"
 	 * @generated
 	 */
-	EList getWhenServices();
+	EList<ServiceEnum> getWhenServices();
 
 } // OnService

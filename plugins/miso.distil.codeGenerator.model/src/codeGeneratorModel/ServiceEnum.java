@@ -5,8 +5,7 @@ package codeGeneratorModel;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import org.eclipse.emf.common.util.AbstractEnumerator;
+import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +16,62 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * @model
  * @generated
  */
-public final class ServiceEnum extends AbstractEnumerator {
+public enum ServiceEnum implements Enumerator
+{
+	/**
+	 * The '<em><b>Upload</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UPLOAD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UPLOAD(0, "upload", "upload"),
+	/**
+	 * The '<em><b>Download</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DOWNLOAD_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DOWNLOAD(1, "download", "download"),
+	/**
+	 * The '<em><b>Update</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #UPDATE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	UPDATE(2, "update", "update"),
+	/**
+	 * The '<em><b>Read</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #READ_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	READ(3, "read", "read"),
+	/**
+	 * The '<em><b>Read All</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #READ_ALL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	READ_ALL(4, "readAll", "readAll"),
+	/**
+	 * The '<em><b>Search</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #SEARCH_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	SEARCH(5, "search", "search");
 	/**
 	 * The '<em><b>Upload</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -26,12 +80,12 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #UPLOAD_LITERAL
+	 * @see #UPLOAD
 	 * @model name="upload"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UPLOAD = 0;
+	public static final int UPLOAD_VALUE = 0;
 
 	/**
 	 * The '<em><b>Download</b></em>' literal value.
@@ -41,12 +95,12 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #DOWNLOAD_LITERAL
+	 * @see #DOWNLOAD
 	 * @model name="download"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DOWNLOAD = 1;
+	public static final int DOWNLOAD_VALUE = 1;
 
 	/**
 	 * The '<em><b>Update</b></em>' literal value.
@@ -56,12 +110,12 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #UPDATE_LITERAL
+	 * @see #UPDATE
 	 * @model name="update"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int UPDATE = 2;
+	public static final int UPDATE_VALUE = 2;
 
 	/**
 	 * The '<em><b>Read</b></em>' literal value.
@@ -71,12 +125,12 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #READ_LITERAL
+	 * @see #READ
 	 * @model name="read"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int READ = 3;
+	public static final int READ_VALUE = 3;
 
 	/**
 	 * The '<em><b>Read All</b></em>' literal value.
@@ -86,12 +140,12 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #READ_ALL_LITERAL
+	 * @see #READ_ALL
 	 * @model name="readAll"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int READ_ALL = 4;
+	public static final int READ_ALL_VALUE = 4;
 
 	/**
 	 * The '<em><b>Search</b></em>' literal value.
@@ -101,72 +155,12 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #SEARCH_LITERAL
+	 * @see #SEARCH
 	 * @model name="search"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int SEARCH = 5;
-
-	/**
-	 * The '<em><b>Upload</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UPLOAD
-	 * @generated
-	 * @ordered
-	 */
-	public static final ServiceEnum UPLOAD_LITERAL = new ServiceEnum(UPLOAD, "upload", "upload");
-
-	/**
-	 * The '<em><b>Download</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DOWNLOAD
-	 * @generated
-	 * @ordered
-	 */
-	public static final ServiceEnum DOWNLOAD_LITERAL = new ServiceEnum(DOWNLOAD, "download", "download");
-
-	/**
-	 * The '<em><b>Update</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #UPDATE
-	 * @generated
-	 * @ordered
-	 */
-	public static final ServiceEnum UPDATE_LITERAL = new ServiceEnum(UPDATE, "update", "update");
-
-	/**
-	 * The '<em><b>Read</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #READ
-	 * @generated
-	 * @ordered
-	 */
-	public static final ServiceEnum READ_LITERAL = new ServiceEnum(READ, "read", "read");
-
-	/**
-	 * The '<em><b>Read All</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #READ_ALL
-	 * @generated
-	 * @ordered
-	 */
-	public static final ServiceEnum READ_ALL_LITERAL = new ServiceEnum(READ_ALL, "readAll", "readAll");
-
-	/**
-	 * The '<em><b>Search</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #SEARCH
-	 * @generated
-	 * @ordered
-	 */
-	public static final ServiceEnum SEARCH_LITERAL = new ServiceEnum(SEARCH, "search", "search");
+	public static final int SEARCH_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>Service Enum</b></em>' enumerators.
@@ -176,12 +170,12 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 */
 	private static final ServiceEnum[] VALUES_ARRAY =
 		new ServiceEnum[] {
-			UPLOAD_LITERAL,
-			DOWNLOAD_LITERAL,
-			UPDATE_LITERAL,
-			READ_LITERAL,
-			READ_ALL_LITERAL,
-			SEARCH_LITERAL,
+			UPLOAD,
+			DOWNLOAD,
+			UPDATE,
+			READ,
+			READ_ALL,
+			SEARCH,
 		};
 
 	/**
@@ -190,7 +184,7 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<ServiceEnum> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Service Enum</b></em>' literal with the specified literal value.
@@ -232,15 +226,36 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 */
 	public static ServiceEnum get(int value) {
 		switch (value) {
-			case UPLOAD: return UPLOAD_LITERAL;
-			case DOWNLOAD: return DOWNLOAD_LITERAL;
-			case UPDATE: return UPDATE_LITERAL;
-			case READ: return READ_LITERAL;
-			case READ_ALL: return READ_ALL_LITERAL;
-			case SEARCH: return SEARCH_LITERAL;
+			case UPLOAD_VALUE: return UPLOAD;
+			case DOWNLOAD_VALUE: return DOWNLOAD;
+			case UPDATE_VALUE: return UPDATE;
+			case READ_VALUE: return READ;
+			case READ_ALL_VALUE: return READ_ALL;
+			case SEARCH_VALUE: return SEARCH;
 		}
 		return null;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final int value;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final String name;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final String literal;
 
 	/**
 	 * Only this class can construct instances.
@@ -249,7 +264,46 @@ public final class ServiceEnum extends AbstractEnumerator {
 	 * @generated
 	 */
 	private ServiceEnum(int value, String name, String literal) {
-		super(value, name, literal);
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
 	}
 
-} //ServiceEnum
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getValue() {
+	  return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+	  return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLiteral() {
+	  return literal;
+	}
+
+	/**
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		return literal;
+	}
+}

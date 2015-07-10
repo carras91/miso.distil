@@ -41,7 +41,7 @@ public class MultiServiceImpl extends ServiceImpl implements MultiService {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList services;
+	protected EList<Service> services;
 
 	/**
 	 * The default value of the '{@link #isParallel() <em>Parallel</em>}' attribute.
@@ -77,6 +77,7 @@ public class MultiServiceImpl extends ServiceImpl implements MultiService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return CodeGeneratorModelPackage.Literals.MULTI_SERVICE;
 	}
@@ -86,9 +87,9 @@ public class MultiServiceImpl extends ServiceImpl implements MultiService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getServices() {
+	public EList<Service> getServices() {
 		if (services == null) {
-			services = new EObjectResolvingEList(Service.class, this, CodeGeneratorModelPackage.MULTI_SERVICE__SERVICES);
+			services = new EObjectResolvingEList<Service>(Service.class, this, CodeGeneratorModelPackage.MULTI_SERVICE__SERVICES);
 		}
 		return services;
 	}
@@ -119,12 +120,13 @@ public class MultiServiceImpl extends ServiceImpl implements MultiService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.MULTI_SERVICE__SERVICES:
 				return getServices();
 			case CodeGeneratorModelPackage.MULTI_SERVICE__PARALLEL:
-				return isParallel() ? Boolean.TRUE : Boolean.FALSE;
+				return isParallel();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -134,14 +136,16 @@ public class MultiServiceImpl extends ServiceImpl implements MultiService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.MULTI_SERVICE__SERVICES:
 				getServices().clear();
-				getServices().addAll((Collection)newValue);
+				getServices().addAll((Collection<? extends Service>)newValue);
 				return;
 			case CodeGeneratorModelPackage.MULTI_SERVICE__PARALLEL:
-				setParallel(((Boolean)newValue).booleanValue());
+				setParallel((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -152,6 +156,7 @@ public class MultiServiceImpl extends ServiceImpl implements MultiService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.MULTI_SERVICE__SERVICES:
@@ -169,6 +174,7 @@ public class MultiServiceImpl extends ServiceImpl implements MultiService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.MULTI_SERVICE__SERVICES:
@@ -184,6 +190,7 @@ public class MultiServiceImpl extends ServiceImpl implements MultiService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

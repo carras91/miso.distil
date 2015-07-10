@@ -61,9 +61,9 @@ public interface Service extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>When</em>' containment reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getService_When()
-	 * @model type="codeGeneratorModel.OnService" containment="true"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList getWhen();
+	EList<OnService> getWhen();
 
 } // Service

@@ -56,7 +56,7 @@ public class SimpleAttributeImpl extends AttributeImpl implements SimpleAttribut
 	 * @generated
 	 * @ordered
 	 */
-	protected static final DataEnum DATA_EDEFAULT = DataEnum.STRING_LITERAL;
+	protected static final DataEnum DATA_EDEFAULT = DataEnum.STRING;
 
 	/**
 	 * The cached value of the '{@link #getData() <em>Data</em>}' attribute.
@@ -102,6 +102,7 @@ public class SimpleAttributeImpl extends AttributeImpl implements SimpleAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return CodeGeneratorModelPackage.Literals.SIMPLE_ATTRIBUTE;
 	}
@@ -174,14 +175,15 @@ public class SimpleAttributeImpl extends AttributeImpl implements SimpleAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE__MANY:
-				return isMany() ? Boolean.TRUE : Boolean.FALSE;
+				return isMany();
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE__DATA:
 				return getData();
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE__REQUIRED:
-				return isRequired() ? Boolean.TRUE : Boolean.FALSE;
+				return isRequired();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -191,16 +193,17 @@ public class SimpleAttributeImpl extends AttributeImpl implements SimpleAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE__MANY:
-				setMany(((Boolean)newValue).booleanValue());
+				setMany((Boolean)newValue);
 				return;
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE__DATA:
 				setData((DataEnum)newValue);
 				return;
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE__REQUIRED:
-				setRequired(((Boolean)newValue).booleanValue());
+				setRequired((Boolean)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -211,6 +214,7 @@ public class SimpleAttributeImpl extends AttributeImpl implements SimpleAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE__MANY:
@@ -231,6 +235,7 @@ public class SimpleAttributeImpl extends AttributeImpl implements SimpleAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE__MANY:
@@ -248,6 +253,7 @@ public class SimpleAttributeImpl extends AttributeImpl implements SimpleAttribut
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

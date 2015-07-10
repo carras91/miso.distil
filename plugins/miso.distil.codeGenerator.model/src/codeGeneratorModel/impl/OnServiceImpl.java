@@ -54,7 +54,7 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * @generated
 	 * @ordered
 	 */
-	protected EList whenServices;
+	protected EList<ServiceEnum> whenServices;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -70,6 +70,7 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return CodeGeneratorModelPackage.Literals.ON_SERVICE;
 	}
@@ -117,9 +118,9 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getWhenServices() {
+	public EList<ServiceEnum> getWhenServices() {
 		if (whenServices == null) {
-			whenServices = new EDataTypeUniqueEList(ServiceEnum.class, this, CodeGeneratorModelPackage.ON_SERVICE__WHEN_SERVICES);
+			whenServices = new EDataTypeUniqueEList<ServiceEnum>(ServiceEnum.class, this, CodeGeneratorModelPackage.ON_SERVICE__WHEN_SERVICES);
 		}
 		return whenServices;
 	}
@@ -129,6 +130,7 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ON_SERVICE__ARTIFACT:
@@ -145,6 +147,8 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ON_SERVICE__ARTIFACT:
@@ -152,7 +156,7 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 				return;
 			case CodeGeneratorModelPackage.ON_SERVICE__WHEN_SERVICES:
 				getWhenServices().clear();
-				getWhenServices().addAll((Collection)newValue);
+				getWhenServices().addAll((Collection<? extends ServiceEnum>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -163,6 +167,7 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ON_SERVICE__ARTIFACT:
@@ -180,6 +185,7 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ON_SERVICE__ARTIFACT:
@@ -195,6 +201,7 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

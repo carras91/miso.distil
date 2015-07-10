@@ -5,8 +5,7 @@ package codeGeneratorModel;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import org.eclipse.emf.common.util.AbstractEnumerator;
+import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +16,71 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * @model
  * @generated
  */
-public final class FormatEnum extends AbstractEnumerator {
+public enum FormatEnum implements Enumerator
+{
+	/**
+	 * The '<em><b>XMI</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #XMI_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	XMI(0, "XMI", "XMI"),
+	/**
+	 * The '<em><b>BINARY</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BINARY_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BINARY(1, "BINARY", "BINARY"),
+	/**
+	 * The '<em><b>TEXT</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #TEXT_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	TEXT(2, "TEXT", "TEXT"),
+	/**
+	 * The '<em><b>XML</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #XML_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	XML(3, "XML", "XML"),
+	/**
+	 * The '<em><b>JSON</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #JSON_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	JSON(4, "JSON", "JSON"),
+	/**
+	 * The '<em><b>ATL</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ATL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ATL(5, "ATL", "ATL"),
+	/**
+	 * The '<em><b>ZIP</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ZIP_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ZIP(6, "ZIP", "ZIP");
 	/**
 	 * The '<em><b>XMI</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -26,12 +89,12 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #XMI_LITERAL
+	 * @see #XMI
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int XMI = 0;
+	public static final int XMI_VALUE = 0;
 
 	/**
 	 * The '<em><b>BINARY</b></em>' literal value.
@@ -41,12 +104,12 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #BINARY_LITERAL
+	 * @see #BINARY
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BINARY = 1;
+	public static final int BINARY_VALUE = 1;
 
 	/**
 	 * The '<em><b>TEXT</b></em>' literal value.
@@ -56,12 +119,12 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #TEXT_LITERAL
+	 * @see #TEXT
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int TEXT = 2;
+	public static final int TEXT_VALUE = 2;
 
 	/**
 	 * The '<em><b>XML</b></em>' literal value.
@@ -71,12 +134,12 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #XML_LITERAL
+	 * @see #XML
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int XML = 3;
+	public static final int XML_VALUE = 3;
 
 	/**
 	 * The '<em><b>JSON</b></em>' literal value.
@@ -86,12 +149,12 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #JSON_LITERAL
+	 * @see #JSON
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int JSON = 4;
+	public static final int JSON_VALUE = 4;
 
 	/**
 	 * The '<em><b>ATL</b></em>' literal value.
@@ -101,12 +164,12 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ATL_LITERAL
+	 * @see #ATL
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ATL = 5;
+	public static final int ATL_VALUE = 5;
 
 	/**
 	 * The '<em><b>ZIP</b></em>' literal value.
@@ -116,82 +179,12 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #ZIP_LITERAL
+	 * @see #ZIP
 	 * @model
 	 * @generated
 	 * @ordered
 	 */
-	public static final int ZIP = 6;
-
-	/**
-	 * The '<em><b>XMI</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #XMI
-	 * @generated
-	 * @ordered
-	 */
-	public static final FormatEnum XMI_LITERAL = new FormatEnum(XMI, "XMI", "XMI");
-
-	/**
-	 * The '<em><b>BINARY</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #BINARY
-	 * @generated
-	 * @ordered
-	 */
-	public static final FormatEnum BINARY_LITERAL = new FormatEnum(BINARY, "BINARY", "BINARY");
-
-	/**
-	 * The '<em><b>TEXT</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #TEXT
-	 * @generated
-	 * @ordered
-	 */
-	public static final FormatEnum TEXT_LITERAL = new FormatEnum(TEXT, "TEXT", "TEXT");
-
-	/**
-	 * The '<em><b>XML</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #XML
-	 * @generated
-	 * @ordered
-	 */
-	public static final FormatEnum XML_LITERAL = new FormatEnum(XML, "XML", "XML");
-
-	/**
-	 * The '<em><b>JSON</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #JSON
-	 * @generated
-	 * @ordered
-	 */
-	public static final FormatEnum JSON_LITERAL = new FormatEnum(JSON, "JSON", "JSON");
-
-	/**
-	 * The '<em><b>ATL</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ATL
-	 * @generated
-	 * @ordered
-	 */
-	public static final FormatEnum ATL_LITERAL = new FormatEnum(ATL, "ATL", "ATL");
-
-	/**
-	 * The '<em><b>ZIP</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ZIP
-	 * @generated
-	 * @ordered
-	 */
-	public static final FormatEnum ZIP_LITERAL = new FormatEnum(ZIP, "ZIP", "ZIP");
+	public static final int ZIP_VALUE = 6;
 
 	/**
 	 * An array of all the '<em><b>Format Enum</b></em>' enumerators.
@@ -201,13 +194,13 @@ public final class FormatEnum extends AbstractEnumerator {
 	 */
 	private static final FormatEnum[] VALUES_ARRAY =
 		new FormatEnum[] {
-			XMI_LITERAL,
-			BINARY_LITERAL,
-			TEXT_LITERAL,
-			XML_LITERAL,
-			JSON_LITERAL,
-			ATL_LITERAL,
-			ZIP_LITERAL,
+			XMI,
+			BINARY,
+			TEXT,
+			XML,
+			JSON,
+			ATL,
+			ZIP,
 		};
 
 	/**
@@ -216,7 +209,7 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<FormatEnum> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Format Enum</b></em>' literal with the specified literal value.
@@ -258,16 +251,37 @@ public final class FormatEnum extends AbstractEnumerator {
 	 */
 	public static FormatEnum get(int value) {
 		switch (value) {
-			case XMI: return XMI_LITERAL;
-			case BINARY: return BINARY_LITERAL;
-			case TEXT: return TEXT_LITERAL;
-			case XML: return XML_LITERAL;
-			case JSON: return JSON_LITERAL;
-			case ATL: return ATL_LITERAL;
-			case ZIP: return ZIP_LITERAL;
+			case XMI_VALUE: return XMI;
+			case BINARY_VALUE: return BINARY;
+			case TEXT_VALUE: return TEXT;
+			case XML_VALUE: return XML;
+			case JSON_VALUE: return JSON;
+			case ATL_VALUE: return ATL;
+			case ZIP_VALUE: return ZIP;
 		}
 		return null;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final int value;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final String name;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final String literal;
 
 	/**
 	 * Only this class can construct instances.
@@ -276,7 +290,46 @@ public final class FormatEnum extends AbstractEnumerator {
 	 * @generated
 	 */
 	private FormatEnum(int value, String name, String literal) {
-		super(value, name, literal);
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
 	}
 
-} //FormatEnum
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getValue() {
+	  return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+	  return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLiteral() {
+	  return literal;
+	}
+
+	/**
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		return literal;
+	}
+}

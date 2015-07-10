@@ -51,6 +51,7 @@ public class MultiAttributeImpl extends AttributeImpl implements MultiAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return CodeGeneratorModelPackage.Literals.MULTI_ATTRIBUTE;
 	}
@@ -98,6 +99,7 @@ public class MultiAttributeImpl extends AttributeImpl implements MultiAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.MULTI_ATTRIBUTE__TYPE:
@@ -112,6 +114,7 @@ public class MultiAttributeImpl extends AttributeImpl implements MultiAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.MULTI_ATTRIBUTE__TYPE:
@@ -126,6 +129,7 @@ public class MultiAttributeImpl extends AttributeImpl implements MultiAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.MULTI_ATTRIBUTE__TYPE:
@@ -140,6 +144,7 @@ public class MultiAttributeImpl extends AttributeImpl implements MultiAttribute 
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.MULTI_ATTRIBUTE__TYPE:

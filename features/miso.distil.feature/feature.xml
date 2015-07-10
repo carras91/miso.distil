@@ -31,13 +31,6 @@
    </requires>
 
    <plugin
-         id="miso.distil.cloudModelServices"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
          id="miso.distil.codeGenerator"
          download-size="0"
          install-size="0"
@@ -60,6 +53,13 @@
 
    <plugin
          id="miso.distil.nature"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="miso.distil.cloudModelServices"
          download-size="0"
          install-size="0"
          version="0.0.0"

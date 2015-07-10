@@ -5,8 +5,7 @@ package codeGeneratorModel;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-
-import org.eclipse.emf.common.util.AbstractEnumerator;
+import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
@@ -17,7 +16,44 @@ import org.eclipse.emf.common.util.AbstractEnumerator;
  * @model
  * @generated
  */
-public final class DataEnum extends AbstractEnumerator {
+public enum DataEnum implements Enumerator
+{
+	/**
+	 * The '<em><b>Boolean</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #BOOLEAN_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	BOOLEAN(0, "Boolean", "Boolean"),
+	/**
+	 * The '<em><b>Double</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DOUBLE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DOUBLE(1, "Double", "Double"),
+	/**
+	 * The '<em><b>Integer</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #INTEGER_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	INTEGER(2, "Integer", "Integer"),
+	/**
+	 * The '<em><b>String</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #STRING_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	STRING(3, "String", "String");
 	/**
 	 * The '<em><b>Boolean</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -26,12 +62,12 @@ public final class DataEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #BOOLEAN_LITERAL
+	 * @see #BOOLEAN
 	 * @model name="Boolean"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int BOOLEAN = 0;
+	public static final int BOOLEAN_VALUE = 0;
 
 	/**
 	 * The '<em><b>Double</b></em>' literal value.
@@ -41,12 +77,12 @@ public final class DataEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #DOUBLE_LITERAL
+	 * @see #DOUBLE
 	 * @model name="Double"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int DOUBLE = 1;
+	public static final int DOUBLE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Integer</b></em>' literal value.
@@ -56,12 +92,12 @@ public final class DataEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #INTEGER_LITERAL
+	 * @see #INTEGER
 	 * @model name="Integer"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INTEGER = 2;
+	public static final int INTEGER_VALUE = 2;
 
 	/**
 	 * The '<em><b>String</b></em>' literal value.
@@ -71,52 +107,12 @@ public final class DataEnum extends AbstractEnumerator {
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @see #STRING_LITERAL
+	 * @see #STRING
 	 * @model name="String"
 	 * @generated
 	 * @ordered
 	 */
-	public static final int STRING = 3;
-
-	/**
-	 * The '<em><b>Boolean</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #BOOLEAN
-	 * @generated
-	 * @ordered
-	 */
-	public static final DataEnum BOOLEAN_LITERAL = new DataEnum(BOOLEAN, "Boolean", "Boolean");
-
-	/**
-	 * The '<em><b>Double</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #DOUBLE
-	 * @generated
-	 * @ordered
-	 */
-	public static final DataEnum DOUBLE_LITERAL = new DataEnum(DOUBLE, "Double", "Double");
-
-	/**
-	 * The '<em><b>Integer</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #INTEGER
-	 * @generated
-	 * @ordered
-	 */
-	public static final DataEnum INTEGER_LITERAL = new DataEnum(INTEGER, "Integer", "Integer");
-
-	/**
-	 * The '<em><b>String</b></em>' literal object.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #STRING
-	 * @generated
-	 * @ordered
-	 */
-	public static final DataEnum STRING_LITERAL = new DataEnum(STRING, "String", "String");
+	public static final int STRING_VALUE = 3;
 
 	/**
 	 * An array of all the '<em><b>Data Enum</b></em>' enumerators.
@@ -126,10 +122,10 @@ public final class DataEnum extends AbstractEnumerator {
 	 */
 	private static final DataEnum[] VALUES_ARRAY =
 		new DataEnum[] {
-			BOOLEAN_LITERAL,
-			DOUBLE_LITERAL,
-			INTEGER_LITERAL,
-			STRING_LITERAL,
+			BOOLEAN,
+			DOUBLE,
+			INTEGER,
+			STRING,
 		};
 
 	/**
@@ -138,7 +134,7 @@ public final class DataEnum extends AbstractEnumerator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final List VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+	public static final List<DataEnum> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
 	/**
 	 * Returns the '<em><b>Data Enum</b></em>' literal with the specified literal value.
@@ -180,13 +176,34 @@ public final class DataEnum extends AbstractEnumerator {
 	 */
 	public static DataEnum get(int value) {
 		switch (value) {
-			case BOOLEAN: return BOOLEAN_LITERAL;
-			case DOUBLE: return DOUBLE_LITERAL;
-			case INTEGER: return INTEGER_LITERAL;
-			case STRING: return STRING_LITERAL;
+			case BOOLEAN_VALUE: return BOOLEAN;
+			case DOUBLE_VALUE: return DOUBLE;
+			case INTEGER_VALUE: return INTEGER;
+			case STRING_VALUE: return STRING;
 		}
 		return null;
 	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final int value;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final String name;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private final String literal;
 
 	/**
 	 * Only this class can construct instances.
@@ -195,7 +212,46 @@ public final class DataEnum extends AbstractEnumerator {
 	 * @generated
 	 */
 	private DataEnum(int value, String name, String literal) {
-		super(value, name, literal);
+		this.value = value;
+		this.name = name;
+		this.literal = literal;
 	}
 
-} //DataEnum
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public int getValue() {
+	  return value;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+	  return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getLiteral() {
+	  return literal;
+	}
+
+	/**
+	 * Returns the literal value of the enumerator, which is its string representation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		return literal;
+	}
+}

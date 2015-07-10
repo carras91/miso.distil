@@ -48,6 +48,7 @@ public class CodeGeneratorModelAdapterFactory extends AdapterFactoryImpl {
 	 * @return whether this factory is applicable for the type of the object.
 	 * @generated
 	 */
+	@Override
 	public boolean isFactoryForType(Object object) {
 		if (object == modelPackage) {
 			return true;
@@ -64,42 +65,54 @@ public class CodeGeneratorModelAdapterFactory extends AdapterFactoryImpl {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CodeGeneratorModelSwitch modelSwitch =
-		new CodeGeneratorModelSwitch() {
-			public Object caseRoot(Root object) {
+	protected CodeGeneratorModelSwitch<Adapter> modelSwitch =
+		new CodeGeneratorModelSwitch<Adapter>() {
+			@Override
+			public Adapter caseRoot(Root object) {
 				return createRootAdapter();
 			}
-			public Object caseArtifact(Artifact object) {
+			@Override
+			public Adapter caseArtifact(Artifact object) {
 				return createArtifactAdapter();
 			}
-			public Object caseAbstractEntity(AbstractEntity object) {
+			@Override
+			public Adapter caseAbstractEntity(AbstractEntity object) {
 				return createAbstractEntityAdapter();
 			}
-			public Object caseAttribute(Attribute object) {
+			@Override
+			public Adapter caseAttribute(Attribute object) {
 				return createAttributeAdapter();
 			}
-			public Object caseSimpleAttribute(SimpleAttribute object) {
+			@Override
+			public Adapter caseSimpleAttribute(SimpleAttribute object) {
 				return createSimpleAttributeAdapter();
 			}
-			public Object caseEntity(Entity object) {
+			@Override
+			public Adapter caseEntity(Entity object) {
 				return createEntityAdapter();
 			}
-			public Object caseSimpleService(SimpleService object) {
+			@Override
+			public Adapter caseSimpleService(SimpleService object) {
 				return createSimpleServiceAdapter();
 			}
-			public Object caseMultiService(MultiService object) {
+			@Override
+			public Adapter caseMultiService(MultiService object) {
 				return createMultiServiceAdapter();
 			}
-			public Object caseService(Service object) {
+			@Override
+			public Adapter caseService(Service object) {
 				return createServiceAdapter();
 			}
-			public Object caseOnService(OnService object) {
+			@Override
+			public Adapter caseOnService(OnService object) {
 				return createOnServiceAdapter();
 			}
-			public Object caseMultiAttribute(MultiAttribute object) {
+			@Override
+			public Adapter caseMultiAttribute(MultiAttribute object) {
 				return createMultiAttributeAdapter();
 			}
-			public Object defaultCase(EObject object) {
+			@Override
+			public Adapter defaultCase(EObject object) {
 				return createEObjectAdapter();
 			}
 		};
@@ -112,8 +125,9 @@ public class CodeGeneratorModelAdapterFactory extends AdapterFactoryImpl {
 	 * @return the adapter for the <code>target</code>.
 	 * @generated
 	 */
+	@Override
 	public Adapter createAdapter(Notifier target) {
-		return (Adapter)modelSwitch.doSwitch((EObject)target);
+		return modelSwitch.doSwitch((EObject)target);
 	}
 
 

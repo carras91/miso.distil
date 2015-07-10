@@ -608,6 +608,10 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 		setNsPrefix(eNS_PREFIX);
 		setNsURI(eNS_URI);
 
+		// Create type parameters
+
+		// Set bounds for type parameters
+
 		// Add supertypes to classes
 		artifactEClass.getESuperTypes().add(this.getAbstractEntity());
 		simpleAttributeEClass.getESuperTypes().add(this.getAttribute());
@@ -616,7 +620,7 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 		multiServiceEClass.getESuperTypes().add(this.getService());
 		multiAttributeEClass.getESuperTypes().add(this.getAttribute());
 
-		// Initialize classes and features; add operations and parameters
+		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRoot_Artifacts(), this.getArtifact(), null, "artifacts", null, 1, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		getRoot_Artifacts().getEKeys().add(this.getAbstractEntity_Name());
@@ -671,27 +675,27 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 
 		// Initialize enums and add enum literals
 		initEEnum(dataEnumEEnum, DataEnum.class, "DataEnum");
-		addEEnumLiteral(dataEnumEEnum, DataEnum.BOOLEAN_LITERAL);
-		addEEnumLiteral(dataEnumEEnum, DataEnum.DOUBLE_LITERAL);
-		addEEnumLiteral(dataEnumEEnum, DataEnum.INTEGER_LITERAL);
-		addEEnumLiteral(dataEnumEEnum, DataEnum.STRING_LITERAL);
+		addEEnumLiteral(dataEnumEEnum, DataEnum.BOOLEAN);
+		addEEnumLiteral(dataEnumEEnum, DataEnum.DOUBLE);
+		addEEnumLiteral(dataEnumEEnum, DataEnum.INTEGER);
+		addEEnumLiteral(dataEnumEEnum, DataEnum.STRING);
 
 		initEEnum(formatEnumEEnum, FormatEnum.class, "FormatEnum");
-		addEEnumLiteral(formatEnumEEnum, FormatEnum.XMI_LITERAL);
-		addEEnumLiteral(formatEnumEEnum, FormatEnum.BINARY_LITERAL);
-		addEEnumLiteral(formatEnumEEnum, FormatEnum.TEXT_LITERAL);
-		addEEnumLiteral(formatEnumEEnum, FormatEnum.XML_LITERAL);
-		addEEnumLiteral(formatEnumEEnum, FormatEnum.JSON_LITERAL);
-		addEEnumLiteral(formatEnumEEnum, FormatEnum.ATL_LITERAL);
-		addEEnumLiteral(formatEnumEEnum, FormatEnum.ZIP_LITERAL);
+		addEEnumLiteral(formatEnumEEnum, FormatEnum.XMI);
+		addEEnumLiteral(formatEnumEEnum, FormatEnum.BINARY);
+		addEEnumLiteral(formatEnumEEnum, FormatEnum.TEXT);
+		addEEnumLiteral(formatEnumEEnum, FormatEnum.XML);
+		addEEnumLiteral(formatEnumEEnum, FormatEnum.JSON);
+		addEEnumLiteral(formatEnumEEnum, FormatEnum.ATL);
+		addEEnumLiteral(formatEnumEEnum, FormatEnum.ZIP);
 
 		initEEnum(serviceEnumEEnum, ServiceEnum.class, "ServiceEnum");
-		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.UPLOAD_LITERAL);
-		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.DOWNLOAD_LITERAL);
-		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.UPDATE_LITERAL);
-		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.READ_LITERAL);
-		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.READ_ALL_LITERAL);
-		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.SEARCH_LITERAL);
+		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.UPLOAD);
+		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.DOWNLOAD);
+		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.UPDATE);
+		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.READ);
+		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.READ_ALL);
+		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.SEARCH);
 
 		// Create resource
 		createResource(eNS_URI);

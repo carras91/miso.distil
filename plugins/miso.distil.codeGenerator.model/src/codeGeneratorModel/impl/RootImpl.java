@@ -46,7 +46,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList artifacts;
+	protected EList<Artifact> artifacts;
 
 	/**
 	 * The cached value of the '{@link #getEntities() <em>Entities</em>}' containment reference list.
@@ -56,7 +56,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList entities;
+	protected EList<Entity> entities;
 
 	/**
 	 * The cached value of the '{@link #getServices() <em>Services</em>}' containment reference list.
@@ -66,7 +66,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList services;
+	protected EList<Service> services;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -82,6 +82,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return CodeGeneratorModelPackage.Literals.ROOT;
 	}
@@ -91,9 +92,9 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getArtifacts() {
+	public EList<Artifact> getArtifacts() {
 		if (artifacts == null) {
-			artifacts = new EObjectContainmentEList(Artifact.class, this, CodeGeneratorModelPackage.ROOT__ARTIFACTS);
+			artifacts = new EObjectContainmentEList<Artifact>(Artifact.class, this, CodeGeneratorModelPackage.ROOT__ARTIFACTS);
 		}
 		return artifacts;
 	}
@@ -103,9 +104,9 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getEntities() {
+	public EList<Entity> getEntities() {
 		if (entities == null) {
-			entities = new EObjectContainmentEList(Entity.class, this, CodeGeneratorModelPackage.ROOT__ENTITIES);
+			entities = new EObjectContainmentEList<Entity>(Entity.class, this, CodeGeneratorModelPackage.ROOT__ENTITIES);
 		}
 		return entities;
 	}
@@ -115,9 +116,9 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getServices() {
+	public EList<Service> getServices() {
 		if (services == null) {
-			services = new EObjectContainmentEList(Service.class, this, CodeGeneratorModelPackage.ROOT__SERVICES);
+			services = new EObjectContainmentEList<Service>(Service.class, this, CodeGeneratorModelPackage.ROOT__SERVICES);
 		}
 		return services;
 	}
@@ -127,14 +128,15 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ROOT__ARTIFACTS:
-				return ((InternalEList)getArtifacts()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getArtifacts()).basicRemove(otherEnd, msgs);
 			case CodeGeneratorModelPackage.ROOT__ENTITIES:
-				return ((InternalEList)getEntities()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getEntities()).basicRemove(otherEnd, msgs);
 			case CodeGeneratorModelPackage.ROOT__SERVICES:
-				return ((InternalEList)getServices()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getServices()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -144,6 +146,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ROOT__ARTIFACTS:
@@ -161,19 +164,21 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ROOT__ARTIFACTS:
 				getArtifacts().clear();
-				getArtifacts().addAll((Collection)newValue);
+				getArtifacts().addAll((Collection<? extends Artifact>)newValue);
 				return;
 			case CodeGeneratorModelPackage.ROOT__ENTITIES:
 				getEntities().clear();
-				getEntities().addAll((Collection)newValue);
+				getEntities().addAll((Collection<? extends Entity>)newValue);
 				return;
 			case CodeGeneratorModelPackage.ROOT__SERVICES:
 				getServices().clear();
-				getServices().addAll((Collection)newValue);
+				getServices().addAll((Collection<? extends Service>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -184,6 +189,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ROOT__ARTIFACTS:
@@ -204,6 +210,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ROOT__ARTIFACTS:

@@ -3,11 +3,9 @@
 package codeGeneratorModel.util;
 
 import codeGeneratorModel.*;
-
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.util.Switch;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +20,7 @@ import org.eclipse.emf.ecore.EObject;
  * @see codeGeneratorModel.CodeGeneratorModelPackage
  * @generated
  */
-public class CodeGeneratorModelSwitch {
+public class CodeGeneratorModelSwitch<T> extends Switch<T> {
 	/**
 	 * The cached model package
 	 * <!-- begin-user-doc -->
@@ -44,14 +42,16 @@ public class CodeGeneratorModelSwitch {
 	}
 
 	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+	 * Checks whether this is a switch for the given package.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
+	 * @parameter ePackage the package in question.
+	 * @return whether this is a switch for the given package.
 	 * @generated
 	 */
-	public Object doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
+	@Override
+	protected boolean isSwitchFor(EPackage ePackage) {
+		return ePackage == modelPackage;
 	}
 
 	/**
@@ -61,96 +61,77 @@ public class CodeGeneratorModelSwitch {
 	 * @return the first non-null result returned by a <code>caseXXX</code> call.
 	 * @generated
 	 */
-	protected Object doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List eSuperTypes = theEClass.getESuperTypes();
-			return
-				eSuperTypes.isEmpty() ?
-					defaultCase(theEObject) :
-					doSwitch((EClass)eSuperTypes.get(0), theEObject);
-		}
-	}
-
-	/**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
-	protected Object doSwitch(int classifierID, EObject theEObject) {
+	@Override
+	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
 			case CodeGeneratorModelPackage.ROOT: {
 				Root root = (Root)theEObject;
-				Object result = caseRoot(root);
+				T result = caseRoot(root);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.ARTIFACT: {
 				Artifact artifact = (Artifact)theEObject;
-				Object result = caseArtifact(artifact);
+				T result = caseArtifact(artifact);
 				if (result == null) result = caseAbstractEntity(artifact);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.ABSTRACT_ENTITY: {
 				AbstractEntity abstractEntity = (AbstractEntity)theEObject;
-				Object result = caseAbstractEntity(abstractEntity);
+				T result = caseAbstractEntity(abstractEntity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.ATTRIBUTE: {
 				Attribute attribute = (Attribute)theEObject;
-				Object result = caseAttribute(attribute);
+				T result = caseAttribute(attribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE: {
 				SimpleAttribute simpleAttribute = (SimpleAttribute)theEObject;
-				Object result = caseSimpleAttribute(simpleAttribute);
+				T result = caseSimpleAttribute(simpleAttribute);
 				if (result == null) result = caseAttribute(simpleAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.ENTITY: {
 				Entity entity = (Entity)theEObject;
-				Object result = caseEntity(entity);
+				T result = caseEntity(entity);
 				if (result == null) result = caseAbstractEntity(entity);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.SIMPLE_SERVICE: {
 				SimpleService simpleService = (SimpleService)theEObject;
-				Object result = caseSimpleService(simpleService);
+				T result = caseSimpleService(simpleService);
 				if (result == null) result = caseService(simpleService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.MULTI_SERVICE: {
 				MultiService multiService = (MultiService)theEObject;
-				Object result = caseMultiService(multiService);
+				T result = caseMultiService(multiService);
 				if (result == null) result = caseService(multiService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.SERVICE: {
 				Service service = (Service)theEObject;
-				Object result = caseService(service);
+				T result = caseService(service);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.ON_SERVICE: {
 				OnService onService = (OnService)theEObject;
-				Object result = caseOnService(onService);
+				T result = caseOnService(onService);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
 			case CodeGeneratorModelPackage.MULTI_ATTRIBUTE: {
 				MultiAttribute multiAttribute = (MultiAttribute)theEObject;
-				Object result = caseMultiAttribute(multiAttribute);
+				T result = caseMultiAttribute(multiAttribute);
 				if (result == null) result = caseAttribute(multiAttribute);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
@@ -170,7 +151,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseRoot(Root object) {
+	public T caseRoot(Root object) {
 		return null;
 	}
 
@@ -185,7 +166,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseArtifact(Artifact object) {
+	public T caseArtifact(Artifact object) {
 		return null;
 	}
 
@@ -200,7 +181,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseAbstractEntity(AbstractEntity object) {
+	public T caseAbstractEntity(AbstractEntity object) {
 		return null;
 	}
 
@@ -215,7 +196,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseAttribute(Attribute object) {
+	public T caseAttribute(Attribute object) {
 		return null;
 	}
 
@@ -230,7 +211,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseSimpleAttribute(SimpleAttribute object) {
+	public T caseSimpleAttribute(SimpleAttribute object) {
 		return null;
 	}
 
@@ -245,7 +226,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseEntity(Entity object) {
+	public T caseEntity(Entity object) {
 		return null;
 	}
 
@@ -260,7 +241,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseSimpleService(SimpleService object) {
+	public T caseSimpleService(SimpleService object) {
 		return null;
 	}
 
@@ -275,7 +256,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseMultiService(MultiService object) {
+	public T caseMultiService(MultiService object) {
 		return null;
 	}
 
@@ -290,7 +271,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseService(Service object) {
+	public T caseService(Service object) {
 		return null;
 	}
 
@@ -305,7 +286,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseOnService(OnService object) {
+	public T caseOnService(OnService object) {
 		return null;
 	}
 
@@ -320,7 +301,7 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public Object caseMultiAttribute(MultiAttribute object) {
+	public T caseMultiAttribute(MultiAttribute object) {
 		return null;
 	}
 
@@ -335,7 +316,8 @@ public class CodeGeneratorModelSwitch {
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject)
 	 * @generated
 	 */
-	public Object defaultCase(EObject object) {
+	@Override
+	public T defaultCase(EObject object) {
 		return null;
 	}
 

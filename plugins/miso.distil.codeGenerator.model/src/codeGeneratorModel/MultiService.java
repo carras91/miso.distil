@@ -33,10 +33,10 @@ public interface MultiService extends Service {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Services</em>' reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getMultiService_Services()
-	 * @model type="codeGeneratorModel.Service" keys="name" lower="2"
+	 * @model keys="name" lower="2"
 	 * @generated
 	 */
-	EList getServices();
+	EList<Service> getServices();
 
 	/**
 	 * Returns the value of the '<em><b>Parallel</b></em>' attribute.

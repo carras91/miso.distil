@@ -91,9 +91,9 @@ public interface Artifact extends AbstractEntity {
 	 * @return the value of the '<em>Basic Services</em>' attribute list.
 	 * @see codeGeneratorModel.ServiceEnum
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getArtifact_BasicServices()
-	 * @model default="readAll" dataType="codeGeneratorModel.ServiceEnum" upper="6"
+	 * @model default="readAll" upper="6"
 	 * @generated
 	 */
-	EList getBasicServices();
+	EList<ServiceEnum> getBasicServices();
 
 } // Artifact

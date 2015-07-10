@@ -33,10 +33,10 @@ public interface SimpleService extends Service {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Input</em>' reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getSimpleService_Input()
-	 * @model type="codeGeneratorModel.AbstractEntity" keys="name"
+	 * @model keys="name"
 	 * @generated
 	 */
-	EList getInput();
+	EList<AbstractEntity> getInput();
 
 	/**
 	 * Returns the value of the '<em><b>Output</b></em>' reference list.
@@ -49,9 +49,9 @@ public interface SimpleService extends Service {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Output</em>' reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getSimpleService_Output()
-	 * @model type="codeGeneratorModel.AbstractEntity" keys="name"
+	 * @model keys="name"
 	 * @generated
 	 */
-	EList getOutput();
+	EList<AbstractEntity> getOutput();
 
 } // SimpleService

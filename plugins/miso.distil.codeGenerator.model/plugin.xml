@@ -9,7 +9,7 @@
    <extension point="org.eclipse.emf.ecore.generated_package">
       <!-- @generated codeGeneratorModel -->
       <package
-            uri="http://miso/carrascal/code/generator/model"
+            uri="http://miso/distil/codeGeneratorModel"
             class="codeGeneratorModel.CodeGeneratorModelPackage"
             genModel="model/codeGeneratorModel.genmodel"/>
    </extension>

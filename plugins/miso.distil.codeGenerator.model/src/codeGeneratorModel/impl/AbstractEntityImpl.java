@@ -45,7 +45,7 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * @generated
 	 * @ordered
 	 */
-	protected EList attributes;
+	protected EList<Attribute> attributes;
 
 	/**
 	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
@@ -81,6 +81,7 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY;
 	}
@@ -90,9 +91,9 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getAttributes() {
+	public EList<Attribute> getAttributes() {
 		if (attributes == null) {
-			attributes = new EObjectContainmentEList(Attribute.class, this, CodeGeneratorModelPackage.ABSTRACT_ENTITY__ATTRIBUTES);
+			attributes = new EObjectContainmentEList<Attribute>(Attribute.class, this, CodeGeneratorModelPackage.ABSTRACT_ENTITY__ATTRIBUTES);
 		}
 		return attributes;
 	}
@@ -123,10 +124,11 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ABSTRACT_ENTITY__ATTRIBUTES:
-				return ((InternalEList)getAttributes()).basicRemove(otherEnd, msgs);
+				return ((InternalEList<?>)getAttributes()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,6 +138,7 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ABSTRACT_ENTITY__ATTRIBUTES:
@@ -151,11 +154,13 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ABSTRACT_ENTITY__ATTRIBUTES:
 				getAttributes().clear();
-				getAttributes().addAll((Collection)newValue);
+				getAttributes().addAll((Collection<? extends Attribute>)newValue);
 				return;
 			case CodeGeneratorModelPackage.ABSTRACT_ENTITY__NAME:
 				setName((String)newValue);
@@ -169,6 +174,7 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ABSTRACT_ENTITY__ATTRIBUTES:
@@ -186,6 +192,7 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ABSTRACT_ENTITY__ATTRIBUTES:
@@ -201,6 +208,7 @@ public abstract class AbstractEntityImpl extends MinimalEObjectImpl.Container im
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

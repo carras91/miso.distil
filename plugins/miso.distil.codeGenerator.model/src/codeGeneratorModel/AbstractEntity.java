@@ -35,10 +35,10 @@ public interface AbstractEntity extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attributes</em>' containment reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getAbstractEntity_Attributes()
-	 * @model type="codeGeneratorModel.Attribute" containment="true" keys="name"
+	 * @model containment="true" keys="name"
 	 * @generated
 	 */
-	EList getAttributes();
+	EList<Attribute> getAttributes();
 
 	/**
 	 * Returns the value of the '<em><b>Name</b></em>' attribute.

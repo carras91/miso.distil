@@ -63,7 +63,7 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final FormatEnum FORMAT_EDEFAULT = FormatEnum.XMI_LITERAL;
+	protected static final FormatEnum FORMAT_EDEFAULT = FormatEnum.XMI;
 
 	/**
 	 * The cached value of the '{@link #getFormat() <em>Format</em>}' attribute.
@@ -83,7 +83,7 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * @generated
 	 * @ordered
 	 */
-	protected EList basicServices;
+	protected EList<ServiceEnum> basicServices;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -99,6 +99,7 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return CodeGeneratorModelPackage.Literals.ARTIFACT;
 	}
@@ -150,9 +151,9 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList getBasicServices() {
+	public EList<ServiceEnum> getBasicServices() {
 		if (basicServices == null) {
-			basicServices = new EDataTypeUniqueEList(ServiceEnum.class, this, CodeGeneratorModelPackage.ARTIFACT__BASIC_SERVICES);
+			basicServices = new EDataTypeUniqueEList<ServiceEnum>(ServiceEnum.class, this, CodeGeneratorModelPackage.ARTIFACT__BASIC_SERVICES);
 		}
 		return basicServices;
 	}
@@ -162,6 +163,7 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ARTIFACT__EXTENSION:
@@ -179,6 +181,8 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@SuppressWarnings("unchecked")
+		@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ARTIFACT__EXTENSION:
@@ -189,7 +193,7 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 				return;
 			case CodeGeneratorModelPackage.ARTIFACT__BASIC_SERVICES:
 				getBasicServices().clear();
-				getBasicServices().addAll((Collection)newValue);
+				getBasicServices().addAll((Collection<? extends ServiceEnum>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -200,6 +204,7 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ARTIFACT__EXTENSION:
@@ -220,6 +225,7 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ARTIFACT__EXTENSION:
@@ -237,6 +243,7 @@ public class ArtifactImpl extends AbstractEntityImpl implements Artifact {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	public String toString() {
 		if (eIsProxy()) return super.toString();
 

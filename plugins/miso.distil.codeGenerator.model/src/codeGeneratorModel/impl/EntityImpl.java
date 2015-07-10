@@ -31,6 +31,7 @@ public class EntityImpl extends AbstractEntityImpl implements Entity {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	@Override
 	protected EClass eStaticClass() {
 		return CodeGeneratorModelPackage.Literals.ENTITY;
 	}
