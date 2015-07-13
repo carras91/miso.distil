@@ -1,0 +1,21 @@
+<#if COUNT??>
+	<h2>We have found ${COUNT}</h2>
+</#if>
+<#if SYNONYMS_QUERY??>
+	<h3>Searching query words : </h3><h5>${SYNONYMS_QUERY}</h5>
+</#if>
+<#if SYNONYMS_VALUE??>
+	<h3>Searching value words : </h3><h5>${SYNONYMS_VALUE}</h5>
+</#if>
+<#if MULTI_ENTRIES??>
+	<#list MULTI_ENTRIES as ENTRIES>
+		<#list ENTRIES as ENTRY>
+			<#if ENTRY.isH1()><h1>${ENTRY.getValue()}</h1></#if>
+			<#if ENTRY.isH2()><h2>${ENTRY.getValue()}</h2></#if>
+			<#if ENTRY.isH3()><h3>${ENTRY.getValue()}</h3></#if>
+			<#if ENTRY.isH4()><h4>${ENTRY.getValue()}</h4></#if>
+			<#if ENTRY.isH5()><h5>${ENTRY.getValue()}</h5></#if>
+			<#if ENTRY.isP()><p align = "left">${ENTRY.getValue()}</p></#if>
+		</#list>
+	</#list>
+</#if>

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: miso.carrascal.codeGenerator
+Bundle-Name: miso.distil.codeGenerator
 Bundle-Vendor: miso.carrascal
 Bundle-Version: 1.0.0.qualifier
 Bundle-SymbolicName: miso.distil.codeGenerator;singleton:=true
