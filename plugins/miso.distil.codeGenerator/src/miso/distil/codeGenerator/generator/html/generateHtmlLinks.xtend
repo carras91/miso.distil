@@ -12,7 +12,7 @@ import codeGeneratorModel.ServiceEnum
  */
 class generateHtmlLinks {
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 	
 	/*
 	 * To write Html<artifact.name>Links.java
@@ -23,15 +23,15 @@ class generateHtmlLinks {
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val name = artifact.name»
 		«val namelow = artifact.name.toLowerCase»
-		package «pack.getHtmlChar(artifact)»;
+		package «names.getHtmlChar(artifact)»;
 
 		«IF basicServices.contains(ServiceEnum.UPLOAD)»
-			import «pack.getBasicChar(artifact)».Basic«name»Param;
+			import «names.getBParamFileChar(artifact)»;
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.DOWNLOAD) || basicServices.contains(ServiceEnum.UPLOAD)»
-			import «pack.getBasicChar(artifact)».Basic«name»Spark;
+			import «names.getBSparkFileChar(artifact)»;
 		«ENDIF»
-		import «pack.getArtifactChar(artifact)».«name»;
+		import «names.getArtifactFileChar(artifact)»;
 		
 		/**
 		 * Auto-generated html links

@@ -11,7 +11,7 @@ public class DistilNature implements IProjectNature {
 	/**
 	 * ID of this project nature
 	 */
-	public static final String MDE_NATURE_ID = "miso.distil.nature.distilNature";
+	public static final String DISTIL_NATURE_ID = "miso.distil.nature.distilNature";
 	public static final String XTEXT_NATURE_ID = "org.eclipse.xtext.ui.shared.xtextNature";
 	public static final String MAVEN_NATURE_ID = "org.eclipse.m2e.core.maven2Nature";
 

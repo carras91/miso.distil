@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList
  */
 class generateCustomHtml {
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
 	 * To write Custom<artifact.name>Html.java
@@ -23,7 +23,7 @@ class generateCustomHtml {
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val namelow = artifact.name.toLowerCase»
 		«val name = artifact.name»
-		package «pack.getArtifactChar(artifact)»;
+		package «names.getArtifactChar(artifact)»;
 
 		«IF basicServices.contains(ServiceEnum.UPLOAD)»
 			import spark.Request;
@@ -36,23 +36,23 @@ class generateCustomHtml {
 		«ENDIF»
 		import java.util.List;
 
-		import «pack.MisoHtml».HtmlInterfaceView;
+		import «names.MisoHtml».HtmlInterfaceView;
 		«IF basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD)»
-			import «pack.MisoHtml».HtmlFreeMarker;
+			import «names.MisoHtml».HtmlFreeMarker;
 		«ENDIF»
-		import «pack.MisoHtml».htmlObjects.*;
-		import «pack.MisoBasic».BasicInterfaceSpark;
+		import «names.MisoHtml».htmlObjects.*;
+		import «names.MisoBasic».BasicInterfaceSpark;
 
 		«IF basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD)»
-			import «pack.getBasicChar(artifact)».Basic«name»Param;
+			import «names.getBParamFileChar(artifact)»;
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD)»
-			import «pack.getBasicChar(artifact)».Basic«name»Spark;
+			import «names.getBSparkFileChar(artifact)»;
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.SEARCH)»
-			import «pack.getHtmlChar(artifact)».Html«name»Spark;
+			import «names.getHSparkFileChar(artifact)»;
 		«ENDIF»
-		import «pack.getArtifactChar(artifact)».«name»;
+		import «names.getArtifactFileChar(artifact)»;
 
 		/**
 		 * Auto-generated custom html spark server

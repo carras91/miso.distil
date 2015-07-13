@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList
  */
 class generateHtmlSpark { 
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
 	 * To write Html<artifact.name>Spark.java
@@ -23,7 +23,7 @@ class generateHtmlSpark {
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val name = artifact.name»
 		«val namelow = name.toLowerCase»
-		package «pack.getHtmlChar(artifact)»;
+		package «names.getHtmlChar(artifact)»;
 
 		import static spark.Spark.get;
 		import spark.template.freemarker.FreeMarkerEngine;
@@ -33,17 +33,17 @@ class generateHtmlSpark {
 			import java.util.List;
 		«ENDIF»
 
-		import «pack.MisoBasic».BasicInterfaceSpark;
+		import «names.MisoBasic».BasicInterfaceSpark;
 		«IF basicServices.contains(ServiceEnum.READ_ALL) || basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.SEARCH)»
-			import «pack.MisoHtml».HtmlFreeMarker;
-			import «pack.MisoHtml».htmlObjects.HtmlLayout;
+			import «names.MisoHtml».HtmlFreeMarker;
+			import «names.MisoHtml».htmlObjects.HtmlLayout;
 
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.READ)»
-			import «pack.getBasicChar(artifact)».Basic«name»Param;
+			import «names.getBParamFileChar(artifact)»;
 		«ENDIF»
-		import «pack.getArtifactChar(artifact)».Custom«name»Html;
-		import «pack.getHtmlChar(artifact)».Html«name»Json;
+		import «names.getArtifactCustomFileChar(artifact)»;
+		import «names.getHJsonFileChar(artifact)»;
 
 		/**
 		 * Auto-generated html spark server

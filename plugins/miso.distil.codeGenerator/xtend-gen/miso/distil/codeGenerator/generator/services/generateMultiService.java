@@ -3,7 +3,7 @@ package miso.distil.codeGenerator.generator.services;
 import codeGeneratorModel.MultiService;
 import codeGeneratorModel.Service;
 import com.google.inject.Inject;
-import miso.distil.codeGenerator.generator.packages;
+import miso.distil.codeGenerator.generator.Names;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,7 +15,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateMultiService {
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write <multiService.name>Service.java
@@ -25,12 +25,12 @@ public class generateMultiService {
   public CharSequence write(final MultiService multiService) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
-    _builder.append(this.pack.ServicesCha, "");
+    _builder.append(this.names.ServicesCha, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoServices, "");
+    _builder.append(this.names.MisoServices, "");
     _builder.append(".MultiServiceAbstractJson;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

@@ -16,7 +16,7 @@ import codeGeneratorModel.ServiceEnum
 class generateHtmlView {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
 	 * To write Html<artifact.name>View.java
@@ -29,7 +29,7 @@ class generateHtmlView {
 		«val name = artifact.name»
 		«val EList<Attribute> allAtts = genUti.getAllNestedAttributes(artifact.attributes)»
 		«var pos = -1»
-		package «pack.getHtmlChar(artifact)»;
+		package «names.getHtmlChar(artifact)»;
 
 		«IF basicServices.contains(ServiceEnum.UPLOAD)»
 			import spark.Request;
@@ -42,30 +42,30 @@ class generateHtmlView {
 		«ENDIF»
 		import java.util.List;
 
-		import «pack.MisoHtml».HtmlInterfaceView;
+		import «names.MisoHtml».HtmlInterfaceView;
 		«IF basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD)»
-			import «pack.MisoHtml».HtmlFreeMarker;
+			import «names.MisoHtml».HtmlFreeMarker;
 		«ENDIF»
-		import «pack.MisoHtml».htmlObjects.*;
+		import «names.MisoHtml».htmlObjects.*;
 		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.UPDATE)»
 			«var util = false»
 			«FOR att:allAtts»
 				«IF att instanceof SimpleAttribute»
 					«IF att.many && !util»
 						«{util = true; null}»
-						import «pack.MisoUtils».Utils;
+						import «names.MisoUtils».Utils;
 					«ENDIF»
 				«ENDIF»
 			«ENDFOR»
 		«ENDIF»
 		
 		«IF basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.UPDATE)»
-			import «pack.getBasicChar(artifact)».Basic«name»Param;
+			import «names.getBParamFileChar(artifact)»;
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.UPDATE)»
-			import «pack.getBasicChar(artifact)».Basic«name»Spark;
+			import «names.getBSparkFileChar(artifact)»;
 		«ENDIF»
-		import «pack.getArtifactChar(artifact)».«name»;
+		import «names.getArtifactFileChar(artifact)»;
 
 		public class Html«name»View implements HtmlInterfaceView<«name»>{
 

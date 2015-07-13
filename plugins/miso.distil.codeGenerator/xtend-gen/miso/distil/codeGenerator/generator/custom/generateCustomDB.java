@@ -1,7 +1,7 @@
 package miso.distil.codeGenerator.generator.custom;
 
 import com.google.inject.Inject;
-import miso.distil.codeGenerator.generator.packages;
+import miso.distil.codeGenerator.generator.Names;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
@@ -12,7 +12,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateCustomDB {
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write CustomDb.java
@@ -22,7 +22,7 @@ public class generateCustomDB {
   public CharSequence write() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
-    _builder.append(this.pack.RootChar, "");
+    _builder.append(this.names.RootChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -34,15 +34,15 @@ public class generateCustomDB {
     _builder.newLine();
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoBasic, "");
+    _builder.append(this.names.MisoBasic, "");
     _builder.append(".BasicInterfaceSpark;");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
-    _builder.append(this.pack.MisoAbstract, "");
+    _builder.append(this.names.MisoAbstract, "");
     _builder.append(".AbstractPersistentClass;");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
-    _builder.append(this.pack.MisoAbstract, "");
+    _builder.append(this.names.MisoAbstract, "");
     _builder.append(".InterfaceDB;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

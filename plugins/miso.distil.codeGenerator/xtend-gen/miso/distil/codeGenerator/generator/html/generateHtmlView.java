@@ -6,8 +6,8 @@ import codeGeneratorModel.DataEnum;
 import codeGeneratorModel.ServiceEnum;
 import codeGeneratorModel.SimpleAttribute;
 import com.google.inject.Inject;
+import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
-import miso.distil.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -23,7 +23,7 @@ public class generateHtmlView {
   private generateUtils genUti;
   
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write Html<artifact.name>View.java
@@ -45,7 +45,7 @@ public class generateHtmlView {
     int pos = (-1);
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _htmlChar = this.pack.getHtmlChar(artifact);
+    CharSequence _htmlChar = this.names.getHtmlChar(artifact);
     _builder.append(_htmlChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
@@ -87,7 +87,7 @@ public class generateHtmlView {
     _builder.newLine();
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoHtml, "");
+    _builder.append(this.names.MisoHtml, "");
     _builder.append(".HtmlInterfaceView;");
     _builder.newLineIfNotEmpty();
     {
@@ -108,13 +108,13 @@ public class generateHtmlView {
       }
       if (_or_2) {
         _builder.append("import ");
-        _builder.append(this.pack.MisoHtml, "");
+        _builder.append(this.names.MisoHtml, "");
         _builder.append(".HtmlFreeMarker;");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("import ");
-    _builder.append(this.pack.MisoHtml, "");
+    _builder.append(this.names.MisoHtml, "");
     _builder.append(".htmlObjects.*;");
     _builder.newLineIfNotEmpty();
     {
@@ -150,7 +150,7 @@ public class generateHtmlView {
                     _builder.append(_xblockexpression, "");
                     _builder.newLineIfNotEmpty();
                     _builder.append("import ");
-                    _builder.append(this.pack.MisoUtils, "");
+                    _builder.append(this.names.MisoUtils, "");
                     _builder.append(".Utils;");
                     _builder.newLineIfNotEmpty();
                   }
@@ -180,11 +180,9 @@ public class generateHtmlView {
       }
       if (_or_5) {
         _builder.append("import ");
-        CharSequence _basicChar = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Param;");
+        CharSequence _bParamFileChar = this.names.getBParamFileChar(artifact);
+        _builder.append(_bParamFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -199,19 +197,15 @@ public class generateHtmlView {
       }
       if (_or_7) {
         _builder.append("import ");
-        CharSequence _basicChar_1 = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar_1, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Spark;");
+        CharSequence _bSparkFileChar = this.names.getBSparkFileChar(artifact);
+        _builder.append(_bSparkFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("import ");
-    CharSequence _artifactChar = this.pack.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".");
-    _builder.append(name, "");
+    CharSequence _artifactFileChar = this.names.getArtifactFileChar(artifact);
+    _builder.append(_artifactFileChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

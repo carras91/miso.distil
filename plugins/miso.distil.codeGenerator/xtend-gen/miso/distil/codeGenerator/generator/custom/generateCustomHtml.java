@@ -3,7 +3,7 @@ package miso.distil.codeGenerator.generator.custom;
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
-import miso.distil.codeGenerator.generator.packages;
+import miso.distil.codeGenerator.generator.Names;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,7 +15,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateCustomHtml {
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write Custom<artifact.name>Html.java
@@ -32,7 +32,7 @@ public class generateCustomHtml {
     final String name = artifact.getName();
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _artifactChar = this.pack.getArtifactChar(artifact);
+    CharSequence _artifactChar = this.names.getArtifactChar(artifact);
     _builder.append(_artifactChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
@@ -74,7 +74,7 @@ public class generateCustomHtml {
     _builder.newLine();
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoHtml, "");
+    _builder.append(this.names.MisoHtml, "");
     _builder.append(".HtmlInterfaceView;");
     _builder.newLineIfNotEmpty();
     {
@@ -95,17 +95,17 @@ public class generateCustomHtml {
       }
       if (_or_2) {
         _builder.append("import ");
-        _builder.append(this.pack.MisoHtml, "");
+        _builder.append(this.names.MisoHtml, "");
         _builder.append(".HtmlFreeMarker;");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("import ");
-    _builder.append(this.pack.MisoHtml, "");
+    _builder.append(this.names.MisoHtml, "");
     _builder.append(".htmlObjects.*;");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
-    _builder.append(this.pack.MisoBasic, "");
+    _builder.append(this.names.MisoBasic, "");
     _builder.append(".BasicInterfaceSpark;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
@@ -127,11 +127,9 @@ public class generateCustomHtml {
       }
       if (_or_4) {
         _builder.append("import ");
-        CharSequence _basicChar = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Param;");
+        CharSequence _bParamFileChar = this.names.getBParamFileChar(artifact);
+        _builder.append(_bParamFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -146,11 +144,9 @@ public class generateCustomHtml {
       }
       if (_or_6) {
         _builder.append("import ");
-        CharSequence _basicChar_1 = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar_1, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Spark;");
+        CharSequence _bSparkFileChar = this.names.getBSparkFileChar(artifact);
+        _builder.append(_bSparkFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -158,19 +154,15 @@ public class generateCustomHtml {
       boolean _contains_12 = basicServices.contains(ServiceEnum.SEARCH);
       if (_contains_12) {
         _builder.append("import ");
-        CharSequence _htmlChar = this.pack.getHtmlChar(artifact);
-        _builder.append(_htmlChar, "");
-        _builder.append(".Html");
-        _builder.append(name, "");
-        _builder.append("Spark;");
+        CharSequence _hSparkFileChar = this.names.getHSparkFileChar(artifact);
+        _builder.append(_hSparkFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("import ");
-    CharSequence _artifactChar_1 = this.pack.getArtifactChar(artifact);
-    _builder.append(_artifactChar_1, "");
-    _builder.append(".");
-    _builder.append(name, "");
+    CharSequence _artifactFileChar = this.names.getArtifactFileChar(artifact);
+    _builder.append(_artifactFileChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

@@ -18,7 +18,7 @@ import com.google.inject.Inject
  */
 class generateUtils {
 
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names pack
 	
 	private var HashMap<Artifact, List<Pair<Attribute, List<String>>>> nestedTree = new HashMap<Artifact, List<Pair<Attribute, List<String>>>>()
 

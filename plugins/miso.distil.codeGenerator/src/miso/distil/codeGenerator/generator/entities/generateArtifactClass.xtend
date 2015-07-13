@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList
 class generateArtifactClass {
 
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 	
 	/*
 	 * To write <artifact.name>.java
@@ -22,9 +22,9 @@ class generateArtifactClass {
 	 */
 	def write(Artifact artifact) '''
 		«val EList<Attribute> atts = artifact.attributes»
-		package «pack.getArtifactChar(artifact)»;
+		package «names.getArtifactChar(artifact)»;
 
-		import «pack.MisoAbstract».AbstractPersistentClass;
+		import «names.MisoAbstract».AbstractPersistentClass;
 		
 		«genUti.getImportCompose(atts)»
 		import java.util.List;

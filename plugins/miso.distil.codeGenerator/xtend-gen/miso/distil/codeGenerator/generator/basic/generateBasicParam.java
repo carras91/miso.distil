@@ -4,8 +4,8 @@ import codeGeneratorModel.Artifact;
 import codeGeneratorModel.Attribute;
 import codeGeneratorModel.SimpleAttribute;
 import com.google.inject.Inject;
+import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
-import miso.distil.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -21,7 +21,7 @@ public class generateBasicParam {
   private generateUtils genUti;
   
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write Basic<artifact.name>Param.java
@@ -38,7 +38,7 @@ public class generateBasicParam {
     int pos = (-1);
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _basicChar = this.pack.getBasicChar(artifact);
+    CharSequence _basicChar = this.names.getBasicChar(artifact);
     _builder.append(_basicChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
@@ -48,7 +48,7 @@ public class generateBasicParam {
     _builder.append("import java.util.List;");
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoBasic, "");
+    _builder.append(this.names.MisoBasic, "");
     _builder.append(".BasicAbstractParam;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

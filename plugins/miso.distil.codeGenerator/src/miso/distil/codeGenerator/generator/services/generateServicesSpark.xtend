@@ -16,7 +16,7 @@ import codeGeneratorModel.OnService
  */
 class generateServicesSpark {
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
 	 * To get each artifacts list of services and when they are triggered
@@ -58,7 +58,7 @@ class generateServicesSpark {
 	 */	
 	def write(EList<Service> services) '''
 		«var map = services.info»
-		package «pack.ServicesCha»;
+		package «names.ServicesCha»;
 
 		import java.util.ArrayList;
 		«var arrays = false»
@@ -82,18 +82,18 @@ class generateServicesSpark {
 			«ENDIF»
 		«ENDFOR»
 
-		import «pack.MisoBasic».JsonTransformer;
-		import «pack.MisoBasic».BasicInterfaceSpark;
-		import «pack.MisoAbstract».AbstractPersistentClass;
-		import «pack.MisoAbstract».RecordDB;
+		import «names.MisoBasic».JsonTransformer;
+		import «names.MisoBasic».BasicInterfaceSpark;
+		import «names.MisoAbstract».AbstractPersistentClass;
+		import «names.MisoAbstract».RecordDB;
 
 		«FOR artifact : map.keySet»
 			«IF map.get(artifact).containsKey(ServiceEnum.DOWNLOAD) || map.get(artifact).containsKey(ServiceEnum.UPDATE) || map.get(artifact).containsKey(ServiceEnum.READ)»
-				import «pack.getBasicChar(artifact)».Basic«artifact.name»Param;
+				import «names.getBParamFileChar(artifact)»;
 			«ENDIF»
 			«IF !map.get(artifact).keySet.empty»
-				import «pack.getBasicChar(artifact)».Basic«artifact.name»Spark;
-				import «pack.getArtifactChar(artifact)».«artifact.name»;
+				import «names.getBSparkFileChar(artifact)»;
+				import «names.getArtifactFileChar(artifact)»;
 			«ENDIF»
 		«ENDFOR»
 

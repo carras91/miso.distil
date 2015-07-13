@@ -3,8 +3,8 @@ package miso.distil.codeGenerator.generator.entities;
 import codeGeneratorModel.Attribute;
 import codeGeneratorModel.Entity;
 import com.google.inject.Inject;
+import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
-import miso.distil.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
@@ -20,7 +20,7 @@ public class generateEntityClass {
   private generateUtils genUti;
   
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write <entity.name>.java
@@ -30,7 +30,7 @@ public class generateEntityClass {
   public CharSequence write(final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
-    _builder.append(this.pack.EntitiesCha, "");
+    _builder.append(this.names.EntitiesCha, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

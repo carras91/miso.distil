@@ -6,6 +6,7 @@ import codeGeneratorModel.Artifact
 import codeGeneratorModel.AbstractEntity
 import org.eclipse.emf.common.util.EList
 import java.util.ArrayList
+import codeGeneratorModel.Entity
 
 /*
  * To write XXXService.java
@@ -14,7 +15,7 @@ import java.util.ArrayList
  */
 class generateSimpleService {
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 	
 	/*
 	 * To write <simpleService.name>Service.java
@@ -24,7 +25,7 @@ class generateSimpleService {
 	def write(SimpleService simpleService) '''
 		«var position = 0»
 		«var nameList = new ArrayList<String>()»
-		package «pack.ServicesCha»;
+		package «names.ServicesCha»;
 
 		import java.util.ArrayList;
 		import java.util.List;
@@ -32,15 +33,15 @@ class generateSimpleService {
 		import spark.Request;
 		import spark.Response;
 		
-		import «pack.MisoServices».ServiceAbstractJson;
-		import «pack.MisoAbstract».AbstractPersistentClass;
+		import «names.MisoServices».ServiceAbstractJson;
+		import «names.MisoAbstract».AbstractPersistentClass;
 
 		«FOR input : simpleService.input as EList<AbstractEntity>»
 			«IF !nameList.contains(input.name)»
 				«IF input instanceof Artifact»
-					import «pack.getArtifactChar(input)».«input.name»;
+					import «names.getArtifactFileChar(input)»;
 				«ELSE»
-					import «pack.EntitiesCha».«input.name»;
+					import «names.getEntityFileChar(Entity.cast(input))»;
 				«ENDIF»
 				«{nameList.add(input.name); null}»
 			«ENDIF»
@@ -48,9 +49,9 @@ class generateSimpleService {
 		«FOR output : simpleService.output as EList<AbstractEntity>»
 			«IF !nameList.contains(output.name)»
 				«IF output instanceof Artifact»
-					import «pack.getArtifactChar(output)».«output.name»;
+					import «names.getArtifactFileChar(output)»;
 				«ELSE»
-					import «pack.EntitiesCha».«output.name»;
+					import «names.getEntityFileChar(Entity.cast(output))»;
 				«ENDIF»
 				«{nameList.add(output.name); null}»
 			«ENDIF»

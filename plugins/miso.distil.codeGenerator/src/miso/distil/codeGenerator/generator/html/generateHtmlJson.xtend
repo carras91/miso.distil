@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList
  */
 class generateHtmlJson {
 
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
 	 * To write Html<artifact.name>Json.java
@@ -23,7 +23,7 @@ class generateHtmlJson {
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val namelow = artifact.name.toLowerCase»
 		«val name = artifact.name»
-		package «pack.getHtmlChar(artifact)»;
+		package «names.getHtmlChar(artifact)»;
 
 		import spark.ModelAndView;
 		import spark.Request;
@@ -35,23 +35,23 @@ class generateHtmlJson {
 		import java.util.HashMap;
 		import java.util.Map;
 		
-		import «pack.MisoHtml».HtmlInterfaceJson;
+		import «names.MisoHtml».HtmlInterfaceJson;
 
 		«IF basicServices.contains(ServiceEnum.READ_ALL) || basicServices.contains(ServiceEnum.SEARCH)»
-			import «pack.MisoAbstract».AbstractPersistentClass;
+			import «names.MisoAbstract».AbstractPersistentClass;
 		«ENDIF»
-		import «pack.MisoHtml».HtmlFreeMarker;
-		import «pack.MisoHtml».HtmlInterfaceView;
+		import «names.MisoHtml».HtmlFreeMarker;
+		import «names.MisoHtml».HtmlInterfaceView;
 		
 		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.UPDATE)»
-			import «pack.getBasicChar(artifact)».Basic«name»Codes;
+			import «names.getBCodesFileChar(artifact)»;
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.READ_ALL) ||
 		basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.SEARCH)»
-			import «pack.getArtifactChar(artifact)».«name»Json;
+			import «names.getArtifactJsonFileChar(artifact)»;
 		«ENDIF»
-		import «pack.getArtifactChar(artifact)».Custom«name»Html;
-		import «pack.getArtifactChar(artifact)».«name»;
+		import «names.getArtifactCustomFileChar(artifact)»;
+		import «names.getArtifactFileChar(artifact)»;
 
 		/**
 		 * Auto-generated html methods

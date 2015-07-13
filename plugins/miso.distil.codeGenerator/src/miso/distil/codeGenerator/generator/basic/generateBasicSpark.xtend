@@ -12,7 +12,7 @@ import org.eclipse.emf.common.util.EList
  */
 class generateBasicSpark {
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
 	 * To write Basic<artifact.name>Spark.java
@@ -23,7 +23,7 @@ class generateBasicSpark {
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
 		«val name = artifact.name»
 		«val namelow = artifact.name.toLowerCase»
-		package «pack.getBasicChar(artifact)»;
+		package «names.getBasicChar(artifact)»;
 		
 		«IF basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD)»
 			import static spark.Spark.post;
@@ -33,10 +33,10 @@ class generateBasicSpark {
 			import static spark.Spark.get;
 		«ENDIF»
 
-		import «pack.getArtifactChar(artifact)».«name»Json;
+		import «names.getArtifactJsonFileChar(artifact)»;
 
-		import «pack.MisoBasic».JsonTransformer;
-		import «pack.MisoBasic».BasicInterfaceSpark;
+		import «names.MisoBasic».JsonTransformer;
+		import «names.MisoBasic».BasicInterfaceSpark;
 
 		/**
 		 * Auto-generated spark server

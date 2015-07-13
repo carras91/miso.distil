@@ -3,7 +3,7 @@ package miso.distil.codeGenerator.generator.basic;
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
-import miso.distil.codeGenerator.generator.packages;
+import miso.distil.codeGenerator.generator.Names;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,7 +15,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateBasicSpark {
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write Basic<artifact.name>Spark.java
@@ -32,7 +32,7 @@ public class generateBasicSpark {
     final String namelow = _name.toLowerCase();
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _basicChar = this.pack.getBasicChar(artifact);
+    CharSequence _basicChar = this.names.getBasicChar(artifact);
     _builder.append(_basicChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
@@ -81,19 +81,17 @@ public class generateBasicSpark {
     }
     _builder.newLine();
     _builder.append("import ");
-    CharSequence _artifactChar = this.pack.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".");
-    _builder.append(name, "");
-    _builder.append("Json;");
+    CharSequence _artifactJsonFileChar = this.names.getArtifactJsonFileChar(artifact);
+    _builder.append(_artifactJsonFileChar, "");
+    _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoBasic, "");
+    _builder.append(this.names.MisoBasic, "");
     _builder.append(".JsonTransformer;");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
-    _builder.append(this.pack.MisoBasic, "");
+    _builder.append(this.names.MisoBasic, "");
     _builder.append(".BasicInterfaceSpark;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

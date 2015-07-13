@@ -17,7 +17,7 @@ import codeGeneratorModel.ServiceEnum
 class generateJson {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
 	 * To write <artifact.name>Json.java
@@ -31,7 +31,7 @@ class generateJson {
 		«val namelow = artifact.name.toLowerCase»
 		«val name = artifact.name»
 		«var pos = -1»
-		package «pack.getArtifactChar(artifact)»;
+		package «names.getArtifactChar(artifact)»;
 
 		«IF basicServices.contains(ServiceEnum.UPLOAD)»
 			import java.io.IOException;
@@ -56,15 +56,15 @@ class generateJson {
 
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.UPDATE)»
-			import «pack.MisoAbstract».RecordDB;
-			import «pack.MisoUtils».Utils;
+			import «names.MisoAbstract».RecordDB;
+			import «names.MisoUtils».Utils;
 		«ENDIF»
-		import «pack.MisoBasic».BasicAbstractJson;
+		import «names.MisoBasic».BasicAbstractJson;
 
-		import «pack.getArtifactChar(artifact)».«name»;
+		import «names.getArtifactFileChar(artifact)»;
 		«IF basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.UPDATE)»
-			import «pack.getBasicChar(artifact)».Basic«name»Codes;
-			import «pack.getBasicChar(artifact)».Basic«name»Param;
+			import «names.getBCodesFileChar(artifact)»;
+			import «names.getBParamFileChar(artifact)»;
 			«genUti.getImportCompose(allAtts)»
 		«ENDIF»
 

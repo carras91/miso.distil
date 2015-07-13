@@ -1,7 +1,7 @@
 package miso.distil.codeGenerator.generator.entities;
 
 import com.google.inject.Inject;
-import miso.distil.codeGenerator.generator.packages;
+import miso.distil.codeGenerator.generator.Names;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
@@ -12,7 +12,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateMain {
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write Main.java
@@ -22,12 +22,12 @@ public class generateMain {
   public CharSequence write() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
-    _builder.append(this.pack.RootChar, "");
+    _builder.append(this.names.RootChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.Miso, "");
+    _builder.append(this.names.Miso, "");
     _builder.append(".CloudModelServices;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

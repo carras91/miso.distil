@@ -12,7 +12,7 @@ import codeGeneratorModel.Service
  */
 class generateMultiService {
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
 	 * To write <multiService.name>Service.java
@@ -20,9 +20,9 @@ class generateMultiService {
 	 * @author Carlos Carrascal
 	 */	
 	def write(MultiService multiService) '''
-		package «pack.ServicesCha»;
+		package «names.ServicesCha»;
 
-		import «pack.MisoServices».MultiServiceAbstractJson;
+		import «names.MisoServices».MultiServiceAbstractJson;
 
 		/**
 		 * Auto-generated multi service class

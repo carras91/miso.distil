@@ -14,7 +14,7 @@ import codeGeneratorModel.SimpleAttribute
 class generateBasicParam {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 	/*
 	 * To write Basic<artifact.name>Param.java
 	 * 
@@ -24,11 +24,11 @@ class generateBasicParam {
 		«val name = artifact.name»
 		«val EList<Attribute> allAtts = genUti.getAllNestedAttributes(artifact.attributes)»
 		«var pos = -1»
-		package «pack.getBasicChar(artifact)»;
+		package «names.getBasicChar(artifact)»;
 
 		import java.util.ArrayList;
 		import java.util.List;
-		import «pack.MisoBasic».BasicAbstractParam;
+		import «names.MisoBasic».BasicAbstractParam;
 
 		/**
 		 * Auto-generated parameters

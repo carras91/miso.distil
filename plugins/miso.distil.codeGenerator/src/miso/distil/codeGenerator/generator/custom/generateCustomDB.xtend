@@ -9,7 +9,7 @@ import com.google.inject.Inject
  */
 class generateCustomDB {
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 	
 	/*
 	 * To write CustomDb.java
@@ -17,15 +17,15 @@ class generateCustomDB {
 	 * @author Carlos Carrascal
 	 */
 	def write() '''
-		package «pack.RootChar»;
+		package «names.RootChar»;
 
 		import java.io.InputStream;
 		import java.util.ArrayList;
 		import java.util.List;
 		
-		import «pack.MisoBasic».BasicInterfaceSpark;
-		import «pack.MisoAbstract».AbstractPersistentClass;
-		import «pack.MisoAbstract».InterfaceDB;
+		import «names.MisoBasic».BasicInterfaceSpark;
+		import «names.MisoAbstract».AbstractPersistentClass;
+		import «names.MisoAbstract».InterfaceDB;
 		
 		/**
 		 * Auto-generated custom data base class

@@ -14,7 +14,10 @@ Require-Bundle: miso.distil.codeGenerator;visibility:=reexport,
  org.eclipse.compare,
  org.eclipse.ui.editors,
  org.eclipse.ui,
- org.eclipse.xtext.xbase.lib
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.jdt.core;bundle-version="3.10.2",
+ miso.distil.codeGenerator.model,
+ miso.distil.nature
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: miso.distil.codeGenerator.ui,

@@ -57,14 +57,14 @@ public class AddRemoveDistilNatureHandler extends AbstractHandler {
 		String[] natures = description.getNatureIds();
 
 		for (int i = 0; i < natures.length; ++i) {
-			if (DistilNature.MDE_NATURE_ID.equals(natures[i])) {
+			if (DistilNature.DISTIL_NATURE_ID.equals(natures[i])) {
 				// Remove the nature
 				String[] newNatures = new String[natures.length - 1];
 				System.arraycopy(natures, 0, newNatures, 0, i);
 				System.arraycopy(natures, i + 1, newNatures, i, natures.length - i - 1);
 				description.setNatureIds(newNatures);
 				project.setDescription(description, null);
-				System.out.println("Nature " + DistilNature.MDE_NATURE_ID + " removed");
+				System.out.println("Nature " + DistilNature.DISTIL_NATURE_ID + " removed");
 				return;
 			}
 		}
@@ -75,8 +75,8 @@ public class AddRemoveDistilNatureHandler extends AbstractHandler {
 		// Add the natures
 
 		ArrayList<String> newNatures = new ArrayList<String>(Arrays.asList(natures));
-		newNatures.add(DistilNature.MDE_NATURE_ID);
-		System.out.println("Nature " + DistilNature.MDE_NATURE_ID + " added");
+		newNatures.add(DistilNature.DISTIL_NATURE_ID);
+		System.out.println("Nature " + DistilNature.DISTIL_NATURE_ID + " added");
 		if(!newNatures.contains(DistilNature.MAVEN_NATURE_ID)) {
 			newNatures.add(DistilNature.MAVEN_NATURE_ID);
 			System.out.println("Nature " + DistilNature.MAVEN_NATURE_ID + " added");

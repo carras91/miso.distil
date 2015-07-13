@@ -3,8 +3,8 @@ package miso.distil.codeGenerator.generator.basic;
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.Attribute;
 import com.google.inject.Inject;
+import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
-import miso.distil.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -19,7 +19,7 @@ public class generateBasicCodes {
   private generateUtils genUti;
   
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write Basic<artifact.name>Codes.java
@@ -36,13 +36,13 @@ public class generateBasicCodes {
     int pos = (-1);
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _basicChar = this.pack.getBasicChar(artifact);
+    CharSequence _basicChar = this.names.getBasicChar(artifact);
     _builder.append(_basicChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoBasic, "");
+    _builder.append(this.names.MisoBasic, "");
     _builder.append(".BasicAbstractCodes;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

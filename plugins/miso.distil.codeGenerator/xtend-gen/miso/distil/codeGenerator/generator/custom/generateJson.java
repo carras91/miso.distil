@@ -8,8 +8,8 @@ import codeGeneratorModel.ServiceEnum;
 import codeGeneratorModel.SimpleAttribute;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
+import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
-import miso.distil.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
@@ -25,7 +25,7 @@ public class generateJson {
   private generateUtils genUti;
   
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write <artifact.name>Json.java
@@ -49,7 +49,7 @@ public class generateJson {
     int pos = (-1);
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _artifactChar = this.pack.getArtifactChar(artifact);
+    CharSequence _artifactChar = this.names.getArtifactChar(artifact);
     _builder.append(_artifactChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
@@ -125,25 +125,23 @@ public class generateJson {
       }
       if (_or_2) {
         _builder.append("import ");
-        _builder.append(this.pack.MisoAbstract, "");
+        _builder.append(this.names.MisoAbstract, "");
         _builder.append(".RecordDB;");
         _builder.newLineIfNotEmpty();
         _builder.append("import ");
-        _builder.append(this.pack.MisoUtils, "");
+        _builder.append(this.names.MisoUtils, "");
         _builder.append(".Utils;");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("import ");
-    _builder.append(this.pack.MisoBasic, "");
+    _builder.append(this.names.MisoBasic, "");
     _builder.append(".BasicAbstractJson;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import ");
-    CharSequence _artifactChar_1 = this.pack.getArtifactChar(artifact);
-    _builder.append(_artifactChar_1, "");
-    _builder.append(".");
-    _builder.append(name, "");
+    CharSequence _artifactFileChar = this.names.getArtifactFileChar(artifact);
+    _builder.append(_artifactFileChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     {
@@ -157,18 +155,14 @@ public class generateJson {
       }
       if (_or_3) {
         _builder.append("import ");
-        CharSequence _basicChar = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Codes;");
+        CharSequence _bCodesFileChar = this.names.getBCodesFileChar(artifact);
+        _builder.append(_bCodesFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("import ");
-        CharSequence _basicChar_1 = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar_1, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Param;");
+        CharSequence _bParamFileChar = this.names.getBParamFileChar(artifact);
+        _builder.append(_bParamFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
         CharSequence _importCompose = this.genUti.getImportCompose(allAtts);
         _builder.append(_importCompose, "");

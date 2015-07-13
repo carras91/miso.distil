@@ -47,7 +47,7 @@ import codeGeneratorModel.Service
  */
 class RulesGenerator implements IGenerator {
 	
-	@Inject packages pack
+	@Inject Names names
 	
 	@Inject generateMain genMain
 	@Inject generateCustomDB genCusDB
@@ -74,26 +74,26 @@ class RulesGenerator implements IGenerator {
 		
 		// Root file (overwrite existing files)
 		fsa.generateFile(
-			pack.RootStri + "/Main.java",
+			names.mainFileStri + ".java",
 			genMain.write())
 			
 		// Custom DB (not overwrite existing files)
 		fsa.generateFile(
-			pack.RootStri + "/CustomDB.java",
+			names.DBFileStri + ".java",
 			GeneratorOutputConfiguration::GEN_ONCE_OUTPUT,
 			genCusDB.write())
 			    	
 		// Auxiliar entities (overwrite)
 		resource.allContents.filter(Entity).forEach[
 			fsa.generateFile(
-				pack.EntitiesStr + "/" + it.name + ".java",
+				names.getEntityFileStri(it) + ".java",
 		    	genEnti.write(it))
 		]
 		
 		// Simple services (once)
 		resource.allContents.filter(SimpleService).forEach[
 			fsa.generateFile(
-				pack.ServicesStr + "/" + "Service" + it.name + ".java",
+				names.getServiceFileStri(it) + ".java",
 				GeneratorOutputConfiguration::GEN_ONCE_OUTPUT,
 		    	genSimSer.write(it))
 		]
@@ -101,32 +101,29 @@ class RulesGenerator implements IGenerator {
 		// Multi services (overwrite)
 		resource.allContents.filter(MultiService).forEach[
 			fsa.generateFile(
-				pack.ServicesStr + "/" + "Service" + it.name + ".java",
+				names.getServiceFileStri(it)+ ".java",
 		    	genMulSer.write(it))
 		]
 		
 		// Spark services (overwrite)
 		if(!resource.allContents.filter(Root).last.services.empty) {
 			fsa.generateFile(
-					pack.ServicesStr + "/" + "ServicesSpark.java",
+					names.servicesSparkFileStri + ".java",
 			    	genSerSpa.write(resource.allContents.filter(Root).last.services as EList<Service>))
 		}
 
 		// For each Artifact
 		for(artifact : resource.allContents.filter(Root).last.artifacts as EList<Artifact>) {
-			var packageArtifact = pack.getArtifactStri(artifact) + "/"
-			var packageBasic = pack.getBasicStri(artifact) + "/Basic" + artifact.name.toFirstUpper
-			var packageHtml = pack.getHtmlStri(artifact) + "/Html" + artifact.name.toFirstUpper
 			
 			// Artifact file (overwrite)
 			fsa.generateFile(
-			    packageArtifact + artifact.name + ".java",
+			    names.getArtifactFileStri(artifact) + ".java",
 			    genArtifact.write(artifact))
 
 			// Update/Upload methods (once)
 			if(!artifact.basicServices.empty) {
 				fsa.generateFile(
-					packageArtifact + artifact.name + "Json.java",
+					names.getArtifactJsonFileStri(artifact) + ".java",
 					GeneratorOutputConfiguration::GEN_ONCE_OUTPUT,
 					genJso.write(artifact))
 			}
@@ -137,7 +134,7 @@ class RulesGenerator implements IGenerator {
 				artifact.basicServices.contains(ServiceEnum.SEARCH))
 			{
 				fsa.generateFile(
-					packageArtifact + "Custom" + artifact.name + "Html.java",
+					names.getArtifactCustomFileStri(artifact) + ".java",
 					GeneratorOutputConfiguration::GEN_ONCE_OUTPUT,
 					genCusHtm.write(artifact))
 			}
@@ -146,15 +143,15 @@ class RulesGenerator implements IGenerator {
 			if(!artifact.basicServices.empty)
 			{
 				fsa.generateFile(
-					packageBasic + "Spark.java",
+					names.getBSparkFileStri(artifact) + ".java",
 					genBasSpa.write(artifact))
 					
 				fsa.generateFile(
-					packageBasic + "Codes.java",
+					names.getBCodesFileStri(artifact) + ".java",
 					genBasCod.write(artifact))
 					
 				fsa.generateFile(
-					packageBasic + "Param.java",
+					names.getBParamFileStri(artifact) + ".java",
 					genBasPar.write(artifact))
 			}
 
@@ -164,15 +161,15 @@ class RulesGenerator implements IGenerator {
 				artifact.basicServices.contains(ServiceEnum.SEARCH))
 			{				
 				fsa.generateFile(
-					packageHtml + "Spark.java",
+					names.getHSparkFileStri(artifact) + ".java",
 					genHtmSpa.write(artifact))
 					
 				fsa.generateFile(
-					packageHtml + "View.java",
+					names.getHViewFileStri(artifact) + ".java",
 					genHtmVie.write(artifact))
 					
 				fsa.generateFile(
-					packageHtml + "Json.java",
+					names.getHJsonFileStri(artifact) + ".java",
 					genHtmJso.write(artifact))
 			}
 			
@@ -181,7 +178,7 @@ class RulesGenerator implements IGenerator {
 				artifact.basicServices.contains(ServiceEnum.UPDATE) || artifact.basicServices.contains(ServiceEnum.UPLOAD))
 			{
 				fsa.generateFile(
-					packageHtml + "Links.java",
+					names.getHLinksFileStri(artifact) + ".java",
 					genHtmLin.write(artifact))
 			}			
 		}

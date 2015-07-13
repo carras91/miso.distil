@@ -3,8 +3,8 @@ package miso.distil.codeGenerator.generator.entities;
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.Attribute;
 import com.google.inject.Inject;
+import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
-import miso.distil.codeGenerator.generator.packages;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -19,7 +19,7 @@ public class generateArtifactClass {
   private generateUtils genUti;
   
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write <artifact.name>.java
@@ -31,13 +31,13 @@ public class generateArtifactClass {
     final EList<Attribute> atts = artifact.getAttributes();
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _artifactChar = this.pack.getArtifactChar(artifact);
+    CharSequence _artifactChar = this.names.getArtifactChar(artifact);
     _builder.append(_artifactChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoAbstract, "");
+    _builder.append(this.names.MisoAbstract, "");
     _builder.append(".AbstractPersistentClass;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

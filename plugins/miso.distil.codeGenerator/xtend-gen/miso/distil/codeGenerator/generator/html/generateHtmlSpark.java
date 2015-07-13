@@ -3,7 +3,7 @@ package miso.distil.codeGenerator.generator.html;
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
-import miso.distil.codeGenerator.generator.packages;
+import miso.distil.codeGenerator.generator.Names;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,7 +15,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateHtmlSpark {
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write Html<artifact.name>Spark.java
@@ -31,7 +31,7 @@ public class generateHtmlSpark {
     final String namelow = name.toLowerCase();
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _htmlChar = this.pack.getHtmlChar(artifact);
+    CharSequence _htmlChar = this.names.getHtmlChar(artifact);
     _builder.append(_htmlChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
@@ -66,7 +66,7 @@ public class generateHtmlSpark {
     }
     _builder.newLine();
     _builder.append("import ");
-    _builder.append(this.pack.MisoBasic, "");
+    _builder.append(this.names.MisoBasic, "");
     _builder.append(".BasicInterfaceSpark;");
     _builder.newLineIfNotEmpty();
     {
@@ -87,11 +87,11 @@ public class generateHtmlSpark {
       }
       if (_or_2) {
         _builder.append("import ");
-        _builder.append(this.pack.MisoHtml, "");
+        _builder.append(this.names.MisoHtml, "");
         _builder.append(".HtmlFreeMarker;");
         _builder.newLineIfNotEmpty();
         _builder.append("import ");
-        _builder.append(this.pack.MisoHtml, "");
+        _builder.append(this.names.MisoHtml, "");
         _builder.append(".htmlObjects.HtmlLayout;");
         _builder.newLineIfNotEmpty();
         _builder.newLine();
@@ -108,27 +108,21 @@ public class generateHtmlSpark {
       }
       if (_or_4) {
         _builder.append("import ");
-        CharSequence _basicChar = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Param;");
+        CharSequence _bParamFileChar = this.names.getBParamFileChar(artifact);
+        _builder.append(_bParamFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("import ");
-    CharSequence _artifactChar = this.pack.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".Custom");
-    _builder.append(name, "");
-    _builder.append("Html;");
+    CharSequence _artifactCustomFileChar = this.names.getArtifactCustomFileChar(artifact);
+    _builder.append(_artifactCustomFileChar, "");
+    _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
-    CharSequence _htmlChar_1 = this.pack.getHtmlChar(artifact);
-    _builder.append(_htmlChar_1, "");
-    _builder.append(".Html");
-    _builder.append(name, "");
-    _builder.append("Json;");
+    CharSequence _hJsonFileChar = this.names.getHJsonFileChar(artifact);
+    _builder.append(_hJsonFileChar, "");
+    _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("/**");

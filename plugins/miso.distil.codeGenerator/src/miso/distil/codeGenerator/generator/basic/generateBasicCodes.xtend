@@ -13,7 +13,7 @@ import codeGeneratorModel.Attribute
 class generateBasicCodes { 
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 	
 	/*
 	 * To write Basic<artifact.name>Codes.java
@@ -24,9 +24,9 @@ class generateBasicCodes {
 		«val name = artifact.name»
 		«val EList<Attribute> allAtts = genUti.getAllNestedAttributes(artifact.attributes)»
 		«var pos = -1»
-		package «pack.getBasicChar(artifact)»;
+		package «names.getBasicChar(artifact)»;
 
-		import «pack.MisoBasic».BasicAbstractCodes;
+		import «names.MisoBasic».BasicAbstractCodes;
 
 		/**
 		 * Auto-generated error codes

@@ -9,7 +9,7 @@ import com.google.inject.Inject
  */
 class generateMain {
 	
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
  	 * To write Main.java
@@ -17,9 +17,9 @@ class generateMain {
 	 * @author Carlos Carrascal
 	 */
 	def write() '''
-	package «pack.RootChar»;
+	package «names.RootChar»;
 
-	import «pack.Miso».CloudModelServices;
+	import «names.Miso».CloudModelServices;
 
 	/**
 	 * Auto-generated main class

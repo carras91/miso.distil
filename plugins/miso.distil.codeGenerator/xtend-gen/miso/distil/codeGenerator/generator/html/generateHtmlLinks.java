@@ -3,7 +3,7 @@ package miso.distil.codeGenerator.generator.html;
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
-import miso.distil.codeGenerator.generator.packages;
+import miso.distil.codeGenerator.generator.Names;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,7 +15,7 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateHtmlLinks {
   @Inject
-  private packages pack;
+  private Names names;
   
   /**
    * To write Html<artifact.name>Links.java
@@ -32,7 +32,7 @@ public class generateHtmlLinks {
     final String namelow = _name.toLowerCase();
     _builder.newLineIfNotEmpty();
     _builder.append("package ");
-    CharSequence _htmlChar = this.pack.getHtmlChar(artifact);
+    CharSequence _htmlChar = this.names.getHtmlChar(artifact);
     _builder.append(_htmlChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
@@ -41,11 +41,9 @@ public class generateHtmlLinks {
       boolean _contains = basicServices.contains(ServiceEnum.UPLOAD);
       if (_contains) {
         _builder.append("import ");
-        CharSequence _basicChar = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Param;");
+        CharSequence _bParamFileChar = this.names.getBParamFileChar(artifact);
+        _builder.append(_bParamFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -67,19 +65,15 @@ public class generateHtmlLinks {
       }
       if (_or) {
         _builder.append("import ");
-        CharSequence _basicChar_1 = this.pack.getBasicChar(artifact);
-        _builder.append(_basicChar_1, "");
-        _builder.append(".Basic");
-        _builder.append(name, "");
-        _builder.append("Spark;");
+        CharSequence _bSparkFileChar = this.names.getBSparkFileChar(artifact);
+        _builder.append(_bSparkFileChar, "");
+        _builder.append(";");
         _builder.newLineIfNotEmpty();
       }
     }
     _builder.append("import ");
-    CharSequence _artifactChar = this.pack.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".");
-    _builder.append(name, "");
+    CharSequence _artifactFileChar = this.names.getArtifactFileChar(artifact);
+    _builder.append(_artifactFileChar, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();

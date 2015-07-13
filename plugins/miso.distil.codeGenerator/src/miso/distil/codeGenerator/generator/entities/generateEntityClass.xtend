@@ -13,7 +13,7 @@ import codeGeneratorModel.Entity
 class generateEntityClass {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
-	@Inject miso.distil.codeGenerator.generator.packages pack
+	@Inject miso.distil.codeGenerator.generator.Names names
 	
 	/**
 	 * To write <entity.name>.java
@@ -21,7 +21,7 @@ class generateEntityClass {
 	 * @author Carlos Carrascal
 	 */
 	def write(Entity entity) '''
-		package «pack.EntitiesCha»;
+		package «names.EntitiesCha»;
 
 		«genUti.getImportList(entity.attributes)»
 		/**
