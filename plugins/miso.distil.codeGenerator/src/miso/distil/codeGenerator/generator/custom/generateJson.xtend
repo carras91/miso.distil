@@ -148,6 +148,7 @@ class generateJson {
 					}
 
 					// Not required params
+					// TODO : complete these params!
 					«{pos = -1; null}»
 					«FOR att:allAtts»
 						«{pos++; null}»
@@ -243,6 +244,7 @@ class generateJson {
 						}
 
 						// Not required params
+						// TODO : complete these params!
 						«{pos = -1; null}»
 						«FOR att:allAtts»
 							«{pos++; null}»

@@ -3,9 +3,16 @@
  */
 package miso.distil.codeGenerator.ui.quickfix
 
-//import org.eclipse.xtext.ui.editor.quickfix.Fix
-//import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
-//import org.eclipse.xtext.validation.Issue
+import org.eclipse.xtext.ui.editor.quickfix.Fix
+import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor
+import org.eclipse.xtext.validation.Issue
+import miso.distil.codeGenerator.validation.RulesValidator
+import org.eclipse.emf.common.util.URI
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.Path
+import codeGeneratorModel.Artifact
+import com.google.inject.Inject
+import codeGeneratorModel.SimpleService
 
 /**
  * Custom quickfixes.
@@ -14,13 +21,65 @@ package miso.distil.codeGenerator.ui.quickfix
  */
 class RulesQuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider {
 
-//	@Fix(MyDslValidator::INVALID_NAME)
-//	def capitalizeName(Issue issue, IssueResolutionAcceptor acceptor) {
-//		acceptor.accept(issue, 'Capitalize name', 'Capitalize the name.', 'upcase.png') [
-//			context |
-//			val xtextDocument = context.xtextDocument
-//			val firstLetter = xtextDocument.get(issue.offset, 1)
-//			xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
-//		]
-//	}
+	@Inject 
+	private miso.distil.codeGenerator.generator.Names names;
+
+	@Fix(RulesValidator::UPPER_CASE)
+	def capitalName(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, 'Capitalize name', 'Capitalize the name.', 'upcase.png') [
+			context |
+			val xtextDocument = context.xtextDocument
+			val firstLetter = xtextDocument.get(issue.offset, 1)
+			xtextDocument.replace(issue.offset, 1, firstLetter.toUpperCase)
+		]
+	}
+	
+	@Fix(RulesValidator::LOWER_CASE)
+	def lowerName(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, 'Lowercase name', 'Lowercase the name.', 'lowercase.png') [
+			context |
+			val xtextDocument = context.xtextDocument
+			val firstLetter = xtextDocument.get(issue.offset, 1)
+			xtextDocument.replace(issue.offset, 1, firstLetter.toLowerCase)
+		]
+	}
+	
+	@Fix(RulesValidator::PROHIBITED_REFERENCE)
+	def prohibitedReference(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, 'Delete prohibited reference', 'Delete the prohibited reference.', 'delete.png') [
+			context |
+			val xtextDocument = context.xtextDocument
+			xtextDocument.replace(issue.offset, issue.length, "")
+		]
+	}
+	
+	@Fix(RulesValidator::ARTIFACT_TODO)
+	def artifactToDo(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, 'Complete Upload/Update method', 'Complete Upload/Update method.', 'whyme.png') [
+			element, context |
+			if(element instanceof Artifact) {
+				val platformString = element.eResource.URI.toPlatformString(true)
+				val rules_file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformString))
+				val project = rules_file.project
+				val file_json = project.getFile(new Path("src/main/java/" + names.getArtifactJsonFileStri(element) + ".java"))
+				context.getXtextDocument(URI.createPlatformResourceURI(file_json.fullPath.toString() , true))
+			}
+			
+		]
+	}
+	
+	@Fix(RulesValidator::SERVICE_TODO)
+	def serviceToDo(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, 'Complete service method', 'Complete service method.', 'whyme.png') [
+			element, context |
+			if(element instanceof SimpleService) {
+				val platformString = element.eResource.URI.toPlatformString(true)
+				val rules_file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformString))
+				val project = rules_file.project
+				val file_json = project.getFile(new Path("src/main/java/" + names.getServiceFileStri(element) + ".java"))
+				context.getXtextDocument(URI.createPlatformResourceURI(file_json.fullPath.toString() , true))
+			}
+			
+		]
+	}
 }

@@ -95,7 +95,7 @@ class generateSimpleService {
 			public List<Object> runService(Request req, Response res, List<? extends AbstractPersistentClass> artifacts) {
 				List<Object> input = new ArrayList<Object>();
 
-				// Create the input objects to your service and use (or not) the artifacts
+				// TODO : Create the input objects to your service and use (or not) the artifacts
 
 				return this.exeService(input);
 			}
@@ -119,6 +119,7 @@ class generateSimpleService {
 					// «input.name» «input.name.toLowerCase»«position» = «input.name».class.cast(input.get(«position»));
 					«{position++; null}»
 				«ENDFOR»
+				// TODO : do something!
 				«IF !simpleService.input.empty»
 
 					// Create your outputs (do something!)

@@ -16,14 +16,27 @@ import codeGeneratorModel.Service;
 import codeGeneratorModel.ServiceEnum;
 import codeGeneratorModel.SimpleService;
 import com.google.common.base.Objects;
+import com.google.inject.Inject;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.function.Consumer;
+import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.validation.AbstractRulesValidator;
 import miso.distil.codeGenerator.validation.nameVariables;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.common.util.BasicEList;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.validation.Check;
+import org.eclipse.xtext.xbase.lib.Exceptions;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
@@ -35,21 +48,26 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
  */
 @SuppressWarnings("all")
 public class RulesValidator extends AbstractRulesValidator {
-  public final static String INVALID_NAME = "invalidName";
+  public final static String LOWER_CASE = "lowerCase";
+  
+  public final static String UPPER_CASE = "upperCase";
   
   public final static String REPEATED_NAME = "repeatedName";
   
-  public final static String REPEATED_SERVICE = "repeatedService";
-  
   public final static String INPUT_WRONG = "wrongInput";
-  
-  public final static String INVALID_ATTR = "invalidAttribute";
   
   public final static String PROHIBITED_NAME = "prohibitedName";
   
   public final static String PROHIBITED_REFERENCE = "prohibitedReference";
   
-  public final static String EMPTY_CLASS = "emptyObject";
+  public final static String RECURSIVE_REFERENCE = "recursiveReference";
+  
+  public final static String ARTIFACT_TODO = "artifactToDo";
+  
+  public final static String SERVICE_TODO = "serviceToDo";
+  
+  @Inject
+  private Names names;
   
   @Check
   public void chechOnService(final OnService onSer) {
@@ -81,80 +99,68 @@ public class RulesValidator extends AbstractRulesValidator {
   }
   
   @Check
-  public void chechOnServiceRepeated(final OnService onSer) {
-    EList<ServiceEnum> _whenServices = onSer.getWhenServices();
-    final Consumer<ServiceEnum> _function = (ServiceEnum it) -> {
-      EList<ServiceEnum> _whenServices_1 = onSer.getWhenServices();
-      int _lastIndexOf = _whenServices_1.lastIndexOf(it);
-      EList<ServiceEnum> _whenServices_2 = onSer.getWhenServices();
-      int _indexOf = _whenServices_2.indexOf(it);
-      boolean _notEquals = (_lastIndexOf != _indexOf);
-      if (_notEquals) {
-        String _string = it.toString();
-        String _plus = ("Option " + _string);
-        String _plus_1 = (_plus + " is repeated on positions ");
-        EList<ServiceEnum> _whenServices_3 = onSer.getWhenServices();
-        int _indexOf_1 = _whenServices_3.indexOf(it);
-        String _plus_2 = (_plus_1 + Integer.valueOf(_indexOf_1));
-        String _plus_3 = (_plus_2 + " and ");
-        EList<ServiceEnum> _whenServices_4 = onSer.getWhenServices();
-        int _lastIndexOf_1 = _whenServices_4.lastIndexOf(it);
-        String _plus_4 = (_plus_3 + Integer.valueOf(_lastIndexOf_1));
-        this.error(_plus_4, 
-          CodeGeneratorModelPackage.Literals.ON_SERVICE__WHEN_SERVICES, 
-          RulesValidator.REPEATED_SERVICE);
-      }
-    };
-    _whenServices.forEach(_function);
-  }
-  
-  @Check
   public void checkMultiAttNotRecursive(final Entity ent) {
     EList<Attribute> _attributes = ent.getAttributes();
-    EList<MultiAttribute> atts = this.getAllNestedMultiAtts(_attributes);
-    for (final MultiAttribute att : atts) {
-      Entity _type = att.getType();
-      String _name = _type.getName();
-      String _name_1 = ent.getName();
-      boolean _equalsIgnoreCase = _name.equalsIgnoreCase(_name_1);
-      if (_equalsIgnoreCase) {
-        String _name_2 = att.getName();
-        String _plus = ("This entity contains " + _name_2);
-        String _plus_1 = (_plus + ", who contains this entity");
-        this.error(_plus_1, 
-          CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
-          RulesValidator.PROHIBITED_REFERENCE);
+    for (final Attribute att : _attributes) {
+      if ((att instanceof MultiAttribute)) {
+        Entity _type = ((MultiAttribute)att).getType();
+        EList<Attribute> _attributes_1 = _type.getAttributes();
+        String _name = ent.getName();
+        Boolean _lookForRepeated = this.lookForRepeated(_attributes_1, _name);
+        if ((_lookForRepeated).booleanValue()) {
+          String _name_1 = ((MultiAttribute)att).getName();
+          String _plus = ("This entity contains " + _name_1);
+          String _plus_1 = (_plus + ", who contains this entity");
+          this.error(_plus_1, 
+            CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
+            RulesValidator.RECURSIVE_REFERENCE);
+        }
       }
     }
   }
   
-  private EList<MultiAttribute> getAllNestedMultiAtts(final EList<Attribute> atts) {
-    final EList<MultiAttribute> list = new BasicEList<MultiAttribute>();
-    final Consumer<Attribute> _function = (Attribute it) -> {
-      if ((it instanceof MultiAttribute)) {
-        Entity _type = ((MultiAttribute)it).getType();
-        EList<Attribute> _attributes = _type.getAttributes();
-        EList<MultiAttribute> _allNestedMultiAtts = this.getAllNestedMultiAtts(_attributes);
-        list.addAll(_allNestedMultiAtts);
-        list.add(((MultiAttribute)it));
+  private Boolean lookForRepeated(final EList<Attribute> atts, final String name) {
+    for (final Attribute att : atts) {
+      if ((att instanceof MultiAttribute)) {
+        Entity _type = ((MultiAttribute)att).getType();
+        String _name = _type.getName();
+        boolean _equalsIgnoreCase = _name.equalsIgnoreCase(name);
+        if (_equalsIgnoreCase) {
+          return Boolean.valueOf(true);
+        } else {
+          Entity _type_1 = ((MultiAttribute)att).getType();
+          EList<Attribute> _attributes = _type_1.getAttributes();
+          Boolean _lookForRepeated = this.lookForRepeated(_attributes, name);
+          if ((_lookForRepeated).booleanValue()) {
+            return Boolean.valueOf(true);
+          }
+        }
       }
-    };
-    atts.forEach(_function);
-    return list;
+    }
+    return Boolean.valueOf(false);
   }
   
   @Check
   public void checkMultiServiceParameters(final MultiService mulSer) {
+    boolean _and = false;
     boolean _isParallel = mulSer.isParallel();
     boolean _not = (!_isParallel);
-    if (_not) {
+    if (!_not) {
+      _and = false;
+    } else {
       EList<Service> _services = mulSer.getServices();
-      Service _get = _services.get(0);
+      boolean _isEmpty = _services.isEmpty();
+      boolean _not_1 = (!_isEmpty);
+      _and = _not_1;
+    }
+    if (_and) {
+      EList<Service> _services_1 = mulSer.getServices();
+      Service _get = _services_1.get(0);
       EList<AbstractEntity> out = this.getOutput(((Service) _get));
       for (int j = 1; (j < mulSer.getServices().size()); j++) {
         {
-          EList<Service> _services_1 = mulSer.getServices();
-          Service service = ((EList<Service>) _services_1).get(j);
+          EList<Service> _services_2 = mulSer.getServices();
+          Service service = ((EList<Service>) _services_2).get(j);
           int _size = out.size();
           EList<AbstractEntity> _input = this.getInput(service);
           int _size_1 = _input.size();
@@ -170,8 +176,8 @@ public class RulesValidator extends AbstractRulesValidator {
             int _size_3 = out.size();
             String _plus_4 = (_plus_3 + Integer.valueOf(_size_3));
             String _plus_5 = (_plus_4 + " from ");
-            EList<Service> _services_2 = mulSer.getServices();
-            Service _get_1 = ((EList<Service>) _services_2).get((j - 1));
+            EList<Service> _services_3 = mulSer.getServices();
+            Service _get_1 = ((EList<Service>) _services_3).get((j - 1));
             String _name_1 = _get_1.getName();
             String _plus_6 = (_plus_5 + _name_1);
             this.error(_plus_6, 
@@ -183,8 +189,8 @@ public class RulesValidator extends AbstractRulesValidator {
             EList<AbstractEntity> _input_2 = this.getInput(service);
             AbstractEntity _get_3 = _input_2.get(i);
             boolean _equals = _get_2.equals(_get_3);
-            boolean _not_1 = (!_equals);
-            if (_not_1) {
+            boolean _not_2 = (!_equals);
+            if (_not_2) {
               String _name_2 = service.getName();
               String _plus_7 = ((("Input " + Integer.valueOf(i)) + " of service ") + _name_2);
               String _plus_8 = (_plus_7 + " requires ");
@@ -266,7 +272,7 @@ public class RulesValidator extends AbstractRulesValidator {
     if (_not) {
       this.error("Identifier should start with a capital", 
         CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
-        RulesValidator.INVALID_NAME);
+        RulesValidator.UPPER_CASE);
     }
   }
   
@@ -279,12 +285,12 @@ public class RulesValidator extends AbstractRulesValidator {
     if (_not) {
       this.error("Identifier should start with a low case", 
         CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
-        RulesValidator.INVALID_NAME);
+        RulesValidator.LOWER_CASE);
     }
   }
   
   @Check
-  public void checkServiceStartsWithLower(final Service ser) {
+  public void checkServiceStartsWithCapital(final Service ser) {
     String _name = ser.getName();
     char _charAt = _name.charAt(0);
     boolean _isUpperCase = Character.isUpperCase(_charAt);
@@ -292,25 +298,7 @@ public class RulesValidator extends AbstractRulesValidator {
     if (_not) {
       this.error("Identifier should start with a capital", 
         CodeGeneratorModelPackage.Literals.SERVICE__NAME, 
-        RulesValidator.INVALID_NAME);
-    }
-  }
-  
-  @Check
-  public void checkArtifactDontRepeatBasicServices(final Artifact art) {
-    final List<ServiceEnum> services = new ArrayList<ServiceEnum>();
-    EList<ServiceEnum> _basicServices = art.getBasicServices();
-    for (final ServiceEnum service : ((EList<ServiceEnum>) _basicServices)) {
-      boolean _contains = services.contains(service);
-      if (_contains) {
-        String _name = service.getName();
-        String _plus = (_name + " is repeated");
-        this.error(_plus, 
-          CodeGeneratorModelPackage.Literals.ARTIFACT__BASIC_SERVICES, 
-          RulesValidator.REPEATED_SERVICE);
-      } else {
-        services.add(service);
-      }
+        RulesValidator.UPPER_CASE);
     }
   }
   
@@ -320,34 +308,36 @@ public class RulesValidator extends AbstractRulesValidator {
     EList<Artifact> _artifacts = root.getArtifacts();
     final Consumer<Artifact> _function = (Artifact it) -> {
       String _name = it.getName();
-      boolean _contains = names.contains(_name);
+      String _lowerCase = _name.toLowerCase();
+      boolean _contains = names.contains(_lowerCase);
       if (_contains) {
         String _name_1 = it.getName();
         String _plus = ("Name " + _name_1);
         String _plus_1 = (_plus + " is repeated");
-        this.error(_plus_1, 
-          CodeGeneratorModelPackage.Literals.ROOT__ARTIFACTS, 
+        this.error(_plus_1, it, 
+          CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
           RulesValidator.REPEATED_NAME);
       } else {
         String _name_2 = it.getName();
-        String _lowerCase = _name_2.toLowerCase();
-        names.add(_lowerCase);
+        String _lowerCase_1 = _name_2.toLowerCase();
+        names.add(_lowerCase_1);
       }
       EList<Attribute> _attributes = it.getAttributes();
       final Consumer<Attribute> _function_1 = (Attribute it_1) -> {
         String _name_3 = it_1.getName();
-        boolean _contains_1 = names.contains(_name_3);
+        String _lowerCase_2 = _name_3.toLowerCase();
+        boolean _contains_1 = names.contains(_lowerCase_2);
         if (_contains_1) {
           String _name_4 = it_1.getName();
           String _plus_2 = ("Name " + _name_4);
           String _plus_3 = (_plus_2 + " is repeated");
-          this.error(_plus_3, 
-            CodeGeneratorModelPackage.Literals.ROOT__ARTIFACTS, 
+          this.error(_plus_3, it_1, 
+            CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
             RulesValidator.REPEATED_NAME);
         } else {
           String _name_5 = it_1.getName();
-          String _lowerCase_1 = _name_5.toLowerCase();
-          names.add(_lowerCase_1);
+          String _lowerCase_3 = _name_5.toLowerCase();
+          names.add(_lowerCase_3);
         }
       };
       ((EList<Attribute>) _attributes).forEach(_function_1);
@@ -356,34 +346,36 @@ public class RulesValidator extends AbstractRulesValidator {
     EList<Entity> _entities = root.getEntities();
     final Consumer<Entity> _function_1 = (Entity it) -> {
       String _name = it.getName();
-      boolean _contains = names.contains(_name);
+      String _lowerCase = _name.toLowerCase();
+      boolean _contains = names.contains(_lowerCase);
       if (_contains) {
         String _name_1 = it.getName();
         String _plus = ("Name " + _name_1);
         String _plus_1 = (_plus + " is repeated");
-        this.error(_plus_1, 
-          CodeGeneratorModelPackage.Literals.ROOT__ENTITIES, 
+        this.error(_plus_1, it, 
+          CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
           RulesValidator.REPEATED_NAME);
       } else {
         String _name_2 = it.getName();
-        String _lowerCase = _name_2.toLowerCase();
-        names.add(_lowerCase);
+        String _lowerCase_1 = _name_2.toLowerCase();
+        names.add(_lowerCase_1);
       }
       EList<Attribute> _attributes = it.getAttributes();
       final Consumer<Attribute> _function_2 = (Attribute it_1) -> {
         String _name_3 = it_1.getName();
-        boolean _contains_1 = names.contains(_name_3);
+        String _lowerCase_2 = _name_3.toLowerCase();
+        boolean _contains_1 = names.contains(_lowerCase_2);
         if (_contains_1) {
           String _name_4 = it_1.getName();
           String _plus_2 = ("Name " + _name_4);
           String _plus_3 = (_plus_2 + " is repeated");
-          this.error(_plus_3, 
-            CodeGeneratorModelPackage.Literals.ROOT__ENTITIES, 
+          this.error(_plus_3, it_1, 
+            CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
             RulesValidator.REPEATED_NAME);
         } else {
           String _name_5 = it_1.getName();
-          String _lowerCase_1 = _name_5.toLowerCase();
-          names.add(_lowerCase_1);
+          String _lowerCase_3 = _name_5.toLowerCase();
+          names.add(_lowerCase_3);
         }
       };
       ((EList<Attribute>) _attributes).forEach(_function_2);
@@ -392,18 +384,19 @@ public class RulesValidator extends AbstractRulesValidator {
     EList<Service> _services = root.getServices();
     final Consumer<Service> _function_2 = (Service it) -> {
       String _name = it.getName();
-      boolean _contains = names.contains(_name);
+      String _lowerCase = _name.toLowerCase();
+      boolean _contains = names.contains(_lowerCase);
       if (_contains) {
         String _name_1 = it.getName();
         String _plus = ("Name " + _name_1);
         String _plus_1 = (_plus + " is repeated");
-        this.error(_plus_1, 
-          CodeGeneratorModelPackage.Literals.ROOT__SERVICES, 
+        this.error(_plus_1, it, 
+          CodeGeneratorModelPackage.Literals.SERVICE__NAME, 
           RulesValidator.REPEATED_NAME);
       } else {
         String _name_2 = it.getName();
-        String _lowerCase = _name_2.toLowerCase();
-        names.add(_lowerCase);
+        String _lowerCase_1 = _name_2.toLowerCase();
+        names.add(_lowerCase_1);
       }
     };
     ((EList<Service>) _services).forEach(_function_2);
@@ -458,5 +451,105 @@ public class RulesValidator extends AbstractRulesValidator {
       }
     };
     nameVariables.prohibitedNames.forEach(_function);
+  }
+  
+  @Check
+  public void checkToDo(final Artifact artifact) {
+    try {
+      boolean _or = false;
+      EList<ServiceEnum> _basicServices = artifact.getBasicServices();
+      boolean _contains = _basicServices.contains(ServiceEnum.UPDATE);
+      if (_contains) {
+        _or = true;
+      } else {
+        EList<ServiceEnum> _basicServices_1 = artifact.getBasicServices();
+        boolean _contains_1 = _basicServices_1.contains(ServiceEnum.UPLOAD);
+        _or = _contains_1;
+      }
+      if (_or) {
+        Resource _eResource = artifact.eResource();
+        URI _uRI = _eResource.getURI();
+        final String platformString = _uRI.toPlatformString(true);
+        IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+        IWorkspaceRoot _root = _workspace.getRoot();
+        Path _path = new Path(platformString);
+        final IFile rules_file = _root.getFile(_path);
+        final IProject project = rules_file.getProject();
+        String _artifactJsonFileStri = this.names.getArtifactJsonFileStri(artifact);
+        String _plus = ("src/main/java/" + _artifactJsonFileStri);
+        String _plus_1 = (_plus + ".java");
+        Path _path_1 = new Path(_plus_1);
+        final IFile file_json = project.getFile(_path_1);
+        boolean _exists = file_json.exists();
+        if (_exists) {
+          InputStream _contents = file_json.getContents();
+          final Scanner scanner = new Scanner(_contents);
+          int lineNumber = 0;
+          while (scanner.hasNextLine()) {
+            {
+              final String line = scanner.nextLine();
+              lineNumber++;
+              boolean _contains_2 = line.contains("TODO");
+              if (_contains_2) {
+                String _artifactJsonFileStri_1 = this.names.getArtifactJsonFileStri(artifact);
+                String _plus_2 = ("You need to complete Update or Upload methods on package " + _artifactJsonFileStri_1);
+                String _plus_3 = (_plus_2 + " line ");
+                String _plus_4 = (_plus_3 + Integer.valueOf(lineNumber));
+                this.warning(_plus_4, 
+                  CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
+                  RulesValidator.ARTIFACT_TODO);
+              }
+            }
+          }
+          scanner.close();
+        }
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Check
+  public void checkToDo(final SimpleService service) {
+    try {
+      Resource _eResource = service.eResource();
+      URI _uRI = _eResource.getURI();
+      final String platformString = _uRI.toPlatformString(true);
+      IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+      IWorkspaceRoot _root = _workspace.getRoot();
+      Path _path = new Path(platformString);
+      final IFile rules_file = _root.getFile(_path);
+      final IProject project = rules_file.getProject();
+      String _serviceFileStri = this.names.getServiceFileStri(service);
+      String _plus = ("src/main/java/" + _serviceFileStri);
+      String _plus_1 = (_plus + ".java");
+      Path _path_1 = new Path(_plus_1);
+      final IFile file_json = project.getFile(_path_1);
+      boolean _exists = file_json.exists();
+      if (_exists) {
+        InputStream _contents = file_json.getContents();
+        final Scanner scanner = new Scanner(_contents);
+        int lineNumber = 0;
+        while (scanner.hasNextLine()) {
+          {
+            final String line = scanner.nextLine();
+            lineNumber++;
+            boolean _contains = line.contains("TODO");
+            if (_contains) {
+              String _serviceFileStri_1 = this.names.getServiceFileStri(service);
+              String _plus_2 = ("You need to complete Update or Upload methods on package " + _serviceFileStri_1);
+              String _plus_3 = (_plus_2 + " line ");
+              String _plus_4 = (_plus_3 + Integer.valueOf(lineNumber));
+              this.warning(_plus_4, 
+                CodeGeneratorModelPackage.Literals.SERVICE__NAME, 
+                RulesValidator.SERVICE_TODO);
+            }
+          }
+        }
+        scanner.close();
+      }
+    } catch (Throwable _e) {
+      throw Exceptions.sneakyThrow(_e);
+    }
   }
 }

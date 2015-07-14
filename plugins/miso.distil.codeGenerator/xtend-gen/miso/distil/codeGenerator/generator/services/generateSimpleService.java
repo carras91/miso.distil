@@ -245,7 +245,7 @@ public class generateSimpleService {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("// Create the input objects to your service and use (or not) the artifacts");
+    _builder.append("// TODO : Create the input objects to your service and use (or not) the artifacts");
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t\t");
@@ -333,6 +333,9 @@ public class generateSimpleService {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.append("\t\t");
+    _builder.append("// TODO : do something!");
+    _builder.newLine();
     {
       EList<AbstractEntity> _input_4 = simpleService.getInput();
       boolean _isEmpty_2 = _input_4.isEmpty();

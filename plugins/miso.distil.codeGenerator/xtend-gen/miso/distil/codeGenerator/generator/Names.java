@@ -347,6 +347,11 @@ public class Names {
     return (_plus + _artifactJson);
   }
   
+  public String getArtifactJsonFileStri2(final Artifact artifact) {
+    String _artifactJsonFileStri = this.getArtifactJsonFileStri(artifact);
+    return _artifactJsonFileStri.replace("/", "\\");
+  }
+  
   public CharSequence getArtifactJsonFileChar(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
     CharSequence _artifactChar = this.getArtifactChar(artifact);

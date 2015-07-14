@@ -14,12 +14,16 @@ import codeGeneratorModel.MultiAttribute
 import java.util.List
 import java.util.ArrayList
 import codeGeneratorModel.Service
-import codeGeneratorModel.ServiceEnum
 import org.eclipse.emf.common.util.EList
 import codeGeneratorModel.MultiService
 import codeGeneratorModel.SimpleService
 import org.eclipse.emf.common.util.BasicEList
 import codeGeneratorModel.OnService
+import codeGeneratorModel.ServiceEnum
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.Path
+import com.google.inject.Inject
+import java.util.Scanner
 
 //import org.eclipse.xtext.validation.Check
 
@@ -32,14 +36,18 @@ import codeGeneratorModel.OnService
  */
 class RulesValidator extends AbstractRulesValidator {
 
-	public static val INVALID_NAME = 'invalidName'
+	public static val LOWER_CASE = 'lowerCase' //
+	public static val UPPER_CASE = 'upperCase' //
   	public static val REPEATED_NAME = 'repeatedName'
-  	public static val REPEATED_SERVICE = 'repeatedService'
   	public static val INPUT_WRONG = 'wrongInput'
-  	public static val INVALID_ATTR = 'invalidAttribute'
   	public static val PROHIBITED_NAME= 'prohibitedName'
-  	public static val PROHIBITED_REFERENCE= 'prohibitedReference'
-  	public static val EMPTY_CLASS = 'emptyObject'
+  	public static val PROHIBITED_REFERENCE= 'prohibitedReference' //
+  	public static val RECURSIVE_REFERENCE= 'recursiveReference'
+  	public static val ARTIFACT_TODO = 'artifactToDo'
+  	public static val SERVICE_TODO = 'serviceToDo'
+  	
+  	@Inject 
+	private miso.distil.codeGenerator.generator.Names names
   	
 	@Check
 	// Los OnService deben referenciar artifacts que tengan, al menos, los servicios definidos en whenServices
@@ -54,47 +62,40 @@ class RulesValidator extends AbstractRulesValidator {
 			}
 		]
 	}
-	
-	@Check
-	// Los OnService no pueden tener whenServices repetidos
-	def chechOnServiceRepeated(OnService onSer) {
-		onSer.whenServices.forEach[
-			if(onSer.whenServices.lastIndexOf(it) != onSer.whenServices.indexOf(it)) {
-				error('Option ' + it.toString + ' is repeated on positions ' + onSer.whenServices.indexOf(it) + ' and ' + onSer.whenServices.lastIndexOf(it),
-					CodeGeneratorModelPackage.Literals.ON_SERVICE__WHEN_SERVICES,
-					REPEATED_SERVICE)
-			}
-		]
-	}
 
 	@Check
 	// Las entitys no pueden estar encadenadas recursivamente
 	def checkMultiAttNotRecursive(Entity ent) {
-		var EList<MultiAttribute> atts = getAllNestedMultiAtts(ent.attributes)
-		for(att : atts) {
-			if(att.type.name.equalsIgnoreCase(ent.name)) {
-				error('This entity contains ' + att.name + ', who contains this entity',
-					CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
-					PROHIBITED_REFERENCE)
+		for(Attribute att : ent.attributes) {
+			if(att instanceof MultiAttribute) {
+				if(att.type.attributes.lookForRepeated(ent.name)) {
+					error('This entity contains ' + att.name + ', who contains this entity',
+						CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
+						RECURSIVE_REFERENCE)
+				}
 			}
 		}
 	}
 	
-	def private EList<MultiAttribute> getAllNestedMultiAtts(EList<Attribute> atts) {
-		val EList<MultiAttribute> list = new BasicEList<MultiAttribute>()
-		atts.forEach[
-			if(it instanceof MultiAttribute) {
-				list.addAll(it.type.attributes.getAllNestedMultiAtts)		
-				list.add(it)	
+	def private Boolean lookForRepeated(EList<Attribute> atts, String name) {
+		for(Attribute att : atts) {
+			if(att instanceof MultiAttribute) {
+				if(att.type.name.equalsIgnoreCase(name)) {
+					return true;
+				} else {
+					if(att.type.attributes.lookForRepeated(name)) {
+						return true;
+					}
+				}
 			}
-		]
-		return list
+		}
+		return false;
 	}
 
 	@Check
 	// Los servicios de un MultiService deben tener entradas y salidas exactas
 	def checkMultiServiceParameters(MultiService mulSer) {
-		if(!mulSer.parallel) {
+		if(!mulSer.parallel && !mulSer.services.empty) {
 			var EList<AbstractEntity> out = (mulSer.services.get(0) as Service).output
 			for(var int j = 1; j < mulSer.services.size; j++) {
 				var service = (mulSer.services as EList<Service>).get(j)
@@ -157,7 +158,7 @@ class RulesValidator extends AbstractRulesValidator {
 		if (!Character.isUpperCase(ent.name.charAt(0))) {
 			error('Identifier should start with a capital', 
 				CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
-				INVALID_NAME)
+				UPPER_CASE)
 		}
 	}
 	
@@ -167,42 +168,17 @@ class RulesValidator extends AbstractRulesValidator {
 		if (!Character.isLowerCase(att.name.charAt(0))) {
 			error('Identifier should start with a low case', 
 				CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
-				INVALID_NAME)
+				LOWER_CASE)
 		}
 	}
-	
-//	@Check
-//	// Las referencias deben comenzar por minuscula
-//	def checkReferenceStartsWithLower(Reference ref) {	
-//		if (!Character.isLowerCase(ref.name.charAt(0))) {
-//			error('Identifier should start with a low case', 
-//				CodeGeneratorModelPackage.Literals.REFERENCE__NAME,
-//				INVALID_NAME)
-//		}
-//	}
 	
 	@Check
 	// Los servicios deben comenzar por mayuscula
-	def checkServiceStartsWithLower(Service ser) {	
+	def checkServiceStartsWithCapital(Service ser) {	
 		if (!Character.isUpperCase(ser.name.charAt(0))) {
 			error('Identifier should start with a capital', 
 				CodeGeneratorModelPackage.Literals.SERVICE__NAME,
-				INVALID_NAME)
-		}
-	}
-		
-	@Check
-	// Los artifact no pueden repetir servicios basicos
-	def checkArtifactDontRepeatBasicServices(Artifact  art) {
-		val List<ServiceEnum> services = new ArrayList<ServiceEnum>()
-		for(service : art.basicServices as EList<ServiceEnum>) {
-			if(services.contains(service)) {
-				error(service.getName + ' is repeated',
-					CodeGeneratorModelPackage.Literals.ARTIFACT__BASIC_SERVICES,
-					REPEATED_SERVICE)
-			} else {
-				services.add(service)
-			}
+				UPPER_CASE)
 		}
 	}
 	
@@ -212,28 +188,20 @@ class RulesValidator extends AbstractRulesValidator {
 		val List<String> names = new ArrayList<String>()
 		
 		(root.artifacts as EList<Artifact>).forEach[
-			if(names.contains(it.name)) {
+			if(names.contains(it.name.toLowerCase)) {
 				error('Name ' + it.name + ' is repeated',
-					CodeGeneratorModelPackage.Literals.ROOT__ARTIFACTS,
+					it,
+					CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
 					REPEATED_NAME)
 			} else {
 				names.add(it.name.toLowerCase)
 			}
 			
-//			(it.references as EList<Reference>).forEach[
-//				if(names.contains(it.name)) {
-//					error('Name ' + it.name + ' is repeated',
-//						CodeGeneratorModelPackage.Literals.ROOT__ARTIFACTS,
-//						REPEATED_NAME)
-//				} else {
-//					names.add(it.name.toLowerCase)
-//				}
-//			]
-			
 			(it.attributes as EList<Attribute>).forEach[
-				if(names.contains(it.name)) {
+				if(names.contains(it.name.toLowerCase)) {
 					error('Name ' + it.name + ' is repeated',
-						CodeGeneratorModelPackage.Literals.ROOT__ARTIFACTS,
+					it,
+						CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
 						REPEATED_NAME)
 				} else {
 					names.add(it.name.toLowerCase)
@@ -242,18 +210,20 @@ class RulesValidator extends AbstractRulesValidator {
 		]
 		
 		(root.entities as EList<Entity>).forEach[
-			if(names.contains(it.name)) {
+			if(names.contains(it.name.toLowerCase)) {
 				error('Name ' + it.name + ' is repeated',
-					CodeGeneratorModelPackage.Literals.ROOT__ENTITIES,
+					it,
+					CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
 					REPEATED_NAME)
 			} else {
 				names.add(it.name.toLowerCase)
 			}
 			
 			(it.attributes as EList<Attribute>).forEach[
-				if(names.contains(it.name)) {
+				if(names.contains(it.name.toLowerCase)) {
 					error('Name ' + it.name + ' is repeated',
-						CodeGeneratorModelPackage.Literals.ROOT__ENTITIES,
+					it,
+						CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
 						REPEATED_NAME)
 				} else {
 					names.add(it.name.toLowerCase)
@@ -262,9 +232,10 @@ class RulesValidator extends AbstractRulesValidator {
 		]
 		
 		(root.services as EList<Service>).forEach[
-			if(names.contains(it.name)) {
+			if(names.contains(it.name.toLowerCase)) {
 				error('Name ' + it.name + ' is repeated',
-					CodeGeneratorModelPackage.Literals.ROOT__SERVICES,
+					it,
+					CodeGeneratorModelPackage.Literals.SERVICE__NAME,
 					REPEATED_NAME)
 			} else {
 				names.add(it.name.toLowerCase)
@@ -297,18 +268,6 @@ class RulesValidator extends AbstractRulesValidator {
 		]
 	}
 	
-//	@Check
-//	// Las referenciasno pueden tener ciertos nombres que ya se usan durante la generacion de codigo
-//	def checkNamesReferenceNotProhibited(Reference ref) {
-//		nameVariables.prohibitedNames.forEach[
-//			if(ref.name.equalsIgnoreCase(it)) {
-//				error('Name ' + ref.name + ' is prohibited',
-//					CodeGeneratorModelPackage.Literals.REFERENCE__NAME,
-//					PROHIBITED_NAME)
-//			}
-//		]
-//	}
-	
 	@Check
 	// Los servicios no pueden tener ciertos nombres que ya se usan durante la generacion de codigo
 	def checkNamesServiceNotProhibited(Service ser) {
@@ -320,4 +279,54 @@ class RulesValidator extends AbstractRulesValidator {
 			}
 		]
 	}
+	
+	@Check
+	// Las funciones Upload y Update (si existen) deben completarse (TODO)
+	def checkToDo(Artifact artifact) {
+		if(artifact.getBasicServices().contains(ServiceEnum.UPDATE) || artifact.getBasicServices().contains(ServiceEnum.UPLOAD)) {
+			val platformString = artifact.eResource.URI.toPlatformString(true)
+			val rules_file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformString))
+			val project = rules_file.project
+			val file_json = project.getFile(new Path("src/main/java/" + names.getArtifactJsonFileStri(artifact) + ".java"))
+			if(file_json.exists)
+			{
+				val scanner = new Scanner(file_json.contents)
+				var int lineNumber = 0
+				while(scanner.hasNextLine) {
+					val line = scanner.nextLine
+					lineNumber++
+					if(line.contains("TODO")) {
+						warning("You need to complete Update or Upload methods on package " + names.getArtifactJsonFileStri(artifact) + " line " + lineNumber,
+		        			CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
+		       				ARTIFACT_TODO)
+					}
+				}
+				scanner.close
+			}
+		}
+    }
+    
+    @Check
+	// Las funciones de service deben completarse (TODO)
+	def checkToDo(SimpleService service) {
+		val platformString = service.eResource.URI.toPlatformString(true)
+		val rules_file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformString))
+		val project = rules_file.project
+		val file_json = project.getFile(new Path("src/main/java/" + names.getServiceFileStri(service) + ".java"))
+		if(file_json.exists)
+		{
+			val scanner = new Scanner(file_json.contents)
+			var int lineNumber = 0
+			while(scanner.hasNextLine) {
+				val line = scanner.nextLine
+				lineNumber++
+				if(line.contains("TODO")) {
+					warning("You need to complete Update or Upload methods on package " + names.getServiceFileStri(service) + " line " + lineNumber,
+	        			CodeGeneratorModelPackage.Literals.SERVICE__NAME,
+	       				SERVICE_TODO)
+				}
+			}
+			scanner.close
+		}
+	} 
 }

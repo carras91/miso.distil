@@ -108,6 +108,7 @@ class Names {
 	def private getArtifactJson(Artifact artifact) { return artifact.name + "Json"}
 	// miso/distil/ejemploServices/EjemploJson.java
 	def getArtifactJsonFileStri(Artifact artifact) { return artifact.artifactStri + "/" + artifact.artifactJson }
+	def getArtifactJsonFileStri2(Artifact artifact) { return getArtifactJsonFileStri(artifact).replace("/","\\") }
 	def getArtifactJsonFileChar(Artifact artifact) '''«artifact.artifactChar».«artifact.artifactJson»'''
 	
 	// CustomEjemploHtml.java
