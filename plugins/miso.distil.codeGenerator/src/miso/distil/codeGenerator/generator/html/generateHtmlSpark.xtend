@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList
  */
 class generateHtmlSpark { 
 	
+	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
@@ -20,7 +21,7 @@ class generateHtmlSpark {
 	 * @author Carlos Carrascal
 	 */		
 	def write(Artifact artifact) '''
-		«var EList<ServiceEnum> basicServices = artifact.basicServices»
+		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
 		«val name = artifact.name»
 		«val namelow = name.toLowerCase»
 		package «names.getHtmlChar(artifact)»;

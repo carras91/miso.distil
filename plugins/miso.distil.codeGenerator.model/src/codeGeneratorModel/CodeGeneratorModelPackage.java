@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EReference;
  * <ul>
  *   <li>each class,</li>
  *   <li>each feature of each class,</li>
+ *   <li>each operation of each class,</li>
  *   <li>each enum,</li>
  *   <li>and each data type</li>
  * </ul>
@@ -250,13 +251,22 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int ATTRIBUTE__NAME = 0;
 
 	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ATTRIBUTE__MANY = 1;
+
+	/**
 	 * The number of structural features of the '<em>Attribute</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ATTRIBUTE_FEATURE_COUNT = 1;
+	int ATTRIBUTE_FEATURE_COUNT = 2;
 
 	/**
 	 * The number of operations of the '<em>Attribute</em>' class.
@@ -268,14 +278,14 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int ATTRIBUTE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link codeGeneratorModel.impl.SimpleAttributeImpl <em>Simple Attribute</em>}' class.
+	 * The meta object id for the '{@link codeGeneratorModel.impl.PrimitiveImpl <em>Primitive</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see codeGeneratorModel.impl.SimpleAttributeImpl
-	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getSimpleAttribute()
+	 * @see codeGeneratorModel.impl.PrimitiveImpl
+	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getPrimitive()
 	 * @generated
 	 */
-	int SIMPLE_ATTRIBUTE = 4;
+	int PRIMITIVE = 4;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -284,7 +294,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
+	int PRIMITIVE__NAME = ATTRIBUTE__NAME;
 
 	/**
 	 * The feature id for the '<em><b>Many</b></em>' attribute.
@@ -293,16 +303,16 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ATTRIBUTE__MANY = ATTRIBUTE_FEATURE_COUNT + 0;
+	int PRIMITIVE__MANY = ATTRIBUTE__MANY;
 
 	/**
-	 * The feature id for the '<em><b>Data</b></em>' attribute.
+	 * The feature id for the '<em><b>Type</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ATTRIBUTE__DATA = ATTRIBUTE_FEATURE_COUNT + 1;
+	int PRIMITIVE__TYPE = ATTRIBUTE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Required</b></em>' attribute.
@@ -311,25 +321,25 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ATTRIBUTE__REQUIRED = ATTRIBUTE_FEATURE_COUNT + 2;
+	int PRIMITIVE__REQUIRED = ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of structural features of the '<em>Simple Attribute</em>' class.
+	 * The number of structural features of the '<em>Primitive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 3;
+	int PRIMITIVE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 2;
 
 	/**
-	 * The number of operations of the '<em>Simple Attribute</em>' class.
+	 * The number of operations of the '<em>Primitive</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SIMPLE_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+	int PRIMITIVE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link codeGeneratorModel.impl.EntityImpl <em>Entity</em>}' class.
@@ -452,7 +462,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int SIMPLE_SERVICE__WHEN = SERVICE__WHEN;
 
 	/**
-	 * The feature id for the '<em><b>Input</b></em>' reference list.
+	 * The feature id for the '<em><b>Input</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -461,7 +471,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int SIMPLE_SERVICE__INPUT = SERVICE_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Output</b></em>' reference list.
+	 * The feature id for the '<em><b>Output</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -598,14 +608,14 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int ON_SERVICE_OPERATION_COUNT = 0;
 
 	/**
-	 * The meta object id for the '{@link codeGeneratorModel.impl.MultiAttributeImpl <em>Multi Attribute</em>}' class.
+	 * The meta object id for the '{@link codeGeneratorModel.impl.ReferenceImpl <em>Reference</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see codeGeneratorModel.impl.MultiAttributeImpl
-	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getMultiAttribute()
+	 * @see codeGeneratorModel.impl.ReferenceImpl
+	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getReference()
 	 * @generated
 	 */
-	int MULTI_ATTRIBUTE = 10;
+	int REFERENCE = 10;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -614,7 +624,16 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_ATTRIBUTE__NAME = ATTRIBUTE__NAME;
+	int REFERENCE__NAME = ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REFERENCE__MANY = ATTRIBUTE__MANY;
 
 	/**
 	 * The feature id for the '<em><b>Type</b></em>' reference.
@@ -623,25 +642,135 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_ATTRIBUTE__TYPE = ATTRIBUTE_FEATURE_COUNT + 0;
+	int REFERENCE__TYPE = ATTRIBUTE_FEATURE_COUNT + 0;
 
 	/**
-	 * The number of structural features of the '<em>Multi Attribute</em>' class.
+	 * The number of structural features of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_ATTRIBUTE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+	int REFERENCE_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
 
 	/**
-	 * The number of operations of the '<em>Multi Attribute</em>' class.
+	 * The number of operations of the '<em>Reference</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int MULTI_ATTRIBUTE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+	int REFERENCE_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link codeGeneratorModel.impl.InoutImpl <em>Inout</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see codeGeneratorModel.impl.InoutImpl
+	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getInout()
+	 * @generated
+	 */
+	int INOUT = 11;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INOUT__MANY = 0;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INOUT__TYPE = 1;
+
+	/**
+	 * The feature id for the '<em><b>Compatibility</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INOUT__COMPATIBILITY = 2;
+
+	/**
+	 * The number of structural features of the '<em>Inout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INOUT_FEATURE_COUNT = 3;
+
+	/**
+	 * The number of operations of the '<em>Inout</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INOUT_OPERATION_COUNT = 0;
+
+	/**
+	 * The meta object id for the '{@link codeGeneratorModel.impl.ArtifactIDImpl <em>Artifact ID</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see codeGeneratorModel.impl.ArtifactIDImpl
+	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getArtifactID()
+	 * @generated
+	 */
+	int ARTIFACT_ID = 12;
+
+	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_ID__NAME = ATTRIBUTE__NAME;
+
+	/**
+	 * The feature id for the '<em><b>Many</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_ID__MANY = ATTRIBUTE__MANY;
+
+	/**
+	 * The feature id for the '<em><b>Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_ID__TYPE = ATTRIBUTE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>Artifact ID</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_ID_FEATURE_COUNT = ATTRIBUTE_FEATURE_COUNT + 1;
+
+	/**
+	 * The number of operations of the '<em>Artifact ID</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARTIFACT_ID_OPERATION_COUNT = ATTRIBUTE_OPERATION_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link codeGeneratorModel.DataEnum <em>Data Enum</em>}' enum.
@@ -651,7 +780,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getDataEnum()
 	 * @generated
 	 */
-	int DATA_ENUM = 11;
+	int DATA_ENUM = 13;
 
 	/**
 	 * The meta object id for the '{@link codeGeneratorModel.FormatEnum <em>Format Enum</em>}' enum.
@@ -661,7 +790,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getFormatEnum()
 	 * @generated
 	 */
-	int FORMAT_ENUM = 12;
+	int FORMAT_ENUM = 14;
 
 	/**
 	 * The meta object id for the '{@link codeGeneratorModel.ServiceEnum <em>Service Enum</em>}' enum.
@@ -671,7 +800,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getServiceEnum()
 	 * @generated
 	 */
-	int SERVICE_ENUM = 13;
+	int SERVICE_ENUM = 15;
 
 
 	/**
@@ -814,47 +943,47 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	EAttribute getAttribute_Name();
 
 	/**
-	 * Returns the meta object for class '{@link codeGeneratorModel.SimpleAttribute <em>Simple Attribute</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Simple Attribute</em>'.
-	 * @see codeGeneratorModel.SimpleAttribute
-	 * @generated
-	 */
-	EClass getSimpleAttribute();
-
-	/**
-	 * Returns the meta object for the attribute '{@link codeGeneratorModel.SimpleAttribute#isMany <em>Many</em>}'.
+	 * Returns the meta object for the attribute '{@link codeGeneratorModel.Attribute#isMany <em>Many</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Many</em>'.
-	 * @see codeGeneratorModel.SimpleAttribute#isMany()
-	 * @see #getSimpleAttribute()
+	 * @see codeGeneratorModel.Attribute#isMany()
+	 * @see #getAttribute()
 	 * @generated
 	 */
-	EAttribute getSimpleAttribute_Many();
+	EAttribute getAttribute_Many();
 
 	/**
-	 * Returns the meta object for the attribute '{@link codeGeneratorModel.SimpleAttribute#getData <em>Data</em>}'.
+	 * Returns the meta object for class '{@link codeGeneratorModel.Primitive <em>Primitive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Data</em>'.
-	 * @see codeGeneratorModel.SimpleAttribute#getData()
-	 * @see #getSimpleAttribute()
+	 * @return the meta object for class '<em>Primitive</em>'.
+	 * @see codeGeneratorModel.Primitive
 	 * @generated
 	 */
-	EAttribute getSimpleAttribute_Data();
+	EClass getPrimitive();
 
 	/**
-	 * Returns the meta object for the attribute '{@link codeGeneratorModel.SimpleAttribute#isRequired <em>Required</em>}'.
+	 * Returns the meta object for the attribute '{@link codeGeneratorModel.Primitive#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Type</em>'.
+	 * @see codeGeneratorModel.Primitive#getType()
+	 * @see #getPrimitive()
+	 * @generated
+	 */
+	EAttribute getPrimitive_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link codeGeneratorModel.Primitive#isRequired <em>Required</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the attribute '<em>Required</em>'.
-	 * @see codeGeneratorModel.SimpleAttribute#isRequired()
-	 * @see #getSimpleAttribute()
+	 * @see codeGeneratorModel.Primitive#isRequired()
+	 * @see #getPrimitive()
 	 * @generated
 	 */
-	EAttribute getSimpleAttribute_Required();
+	EAttribute getPrimitive_Required();
 
 	/**
 	 * Returns the meta object for class '{@link codeGeneratorModel.Entity <em>Entity</em>}'.
@@ -877,10 +1006,10 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	EClass getSimpleService();
 
 	/**
-	 * Returns the meta object for the reference list '{@link codeGeneratorModel.SimpleService#getInput <em>Input</em>}'.
+	 * Returns the meta object for the containment reference list '{@link codeGeneratorModel.SimpleService#getInput <em>Input</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Input</em>'.
+	 * @return the meta object for the containment reference list '<em>Input</em>'.
 	 * @see codeGeneratorModel.SimpleService#getInput()
 	 * @see #getSimpleService()
 	 * @generated
@@ -888,10 +1017,10 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	EReference getSimpleService_Input();
 
 	/**
-	 * Returns the meta object for the reference list '{@link codeGeneratorModel.SimpleService#getOutput <em>Output</em>}'.
+	 * Returns the meta object for the containment reference list '{@link codeGeneratorModel.SimpleService#getOutput <em>Output</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Output</em>'.
+	 * @return the meta object for the containment reference list '<em>Output</em>'.
 	 * @see codeGeneratorModel.SimpleService#getOutput()
 	 * @see #getSimpleService()
 	 * @generated
@@ -995,25 +1124,89 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	EAttribute getOnService_WhenServices();
 
 	/**
-	 * Returns the meta object for class '{@link codeGeneratorModel.MultiAttribute <em>Multi Attribute</em>}'.
+	 * Returns the meta object for class '{@link codeGeneratorModel.Reference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Multi Attribute</em>'.
-	 * @see codeGeneratorModel.MultiAttribute
+	 * @return the meta object for class '<em>Reference</em>'.
+	 * @see codeGeneratorModel.Reference
 	 * @generated
 	 */
-	EClass getMultiAttribute();
+	EClass getReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link codeGeneratorModel.MultiAttribute#getType <em>Type</em>}'.
+	 * Returns the meta object for the reference '{@link codeGeneratorModel.Reference#getType <em>Type</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the reference '<em>Type</em>'.
-	 * @see codeGeneratorModel.MultiAttribute#getType()
-	 * @see #getMultiAttribute()
+	 * @see codeGeneratorModel.Reference#getType()
+	 * @see #getReference()
 	 * @generated
 	 */
-	EReference getMultiAttribute_Type();
+	EReference getReference_Type();
+
+	/**
+	 * Returns the meta object for class '{@link codeGeneratorModel.Inout <em>Inout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Inout</em>'.
+	 * @see codeGeneratorModel.Inout
+	 * @generated
+	 */
+	EClass getInout();
+
+	/**
+	 * Returns the meta object for the attribute '{@link codeGeneratorModel.Inout#isMany <em>Many</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Many</em>'.
+	 * @see codeGeneratorModel.Inout#isMany()
+	 * @see #getInout()
+	 * @generated
+	 */
+	EAttribute getInout_Many();
+
+	/**
+	 * Returns the meta object for the reference '{@link codeGeneratorModel.Inout#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see codeGeneratorModel.Inout#getType()
+	 * @see #getInout()
+	 * @generated
+	 */
+	EReference getInout_Type();
+
+	/**
+	 * Returns the meta object for the attribute '{@link codeGeneratorModel.Inout#getCompatibility <em>Compatibility</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Compatibility</em>'.
+	 * @see codeGeneratorModel.Inout#getCompatibility()
+	 * @see #getInout()
+	 * @generated
+	 */
+	EAttribute getInout_Compatibility();
+
+	/**
+	 * Returns the meta object for class '{@link codeGeneratorModel.ArtifactID <em>Artifact ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Artifact ID</em>'.
+	 * @see codeGeneratorModel.ArtifactID
+	 * @generated
+	 */
+	EClass getArtifactID();
+
+	/**
+	 * Returns the meta object for the reference '{@link codeGeneratorModel.ArtifactID#getType <em>Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Type</em>'.
+	 * @see codeGeneratorModel.ArtifactID#getType()
+	 * @see #getArtifactID()
+	 * @generated
+	 */
+	EReference getArtifactID_Type();
 
 	/**
 	 * Returns the meta object for enum '{@link codeGeneratorModel.DataEnum <em>Data Enum</em>}'.
@@ -1060,6 +1253,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	 * <ul>
 	 *   <li>each class,</li>
 	 *   <li>each feature of each class,</li>
+	 *   <li>each operation of each class,</li>
 	 *   <li>each enum,</li>
 	 *   <li>and each data type</li>
 	 * </ul>
@@ -1180,30 +1374,30 @@ public interface CodeGeneratorModelPackage extends EPackage {
 		EAttribute ATTRIBUTE__NAME = eINSTANCE.getAttribute_Name();
 
 		/**
-		 * The meta object literal for the '{@link codeGeneratorModel.impl.SimpleAttributeImpl <em>Simple Attribute</em>}' class.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @see codeGeneratorModel.impl.SimpleAttributeImpl
-		 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getSimpleAttribute()
-		 * @generated
-		 */
-		EClass SIMPLE_ATTRIBUTE = eINSTANCE.getSimpleAttribute();
-
-		/**
 		 * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SIMPLE_ATTRIBUTE__MANY = eINSTANCE.getSimpleAttribute_Many();
+		EAttribute ATTRIBUTE__MANY = eINSTANCE.getAttribute_Many();
 
 		/**
-		 * The meta object literal for the '<em><b>Data</b></em>' attribute feature.
+		 * The meta object literal for the '{@link codeGeneratorModel.impl.PrimitiveImpl <em>Primitive</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see codeGeneratorModel.impl.PrimitiveImpl
+		 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getPrimitive()
+		 * @generated
+		 */
+		EClass PRIMITIVE = eINSTANCE.getPrimitive();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' attribute feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SIMPLE_ATTRIBUTE__DATA = eINSTANCE.getSimpleAttribute_Data();
+		EAttribute PRIMITIVE__TYPE = eINSTANCE.getPrimitive_Type();
 
 		/**
 		 * The meta object literal for the '<em><b>Required</b></em>' attribute feature.
@@ -1211,7 +1405,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute SIMPLE_ATTRIBUTE__REQUIRED = eINSTANCE.getSimpleAttribute_Required();
+		EAttribute PRIMITIVE__REQUIRED = eINSTANCE.getPrimitive_Required();
 
 		/**
 		 * The meta object literal for the '{@link codeGeneratorModel.impl.EntityImpl <em>Entity</em>}' class.
@@ -1234,7 +1428,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 		EClass SIMPLE_SERVICE = eINSTANCE.getSimpleService();
 
 		/**
-		 * The meta object literal for the '<em><b>Input</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Input</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1242,7 +1436,7 @@ public interface CodeGeneratorModelPackage extends EPackage {
 		EReference SIMPLE_SERVICE__INPUT = eINSTANCE.getSimpleService_Input();
 
 		/**
-		 * The meta object literal for the '<em><b>Output</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Output</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -1328,14 +1522,14 @@ public interface CodeGeneratorModelPackage extends EPackage {
 		EAttribute ON_SERVICE__WHEN_SERVICES = eINSTANCE.getOnService_WhenServices();
 
 		/**
-		 * The meta object literal for the '{@link codeGeneratorModel.impl.MultiAttributeImpl <em>Multi Attribute</em>}' class.
+		 * The meta object literal for the '{@link codeGeneratorModel.impl.ReferenceImpl <em>Reference</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see codeGeneratorModel.impl.MultiAttributeImpl
-		 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getMultiAttribute()
+		 * @see codeGeneratorModel.impl.ReferenceImpl
+		 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getReference()
 		 * @generated
 		 */
-		EClass MULTI_ATTRIBUTE = eINSTANCE.getMultiAttribute();
+		EClass REFERENCE = eINSTANCE.getReference();
 
 		/**
 		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
@@ -1343,7 +1537,59 @@ public interface CodeGeneratorModelPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference MULTI_ATTRIBUTE__TYPE = eINSTANCE.getMultiAttribute_Type();
+		EReference REFERENCE__TYPE = eINSTANCE.getReference_Type();
+
+		/**
+		 * The meta object literal for the '{@link codeGeneratorModel.impl.InoutImpl <em>Inout</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see codeGeneratorModel.impl.InoutImpl
+		 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getInout()
+		 * @generated
+		 */
+		EClass INOUT = eINSTANCE.getInout();
+
+		/**
+		 * The meta object literal for the '<em><b>Many</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INOUT__MANY = eINSTANCE.getInout_Many();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference INOUT__TYPE = eINSTANCE.getInout_Type();
+
+		/**
+		 * The meta object literal for the '<em><b>Compatibility</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute INOUT__COMPATIBILITY = eINSTANCE.getInout_Compatibility();
+
+		/**
+		 * The meta object literal for the '{@link codeGeneratorModel.impl.ArtifactIDImpl <em>Artifact ID</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see codeGeneratorModel.impl.ArtifactIDImpl
+		 * @see codeGeneratorModel.impl.CodeGeneratorModelPackageImpl#getArtifactID()
+		 * @generated
+		 */
+		EClass ARTIFACT_ID = eINSTANCE.getArtifactID();
+
+		/**
+		 * The meta object literal for the '<em><b>Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference ARTIFACT_ID__TYPE = eINSTANCE.getArtifactID_Type();
 
 		/**
 		 * The meta object literal for the '{@link codeGeneratorModel.DataEnum <em>Data Enum</em>}' enum.

@@ -1,11 +1,12 @@
 package miso.distil.codeGenerator.generator.custom;
 
 import codeGeneratorModel.Artifact;
+import codeGeneratorModel.ArtifactID;
 import codeGeneratorModel.Attribute;
 import codeGeneratorModel.DataEnum;
-import codeGeneratorModel.MultiAttribute;
+import codeGeneratorModel.Primitive;
+import codeGeneratorModel.Reference;
 import codeGeneratorModel.ServiceEnum;
-import codeGeneratorModel.SimpleAttribute;
 import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
@@ -34,7 +35,8 @@ public class generateJson {
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
-    EList<ServiceEnum> basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> _basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> basicServices = this.genUti.processBasicServices(_basicServices);
     _builder.newLineIfNotEmpty();
     EList<Attribute> atts = artifact.getAttributes();
     _builder.newLineIfNotEmpty();
@@ -58,8 +60,6 @@ public class generateJson {
       boolean _contains = basicServices.contains(ServiceEnum.UPLOAD);
       if (_contains) {
         _builder.append("import java.io.IOException;");
-        _builder.newLine();
-        _builder.append("import java.util.List;");
         _builder.newLine();
       }
     }
@@ -94,6 +94,77 @@ public class generateJson {
         _or_1 = _contains_5;
       }
       if (_or_1) {
+        boolean list = false;
+        _builder.newLineIfNotEmpty();
+        {
+          for(final Attribute att : allAtts) {
+            Object _xblockexpression = null;
+            {
+              pos = 0;
+              _xblockexpression = null;
+            }
+            _builder.append(_xblockexpression, "");
+            _builder.newLineIfNotEmpty();
+            {
+              if ((att instanceof Primitive)) {
+                {
+                  boolean _and = false;
+                  boolean _and_1 = false;
+                  boolean _isRequired = ((Primitive)att).isRequired();
+                  boolean _not = (!_isRequired);
+                  if (!_not) {
+                    _and_1 = false;
+                  } else {
+                    boolean _isMany = ((Primitive)att).isMany();
+                    _and_1 = _isMany;
+                  }
+                  if (!_and_1) {
+                    _and = false;
+                  } else {
+                    _and = (!list);
+                  }
+                  if (_and) {
+                    Object _xblockexpression_1 = null;
+                    {
+                      list = true;
+                      _xblockexpression_1 = null;
+                    }
+                    _builder.append(_xblockexpression_1, "");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("import java.util.List;");
+                    _builder.newLine();
+                  }
+                }
+              }
+            }
+            {
+              boolean _and_2 = false;
+              boolean _and_3 = false;
+              if (!(att instanceof ArtifactID)) {
+                _and_3 = false;
+              } else {
+                boolean _isMany_1 = att.isMany();
+                _and_3 = _isMany_1;
+              }
+              if (!_and_3) {
+                _and_2 = false;
+              } else {
+                _and_2 = (!list);
+              }
+              if (_and_2) {
+                Object _xblockexpression_2 = null;
+                {
+                  list = true;
+                  _xblockexpression_2 = null;
+                }
+                _builder.append(_xblockexpression_2, "");
+                _builder.newLineIfNotEmpty();
+                _builder.append("import java.util.List;");
+                _builder.newLine();
+              }
+            }
+          }
+        }
         _builder.newLine();
         _builder.append("import spark.Request;");
         _builder.newLine();
@@ -128,10 +199,45 @@ public class generateJson {
         _builder.append(this.names.MisoAbstract, "");
         _builder.append(".RecordDB;");
         _builder.newLineIfNotEmpty();
-        _builder.append("import ");
-        _builder.append(this.names.MisoUtils, "");
-        _builder.append(".Utils;");
+        boolean util = false;
         _builder.newLineIfNotEmpty();
+        {
+          for(final Attribute att_1 : allAtts) {
+            {
+              if ((att_1 instanceof Primitive)) {
+                {
+                  boolean _and_4 = false;
+                  boolean _and_5 = false;
+                  boolean _isRequired_1 = ((Primitive)att_1).isRequired();
+                  if (!_isRequired_1) {
+                    _and_5 = false;
+                  } else {
+                    boolean _isMany_2 = ((Primitive)att_1).isMany();
+                    _and_5 = _isMany_2;
+                  }
+                  if (!_and_5) {
+                    _and_4 = false;
+                  } else {
+                    _and_4 = (!util);
+                  }
+                  if (_and_4) {
+                    Object _xblockexpression_3 = null;
+                    {
+                      util = true;
+                      _xblockexpression_3 = null;
+                    }
+                    _builder.append(_xblockexpression_3, "");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("import ");
+                    _builder.append(this.names.MisoUtils, "");
+                    _builder.append(".Utils;");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
     _builder.append("import ");
@@ -262,12 +368,6 @@ public class generateJson {
         _builder.append(name, "\t\t");
         _builder.append("Param.IdPost);");
         _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("String tags = map.get(Basic");
-        _builder.append(name, "\t\t");
-        _builder.append("Param.Tags);");
-        _builder.newLineIfNotEmpty();
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
@@ -275,32 +375,32 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        Object _xblockexpression = null;
+        Object _xblockexpression_4 = null;
         {
           pos = (-1);
-          _xblockexpression = null;
+          _xblockexpression_4 = null;
         }
-        _builder.append(_xblockexpression, "\t\t");
+        _builder.append(_xblockexpression_4, "\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att : allAtts) {
+          for(final Attribute att_2 : allAtts) {
             _builder.append("\t");
             _builder.append("\t");
-            Object _xblockexpression_1 = null;
+            Object _xblockexpression_5 = null;
             {
               pos++;
-              _xblockexpression_1 = null;
+              _xblockexpression_5 = null;
             }
-            _builder.append(_xblockexpression_1, "\t\t");
+            _builder.append(_xblockexpression_5, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att instanceof SimpleAttribute)) {
+              if ((att_2 instanceof Primitive)) {
                 {
-                  boolean _isRequired = ((SimpleAttribute)att).isRequired();
-                  if (_isRequired) {
+                  boolean _isRequired_2 = ((Primitive)att_2).isRequired();
+                  if (_isRequired_2) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    CharSequence _typeName = this.genUti.getTypeName(att);
+                    CharSequence _typeName = this.genUti.getTypeName(att_2);
                     _builder.append(_typeName, "\t\t");
                     _builder.append(" ");
                     String _newAttName = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
@@ -320,45 +420,45 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        Object _xblockexpression_2 = null;
+        Object _xblockexpression_6 = null;
         {
           pos = (-1);
-          _xblockexpression_2 = null;
+          _xblockexpression_6 = null;
         }
-        _builder.append(_xblockexpression_2, "\t\t\t");
+        _builder.append(_xblockexpression_6, "\t\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_1 : allAtts) {
+          for(final Attribute att_3 : allAtts) {
             _builder.append("\t");
             _builder.append("\t\t");
-            Object _xblockexpression_3 = null;
+            Object _xblockexpression_7 = null;
             {
               pos++;
-              _xblockexpression_3 = null;
+              _xblockexpression_7 = null;
             }
-            _builder.append(_xblockexpression_3, "\t\t\t");
+            _builder.append(_xblockexpression_7, "\t\t\t");
             _builder.newLineIfNotEmpty();
             _builder.append("\t");
             _builder.append("\t\t");
             final String newName = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
             _builder.newLineIfNotEmpty();
             {
-              if ((att_1 instanceof SimpleAttribute)) {
+              if ((att_3 instanceof Primitive)) {
                 {
-                  boolean _isRequired_1 = ((SimpleAttribute)att_1).isRequired();
-                  if (_isRequired_1) {
+                  boolean _isRequired_3 = ((Primitive)att_3).isRequired();
+                  if (_isRequired_3) {
                     {
-                      boolean _and = false;
-                      DataEnum _data = ((SimpleAttribute)att_1).getData();
-                      boolean _equals = _data.equals(DataEnum.STRING);
+                      boolean _and_6 = false;
+                      DataEnum _type = ((Primitive)att_3).getType();
+                      boolean _equals = _type.equals(DataEnum.STRING);
                       if (!_equals) {
-                        _and = false;
+                        _and_6 = false;
                       } else {
-                        boolean _isMany = ((SimpleAttribute)att_1).isMany();
-                        boolean _not = (!_isMany);
-                        _and = _not;
+                        boolean _isMany_3 = ((Primitive)att_3).isMany();
+                        boolean _not_1 = (!_isMany_3);
+                        _and_6 = _not_1;
                       }
-                      if (_and) {
+                      if (_and_6) {
                         _builder.append("\t");
                         _builder.append("\t\t");
                         _builder.append(newName, "\t\t\t");
@@ -370,17 +470,17 @@ public class generateJson {
                         _builder.append(");");
                         _builder.newLineIfNotEmpty();
                       } else {
-                        boolean _and_1 = false;
-                        DataEnum _data_1 = ((SimpleAttribute)att_1).getData();
-                        boolean _equals_1 = _data_1.equals(DataEnum.INTEGER);
+                        boolean _and_7 = false;
+                        DataEnum _type_1 = ((Primitive)att_3).getType();
+                        boolean _equals_1 = _type_1.equals(DataEnum.INTEGER);
                         if (!_equals_1) {
-                          _and_1 = false;
+                          _and_7 = false;
                         } else {
-                          boolean _isMany_1 = ((SimpleAttribute)att_1).isMany();
-                          boolean _not_1 = (!_isMany_1);
-                          _and_1 = _not_1;
+                          boolean _isMany_4 = ((Primitive)att_3).isMany();
+                          boolean _not_2 = (!_isMany_4);
+                          _and_7 = _not_2;
                         }
-                        if (_and_1) {
+                        if (_and_7) {
                           _builder.append("\t");
                           _builder.append("\t\t");
                           _builder.append(newName, "\t\t\t");
@@ -392,17 +492,17 @@ public class generateJson {
                           _builder.append("));");
                           _builder.newLineIfNotEmpty();
                         } else {
-                          boolean _and_2 = false;
-                          DataEnum _data_2 = ((SimpleAttribute)att_1).getData();
-                          boolean _equals_2 = _data_2.equals(DataEnum.DOUBLE);
+                          boolean _and_8 = false;
+                          DataEnum _type_2 = ((Primitive)att_3).getType();
+                          boolean _equals_2 = _type_2.equals(DataEnum.DOUBLE);
                           if (!_equals_2) {
-                            _and_2 = false;
+                            _and_8 = false;
                           } else {
-                            boolean _isMany_2 = ((SimpleAttribute)att_1).isMany();
-                            boolean _not_2 = (!_isMany_2);
-                            _and_2 = _not_2;
+                            boolean _isMany_5 = ((Primitive)att_3).isMany();
+                            boolean _not_3 = (!_isMany_5);
+                            _and_8 = _not_3;
                           }
-                          if (_and_2) {
+                          if (_and_8) {
                             _builder.append("\t");
                             _builder.append("\t\t");
                             _builder.append(newName, "\t\t\t");
@@ -414,17 +514,17 @@ public class generateJson {
                             _builder.append("));");
                             _builder.newLineIfNotEmpty();
                           } else {
-                            boolean _and_3 = false;
-                            DataEnum _data_3 = ((SimpleAttribute)att_1).getData();
-                            boolean _equals_3 = _data_3.equals(DataEnum.BOOLEAN);
+                            boolean _and_9 = false;
+                            DataEnum _type_3 = ((Primitive)att_3).getType();
+                            boolean _equals_3 = _type_3.equals(DataEnum.BOOLEAN);
                             if (!_equals_3) {
-                              _and_3 = false;
+                              _and_9 = false;
                             } else {
-                              boolean _isMany_3 = ((SimpleAttribute)att_1).isMany();
-                              boolean _not_3 = (!_isMany_3);
-                              _and_3 = _not_3;
+                              boolean _isMany_6 = ((Primitive)att_3).isMany();
+                              boolean _not_4 = (!_isMany_6);
+                              _and_9 = _not_4;
                             }
-                            if (_and_3) {
+                            if (_and_9) {
                               _builder.append("\t");
                               _builder.append("\t\t");
                               _builder.append(newName, "\t\t\t");
@@ -436,8 +536,8 @@ public class generateJson {
                               _builder.append(").equalsIgnoreCase(\"true\");");
                               _builder.newLineIfNotEmpty();
                             } else {
-                              DataEnum _data_4 = ((SimpleAttribute)att_1).getData();
-                              boolean _equals_4 = _data_4.equals(DataEnum.STRING);
+                              DataEnum _type_4 = ((Primitive)att_3).getType();
+                              boolean _equals_4 = _type_4.equals(DataEnum.STRING);
                               if (_equals_4) {
                                 _builder.append("\t");
                                 _builder.append("\t\t");
@@ -450,8 +550,8 @@ public class generateJson {
                                 _builder.append("));");
                                 _builder.newLineIfNotEmpty();
                               } else {
-                                DataEnum _data_5 = ((SimpleAttribute)att_1).getData();
-                                boolean _equals_5 = _data_5.equals(DataEnum.INTEGER);
+                                DataEnum _type_5 = ((Primitive)att_3).getType();
+                                boolean _equals_5 = _type_5.equals(DataEnum.INTEGER);
                                 if (_equals_5) {
                                   _builder.append("\t");
                                   _builder.append("\t\t");
@@ -464,8 +564,8 @@ public class generateJson {
                                   _builder.append("));");
                                   _builder.newLineIfNotEmpty();
                                 } else {
-                                  DataEnum _data_6 = ((SimpleAttribute)att_1).getData();
-                                  boolean _equals_6 = _data_6.equals(DataEnum.DOUBLE);
+                                  DataEnum _type_6 = ((Primitive)att_3).getType();
+                                  boolean _equals_6 = _type_6.equals(DataEnum.DOUBLE);
                                   if (_equals_6) {
                                     _builder.append("\t");
                                     _builder.append("\t\t");
@@ -478,8 +578,8 @@ public class generateJson {
                                     _builder.append("));");
                                     _builder.newLineIfNotEmpty();
                                   } else {
-                                    DataEnum _data_7 = ((SimpleAttribute)att_1).getData();
-                                    boolean _equals_7 = _data_7.equals(DataEnum.BOOLEAN);
+                                    DataEnum _type_7 = ((Primitive)att_3).getType();
+                                    boolean _equals_7 = _type_7.equals(DataEnum.BOOLEAN);
                                     if (_equals_7) {
                                       _builder.append("\t");
                                       _builder.append("\t\t");
@@ -563,7 +663,7 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("// Not required params");
+        _builder.append("// Not required params and artifact\'s id");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
@@ -571,33 +671,33 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        Object _xblockexpression_4 = null;
+        Object _xblockexpression_8 = null;
         {
           pos = (-1);
-          _xblockexpression_4 = null;
+          _xblockexpression_8 = null;
         }
-        _builder.append(_xblockexpression_4, "\t\t");
+        _builder.append(_xblockexpression_8, "\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_2 : allAtts) {
+          for(final Attribute att_4 : allAtts) {
             _builder.append("\t");
             _builder.append("\t");
-            Object _xblockexpression_5 = null;
+            Object _xblockexpression_9 = null;
             {
               pos++;
-              _xblockexpression_5 = null;
+              _xblockexpression_9 = null;
             }
-            _builder.append(_xblockexpression_5, "\t\t");
+            _builder.append(_xblockexpression_9, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_2 instanceof SimpleAttribute)) {
+              if ((att_4 instanceof Primitive)) {
                 {
-                  boolean _isRequired_2 = ((SimpleAttribute)att_2).isRequired();
-                  boolean _not_4 = (!_isRequired_2);
-                  if (_not_4) {
+                  boolean _isRequired_4 = ((Primitive)att_4).isRequired();
+                  boolean _not_5 = (!_isRequired_4);
+                  if (_not_5) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    CharSequence _typeName_1 = this.genUti.getTypeName(att_2);
+                    CharSequence _typeName_1 = this.genUti.getTypeName(att_4);
                     _builder.append(_typeName_1, "\t\t");
                     _builder.append(" ");
                     String _newAttName_1 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
@@ -606,6 +706,19 @@ public class generateJson {
                     _builder.newLineIfNotEmpty();
                   }
                 }
+              }
+            }
+            {
+              if ((att_4 instanceof ArtifactID)) {
+                _builder.append("\t");
+                _builder.append("\t");
+                CharSequence _typeName_2 = this.genUti.getTypeName(att_4);
+                _builder.append(_typeName_2, "\t\t");
+                _builder.append(" ");
+                String _newAttName_2 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                _builder.append(_newAttName_2, "\t\t");
+                _builder.append(" = null;");
+                _builder.newLineIfNotEmpty();
               }
             }
           }
@@ -617,33 +730,33 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        Object _xblockexpression_6 = null;
+        Object _xblockexpression_10 = null;
         {
           pos = (-1);
-          _xblockexpression_6 = null;
+          _xblockexpression_10 = null;
         }
-        _builder.append(_xblockexpression_6, "\t\t");
+        _builder.append(_xblockexpression_10, "\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_3 : allAtts) {
+          for(final Attribute att_5 : allAtts) {
             _builder.append("\t");
             _builder.append("\t");
-            Object _xblockexpression_7 = null;
+            Object _xblockexpression_11 = null;
             {
               pos++;
-              _xblockexpression_7 = null;
+              _xblockexpression_11 = null;
             }
-            _builder.append(_xblockexpression_7, "\t\t");
+            _builder.append(_xblockexpression_11, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_3 instanceof MultiAttribute)) {
+              if ((att_5 instanceof Reference)) {
                 _builder.append("\t");
                 _builder.append("\t");
                 final String newName_1 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
                 _builder.append("\t");
-                final CharSequence typeName = this.genUti.getTypeName(att_3);
+                final CharSequence typeName = this.genUti.getTypeName(att_5);
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
                 _builder.append("\t");
@@ -680,12 +793,12 @@ public class generateJson {
         _builder.append(name, "\t\t");
         _builder.append(".getObjectName(), old");
         _builder.append(name, "\t\t");
-        _builder.append(".getFileSize(), Utils.tagsStringToList(tags)");
+        _builder.append(".getFileSize()");
         {
-          for(final Attribute att_4 : atts) {
+          for(final Attribute att_6 : atts) {
             _builder.append(", ");
-            String _newAttName_2 = this.genUti.getNewAttName(att_4, artifact);
-            _builder.append(_newAttName_2, "\t\t");
+            String _newAttName_3 = this.genUti.getNewAttName(att_6, artifact);
+            _builder.append(_newAttName_3, "\t\t");
           }
         }
         _builder.append(");");
@@ -818,34 +931,27 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("List<String> tags = Utils.tagsStringToList(req.raw().getParameter(Basic");
-        _builder.append(name, "\t\t\t");
-        _builder.append("Param.Tags));");
-        _builder.newLineIfNotEmpty();
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append("\t\t");
         _builder.append("// Required params");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        Object _xblockexpression_8 = null;
+        Object _xblockexpression_12 = null;
         {
           pos = (-1);
-          _xblockexpression_8 = null;
+          _xblockexpression_12 = null;
         }
-        _builder.append(_xblockexpression_8, "\t\t\t");
+        _builder.append(_xblockexpression_12, "\t\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_5 : allAtts) {
+          for(final Attribute att_7 : allAtts) {
             _builder.append("\t");
             _builder.append("\t\t");
-            Object _xblockexpression_9 = null;
+            Object _xblockexpression_13 = null;
             {
               pos++;
-              _xblockexpression_9 = null;
+              _xblockexpression_13 = null;
             }
-            _builder.append(_xblockexpression_9, "\t\t\t");
+            _builder.append(_xblockexpression_13, "\t\t\t");
             _builder.newLineIfNotEmpty();
             _builder.append("\t");
             _builder.append("\t\t");
@@ -853,25 +959,25 @@ public class generateJson {
             _builder.newLineIfNotEmpty();
             _builder.append("\t");
             _builder.append("\t\t");
-            final CharSequence type = this.genUti.getTypeName(att_5);
+            final CharSequence type = this.genUti.getTypeName(att_7);
             _builder.newLineIfNotEmpty();
             {
-              if ((att_5 instanceof SimpleAttribute)) {
+              if ((att_7 instanceof Primitive)) {
                 {
-                  boolean _isRequired_3 = ((SimpleAttribute)att_5).isRequired();
-                  if (_isRequired_3) {
+                  boolean _isRequired_5 = ((Primitive)att_7).isRequired();
+                  if (_isRequired_5) {
                     {
-                      boolean _and_4 = false;
-                      DataEnum _data_8 = ((SimpleAttribute)att_5).getData();
-                      boolean _equals_8 = _data_8.equals(DataEnum.BOOLEAN);
+                      boolean _and_10 = false;
+                      DataEnum _type_8 = ((Primitive)att_7).getType();
+                      boolean _equals_8 = _type_8.equals(DataEnum.BOOLEAN);
                       if (!_equals_8) {
-                        _and_4 = false;
+                        _and_10 = false;
                       } else {
-                        boolean _isMany_4 = ((SimpleAttribute)att_5).isMany();
-                        boolean _not_5 = (!_isMany_4);
-                        _and_4 = _not_5;
+                        boolean _isMany_7 = ((Primitive)att_7).isMany();
+                        boolean _not_6 = (!_isMany_7);
+                        _and_10 = _not_6;
                       }
-                      if (_and_4) {
+                      if (_and_10) {
                         _builder.append("\t");
                         _builder.append("\t\t");
                         _builder.append(type, "\t\t\t");
@@ -885,17 +991,17 @@ public class generateJson {
                         _builder.append(").equalsIgnoreCase(\"true\");");
                         _builder.newLineIfNotEmpty();
                       } else {
-                        boolean _and_5 = false;
-                        DataEnum _data_9 = ((SimpleAttribute)att_5).getData();
-                        boolean _equals_9 = _data_9.equals(DataEnum.INTEGER);
+                        boolean _and_11 = false;
+                        DataEnum _type_9 = ((Primitive)att_7).getType();
+                        boolean _equals_9 = _type_9.equals(DataEnum.INTEGER);
                         if (!_equals_9) {
-                          _and_5 = false;
+                          _and_11 = false;
                         } else {
-                          boolean _isMany_5 = ((SimpleAttribute)att_5).isMany();
-                          boolean _not_6 = (!_isMany_5);
-                          _and_5 = _not_6;
+                          boolean _isMany_8 = ((Primitive)att_7).isMany();
+                          boolean _not_7 = (!_isMany_8);
+                          _and_11 = _not_7;
                         }
-                        if (_and_5) {
+                        if (_and_11) {
                           _builder.append("\t");
                           _builder.append("\t\t");
                           _builder.append(type, "\t\t\t");
@@ -909,17 +1015,17 @@ public class generateJson {
                           _builder.append("));");
                           _builder.newLineIfNotEmpty();
                         } else {
-                          boolean _and_6 = false;
-                          DataEnum _data_10 = ((SimpleAttribute)att_5).getData();
-                          boolean _equals_10 = _data_10.equals(DataEnum.DOUBLE);
+                          boolean _and_12 = false;
+                          DataEnum _type_10 = ((Primitive)att_7).getType();
+                          boolean _equals_10 = _type_10.equals(DataEnum.DOUBLE);
                           if (!_equals_10) {
-                            _and_6 = false;
+                            _and_12 = false;
                           } else {
-                            boolean _isMany_6 = ((SimpleAttribute)att_5).isMany();
-                            boolean _not_7 = (!_isMany_6);
-                            _and_6 = _not_7;
+                            boolean _isMany_9 = ((Primitive)att_7).isMany();
+                            boolean _not_8 = (!_isMany_9);
+                            _and_12 = _not_8;
                           }
-                          if (_and_6) {
+                          if (_and_12) {
                             _builder.append("\t");
                             _builder.append("\t\t");
                             _builder.append(type, "\t\t\t");
@@ -933,17 +1039,17 @@ public class generateJson {
                             _builder.append("));");
                             _builder.newLineIfNotEmpty();
                           } else {
-                            boolean _and_7 = false;
-                            DataEnum _data_11 = ((SimpleAttribute)att_5).getData();
-                            boolean _equals_11 = _data_11.equals(DataEnum.STRING);
+                            boolean _and_13 = false;
+                            DataEnum _type_11 = ((Primitive)att_7).getType();
+                            boolean _equals_11 = _type_11.equals(DataEnum.STRING);
                             if (!_equals_11) {
-                              _and_7 = false;
+                              _and_13 = false;
                             } else {
-                              boolean _isMany_7 = ((SimpleAttribute)att_5).isMany();
-                              boolean _not_8 = (!_isMany_7);
-                              _and_7 = _not_8;
+                              boolean _isMany_10 = ((Primitive)att_7).isMany();
+                              boolean _not_9 = (!_isMany_10);
+                              _and_13 = _not_9;
                             }
-                            if (_and_7) {
+                            if (_and_13) {
                               _builder.append("\t");
                               _builder.append("\t\t");
                               _builder.append(type, "\t\t\t");
@@ -957,8 +1063,8 @@ public class generateJson {
                               _builder.append(");");
                               _builder.newLineIfNotEmpty();
                             } else {
-                              DataEnum _data_12 = ((SimpleAttribute)att_5).getData();
-                              boolean _equals_12 = _data_12.equals(DataEnum.INTEGER);
+                              DataEnum _type_12 = ((Primitive)att_7).getType();
+                              boolean _equals_12 = _type_12.equals(DataEnum.INTEGER);
                               if (_equals_12) {
                                 _builder.append("\t");
                                 _builder.append("\t\t");
@@ -973,8 +1079,8 @@ public class generateJson {
                                 _builder.append("));");
                                 _builder.newLineIfNotEmpty();
                               } else {
-                                DataEnum _data_13 = ((SimpleAttribute)att_5).getData();
-                                boolean _equals_13 = _data_13.equals(DataEnum.DOUBLE);
+                                DataEnum _type_13 = ((Primitive)att_7).getType();
+                                boolean _equals_13 = _type_13.equals(DataEnum.DOUBLE);
                                 if (_equals_13) {
                                   _builder.append("\t");
                                   _builder.append("\t\t");
@@ -989,8 +1095,8 @@ public class generateJson {
                                   _builder.append("));");
                                   _builder.newLineIfNotEmpty();
                                 } else {
-                                  DataEnum _data_14 = ((SimpleAttribute)att_5).getData();
-                                  boolean _equals_14 = _data_14.equals(DataEnum.STRING);
+                                  DataEnum _type_14 = ((Primitive)att_7).getType();
+                                  boolean _equals_14 = _type_14.equals(DataEnum.STRING);
                                   if (_equals_14) {
                                     _builder.append("\t");
                                     _builder.append("\t\t");
@@ -1005,8 +1111,8 @@ public class generateJson {
                                     _builder.append("));");
                                     _builder.newLineIfNotEmpty();
                                   } else {
-                                    DataEnum _data_15 = ((SimpleAttribute)att_5).getData();
-                                    boolean _equals_15 = _data_15.equals(DataEnum.BOOLEAN);
+                                    DataEnum _type_15 = ((Primitive)att_7).getType();
+                                    boolean _equals_15 = _type_15.equals(DataEnum.BOOLEAN);
                                     if (_equals_15) {
                                       _builder.append("\t");
                                       _builder.append("\t\t");
@@ -1078,7 +1184,7 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("// Not required params");
+        _builder.append("// Not required params and artifact\'s id");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
@@ -1086,41 +1192,54 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        Object _xblockexpression_10 = null;
+        Object _xblockexpression_14 = null;
         {
           pos = (-1);
-          _xblockexpression_10 = null;
+          _xblockexpression_14 = null;
         }
-        _builder.append(_xblockexpression_10, "\t\t\t");
+        _builder.append(_xblockexpression_14, "\t\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_6 : allAtts) {
+          for(final Attribute att_8 : allAtts) {
             _builder.append("\t");
             _builder.append("\t\t");
-            Object _xblockexpression_11 = null;
+            Object _xblockexpression_15 = null;
             {
               pos++;
-              _xblockexpression_11 = null;
+              _xblockexpression_15 = null;
             }
-            _builder.append(_xblockexpression_11, "\t\t\t");
+            _builder.append(_xblockexpression_15, "\t\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_6 instanceof SimpleAttribute)) {
+              if ((att_8 instanceof Primitive)) {
                 {
-                  boolean _isRequired_4 = ((SimpleAttribute)att_6).isRequired();
-                  boolean _not_9 = (!_isRequired_4);
-                  if (_not_9) {
+                  boolean _isRequired_6 = ((Primitive)att_8).isRequired();
+                  boolean _not_10 = (!_isRequired_6);
+                  if (_not_10) {
                     _builder.append("\t");
                     _builder.append("\t\t");
-                    CharSequence _typeName_2 = this.genUti.getTypeName(att_6);
-                    _builder.append(_typeName_2, "\t\t\t");
+                    CharSequence _typeName_3 = this.genUti.getTypeName(att_8);
+                    _builder.append(_typeName_3, "\t\t\t");
                     _builder.append(" ");
-                    String _newAttName_3 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
-                    _builder.append(_newAttName_3, "\t\t\t");
+                    String _newAttName_4 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                    _builder.append(_newAttName_4, "\t\t\t");
                     _builder.append(" = null;");
                     _builder.newLineIfNotEmpty();
                   }
                 }
+              }
+            }
+            {
+              if ((att_8 instanceof ArtifactID)) {
+                _builder.append("\t");
+                _builder.append("\t\t");
+                CharSequence _typeName_4 = this.genUti.getTypeName(att_8);
+                _builder.append(_typeName_4, "\t\t\t");
+                _builder.append(" ");
+                String _newAttName_5 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                _builder.append(_newAttName_5, "\t\t\t");
+                _builder.append(" = null;");
+                _builder.newLineIfNotEmpty();
               }
             }
           }
@@ -1132,33 +1251,33 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        Object _xblockexpression_12 = null;
+        Object _xblockexpression_16 = null;
         {
           pos = (-1);
-          _xblockexpression_12 = null;
+          _xblockexpression_16 = null;
         }
-        _builder.append(_xblockexpression_12, "\t\t\t");
+        _builder.append(_xblockexpression_16, "\t\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_7 : allAtts) {
+          for(final Attribute att_9 : allAtts) {
             _builder.append("\t");
             _builder.append("\t\t");
-            Object _xblockexpression_13 = null;
+            Object _xblockexpression_17 = null;
             {
               pos++;
-              _xblockexpression_13 = null;
+              _xblockexpression_17 = null;
             }
-            _builder.append(_xblockexpression_13, "\t\t\t");
+            _builder.append(_xblockexpression_17, "\t\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_7 instanceof MultiAttribute)) {
+              if ((att_9 instanceof Reference)) {
                 _builder.append("\t");
                 _builder.append("\t\t");
                 final String newName_3 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
                 _builder.append("\t\t");
-                final CharSequence typeName_1 = this.genUti.getTypeName(att_7);
+                final CharSequence typeName_1 = this.genUti.getTypeName(att_9);
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
                 _builder.append("\t\t");
@@ -1189,12 +1308,12 @@ public class generateJson {
         _builder.append(namelow, "\t\t\t");
         _builder.append(" = new ");
         _builder.append(name, "\t\t\t");
-        _builder.append("(fileName, fileSize, tags");
+        _builder.append("(fileName, fileSize");
         {
-          for(final Attribute att_8 : atts) {
+          for(final Attribute att_10 : atts) {
             _builder.append(", ");
-            String _newAttName_4 = this.genUti.getNewAttName(att_8, artifact);
-            _builder.append(_newAttName_4, "\t\t\t");
+            String _newAttName_6 = this.genUti.getNewAttName(att_10, artifact);
+            _builder.append(_newAttName_6, "\t\t\t");
           }
         }
         _builder.append(");");

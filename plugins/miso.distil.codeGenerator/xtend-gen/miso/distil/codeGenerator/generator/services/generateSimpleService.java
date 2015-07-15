@@ -3,6 +3,7 @@ package miso.distil.codeGenerator.generator.services;
 import codeGeneratorModel.AbstractEntity;
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.Entity;
+import codeGeneratorModel.Inout;
 import codeGeneratorModel.SimpleService;
 import com.google.inject.Inject;
 import java.util.ArrayList;
@@ -52,28 +53,31 @@ public class generateSimpleService {
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
     _builder.append(this.names.MisoAbstract, "");
-    _builder.append(".AbstractPersistentClass;");
+    _builder.append(".Persistent;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     {
-      EList<AbstractEntity> _input = simpleService.getInput();
-      for(final AbstractEntity input : ((EList<AbstractEntity>) _input)) {
+      EList<Inout> _input = simpleService.getInput();
+      for(final Inout input : ((EList<Inout>) _input)) {
         {
-          String _name = input.getName();
+          AbstractEntity _type = input.getType();
+          String _name = _type.getName();
           boolean _contains = nameList.contains(_name);
           boolean _not = (!_contains);
           if (_not) {
             {
-              if ((input instanceof Artifact)) {
+              AbstractEntity _type_1 = input.getType();
+              if ((_type_1 instanceof Artifact)) {
                 _builder.append("import ");
-                CharSequence _artifactFileChar = this.names.getArtifactFileChar(((Artifact)input));
+                AbstractEntity _type_2 = input.getType();
+                CharSequence _artifactFileChar = this.names.getArtifactFileChar(((Artifact) _type_2));
                 _builder.append(_artifactFileChar, "");
                 _builder.append(";");
                 _builder.newLineIfNotEmpty();
               } else {
                 _builder.append("import ");
-                Entity _cast = Entity.class.cast(input);
-                CharSequence _entityFileChar = this.names.getEntityFileChar(_cast);
+                AbstractEntity _type_3 = input.getType();
+                CharSequence _entityFileChar = this.names.getEntityFileChar(((Entity) _type_3));
                 _builder.append(_entityFileChar, "");
                 _builder.append(";");
                 _builder.newLineIfNotEmpty();
@@ -81,7 +85,8 @@ public class generateSimpleService {
             }
             Object _xblockexpression = null;
             {
-              String _name_1 = input.getName();
+              AbstractEntity _type_4 = input.getType();
+              String _name_1 = _type_4.getName();
               nameList.add(_name_1);
               _xblockexpression = null;
             }
@@ -92,24 +97,27 @@ public class generateSimpleService {
       }
     }
     {
-      EList<AbstractEntity> _output = simpleService.getOutput();
-      for(final AbstractEntity output : ((EList<AbstractEntity>) _output)) {
+      EList<Inout> _output = simpleService.getOutput();
+      for(final Inout output : ((EList<Inout>) _output)) {
         {
-          String _name_1 = output.getName();
+          AbstractEntity _type_4 = output.getType();
+          String _name_1 = _type_4.getName();
           boolean _contains_1 = nameList.contains(_name_1);
           boolean _not_1 = (!_contains_1);
           if (_not_1) {
             {
-              if ((output instanceof Artifact)) {
+              AbstractEntity _type_5 = output.getType();
+              if ((_type_5 instanceof Artifact)) {
                 _builder.append("import ");
-                CharSequence _artifactFileChar_1 = this.names.getArtifactFileChar(((Artifact)output));
+                AbstractEntity _type_6 = output.getType();
+                CharSequence _artifactFileChar_1 = this.names.getArtifactFileChar(((Artifact) _type_6));
                 _builder.append(_artifactFileChar_1, "");
                 _builder.append(";");
                 _builder.newLineIfNotEmpty();
               } else {
                 _builder.append("import ");
-                Entity _cast_1 = Entity.class.cast(output);
-                CharSequence _entityFileChar_1 = this.names.getEntityFileChar(_cast_1);
+                AbstractEntity _type_7 = output.getType();
+                CharSequence _entityFileChar_1 = this.names.getEntityFileChar(((Entity) _type_7));
                 _builder.append(_entityFileChar_1, "");
                 _builder.append(";");
                 _builder.newLineIfNotEmpty();
@@ -117,7 +125,8 @@ public class generateSimpleService {
             }
             Object _xblockexpression_1 = null;
             {
-              String _name_2 = output.getName();
+              AbstractEntity _type_8 = output.getType();
+              String _name_2 = _type_8.getName();
               nameList.add(_name_2);
               _xblockexpression_1 = null;
             }
@@ -179,28 +188,58 @@ public class generateSimpleService {
     _builder.append("// Input classes");
     _builder.newLine();
     {
-      EList<AbstractEntity> _input_1 = simpleService.getInput();
-      for(final AbstractEntity input_1 : ((EList<AbstractEntity>) _input_1)) {
-        _builder.append("\t\t");
-        _builder.append("addInputClass(");
-        String _name_4 = input_1.getName();
-        _builder.append(_name_4, "\t\t");
-        _builder.append(".class);");
-        _builder.newLineIfNotEmpty();
+      EList<Inout> _input_1 = simpleService.getInput();
+      for(final Inout input_1 : ((EList<Inout>) _input_1)) {
+        {
+          boolean _isMany = input_1.isMany();
+          boolean _not_3 = (!_isMany);
+          if (_not_3) {
+            _builder.append("\t\t");
+            _builder.append("addInputClass(");
+            AbstractEntity _type_8 = input_1.getType();
+            String _name_4 = _type_8.getName();
+            _builder.append(_name_4, "\t\t");
+            _builder.append(".class);");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t\t");
+            _builder.append("addInputClass((new ArrayList<");
+            AbstractEntity _type_9 = input_1.getType();
+            String _name_5 = _type_9.getName();
+            _builder.append(_name_5, "\t\t");
+            _builder.append(">()).getClass());");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     _builder.append("\t\t");
     _builder.append("// Outpu classes");
     _builder.newLine();
     {
-      EList<AbstractEntity> _output_1 = simpleService.getOutput();
-      for(final AbstractEntity output_1 : ((EList<AbstractEntity>) _output_1)) {
-        _builder.append("\t\t");
-        _builder.append("addOutputClass(");
-        String _name_5 = output_1.getName();
-        _builder.append(_name_5, "\t\t");
-        _builder.append(".class);");
-        _builder.newLineIfNotEmpty();
+      EList<Inout> _output_1 = simpleService.getOutput();
+      for(final Inout output_1 : ((EList<Inout>) _output_1)) {
+        {
+          boolean _isMany_1 = output_1.isMany();
+          boolean _not_4 = (!_isMany_1);
+          if (_not_4) {
+            _builder.append("\t\t");
+            _builder.append("addOutputClass(");
+            AbstractEntity _type_10 = output_1.getType();
+            String _name_6 = _type_10.getName();
+            _builder.append(_name_6, "\t\t");
+            _builder.append(".class);");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t\t");
+            _builder.append("addOutputClass((new ArrayList<");
+            AbstractEntity _type_11 = output_1.getType();
+            String _name_7 = _type_11.getName();
+            _builder.append(_name_7, "\t\t");
+            _builder.append(">()).getClass());");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     _builder.append("\t");
@@ -238,7 +277,7 @@ public class generateSimpleService {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public List<Object> runService(Request req, Response res, List<? extends AbstractPersistentClass> artifacts) {");
+    _builder.append("public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("List<Object> input = new ArrayList<Object>();");
@@ -286,10 +325,10 @@ public class generateSimpleService {
     _builder.append("return output;");
     _builder.newLine();
     {
-      EList<AbstractEntity> _input_2 = simpleService.getInput();
+      EList<Inout> _input_2 = simpleService.getInput();
       boolean _isEmpty_1 = _input_2.isEmpty();
-      boolean _not_3 = (!_isEmpty_1);
-      if (_not_3) {
+      boolean _not_5 = (!_isEmpty_1);
+      if (_not_5) {
         _builder.append("\t\t");
         Object _xblockexpression_2 = null;
         {
@@ -305,24 +344,52 @@ public class generateSimpleService {
       }
     }
     {
-      EList<AbstractEntity> _input_3 = simpleService.getInput();
-      for(final AbstractEntity input_2 : ((EList<AbstractEntity>) _input_3)) {
-        _builder.append("\t\t");
-        _builder.append("// ");
-        String _name_6 = input_2.getName();
-        _builder.append(_name_6, "\t\t");
-        _builder.append(" ");
-        String _name_7 = input_2.getName();
-        String _lowerCase = _name_7.toLowerCase();
-        _builder.append(_lowerCase, "\t\t");
-        _builder.append(position, "\t\t");
-        _builder.append(" = ");
-        String _name_8 = input_2.getName();
-        _builder.append(_name_8, "\t\t");
-        _builder.append(".class.cast(input.get(");
-        _builder.append(position, "\t\t");
-        _builder.append("));");
-        _builder.newLineIfNotEmpty();
+      EList<Inout> _input_3 = simpleService.getInput();
+      for(final Inout input_2 : ((EList<Inout>) _input_3)) {
+        {
+          boolean _isMany_2 = input_2.isMany();
+          if (_isMany_2) {
+            _builder.append("\t\t");
+            _builder.append("// List<");
+            AbstractEntity _type_12 = input_2.getType();
+            String _name_8 = _type_12.getName();
+            _builder.append(_name_8, "\t\t");
+            _builder.append(" ");
+            AbstractEntity _type_13 = input_2.getType();
+            String _name_9 = _type_13.getName();
+            String _lowerCase = _name_9.toLowerCase();
+            _builder.append(_lowerCase, "\t\t");
+            _builder.append(position, "\t\t");
+            _builder.append(" = (new ArrayList<");
+            AbstractEntity _type_14 = input_2.getType();
+            String _name_10 = _type_14.getName();
+            _builder.append(_name_10, "\t\t");
+            _builder.append(">()).getClass().cast(input.get(");
+            _builder.append(position, "\t\t");
+            _builder.append("));");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t\t");
+            _builder.append("// ");
+            AbstractEntity _type_15 = input_2.getType();
+            String _name_11 = _type_15.getName();
+            _builder.append(_name_11, "\t\t");
+            _builder.append(" ");
+            AbstractEntity _type_16 = input_2.getType();
+            String _name_12 = _type_16.getName();
+            String _lowerCase_1 = _name_12.toLowerCase();
+            _builder.append(_lowerCase_1, "\t\t");
+            _builder.append(position, "\t\t");
+            _builder.append(" = ");
+            AbstractEntity _type_17 = input_2.getType();
+            String _name_13 = _type_17.getName();
+            _builder.append(_name_13, "\t\t");
+            _builder.append(".class.cast(input.get(");
+            _builder.append(position, "\t\t");
+            _builder.append("));");
+            _builder.newLineIfNotEmpty();
+          }
+        }
         _builder.append("\t\t");
         Object _xblockexpression_3 = null;
         {
@@ -337,10 +404,10 @@ public class generateSimpleService {
     _builder.append("// TODO : do something!");
     _builder.newLine();
     {
-      EList<AbstractEntity> _input_4 = simpleService.getInput();
-      boolean _isEmpty_2 = _input_4.isEmpty();
-      boolean _not_4 = (!_isEmpty_2);
-      if (_not_4) {
+      EList<Inout> _output_2 = simpleService.getOutput();
+      boolean _isEmpty_2 = _output_2.isEmpty();
+      boolean _not_6 = (!_isEmpty_2);
+      if (_not_6) {
         _builder.newLine();
         _builder.append("\t\t");
         _builder.append("// Create your outputs (do something!)");
@@ -348,14 +415,28 @@ public class generateSimpleService {
       }
     }
     {
-      EList<AbstractEntity> _output_2 = simpleService.getOutput();
-      for(final AbstractEntity output_2 : ((EList<AbstractEntity>) _output_2)) {
-        _builder.append("\t\t");
-        _builder.append("output.add(new ");
-        String _name_9 = output_2.getName();
-        _builder.append(_name_9, "\t\t");
-        _builder.append("());");
-        _builder.newLineIfNotEmpty();
+      EList<Inout> _output_3 = simpleService.getOutput();
+      for(final Inout output_2 : ((EList<Inout>) _output_3)) {
+        {
+          boolean _isMany_3 = output_2.isMany();
+          if (_isMany_3) {
+            _builder.append("\t\t");
+            _builder.append("output.add(new ArrayList<");
+            AbstractEntity _type_18 = output_2.getType();
+            String _name_14 = _type_18.getName();
+            _builder.append(_name_14, "\t\t");
+            _builder.append(">());");
+            _builder.newLineIfNotEmpty();
+          } else {
+            _builder.append("\t\t");
+            _builder.append("output.add(new ");
+            AbstractEntity _type_19 = output_2.getType();
+            String _name_15 = _type_19.getName();
+            _builder.append(_name_15, "\t\t");
+            _builder.append("());");
+            _builder.newLineIfNotEmpty();
+          }
+        }
       }
     }
     _builder.newLine();

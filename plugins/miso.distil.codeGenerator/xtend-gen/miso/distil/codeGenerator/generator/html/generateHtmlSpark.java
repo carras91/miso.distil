@@ -4,6 +4,7 @@ import codeGeneratorModel.Artifact;
 import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
+import miso.distil.codeGenerator.generator.generateUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,6 +16,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateHtmlSpark {
   @Inject
+  private generateUtils genUti;
+  
+  @Inject
   private Names names;
   
   /**
@@ -24,7 +28,8 @@ public class generateHtmlSpark {
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
-    EList<ServiceEnum> basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> _basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> basicServices = this.genUti.processBasicServices(_basicServices);
     _builder.newLineIfNotEmpty();
     final String name = artifact.getName();
     _builder.newLineIfNotEmpty();

@@ -8,7 +8,8 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.jdt.core;bundle-version="3.10.2",
- miso.distil.cloudModelServices;bundle-version="1.0.0"
+ miso.distil.cloudModelServices;bundle-version="1.0.0",
+ org.apache.commons.io;bundle-version="2.0.1"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Export-Package: miso.carrascal.nature;uses:="org.osgi.framework,org.eclipse.jface.resource,org.eclipse.ui.plugin",

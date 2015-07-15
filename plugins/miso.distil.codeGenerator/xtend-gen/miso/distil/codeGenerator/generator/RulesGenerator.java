@@ -179,35 +179,43 @@ public class RulesGenerator implements IGenerator {
         boolean _or_1 = false;
         boolean _or_2 = false;
         boolean _or_3 = false;
+        boolean _or_4 = false;
         EList<ServiceEnum> _basicServices_1 = artifact.getBasicServices();
         boolean _contains = _basicServices_1.contains(ServiceEnum.READ);
         if (_contains) {
-          _or_3 = true;
+          _or_4 = true;
         } else {
           EList<ServiceEnum> _basicServices_2 = artifact.getBasicServices();
           boolean _contains_1 = _basicServices_2.contains(ServiceEnum.READ_ALL);
-          _or_3 = _contains_1;
+          _or_4 = _contains_1;
+        }
+        if (_or_4) {
+          _or_3 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_3 = artifact.getBasicServices();
+          boolean _contains_2 = _basicServices_3.contains(ServiceEnum.UPDATE);
+          _or_3 = _contains_2;
         }
         if (_or_3) {
           _or_2 = true;
         } else {
-          EList<ServiceEnum> _basicServices_3 = artifact.getBasicServices();
-          boolean _contains_2 = _basicServices_3.contains(ServiceEnum.UPDATE);
-          _or_2 = _contains_2;
+          EList<ServiceEnum> _basicServices_4 = artifact.getBasicServices();
+          boolean _contains_3 = _basicServices_4.contains(ServiceEnum.UPLOAD);
+          _or_2 = _contains_3;
         }
         if (_or_2) {
           _or_1 = true;
         } else {
-          EList<ServiceEnum> _basicServices_4 = artifact.getBasicServices();
-          boolean _contains_3 = _basicServices_4.contains(ServiceEnum.UPLOAD);
-          _or_1 = _contains_3;
+          EList<ServiceEnum> _basicServices_5 = artifact.getBasicServices();
+          boolean _contains_4 = _basicServices_5.contains(ServiceEnum.SEARCH);
+          _or_1 = _contains_4;
         }
         if (_or_1) {
           _or = true;
         } else {
-          EList<ServiceEnum> _basicServices_5 = artifact.getBasicServices();
-          boolean _contains_4 = _basicServices_5.contains(ServiceEnum.SEARCH);
-          _or = _contains_4;
+          EList<ServiceEnum> _basicServices_6 = artifact.getBasicServices();
+          boolean _contains_5 = _basicServices_6.contains(ServiceEnum.ALL);
+          _or = _contains_5;
         }
         if (_or) {
           String _artifactCustomFileStri = this.names.getArtifactCustomFileStri(artifact);
@@ -216,8 +224,8 @@ public class RulesGenerator implements IGenerator {
           fsa.generateFile(_plus_5, 
             GeneratorOutputConfiguration.GEN_ONCE_OUTPUT, _write_5);
         }
-        EList<ServiceEnum> _basicServices_6 = artifact.getBasicServices();
-        boolean _isEmpty_2 = _basicServices_6.isEmpty();
+        EList<ServiceEnum> _basicServices_7 = artifact.getBasicServices();
+        boolean _isEmpty_2 = _basicServices_7.isEmpty();
         boolean _not_2 = (!_isEmpty_2);
         if (_not_2) {
           String _bSparkFileStri = this.names.getBSparkFileStri(artifact);
@@ -233,41 +241,49 @@ public class RulesGenerator implements IGenerator {
           CharSequence _write_8 = this.genBasPar.write(artifact);
           fsa.generateFile(_plus_8, _write_8);
         }
-        boolean _or_4 = false;
         boolean _or_5 = false;
         boolean _or_6 = false;
         boolean _or_7 = false;
-        EList<ServiceEnum> _basicServices_7 = artifact.getBasicServices();
-        boolean _contains_5 = _basicServices_7.contains(ServiceEnum.READ);
-        if (_contains_5) {
+        boolean _or_8 = false;
+        boolean _or_9 = false;
+        EList<ServiceEnum> _basicServices_8 = artifact.getBasicServices();
+        boolean _contains_6 = _basicServices_8.contains(ServiceEnum.READ);
+        if (_contains_6) {
+          _or_9 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_9 = artifact.getBasicServices();
+          boolean _contains_7 = _basicServices_9.contains(ServiceEnum.READ_ALL);
+          _or_9 = _contains_7;
+        }
+        if (_or_9) {
+          _or_8 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_10 = artifact.getBasicServices();
+          boolean _contains_8 = _basicServices_10.contains(ServiceEnum.UPDATE);
+          _or_8 = _contains_8;
+        }
+        if (_or_8) {
           _or_7 = true;
         } else {
-          EList<ServiceEnum> _basicServices_8 = artifact.getBasicServices();
-          boolean _contains_6 = _basicServices_8.contains(ServiceEnum.READ_ALL);
-          _or_7 = _contains_6;
+          EList<ServiceEnum> _basicServices_11 = artifact.getBasicServices();
+          boolean _contains_9 = _basicServices_11.contains(ServiceEnum.UPLOAD);
+          _or_7 = _contains_9;
         }
         if (_or_7) {
           _or_6 = true;
         } else {
-          EList<ServiceEnum> _basicServices_9 = artifact.getBasicServices();
-          boolean _contains_7 = _basicServices_9.contains(ServiceEnum.UPDATE);
-          _or_6 = _contains_7;
+          EList<ServiceEnum> _basicServices_12 = artifact.getBasicServices();
+          boolean _contains_10 = _basicServices_12.contains(ServiceEnum.SEARCH);
+          _or_6 = _contains_10;
         }
         if (_or_6) {
           _or_5 = true;
         } else {
-          EList<ServiceEnum> _basicServices_10 = artifact.getBasicServices();
-          boolean _contains_8 = _basicServices_10.contains(ServiceEnum.UPLOAD);
-          _or_5 = _contains_8;
+          EList<ServiceEnum> _basicServices_13 = artifact.getBasicServices();
+          boolean _contains_11 = _basicServices_13.contains(ServiceEnum.ALL);
+          _or_5 = _contains_11;
         }
         if (_or_5) {
-          _or_4 = true;
-        } else {
-          EList<ServiceEnum> _basicServices_11 = artifact.getBasicServices();
-          boolean _contains_9 = _basicServices_11.contains(ServiceEnum.SEARCH);
-          _or_4 = _contains_9;
-        }
-        if (_or_4) {
           String _hSparkFileStri = this.names.getHSparkFileStri(artifact);
           String _plus_9 = (_hSparkFileStri + ".java");
           CharSequence _write_9 = this.genHtmSpa.write(artifact);
@@ -281,33 +297,41 @@ public class RulesGenerator implements IGenerator {
           CharSequence _write_11 = this.genHtmJso.write(artifact);
           fsa.generateFile(_plus_11, _write_11);
         }
-        boolean _or_8 = false;
-        boolean _or_9 = false;
         boolean _or_10 = false;
-        EList<ServiceEnum> _basicServices_12 = artifact.getBasicServices();
-        boolean _contains_10 = _basicServices_12.contains(ServiceEnum.READ);
-        if (_contains_10) {
-          _or_10 = true;
-        } else {
-          EList<ServiceEnum> _basicServices_13 = artifact.getBasicServices();
-          boolean _contains_11 = _basicServices_13.contains(ServiceEnum.DOWNLOAD);
-          _or_10 = _contains_11;
-        }
-        if (_or_10) {
-          _or_9 = true;
-        } else {
-          EList<ServiceEnum> _basicServices_14 = artifact.getBasicServices();
-          boolean _contains_12 = _basicServices_14.contains(ServiceEnum.UPDATE);
-          _or_9 = _contains_12;
-        }
-        if (_or_9) {
-          _or_8 = true;
+        boolean _or_11 = false;
+        boolean _or_12 = false;
+        boolean _or_13 = false;
+        EList<ServiceEnum> _basicServices_14 = artifact.getBasicServices();
+        boolean _contains_12 = _basicServices_14.contains(ServiceEnum.READ);
+        if (_contains_12) {
+          _or_13 = true;
         } else {
           EList<ServiceEnum> _basicServices_15 = artifact.getBasicServices();
-          boolean _contains_13 = _basicServices_15.contains(ServiceEnum.UPLOAD);
-          _or_8 = _contains_13;
+          boolean _contains_13 = _basicServices_15.contains(ServiceEnum.DOWNLOAD);
+          _or_13 = _contains_13;
         }
-        if (_or_8) {
+        if (_or_13) {
+          _or_12 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_16 = artifact.getBasicServices();
+          boolean _contains_14 = _basicServices_16.contains(ServiceEnum.UPDATE);
+          _or_12 = _contains_14;
+        }
+        if (_or_12) {
+          _or_11 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_17 = artifact.getBasicServices();
+          boolean _contains_15 = _basicServices_17.contains(ServiceEnum.DELETE);
+          _or_11 = _contains_15;
+        }
+        if (_or_11) {
+          _or_10 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_18 = artifact.getBasicServices();
+          boolean _contains_16 = _basicServices_18.contains(ServiceEnum.ALL);
+          _or_10 = _contains_16;
+        }
+        if (_or_10) {
           String _hLinksFileStri = this.names.getHLinksFileStri(artifact);
           String _plus_12 = (_hLinksFileStri + ".java");
           CharSequence _write_12 = this.genHtmLin.write(artifact);

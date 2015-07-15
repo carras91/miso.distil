@@ -12,7 +12,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jdt.core.IJavaProject;
-import org.eclipse.jdt.core.IType;
+import org.eclipse.jdt.core.IType; 
 import org.eclipse.jdt.core.JavaCore;
 import org.eclipse.jdt.core.JavaModelException;
 import org.eclipse.jface.text.Region;
@@ -83,7 +83,7 @@ public class RulesHyperlinkHelper implements IHyperlinkHelper  {
 					if(elem instanceof Artifact) {
 						Artifact artifact = (Artifact) elem;
 						paths.add(names.getArtifactFileChar(artifact).toString());
-				        if(artifact.getBasicServices().contains(ServiceEnum.UPDATE) || artifact.getBasicServices().contains(ServiceEnum.UPLOAD)) {
+				        if(artifact.getBasicServices().contains(ServiceEnum.ALL) || artifact.getBasicServices().contains(ServiceEnum.UPDATE) || artifact.getBasicServices().contains(ServiceEnum.UPLOAD)) {
 				        	paths.add(names.getArtifactJsonFileChar(artifact).toString());
 				        }
 					} else if(elem instanceof Service) {

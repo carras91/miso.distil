@@ -148,7 +148,7 @@ public class OnServiceImpl extends MinimalEObjectImpl.Container implements OnSer
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-		@Override
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ON_SERVICE__ARTIFACT:

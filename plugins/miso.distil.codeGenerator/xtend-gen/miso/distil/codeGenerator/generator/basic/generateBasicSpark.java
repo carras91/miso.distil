@@ -4,6 +4,7 @@ import codeGeneratorModel.Artifact;
 import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
+import miso.distil.codeGenerator.generator.generateUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,6 +16,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateBasicSpark {
   @Inject
+  private generateUtils genUti;
+  
+  @Inject
   private Names names;
   
   /**
@@ -24,7 +28,8 @@ public class generateBasicSpark {
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
-    EList<ServiceEnum> basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> _basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> basicServices = this.genUti.processBasicServices(_basicServices);
     _builder.newLineIfNotEmpty();
     final String name = artifact.getName();
     _builder.newLineIfNotEmpty();
@@ -39,12 +44,19 @@ public class generateBasicSpark {
     _builder.newLine();
     {
       boolean _or = false;
+      boolean _or_1 = false;
       boolean _contains = basicServices.contains(ServiceEnum.UPDATE);
       if (_contains) {
-        _or = true;
+        _or_1 = true;
       } else {
         boolean _contains_1 = basicServices.contains(ServiceEnum.UPLOAD);
-        _or = _contains_1;
+        _or_1 = _contains_1;
+      }
+      if (_or_1) {
+        _or = true;
+      } else {
+        boolean _contains_2 = basicServices.contains(ServiceEnum.DELETE);
+        _or = _contains_2;
       }
       if (_or) {
         _builder.append("import static spark.Spark.post;");
@@ -52,29 +64,29 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _or_1 = false;
       boolean _or_2 = false;
       boolean _or_3 = false;
-      boolean _contains_2 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_2) {
+      boolean _or_4 = false;
+      boolean _contains_3 = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains_3) {
+        _or_4 = true;
+      } else {
+        boolean _contains_4 = basicServices.contains(ServiceEnum.READ);
+        _or_4 = _contains_4;
+      }
+      if (_or_4) {
         _or_3 = true;
       } else {
-        boolean _contains_3 = basicServices.contains(ServiceEnum.READ);
-        _or_3 = _contains_3;
+        boolean _contains_5 = basicServices.contains(ServiceEnum.READ_ALL);
+        _or_3 = _contains_5;
       }
       if (_or_3) {
         _or_2 = true;
       } else {
-        boolean _contains_4 = basicServices.contains(ServiceEnum.READ_ALL);
-        _or_2 = _contains_4;
+        boolean _contains_6 = basicServices.contains(ServiceEnum.DOWNLOAD);
+        _or_2 = _contains_6;
       }
       if (_or_2) {
-        _or_1 = true;
-      } else {
-        boolean _contains_5 = basicServices.contains(ServiceEnum.DOWNLOAD);
-        _or_1 = _contains_5;
-      }
-      if (_or_1) {
         _builder.append("import static spark.Spark.get;");
         _builder.newLine();
       }
@@ -118,8 +130,8 @@ public class generateBasicSpark {
     _builder.append("// URL\'s");
     _builder.newLine();
     {
-      boolean _contains_6 = basicServices.contains(ServiceEnum.READ);
-      if (_contains_6) {
+      boolean _contains_7 = basicServices.contains(ServiceEnum.READ);
+      if (_contains_7) {
         _builder.append("\t");
         _builder.append("public static String ReadJson = \"/json/");
         _builder.append(namelow, "\t");
@@ -133,8 +145,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_7 = basicServices.contains(ServiceEnum.READ_ALL);
-      if (_contains_7) {
+      boolean _contains_8 = basicServices.contains(ServiceEnum.READ_ALL);
+      if (_contains_8) {
         _builder.append("\t");
         _builder.append("public static String ReadAllJson = \"/json/");
         _builder.append(namelow, "\t");
@@ -143,8 +155,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_8 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_8) {
+      boolean _contains_9 = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains_9) {
         _builder.append("\t");
         _builder.append("public static String SearchJson = \"/json/");
         _builder.append(namelow, "\t");
@@ -153,8 +165,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_9 = basicServices.contains(ServiceEnum.UPDATE);
-      if (_contains_9) {
+      boolean _contains_10 = basicServices.contains(ServiceEnum.UPDATE);
+      if (_contains_10) {
         _builder.append("\t");
         _builder.append("public static String UpdateJson = \"/json/");
         _builder.append(namelow, "\t");
@@ -163,13 +175,18 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_10 = basicServices.contains(ServiceEnum.UPLOAD);
-      if (_contains_10) {
+      boolean _contains_11 = basicServices.contains(ServiceEnum.UPLOAD);
+      if (_contains_11) {
         _builder.append("\t");
         _builder.append("public static String UploadJson = \"/json/");
         _builder.append(namelow, "\t");
         _builder.append("/upload\";");
         _builder.newLineIfNotEmpty();
+      }
+    }
+    {
+      boolean _contains_12 = basicServices.contains(ServiceEnum.DELETE);
+      if (_contains_12) {
         _builder.append("\t");
         _builder.append("public static String DeleteJson = \"/json/");
         _builder.append(namelow, "\t");
@@ -178,8 +195,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_11 = basicServices.contains(ServiceEnum.DOWNLOAD);
-      if (_contains_11) {
+      boolean _contains_13 = basicServices.contains(ServiceEnum.DOWNLOAD);
+      if (_contains_13) {
         _builder.append("\t");
         _builder.append("public static String DownloadZipJson = \"/json/");
         _builder.append(namelow, "\t");
@@ -233,8 +250,8 @@ public class generateBasicSpark {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     {
-      boolean _contains_12 = basicServices.contains(ServiceEnum.READ);
-      if (_contains_12) {
+      boolean _contains_14 = basicServices.contains(ServiceEnum.READ);
+      if (_contains_14) {
         _builder.append("\t\t");
         _builder.append("get(ReadIdJson, \"application/json\",");
         _builder.newLine();
@@ -250,8 +267,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_13 = basicServices.contains(ServiceEnum.READ_ALL);
-      if (_contains_13) {
+      boolean _contains_15 = basicServices.contains(ServiceEnum.READ_ALL);
+      if (_contains_15) {
         _builder.append("\t\t");
         _builder.append("get(ReadAllJson, \"application/json\",");
         _builder.newLine();
@@ -267,8 +284,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_14 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_14) {
+      boolean _contains_16 = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains_16) {
         _builder.append("\t\t");
         _builder.append("get(SearchJson, \"application/json\",");
         _builder.newLine();
@@ -284,8 +301,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_15 = basicServices.contains(ServiceEnum.UPDATE);
-      if (_contains_15) {
+      boolean _contains_17 = basicServices.contains(ServiceEnum.UPDATE);
+      if (_contains_17) {
         _builder.append("\t\t");
         _builder.append("post(UpdateJson, \"application/json\",");
         _builder.newLine();
@@ -301,8 +318,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_16 = basicServices.contains(ServiceEnum.UPLOAD);
-      if (_contains_16) {
+      boolean _contains_18 = basicServices.contains(ServiceEnum.UPLOAD);
+      if (_contains_18) {
         _builder.append("\t\t");
         _builder.append("post(UploadJson, \"application/json\",");
         _builder.newLine();
@@ -315,6 +332,11 @@ public class generateBasicSpark {
         _builder.append("new JsonTransformer());");
         _builder.newLine();
         _builder.newLine();
+      }
+    }
+    {
+      boolean _contains_19 = basicServices.contains(ServiceEnum.DELETE);
+      if (_contains_19) {
         _builder.append("\t\t");
         _builder.append("post(DeleteJson, \"application/json\",");
         _builder.newLine();
@@ -330,8 +352,8 @@ public class generateBasicSpark {
       }
     }
     {
-      boolean _contains_17 = basicServices.contains(ServiceEnum.DOWNLOAD);
-      if (_contains_17) {
+      boolean _contains_20 = basicServices.contains(ServiceEnum.DOWNLOAD);
+      if (_contains_20) {
         _builder.append("\t\t");
         _builder.append("get(DownloadZipIdJson, \"application/json\",");
         _builder.newLine();

@@ -10,7 +10,7 @@ import codeGeneratorModel.Attribute
 import codeGeneratorModel.Entity
 import codeGeneratorModel.Root
 import codeGeneratorModel.Artifact
-import codeGeneratorModel.MultiAttribute
+import codeGeneratorModel.Reference
 import java.util.List
 import java.util.ArrayList
 import codeGeneratorModel.Service
@@ -24,6 +24,7 @@ import org.eclipse.core.resources.ResourcesPlugin
 import org.eclipse.core.runtime.Path
 import com.google.inject.Inject
 import java.util.Scanner
+import codeGeneratorModel.Inout
 
 //import org.eclipse.xtext.validation.Check
 
@@ -54,7 +55,7 @@ class RulesValidator extends AbstractRulesValidator {
 	def chechOnService(OnService onSer) {
 		onSer.whenServices.forEach[
 			if(onSer.artifact.basicServices != null) {
-				if(!onSer.artifact.basicServices.contains(it)) {
+				if(!onSer.artifact.basicServices.contains(it) && !onSer.artifact.basicServices.contains(ServiceEnum.ALL)) {
 					error(' Artifact ' + onSer.artifact.name + ' does not have service ' + it.toString + ' enabled',
 						CodeGeneratorModelPackage.Literals.ON_SERVICE__WHEN_SERVICES,
 						PROHIBITED_REFERENCE)
@@ -65,9 +66,9 @@ class RulesValidator extends AbstractRulesValidator {
 
 	@Check
 	// Las entitys no pueden estar encadenadas recursivamente
-	def checkMultiAttNotRecursive(Entity ent) {
+	def checkReferenceNotRecursive(Entity ent) {
 		for(Attribute att : ent.attributes) {
-			if(att instanceof MultiAttribute) {
+			if(att instanceof Reference) {
 				if(att.type.attributes.lookForRepeated(ent.name)) {
 					error('This entity contains ' + att.name + ', who contains this entity',
 						CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
@@ -79,7 +80,7 @@ class RulesValidator extends AbstractRulesValidator {
 	
 	def private Boolean lookForRepeated(EList<Attribute> atts, String name) {
 		for(Attribute att : atts) {
-			if(att instanceof MultiAttribute) {
+			if(att instanceof Reference) {
 				if(att.type.name.equalsIgnoreCase(name)) {
 					return true;
 				} else {
@@ -96,7 +97,7 @@ class RulesValidator extends AbstractRulesValidator {
 	// Los servicios de un MultiService deben tener entradas y salidas exactas
 	def checkMultiServiceParameters(MultiService mulSer) {
 		if(!mulSer.parallel && !mulSer.services.empty) {
-			var EList<AbstractEntity> out = (mulSer.services.get(0) as Service).output
+			var EList<Inout> out = (mulSer.services.get(0) as Service).output
 			for(var int j = 1; j < mulSer.services.size; j++) {
 				var service = (mulSer.services as EList<Service>).get(j)
 				
@@ -107,8 +108,8 @@ class RulesValidator extends AbstractRulesValidator {
 				}
 				
 				for(var int i = 0; i<service.getInput.size; i++) {
-					if(!out.get(i).equals(service.getInput.get(i))) {
-						error('Input ' + i + ' of service ' + service.name + ' requires ' + service.getInput.get(i).name + ' but ' + out.get(i).name + ' given', 
+					if(!out.get(i).type.equals(service.getInput.get(i).type) || !out.get(i).many.equals(service.getInput.get(i).many)) {
+						error('Input ' + i + ' of service ' + service.name + ' requires ' + service.getInput.get(i).type.name + ' and many ' + service.getInput.get(i).many + ' but ' + out.get(i).type.name + ' with many ' + out.get(i).many + ' given', 
 							CodeGeneratorModelPackage.Literals.MULTI_SERVICE__SERVICES,
 							INPUT_WRONG)
 					}
@@ -118,13 +119,13 @@ class RulesValidator extends AbstractRulesValidator {
 		}
 	}
 	
-	private def EList<AbstractEntity> getInput(Service service) {
+	private def EList<Inout> getInput(Service service) {
 		if(service instanceof SimpleService) {
 			return service.input
 		}
 		else if(service instanceof MultiService) {
 			if(service.parallel) {
-				var EList<AbstractEntity> input = new BasicEList<AbstractEntity>()
+				var EList<Inout> input = new BasicEList<Inout>()
 				for(ser : service.services as EList<Service>) {
 					input.addAll(ser.getInput)
 				}
@@ -135,13 +136,13 @@ class RulesValidator extends AbstractRulesValidator {
 		}
 	}
 	
-	private def EList<AbstractEntity> getOutput(Service service) {
+	private def EList<Inout> getOutput(Service service) {
 		if(service instanceof SimpleService) {
 			return service.output
 		}
 		else if(service instanceof MultiService) {
 			if(service.parallel) {
-				var EList<AbstractEntity> output = new BasicEList<AbstractEntity>()
+				var EList<Inout> output = new BasicEList<Inout>()
 				for(ser : service.services as EList<Service>) {
 					output.addAll(ser.getOutput)
 				}
@@ -283,7 +284,7 @@ class RulesValidator extends AbstractRulesValidator {
 	@Check
 	// Las funciones Upload y Update (si existen) deben completarse (TODO)
 	def checkToDo(Artifact artifact) {
-		if(artifact.getBasicServices().contains(ServiceEnum.UPDATE) || artifact.getBasicServices().contains(ServiceEnum.UPLOAD)) {
+		if(artifact.basicServices.contains(ServiceEnum.UPDATE) || artifact.basicServices.contains(ServiceEnum.UPLOAD) || artifact.basicServices.contains(ServiceEnum.ALL)) {
 			val platformString = artifact.eResource.URI.toPlatformString(true)
 			val rules_file = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformString))
 			val project = rules_file.project

@@ -3,7 +3,7 @@
    <description name="miso.DISTIL" url="http://carras91.github.io/miso.distil/">
       MDE Service Specification Language Update Site
    </description>
-   <feature url="features/miso.distil.feature_1.0.0.201507141508.jar" id="miso.distil.feature" version="1.0.0.201507141508">
+   <feature url="features/miso.distil.feature_1.0.0.201507151611.jar" id="miso.distil.feature" version="1.0.0.201507151611">
       <category name="DISTIL"/>
    </feature>
    <category-def name="DISTIL" label="MDE Service Specification Language"/>

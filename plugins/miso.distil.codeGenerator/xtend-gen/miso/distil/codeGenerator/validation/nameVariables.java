@@ -15,12 +15,12 @@ public class nameVariables {
    * Names inside the artifact
    */
   private final static ArrayList<String> artifact = CollectionLiterals.<String>newArrayList("objectId", "serialVersionUID", "objectName", "createdAt", 
-    "fileName", "fileSize", "tags", "filtersEType", "filters");
+    "fileName", "fileSize", "filtersEType", "filters");
   
   /**
    * Names inside update method
    */
-  private final static ArrayList<String> update = CollectionLiterals.<String>newArrayList("map", "id", "name", "tags", "eclass", "esupertype", "eabstract", "einterface", "eattribute", "ereference", 
+  private final static ArrayList<String> update = CollectionLiterals.<String>newArrayList("map", "id", "eclass", "esupertype", "eabstract", "einterface", "eattribute", "ereference", 
     "newXX", "oldXX", "IS", "activeFilters", "filters");
   
   /**

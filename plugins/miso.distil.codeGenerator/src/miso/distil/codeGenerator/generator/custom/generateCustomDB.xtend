@@ -24,7 +24,7 @@ class generateCustomDB {
 		import java.util.List;
 		
 		import «names.MisoBasic».BasicInterfaceSpark;
-		import «names.MisoAbstract».AbstractPersistentClass;
+		import «names.MisoAbstract».Persistent;
 		import «names.MisoAbstract».InterfaceDB;
 		
 		/**
@@ -70,7 +70,7 @@ class generateCustomDB {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public Boolean save(AbstractPersistentClass artifact, InputStream inputStream) {
+			public Boolean save(Persistent artifact, InputStream inputStream) {
 				return false;
 			}
 
@@ -80,7 +80,7 @@ class generateCustomDB {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public Boolean delete(String id, Class<? extends AbstractPersistentClass> classType) {
+			public Boolean delete(String id, Class<? extends Persistent> classType) {
 				return false;
 			}
 
@@ -90,7 +90,7 @@ class generateCustomDB {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public AbstractPersistentClass readOne(String id, Class<? extends AbstractPersistentClass> classType) {
+			public Persistent readOne(String id, Class<? extends Persistent> classType) {
 				return null;
 			}
 
@@ -100,8 +100,8 @@ class generateCustomDB {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public ArrayList<? extends AbstractPersistentClass> readAll(Class<? extends AbstractPersistentClass> classType) {
-				return new ArrayList<AbstractPersistentClass>();
+			public ArrayList<? extends Persistent> readAll(Class<? extends Persistent> classType) {
+				return new ArrayList<Persistent>();
 			}
 
 			/**
@@ -111,8 +111,8 @@ class generateCustomDB {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public ArrayList<? extends AbstractPersistentClass> search(String attribute, Boolean synonymes_att, String value, Boolean synonymes_val, Class<? extends AbstractPersistentClass> classType) {
-				return new ArrayList<AbstractPersistentClass>();
+			public ArrayList<? extends Persistent> search(String attribute, Boolean synonymes_att, String value, Boolean synonymes_val, Class<? extends Persistent> classType) {
+				return new ArrayList<Persistent>();
 			}
 
 			/**
@@ -121,8 +121,8 @@ class generateCustomDB {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public ArrayList<? extends AbstractPersistentClass> searchTag(String tag, Boolean synonymes, Class<? extends AbstractPersistentClass> classType) {
-				return new ArrayList<AbstractPersistentClass>();
+			public ArrayList<? extends Persistent> searchTag(String tag, Boolean synonymes, Class<? extends Persistent> classType) {
+				return new ArrayList<Persistent>();
 			}
 
 			/**
@@ -141,7 +141,7 @@ class generateCustomDB {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public InputStream getInputStream(String id, Class<? extends AbstractPersistentClass> classType) {
+			public InputStream getInputStream(String id, Class<? extends Persistent> classType) {
 				return null;
 			}
 
@@ -161,7 +161,7 @@ class generateCustomDB {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public long count(Class<? extends AbstractPersistentClass> classType) {
+			public long count(Class<? extends Persistent> classType) {
 				return 0;
 			}
 

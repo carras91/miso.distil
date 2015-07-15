@@ -5,8 +5,8 @@ import codeGeneratorModel.DataEnum
 import codeGeneratorModel.Artifact
 import com.google.inject.Inject
 import org.eclipse.emf.common.util.EList
-import codeGeneratorModel.SimpleAttribute
 import codeGeneratorModel.ServiceEnum
+import codeGeneratorModel.Primitive
 
 /*
  * To write HtmlXXXView.java
@@ -50,11 +50,9 @@ class generateHtmlView {
 		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.UPDATE)»
 			«var util = false»
 			«FOR att:allAtts»
-				«IF att instanceof SimpleAttribute»
-					«IF att.many && !util»
-						«{util = true; null}»
-						import «names.MisoUtils».Utils;
-					«ENDIF»
+				«IF att instanceof Primitive && att.many && !util»
+					«{util = true; null}»
+					import «names.MisoUtils».Utils;
 				«ENDIF»
 			«ENDFOR»
 		«ENDIF»
@@ -82,15 +80,14 @@ class generateHtmlView {
 					entries.add(new HtmlEntry(«namelow».getCreatedAtString(), EntrySize.H4));
 					entries.add(new HtmlEntry("FileSize (bytes): " + «namelow».getFileSize().toString(), EntrySize.H4));
 					entries.add(new HtmlEntry("ObjectId : " + «namelow».getObjectId().toString(), EntrySize.H4));
-					entries.add(new HtmlEntry("Tags : " + «namelow».getTagsString(), EntrySize.H5));
 					«{pos = -1; null}»
 					«FOR att:allAtts»
 						«{pos++; null}»
-						«IF att instanceof SimpleAttribute»
+						«IF att instanceof Primitive»
 							«val newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
-							«IF att.data.equals(DataEnum.STRING) && !att.many»
+							«IF att.type.equals(DataEnum.STRING) && !att.many»
 								entries.add(new HtmlEntry("«newName» : " + «genUti.getNestedGets(pos, artifact)», EntrySize.H5));
-							«ELSEIF (att.data.equals(DataEnum.DOUBLE) || att.data.equals(DataEnum.DOUBLE) || att.data.equals(DataEnum.INTEGER)) && !att.many»
+							«ELSEIF (att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.INTEGER)) && !att.many»
 								entries.add(new HtmlEntry("«newName» : " + «genUti.getNestedGets(pos, artifact)».toString(), EntrySize.H5));
 							«ELSEIF att.many»
 								entries.add(new HtmlEntry("«newName» : " + Utils.ListToString(«genUti.getNestedGets(pos, artifact)»), EntrySize.H5));				
@@ -101,7 +98,7 @@ class generateHtmlView {
 						entries.add(new HtmlEntry(Html«name»Links.getDownloadZipJsonLink(«namelow») + " | " + Html«name»Links.getDownloadFileJsonLink(«namelow»), EntrySize.H5));
 					«ELSEIF basicServices.contains(ServiceEnum.UPDATE)»
 						entries.add(new HtmlEntry(Html«name»Links.getUpdateHtmlLink(«namelow»), EntrySize.H5));
-					«ELSEIF basicServices.contains(ServiceEnum.UPLOAD)»
+					«ELSEIF basicServices.contains(ServiceEnum.DELETE)»
 						entries.add(new HtmlEntry(Html«name»Links.getDeleteFormJsonLink(«namelow»), EntrySize.H5));
 					«ENDIF»
 
@@ -128,7 +125,7 @@ class generateHtmlView {
 								entries.add(new HtmlEntry(Html«name»Links.getReadJsonLink(«namelow»), EntrySize.H5));
 							«ELSEIF basicServices.contains(ServiceEnum.UPDATE)»
 								entries.add(new HtmlEntry(Html«name»Links.getUpdateHtmlLink(«namelow»), EntrySize.H5));
-							«ELSEIF basicServices.contains(ServiceEnum.UPLOAD)»
+							«ELSEIF basicServices.contains(ServiceEnum.DELETE)»
 								entries.add(new HtmlEntry(Html«name»Links.getDeleteFormJsonLink(«namelow»), EntrySize.H5));
 							«ENDIF»
 							multientries.add(entries);
@@ -178,16 +175,15 @@ class generateHtmlView {
 					viewObjects.put(HtmlFreeMarker.FORM, form);
 
 					List<HtmlText> texts = new ArrayList<HtmlText>();
-					texts.add(new HtmlText(Basic«name»Param.Tags, «namelow».getTagsString(), "Tags (tag1,tag2,tag3,...)", "tags", ""));
 					«{pos = -1; null}»
 					«FOR att:allAtts»
 						«{pos++; null}»
-						«IF att instanceof SimpleAttribute»
+						«IF att instanceof Primitive»
 							«IF att.required»
 								«val newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
-								«IF att.data.equals(DataEnum.STRING) && !att.many»
+								«IF att.type.equals(DataEnum.STRING) && !att.many»
 									texts.add(new HtmlText(Basic«name»Param.«newName», «genUti.getNestedGets(pos, artifact)», "«newName.toLowerCase»", "«att.name»", ""));
-								«ELSEIF (att.data.equals(DataEnum.DOUBLE) || att.data.equals(DataEnum.INTEGER)) && !att.many»
+								«ELSEIF (att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.INTEGER)) && !att.many»
 									texts.add(new HtmlText(Basic«name»Param.«newName», «genUti.getNestedGets(pos, artifact)».toString(), "«newName.toLowerCase»", "«att.name»", ""));
 								«ELSEIF att.many»
 									texts.add(new HtmlText(Basic«name»Param.«newName», Utils.ListToString(«genUti.getNestedGets(pos, artifact)»), "«newName.toLowerCase» («att.name»1,«att.name»2,...)", "«att.name»", ""));
@@ -201,10 +197,10 @@ class generateHtmlView {
 					«{pos = -1; null}»
 					«FOR att:allAtts»
 						«{pos++; null}»
-						«IF att instanceof SimpleAttribute»
+						«IF att instanceof Primitive»
 							«IF att.required»
 								«var newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
-								«IF att.data.equals(DataEnum.BOOLEAN) && !att.many»
+								«IF att.type.equals(DataEnum.BOOLEAN) && !att.many»
 									radios.add(new HtmlRadio(Basic«name»Param.«newName», "«newName.toLowerCase»", "«att.name»", «genUti.getNestedGets(pos, artifact)»));
 								«ENDIF»
 							«ENDIF»
@@ -233,17 +229,16 @@ class generateHtmlView {
 					viewObjects.put(HtmlFreeMarker.FORM, form);
 
 					List<HtmlText> texts = new ArrayList<HtmlText>();
-					texts.add(new HtmlText(Basic«name»Param.Tags, "", "Tags (tag1,tag2,tag3,...)", "tags", "Enter new tags"));
 					«{pos = -1; null}»
 					«FOR att:allAtts»
 						«{pos++; null}»
-						«IF att instanceof SimpleAttribute»
+						«IF att instanceof Primitive»
 							«IF att.required»
 								«val newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
-								«IF !att.data.equals(DataEnum.BOOLEAN) && !att.many»
-									texts.add(new HtmlText(Basic«name»Param.«newName», "", "«newName.toLowerCase»", "«att.name»", "Enter valid «att.data.toString»"));
+								«IF !att.type.equals(DataEnum.BOOLEAN) && !att.many»
+									texts.add(new HtmlText(Basic«name»Param.«newName», "", "«newName.toLowerCase»", "«att.name»", "Enter valid «att.type.toString»"));
 								«ELSEIF att.many»
-									texts.add(new HtmlText(Basic«name»Param.«newName», "", "«newName.toLowerCase» («att.name»1,«att.name»2,...)", "«att.name»", "Enter new list of valid «att.data.toString»"));
+									texts.add(new HtmlText(Basic«name»Param.«newName», "", "«newName.toLowerCase» («att.name»1,«att.name»2,...)", "«att.name»", "Enter new list of valid «att.type.toString»"));
 								«ENDIF»
 							«ENDIF»
 						«ENDIF»
@@ -254,10 +249,10 @@ class generateHtmlView {
 					«{pos = -1; null}»
 					«FOR att:allAtts»
 						«{pos++; null}»
-						«IF att instanceof SimpleAttribute»
+						«IF att instanceof Primitive»
 							«IF att.required»
 								«val newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
-								«IF att.data.equals(DataEnum.BOOLEAN) && !att.many»
+								«IF att.type.equals(DataEnum.BOOLEAN) && !att.many»
 									radios.add(new HtmlRadio(Basic«name»Param.«newName», "«newName.toLowerCase»", "«att.name»", true));
 								«ENDIF»
 							«ENDIF»

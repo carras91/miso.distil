@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList
  */
 class generateBasicSpark {
 	
+	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
@@ -20,12 +21,13 @@ class generateBasicSpark {
 	 * @author Carlos Carrascal
 	 */
 	def write(Artifact artifact) '''
-		«var EList<ServiceEnum> basicServices = artifact.basicServices»
+		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
 		«val name = artifact.name»
 		«val namelow = artifact.name.toLowerCase»
 		package «names.getBasicChar(artifact)»;
 		
-		«IF basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD)»
+		«IF basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD) ||
+			basicServices.contains(ServiceEnum.DELETE)»
 			import static spark.Spark.post;
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.READ) ||
@@ -61,6 +63,8 @@ class generateBasicSpark {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD)»
 				public static String UploadJson = "/json/«namelow»/upload";
+			«ENDIF»
+			«IF basicServices.contains(ServiceEnum.DELETE)»
 				public static String DeleteJson = "/json/«namelow»/delete";
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.DOWNLOAD)»
@@ -109,6 +113,8 @@ class generateBasicSpark {
 						(request, response) -> Json.postUpload(request, response),
 						new JsonTransformer());
 
+				«ENDIF»
+				«IF basicServices.contains(ServiceEnum.DELETE)»
 					post(DeleteJson, "application/json",
 						(request, response) -> Json.postDelete(request, response),
 						new JsonTransformer());

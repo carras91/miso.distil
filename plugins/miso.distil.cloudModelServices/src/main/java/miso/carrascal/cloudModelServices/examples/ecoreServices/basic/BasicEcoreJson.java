@@ -10,7 +10,7 @@ import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletException;
 import javax.servlet.http.Part;
 
-import miso.carrascal.cloudModelServices.abstractServices.AbstractPersistentClass;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
 import miso.carrascal.cloudModelServices.abstractServices.filter.EType;
@@ -45,7 +45,7 @@ public class BasicEcoreJson extends BasicAbstractJson {
 	    Boolean active = map.get(BasicEcoreParam.Active).equalsIgnoreCase("true");
 		
 		ArrayList<Ecore> ecores = new ArrayList<Ecore>();
-		for(AbstractPersistentClass object : super.getSearch(req, res))
+		for(Persistent object : super.getSearch(req, res))
 			ecores.add((Ecore)object);
 		
 		if(active) {

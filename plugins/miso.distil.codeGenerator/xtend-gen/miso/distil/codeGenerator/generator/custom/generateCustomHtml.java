@@ -4,6 +4,7 @@ import codeGeneratorModel.Artifact;
 import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
+import miso.distil.codeGenerator.generator.generateUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,6 +16,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateCustomHtml {
   @Inject
+  private generateUtils genUti;
+  
+  @Inject
   private Names names;
   
   /**
@@ -24,7 +28,8 @@ public class generateCustomHtml {
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
-    EList<ServiceEnum> basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> _basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> basicServices = this.genUti.processBasicServices(_basicServices);
     _builder.newLineIfNotEmpty();
     String _name = artifact.getName();
     final String namelow = _name.toLowerCase();
@@ -630,11 +635,11 @@ public class generateCustomHtml {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("texts.add(new HtmlText(Basic");
+        _builder.append("// texts.add(new HtmlText(Basic");
         _builder.append(name, "\t\t");
-        _builder.append("Param.Tags, ");
+        _builder.append("Param.T, ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getTagsString(), \"Tags (tag1,tag2,tag3,...)\", \"tags\", \"\"));");
+        _builder.append(".getT(), \"T (t1,t2,t3,...)\", \"t\", \"\"));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
@@ -776,9 +781,9 @@ public class generateCustomHtml {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("texts.add(new HtmlText(Basic");
+        _builder.append("// texts.add(new HtmlText(Basic");
         _builder.append(name, "\t\t");
-        _builder.append("Param.Tags, \"\", \"Tags (tag1,tag2,tag3,...)\", \"tags\", \"Enter new tags\"));");
+        _builder.append("Param.T, \"\", \"T (t1,t2,t3,...)\", \"t\", \"Enter new t\"));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");

@@ -5,6 +5,7 @@ package codeGeneratorModel;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
@@ -16,8 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum DataEnum implements Enumerator
-{
+public enum DataEnum implements Enumerator {
 	/**
 	 * The '<em><b>Boolean</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -27,6 +27,7 @@ public enum DataEnum implements Enumerator
 	 * @ordered
 	 */
 	BOOLEAN(0, "Boolean", "Boolean"),
+
 	/**
 	 * The '<em><b>Double</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -36,6 +37,7 @@ public enum DataEnum implements Enumerator
 	 * @ordered
 	 */
 	DOUBLE(1, "Double", "Double"),
+
 	/**
 	 * The '<em><b>Integer</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -45,6 +47,7 @@ public enum DataEnum implements Enumerator
 	 * @ordered
 	 */
 	INTEGER(2, "Integer", "Integer"),
+
 	/**
 	 * The '<em><b>String</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -54,6 +57,7 @@ public enum DataEnum implements Enumerator
 	 * @ordered
 	 */
 	STRING(3, "String", "String");
+
 	/**
 	 * The '<em><b>Boolean</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -254,4 +258,5 @@ public enum DataEnum implements Enumerator
 	public String toString() {
 		return literal;
 	}
-}
+	
+} //DataEnum

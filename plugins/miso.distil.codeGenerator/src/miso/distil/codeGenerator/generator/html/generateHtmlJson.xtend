@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList
  */
 class generateHtmlJson {
 
+	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
@@ -20,7 +21,7 @@ class generateHtmlJson {
 	 * @author Carlos Carrascal
 	 */	
 	def write(Artifact artifact) '''
-		«var EList<ServiceEnum> basicServices = artifact.basicServices»
+		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
 		«val namelow = artifact.name.toLowerCase»
 		«val name = artifact.name»
 		package «names.getHtmlChar(artifact)»;
@@ -38,7 +39,7 @@ class generateHtmlJson {
 		import «names.MisoHtml».HtmlInterfaceJson;
 
 		«IF basicServices.contains(ServiceEnum.READ_ALL) || basicServices.contains(ServiceEnum.SEARCH)»
-			import «names.MisoAbstract».AbstractPersistentClass;
+			import «names.MisoAbstract».Persistent;
 		«ENDIF»
 		import «names.MisoHtml».HtmlFreeMarker;
 		import «names.MisoHtml».HtmlInterfaceView;
@@ -118,7 +119,7 @@ class generateHtmlJson {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 					ArrayList<«name»> «namelow»s = new ArrayList<«name»>();
-					for(AbstractPersistentClass «namelow» : Json.getReadAll(req, res)) {
+					for(Persistent «namelow» : Json.getReadAll(req, res)) {
 						«namelow»s.add((«name»)«namelow»);
 					}
 					viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(«namelow»s));
@@ -156,7 +157,7 @@ class generateHtmlJson {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 					ArrayList<«name»> «namelow»s = new ArrayList<«name»>();
-					for(AbstractPersistentClass «namelow» : Json.getSearch(req, res)) {
+					for(Persistent «namelow» : Json.getSearch(req, res)) {
 						«namelow»s.add((«name»)«namelow»);
 					}
 					if(«namelow»s.isEmpty()) {

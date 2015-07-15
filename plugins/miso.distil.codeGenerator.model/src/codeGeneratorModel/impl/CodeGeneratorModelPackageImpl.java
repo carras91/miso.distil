@@ -4,19 +4,21 @@ package codeGeneratorModel.impl;
 
 import codeGeneratorModel.AbstractEntity;
 import codeGeneratorModel.Artifact;
+import codeGeneratorModel.ArtifactID;
 import codeGeneratorModel.Attribute;
 import codeGeneratorModel.CodeGeneratorModelFactory;
 import codeGeneratorModel.CodeGeneratorModelPackage;
 import codeGeneratorModel.DataEnum;
 import codeGeneratorModel.Entity;
 import codeGeneratorModel.FormatEnum;
-import codeGeneratorModel.MultiAttribute;
+import codeGeneratorModel.Inout;
 import codeGeneratorModel.MultiService;
 import codeGeneratorModel.OnService;
+import codeGeneratorModel.Primitive;
+import codeGeneratorModel.Reference;
 import codeGeneratorModel.Root;
 import codeGeneratorModel.Service;
 import codeGeneratorModel.ServiceEnum;
-import codeGeneratorModel.SimpleAttribute;
 import codeGeneratorModel.SimpleService;
 
 import org.eclipse.emf.ecore.EAttribute;
@@ -67,7 +69,7 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass simpleAttributeEClass = null;
+	private EClass primitiveEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -109,7 +111,21 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass multiAttributeEClass = null;
+	private EClass referenceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass inoutEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass artifactIDEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -315,8 +331,8 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getSimpleAttribute() {
-		return simpleAttributeEClass;
+	public EAttribute getAttribute_Many() {
+		return (EAttribute)attributeEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -324,8 +340,8 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSimpleAttribute_Many() {
-		return (EAttribute)simpleAttributeEClass.getEStructuralFeatures().get(0);
+	public EClass getPrimitive() {
+		return primitiveEClass;
 	}
 
 	/**
@@ -333,8 +349,8 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSimpleAttribute_Data() {
-		return (EAttribute)simpleAttributeEClass.getEStructuralFeatures().get(1);
+	public EAttribute getPrimitive_Type() {
+		return (EAttribute)primitiveEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -342,8 +358,8 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getSimpleAttribute_Required() {
-		return (EAttribute)simpleAttributeEClass.getEStructuralFeatures().get(2);
+	public EAttribute getPrimitive_Required() {
+		return (EAttribute)primitiveEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -468,8 +484,8 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getMultiAttribute() {
-		return multiAttributeEClass;
+	public EClass getReference() {
+		return referenceEClass;
 	}
 
 	/**
@@ -477,8 +493,62 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getMultiAttribute_Type() {
-		return (EReference)multiAttributeEClass.getEStructuralFeatures().get(0);
+	public EReference getReference_Type() {
+		return (EReference)referenceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getInout() {
+		return inoutEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInout_Many() {
+		return (EAttribute)inoutEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getInout_Type() {
+		return (EReference)inoutEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getInout_Compatibility() {
+		return (EAttribute)inoutEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getArtifactID() {
+		return artifactIDEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getArtifactID_Type() {
+		return (EReference)artifactIDEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -552,11 +622,11 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 
 		attributeEClass = createEClass(ATTRIBUTE);
 		createEAttribute(attributeEClass, ATTRIBUTE__NAME);
+		createEAttribute(attributeEClass, ATTRIBUTE__MANY);
 
-		simpleAttributeEClass = createEClass(SIMPLE_ATTRIBUTE);
-		createEAttribute(simpleAttributeEClass, SIMPLE_ATTRIBUTE__MANY);
-		createEAttribute(simpleAttributeEClass, SIMPLE_ATTRIBUTE__DATA);
-		createEAttribute(simpleAttributeEClass, SIMPLE_ATTRIBUTE__REQUIRED);
+		primitiveEClass = createEClass(PRIMITIVE);
+		createEAttribute(primitiveEClass, PRIMITIVE__TYPE);
+		createEAttribute(primitiveEClass, PRIMITIVE__REQUIRED);
 
 		entityEClass = createEClass(ENTITY);
 
@@ -576,8 +646,16 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 		createEReference(onServiceEClass, ON_SERVICE__ARTIFACT);
 		createEAttribute(onServiceEClass, ON_SERVICE__WHEN_SERVICES);
 
-		multiAttributeEClass = createEClass(MULTI_ATTRIBUTE);
-		createEReference(multiAttributeEClass, MULTI_ATTRIBUTE__TYPE);
+		referenceEClass = createEClass(REFERENCE);
+		createEReference(referenceEClass, REFERENCE__TYPE);
+
+		inoutEClass = createEClass(INOUT);
+		createEAttribute(inoutEClass, INOUT__MANY);
+		createEReference(inoutEClass, INOUT__TYPE);
+		createEAttribute(inoutEClass, INOUT__COMPATIBILITY);
+
+		artifactIDEClass = createEClass(ARTIFACT_ID);
+		createEReference(artifactIDEClass, ARTIFACT_ID__TYPE);
 
 		// Create enums
 		dataEnumEEnum = createEEnum(DATA_ENUM);
@@ -614,20 +692,18 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 
 		// Add supertypes to classes
 		artifactEClass.getESuperTypes().add(this.getAbstractEntity());
-		simpleAttributeEClass.getESuperTypes().add(this.getAttribute());
+		primitiveEClass.getESuperTypes().add(this.getAttribute());
 		entityEClass.getESuperTypes().add(this.getAbstractEntity());
 		simpleServiceEClass.getESuperTypes().add(this.getService());
 		multiServiceEClass.getESuperTypes().add(this.getService());
-		multiAttributeEClass.getESuperTypes().add(this.getAttribute());
+		referenceEClass.getESuperTypes().add(this.getAttribute());
+		artifactIDEClass.getESuperTypes().add(this.getAttribute());
 
 		// Initialize classes, features, and operations; add parameters
 		initEClass(rootEClass, Root.class, "Root", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getRoot_Artifacts(), this.getArtifact(), null, "artifacts", null, 1, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getRoot_Artifacts().getEKeys().add(this.getAbstractEntity_Name());
 		initEReference(getRoot_Entities(), this.getEntity(), null, "entities", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getRoot_Entities().getEKeys().add(this.getAbstractEntity_Name());
 		initEReference(getRoot_Services(), this.getService(), null, "services", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getRoot_Services().getEKeys().add(this.getService_Name());
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Extension(), ecorePackage.getEString(), "extension", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -636,42 +712,44 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 
 		initEClass(abstractEntityEClass, AbstractEntity.class, "AbstractEntity", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getAbstractEntity_Attributes(), this.getAttribute(), null, "attributes", null, 0, -1, AbstractEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getAbstractEntity_Attributes().getEKeys().add(this.getAttribute_Name());
-		initEAttribute(getAbstractEntity_Name(), ecorePackage.getEString(), "name", null, 1, 1, AbstractEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAbstractEntity_Name(), ecorePackage.getEString(), "name", null, 1, 1, AbstractEntity.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(attributeEClass, Attribute.class, "Attribute", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Name(), ecorePackage.getEString(), "name", null, 1, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getAttribute_Many(), ecorePackage.getEBoolean(), "many", "false", 0, 1, Attribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(simpleAttributeEClass, SimpleAttribute.class, "SimpleAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSimpleAttribute_Many(), ecorePackage.getEBoolean(), "many", "false", 0, 1, SimpleAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSimpleAttribute_Data(), this.getDataEnum(), "data", "String", 1, 1, SimpleAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getSimpleAttribute_Required(), ecorePackage.getEBoolean(), "required", "false", 0, 1, SimpleAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEClass(primitiveEClass, Primitive.class, "Primitive", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getPrimitive_Type(), this.getDataEnum(), "type", "String", 1, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getPrimitive_Required(), ecorePackage.getEBoolean(), "required", "false", 0, 1, Primitive.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(entityEClass, Entity.class, "Entity", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(simpleServiceEClass, SimpleService.class, "SimpleService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getSimpleService_Input(), this.getAbstractEntity(), null, "input", null, 0, -1, SimpleService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getSimpleService_Input().getEKeys().add(this.getAbstractEntity_Name());
-		initEReference(getSimpleService_Output(), this.getAbstractEntity(), null, "output", null, 0, -1, SimpleService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getSimpleService_Output().getEKeys().add(this.getAbstractEntity_Name());
+		initEReference(getSimpleService_Input(), this.getInout(), null, "input", null, 0, -1, SimpleService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getSimpleService_Output(), this.getInout(), null, "output", null, 0, -1, SimpleService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(multiServiceEClass, MultiService.class, "MultiService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getMultiService_Services(), this.getService(), null, "services", null, 2, -1, MultiService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getMultiService_Services().getEKeys().add(this.getService_Name());
 		initEAttribute(getMultiService_Parallel(), ecorePackage.getEBoolean(), "parallel", null, 0, 1, MultiService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(serviceEClass, Service.class, "Service", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 1, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getService_Name(), ecorePackage.getEString(), "name", null, 1, 1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getService_When(), this.getOnService(), null, "when", null, 0, -1, Service.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(onServiceEClass, OnService.class, "OnService", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getOnService_Artifact(), this.getArtifact(), null, "artifact", null, 1, 1, OnService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getOnService_Artifact().getEKeys().add(this.getAbstractEntity_Name());
 		initEAttribute(getOnService_WhenServices(), this.getServiceEnum(), "whenServices", "upload", 1, -1, OnService.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-		initEClass(multiAttributeEClass, MultiAttribute.class, "MultiAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getMultiAttribute_Type(), this.getEntity(), null, "type", null, 1, 1, MultiAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		getMultiAttribute_Type().getEKeys().add(this.getAbstractEntity_Name());
+		initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getReference_Type(), this.getEntity(), null, "type", null, 1, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(inoutEClass, Inout.class, "Inout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEAttribute(getInout_Many(), ecorePackage.getEBoolean(), "many", "false", 0, 1, Inout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInout_Type(), this.getAbstractEntity(), null, "type", null, 1, 1, Inout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getInout_Compatibility(), ecorePackage.getEString(), "compatibility", null, 0, 1, Inout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(artifactIDEClass, ArtifactID.class, "ArtifactID", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getArtifactID_Type(), this.getArtifact(), null, "type", null, 1, 1, ArtifactID.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(dataEnumEEnum, DataEnum.class, "DataEnum");
@@ -696,6 +774,8 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.READ);
 		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.READ_ALL);
 		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.SEARCH);
+		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.DELETE);
+		addEEnumLiteral(serviceEnumEEnum, ServiceEnum.ALL);
 
 		// Create resource
 		createResource(eNS_URI);

@@ -4,7 +4,7 @@ import com.google.inject.Inject
 import codeGeneratorModel.Artifact
 import codeGeneratorModel.Attribute
 import org.eclipse.emf.common.util.EList
-import codeGeneratorModel.SimpleAttribute
+import codeGeneratorModel.Primitive
 
 /*
  * To write BasicXXXParam.java
@@ -40,7 +40,7 @@ class generateBasicParam {
 			«{pos = -1; null}»
 			«FOR att:allAtts»
 				«{pos++; null}»
-				«IF att instanceof SimpleAttribute»
+				«IF att instanceof Primitive»
 					«IF att.required»
 						public static String «genUti.getNewAttName(pos, artifact).toFirstUpper» = "«genUti.getNewAttName(pos, artifact).toUpperCase»";
 					«ENDIF»
@@ -60,7 +60,7 @@ class generateBasicParam {
 					«{pos = -1; null}»
 					«FOR att:allAtts»
 						«{pos++; null}»
-						«IF att instanceof SimpleAttribute»
+						«IF att instanceof Primitive»
 							«IF att.required»
 							values.add(«genUti.getNewAttName(pos, artifact).toFirstUpper»);
 							«ENDIF»

@@ -3,10 +3,10 @@ package miso.distil.codeGenerator.generator.services
 import com.google.inject.Inject
 import codeGeneratorModel.SimpleService
 import codeGeneratorModel.Artifact
-import codeGeneratorModel.AbstractEntity
 import org.eclipse.emf.common.util.EList
 import java.util.ArrayList
 import codeGeneratorModel.Entity
+import codeGeneratorModel.Inout
 
 /*
  * To write XXXService.java
@@ -34,26 +34,26 @@ class generateSimpleService {
 		import spark.Response;
 		
 		import «names.MisoServices».ServiceAbstractJson;
-		import «names.MisoAbstract».AbstractPersistentClass;
+		import «names.MisoAbstract».Persistent;
 
-		«FOR input : simpleService.input as EList<AbstractEntity>»
-			«IF !nameList.contains(input.name)»
-				«IF input instanceof Artifact»
-					import «names.getArtifactFileChar(input)»;
+		«FOR input : simpleService.input as EList<Inout>»
+			«IF !nameList.contains(input.type.name)»
+				«IF input.type instanceof Artifact»
+					import «names.getArtifactFileChar(input.type as Artifact)»;
 				«ELSE»
-					import «names.getEntityFileChar(Entity.cast(input))»;
+					import «names.getEntityFileChar(input.type as Entity)»;
 				«ENDIF»
-				«{nameList.add(input.name); null}»
+				«{nameList.add(input.type.name); null}»
 			«ENDIF»
 		«ENDFOR»
-		«FOR output : simpleService.output as EList<AbstractEntity>»
-			«IF !nameList.contains(output.name)»
-				«IF output instanceof Artifact»
-					import «names.getArtifactFileChar(output)»;
+		«FOR output : simpleService.output as EList<Inout>»
+			«IF !nameList.contains(output.type.name)»
+				«IF output.type instanceof Artifact»
+					import «names.getArtifactFileChar(output.type as Artifact)»;
 				«ELSE»
-					import «names.getEntityFileChar(Entity.cast(output))»;
+					import «names.getEntityFileChar(output.type as Entity)»;
 				«ENDIF»
-				«{nameList.add(output.name); null}»
+				«{nameList.add(output.type.name); null}»
 			«ENDIF»
 		«ENDFOR»
 		«IF !nameList.empty»
@@ -73,12 +73,20 @@ class generateSimpleService {
 			 */
 			public Service«simpleService.name»() {
 				// Input classes
-				«FOR input : simpleService.input as EList<AbstractEntity>»
-					addInputClass(«input.name».class);
+				«FOR input : simpleService.input as EList<Inout>»
+					«IF !input.many»
+						addInputClass(«input.type.name».class);
+					«ELSE»
+						addInputClass((new ArrayList<«input.type.name»>()).getClass());
+					«ENDIF»
 				«ENDFOR»
 				// Outpu classes
-				«FOR output : simpleService.output as EList<AbstractEntity>»
-					addOutputClass(«output.name».class);
+				«FOR output : simpleService.output as EList<Inout>»
+					«IF !output.many»
+						addOutputClass(«output.type.name».class);
+					«ELSE»
+						addOutputClass((new ArrayList<«output.type.name»>()).getClass());
+					«ENDIF»
 				«ENDFOR»
 			}
 
@@ -92,7 +100,7 @@ class generateSimpleService {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public List<Object> runService(Request req, Response res, List<? extends AbstractPersistentClass> artifacts) {
+			public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
 				List<Object> input = new ArrayList<Object>();
 
 				// TODO : Create the input objects to your service and use (or not) the artifacts
@@ -115,17 +123,25 @@ class generateSimpleService {
 
 					// Take your inputs
 				«ENDIF»
-				«FOR input : simpleService.input as EList<AbstractEntity>»
-					// «input.name» «input.name.toLowerCase»«position» = «input.name».class.cast(input.get(«position»));
+				«FOR input : simpleService.input as EList<Inout>»
+					«IF input.many»
+					// List<«input.type.name» «input.type.name.toLowerCase»«position» = (new ArrayList<«input.type.name»>()).getClass().cast(input.get(«position»));
+					«ELSE»
+					// «input.type.name» «input.type.name.toLowerCase»«position» = «input.type.name».class.cast(input.get(«position»));
+					«ENDIF»
 					«{position++; null}»
 				«ENDFOR»
 				// TODO : do something!
-				«IF !simpleService.input.empty»
+				«IF !simpleService.output.empty»
 
 					// Create your outputs (do something!)
 				«ENDIF»
-				«FOR output : simpleService.output as EList<AbstractEntity>»
-					output.add(new «output.name»());
+				«FOR output : simpleService.output as EList<Inout>»
+					«IF output.many»
+						output.add(new ArrayList<«output.type.name»>());
+					«ELSE»
+						output.add(new «output.type.name»());
+					«ENDIF»
 				«ENDFOR»
 
 				return output;

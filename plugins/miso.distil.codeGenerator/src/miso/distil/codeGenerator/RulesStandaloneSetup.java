@@ -9,7 +9,7 @@ import miso.distil.codeGenerator.RulesStandaloneSetupGenerated;
  * Initialization support for running Xtext languages 
  * without equinox extension registry
  */
-public class RulesStandaloneSetup extends RulesStandaloneSetupGenerated{
+public class RulesStandaloneSetup extends RulesStandaloneSetupGenerated {
 
 	public static void doSetup() {
 		new RulesStandaloneSetup().createInjectorAndDoEMFRegistration();

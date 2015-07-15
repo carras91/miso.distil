@@ -5,6 +5,7 @@ package codeGeneratorModel;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
@@ -16,8 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum FormatEnum implements Enumerator
-{
+public enum FormatEnum implements Enumerator {
 	/**
 	 * The '<em><b>XMI</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -27,6 +27,7 @@ public enum FormatEnum implements Enumerator
 	 * @ordered
 	 */
 	XMI(0, "XMI", "XMI"),
+
 	/**
 	 * The '<em><b>BINARY</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -36,6 +37,7 @@ public enum FormatEnum implements Enumerator
 	 * @ordered
 	 */
 	BINARY(1, "BINARY", "BINARY"),
+
 	/**
 	 * The '<em><b>TEXT</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -45,6 +47,7 @@ public enum FormatEnum implements Enumerator
 	 * @ordered
 	 */
 	TEXT(2, "TEXT", "TEXT"),
+
 	/**
 	 * The '<em><b>XML</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -54,6 +57,7 @@ public enum FormatEnum implements Enumerator
 	 * @ordered
 	 */
 	XML(3, "XML", "XML"),
+
 	/**
 	 * The '<em><b>JSON</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -63,6 +67,7 @@ public enum FormatEnum implements Enumerator
 	 * @ordered
 	 */
 	JSON(4, "JSON", "JSON"),
+
 	/**
 	 * The '<em><b>ATL</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -72,6 +77,7 @@ public enum FormatEnum implements Enumerator
 	 * @ordered
 	 */
 	ATL(5, "ATL", "ATL"),
+
 	/**
 	 * The '<em><b>ZIP</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -81,6 +87,7 @@ public enum FormatEnum implements Enumerator
 	 * @ordered
 	 */
 	ZIP(6, "ZIP", "ZIP");
+
 	/**
 	 * The '<em><b>XMI</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -332,4 +339,5 @@ public enum FormatEnum implements Enumerator
 	public String toString() {
 		return literal;
 	}
-}
+	
+} //FormatEnum

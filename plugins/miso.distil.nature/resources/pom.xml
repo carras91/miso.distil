@@ -2,7 +2,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>miso.distil</groupId>
-	<artifactId>Example</artifactId>
+	<artifactId>--Foo--</artifactId>
 	<version>0.0.1</version>
   	<name>MDE Service Specification Language Example</name>
 	<packaging>jar</packaging>
@@ -35,7 +35,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 	</properties>
 	<build>
-		<finalName>miso.distil.Example</finalName>
+		<finalName>miso.distil.--Foo--</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

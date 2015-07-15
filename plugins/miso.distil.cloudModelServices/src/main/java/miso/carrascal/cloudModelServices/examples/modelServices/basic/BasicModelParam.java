@@ -10,6 +10,7 @@ public class BasicModelParam extends BasicAbstractParam {
 	public static String EcoreId = "ECOREID";
 	public static String Summary = "MODELSUMMARY";
 	public static String Author = "MODELAUTHOR";
+	public static String Tags = "TAGS";
 
 	private static List<String> values = new ArrayList<String>();
 	public static List<String> values() {
@@ -18,6 +19,7 @@ public class BasicModelParam extends BasicAbstractParam {
 			values.add(EcoreId);
 			values.add(Summary);
 			values.add(Author);
+			values.add(Tags);
 		}
 		return values;
 	}

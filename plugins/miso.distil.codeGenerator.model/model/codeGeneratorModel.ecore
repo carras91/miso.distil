@@ -4,11 +4,11 @@
     nsPrefix="miso.distil.codeGeneratorModel">
   <eClassifiers xsi:type="ecore:EClass" name="Root">
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifacts" lowerBound="1"
-        upperBound="-1" eType="#//Artifact" containment="true" eKeys="#//AbstractEntity/name"/>
+        upperBound="-1" eType="#//Artifact" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="entities" upperBound="-1"
-        eType="#//Entity" containment="true" eKeys="#//AbstractEntity/name"/>
+        eType="#//Entity" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" upperBound="-1"
-        eType="#//Service" containment="true" eKeys="#//Service/name"/>
+        eType="#//Service" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Artifact" eSuperTypes="#//AbstractEntity">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="extension" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -18,18 +18,16 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="AbstractEntity" abstract="true">
     <eStructuralFeatures xsi:type="ecore:EReference" name="attributes" upperBound="-1"
-        eType="#//Attribute" containment="true" eKeys="#//Attribute/name"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+        eType="#//Attribute" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Attribute" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleAttribute" eSuperTypes="#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="data" lowerBound="1" eType="#//DataEnum"
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Primitive" eSuperTypes="#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//DataEnum"
         defaultValueLiteral="String"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="required" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
         defaultValueLiteral="false"/>
@@ -52,9 +50,9 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleService" eSuperTypes="#//Service">
     <eStructuralFeatures xsi:type="ecore:EReference" name="input" upperBound="-1"
-        eType="#//AbstractEntity" eKeys="#//AbstractEntity/name"/>
+        eType="#//Inout" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="output" upperBound="-1"
-        eType="#//AbstractEntity" eKeys="#//AbstractEntity/name"/>
+        eType="#//Inout" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="ServiceEnum">
     <eLiterals name="upload"/>
@@ -63,26 +61,35 @@
     <eLiterals name="read" value="3"/>
     <eLiterals name="readAll" value="4"/>
     <eLiterals name="search" value="5"/>
+    <eLiterals name="delete" value="6"/>
+    <eLiterals name="all" value="7"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MultiService" eSuperTypes="#//Service">
     <eStructuralFeatures xsi:type="ecore:EReference" name="services" lowerBound="2"
-        upperBound="-1" eType="#//Service" eKeys="#//Service/name"/>
+        upperBound="-1" eType="#//Service"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="parallel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Service" abstract="true">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
-        iD="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="when" upperBound="-1" eType="#//OnService"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="OnService">
     <eStructuralFeatures xsi:type="ecore:EReference" name="artifact" lowerBound="1"
-        eType="#//Artifact" eKeys="#//AbstractEntity/name"/>
+        eType="#//Artifact"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="whenServices" lowerBound="1"
         upperBound="-1" eType="#//ServiceEnum" defaultValueLiteral="upload"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="MultiAttribute" eSuperTypes="#//Attribute">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Entity"
-        eKeys="#//AbstractEntity/name"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Entity"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Inout">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="many" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"
+        defaultValueLiteral="false"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//AbstractEntity"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="compatibility" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArtifactID" eSuperTypes="#//Attribute">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1" eType="#//Artifact"/>
   </eClassifiers>
 </ecore:EPackage>

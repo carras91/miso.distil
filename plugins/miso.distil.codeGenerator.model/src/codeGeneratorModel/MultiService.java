@@ -33,7 +33,7 @@ public interface MultiService extends Service {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Services</em>' reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getMultiService_Services()
-	 * @model keys="name" lower="2"
+	 * @model lower="2"
 	 * @generated
 	 */
 	EList<Service> getServices();

@@ -35,7 +35,7 @@ public interface Service extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getService_Name()
-	 * @model id="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

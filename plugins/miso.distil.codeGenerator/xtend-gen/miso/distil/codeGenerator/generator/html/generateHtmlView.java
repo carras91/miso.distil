@@ -3,8 +3,8 @@ package miso.distil.codeGenerator.generator.html;
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.Attribute;
 import codeGeneratorModel.DataEnum;
+import codeGeneratorModel.Primitive;
 import codeGeneratorModel.ServiceEnum;
-import codeGeneratorModel.SimpleAttribute;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
@@ -132,29 +132,31 @@ public class generateHtmlView {
         {
           for(final Attribute att : allAtts) {
             {
-              if ((att instanceof SimpleAttribute)) {
+              boolean _and = false;
+              boolean _and_1 = false;
+              if (!(att instanceof Primitive)) {
+                _and_1 = false;
+              } else {
+                boolean _isMany = att.isMany();
+                _and_1 = _isMany;
+              }
+              if (!_and_1) {
+                _and = false;
+              } else {
+                _and = (!util);
+              }
+              if (_and) {
+                Object _xblockexpression = null;
                 {
-                  boolean _and = false;
-                  boolean _isMany = ((SimpleAttribute)att).isMany();
-                  if (!_isMany) {
-                    _and = false;
-                  } else {
-                    _and = (!util);
-                  }
-                  if (_and) {
-                    Object _xblockexpression = null;
-                    {
-                      util = true;
-                      _xblockexpression = null;
-                    }
-                    _builder.append(_xblockexpression, "");
-                    _builder.newLineIfNotEmpty();
-                    _builder.append("import ");
-                    _builder.append(this.names.MisoUtils, "");
-                    _builder.append(".Utils;");
-                    _builder.newLineIfNotEmpty();
-                  }
+                  util = true;
+                  _xblockexpression = null;
                 }
+                _builder.append(_xblockexpression, "");
+                _builder.newLineIfNotEmpty();
+                _builder.append("import ");
+                _builder.append(this.names.MisoUtils, "");
+                _builder.append(".Utils;");
+                _builder.newLineIfNotEmpty();
               }
             }
           }
@@ -278,12 +280,6 @@ public class generateHtmlView {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("entries.add(new HtmlEntry(\"Tags : \" + ");
-        _builder.append(namelow, "\t\t");
-        _builder.append(".getTagsString(), EntrySize.H5));");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
         Object _xblockexpression_1 = null;
         {
           pos = (-1);
@@ -303,24 +299,24 @@ public class generateHtmlView {
             _builder.append(_xblockexpression_2, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_1 instanceof SimpleAttribute)) {
+              if ((att_1 instanceof Primitive)) {
                 _builder.append("\t");
                 _builder.append("\t");
                 String _newAttName = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                 final String newName = StringExtensions.toFirstUpper(_newAttName);
                 _builder.newLineIfNotEmpty();
                 {
-                  boolean _and_1 = false;
-                  DataEnum _data = ((SimpleAttribute)att_1).getData();
-                  boolean _equals = _data.equals(DataEnum.STRING);
+                  boolean _and_2 = false;
+                  DataEnum _type = ((Primitive)att_1).getType();
+                  boolean _equals = _type.equals(DataEnum.STRING);
                   if (!_equals) {
-                    _and_1 = false;
+                    _and_2 = false;
                   } else {
-                    boolean _isMany_1 = ((SimpleAttribute)att_1).isMany();
+                    boolean _isMany_1 = ((Primitive)att_1).isMany();
                     boolean _not = (!_isMany_1);
-                    _and_1 = _not;
+                    _and_2 = _not;
                   }
-                  if (_and_1) {
+                  if (_and_2) {
                     _builder.append("\t");
                     _builder.append("\t");
                     _builder.append("entries.add(new HtmlEntry(\"");
@@ -331,33 +327,33 @@ public class generateHtmlView {
                     _builder.append(", EntrySize.H5));");
                     _builder.newLineIfNotEmpty();
                   } else {
-                    boolean _and_2 = false;
+                    boolean _and_3 = false;
                     boolean _or_8 = false;
                     boolean _or_9 = false;
-                    DataEnum _data_1 = ((SimpleAttribute)att_1).getData();
-                    boolean _equals_1 = _data_1.equals(DataEnum.DOUBLE);
+                    DataEnum _type_1 = ((Primitive)att_1).getType();
+                    boolean _equals_1 = _type_1.equals(DataEnum.DOUBLE);
                     if (_equals_1) {
                       _or_9 = true;
                     } else {
-                      DataEnum _data_2 = ((SimpleAttribute)att_1).getData();
-                      boolean _equals_2 = _data_2.equals(DataEnum.DOUBLE);
+                      DataEnum _type_2 = ((Primitive)att_1).getType();
+                      boolean _equals_2 = _type_2.equals(DataEnum.DOUBLE);
                       _or_9 = _equals_2;
                     }
                     if (_or_9) {
                       _or_8 = true;
                     } else {
-                      DataEnum _data_3 = ((SimpleAttribute)att_1).getData();
-                      boolean _equals_3 = _data_3.equals(DataEnum.INTEGER);
+                      DataEnum _type_3 = ((Primitive)att_1).getType();
+                      boolean _equals_3 = _type_3.equals(DataEnum.INTEGER);
                       _or_8 = _equals_3;
                     }
                     if (!_or_8) {
-                      _and_2 = false;
+                      _and_3 = false;
                     } else {
-                      boolean _isMany_2 = ((SimpleAttribute)att_1).isMany();
+                      boolean _isMany_2 = ((Primitive)att_1).isMany();
                       boolean _not_1 = (!_isMany_2);
-                      _and_2 = _not_1;
+                      _and_3 = _not_1;
                     }
-                    if (_and_2) {
+                    if (_and_3) {
                       _builder.append("\t");
                       _builder.append("\t");
                       _builder.append("entries.add(new HtmlEntry(\"");
@@ -368,7 +364,7 @@ public class generateHtmlView {
                       _builder.append(".toString(), EntrySize.H5));");
                       _builder.newLineIfNotEmpty();
                     } else {
-                      boolean _isMany_3 = ((SimpleAttribute)att_1).isMany();
+                      boolean _isMany_3 = ((Primitive)att_1).isMany();
                       if (_isMany_3) {
                         _builder.append("\t");
                         _builder.append("\t");
@@ -414,7 +410,7 @@ public class generateHtmlView {
               _builder.append("), EntrySize.H5));");
               _builder.newLineIfNotEmpty();
             } else {
-              boolean _contains_17 = basicServices.contains(ServiceEnum.UPLOAD);
+              boolean _contains_17 = basicServices.contains(ServiceEnum.DELETE);
               if (_contains_17) {
                 _builder.append("\t");
                 _builder.append("\t");
@@ -531,7 +527,7 @@ public class generateHtmlView {
               _builder.append("), EntrySize.H5));");
               _builder.newLineIfNotEmpty();
             } else {
-              boolean _contains_22 = basicServices.contains(ServiceEnum.UPLOAD);
+              boolean _contains_22 = basicServices.contains(ServiceEnum.DELETE);
               if (_contains_22) {
                 _builder.append("\t");
                 _builder.append("\t\t\t");
@@ -717,14 +713,6 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("texts.add(new HtmlText(Basic");
-        _builder.append(name, "\t\t");
-        _builder.append("Param.Tags, ");
-        _builder.append(namelow, "\t\t");
-        _builder.append(".getTagsString(), \"Tags (tag1,tag2,tag3,...)\", \"tags\", \"\"));");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
         Object _xblockexpression_3 = null;
         {
           pos = (-1);
@@ -744,9 +732,9 @@ public class generateHtmlView {
             _builder.append(_xblockexpression_4, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_2 instanceof SimpleAttribute)) {
+              if ((att_2 instanceof Primitive)) {
                 {
-                  boolean _isRequired = ((SimpleAttribute)att_2).isRequired();
+                  boolean _isRequired = ((Primitive)att_2).isRequired();
                   if (_isRequired) {
                     _builder.append("\t");
                     _builder.append("\t");
@@ -754,17 +742,17 @@ public class generateHtmlView {
                     final String newName_1 = StringExtensions.toFirstUpper(_newAttName_1);
                     _builder.newLineIfNotEmpty();
                     {
-                      boolean _and_3 = false;
-                      DataEnum _data_4 = ((SimpleAttribute)att_2).getData();
-                      boolean _equals_4 = _data_4.equals(DataEnum.STRING);
+                      boolean _and_4 = false;
+                      DataEnum _type_4 = ((Primitive)att_2).getType();
+                      boolean _equals_4 = _type_4.equals(DataEnum.STRING);
                       if (!_equals_4) {
-                        _and_3 = false;
+                        _and_4 = false;
                       } else {
-                        boolean _isMany_4 = ((SimpleAttribute)att_2).isMany();
+                        boolean _isMany_4 = ((Primitive)att_2).isMany();
                         boolean _not_2 = (!_isMany_4);
-                        _and_3 = _not_2;
+                        _and_4 = _not_2;
                       }
-                      if (_and_3) {
+                      if (_and_4) {
                         _builder.append("\t");
                         _builder.append("\t");
                         _builder.append("texts.add(new HtmlText(Basic");
@@ -778,30 +766,30 @@ public class generateHtmlView {
                         String _lowerCase = newName_1.toLowerCase();
                         _builder.append(_lowerCase, "\t\t");
                         _builder.append("\", \"");
-                        String _name_1 = ((SimpleAttribute)att_2).getName();
+                        String _name_1 = ((Primitive)att_2).getName();
                         _builder.append(_name_1, "\t\t");
                         _builder.append("\", \"\"));");
                         _builder.newLineIfNotEmpty();
                       } else {
-                        boolean _and_4 = false;
+                        boolean _and_5 = false;
                         boolean _or_10 = false;
-                        DataEnum _data_5 = ((SimpleAttribute)att_2).getData();
-                        boolean _equals_5 = _data_5.equals(DataEnum.DOUBLE);
+                        DataEnum _type_5 = ((Primitive)att_2).getType();
+                        boolean _equals_5 = _type_5.equals(DataEnum.DOUBLE);
                         if (_equals_5) {
                           _or_10 = true;
                         } else {
-                          DataEnum _data_6 = ((SimpleAttribute)att_2).getData();
-                          boolean _equals_6 = _data_6.equals(DataEnum.INTEGER);
+                          DataEnum _type_6 = ((Primitive)att_2).getType();
+                          boolean _equals_6 = _type_6.equals(DataEnum.INTEGER);
                           _or_10 = _equals_6;
                         }
                         if (!_or_10) {
-                          _and_4 = false;
+                          _and_5 = false;
                         } else {
-                          boolean _isMany_5 = ((SimpleAttribute)att_2).isMany();
+                          boolean _isMany_5 = ((Primitive)att_2).isMany();
                           boolean _not_3 = (!_isMany_5);
-                          _and_4 = _not_3;
+                          _and_5 = _not_3;
                         }
-                        if (_and_4) {
+                        if (_and_5) {
                           _builder.append("\t");
                           _builder.append("\t");
                           _builder.append("texts.add(new HtmlText(Basic");
@@ -815,12 +803,12 @@ public class generateHtmlView {
                           String _lowerCase_1 = newName_1.toLowerCase();
                           _builder.append(_lowerCase_1, "\t\t");
                           _builder.append("\", \"");
-                          String _name_2 = ((SimpleAttribute)att_2).getName();
+                          String _name_2 = ((Primitive)att_2).getName();
                           _builder.append(_name_2, "\t\t");
                           _builder.append("\", \"\"));");
                           _builder.newLineIfNotEmpty();
                         } else {
-                          boolean _isMany_6 = ((SimpleAttribute)att_2).isMany();
+                          boolean _isMany_6 = ((Primitive)att_2).isMany();
                           if (_isMany_6) {
                             _builder.append("\t");
                             _builder.append("\t");
@@ -835,13 +823,13 @@ public class generateHtmlView {
                             String _lowerCase_2 = newName_1.toLowerCase();
                             _builder.append(_lowerCase_2, "\t\t");
                             _builder.append(" (");
-                            String _name_3 = ((SimpleAttribute)att_2).getName();
+                            String _name_3 = ((Primitive)att_2).getName();
                             _builder.append(_name_3, "\t\t");
                             _builder.append("1,");
-                            String _name_4 = ((SimpleAttribute)att_2).getName();
+                            String _name_4 = ((Primitive)att_2).getName();
                             _builder.append(_name_4, "\t\t");
                             _builder.append("2,...)\", \"");
-                            String _name_5 = ((SimpleAttribute)att_2).getName();
+                            String _name_5 = ((Primitive)att_2).getName();
                             _builder.append(_name_5, "\t\t");
                             _builder.append("\", \"\"));");
                             _builder.newLineIfNotEmpty();
@@ -885,9 +873,9 @@ public class generateHtmlView {
             _builder.append(_xblockexpression_6, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_3 instanceof SimpleAttribute)) {
+              if ((att_3 instanceof Primitive)) {
                 {
-                  boolean _isRequired_1 = ((SimpleAttribute)att_3).isRequired();
+                  boolean _isRequired_1 = ((Primitive)att_3).isRequired();
                   if (_isRequired_1) {
                     _builder.append("\t");
                     _builder.append("\t");
@@ -895,17 +883,17 @@ public class generateHtmlView {
                     String newName_2 = StringExtensions.toFirstUpper(_newAttName_2);
                     _builder.newLineIfNotEmpty();
                     {
-                      boolean _and_5 = false;
-                      DataEnum _data_7 = ((SimpleAttribute)att_3).getData();
-                      boolean _equals_7 = _data_7.equals(DataEnum.BOOLEAN);
+                      boolean _and_6 = false;
+                      DataEnum _type_7 = ((Primitive)att_3).getType();
+                      boolean _equals_7 = _type_7.equals(DataEnum.BOOLEAN);
                       if (!_equals_7) {
-                        _and_5 = false;
+                        _and_6 = false;
                       } else {
-                        boolean _isMany_7 = ((SimpleAttribute)att_3).isMany();
+                        boolean _isMany_7 = ((Primitive)att_3).isMany();
                         boolean _not_4 = (!_isMany_7);
-                        _and_5 = _not_4;
+                        _and_6 = _not_4;
                       }
-                      if (_and_5) {
+                      if (_and_6) {
                         _builder.append("\t");
                         _builder.append("\t");
                         _builder.append("radios.add(new HtmlRadio(Basic");
@@ -916,7 +904,7 @@ public class generateHtmlView {
                         String _lowerCase_3 = newName_2.toLowerCase();
                         _builder.append(_lowerCase_3, "\t\t");
                         _builder.append("\", \"");
-                        String _name_6 = ((SimpleAttribute)att_3).getName();
+                        String _name_6 = ((Primitive)att_3).getName();
                         _builder.append(_name_6, "\t\t");
                         _builder.append("\", ");
                         String _nestedGets_6 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
@@ -1014,12 +1002,6 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("texts.add(new HtmlText(Basic");
-        _builder.append(name, "\t\t");
-        _builder.append("Param.Tags, \"\", \"Tags (tag1,tag2,tag3,...)\", \"tags\", \"Enter new tags\"));");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
         Object _xblockexpression_7 = null;
         {
           pos = (-1);
@@ -1039,9 +1021,9 @@ public class generateHtmlView {
             _builder.append(_xblockexpression_8, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_4 instanceof SimpleAttribute)) {
+              if ((att_4 instanceof Primitive)) {
                 {
-                  boolean _isRequired_2 = ((SimpleAttribute)att_4).isRequired();
+                  boolean _isRequired_2 = ((Primitive)att_4).isRequired();
                   if (_isRequired_2) {
                     _builder.append("\t");
                     _builder.append("\t");
@@ -1049,18 +1031,18 @@ public class generateHtmlView {
                     final String newName_3 = StringExtensions.toFirstUpper(_newAttName_3);
                     _builder.newLineIfNotEmpty();
                     {
-                      boolean _and_6 = false;
-                      DataEnum _data_8 = ((SimpleAttribute)att_4).getData();
-                      boolean _equals_8 = _data_8.equals(DataEnum.BOOLEAN);
+                      boolean _and_7 = false;
+                      DataEnum _type_8 = ((Primitive)att_4).getType();
+                      boolean _equals_8 = _type_8.equals(DataEnum.BOOLEAN);
                       boolean _not_5 = (!_equals_8);
                       if (!_not_5) {
-                        _and_6 = false;
+                        _and_7 = false;
                       } else {
-                        boolean _isMany_8 = ((SimpleAttribute)att_4).isMany();
+                        boolean _isMany_8 = ((Primitive)att_4).isMany();
                         boolean _not_6 = (!_isMany_8);
-                        _and_6 = _not_6;
+                        _and_7 = _not_6;
                       }
-                      if (_and_6) {
+                      if (_and_7) {
                         _builder.append("\t");
                         _builder.append("\t");
                         _builder.append("texts.add(new HtmlText(Basic");
@@ -1071,16 +1053,16 @@ public class generateHtmlView {
                         String _lowerCase_4 = newName_3.toLowerCase();
                         _builder.append(_lowerCase_4, "\t\t");
                         _builder.append("\", \"");
-                        String _name_7 = ((SimpleAttribute)att_4).getName();
+                        String _name_7 = ((Primitive)att_4).getName();
                         _builder.append(_name_7, "\t\t");
                         _builder.append("\", \"Enter valid ");
-                        DataEnum _data_9 = ((SimpleAttribute)att_4).getData();
-                        String _string = _data_9.toString();
+                        DataEnum _type_9 = ((Primitive)att_4).getType();
+                        String _string = _type_9.toString();
                         _builder.append(_string, "\t\t");
                         _builder.append("\"));");
                         _builder.newLineIfNotEmpty();
                       } else {
-                        boolean _isMany_9 = ((SimpleAttribute)att_4).isMany();
+                        boolean _isMany_9 = ((Primitive)att_4).isMany();
                         if (_isMany_9) {
                           _builder.append("\t");
                           _builder.append("\t");
@@ -1092,17 +1074,17 @@ public class generateHtmlView {
                           String _lowerCase_5 = newName_3.toLowerCase();
                           _builder.append(_lowerCase_5, "\t\t");
                           _builder.append(" (");
-                          String _name_8 = ((SimpleAttribute)att_4).getName();
+                          String _name_8 = ((Primitive)att_4).getName();
                           _builder.append(_name_8, "\t\t");
                           _builder.append("1,");
-                          String _name_9 = ((SimpleAttribute)att_4).getName();
+                          String _name_9 = ((Primitive)att_4).getName();
                           _builder.append(_name_9, "\t\t");
                           _builder.append("2,...)\", \"");
-                          String _name_10 = ((SimpleAttribute)att_4).getName();
+                          String _name_10 = ((Primitive)att_4).getName();
                           _builder.append(_name_10, "\t\t");
                           _builder.append("\", \"Enter new list of valid ");
-                          DataEnum _data_10 = ((SimpleAttribute)att_4).getData();
-                          String _string_1 = _data_10.toString();
+                          DataEnum _type_10 = ((Primitive)att_4).getType();
+                          String _string_1 = _type_10.toString();
                           _builder.append(_string_1, "\t\t");
                           _builder.append("\"));");
                           _builder.newLineIfNotEmpty();
@@ -1145,9 +1127,9 @@ public class generateHtmlView {
             _builder.append(_xblockexpression_10, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_5 instanceof SimpleAttribute)) {
+              if ((att_5 instanceof Primitive)) {
                 {
-                  boolean _isRequired_3 = ((SimpleAttribute)att_5).isRequired();
+                  boolean _isRequired_3 = ((Primitive)att_5).isRequired();
                   if (_isRequired_3) {
                     _builder.append("\t");
                     _builder.append("\t");
@@ -1155,17 +1137,17 @@ public class generateHtmlView {
                     final String newName_4 = StringExtensions.toFirstUpper(_newAttName_4);
                     _builder.newLineIfNotEmpty();
                     {
-                      boolean _and_7 = false;
-                      DataEnum _data_11 = ((SimpleAttribute)att_5).getData();
-                      boolean _equals_9 = _data_11.equals(DataEnum.BOOLEAN);
+                      boolean _and_8 = false;
+                      DataEnum _type_11 = ((Primitive)att_5).getType();
+                      boolean _equals_9 = _type_11.equals(DataEnum.BOOLEAN);
                       if (!_equals_9) {
-                        _and_7 = false;
+                        _and_8 = false;
                       } else {
-                        boolean _isMany_10 = ((SimpleAttribute)att_5).isMany();
+                        boolean _isMany_10 = ((Primitive)att_5).isMany();
                         boolean _not_7 = (!_isMany_10);
-                        _and_7 = _not_7;
+                        _and_8 = _not_7;
                       }
-                      if (_and_7) {
+                      if (_and_8) {
                         _builder.append("\t");
                         _builder.append("\t");
                         _builder.append("radios.add(new HtmlRadio(Basic");
@@ -1176,7 +1158,7 @@ public class generateHtmlView {
                         String _lowerCase_6 = newName_4.toLowerCase();
                         _builder.append(_lowerCase_6, "\t\t");
                         _builder.append("\", \"");
-                        String _name_11 = ((SimpleAttribute)att_5).getName();
+                        String _name_11 = ((Primitive)att_5).getName();
                         _builder.append(_name_11, "\t\t");
                         _builder.append("\", true));");
                         _builder.newLineIfNotEmpty();

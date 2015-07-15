@@ -3,7 +3,7 @@ package miso.carrascal.cloudModelServices.abstractServices.services;
 import java.util.ArrayList;
 import java.util.List;
 
-import miso.carrascal.cloudModelServices.abstractServices.AbstractPersistentClass;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import spark.Request;
 import spark.Response;
 
@@ -38,7 +38,7 @@ public abstract class MultiServiceAbstractJson extends ServiceAbstractJson {
 	}
 	
 	@Override
-	public List<Object> runService(Request req, Response res, List<? extends AbstractPersistentClass> artifact) {
+	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifact) {
 		return exeService(services.get(0).runService(req, res, artifact));
 	}
 

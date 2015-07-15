@@ -11,11 +11,11 @@ class nameVariables {
 	 * Names inside the artifact
 	 */
 	private static val artifact = newArrayList("objectId", "serialVersionUID", "objectName", "createdAt",
-											"fileName", "fileSize", "tags", "filtersEType", "filters")
+											"fileName", "fileSize", "filtersEType", "filters")
 	/*
 	 * Names inside update method
 	 */
-	private static val update = newArrayList("map", "id", "name", "tags", "eclass", "esupertype", "eabstract", "einterface", "eattribute", "ereference",
+	private static val update = newArrayList("map", "id", "eclass", "esupertype", "eabstract", "einterface", "eattribute", "ereference",
 											"newXX", "oldXX", "IS", "activeFilters", "filters")
 	/*
 	 * Names inside upload method

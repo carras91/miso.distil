@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import miso.carrascal.cloudModelServices.abstractServices.AbstractPersistentClass;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceJson;
 import miso.carrascal.cloudModelServices.examples.modelServices.Model;
@@ -38,7 +38,7 @@ public class HtmlModelJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 		
 		ArrayList<Model> models = new ArrayList<Model>();
-		for(AbstractPersistentClass model : JSON.getReadAll(req, res)) {
+		for(Persistent model : JSON.getReadAll(req, res)) {
 			models.add((Model)model);
 		}
 		viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, View.constructInfoReadAll(models));
@@ -59,7 +59,7 @@ public class HtmlModelJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects;
 				
 		ArrayList<Model> models = new ArrayList<Model>();
-		for(AbstractPersistentClass model : JSON.getSearch(req, res)) {
+		for(Persistent model : JSON.getSearch(req, res)) {
 			models.add((Model)model);
 		}
 

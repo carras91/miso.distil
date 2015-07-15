@@ -35,7 +35,7 @@ public interface OnService extends EObject {
 	 * @return the value of the '<em>Artifact</em>' reference.
 	 * @see #setArtifact(Artifact)
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getOnService_Artifact()
-	 * @model keys="name" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	Artifact getArtifact();

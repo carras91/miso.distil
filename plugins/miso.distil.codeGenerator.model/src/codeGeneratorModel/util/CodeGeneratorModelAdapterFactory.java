@@ -84,8 +84,8 @@ public class CodeGeneratorModelAdapterFactory extends AdapterFactoryImpl {
 				return createAttributeAdapter();
 			}
 			@Override
-			public Adapter caseSimpleAttribute(SimpleAttribute object) {
-				return createSimpleAttributeAdapter();
+			public Adapter casePrimitive(Primitive object) {
+				return createPrimitiveAdapter();
 			}
 			@Override
 			public Adapter caseEntity(Entity object) {
@@ -108,8 +108,16 @@ public class CodeGeneratorModelAdapterFactory extends AdapterFactoryImpl {
 				return createOnServiceAdapter();
 			}
 			@Override
-			public Adapter caseMultiAttribute(MultiAttribute object) {
-				return createMultiAttributeAdapter();
+			public Adapter caseReference(Reference object) {
+				return createReferenceAdapter();
+			}
+			@Override
+			public Adapter caseInout(Inout object) {
+				return createInoutAdapter();
+			}
+			@Override
+			public Adapter caseArtifactID(ArtifactID object) {
+				return createArtifactIDAdapter();
 			}
 			@Override
 			public Adapter defaultCase(EObject object) {
@@ -188,16 +196,16 @@ public class CodeGeneratorModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link codeGeneratorModel.SimpleAttribute <em>Simple Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link codeGeneratorModel.Primitive <em>Primitive</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see codeGeneratorModel.SimpleAttribute
+	 * @see codeGeneratorModel.Primitive
 	 * @generated
 	 */
-	public Adapter createSimpleAttributeAdapter() {
+	public Adapter createPrimitiveAdapter() {
 		return null;
 	}
 
@@ -272,16 +280,44 @@ public class CodeGeneratorModelAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link codeGeneratorModel.MultiAttribute <em>Multi Attribute</em>}'.
+	 * Creates a new adapter for an object of class '{@link codeGeneratorModel.Reference <em>Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see codeGeneratorModel.MultiAttribute
+	 * @see codeGeneratorModel.Reference
 	 * @generated
 	 */
-	public Adapter createMultiAttributeAdapter() {
+	public Adapter createReferenceAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link codeGeneratorModel.Inout <em>Inout</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see codeGeneratorModel.Inout
+	 * @generated
+	 */
+	public Adapter createInoutAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link codeGeneratorModel.ArtifactID <em>Artifact ID</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see codeGeneratorModel.ArtifactID
+	 * @generated
+	 */
+	public Adapter createArtifactIDAdapter() {
 		return null;
 	}
 

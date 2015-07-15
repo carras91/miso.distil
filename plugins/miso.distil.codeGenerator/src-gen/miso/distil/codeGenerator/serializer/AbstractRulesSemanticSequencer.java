@@ -4,28 +4,27 @@
 package miso.distil.codeGenerator.serializer;
 
 import codeGeneratorModel.Artifact;
+import codeGeneratorModel.ArtifactID;
 import codeGeneratorModel.CodeGeneratorModelPackage;
 import codeGeneratorModel.Entity;
-import codeGeneratorModel.MultiAttribute;
+import codeGeneratorModel.Inout;
 import codeGeneratorModel.MultiService;
 import codeGeneratorModel.OnService;
+import codeGeneratorModel.Primitive;
+import codeGeneratorModel.Reference;
 import codeGeneratorModel.Root;
-import codeGeneratorModel.SimpleAttribute;
 import codeGeneratorModel.SimpleService;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
 import miso.distil.codeGenerator.services.RulesGrammarAccess;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
-import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
 import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
-import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
 import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 
 @SuppressWarnings("all")
 public abstract class AbstractRulesSemanticSequencer extends AbstractDelegatingSemanticSequencer {
@@ -39,11 +38,14 @@ public abstract class AbstractRulesSemanticSequencer extends AbstractDelegatingS
 			case CodeGeneratorModelPackage.ARTIFACT:
 				sequence_Artifact(context, (Artifact) semanticObject); 
 				return; 
+			case CodeGeneratorModelPackage.ARTIFACT_ID:
+				sequence_ArtifactID(context, (ArtifactID) semanticObject); 
+				return; 
 			case CodeGeneratorModelPackage.ENTITY:
 				sequence_Entity(context, (Entity) semanticObject); 
 				return; 
-			case CodeGeneratorModelPackage.MULTI_ATTRIBUTE:
-				sequence_MultiAttribute(context, (MultiAttribute) semanticObject); 
+			case CodeGeneratorModelPackage.INOUT:
+				sequence_Inout(context, (Inout) semanticObject); 
 				return; 
 			case CodeGeneratorModelPackage.MULTI_SERVICE:
 				sequence_MultiService(context, (MultiService) semanticObject); 
@@ -51,11 +53,14 @@ public abstract class AbstractRulesSemanticSequencer extends AbstractDelegatingS
 			case CodeGeneratorModelPackage.ON_SERVICE:
 				sequence_OnService(context, (OnService) semanticObject); 
 				return; 
+			case CodeGeneratorModelPackage.PRIMITIVE:
+				sequence_Primitive(context, (Primitive) semanticObject); 
+				return; 
+			case CodeGeneratorModelPackage.REFERENCE:
+				sequence_Reference(context, (Reference) semanticObject); 
+				return; 
 			case CodeGeneratorModelPackage.ROOT:
 				sequence_Root(context, (Root) semanticObject); 
-				return; 
-			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE:
-				sequence_SimpleAttribute(context, (SimpleAttribute) semanticObject); 
 				return; 
 			case CodeGeneratorModelPackage.SIMPLE_SERVICE:
 				sequence_SimpleService(context, (SimpleService) semanticObject); 
@@ -63,6 +68,15 @@ public abstract class AbstractRulesSemanticSequencer extends AbstractDelegatingS
 			}
 		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * Constraint:
+	 *     (many?='many'? name=EString type=[Artifact|EString])
+	 */
+	protected void sequence_ArtifactID(EObject context, ArtifactID semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
 	
 	/**
 	 * Constraint:
@@ -84,20 +98,10 @@ public abstract class AbstractRulesSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (name=EString type=[Entity|EString])
+	 *     (many?='many'? type=[AbstractEntity|EString] compatibility=Comp?)
 	 */
-	protected void sequence_MultiAttribute(EObject context, MultiAttribute semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME));
-			if(transientValues.isValueTransient(semanticObject, CodeGeneratorModelPackage.Literals.MULTI_ATTRIBUTE__TYPE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, CodeGeneratorModelPackage.Literals.MULTI_ATTRIBUTE__TYPE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getMultiAttributeAccess().getNameEStringParserRuleCall_0_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMultiAttributeAccess().getTypeEntityEStringParserRuleCall_2_0_1(), semanticObject.getType());
-		feeder.finish();
+	protected void sequence_Inout(EObject context, Inout semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -121,6 +125,24 @@ public abstract class AbstractRulesSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
+	 *     (many?='many'? required?='required'? name=EString type=DataEnum)
+	 */
+	protected void sequence_Primitive(EObject context, Primitive semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (many?='many'? name=EString type=[Entity|EString])
+	 */
+	protected void sequence_Reference(EObject context, Reference semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
 	 *     (artifacts+=Artifact (artifacts+=Artifact | entities+=Entity | services+=Service)*)
 	 */
 	protected void sequence_Root(EObject context, Root semanticObject) {
@@ -130,21 +152,7 @@ public abstract class AbstractRulesSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (many?='many'? required?='required'? name=EString data=DataEnum)
-	 */
-	protected void sequence_SimpleAttribute(EObject context, SimpleAttribute semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (
-	 *         name=EString 
-	 *         (input+=[AbstractEntity|EString] input+=[AbstractEntity|EString]*)? 
-	 *         (output+=[AbstractEntity|EString] output+=[AbstractEntity|EString]*)? 
-	 *         when+=OnService*
-	 *     )
+	 *     (name=EString (input+=Inout input+=Inout*)? (output+=Inout output+=Inout*)? when+=OnService*)
 	 */
 	protected void sequence_SimpleService(EObject context, SimpleService semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

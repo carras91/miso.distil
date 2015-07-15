@@ -3,25 +3,25 @@ Bundle-ManifestVersion: 2
 Bundle-Name: miso.distil.codeGenerator
 Bundle-Vendor: miso.carrascal
 Bundle-Version: 1.0.0.qualifier
-Bundle-SymbolicName: miso.distil.codeGenerator;singleton:=true
+Bundle-SymbolicName: miso.distil.codeGenerator; singleton:=true
+Bundle-ActivationPolicy: lazy
 Require-Bundle: org.eclipse.xtext;visibility:=reexport,
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtext.common.types,
- org.apache.log4j;bundle-version="1.2.15",
- org.eclipse.core.runtime;bundle-version="3.10.0",
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ miso.distil.codeGenerator.model,
  org.eclipse.xtext.util,
+ org.eclipse.xtext.xbase.lib,
  org.antlr.runtime,
+ org.eclipse.xtext.common.types,
  org.objectweb.asm;bundle-version="[5.0.1,6.0.0)";resolution:=optional,
- miso.distil.codeGenerator.model;bundle-version="1.0.0",
  org.eclipse.core.resources;bundle-version="3.9.1"
+Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: miso.distil.codeGenerator,
- miso.distil.codeGenerator.formatting,
- miso.distil.codeGenerator.generator,
+ miso.distil.codeGenerator.services,
+ miso.distil.codeGenerator.serializer,
  miso.distil.codeGenerator.parser.antlr,
  miso.distil.codeGenerator.parser.antlr.internal,
+ miso.distil.codeGenerator.validation,
  miso.distil.codeGenerator.scoping,
- miso.distil.codeGenerator.serializer,
- miso.distil.codeGenerator.services,
- miso.distil.codeGenerator.validation
-Import-Package: org.apache.log4j
+ miso.distil.codeGenerator.generator,
+ miso.distil.codeGenerator.formatting

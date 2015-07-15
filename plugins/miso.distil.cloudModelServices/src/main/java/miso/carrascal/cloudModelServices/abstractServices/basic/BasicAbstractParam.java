@@ -9,7 +9,6 @@ public class BasicAbstractParam {
 	
 	public static String IdGet = ":ID";
 	public static String IdPost = "ID";
-	public static String Tags = "TAGS";
 	public static String File = "FILE";
 	public static String Search_query = "SEARCHQUERY";
 	public static String Search_value = "SEARCHVALUE";
@@ -28,7 +27,6 @@ public class BasicAbstractParam {
 		if(values.isEmpty()) {
 			values.add(IdGet);
 			values.add(IdPost);
-			values.add(Tags);
 			values.add(File);
 			values.add(Search_query);
 			values.add(Search_value);

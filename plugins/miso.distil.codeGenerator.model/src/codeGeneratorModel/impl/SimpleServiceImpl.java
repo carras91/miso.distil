@@ -2,13 +2,21 @@
  */
 package codeGeneratorModel.impl;
 
-import codeGeneratorModel.AbstractEntity;
 import codeGeneratorModel.CodeGeneratorModelPackage;
+import codeGeneratorModel.Inout;
 import codeGeneratorModel.SimpleService;
+
 import java.util.Collection;
+
+import org.eclipse.emf.common.notify.NotificationChain;
+
 import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.InternalEObject;
+
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -26,24 +34,24 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class SimpleServiceImpl extends ServiceImpl implements SimpleService {
 	/**
-	 * The cached value of the '{@link #getInput() <em>Input</em>}' reference list.
+	 * The cached value of the '{@link #getInput() <em>Input</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getInput()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AbstractEntity> input;
+	protected EList<Inout> input;
 
 	/**
-	 * The cached value of the '{@link #getOutput() <em>Output</em>}' reference list.
+	 * The cached value of the '{@link #getOutput() <em>Output</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getOutput()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<AbstractEntity> output;
+	protected EList<Inout> output;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -69,9 +77,9 @@ public class SimpleServiceImpl extends ServiceImpl implements SimpleService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AbstractEntity> getInput() {
+	public EList<Inout> getInput() {
 		if (input == null) {
-			input = new EObjectResolvingEList<AbstractEntity>(AbstractEntity.class, this, CodeGeneratorModelPackage.SIMPLE_SERVICE__INPUT);
+			input = new EObjectContainmentEList<Inout>(Inout.class, this, CodeGeneratorModelPackage.SIMPLE_SERVICE__INPUT);
 		}
 		return input;
 	}
@@ -81,11 +89,27 @@ public class SimpleServiceImpl extends ServiceImpl implements SimpleService {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<AbstractEntity> getOutput() {
+	public EList<Inout> getOutput() {
 		if (output == null) {
-			output = new EObjectResolvingEList<AbstractEntity>(AbstractEntity.class, this, CodeGeneratorModelPackage.SIMPLE_SERVICE__OUTPUT);
+			output = new EObjectContainmentEList<Inout>(Inout.class, this, CodeGeneratorModelPackage.SIMPLE_SERVICE__OUTPUT);
 		}
 		return output;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case CodeGeneratorModelPackage.SIMPLE_SERVICE__INPUT:
+				return ((InternalEList<?>)getInput()).basicRemove(otherEnd, msgs);
+			case CodeGeneratorModelPackage.SIMPLE_SERVICE__OUTPUT:
+				return ((InternalEList<?>)getOutput()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -110,16 +134,16 @@ public class SimpleServiceImpl extends ServiceImpl implements SimpleService {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-		@Override
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.SIMPLE_SERVICE__INPUT:
 				getInput().clear();
-				getInput().addAll((Collection<? extends AbstractEntity>)newValue);
+				getInput().addAll((Collection<? extends Inout>)newValue);
 				return;
 			case CodeGeneratorModelPackage.SIMPLE_SERVICE__OUTPUT:
 				getOutput().clear();
-				getOutput().addAll((Collection<? extends AbstractEntity>)newValue);
+				getOutput().addAll((Collection<? extends Inout>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);

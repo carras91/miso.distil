@@ -2,7 +2,7 @@ package miso.distil.codeGenerator.generator.basic;
 
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.Attribute;
-import codeGeneratorModel.SimpleAttribute;
+import codeGeneratorModel.Primitive;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
@@ -92,9 +92,9 @@ public class generateBasicParam {
         _builder.append(_xblockexpression_1, "\t");
         _builder.newLineIfNotEmpty();
         {
-          if ((att instanceof SimpleAttribute)) {
+          if ((att instanceof Primitive)) {
             {
-              boolean _isRequired = ((SimpleAttribute)att).isRequired();
+              boolean _isRequired = ((Primitive)att).isRequired();
               if (_isRequired) {
                 _builder.append("\t");
                 _builder.append("public static String ");
@@ -163,9 +163,9 @@ public class generateBasicParam {
         _builder.append(_xblockexpression_3, "\t\t\t");
         _builder.newLineIfNotEmpty();
         {
-          if ((att_1 instanceof SimpleAttribute)) {
+          if ((att_1 instanceof Primitive)) {
             {
-              boolean _isRequired_1 = ((SimpleAttribute)att_1).isRequired();
+              boolean _isRequired_1 = ((Primitive)att_1).isRequired();
               if (_isRequired_1) {
                 _builder.append("\t\t\t");
                 _builder.append("values.add(");

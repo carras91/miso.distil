@@ -40,13 +40,13 @@ public interface CodeGeneratorModelFactory extends EFactory {
 	Artifact createArtifact();
 
 	/**
-	 * Returns a new object of class '<em>Simple Attribute</em>'.
+	 * Returns a new object of class '<em>Primitive</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Simple Attribute</em>'.
+	 * @return a new object of class '<em>Primitive</em>'.
 	 * @generated
 	 */
-	SimpleAttribute createSimpleAttribute();
+	Primitive createPrimitive();
 
 	/**
 	 * Returns a new object of class '<em>Entity</em>'.
@@ -85,13 +85,31 @@ public interface CodeGeneratorModelFactory extends EFactory {
 	OnService createOnService();
 
 	/**
-	 * Returns a new object of class '<em>Multi Attribute</em>'.
+	 * Returns a new object of class '<em>Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Multi Attribute</em>'.
+	 * @return a new object of class '<em>Reference</em>'.
 	 * @generated
 	 */
-	MultiAttribute createMultiAttribute();
+	Reference createReference();
+
+	/**
+	 * Returns a new object of class '<em>Inout</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Inout</em>'.
+	 * @generated
+	 */
+	Inout createInout();
+
+	/**
+	 * Returns a new object of class '<em>Artifact ID</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>Artifact ID</em>'.
+	 * @generated
+	 */
+	ArtifactID createArtifactID();
 
 	/**
 	 * Returns the package supported by this factory.

@@ -4,6 +4,7 @@ import codeGeneratorModel.Artifact;
 import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
+import miso.distil.codeGenerator.generator.generateUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
@@ -15,6 +16,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 @SuppressWarnings("all")
 public class generateHtmlLinks {
   @Inject
+  private generateUtils genUti;
+  
+  @Inject
   private Names names;
   
   /**
@@ -24,7 +28,8 @@ public class generateHtmlLinks {
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
-    EList<ServiceEnum> basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> _basicServices = artifact.getBasicServices();
+    EList<ServiceEnum> basicServices = this.genUti.processBasicServices(_basicServices);
     _builder.newLineIfNotEmpty();
     final String name = artifact.getName();
     _builder.newLineIfNotEmpty();
@@ -38,7 +43,7 @@ public class generateHtmlLinks {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     {
-      boolean _contains = basicServices.contains(ServiceEnum.UPLOAD);
+      boolean _contains = basicServices.contains(ServiceEnum.DELETE);
       if (_contains) {
         _builder.append("import ");
         CharSequence _bParamFileChar = this.names.getBParamFileChar(artifact);
@@ -60,7 +65,7 @@ public class generateHtmlLinks {
       if (_or_1) {
         _or = true;
       } else {
-        boolean _contains_3 = basicServices.contains(ServiceEnum.UPLOAD);
+        boolean _contains_3 = basicServices.contains(ServiceEnum.DELETE);
         _or = _contains_3;
       }
       if (_or) {
@@ -263,7 +268,7 @@ public class generateHtmlLinks {
       }
     }
     {
-      boolean _contains_6 = basicServices.contains(ServiceEnum.UPLOAD);
+      boolean _contains_6 = basicServices.contains(ServiceEnum.DELETE);
       if (_contains_6) {
         _builder.append("\t");
         _builder.append("/**");

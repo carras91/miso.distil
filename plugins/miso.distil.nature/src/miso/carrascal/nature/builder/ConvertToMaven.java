@@ -2,12 +2,13 @@ package miso.carrascal.nature.builder;
 
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FilenameFilter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -62,6 +63,10 @@ public class ConvertToMaven {
 	 * New name to pom and jar copies
 	 */
 	private static String FINAL_NAME = "cloudModelServices-0.0.1";
+	/**
+	 * String to change by project name
+	 */
+	private static String PROJECT_NAME = "--Foo--";
 
 	/**
 	 * First it creates files needed, then copy jar/pom. Finally converts src/main/java and src/main/resources to source folders.
@@ -95,35 +100,34 @@ public class ConvertToMaven {
 		Bundle bundle = Platform.getBundle(PLUGIN_ID);
 		URL url = bundle.getEntry(PATH);
 		URL extended_url = FileLocator.toFileURL(url);
-		File resources = new File(extended_url.toURI());
-		copyFiles(resources, project);
-	}
-	
-	/**
-	 * Copy inside srcFolder everything insides "resources"
-	 * @author Carlos Carrascal
-	 * 
-	 * @param srcFolder 
-	 * @param destFolder 
-	 * @throws CoreException
-	 * @throws FileNotFoundException
-	 */
-	private static void copyFiles(File srcFolder, IContainer destFolder) throws CoreException, FileNotFoundException {
-		for(File f : srcFolder.listFiles()) {
-			if(f.isDirectory()) {
-				IFolder newFolder = destFolder.getFolder(new Path(f.getName()));
-				if(!newFolder.exists()) {
-					newFolder.create(true, true, null);
+		File res = new File(extended_url.toURI());
+		
+		// src
+		IFolder src = getFolder(project, "src");
+		// src/main
+		IFolder main = getFolder(src, "main");
+		// src/main/resources
+		IFolder resources = getFolder(main, "resources");
+		// src/main/resources/*.rules
+		for(File f : res.listFiles()) {
+			if(f.isFile()) {
+				PrintStream stream;
+				if(f.getName().contains(".rules")) {
+					stream = new PrintStream(new File(resources.getLocation().toOSString()+"\\" + f.getName()));
+				} else {
+					stream = new PrintStream(new File(project.getLocation().toOSString()+"\\" + f.getName()));
 				}
-				copyFiles(f, newFolder);
-			} else {
-				IFile newFile = destFolder.getFile(new Path(f.getName()));
-				if(!newFile.exists()) {
-					newFile.create(new FileInputStream(f), true, null);
+				
+				Scanner scanner = new Scanner(f);
+				while(scanner.hasNextLine()) {
+					String lineString = scanner.nextLine();
+					stream.println(lineString.replaceAll(PROJECT_NAME, project.getName()));
 				}
+				stream.close();
+				scanner.close();
 			}
 		}
-	}
+	}	
 	
 	/**
 	 * Create folder "nameFolder" inside srcFolder
@@ -141,6 +145,22 @@ public class ConvertToMaven {
 		}
 		return newFolder;
 	}
+	
+	/**
+	 * Copy file "file" inside targetFolder
+	 * @author Carlos Carrascal
+	 *  
+	 * @param targetFolder
+	 * @param file
+	 * @throws CoreException
+	 * @throws FileNotFoundException 
+	 */
+//	private static void copyFile(IContainer targetFolder, FileWriter file) throws CoreException, FileNotFoundException {
+//		IFile newFile = targetFolder.getFile(new Path(file.getName()));
+//		if(!newFile.exists()) {
+//			newFile.create(new FileInputStream(file), true, null);
+//		}
+//	}
 	
 	/**
 	 * Copy cloudModelServices jar and pom inside repo/miso/distil/cloudModelServices/0.0.1

@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.EList
  */
 class generateCustomHtml {
 	
+	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
 	/*
@@ -20,7 +21,7 @@ class generateCustomHtml {
 	 * @author Carlos Carrascal
 	 */
 	def write(Artifact artifact) '''
-		«var EList<ServiceEnum> basicServices = artifact.basicServices»
+		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
 		«val namelow = artifact.name.toLowerCase»
 		«val name = artifact.name»
 		package «names.getArtifactChar(artifact)»;
@@ -70,8 +71,8 @@ class generateCustomHtml {
 			public void runService() {
 
 				«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.READ_ALL) ||
-						basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD) ||
-							basicServices.contains(ServiceEnum.SEARCH)»
+					basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD) ||
+					basicServices.contains(ServiceEnum.SEARCH)»
 					// To overwrite the default constructions of HTML
 					// Be careful: you need to modify the method previously
 				«ENDIF»
@@ -177,7 +178,7 @@ class generateCustomHtml {
 
 					// Then, whatever you want in your Form: Text, Radio, Hidden, File
 					List<HtmlText> texts = new ArrayList<HtmlText>();
-					texts.add(new HtmlText(Basic«name»Param.Tags, «namelow».getTagsString(), "Tags (tag1,tag2,tag3,...)", "tags", ""));
+					// texts.add(new HtmlText(Basic«name»Param.T, «namelow».getT(), "T (t1,t2,t3,...)", "t", ""));
 					// ..
 					viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
@@ -216,7 +217,7 @@ class generateCustomHtml {
 
 					// Then, whatever you want in your Form: Text, Radio, Hidden, File
 					List<HtmlText> texts = new ArrayList<HtmlText>();
-					texts.add(new HtmlText(Basic«name»Param.Tags, "", "Tags (tag1,tag2,tag3,...)", "tags", "Enter new tags"));
+					// texts.add(new HtmlText(Basic«name»Param.T, "", "T (t1,t2,t3,...)", "t", "Enter new t"));
 					// ..
 					viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 

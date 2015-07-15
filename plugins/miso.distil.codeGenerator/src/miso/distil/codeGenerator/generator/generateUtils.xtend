@@ -1,8 +1,9 @@
 package miso.distil.codeGenerator.generator
 
 import codeGeneratorModel.Attribute
-import codeGeneratorModel.MultiAttribute
-import codeGeneratorModel.SimpleAttribute
+import codeGeneratorModel.Reference
+import codeGeneratorModel.Primitive
+import codeGeneratorModel.ArtifactID
 import java.util.List
 import org.eclipse.emf.common.util.EList
 import codeGeneratorModel.Artifact
@@ -10,6 +11,7 @@ import java.util.ArrayList
 import java.util.HashMap
 import org.eclipse.emf.common.util.BasicEList
 import com.google.inject.Inject
+import codeGeneratorModel.ServiceEnum
 
 /*
  * Some methos used everywhere
@@ -41,13 +43,13 @@ class generateUtils {
 	}
 	
 	/*
-	 * To write a string "att1, att2, att3, ..." from the attributes inside the multiattribute number pos in artifact
+	 * To write a string "att1, att2, att3, ..." from the attributes inside the reference number pos in artifact
 	 * 
 	 * @author Carlos Carrascal
 	 */
 	def getNestedAtt(Integer pos, Artifact artifact) {
 		var parentName = getNewAttName(pos, artifact)
-		var atts = (artifact.nestedTree.get(pos).key as MultiAttribute).type.attributes
+		var atts = (artifact.nestedTree.get(pos).key as Reference).type.attributes
 		var nestedAtt = ''''''
 		for(att : atts as EList<Attribute>) {
 			if(atts.last.equals(att)) {
@@ -103,7 +105,7 @@ class generateUtils {
 			artifact.attributes.forEach[
 				var List<String> path = new ArrayList()
 				path.add(artifact.name)
-				if(it instanceof MultiAttribute) {
+				if(it instanceof Reference) {
 					list.addAll(it.getNested(path))
 				}
 				list.add(new Pair(it, path))
@@ -118,12 +120,12 @@ class generateUtils {
 	 * 
 	 * @author Carlos Carrascal 
 	 */
-	private def List<Pair<Attribute, List<String>>> getNested(MultiAttribute att, List<String> parent) {
+	private def List<Pair<Attribute, List<String>>> getNested(Reference att, List<String> parent) {
 		val list = new ArrayList<Pair<Attribute, List<String>>>
 		att.type.attributes.forEach[
 			var List<String> path = new ArrayList(parent)
 			path.add(att.name)
-			if(it instanceof MultiAttribute) {
+			if(it instanceof Reference) {
 				list.addAll(it.getNested(path))
 			}
 			list.add(new Pair(it, path))
@@ -157,7 +159,7 @@ class generateUtils {
 		var nameList = new ArrayList() 
 		'''
 			«FOR att:atts»
-				«IF att instanceof MultiAttribute»
+				«IF att instanceof Reference»
 					«IF !nameList.contains(att.type.name)»
 						«{nameList.add(att.type.name); null}»
 						import «pack.EntitiesCha».«att.type.name»;
@@ -168,14 +170,14 @@ class generateUtils {
 	}
 	
 	/*
-	 * To get a list of nested attributes (simple and multi) (recursive)
+	 * To get a list of nested attributes (primitive and reference) (recursive)
 	 * 
 	 * @author Carlos Carrascal
 	 */
 	def EList<Attribute> getAllNestedAttributes(EList<Attribute> atts) {
 		val EList<Attribute> list = new BasicEList<Attribute>()
 		atts.forEach[
-			if(it instanceof MultiAttribute) {
+			if(it instanceof Reference) {
 				list.addAll(it.type.attributes.allNestedAttributes)			
 			}
 			list.add(it)
@@ -184,16 +186,16 @@ class generateUtils {
 	}
 	
 	/*
-	 * To get a list of nested attributes (but not multiattributes) (recursive)
+	 * To get a list of nested attributes (but not references) (recursive)
 	 * 
 	 * @author Carlos Carrascal
 	 */
 	def EList<Attribute> getNestedAttributes(Attribute att) {
 		val EList<Attribute> list = new BasicEList<Attribute>()
-		if(att instanceof SimpleAttribute) {
+		if(att instanceof Primitive || att instanceof ArtifactID) {
 			list.add(att)
 		} else {
-			(att as MultiAttribute).type.attributes.forEach[
+			(att as Reference).type.attributes.forEach[
 				list.addAll(it.nestedAttributes)
 			]
 		}
@@ -205,7 +207,7 @@ class generateUtils {
 	 * 
 	 * @author Carlos Carrascal 
 	 */
-	def getTypeName(Attribute att) '''«IF att instanceof MultiAttribute»«att.type.name»«ELSE»«val sa = att as SimpleAttribute»«IF sa.many»List<«ENDIF»«sa.data.toString»«IF sa.many»>«ENDIF»«ENDIF»'''
+	def getTypeName(Attribute att) '''«IF att.many»List<«ENDIF»«IF att instanceof Reference»«att.type.name»«ELSEIF att instanceof Primitive»«(att as Primitive).type.toString»«ELSE»String«ENDIF»«IF att.many»>«ENDIF»'''
 
 	/*
 	 * To write private attributes
@@ -237,6 +239,24 @@ class generateUtils {
 			«ENDIF»
 		«ENDFOR»
 	'''
+	
+	/*
+	 * Process ServiceEnum.ALL
+	 * 
+	 * @author Carlos Carrascal
+	 */
+	def processBasicServices(EList<ServiceEnum> services) {
+		if(services.contains(ServiceEnum.ALL)) {
+			services.add(ServiceEnum.UPLOAD);
+			services.add(ServiceEnum.DOWNLOAD);
+			services.add(ServiceEnum.UPDATE);
+			services.add(ServiceEnum.READ);
+			services.add(ServiceEnum.READ_ALL);
+			services.add(ServiceEnum.SEARCH);
+			services.add(ServiceEnum.DELETE);
+		}
+		return services
+	}
 	
 	/*
 	 * To write toString method

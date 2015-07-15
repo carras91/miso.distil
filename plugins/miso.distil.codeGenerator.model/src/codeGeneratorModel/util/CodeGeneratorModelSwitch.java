@@ -3,8 +3,10 @@
 package codeGeneratorModel.util;
 
 import codeGeneratorModel.*;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
+
 import org.eclipse.emf.ecore.util.Switch;
 
 /**
@@ -89,10 +91,10 @@ public class CodeGeneratorModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE: {
-				SimpleAttribute simpleAttribute = (SimpleAttribute)theEObject;
-				T result = caseSimpleAttribute(simpleAttribute);
-				if (result == null) result = caseAttribute(simpleAttribute);
+			case CodeGeneratorModelPackage.PRIMITIVE: {
+				Primitive primitive = (Primitive)theEObject;
+				T result = casePrimitive(primitive);
+				if (result == null) result = caseAttribute(primitive);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -129,10 +131,23 @@ public class CodeGeneratorModelSwitch<T> extends Switch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case CodeGeneratorModelPackage.MULTI_ATTRIBUTE: {
-				MultiAttribute multiAttribute = (MultiAttribute)theEObject;
-				T result = caseMultiAttribute(multiAttribute);
-				if (result == null) result = caseAttribute(multiAttribute);
+			case CodeGeneratorModelPackage.REFERENCE: {
+				Reference reference = (Reference)theEObject;
+				T result = caseReference(reference);
+				if (result == null) result = caseAttribute(reference);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodeGeneratorModelPackage.INOUT: {
+				Inout inout = (Inout)theEObject;
+				T result = caseInout(inout);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case CodeGeneratorModelPackage.ARTIFACT_ID: {
+				ArtifactID artifactID = (ArtifactID)theEObject;
+				T result = caseArtifactID(artifactID);
+				if (result == null) result = caseAttribute(artifactID);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -201,17 +216,17 @@ public class CodeGeneratorModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Simple Attribute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Primitive</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Simple Attribute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Primitive</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseSimpleAttribute(SimpleAttribute object) {
+	public T casePrimitive(Primitive object) {
 		return null;
 	}
 
@@ -291,17 +306,47 @@ public class CodeGeneratorModelSwitch<T> extends Switch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Multi Attribute</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Multi Attribute</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseMultiAttribute(MultiAttribute object) {
+	public T caseReference(Reference object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Inout</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Inout</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseInout(Inout object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Artifact ID</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Artifact ID</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseArtifactID(ArtifactID object) {
 		return null;
 	}
 

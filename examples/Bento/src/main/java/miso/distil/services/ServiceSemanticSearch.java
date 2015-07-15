@@ -1,0 +1,72 @@
+package miso.distil.services;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import spark.Request;
+import spark.Response;
+
+import miso.carrascal.cloudModelServices.abstractServices.services.ServiceAbstractJson;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
+
+import miso.distil.metamodelServices.MetaModel;
+import miso.distil.bentoServices.Bento;
+
+/**
+ * Auto-generated service class
+ * 
+ * @author miso.distil.codeGenerator
+ */
+public class ServiceSemanticSearch extends ServiceAbstractJson {
+
+	/**
+	 * Auto-generated service constructor
+	 * 
+	 * @author miso.distil.codeGenerator
+	 */
+	public ServiceSemanticSearch() {
+		// Input classes
+		addInputClass(MetaModel.class);
+		// Outpu classes
+		addOutputClass((new ArrayList<Bento>()).getClass());
+	}
+
+	/**
+	 * Method called automatically
+	 * If triggered :
+	 * - after upload, download, update, read -> artifacts.size = 1, (request, response) from these services
+	 * - after readAll, search -> the results of these services, (request, response) from these services
+	 * - on request -> artifacts.size = 0, , (request, response) sent by user
+	 * 
+	 * @author miso.distil.codeGenerator
+	 */
+	@Override
+	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
+		List<Object> input = new ArrayList<Object>();
+
+		// TODO : Create the input objects to your service and use (or not) the artifacts
+
+		return this.exeService(input);
+	}
+
+	/**
+	 * Execution method. It uses an object's list (see the constructor input order) and generates other object's list (see the constructor output order)
+	 * 
+	 * @author miso.distil.codeGenerator
+	 */
+	@Override
+	public List<Object> exeService(List<Object> input) {
+		List<Object> output = new ArrayList<Object>();
+		if(!this.testInput(input))
+			return output;
+
+		// Take your inputs
+		// MetaModel metamodel0 = MetaModel.class.cast(input.get(0));
+		// TODO : do something!
+
+		// Create your outputs (do something!)
+		output.add(new ArrayList<Bento>());
+
+		return output;
+	}
+}

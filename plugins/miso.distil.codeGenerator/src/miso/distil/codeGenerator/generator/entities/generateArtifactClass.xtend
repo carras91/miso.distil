@@ -24,17 +24,17 @@ class generateArtifactClass {
 		«val EList<Attribute> atts = artifact.attributes»
 		package «names.getArtifactChar(artifact)»;
 
-		import «names.MisoAbstract».AbstractPersistentClass;
+		import «names.MisoAbstract».Persistent;
 		
 		«genUti.getImportCompose(atts)»
-		import java.util.List;
+		«genUti.getImportList(atts)»
 
 		/**
 		 * Auto-generated artifact class
 		 * 
 		 * @author miso.distil.codeGenerator
 		 */
-		public class «artifact.name» extends AbstractPersistentClass {
+		public class «artifact.name» extends Persistent {
 
 			private static final long serialVersionUID = 1L;
 			// Attributes
@@ -65,9 +65,9 @@ class generateArtifactClass {
 	 */
 	def private getConstructorArtifact(Artifact artifact) '''
 		«val EList<Attribute> atts = artifact.attributes»
-		public «artifact.name»(String objectName, long fileSize, List<String> tags«FOR att:atts», «genUti.getTypeName(att)» «att.name»«ENDFOR») {
+		public «artifact.name»(String objectName, long fileSize«FOR att:atts», «genUti.getTypeName(att)» «att.name»«ENDFOR») {
 
-			super(objectName, fileSize, tags);
+			super(objectName, fileSize);
 
 			«FOR att:atts» 
 				this.«att.name» = «att.name»;

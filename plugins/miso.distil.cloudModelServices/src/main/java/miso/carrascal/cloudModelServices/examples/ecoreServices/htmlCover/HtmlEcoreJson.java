@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-import miso.carrascal.cloudModelServices.abstractServices.AbstractPersistentClass;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceJson;
 import miso.carrascal.cloudModelServices.examples.ecoreServices.Ecore;
@@ -38,7 +38,7 @@ public class HtmlEcoreJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 		
 		ArrayList<Ecore> ecores = new ArrayList<Ecore>();
-		for(AbstractPersistentClass ecore : JSON.getReadAll(req, res)) {
+		for(Persistent ecore : JSON.getReadAll(req, res)) {
 			ecores.add((Ecore)ecore);
 		}
 		viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, View.constructInfoReadAll(ecores));

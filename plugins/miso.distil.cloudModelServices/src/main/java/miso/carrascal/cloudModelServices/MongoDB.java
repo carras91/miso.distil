@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import miso.carrascal.cloudModelServices.abstractServices.AbstractPersistentClass;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.InterfaceDB;
 import miso.carrascal.cloudModelServices.utils.DictionaryUtils;
 import miso.carrascal.cloudModelServices.utils.NullArgumentException;
@@ -34,22 +34,22 @@ public class MongoDB implements InterfaceDB {
 	private MongoClientURI uri;
     private MongoClient client;
     private DB db;
-    private HashMap<Class<? extends AbstractPersistentClass>, DBCollection> collections;
-    private HashMap<Class<? extends AbstractPersistentClass>, GridFS> gridfs;
+    private HashMap<Class<? extends Persistent>, DBCollection> collections;
+    private HashMap<Class<? extends Persistent>, GridFS> gridfs;
  
 	public MongoDB(String mongoURI) {
         try {
            	this.uri  = new MongoClientURI(mongoURI);
 			this.client = new MongoClient(uri);
 	       	this.db = client.getDB(uri.getDatabase());
-	       	this.collections = new HashMap<Class<? extends AbstractPersistentClass>, DBCollection>();
-	       	this.gridfs = new HashMap<Class<? extends AbstractPersistentClass>, GridFS>();
+	       	this.collections = new HashMap<Class<? extends Persistent>, DBCollection>();
+	       	this.gridfs = new HashMap<Class<? extends Persistent>, GridFS>();
 		} catch (UnknownHostException e) {
 			e.printStackTrace();
 		}
     }
     
-	private DBCollection getCollection(Class<? extends AbstractPersistentClass> classType) {
+	private DBCollection getCollection(Class<? extends Persistent> classType) {
 		if(collections.containsKey(classType)) {
 			return collections.get(classType);
 		} else {
@@ -59,7 +59,7 @@ public class MongoDB implements InterfaceDB {
 		}		
 	}
 	
-	private GridFS getGridFS(Class<? extends AbstractPersistentClass> classType) {
+	private GridFS getGridFS(Class<? extends Persistent> classType) {
 		if(gridfs.containsKey(classType)) {
 			return gridfs.get(classType);
 		} else {
@@ -71,14 +71,14 @@ public class MongoDB implements InterfaceDB {
 	
     @SuppressWarnings("deprecation")
     @Override
-	public Boolean save(AbstractPersistentClass artifact, InputStream inputStream) {
+	public Boolean save(Persistent artifact, InputStream inputStream) {
     	if(artifact == null) {
 			(new NullArgumentException()).printStackTrace();
     		return false;
     	}
 	
         try {
-        	for(Class<? extends AbstractPersistentClass> classType : collections.keySet()) {
+        	for(Class<? extends Persistent> classType : collections.keySet()) {
             	if(!search("objectName", false, artifact.getObjectName(), false, classType).isEmpty())
             		return false;
         	}
@@ -105,7 +105,7 @@ public class MongoDB implements InterfaceDB {
     }
 
     @Override
-    public Boolean delete(String id, Class<? extends AbstractPersistentClass> classType) {
+    public Boolean delete(String id, Class<? extends Persistent> classType) {
     	if(id == null) {
 			(new NullArgumentException()).printStackTrace();
 			return false;
@@ -135,7 +135,7 @@ public class MongoDB implements InterfaceDB {
     }
 
     @Override
-	public AbstractPersistentClass readOne(String id, Class<? extends AbstractPersistentClass> classType) {
+	public Persistent readOne(String id, Class<? extends Persistent> classType) {
 		if(id == null) {
 			(new NullArgumentException()).printStackTrace();
 			return null;
@@ -144,7 +144,7 @@ public class MongoDB implements InterfaceDB {
 		try {
 	        BasicDBObject query = new BasicDBObject("_id", new ObjectId(id));
 	        DBCursor cursorDB = getCollection(classType).find(query);      
-	        ArrayList<? extends AbstractPersistentClass> list = processDBCursor(cursorDB, classType);
+	        ArrayList<? extends Persistent> list = processDBCursor(cursorDB, classType);
 	        if(list.isEmpty()) {
 	        	return null;
 	        } else {
@@ -157,10 +157,10 @@ public class MongoDB implements InterfaceDB {
     }
 
     @Override
-    public ArrayList<? extends AbstractPersistentClass> readAll(Class<? extends AbstractPersistentClass> classType) {
+    public ArrayList<? extends Persistent> readAll(Class<? extends Persistent> classType) {
     	if(classType == null) {
 			(new NullArgumentException()).printStackTrace();
-			return new ArrayList<AbstractPersistentClass>();
+			return new ArrayList<Persistent>();
     	}
     	
         DBCursor cursorDB = getCollection(classType).find();   
@@ -168,10 +168,10 @@ public class MongoDB implements InterfaceDB {
     }
 
     @Override
-    public ArrayList<? extends AbstractPersistentClass> search(String attribute, Boolean synomymes_att, String value, Boolean synomymes_val, Class<? extends AbstractPersistentClass> classType) {
+    public ArrayList<? extends Persistent> search(String attribute, Boolean synomymes_att, String value, Boolean synomymes_val, Class<? extends Persistent> classType) {
 		if(attribute == null || value == null || classType == null || synomymes_att == null || synomymes_val == null) {
 			(new NullArgumentException()).printStackTrace();
-			return new ArrayList<AbstractPersistentClass>();
+			return new ArrayList<Persistent>();
 		}
 		List<String> final_attribute = new ArrayList<String>();
 		if(synomymes_att) {
@@ -186,7 +186,7 @@ public class MongoDB implements InterfaceDB {
 			final_value.add(value);
 		}
 		
-		ArrayList<AbstractPersistentClass> result = new ArrayList<AbstractPersistentClass>();	
+		ArrayList<Persistent> result = new ArrayList<Persistent>();	
 		for(String att : final_attribute) {
 			for(String val : final_value) {
 				BasicDBObject query = new BasicDBObject(att, val);
@@ -198,10 +198,10 @@ public class MongoDB implements InterfaceDB {
     }
 
     @Override
-    public ArrayList<? extends AbstractPersistentClass> searchTag(String tag, Boolean synonymes, Class<? extends AbstractPersistentClass> classType) {
+    public ArrayList<? extends Persistent> searchTag(String tag, Boolean synonymes, Class<? extends Persistent> classType) {
 		if(tag == null || classType == null || synonymes == null) {
 			(new NullArgumentException()).printStackTrace();
-			return new ArrayList<AbstractPersistentClass>();
+			return new ArrayList<Persistent>();
 		}
 		BasicDBObject query;
 		if(synonymes) {
@@ -219,8 +219,8 @@ public class MongoDB implements InterfaceDB {
     }
     
     @SuppressWarnings("deprecation")
-	private ArrayList<AbstractPersistentClass> processDBCursor(DBCursor cursorDB, Class<? extends AbstractPersistentClass> classType) {
-    	ArrayList<AbstractPersistentClass> results = new ArrayList<AbstractPersistentClass>();
+	private ArrayList<Persistent> processDBCursor(DBCursor cursorDB, Class<? extends Persistent> classType) {
+    	ArrayList<Persistent> results = new ArrayList<Persistent>();
     	
     	if(cursorDB == null) {
 			(new NullArgumentException()).printStackTrace();
@@ -230,7 +230,7 @@ public class MongoDB implements InterfaceDB {
         while(cursorDB.hasNext()) {
 			try {
 	            DBObject doc = cursorDB.next();
-	            AbstractPersistentClass artifact = (AbstractPersistentClass) (new Gson()).fromJson(doc.toString(), classType);
+	            Persistent artifact = (Persistent) (new Gson()).fromJson(doc.toString(), classType);
 				artifact.setObjectId(doc.get("_id").toString());
 				results.add(artifact);
 			} catch (JsonSyntaxException e) {
@@ -244,7 +244,7 @@ public class MongoDB implements InterfaceDB {
     }
 
     @Override
-	public InputStream getInputStream(String id, Class<? extends AbstractPersistentClass> classType) {
+	public InputStream getInputStream(String id, Class<? extends Persistent> classType) {
 		if(id == null) {
 			(new NullArgumentException()).printStackTrace();
 			return null;
@@ -266,7 +266,7 @@ public class MongoDB implements InterfaceDB {
     }
 
     @Override
-    public long count(Class<? extends AbstractPersistentClass> classType) {
+    public long count(Class<? extends Persistent> classType) {
     	return getCollection(classType).count();
     }
 

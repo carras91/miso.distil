@@ -1,0 +1,53 @@
+Artifact Bento [ 
+	extension .bentoz
+	format ZIP
+	services : all
+] {
+	id many inputConcepts : MetaModel   
+	id many outputConcepts : MetaModel 
+	id many atl : ATLTrafo
+	many tags : String
+}   
+
+Artifact ATLTrafo [
+	extension .atl  
+	format TEXT 
+	services : upload, delete, download, search
+] {
+	nameATL : String
+}  
+       
+Artifact MetaModel [ 
+	extension .ecore  
+	format XMI
+	services : upload, delete, download, search
+] {
+	uri : String    	   
+}
+
+Artifact Model [ 
+	format XMI
+	services : all
+] {  
+	nameModel : String
+	id many type : MetaModel
+}
+
+MultiService Analyse {
+	when : Bento [upload, update]
+	services : TypeCheck, Metrics
+}
+ 
+Service TypeCheck {
+	output : Model [with type.uri = "http://prob.ecore"]
+}
+
+Service Metrics {
+	input : Model [with type.uri = "http://prob.ecore"]
+	output : Model [with type.uri = "http://mtr.ecore"]
+}
+
+Service SemanticSearch {
+	input : MetaModel
+	output : many Bento
+}

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import miso.carrascal.cloudModelServices.abstractServices.AbstractPersistentClass;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import spark.Request;
 import spark.Response;
 
@@ -51,7 +51,7 @@ public abstract class ServiceAbstractJson {
 		return true;
 	}
 
-	public abstract List<Object> runService(Request req, Response res, List<? extends AbstractPersistentClass> artifacts);
+	public abstract List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts);
 	
 	public abstract List<Object> exeService(List<Object> input);
 }

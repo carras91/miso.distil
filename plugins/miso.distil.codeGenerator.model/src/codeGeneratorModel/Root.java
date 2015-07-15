@@ -36,7 +36,7 @@ public interface Root extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Artifacts</em>' containment reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getRoot_Artifacts()
-	 * @model containment="true" keys="name" required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	EList<Artifact> getArtifacts();
@@ -52,7 +52,7 @@ public interface Root extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Entities</em>' containment reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getRoot_Entities()
-	 * @model containment="true" keys="name"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Entity> getEntities();
@@ -68,7 +68,7 @@ public interface Root extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Services</em>' containment reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getRoot_Services()
-	 * @model containment="true" keys="name"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Service> getServices();

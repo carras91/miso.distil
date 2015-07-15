@@ -35,7 +35,7 @@ public interface AbstractEntity extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Attributes</em>' containment reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getAbstractEntity_Attributes()
-	 * @model containment="true" keys="name"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Attribute> getAttributes();
@@ -51,7 +51,7 @@ public interface AbstractEntity extends EObject {
 	 * @return the value of the '<em>Name</em>' attribute.
 	 * @see #setName(String)
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getAbstractEntity_Name()
-	 * @model id="true" required="true"
+	 * @model required="true"
 	 * @generated
 	 */
 	String getName();

@@ -38,14 +38,15 @@ public class generateArtifactClass {
     _builder.newLine();
     _builder.append("import ");
     _builder.append(this.names.MisoAbstract, "");
-    _builder.append(".AbstractPersistentClass;");
+    _builder.append(".Persistent;");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     CharSequence _importCompose = this.genUti.getImportCompose(atts);
     _builder.append(_importCompose, "");
     _builder.newLineIfNotEmpty();
-    _builder.append("import java.util.List;");
-    _builder.newLine();
+    CharSequence _importList = this.genUti.getImportList(atts);
+    _builder.append(_importList, "");
+    _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("/**");
     _builder.newLine();
@@ -64,7 +65,7 @@ public class generateArtifactClass {
     _builder.append("public class ");
     String _name = artifact.getName();
     _builder.append(_name, "");
-    _builder.append(" extends AbstractPersistentClass {");
+    _builder.append(" extends Persistent {");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
@@ -136,7 +137,7 @@ public class generateArtifactClass {
     _builder.append("public ");
     String _name = artifact.getName();
     _builder.append(_name, "");
-    _builder.append("(String objectName, long fileSize, List<String> tags");
+    _builder.append("(String objectName, long fileSize");
     {
       for(final Attribute att : atts) {
         _builder.append(", ");
@@ -151,7 +152,7 @@ public class generateArtifactClass {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("super(objectName, fileSize, tags);");
+    _builder.append("super(objectName, fileSize);");
     _builder.newLine();
     _builder.newLine();
     {

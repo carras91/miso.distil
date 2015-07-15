@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-import miso.carrascal.cloudModelServices.abstractServices.AbstractPersistentClass;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.utils.DownloadUtils;
 import spark.Request;
@@ -13,9 +13,9 @@ import spark.Response;
 
 public abstract class BasicAbstractJson implements BasicInterfaceJson {
 	
-	protected Class<? extends AbstractPersistentClass> classType;
+	protected Class<? extends Persistent> classType;
 	
-	public BasicAbstractJson(Class<? extends AbstractPersistentClass> classType) {
+	public BasicAbstractJson(Class<? extends Persistent> classType) {
 		 this.classType = classType;
 	}
 	
@@ -30,14 +30,14 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		return BasicAbstractCodes.OK;
 	}
 	
-	public AbstractPersistentClass getRead(Request req, Response res) {
+	public Persistent getRead(Request req, Response res) {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String id = map.get(BasicAbstractParam.IdGet);
 		
 		return RecordDB.getDefault().readOne(id, classType);
 	}
 	
-	public ArrayList<? extends AbstractPersistentClass> getReadAll(Request req, Response res) {
+	public ArrayList<? extends Persistent> getReadAll(Request req, Response res) {
 		return RecordDB.getDefault().readAll(classType); 
 	}
 	
@@ -71,14 +71,14 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		return result;
 	}
 		
-	public ArrayList<? extends AbstractPersistentClass> getSearch(Request req, Response res) {	
+	public ArrayList<? extends Persistent> getSearch(Request req, Response res) {	
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String search_query = map.get(BasicAbstractParam.Search_query).toLowerCase();
 		String search_value = map.get(BasicAbstractParam.Search_value).toLowerCase();
 	    Boolean synonyms_query = map.get(BasicAbstractParam.Synonyms_query).equalsIgnoreCase("true");
 	    Boolean synonyms_value = map.get(BasicAbstractParam.Synonyms_value).equalsIgnoreCase("true");
 	    
-	    ArrayList<? extends AbstractPersistentClass> objects;
+	    ArrayList<? extends Persistent> objects;
 		if(search_query.equalsIgnoreCase("tags")) {
 			objects = RecordDB.getDefault().searchTag(search_value, synonyms_query, classType);
 		} else {
@@ -92,7 +92,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String id = map.get(BasicAbstractParam.IdGet);
 		
-		AbstractPersistentClass object = RecordDB.getDefault().readOne(id, classType);
+		Persistent object = RecordDB.getDefault().readOne(id, classType);
 		if(object == null) {
 			return BasicAbstractCodes.DB_notfound;
 		}
@@ -111,7 +111,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String id = map.get(BasicAbstractParam.IdGet);
 		
-		AbstractPersistentClass object = RecordDB.getDefault().readOne(id, classType);
+		Persistent object = RecordDB.getDefault().readOne(id, classType);
 		if(object == null) {
 			return BasicAbstractCodes.DB_notfound;
 		}

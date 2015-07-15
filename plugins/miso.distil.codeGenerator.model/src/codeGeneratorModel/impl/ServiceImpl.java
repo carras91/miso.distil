@@ -155,7 +155,7 @@ public abstract class ServiceImpl extends MinimalEObjectImpl.Container implement
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-		@Override
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.SERVICE__NAME:

@@ -59,12 +59,14 @@ public class CodeGeneratorModelFactoryImpl extends EFactoryImpl implements CodeG
 		switch (eClass.getClassifierID()) {
 			case CodeGeneratorModelPackage.ROOT: return createRoot();
 			case CodeGeneratorModelPackage.ARTIFACT: return createArtifact();
-			case CodeGeneratorModelPackage.SIMPLE_ATTRIBUTE: return createSimpleAttribute();
+			case CodeGeneratorModelPackage.PRIMITIVE: return createPrimitive();
 			case CodeGeneratorModelPackage.ENTITY: return createEntity();
 			case CodeGeneratorModelPackage.SIMPLE_SERVICE: return createSimpleService();
 			case CodeGeneratorModelPackage.MULTI_SERVICE: return createMultiService();
 			case CodeGeneratorModelPackage.ON_SERVICE: return createOnService();
-			case CodeGeneratorModelPackage.MULTI_ATTRIBUTE: return createMultiAttribute();
+			case CodeGeneratorModelPackage.REFERENCE: return createReference();
+			case CodeGeneratorModelPackage.INOUT: return createInout();
+			case CodeGeneratorModelPackage.ARTIFACT_ID: return createArtifactID();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -133,9 +135,9 @@ public class CodeGeneratorModelFactoryImpl extends EFactoryImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public SimpleAttribute createSimpleAttribute() {
-		SimpleAttributeImpl simpleAttribute = new SimpleAttributeImpl();
-		return simpleAttribute;
+	public Primitive createPrimitive() {
+		PrimitiveImpl primitive = new PrimitiveImpl();
+		return primitive;
 	}
 
 	/**
@@ -183,9 +185,29 @@ public class CodeGeneratorModelFactoryImpl extends EFactoryImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public MultiAttribute createMultiAttribute() {
-		MultiAttributeImpl multiAttribute = new MultiAttributeImpl();
-		return multiAttribute;
+	public Reference createReference() {
+		ReferenceImpl reference = new ReferenceImpl();
+		return reference;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Inout createInout() {
+		InoutImpl inout = new InoutImpl();
+		return inout;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ArtifactID createArtifactID() {
+		ArtifactIDImpl artifactID = new ArtifactIDImpl();
+		return artifactID;
 	}
 
 	/**

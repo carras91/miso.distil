@@ -12,6 +12,7 @@ import codeGeneratorModel.ServiceEnum
  */
 class generateHtmlLinks {
 	
+	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 	
 	/*
@@ -20,15 +21,15 @@ class generateHtmlLinks {
 	 * @author Carlos Carrascal
 	 */			
 	def write(Artifact artifact) '''
-		«var EList<ServiceEnum> basicServices = artifact.basicServices»
+		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
 		«val name = artifact.name»
 		«val namelow = artifact.name.toLowerCase»
 		package «names.getHtmlChar(artifact)»;
 
-		«IF basicServices.contains(ServiceEnum.UPLOAD)»
+		«IF basicServices.contains(ServiceEnum.DELETE)»
 			import «names.getBParamFileChar(artifact)»;
 		«ENDIF»
-		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.DOWNLOAD) || basicServices.contains(ServiceEnum.UPLOAD)»
+		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.DOWNLOAD) || basicServices.contains(ServiceEnum.DELETE)»
 			import «names.getBSparkFileChar(artifact)»;
 		«ENDIF»
 		import «names.getArtifactFileChar(artifact)»;
@@ -80,7 +81,7 @@ class generateHtmlLinks {
 				}
 
 			«ENDIF»
-			«IF basicServices.contains(ServiceEnum.UPLOAD)»
+			«IF basicServices.contains(ServiceEnum.DELETE)»
 				/**
 				 * Auto-generated link to the service delete
 				 * 

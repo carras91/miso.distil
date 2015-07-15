@@ -6,10 +6,10 @@ import java.util.List;
 import java.util.Map;
 
 import spark.Request;
-import miso.carrascal.cloudModelServices.abstractServices.AbstractPersistentClass;
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.HtmlEntry;
 
-public interface HtmlInterfaceView<T extends AbstractPersistentClass> {
+public interface HtmlInterfaceView<T extends Persistent> {
 	
 	default public List<HtmlEntry> constructInfoReadOne(T object) {
 		return new ArrayList<HtmlEntry>();

@@ -165,7 +165,7 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @generated
 	 */
 	@SuppressWarnings("unchecked")
-		@Override
+	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case CodeGeneratorModelPackage.ROOT__ARTIFACTS:

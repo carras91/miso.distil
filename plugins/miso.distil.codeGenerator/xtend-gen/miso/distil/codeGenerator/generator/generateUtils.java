@@ -1,11 +1,13 @@
 package miso.distil.codeGenerator.generator;
 
 import codeGeneratorModel.Artifact;
+import codeGeneratorModel.ArtifactID;
 import codeGeneratorModel.Attribute;
 import codeGeneratorModel.DataEnum;
 import codeGeneratorModel.Entity;
-import codeGeneratorModel.MultiAttribute;
-import codeGeneratorModel.SimpleAttribute;
+import codeGeneratorModel.Primitive;
+import codeGeneratorModel.Reference;
+import codeGeneratorModel.ServiceEnum;
 import com.google.inject.Inject;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -78,7 +80,7 @@ public class generateUtils {
   }
   
   /**
-   * To write a string "att1, att2, att3, ..." from the attributes inside the multiattribute number pos in artifact
+   * To write a string "att1, att2, att3, ..." from the attributes inside the reference number pos in artifact
    * 
    * @author Carlos Carrascal
    */
@@ -87,7 +89,7 @@ public class generateUtils {
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
     Pair<Attribute, List<String>> _get = _nestedTree.get((pos).intValue());
     Attribute _key = _get.getKey();
-    Entity _type = ((MultiAttribute) _key).getType();
+    Entity _type = ((Reference) _key).getType();
     EList<Attribute> atts = _type.getAttributes();
     StringConcatenation _builder = new StringConcatenation();
     String nestedAtt = _builder.toString();
@@ -188,8 +190,8 @@ public class generateUtils {
         List<String> path = new ArrayList<String>();
         String _name = artifact.getName();
         path.add(_name);
-        if ((it instanceof MultiAttribute)) {
-          List<Pair<Attribute, List<String>>> _nested = this.getNested(((MultiAttribute)it), path);
+        if ((it instanceof Reference)) {
+          List<Pair<Attribute, List<String>>> _nested = this.getNested(((Reference)it), path);
           list.addAll(_nested);
         }
         Pair<Attribute, List<String>> _pair = new Pair<Attribute, List<String>>(it, path);
@@ -206,7 +208,7 @@ public class generateUtils {
    * 
    * @author Carlos Carrascal
    */
-  private List<Pair<Attribute, List<String>>> getNested(final MultiAttribute att, final List<String> parent) {
+  private List<Pair<Attribute, List<String>>> getNested(final Reference att, final List<String> parent) {
     final ArrayList<Pair<Attribute, List<String>>> list = new ArrayList<Pair<Attribute, List<String>>>();
     Entity _type = att.getType();
     EList<Attribute> _attributes = _type.getAttributes();
@@ -214,8 +216,8 @@ public class generateUtils {
       List<String> path = new ArrayList<String>(parent);
       String _name = att.getName();
       path.add(_name);
-      if ((it instanceof MultiAttribute)) {
-        List<Pair<Attribute, List<String>>> _nested = this.getNested(((MultiAttribute)it), path);
+      if ((it instanceof Reference)) {
+        List<Pair<Attribute, List<String>>> _nested = this.getNested(((Reference)it), path);
         list.addAll(_nested);
       }
       Pair<Attribute, List<String>> _pair = new Pair<Attribute, List<String>>(it, path);
@@ -281,16 +283,16 @@ public class generateUtils {
       {
         for(final Attribute att : atts) {
           {
-            if ((att instanceof MultiAttribute)) {
+            if ((att instanceof Reference)) {
               {
-                Entity _type = ((MultiAttribute)att).getType();
+                Entity _type = ((Reference)att).getType();
                 String _name = _type.getName();
                 boolean _contains = nameList.contains(_name);
                 boolean _not = (!_contains);
                 if (_not) {
                   Object _xblockexpression_1 = null;
                   {
-                    Entity _type_1 = ((MultiAttribute)att).getType();
+                    Entity _type_1 = ((Reference)att).getType();
                     String _name_1 = _type_1.getName();
                     nameList.add(_name_1);
                     _xblockexpression_1 = null;
@@ -300,7 +302,7 @@ public class generateUtils {
                   _builder.append("import ");
                   _builder.append(this.pack.EntitiesCha, "");
                   _builder.append(".");
-                  Entity _type_1 = ((MultiAttribute)att).getType();
+                  Entity _type_1 = ((Reference)att).getType();
                   String _name_1 = _type_1.getName();
                   _builder.append(_name_1, "");
                   _builder.append(";");
@@ -317,15 +319,15 @@ public class generateUtils {
   }
   
   /**
-   * To get a list of nested attributes (simple and multi) (recursive)
+   * To get a list of nested attributes (primitive and reference) (recursive)
    * 
    * @author Carlos Carrascal
    */
   public EList<Attribute> getAllNestedAttributes(final EList<Attribute> atts) {
     final EList<Attribute> list = new BasicEList<Attribute>();
     final Consumer<Attribute> _function = (Attribute it) -> {
-      if ((it instanceof MultiAttribute)) {
-        Entity _type = ((MultiAttribute)it).getType();
+      if ((it instanceof Reference)) {
+        Entity _type = ((Reference)it).getType();
         EList<Attribute> _attributes = _type.getAttributes();
         EList<Attribute> _allNestedAttributes = this.getAllNestedAttributes(_attributes);
         list.addAll(_allNestedAttributes);
@@ -337,16 +339,22 @@ public class generateUtils {
   }
   
   /**
-   * To get a list of nested attributes (but not multiattributes) (recursive)
+   * To get a list of nested attributes (but not references) (recursive)
    * 
    * @author Carlos Carrascal
    */
   public EList<Attribute> getNestedAttributes(final Attribute att) {
     final EList<Attribute> list = new BasicEList<Attribute>();
-    if ((att instanceof SimpleAttribute)) {
+    boolean _or = false;
+    if ((att instanceof Primitive)) {
+      _or = true;
+    } else {
+      _or = (att instanceof ArtifactID);
+    }
+    if (_or) {
       list.add(att);
     } else {
-      Entity _type = ((MultiAttribute) att).getType();
+      Entity _type = ((Reference) att).getType();
       EList<Attribute> _attributes = _type.getAttributes();
       final Consumer<Attribute> _function = (Attribute it) -> {
         EList<Attribute> _nestedAttributes = this.getNestedAttributes(it);
@@ -365,27 +373,30 @@ public class generateUtils {
   public CharSequence getTypeName(final Attribute att) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      if ((att instanceof MultiAttribute)) {
-        Entity _type = ((MultiAttribute)att).getType();
+      boolean _isMany = att.isMany();
+      if (_isMany) {
+        _builder.append("List<");
+      }
+    }
+    {
+      if ((att instanceof Reference)) {
+        Entity _type = ((Reference)att).getType();
         String _name = _type.getName();
         _builder.append(_name, "");
       } else {
-        final SimpleAttribute sa = ((SimpleAttribute) att);
-        {
-          boolean _isMany = sa.isMany();
-          if (_isMany) {
-            _builder.append("List<");
-          }
+        if ((att instanceof Primitive)) {
+          DataEnum _type_1 = ((Primitive) att).getType();
+          String _string = _type_1.toString();
+          _builder.append(_string, "");
+        } else {
+          _builder.append("String");
         }
-        DataEnum _data = sa.getData();
-        String _string = _data.toString();
-        _builder.append(_string, "");
-        {
-          boolean _isMany_1 = sa.isMany();
-          if (_isMany_1) {
-            _builder.append(">");
-          }
-        }
+      }
+    }
+    {
+      boolean _isMany_1 = att.isMany();
+      if (_isMany_1) {
+        _builder.append(">");
       }
     }
     return _builder;
@@ -474,6 +485,25 @@ public class generateUtils {
       }
     }
     return _builder;
+  }
+  
+  /**
+   * Process ServiceEnum.ALL
+   * 
+   * @author Carlos Carrascal
+   */
+  public EList<ServiceEnum> processBasicServices(final EList<ServiceEnum> services) {
+    boolean _contains = services.contains(ServiceEnum.ALL);
+    if (_contains) {
+      services.add(ServiceEnum.UPLOAD);
+      services.add(ServiceEnum.DOWNLOAD);
+      services.add(ServiceEnum.UPDATE);
+      services.add(ServiceEnum.READ);
+      services.add(ServiceEnum.READ_ALL);
+      services.add(ServiceEnum.SEARCH);
+      services.add(ServiceEnum.DELETE);
+    }
+    return services;
   }
   
   /**

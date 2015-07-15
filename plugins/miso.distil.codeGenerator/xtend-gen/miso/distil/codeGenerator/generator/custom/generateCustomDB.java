@@ -39,7 +39,7 @@ public class generateCustomDB {
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
     _builder.append(this.names.MisoAbstract, "");
-    _builder.append(".AbstractPersistentClass;");
+    _builder.append(".Persistent;");
     _builder.newLineIfNotEmpty();
     _builder.append("import ");
     _builder.append(this.names.MisoAbstract, "");
@@ -165,7 +165,7 @@ public class generateCustomDB {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public Boolean save(AbstractPersistentClass artifact, InputStream inputStream) {");
+    _builder.append("public Boolean save(Persistent artifact, InputStream inputStream) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return false;");
@@ -193,7 +193,7 @@ public class generateCustomDB {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public Boolean delete(String id, Class<? extends AbstractPersistentClass> classType) {");
+    _builder.append("public Boolean delete(String id, Class<? extends Persistent> classType) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return false;");
@@ -221,7 +221,7 @@ public class generateCustomDB {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public AbstractPersistentClass readOne(String id, Class<? extends AbstractPersistentClass> classType) {");
+    _builder.append("public Persistent readOne(String id, Class<? extends Persistent> classType) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return null;");
@@ -249,10 +249,10 @@ public class generateCustomDB {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public ArrayList<? extends AbstractPersistentClass> readAll(Class<? extends AbstractPersistentClass> classType) {");
+    _builder.append("public ArrayList<? extends Persistent> readAll(Class<? extends Persistent> classType) {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("return new ArrayList<AbstractPersistentClass>();");
+    _builder.append("return new ArrayList<Persistent>();");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -280,10 +280,10 @@ public class generateCustomDB {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public ArrayList<? extends AbstractPersistentClass> search(String attribute, Boolean synonymes_att, String value, Boolean synonymes_val, Class<? extends AbstractPersistentClass> classType) {");
+    _builder.append("public ArrayList<? extends Persistent> search(String attribute, Boolean synonymes_att, String value, Boolean synonymes_val, Class<? extends Persistent> classType) {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("return new ArrayList<AbstractPersistentClass>();");
+    _builder.append("return new ArrayList<Persistent>();");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -308,10 +308,10 @@ public class generateCustomDB {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public ArrayList<? extends AbstractPersistentClass> searchTag(String tag, Boolean synonymes, Class<? extends AbstractPersistentClass> classType) {");
+    _builder.append("public ArrayList<? extends Persistent> searchTag(String tag, Boolean synonymes, Class<? extends Persistent> classType) {");
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("return new ArrayList<AbstractPersistentClass>();");
+    _builder.append("return new ArrayList<Persistent>();");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -364,7 +364,7 @@ public class generateCustomDB {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public InputStream getInputStream(String id, Class<? extends AbstractPersistentClass> classType) {");
+    _builder.append("public InputStream getInputStream(String id, Class<? extends Persistent> classType) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return null;");
@@ -420,7 +420,7 @@ public class generateCustomDB {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public long count(Class<? extends AbstractPersistentClass> classType) {");
+    _builder.append("public long count(Class<? extends Persistent> classType) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("return 0;");

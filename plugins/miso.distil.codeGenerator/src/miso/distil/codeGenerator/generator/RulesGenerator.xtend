@@ -131,7 +131,7 @@ class RulesGenerator implements IGenerator {
 			// Html custom cover (once)
 			if(artifact.basicServices.contains(ServiceEnum.READ) || artifact.basicServices.contains(ServiceEnum.READ_ALL) || 
 				artifact.basicServices.contains(ServiceEnum.UPDATE) || artifact.basicServices.contains(ServiceEnum.UPLOAD) ||
-				artifact.basicServices.contains(ServiceEnum.SEARCH))
+				artifact.basicServices.contains(ServiceEnum.SEARCH) || artifact.basicServices.contains(ServiceEnum.ALL))
 			{
 				fsa.generateFile(
 					names.getArtifactCustomFileStri(artifact) + ".java",
@@ -158,7 +158,7 @@ class RulesGenerator implements IGenerator {
 			// Html Cover (overwrite)
 			if(artifact.basicServices.contains(ServiceEnum.READ) || artifact.basicServices.contains(ServiceEnum.READ_ALL) || 
 				artifact.basicServices.contains(ServiceEnum.UPDATE) || artifact.basicServices.contains(ServiceEnum.UPLOAD) ||
-				artifact.basicServices.contains(ServiceEnum.SEARCH))
+				artifact.basicServices.contains(ServiceEnum.SEARCH) || artifact.basicServices.contains(ServiceEnum.ALL))
 			{				
 				fsa.generateFile(
 					names.getHSparkFileStri(artifact) + ".java",
@@ -173,9 +173,10 @@ class RulesGenerator implements IGenerator {
 					genHtmJso.write(artifact))
 			}
 			
-			// Lings (overwrite)
+			// Links (overwrite)
 			if(artifact.basicServices.contains(ServiceEnum.READ) || artifact.basicServices.contains(ServiceEnum.DOWNLOAD) || 
-				artifact.basicServices.contains(ServiceEnum.UPDATE) || artifact.basicServices.contains(ServiceEnum.UPLOAD))
+				artifact.basicServices.contains(ServiceEnum.UPDATE) || artifact.basicServices.contains(ServiceEnum.DELETE) ||
+				artifact.basicServices.contains(ServiceEnum.ALL))
 			{
 				fsa.generateFile(
 					names.getHLinksFileStri(artifact) + ".java",

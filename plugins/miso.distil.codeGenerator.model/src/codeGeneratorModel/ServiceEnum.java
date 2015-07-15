@@ -5,6 +5,7 @@ package codeGeneratorModel;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+
 import org.eclipse.emf.common.util.Enumerator;
 
 /**
@@ -16,8 +17,7 @@ import org.eclipse.emf.common.util.Enumerator;
  * @model
  * @generated
  */
-public enum ServiceEnum implements Enumerator
-{
+public enum ServiceEnum implements Enumerator {
 	/**
 	 * The '<em><b>Upload</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -27,6 +27,7 @@ public enum ServiceEnum implements Enumerator
 	 * @ordered
 	 */
 	UPLOAD(0, "upload", "upload"),
+
 	/**
 	 * The '<em><b>Download</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -36,6 +37,7 @@ public enum ServiceEnum implements Enumerator
 	 * @ordered
 	 */
 	DOWNLOAD(1, "download", "download"),
+
 	/**
 	 * The '<em><b>Update</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -45,6 +47,7 @@ public enum ServiceEnum implements Enumerator
 	 * @ordered
 	 */
 	UPDATE(2, "update", "update"),
+
 	/**
 	 * The '<em><b>Read</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -54,6 +57,7 @@ public enum ServiceEnum implements Enumerator
 	 * @ordered
 	 */
 	READ(3, "read", "read"),
+
 	/**
 	 * The '<em><b>Read All</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -63,6 +67,7 @@ public enum ServiceEnum implements Enumerator
 	 * @ordered
 	 */
 	READ_ALL(4, "readAll", "readAll"),
+
 	/**
 	 * The '<em><b>Search</b></em>' literal object.
 	 * <!-- begin-user-doc -->
@@ -71,7 +76,28 @@ public enum ServiceEnum implements Enumerator
 	 * @generated
 	 * @ordered
 	 */
-	SEARCH(5, "search", "search");
+	SEARCH(5, "search", "search"),
+
+	/**
+	 * The '<em><b>Delete</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #DELETE_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	DELETE(6, "delete", "delete"),
+
+	/**
+	 * The '<em><b>All</b></em>' literal object.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ALL_VALUE
+	 * @generated
+	 * @ordered
+	 */
+	ALL(7, "all", "all");
+
 	/**
 	 * The '<em><b>Upload</b></em>' literal value.
 	 * <!-- begin-user-doc -->
@@ -163,6 +189,36 @@ public enum ServiceEnum implements Enumerator
 	public static final int SEARCH_VALUE = 5;
 
 	/**
+	 * The '<em><b>Delete</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>Delete</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #DELETE
+	 * @model name="delete"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int DELETE_VALUE = 6;
+
+	/**
+	 * The '<em><b>All</b></em>' literal value.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of '<em><b>All</b></em>' literal object isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @see #ALL
+	 * @model name="all"
+	 * @generated
+	 * @ordered
+	 */
+	public static final int ALL_VALUE = 7;
+
+	/**
 	 * An array of all the '<em><b>Service Enum</b></em>' enumerators.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -176,6 +232,8 @@ public enum ServiceEnum implements Enumerator
 			READ,
 			READ_ALL,
 			SEARCH,
+			DELETE,
+			ALL,
 		};
 
 	/**
@@ -232,6 +290,8 @@ public enum ServiceEnum implements Enumerator
 			case READ_VALUE: return READ;
 			case READ_ALL_VALUE: return READ_ALL;
 			case SEARCH_VALUE: return SEARCH;
+			case DELETE_VALUE: return DELETE;
+			case ALL_VALUE: return ALL;
 		}
 		return null;
 	}
@@ -306,4 +366,5 @@ public enum ServiceEnum implements Enumerator
 	public String toString() {
 		return literal;
 	}
-}
+	
+} //ServiceEnum

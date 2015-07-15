@@ -6,25 +6,25 @@ import java.util.List;
 
 public interface InterfaceDB {
 
-	public Boolean save(AbstractPersistentClass artifact, InputStream inputStream);
+	public Boolean save(Persistent artifact, InputStream inputStream);
 	
-	public Boolean delete(String id, Class<? extends AbstractPersistentClass> classType);
+	public Boolean delete(String id, Class<? extends Persistent> classType);
 	
-	public AbstractPersistentClass readOne(String id, Class<? extends AbstractPersistentClass> classType);
+	public Persistent readOne(String id, Class<? extends Persistent> classType);
 	
-	public InputStream getInputStream(String id, Class<? extends AbstractPersistentClass> classType);
+	public InputStream getInputStream(String id, Class<? extends Persistent> classType);
 	
-	public ArrayList<? extends AbstractPersistentClass> readAll(Class<? extends AbstractPersistentClass> classType);
+	public ArrayList<? extends Persistent> readAll(Class<? extends Persistent> classType);
 
-	public ArrayList<? extends AbstractPersistentClass> search(String attribute, Boolean synonymes_att, String value, Boolean synonymes_val, Class<? extends AbstractPersistentClass> classType);
+	public ArrayList<? extends Persistent> search(String attribute, Boolean synonymes_att, String value, Boolean synonymes_val, Class<? extends Persistent> classType);
 
-	public ArrayList<? extends AbstractPersistentClass> searchTag(String tag, Boolean synonymes, Class<? extends AbstractPersistentClass> classType);
+	public ArrayList<? extends Persistent> searchTag(String tag, Boolean synonymes, Class<? extends Persistent> classType);
 	
 	public List<String> getSynonymes(String query);
 
 	public long count();
 	
-	public long count(Class<? extends AbstractPersistentClass> classType);
+	public long count(Class<? extends Persistent> classType);
 	
 	public int maxSaveSize(); 
 }

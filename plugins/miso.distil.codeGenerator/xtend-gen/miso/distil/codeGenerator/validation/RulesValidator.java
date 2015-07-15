@@ -8,9 +8,10 @@ import codeGeneratorModel.Artifact;
 import codeGeneratorModel.Attribute;
 import codeGeneratorModel.CodeGeneratorModelPackage;
 import codeGeneratorModel.Entity;
-import codeGeneratorModel.MultiAttribute;
+import codeGeneratorModel.Inout;
 import codeGeneratorModel.MultiService;
 import codeGeneratorModel.OnService;
+import codeGeneratorModel.Reference;
 import codeGeneratorModel.Root;
 import codeGeneratorModel.Service;
 import codeGeneratorModel.ServiceEnum;
@@ -77,13 +78,23 @@ public class RulesValidator extends AbstractRulesValidator {
       EList<ServiceEnum> _basicServices = _artifact.getBasicServices();
       boolean _notEquals = (!Objects.equal(_basicServices, null));
       if (_notEquals) {
+        boolean _and = false;
         Artifact _artifact_1 = onSer.getArtifact();
         EList<ServiceEnum> _basicServices_1 = _artifact_1.getBasicServices();
         boolean _contains = _basicServices_1.contains(it);
         boolean _not = (!_contains);
-        if (_not) {
+        if (!_not) {
+          _and = false;
+        } else {
           Artifact _artifact_2 = onSer.getArtifact();
-          String _name = _artifact_2.getName();
+          EList<ServiceEnum> _basicServices_2 = _artifact_2.getBasicServices();
+          boolean _contains_1 = _basicServices_2.contains(ServiceEnum.ALL);
+          boolean _not_1 = (!_contains_1);
+          _and = _not_1;
+        }
+        if (_and) {
+          Artifact _artifact_3 = onSer.getArtifact();
+          String _name = _artifact_3.getName();
           String _plus = (" Artifact " + _name);
           String _plus_1 = (_plus + " does not have service ");
           String _string = it.toString();
@@ -99,16 +110,16 @@ public class RulesValidator extends AbstractRulesValidator {
   }
   
   @Check
-  public void checkMultiAttNotRecursive(final Entity ent) {
+  public void checkReferenceNotRecursive(final Entity ent) {
     EList<Attribute> _attributes = ent.getAttributes();
     for (final Attribute att : _attributes) {
-      if ((att instanceof MultiAttribute)) {
-        Entity _type = ((MultiAttribute)att).getType();
+      if ((att instanceof Reference)) {
+        Entity _type = ((Reference)att).getType();
         EList<Attribute> _attributes_1 = _type.getAttributes();
         String _name = ent.getName();
         Boolean _lookForRepeated = this.lookForRepeated(_attributes_1, _name);
         if ((_lookForRepeated).booleanValue()) {
-          String _name_1 = ((MultiAttribute)att).getName();
+          String _name_1 = ((Reference)att).getName();
           String _plus = ("This entity contains " + _name_1);
           String _plus_1 = (_plus + ", who contains this entity");
           this.error(_plus_1, 
@@ -121,14 +132,14 @@ public class RulesValidator extends AbstractRulesValidator {
   
   private Boolean lookForRepeated(final EList<Attribute> atts, final String name) {
     for (final Attribute att : atts) {
-      if ((att instanceof MultiAttribute)) {
-        Entity _type = ((MultiAttribute)att).getType();
+      if ((att instanceof Reference)) {
+        Entity _type = ((Reference)att).getType();
         String _name = _type.getName();
         boolean _equalsIgnoreCase = _name.equalsIgnoreCase(name);
         if (_equalsIgnoreCase) {
           return Boolean.valueOf(true);
         } else {
-          Entity _type_1 = ((MultiAttribute)att).getType();
+          Entity _type_1 = ((Reference)att).getType();
           EList<Attribute> _attributes = _type_1.getAttributes();
           Boolean _lookForRepeated = this.lookForRepeated(_attributes, name);
           if ((_lookForRepeated).booleanValue()) {
@@ -156,20 +167,20 @@ public class RulesValidator extends AbstractRulesValidator {
     if (_and) {
       EList<Service> _services_1 = mulSer.getServices();
       Service _get = _services_1.get(0);
-      EList<AbstractEntity> out = this.getOutput(((Service) _get));
+      EList<Inout> out = this.getOutput(((Service) _get));
       for (int j = 1; (j < mulSer.getServices().size()); j++) {
         {
           EList<Service> _services_2 = mulSer.getServices();
           Service service = ((EList<Service>) _services_2).get(j);
           int _size = out.size();
-          EList<AbstractEntity> _input = this.getInput(service);
+          EList<Inout> _input = this.getInput(service);
           int _size_1 = _input.size();
           boolean _notEquals = (_size != _size_1);
           if (_notEquals) {
             String _name = service.getName();
             String _plus = ("Service " + _name);
             String _plus_1 = (_plus + " requires ");
-            EList<AbstractEntity> _input_1 = this.getInput(service);
+            EList<Inout> _input_1 = this.getInput(service);
             int _size_2 = _input_1.size();
             String _plus_2 = (_plus_1 + Integer.valueOf(_size_2));
             String _plus_3 = (_plus_2 + " inputs but receives ");
@@ -185,47 +196,73 @@ public class RulesValidator extends AbstractRulesValidator {
               RulesValidator.INPUT_WRONG);
           }
           for (int i = 0; (i < this.getInput(service).size()); i++) {
-            AbstractEntity _get_2 = out.get(i);
-            EList<AbstractEntity> _input_2 = this.getInput(service);
-            AbstractEntity _get_3 = _input_2.get(i);
-            boolean _equals = _get_2.equals(_get_3);
+            boolean _or = false;
+            Inout _get_2 = out.get(i);
+            AbstractEntity _type = _get_2.getType();
+            EList<Inout> _input_2 = this.getInput(service);
+            Inout _get_3 = _input_2.get(i);
+            AbstractEntity _type_1 = _get_3.getType();
+            boolean _equals = _type.equals(_type_1);
             boolean _not_2 = (!_equals);
             if (_not_2) {
+              _or = true;
+            } else {
+              Inout _get_4 = out.get(i);
+              boolean _isMany = _get_4.isMany();
+              EList<Inout> _input_3 = this.getInput(service);
+              Inout _get_5 = _input_3.get(i);
+              boolean _isMany_1 = _get_5.isMany();
+              boolean _equals_1 = Boolean.valueOf(_isMany).equals(Boolean.valueOf(_isMany_1));
+              boolean _not_3 = (!_equals_1);
+              _or = _not_3;
+            }
+            if (_or) {
               String _name_2 = service.getName();
               String _plus_7 = ((("Input " + Integer.valueOf(i)) + " of service ") + _name_2);
               String _plus_8 = (_plus_7 + " requires ");
-              EList<AbstractEntity> _input_3 = this.getInput(service);
-              AbstractEntity _get_4 = _input_3.get(i);
-              String _name_3 = _get_4.getName();
+              EList<Inout> _input_4 = this.getInput(service);
+              Inout _get_6 = _input_4.get(i);
+              AbstractEntity _type_2 = _get_6.getType();
+              String _name_3 = _type_2.getName();
               String _plus_9 = (_plus_8 + _name_3);
-              String _plus_10 = (_plus_9 + " but ");
-              AbstractEntity _get_5 = out.get(i);
-              String _name_4 = _get_5.getName();
-              String _plus_11 = (_plus_10 + _name_4);
-              String _plus_12 = (_plus_11 + " given");
-              this.error(_plus_12, 
+              String _plus_10 = (_plus_9 + " and many ");
+              EList<Inout> _input_5 = this.getInput(service);
+              Inout _get_7 = _input_5.get(i);
+              boolean _isMany_2 = _get_7.isMany();
+              String _plus_11 = (_plus_10 + Boolean.valueOf(_isMany_2));
+              String _plus_12 = (_plus_11 + " but ");
+              Inout _get_8 = out.get(i);
+              AbstractEntity _type_3 = _get_8.getType();
+              String _name_4 = _type_3.getName();
+              String _plus_13 = (_plus_12 + _name_4);
+              String _plus_14 = (_plus_13 + " with many ");
+              Inout _get_9 = out.get(i);
+              boolean _isMany_3 = _get_9.isMany();
+              String _plus_15 = (_plus_14 + Boolean.valueOf(_isMany_3));
+              String _plus_16 = (_plus_15 + " given");
+              this.error(_plus_16, 
                 CodeGeneratorModelPackage.Literals.MULTI_SERVICE__SERVICES, 
                 RulesValidator.INPUT_WRONG);
             }
           }
-          EList<AbstractEntity> _output = this.getOutput(service);
+          EList<Inout> _output = this.getOutput(service);
           out = _output;
         }
       }
     }
   }
   
-  private EList<AbstractEntity> getInput(final Service service) {
+  private EList<Inout> getInput(final Service service) {
     if ((service instanceof SimpleService)) {
       return ((SimpleService)service).getInput();
     } else {
       if ((service instanceof MultiService)) {
         boolean _isParallel = ((MultiService)service).isParallel();
         if (_isParallel) {
-          EList<AbstractEntity> input = new BasicEList<AbstractEntity>();
+          EList<Inout> input = new BasicEList<Inout>();
           EList<Service> _services = ((MultiService)service).getServices();
           for (final Service ser : ((EList<Service>) _services)) {
-            EList<AbstractEntity> _input = this.getInput(ser);
+            EList<Inout> _input = this.getInput(ser);
             input.addAll(_input);
           }
           return input;
@@ -239,17 +276,17 @@ public class RulesValidator extends AbstractRulesValidator {
     return null;
   }
   
-  private EList<AbstractEntity> getOutput(final Service service) {
+  private EList<Inout> getOutput(final Service service) {
     if ((service instanceof SimpleService)) {
       return ((SimpleService)service).getOutput();
     } else {
       if ((service instanceof MultiService)) {
         boolean _isParallel = ((MultiService)service).isParallel();
         if (_isParallel) {
-          EList<AbstractEntity> output = new BasicEList<AbstractEntity>();
+          EList<Inout> output = new BasicEList<Inout>();
           EList<Service> _services = ((MultiService)service).getServices();
           for (final Service ser : ((EList<Service>) _services)) {
-            EList<AbstractEntity> _output = this.getOutput(ser);
+            EList<Inout> _output = this.getOutput(ser);
             output.addAll(_output);
           }
           return output;
@@ -457,14 +494,22 @@ public class RulesValidator extends AbstractRulesValidator {
   public void checkToDo(final Artifact artifact) {
     try {
       boolean _or = false;
+      boolean _or_1 = false;
       EList<ServiceEnum> _basicServices = artifact.getBasicServices();
       boolean _contains = _basicServices.contains(ServiceEnum.UPDATE);
       if (_contains) {
-        _or = true;
+        _or_1 = true;
       } else {
         EList<ServiceEnum> _basicServices_1 = artifact.getBasicServices();
         boolean _contains_1 = _basicServices_1.contains(ServiceEnum.UPLOAD);
-        _or = _contains_1;
+        _or_1 = _contains_1;
+      }
+      if (_or_1) {
+        _or = true;
+      } else {
+        EList<ServiceEnum> _basicServices_2 = artifact.getBasicServices();
+        boolean _contains_2 = _basicServices_2.contains(ServiceEnum.ALL);
+        _or = _contains_2;
       }
       if (_or) {
         Resource _eResource = artifact.eResource();
@@ -489,8 +534,8 @@ public class RulesValidator extends AbstractRulesValidator {
             {
               final String line = scanner.nextLine();
               lineNumber++;
-              boolean _contains_2 = line.contains("TODO");
-              if (_contains_2) {
+              boolean _contains_3 = line.contains("TODO");
+              if (_contains_3) {
                 String _artifactJsonFileStri_1 = this.names.getArtifactJsonFileStri(artifact);
                 String _plus_2 = ("You need to complete Update or Upload methods on package " + _artifactJsonFileStri_1);
                 String _plus_3 = (_plus_2 + " line ");

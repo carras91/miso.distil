@@ -23,35 +23,35 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface SimpleService extends Service {
 	/**
-	 * Returns the value of the '<em><b>Input</b></em>' reference list.
-	 * The list contents are of type {@link codeGeneratorModel.AbstractEntity}.
+	 * Returns the value of the '<em><b>Input</b></em>' containment reference list.
+	 * The list contents are of type {@link codeGeneratorModel.Inout}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Input</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Input</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Input</em>' reference list.
+	 * @return the value of the '<em>Input</em>' containment reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getSimpleService_Input()
-	 * @model keys="name"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<AbstractEntity> getInput();
+	EList<Inout> getInput();
 
 	/**
-	 * Returns the value of the '<em><b>Output</b></em>' reference list.
-	 * The list contents are of type {@link codeGeneratorModel.AbstractEntity}.
+	 * Returns the value of the '<em><b>Output</b></em>' containment reference list.
+	 * The list contents are of type {@link codeGeneratorModel.Inout}.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Output</em>' reference list isn't clear,
+	 * If the meaning of the '<em>Output</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Output</em>' reference list.
+	 * @return the value of the '<em>Output</em>' containment reference list.
 	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getSimpleService_Output()
-	 * @model keys="name"
+	 * @model containment="true"
 	 * @generated
 	 */
-	EList<AbstractEntity> getOutput();
+	EList<Inout> getOutput();
 
 } // SimpleService

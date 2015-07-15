@@ -10,6 +10,7 @@ public class BasicEcoreParam extends BasicAbstractParam {
 	public static String Summary = "ECORESUMMARY";
 	public static String Author = "ECOREAUTHOR";
 	public static String Active = "ECOREACTIVE";
+	public static String Tags = "TAGS";
 
 	private static List<String> values = new ArrayList<String>();
 	public static List<String> values() {
@@ -18,6 +19,7 @@ public class BasicEcoreParam extends BasicAbstractParam {
 			values.add(Summary);
 			values.add(Author);
 			values.add(Active);
+			values.add(Tags);
 		}
 		return values;
 	}
