@@ -17,6 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link codeGeneratorModel.Root#getArtifacts <em>Artifacts</em>}</li>
  *   <li>{@link codeGeneratorModel.Root#getEntities <em>Entities</em>}</li>
  *   <li>{@link codeGeneratorModel.Root#getServices <em>Services</em>}</li>
+ *   <li>{@link codeGeneratorModel.Root#getMongoURIs <em>Mongo UR Is</em>}</li>
  * </ul>
  * </p>
  *
@@ -72,5 +73,21 @@ public interface Root extends EObject {
 	 * @generated
 	 */
 	EList<Service> getServices();
+
+	/**
+	 * Returns the value of the '<em><b>Mongo UR Is</b></em>' attribute list.
+	 * The list contents are of type {@link java.lang.String}.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Mongo UR Is</em>' attribute list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Mongo UR Is</em>' attribute list.
+	 * @see codeGeneratorModel.CodeGeneratorModelPackage#getRoot_MongoURIs()
+	 * @model
+	 * @generated
+	 */
+	EList<String> getMongoURIs();
 
 } // Root

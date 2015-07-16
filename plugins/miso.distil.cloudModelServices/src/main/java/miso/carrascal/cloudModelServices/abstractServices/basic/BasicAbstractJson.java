@@ -77,15 +77,8 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		String search_value = map.get(BasicAbstractParam.Search_value).toLowerCase();
 	    Boolean synonyms_query = map.get(BasicAbstractParam.Synonyms_query).equalsIgnoreCase("true");
 	    Boolean synonyms_value = map.get(BasicAbstractParam.Synonyms_value).equalsIgnoreCase("true");
-	    
-	    ArrayList<? extends Persistent> objects;
-		if(search_query.equalsIgnoreCase("tags")) {
-			objects = RecordDB.getDefault().searchTag(search_value, synonyms_query, classType);
-		} else {
-			objects = RecordDB.getDefault().search(search_query, synonyms_query, search_value, synonyms_value, classType);
-		}
-		
-        return objects;
+
+		return RecordDB.getDefault().search(search_query, synonyms_query, search_value, synonyms_value, classType);
 	}
 
 	public String getDownloadZip(Request req, Response res) {
@@ -98,7 +91,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		}
 		
 		try {
-			DownloadUtils.downloadZip(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getObjectName(), object.getObjectName());
+			DownloadUtils.downloadZip(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getObjectname(), object.getObjectname());
 		    return BasicAbstractCodes.OK;
 		    
 		} catch (IOException e) {
@@ -117,7 +110,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		}
 		
 		try {
-			DownloadUtils.downloadFile(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getObjectName());
+			DownloadUtils.downloadFile(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getObjectname());
 		    return BasicAbstractCodes.OK;
 		    
 		} catch (IOException e) {

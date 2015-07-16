@@ -15,7 +15,6 @@ import com.mongodb.gridfs.GridFSInputFile;
 import com.mongodb.util.JSON;
 
 import java.io.InputStream;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -37,16 +36,12 @@ public class MongoDB implements InterfaceDB {
     private HashMap<Class<? extends Persistent>, DBCollection> collections;
     private HashMap<Class<? extends Persistent>, GridFS> gridfs;
  
-	public MongoDB(String mongoURI) {
-        try {
-           	this.uri  = new MongoClientURI(mongoURI);
-			this.client = new MongoClient(uri);
-	       	this.db = client.getDB(uri.getDatabase());
-	       	this.collections = new HashMap<Class<? extends Persistent>, DBCollection>();
-	       	this.gridfs = new HashMap<Class<? extends Persistent>, GridFS>();
-		} catch (UnknownHostException e) {
-			e.printStackTrace();
-		}
+	public MongoDB(String mongoURI) throws Exception {
+       	this.uri  = new MongoClientURI(mongoURI);
+		this.client = new MongoClient(uri);
+       	this.db = client.getDB(uri.getDatabase());
+       	this.collections = new HashMap<Class<? extends Persistent>, DBCollection>();
+       	this.gridfs = new HashMap<Class<? extends Persistent>, GridFS>();
     }
     
 	private DBCollection getCollection(Class<? extends Persistent> classType) {
@@ -79,7 +74,7 @@ public class MongoDB implements InterfaceDB {
 	
         try {
         	for(Class<? extends Persistent> classType : collections.keySet()) {
-            	if(!search("objectName", false, artifact.getObjectName(), false, classType).isEmpty())
+            	if(!search("objectname", false, artifact.getObjectname(), false, classType).isEmpty())
             		return false;
         	}
         	
@@ -90,7 +85,7 @@ public class MongoDB implements InterfaceDB {
         	}
         	
         	getCollection(artifact.getClass()).insert(object);
-        	artifact.setObjectId(object.get("_id").toString());
+        	artifact.setObjectid(object.get("_id").toString());
         	if(inputStream != null) {
         		GridFSInputFile gfsFile = getGridFS(artifact.getClass()).createFile(inputStream);
         		gfsFile.setFilename(object.get("_id").toString());
@@ -196,22 +191,6 @@ public class MongoDB implements InterfaceDB {
 		}			
         return result;
     }
-
-    @Override
-    public ArrayList<? extends Persistent> searchTag(String tag, Boolean synonymes, Class<? extends Persistent> classType) {
-		if(tag == null || classType == null || synonymes == null) {
-			(new NullArgumentException()).printStackTrace();
-			return new ArrayList<Persistent>();
-		}
-		BasicDBObject query;
-		if(synonymes) {
-	    	query = new BasicDBObject("tags", new BasicDBObject("$in", getSynonymes(tag)));
-		} else {
-	    	query = new BasicDBObject("tags", tag);
-		}
-        DBCursor cursorDB = getCollection(classType).find(query);  
-        return processDBCursor(cursorDB, classType);
-    }
     
     @Override
     public List<String> getSynonymes(String query) {
@@ -231,7 +210,7 @@ public class MongoDB implements InterfaceDB {
 			try {
 	            DBObject doc = cursorDB.next();
 	            Persistent artifact = (Persistent) (new Gson()).fromJson(doc.toString(), classType);
-				artifact.setObjectId(doc.get("_id").toString());
+				artifact.setObjectid(doc.get("_id").toString());
 				results.add(artifact);
 			} catch (JsonSyntaxException e) {
 				e.printStackTrace();

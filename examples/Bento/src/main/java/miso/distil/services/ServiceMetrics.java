@@ -43,8 +43,10 @@ public class ServiceMetrics extends ServiceAbstractJson {
 	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
 
-		// TODO : Create the input objects to your service and use (or not) the artifacts
+		// Create the input objects to your service and use (or not) the artifacts
 
+		System.out.println("Metrics has started");
+		
 		return this.exeService(input);
 	}
 
@@ -60,11 +62,14 @@ public class ServiceMetrics extends ServiceAbstractJson {
 			return output;
 
 		// Take your inputs
-		// Model model0 = Model.class.cast(input.get(0));
-		// TODO : do something!
+		Model model0 = Model.class.cast(input.get(0));
+		// do something!
+		System.out.println(model0.toString());
 
 		// Create your outputs (do something!)
-		output.add(new Model());
+		output.add(model0);
+		
+		System.out.println("Metrics has finished");
 
 		return output;
 	}

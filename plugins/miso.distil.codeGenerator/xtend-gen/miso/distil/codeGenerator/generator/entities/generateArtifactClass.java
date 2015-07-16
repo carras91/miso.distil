@@ -2,6 +2,9 @@ package miso.distil.codeGenerator.generator.entities;
 
 import codeGeneratorModel.Artifact;
 import codeGeneratorModel.Attribute;
+import codeGeneratorModel.DataEnum;
+import codeGeneratorModel.Primitive;
+import codeGeneratorModel.Reference;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
@@ -157,15 +160,125 @@ public class generateArtifactClass {
     _builder.newLine();
     {
       for(final Attribute att_1 : atts) {
-        _builder.append("\t");
-        _builder.append("this.");
-        String _name_2 = att_1.getName();
-        _builder.append(_name_2, "\t");
-        _builder.append(" = ");
-        String _name_3 = att_1.getName();
-        _builder.append(_name_3, "\t");
-        _builder.append(";");
-        _builder.newLineIfNotEmpty();
+        {
+          if ((att_1 instanceof Primitive)) {
+            {
+              DataEnum _type = ((Primitive)att_1).getType();
+              boolean _equals = _type.equals(DataEnum.STRING);
+              if (_equals) {
+                {
+                  boolean _isMany = ((Primitive)att_1).isMany();
+                  if (_isMany) {
+                    _builder.append("\t");
+                    _builder.append("this.");
+                    String _name_2 = ((Primitive)att_1).getName();
+                    _builder.append(_name_2, "\t");
+                    _builder.append(" = ");
+                    String _name_3 = ((Primitive)att_1).getName();
+                    _builder.append(_name_3, "\t");
+                    _builder.append(";");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("for(int i=0; i < this.");
+                    String _name_4 = ((Primitive)att_1).getName();
+                    _builder.append(_name_4, "\t");
+                    _builder.append(".size(); i++) {");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("this.");
+                    String _name_5 = ((Primitive)att_1).getName();
+                    _builder.append(_name_5, "\t\t");
+                    _builder.append(".set(i, this.");
+                    String _name_6 = ((Primitive)att_1).getName();
+                    _builder.append(_name_6, "\t\t");
+                    _builder.append(".get(i).toLowerCase());");
+                    _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("}");
+                    _builder.newLine();
+                  } else {
+                    _builder.append("\t");
+                    _builder.append("this.");
+                    String _name_7 = ((Primitive)att_1).getName();
+                    _builder.append(_name_7, "\t");
+                    _builder.append(" = ");
+                    String _name_8 = ((Primitive)att_1).getName();
+                    _builder.append(_name_8, "\t");
+                    _builder.append(".toLowerCase();");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              } else {
+                _builder.append("\t");
+                _builder.append("this.");
+                String _name_9 = ((Primitive)att_1).getName();
+                _builder.append(_name_9, "\t");
+                _builder.append(" = ");
+                String _name_10 = ((Primitive)att_1).getName();
+                _builder.append(_name_10, "\t");
+                _builder.append(";");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          } else {
+            if ((att_1 instanceof Reference)) {
+              _builder.append("\t");
+              _builder.append("this.");
+              String _name_11 = att_1.getName();
+              _builder.append(_name_11, "\t");
+              _builder.append(" = ");
+              String _name_12 = att_1.getName();
+              _builder.append(_name_12, "\t");
+              _builder.append(";");
+              _builder.newLineIfNotEmpty();
+            } else {
+              {
+                boolean _isMany_1 = att_1.isMany();
+                if (_isMany_1) {
+                  _builder.append("\t");
+                  _builder.append("this.");
+                  String _name_13 = att_1.getName();
+                  _builder.append(_name_13, "\t");
+                  _builder.append(" = ");
+                  String _name_14 = att_1.getName();
+                  _builder.append(_name_14, "\t");
+                  _builder.append(";");
+                  _builder.newLineIfNotEmpty();
+                  _builder.append("\t");
+                  _builder.append("for(int i=0; i < this.");
+                  String _name_15 = att_1.getName();
+                  _builder.append(_name_15, "\t");
+                  _builder.append(".size(); i++) {");
+                  _builder.newLineIfNotEmpty();
+                  _builder.append("\t");
+                  _builder.append("\t");
+                  _builder.append("this.");
+                  String _name_16 = att_1.getName();
+                  _builder.append(_name_16, "\t\t");
+                  _builder.append(".set(i, this.");
+                  String _name_17 = att_1.getName();
+                  _builder.append(_name_17, "\t\t");
+                  _builder.append(".get(i).toLowerCase());");
+                  _builder.newLineIfNotEmpty();
+                  _builder.append("\t");
+                  _builder.append("}");
+                  _builder.newLine();
+                } else {
+                  _builder.append("\t");
+                  _builder.append("this.");
+                  String _name_18 = att_1.getName();
+                  _builder.append(_name_18, "\t");
+                  _builder.append(" = ");
+                  String _name_19 = att_1.getName();
+                  _builder.append(_name_19, "\t");
+                  _builder.append(".toLowerCase();");
+                  _builder.newLineIfNotEmpty();
+                }
+              }
+            }
+          }
+        }
       }
     }
     _builder.append("}");

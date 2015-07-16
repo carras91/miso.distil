@@ -11,32 +11,32 @@ import miso.carrascal.cloudModelServices.examples.modelServices.basic.BasicModel
 public class HtmlModelLinks {
 	
 	public static String getReadJsonLink(Model model) {
-   		return "<a href=" + BasicModelSpark.ReadJSON + model.getObjectId() + ">View as Json</a>";
+   		return "<a href=" + BasicModelSpark.ReadJSON + model.getObjectid() + ">View as Json</a>";
     }
     
     public static String getDownloadZipJsonLink(Model model) {
-   		return "<a href=" + BasicModelSpark.DownloadZipJSON + model.getObjectId() + ">Download zip</a>";
+   		return "<a href=" + BasicModelSpark.DownloadZipJSON + model.getObjectid() + ">Download zip</a>";
     }
  
     public static String getDownloadFileJsonLink(Model model) {
-    	return "<a href=" + BasicModelSpark.DownloadFileJSON + model.getObjectId() + ">Download model</a>";
+    	return "<a href=" + BasicModelSpark.DownloadFileJSON + model.getObjectid() + ">Download model</a>";
    	}
     
     public static String getDeleteFormJsonLink(Model model) {
 		String form = "";
-		form = "<form id=\"delete" + model.getObjectId() + "\"action=\"" + BasicModelSpark.DeleteJSON + "\" method=\"POST\">";
-		form += "<input type='hidden' name='" + BasicModelParam.IdPost + "' value=\"" + model.getObjectId() + "\"/>";
-		form += "<a href=\"javascript:{}\" onclick=\"document.getElementById('delete" + model.getObjectId() + "').submit(); return false;\">Delete</a>";
+		form = "<form id=\"delete" + model.getObjectid() + "\"action=\"" + BasicModelSpark.DeleteJSON + "\" method=\"POST\">";
+		form += "<input type='hidden' name='" + BasicModelParam.IdPost + "' value=\"" + model.getObjectid() + "\"/>";
+		form += "<a href=\"javascript:{}\" onclick=\"document.getElementById('delete" + model.getObjectid() + "').submit(); return false;\">Delete</a>";
 		form += "</form>";
 	    return form;
 	}
 	
 	public static String getReadHtmlLink(Model model) {
-		return "<a href=" + HtmlModelSpark.ReadHTML + model.getObjectId() + ">" + model.getObjectName() + "</a>";
+		return "<a href=" + HtmlModelSpark.ReadHTML + model.getObjectid() + ">" + model.getObjectname() + "</a>";
 	}
 	
 	public static String getUpdateHtmlLink(Model model) {
-   		return "<a href=" + HtmlModelSpark.UpdateFormHTML + model.getObjectId() + ">Update</a>";
+   		return "<a href=" + HtmlModelSpark.UpdateFormHTML + model.getObjectid() + ">Update</a>";
     }
 	
 	public static String getEcoreNameLink(Model model) {

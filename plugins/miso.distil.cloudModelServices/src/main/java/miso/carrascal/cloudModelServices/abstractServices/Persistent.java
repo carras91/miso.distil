@@ -8,47 +8,47 @@ import java.util.Date;
 public abstract class Persistent implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
-	private String objectId;
-    private String objectName;
-    private Date createdAt;
-    private Long fileSize;
+	private String objectid;
+    private String objectname;
+    private Date createdat;
+    private Long filesize;
  
     public Persistent() {}
     
     public Persistent(String objectName, Long fileSize) {
-        this.objectId = "";
-    	this.objectName = objectName;
-    	this.createdAt = new Date();
-    	this.fileSize = fileSize;
+        this.objectid = "";
+    	this.objectname = objectName.toLowerCase();
+    	this.createdat = new Date();
+    	this.filesize = fileSize;
     }
        
-    public String getObjectId() {
-		return objectId;
+    public String getObjectid() {
+		return objectid;
 	}
     
     @Deprecated
-    public void setObjectId(String objectId) {
-		this.objectId = objectId;
+    public void setObjectid(String objectId) {
+		this.objectid = objectId;
 	}
 	    
-    public String getObjectName() {
-		return objectName;
+    public String getObjectname() {
+		return objectname;
 	}
 	
-	public Date getCreatedAt() {
-        return createdAt;
+	public Date getCreatedat() {
+        return createdat;
     }
 	
-	public String getCreatedAtString() {
+	public String getCreatedatString() {
         DateFormat dateFormat = new SimpleDateFormat(" EEE dd/MM/yyyy HH:mm:ss");
-        return dateFormat.format(this.createdAt);	
+        return dateFormat.format(this.createdat);	
     }
 
-	public Long getFileSize() {
-		return fileSize;
+	public Long getFilesize() {
+		return filesize;
 	}
 
-	public void setFileSize(Long fileSize) {
-		this.fileSize = fileSize;
+	public void setFilesize(Long fileSize) {
+		this.filesize = fileSize;
 	}
 }

@@ -1,36 +1,38 @@
+MongoURI : "mongodb://user:password@ds055722.mongolab.com:55722/heroku_m7s6bbkn" 
+ 
 Artifact Bento [ 
-	extension .bentoz
+	extension .bentoz  
 	format ZIP
 	services : all
 ] {
-	id many inputConcepts : MetaModel   
-	id many outputConcepts : MetaModel 
+	id many inputconcepts : MetaModel    
+	id many outputconcepts : MetaModel 
 	id many atl : ATLTrafo
 	many tags : String
 }   
 
-Artifact ATLTrafo [
+Artifact ATLTrafo [ 
 	extension .atl  
 	format TEXT 
-	services : upload, delete, download, search
+	services : upload, delete, download, search, readAll, read
 ] {
-	nameATL : String
+	nameatl : String
 }  
        
 Artifact MetaModel [ 
 	extension .ecore  
-	format XMI
-	services : upload, delete, download, search
+	format XMI 
+	services : upload, delete, download, search, readAll, read
 ] {
 	uri : String    	   
 }
 
-Artifact Model [ 
+Artifact Model [  
 	format XMI
 	services : all
-] {  
-	nameModel : String
-	id many type : MetaModel
+] {   
+	namemodel : String
+	id many type : MetaModel 
 }
 
 MultiService Analyse {

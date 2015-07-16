@@ -2,6 +2,7 @@ package miso.distil.bentoServices;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
 
@@ -14,7 +15,6 @@ import javax.servlet.http.Part;
 
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
-
 import miso.distil.bentoServices.Bento;
 import miso.distil.bentoServices.basic.BasicBentoCodes;
 import miso.distil.bentoServices.basic.BasicBentoParam;
@@ -62,16 +62,20 @@ public class BentoJson extends BasicAbstractJson {
 		}
 
 		// Not required params and artifact's id
-		// TODO : complete these params!
-		List<String> inputConcepts = null;
-		List<String> outputConcepts = null;
-		List<String> atl = null;
-		List<String> tags = null;
+		// complete these params!
+		List<String> inputConcepts = new ArrayList<String>();
+		inputConcepts.add("i am inputConcept updated");
+		List<String> outputConcepts = new ArrayList<String>();
+		outputConcepts.add("i am outputConcept updated");
+		List<String> atl = new ArrayList<String>();
+		atl.add("i am atl updated");
+		List<String> tags = new ArrayList<String>();
+		tags.add("i am tag updated");
 
 		//Composed params
 		
 		// Create new Bento
-		Bento newBento = new Bento(oldBento.getObjectName(), oldBento.getFileSize(), inputConcepts, outputConcepts, atl, tags);
+		Bento newBento = new Bento(oldBento.getObjectname(), oldBento.getFilesize(), inputConcepts, outputConcepts, atl, tags);
 
 		// Save new Bento and delete old Bento
 		if(RecordDB.getDefault().save(newBento, IS)) {
@@ -113,11 +117,16 @@ public class BentoJson extends BasicAbstractJson {
 			}
 
 			// Not required params and artifact's id
-			// TODO : complete these params!
-			List<String> inputConcepts = null;
-			List<String> outputConcepts = null;
-			List<String> atl = null;
-			List<String> tags = null;
+			// complete these params!
+			List<String> inputConcepts = new ArrayList<String>();
+			inputConcepts.add("i am inputConcept");
+			List<String> outputConcepts = new ArrayList<String>();
+			outputConcepts.add("i am outputConcept");
+			List<String> atl = new ArrayList<String>();
+			atl.add("i am atl");
+			List<String> tags = new ArrayList<String>();
+			tags.add("i am tag");
+
 
 			//Composed params
 

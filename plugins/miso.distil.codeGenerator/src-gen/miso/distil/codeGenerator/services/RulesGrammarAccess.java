@@ -21,49 +21,70 @@ public class RulesGrammarAccess extends AbstractGrammarElementFinder {
 	public class RootElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Root");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cArtifactsAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cArtifactsArtifactParserRuleCall_0_0 = (RuleCall)cArtifactsAssignment_0.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Assignment cArtifactsAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
-		private final RuleCall cArtifactsArtifactParserRuleCall_1_0_0 = (RuleCall)cArtifactsAssignment_1_0.eContents().get(0);
-		private final Assignment cEntitiesAssignment_1_1 = (Assignment)cAlternatives_1.eContents().get(1);
-		private final RuleCall cEntitiesEntityParserRuleCall_1_1_0 = (RuleCall)cEntitiesAssignment_1_1.eContents().get(0);
-		private final Assignment cServicesAssignment_1_2 = (Assignment)cAlternatives_1.eContents().get(2);
-		private final RuleCall cServicesServiceParserRuleCall_1_2_0 = (RuleCall)cServicesAssignment_1_2.eContents().get(0);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cMongoURIKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Keyword cColonKeyword_0_1 = (Keyword)cGroup_0.eContents().get(1);
+		private final Assignment cMongoURIsAssignment_0_2 = (Assignment)cGroup_0.eContents().get(2);
+		private final RuleCall cMongoURIsEStringParserRuleCall_0_2_0 = (RuleCall)cMongoURIsAssignment_0_2.eContents().get(0);
+		private final Assignment cArtifactsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cArtifactsArtifactParserRuleCall_1_0 = (RuleCall)cArtifactsAssignment_1.eContents().get(0);
+		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
+		private final Assignment cArtifactsAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
+		private final RuleCall cArtifactsArtifactParserRuleCall_2_0_0 = (RuleCall)cArtifactsAssignment_2_0.eContents().get(0);
+		private final Assignment cEntitiesAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
+		private final RuleCall cEntitiesEntityParserRuleCall_2_1_0 = (RuleCall)cEntitiesAssignment_2_1.eContents().get(0);
+		private final Assignment cServicesAssignment_2_2 = (Assignment)cAlternatives_2.eContents().get(2);
+		private final RuleCall cServicesServiceParserRuleCall_2_2_0 = (RuleCall)cServicesAssignment_2_2.eContents().get(0);
 		
 		//Root:
-		//	artifacts+=Artifact (artifacts+=Artifact | entities+=Entity | services+=Service)*;
+		//	("MongoURI" ":" mongoURIs+=EString)* artifacts+=Artifact (artifacts+=Artifact | entities+=Entity |
+		//	services+=Service)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//artifacts+=Artifact (artifacts+=Artifact | entities+=Entity | services+=Service)*
+		//("MongoURI" ":" mongoURIs+=EString)* artifacts+=Artifact (artifacts+=Artifact | entities+=Entity | services+=Service)*
 		public Group getGroup() { return cGroup; }
 
+		//("MongoURI" ":" mongoURIs+=EString)*
+		public Group getGroup_0() { return cGroup_0; }
+
+		//"MongoURI"
+		public Keyword getMongoURIKeyword_0_0() { return cMongoURIKeyword_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_0_1() { return cColonKeyword_0_1; }
+
+		//mongoURIs+=EString
+		public Assignment getMongoURIsAssignment_0_2() { return cMongoURIsAssignment_0_2; }
+
+		//EString
+		public RuleCall getMongoURIsEStringParserRuleCall_0_2_0() { return cMongoURIsEStringParserRuleCall_0_2_0; }
+
 		//artifacts+=Artifact
-		public Assignment getArtifactsAssignment_0() { return cArtifactsAssignment_0; }
+		public Assignment getArtifactsAssignment_1() { return cArtifactsAssignment_1; }
 
 		//Artifact
-		public RuleCall getArtifactsArtifactParserRuleCall_0_0() { return cArtifactsArtifactParserRuleCall_0_0; }
+		public RuleCall getArtifactsArtifactParserRuleCall_1_0() { return cArtifactsArtifactParserRuleCall_1_0; }
 
 		//(artifacts+=Artifact | entities+=Entity | services+=Service)*
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getAlternatives_2() { return cAlternatives_2; }
 
 		//artifacts+=Artifact
-		public Assignment getArtifactsAssignment_1_0() { return cArtifactsAssignment_1_0; }
+		public Assignment getArtifactsAssignment_2_0() { return cArtifactsAssignment_2_0; }
 
 		//Artifact
-		public RuleCall getArtifactsArtifactParserRuleCall_1_0_0() { return cArtifactsArtifactParserRuleCall_1_0_0; }
+		public RuleCall getArtifactsArtifactParserRuleCall_2_0_0() { return cArtifactsArtifactParserRuleCall_2_0_0; }
 
 		//entities+=Entity
-		public Assignment getEntitiesAssignment_1_1() { return cEntitiesAssignment_1_1; }
+		public Assignment getEntitiesAssignment_2_1() { return cEntitiesAssignment_2_1; }
 
 		//Entity
-		public RuleCall getEntitiesEntityParserRuleCall_1_1_0() { return cEntitiesEntityParserRuleCall_1_1_0; }
+		public RuleCall getEntitiesEntityParserRuleCall_2_1_0() { return cEntitiesEntityParserRuleCall_2_1_0; }
 
 		//services+=Service
-		public Assignment getServicesAssignment_1_2() { return cServicesAssignment_1_2; }
+		public Assignment getServicesAssignment_2_2() { return cServicesAssignment_2_2; }
 
 		//Service
-		public RuleCall getServicesServiceParserRuleCall_1_2_0() { return cServicesServiceParserRuleCall_1_2_0; }
+		public RuleCall getServicesServiceParserRuleCall_2_2_0() { return cServicesServiceParserRuleCall_2_2_0; }
 	}
 
 	public class ServiceElements extends AbstractParserRuleElementFinder {
@@ -1116,7 +1137,8 @@ public class RulesGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//Root:
-	//	artifacts+=Artifact (artifacts+=Artifact | entities+=Entity | services+=Service)*;
+	//	("MongoURI" ":" mongoURIs+=EString)* artifacts+=Artifact (artifacts+=Artifact | entities+=Entity |
+	//	services+=Service)*;
 	public RootElements getRootAccess() {
 		return pRoot;
 	}

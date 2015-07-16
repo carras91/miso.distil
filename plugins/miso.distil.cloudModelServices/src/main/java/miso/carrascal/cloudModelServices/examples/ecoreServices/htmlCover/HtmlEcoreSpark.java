@@ -5,13 +5,12 @@ import static spark.Spark.get;
 import java.util.ArrayList;
 import java.util.List;
 
-import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.HtmlLayout;
 import miso.carrascal.cloudModelServices.examples.ecoreServices.basic.BasicEcoreParam;
 import spark.template.freemarker.FreeMarkerEngine;
 
-public final class HtmlEcoreSpark implements BasicInterfaceSpark
+public final class HtmlEcoreSpark // implements BasicInterfaceSpark
 {
 	public static String ReadHTML = "/html/ecore/read/";
 	public static String ReadIdHTML = ReadHTML + BasicEcoreParam.IdGet;
@@ -22,7 +21,7 @@ public final class HtmlEcoreSpark implements BasicInterfaceSpark
 	public static String UpdateFormIdHTML = UpdateFormHTML + BasicEcoreParam.IdGet;
 	public static String UploadFormHTML = "/html/ecore/upload";
 	
-	@Override
+	// @Override
 	public void runService() {
 		
 		HtmlEcoreJson HTML = new HtmlEcoreJson();

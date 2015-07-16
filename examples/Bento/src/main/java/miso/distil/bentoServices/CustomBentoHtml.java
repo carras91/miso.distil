@@ -50,7 +50,7 @@ public class CustomBentoHtml implements HtmlInterfaceView<Bento>, BasicInterface
 	public List<HtmlEntry> constructInfoReadOne(Bento bento) {
 		List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
 			// Add the information you want, line per line
-			entries.add(new HtmlEntry(bento.getObjectName(), EntrySize.H3));
+			entries.add(new HtmlEntry(bento.getObjectname(), EntrySize.H3));
 			// ..
 		return entries;
 	}
@@ -66,7 +66,7 @@ public class CustomBentoHtml implements HtmlInterfaceView<Bento>, BasicInterface
 		// Add the information you want, line per line, from various Bentos
 		for(Bento bento : bentos) {
 			List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-			entries.add(new HtmlEntry(bento.getObjectName(), EntrySize.H4));
+			entries.add(new HtmlEntry(bento.getObjectname(), EntrySize.H4));
 			// ..
 			multientries.add(entries);
 		}
@@ -129,7 +129,7 @@ public class CustomBentoHtml implements HtmlInterfaceView<Bento>, BasicInterface
 		// viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 		List<HtmlHidden> hiddens = new ArrayList<HtmlHidden>();
-		hiddens.add(new HtmlHidden(BasicBentoParam.IdPost, bento.getObjectId()));
+		hiddens.add(new HtmlHidden(BasicBentoParam.IdPost, bento.getObjectid()));
 		// ..
 		viewObjects.put(HtmlFreeMarker.HIDDENS, hiddens);
 

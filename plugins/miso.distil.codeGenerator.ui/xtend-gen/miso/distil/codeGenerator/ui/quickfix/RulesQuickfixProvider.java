@@ -56,10 +56,12 @@ public class RulesQuickfixProvider extends DefaultQuickfixProvider {
     final IModification _function = (IModificationContext context) -> {
       final IXtextDocument xtextDocument = context.getXtextDocument();
       Integer _offset = issue.getOffset();
-      final String firstLetter = xtextDocument.get((_offset).intValue(), 1);
+      Integer _length = issue.getLength();
+      final String name = xtextDocument.get((_offset).intValue(), (_length).intValue());
       Integer _offset_1 = issue.getOffset();
-      String _lowerCase = firstLetter.toLowerCase();
-      xtextDocument.replace((_offset_1).intValue(), 1, _lowerCase);
+      Integer _length_1 = issue.getLength();
+      String _lowerCase = name.toLowerCase();
+      xtextDocument.replace((_offset_1).intValue(), (_length_1).intValue(), _lowerCase);
     };
     acceptor.accept(issue, "Lowercase name", "Lowercase the name.", "lowercase.png", _function);
   }
@@ -125,5 +127,19 @@ public class RulesQuickfixProvider extends DefaultQuickfixProvider {
       }
     };
     acceptor.accept(issue, "Complete service method", "Complete service method.", "whyme.png", _function);
+  }
+  
+  @Fix(RulesValidator.EMPTY_MONGO_URI)
+  public void serviceMongoURI(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      IXtextDocument xtextDocument = context.getXtextDocument();
+      xtextDocument.replace(0, 0, "MongoURI : \"\"\n");
+    };
+    acceptor.accept(issue, "I will implement my own data base later", "I will implement my own data base later.", "mongol.png", _function);
+    final IModification _function_1 = (IModificationContext context) -> {
+      IXtextDocument xtextDocument = context.getXtextDocument();
+      xtextDocument.replace(0, 0, "MongoURI : \"mongodb://[username]:[password]@[host]:[port1]/[database]\"\n");
+    };
+    acceptor.accept(issue, "I have no idea what i\'m doing", "I have no idea  what i\'m doing.", "mongol.png", _function_1);
   }
 }

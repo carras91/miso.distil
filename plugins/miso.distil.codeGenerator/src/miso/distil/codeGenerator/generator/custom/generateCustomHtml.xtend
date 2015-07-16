@@ -103,7 +103,7 @@ class generateCustomHtml {
 				public List<HtmlEntry> constructInfoReadOne(«name» «namelow») {
 					List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
 						// Add the information you want, line per line
-						entries.add(new HtmlEntry(«namelow».getObjectName(), EntrySize.H3));
+						entries.add(new HtmlEntry(«namelow».getObjectname(), EntrySize.H3));
 						// ..
 					return entries;
 				}
@@ -121,7 +121,7 @@ class generateCustomHtml {
 					// Add the information you want, line per line, from various «name»s
 					for(«name» «namelow» : «namelow»s) {
 						List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-						entries.add(new HtmlEntry(«namelow».getObjectName(), EntrySize.H4));
+						entries.add(new HtmlEntry(«namelow».getObjectname(), EntrySize.H4));
 						// ..
 						multientries.add(entries);
 					}
@@ -188,7 +188,7 @@ class generateCustomHtml {
 					// viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 					List<HtmlHidden> hiddens = new ArrayList<HtmlHidden>();
-					hiddens.add(new HtmlHidden(Basic«name»Param.IdPost, «namelow».getObjectId()));
+					hiddens.add(new HtmlHidden(Basic«name»Param.IdPost, «namelow».getObjectid()));
 					// ..
 					viewObjects.put(HtmlFreeMarker.HIDDENS, hiddens);
 

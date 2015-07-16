@@ -37,7 +37,7 @@ public class RulesParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getRootAccess().getAlternatives_1(), "rule__Root__Alternatives_1");
+					put(grammarAccess.getRootAccess().getAlternatives_2(), "rule__Root__Alternatives_2");
 					put(grammarAccess.getServiceAccess().getAlternatives(), "rule__Service__Alternatives");
 					put(grammarAccess.getAttributeAccess().getAlternatives(), "rule__Attribute__Alternatives");
 					put(grammarAccess.getAbstractEntityAccess().getAlternatives(), "rule__AbstractEntity__Alternatives");
@@ -47,6 +47,7 @@ public class RulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getServiceEnumAccess().getAlternatives(), "rule__ServiceEnum__Alternatives");
 					put(grammarAccess.getDataEnumAccess().getAlternatives(), "rule__DataEnum__Alternatives");
 					put(grammarAccess.getRootAccess().getGroup(), "rule__Root__Group__0");
+					put(grammarAccess.getRootAccess().getGroup_0(), "rule__Root__Group_0__0");
 					put(grammarAccess.getArtifactAccess().getGroup(), "rule__Artifact__Group__0");
 					put(grammarAccess.getArtifactAccess().getGroup_2(), "rule__Artifact__Group_2__0");
 					put(grammarAccess.getArtifactAccess().getGroup_2_1(), "rule__Artifact__Group_2_1__0");
@@ -73,10 +74,11 @@ public class RulesParser extends AbstractContentAssistParser {
 					put(grammarAccess.getInoutAccess().getGroup_2(), "rule__Inout__Group_2__0");
 					put(grammarAccess.getCompAccess().getGroup(), "rule__Comp__Group__0");
 					put(grammarAccess.getCompAccess().getGroup_1(), "rule__Comp__Group_1__0");
-					put(grammarAccess.getRootAccess().getArtifactsAssignment_0(), "rule__Root__ArtifactsAssignment_0");
-					put(grammarAccess.getRootAccess().getArtifactsAssignment_1_0(), "rule__Root__ArtifactsAssignment_1_0");
-					put(grammarAccess.getRootAccess().getEntitiesAssignment_1_1(), "rule__Root__EntitiesAssignment_1_1");
-					put(grammarAccess.getRootAccess().getServicesAssignment_1_2(), "rule__Root__ServicesAssignment_1_2");
+					put(grammarAccess.getRootAccess().getMongoURIsAssignment_0_2(), "rule__Root__MongoURIsAssignment_0_2");
+					put(grammarAccess.getRootAccess().getArtifactsAssignment_1(), "rule__Root__ArtifactsAssignment_1");
+					put(grammarAccess.getRootAccess().getArtifactsAssignment_2_0(), "rule__Root__ArtifactsAssignment_2_0");
+					put(grammarAccess.getRootAccess().getEntitiesAssignment_2_1(), "rule__Root__EntitiesAssignment_2_1");
+					put(grammarAccess.getRootAccess().getServicesAssignment_2_2(), "rule__Root__ServicesAssignment_2_2");
 					put(grammarAccess.getArtifactAccess().getNameAssignment_1(), "rule__Artifact__NameAssignment_1");
 					put(grammarAccess.getArtifactAccess().getExtensionAssignment_2_1_2(), "rule__Artifact__ExtensionAssignment_2_1_2");
 					put(grammarAccess.getArtifactAccess().getFormatAssignment_2_2_1(), "rule__Artifact__FormatAssignment_2_2_1");

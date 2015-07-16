@@ -4,6 +4,9 @@ import codeGeneratorModel.Attribute
 import codeGeneratorModel.Artifact
 import com.google.inject.Inject
 import org.eclipse.emf.common.util.EList
+import codeGeneratorModel.Primitive
+import codeGeneratorModel.DataEnum
+import codeGeneratorModel.Reference
 
 /*
  * To write <artifact>.java
@@ -70,7 +73,31 @@ class generateArtifactClass {
 			super(objectName, fileSize);
 
 			«FOR att:atts» 
-				this.«att.name» = «att.name»;
+				«IF att instanceof Primitive»
+					«IF att.type.equals(DataEnum.STRING)»
+						«IF att.many»
+							this.«att.name» = «att.name»;
+							for(int i=0; i < this.«att.name».size(); i++) {
+								this.«att.name».set(i, this.«att.name».get(i).toLowerCase());
+							}
+						«ELSE»
+							this.«att.name» = «att.name».toLowerCase();
+						«ENDIF»
+					«ELSE»
+						this.«att.name» = «att.name»;
+					«ENDIF»
+				«ELSEIF att instanceof Reference»
+					this.«att.name» = «att.name»;
+				«ELSE»
+					«IF att.many»
+						this.«att.name» = «att.name»;
+						for(int i=0; i < this.«att.name».size(); i++) {
+							this.«att.name».set(i, this.«att.name».get(i).toLowerCase());
+						}
+					«ELSE»
+						this.«att.name» = «att.name».toLowerCase();
+					«ENDIF»
+				«ENDIF»
 			«ENDFOR»
 		}
 	'''	

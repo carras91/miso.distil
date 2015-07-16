@@ -95,13 +95,22 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	int ROOT__SERVICES = 2;
 
 	/**
+	 * The feature id for the '<em><b>Mongo UR Is</b></em>' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ROOT__MONGO_UR_IS = 3;
+
+	/**
 	 * The number of structural features of the '<em>Root</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ROOT_FEATURE_COUNT = 3;
+	int ROOT_FEATURE_COUNT = 4;
 
 	/**
 	 * The number of operations of the '<em>Root</em>' class.
@@ -847,6 +856,17 @@ public interface CodeGeneratorModelPackage extends EPackage {
 	EReference getRoot_Services();
 
 	/**
+	 * Returns the meta object for the attribute list '{@link codeGeneratorModel.Root#getMongoURIs <em>Mongo UR Is</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute list '<em>Mongo UR Is</em>'.
+	 * @see codeGeneratorModel.Root#getMongoURIs()
+	 * @see #getRoot()
+	 * @generated
+	 */
+	EAttribute getRoot_MongoURIs();
+
+	/**
 	 * Returns the meta object for class '{@link codeGeneratorModel.Artifact <em>Artifact</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1294,6 +1314,14 @@ public interface CodeGeneratorModelPackage extends EPackage {
 		 * @generated
 		 */
 		EReference ROOT__SERVICES = eINSTANCE.getRoot_Services();
+
+		/**
+		 * The meta object literal for the '<em><b>Mongo UR Is</b></em>' attribute list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute ROOT__MONGO_UR_IS = eINSTANCE.getRoot_MongoURIs();
 
 		/**
 		 * The meta object literal for the '{@link codeGeneratorModel.impl.ArtifactImpl <em>Artifact</em>}' class.

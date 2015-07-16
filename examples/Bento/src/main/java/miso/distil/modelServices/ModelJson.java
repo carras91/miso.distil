@@ -2,6 +2,7 @@ package miso.distil.modelServices;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.List;
 
@@ -14,7 +15,6 @@ import javax.servlet.http.Part;
 
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
-
 import miso.distil.modelServices.Model;
 import miso.distil.modelServices.basic.BasicModelCodes;
 import miso.distil.modelServices.basic.BasicModelParam;
@@ -62,14 +62,16 @@ public class ModelJson extends BasicAbstractJson {
 		}
 
 		// Not required params and artifact's id
-		// TODO : complete these params!
-		String nameModel = null;
-		List<String> type = null;
+		// complete these params!
+		String nameModel = "model name or not model name (updated)";
+		List<String> type = new ArrayList<String>();
+		type.add("type1 (updated)");
+		type.add("type2 (updated)");
 
 		//Composed params
 		
 		// Create new Model
-		Model newModel = new Model(oldModel.getObjectName(), oldModel.getFileSize(), nameModel, type);
+		Model newModel = new Model(oldModel.getObjectname(), oldModel.getFilesize(), nameModel, type);
 
 		// Save new Model and delete old Model
 		if(RecordDB.getDefault().save(newModel, IS)) {
@@ -111,9 +113,11 @@ public class ModelJson extends BasicAbstractJson {
 			}
 
 			// Not required params and artifact's id
-			// TODO : complete these params!
-			String nameModel = null;
-			List<String> type = null;
+			// complete these params!
+			String nameModel = "model name or not model name";
+			List<String> type = new ArrayList<String>();
+			type.add("type1");
+			type.add("type2");
 
 			//Composed params
 

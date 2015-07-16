@@ -7,7 +7,6 @@ import static spark.Spark.port;
 import java.util.HashMap;
 import java.util.Set;
 
-import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 
@@ -20,16 +19,11 @@ import freemarker.log.Logger;
 import spark.template.freemarker.FreeMarkerEngine;
 
 public class CloudModelServices {
-	 
-		private final static String MONGO_URI_Default = "mongodb://heroku_user1:miso.uam2015@ds033841.mongolab.com:33841/heroku_app35220664";
-			
+	 		
 	    public static void run() {
 	       	
 	    	// Establecimiento de puerto, necesario para puerto automatico de Heroku
 	        setPort();
-	        
-	        // Establecimiento de una base de datos
-	        setMongoDB();
 
 	    	// Configure FreeMarker log!
 	        setLogger();
@@ -51,12 +45,6 @@ public class CloudModelServices {
 	        }
 	        port(port);
 	        System.out.println("Port set to " + port);
-	    }
-	    
-	    private static void setMongoDB() {
-	    	MongoDB MongoDBDefault = new MongoDB(MONGO_URI_Default);
-	    	RecordDB.setDefault(MongoDBDefault);
-	    	System.out.println("MongoDB registered");
 	    }
 	    
 	    private static void setLogger() {
@@ -81,22 +69,16 @@ public class CloudModelServices {
 	    
 	    private static void runServices() {
 	    	// Let's use Reflections to find Spark services
-	    	Reflections refl = new Reflections ("miso.carrascal", new SubTypesScanner(false), ClasspathHelper.forClassLoader());
+	    	Reflections refl = new Reflections ("miso.distil", new SubTypesScanner(false), ClasspathHelper.forClassLoader());
 	    	// We want all classes implementing BasicInterfaceSpark
 		    Set<Class<? extends BasicInterfaceSpark>> subClassesService = refl.getSubTypesOf(BasicInterfaceSpark.class);
-	    	HashMap<String, BasicInterfaceSpark> defaultClasses = new HashMap<String, BasicInterfaceSpark>();
 		    for(Class<? extends BasicInterfaceSpark> serviceClass : subClassesService) {
 		    	BasicInterfaceSpark service;
 				try {
-					// So we instantiate the classes
+					// So we instantiate the classes and run the spark service
 					service = serviceClass.newInstance();
-					// If they're custom, we'll run them first (so they stay Default services)
-					if(serviceClass.getSimpleName().startsWith("Custom")) {
-						service.runService();
-						System.out.println("Service " + serviceClass.getSimpleName() + " registered");
-					} else {
-						defaultClasses.put(serviceClass.getSimpleName(), service);
-					}
+					service.runService();
+					System.out.println("Service " + serviceClass.getSimpleName() + " registered");
 				} catch (InstantiationException e) {
 					e.printStackTrace();
 					System.out.println("Service instantiation problem");
@@ -104,10 +86,6 @@ public class CloudModelServices {
 					e.printStackTrace();
 					System.out.println("Service illegal acces problem");
 				}
-		    }
-		    for(String name : defaultClasses.keySet()) {
-		    	defaultClasses.get(name).runService();
-		    	System.out.println("Service " + name + " registered");
 		    }
 	    }
 }

@@ -7,6 +7,7 @@ import com.google.inject.Inject
 import org.eclipse.emf.common.util.EList
 import codeGeneratorModel.ServiceEnum
 import codeGeneratorModel.Primitive
+import codeGeneratorModel.ArtifactID
 
 /*
  * To write HtmlXXXView.java
@@ -50,7 +51,7 @@ class generateHtmlView {
 		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.UPDATE)»
 			«var util = false»
 			«FOR att:allAtts»
-				«IF att instanceof Primitive && att.many && !util»
+				«IF (att instanceof Primitive || att instanceof ArtifactID) && att.many && !util»
 					«{util = true; null}»
 					import «names.MisoUtils».Utils;
 				«ENDIF»
@@ -76,15 +77,15 @@ class generateHtmlView {
 				@Override
 				public List<HtmlEntry> constructInfoReadOne(«name» «namelow») {
 					List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-					entries.add(new HtmlEntry(«namelow».getObjectName(), EntrySize.H3));
-					entries.add(new HtmlEntry(«namelow».getCreatedAtString(), EntrySize.H4));
-					entries.add(new HtmlEntry("FileSize (bytes): " + «namelow».getFileSize().toString(), EntrySize.H4));
-					entries.add(new HtmlEntry("ObjectId : " + «namelow».getObjectId().toString(), EntrySize.H4));
+					entries.add(new HtmlEntry(«namelow».getObjectname(), EntrySize.H3));
+					entries.add(new HtmlEntry(«namelow».getCreatedatString(), EntrySize.H4));
+					entries.add(new HtmlEntry("FileSize (bytes): " + «namelow».getFilesize().toString(), EntrySize.H4));
+					entries.add(new HtmlEntry("ObjectId : " + «namelow».getObjectid().toString(), EntrySize.H4));
 					«{pos = -1; null}»
 					«FOR att:allAtts»
 						«{pos++; null}»
 						«IF att instanceof Primitive»
-							«val newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
+							«val newName = genUti.getNewAttName(pos, artifact)»
 							«IF att.type.equals(DataEnum.STRING) && !att.many»
 								entries.add(new HtmlEntry("«newName» : " + «genUti.getNestedGets(pos, artifact)», EntrySize.H5));
 							«ELSEIF (att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.INTEGER)) && !att.many»
@@ -93,12 +94,22 @@ class generateHtmlView {
 								entries.add(new HtmlEntry("«newName» : " + Utils.ListToString(«genUti.getNestedGets(pos, artifact)»), EntrySize.H5));				
 							«ENDIF»
 						«ENDIF»
+						«IF att instanceof ArtifactID»
+							«val newName = genUti.getNewAttName(pos, artifact)»
+							«IF !att.many»
+								entries.add(new HtmlEntry("«newName» : " + «genUti.getNestedGets(pos, artifact)», EntrySize.H5));
+							«ELSE»
+								entries.add(new HtmlEntry("«newName» : " + Utils.ListToString(«genUti.getNestedGets(pos, artifact)»), EntrySize.H5));				
+							«ENDIF»
+						«ENDIF»
 					«ENDFOR»
 					«IF basicServices.contains(ServiceEnum.DOWNLOAD)»
 						entries.add(new HtmlEntry(Html«name»Links.getDownloadZipJsonLink(«namelow») + " | " + Html«name»Links.getDownloadFileJsonLink(«namelow»), EntrySize.H5));
-					«ELSEIF basicServices.contains(ServiceEnum.UPDATE)»
+					«ENDIF»
+					«IF basicServices.contains(ServiceEnum.UPDATE)»
 						entries.add(new HtmlEntry(Html«name»Links.getUpdateHtmlLink(«namelow»), EntrySize.H5));
-					«ELSEIF basicServices.contains(ServiceEnum.DELETE)»
+					«ENDIF»
+					«IF basicServices.contains(ServiceEnum.DELETE)»
 						entries.add(new HtmlEntry(Html«name»Links.getDeleteFormJsonLink(«namelow»), EntrySize.H5));
 					«ENDIF»
 
@@ -120,12 +131,14 @@ class generateHtmlView {
 							«IF basicServices.contains(ServiceEnum.READ)»
 								entries.add(new HtmlEntry(Html«name»Links.getReadHtmlLink(«namelow»), EntrySize.H3));
 							«ENDIF»
-							entries.add(new HtmlEntry(«namelow».getCreatedAtString(), EntrySize.H4));
+							entries.add(new HtmlEntry(«namelow».getCreatedatString(), EntrySize.H4));
 							«IF basicServices.contains(ServiceEnum.READ)»
 								entries.add(new HtmlEntry(Html«name»Links.getReadJsonLink(«namelow»), EntrySize.H5));
-							«ELSEIF basicServices.contains(ServiceEnum.UPDATE)»
+							«ENDIF»
+							«IF basicServices.contains(ServiceEnum.UPDATE)»
 								entries.add(new HtmlEntry(Html«name»Links.getUpdateHtmlLink(«namelow»), EntrySize.H5));
-							«ELSEIF basicServices.contains(ServiceEnum.DELETE)»
+							«ENDIF»
+							«IF basicServices.contains(ServiceEnum.DELETE)»
 								entries.add(new HtmlEntry(Html«name»Links.getDeleteFormJsonLink(«namelow»), EntrySize.H5));
 							«ENDIF»
 							multientries.add(entries);
@@ -180,7 +193,7 @@ class generateHtmlView {
 						«{pos++; null}»
 						«IF att instanceof Primitive»
 							«IF att.required»
-								«val newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
+								«val newName = genUti.getNewAttName(pos, artifact)»
 								«IF att.type.equals(DataEnum.STRING) && !att.many»
 									texts.add(new HtmlText(Basic«name»Param.«newName», «genUti.getNestedGets(pos, artifact)», "«newName.toLowerCase»", "«att.name»", ""));
 								«ELSEIF (att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.INTEGER)) && !att.many»
@@ -199,7 +212,7 @@ class generateHtmlView {
 						«{pos++; null}»
 						«IF att instanceof Primitive»
 							«IF att.required»
-								«var newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
+								«var newName = genUti.getNewAttName(pos, artifact)»
 								«IF att.type.equals(DataEnum.BOOLEAN) && !att.many»
 									radios.add(new HtmlRadio(Basic«name»Param.«newName», "«newName.toLowerCase»", "«att.name»", «genUti.getNestedGets(pos, artifact)»));
 								«ENDIF»
@@ -209,7 +222,7 @@ class generateHtmlView {
 					viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 					List<HtmlHidden> hiddens = new ArrayList<HtmlHidden>();
-					hiddens.add(new HtmlHidden(Basic«name»Param.IdPost, «namelow».getObjectId()));
+					hiddens.add(new HtmlHidden(Basic«name»Param.IdPost, «namelow».getObjectid()));
 					viewObjects.put(HtmlFreeMarker.HIDDENS, hiddens);
 					return viewObjects;
 				}
@@ -234,7 +247,7 @@ class generateHtmlView {
 						«{pos++; null}»
 						«IF att instanceof Primitive»
 							«IF att.required»
-								«val newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
+								«val newName = genUti.getNewAttName(pos, artifact)»
 								«IF !att.type.equals(DataEnum.BOOLEAN) && !att.many»
 									texts.add(new HtmlText(Basic«name»Param.«newName», "", "«newName.toLowerCase»", "«att.name»", "Enter valid «att.type.toString»"));
 								«ELSEIF att.many»
@@ -251,7 +264,7 @@ class generateHtmlView {
 						«{pos++; null}»
 						«IF att instanceof Primitive»
 							«IF att.required»
-								«val newName = genUti.getNewAttName(pos, artifact).toFirstUpper»
+								«val newName = genUti.getNewAttName(pos, artifact)»
 								«IF att.type.equals(DataEnum.BOOLEAN) && !att.many»
 									radios.add(new HtmlRadio(Basic«name»Param.«newName», "«newName.toLowerCase»", "«att.name»", true));
 								«ENDIF»

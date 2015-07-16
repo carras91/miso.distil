@@ -26,13 +26,13 @@ public class HtmlModelView implements HtmlInterfaceView<Model> {
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Model model) {
 		List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-		entries.add(new HtmlEntry(model.getObjectName(), EntrySize.H3));
+		entries.add(new HtmlEntry(model.getObjectname(), EntrySize.H3));
 		entries.add(new HtmlEntry(HtmlModelLinks.getEcoreNameLink(model), EntrySize.H4));
 		entries.add(new HtmlEntry(model.getAuthor(), EntrySize.H4));
-		entries.add(new HtmlEntry(model.getCreatedAtString(), EntrySize.H4));
+		entries.add(new HtmlEntry(model.getCreatedatString(), EntrySize.H4));
 		entries.add(new HtmlEntry(model.getSummary(), EntrySize.H4));
-		entries.add(new HtmlEntry(model.getFileSize().toString(), EntrySize.H4));
-		entries.add(new HtmlEntry(model.getObjectId().toString(), EntrySize.H4));
+		entries.add(new HtmlEntry(model.getFilesize().toString(), EntrySize.H4));
+		entries.add(new HtmlEntry(model.getObjectid().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry(model.getTagsString(), EntrySize.H4));
 		entries.add(new HtmlEntry(HtmlModelLinks.getUpdateHtmlLink(model) + " | " + HtmlModelLinks.getDeleteFormJsonLink(model), EntrySize.H4));
 		entries.add(new HtmlEntry(HtmlModelLinks.getDownloadZipJsonLink(model) + " | " + HtmlModelLinks.getDownloadFileJsonLink(model), EntrySize.H4));
@@ -49,7 +49,7 @@ public class HtmlModelView implements HtmlInterfaceView<Model> {
 			entries.add(new HtmlEntry(HtmlModelLinks.getReadHtmlLink(model), EntrySize.H3));
 			entries.add(new HtmlEntry(HtmlModelLinks.getEcoreNameLink(model), EntrySize.H4));
 			entries.add(new HtmlEntry(model.getAuthor(), EntrySize.H4));
-			entries.add(new HtmlEntry(model.getCreatedAtString(), EntrySize.H4));
+			entries.add(new HtmlEntry(model.getCreatedatString(), EntrySize.H4));
 			entries.add(new HtmlEntry(model.getSummary(), EntrySize.H4));
 			entries.add(new HtmlEntry(HtmlModelLinks.getReadJsonLink(model), EntrySize.H4));
 			entries.add(new HtmlEntry(HtmlModelLinks.getUpdateHtmlLink(model) + " | " + HtmlModelLinks.getDeleteFormJsonLink(model), EntrySize.H4));
@@ -99,7 +99,7 @@ public class HtmlModelView implements HtmlInterfaceView<Model> {
 		viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 		
 		List<HtmlHidden> hiddens = new ArrayList<HtmlHidden>();
-		hiddens.add(new HtmlHidden(BasicModelParam.IdPost, model.getObjectId()));
+		hiddens.add(new HtmlHidden(BasicModelParam.IdPost, model.getObjectid()));
 		viewObjects.put(HtmlFreeMarker.HIDDENS, hiddens);
 		
 		return viewObjects;

@@ -46,7 +46,7 @@ public class BasicModelJson extends BasicAbstractJson {
 	    if(oldModel == null || IS == null) {
 	    	return BasicModelCodes.DB_notfound;
 	    }
-	    Model newModel = new Model(oldModel.getObjectIdEcore(), oldModel.getObjectName(), oldModel.getFileSize(), summary, Utils.tagsStringToList(tags), author, oldModel.getFilterInfo(), oldModel.getFilters());
+	    Model newModel = new Model(oldModel.getObjectIdEcore(), oldModel.getObjectname(), oldModel.getFilesize(), summary, Utils.tagsStringToList(tags), author, oldModel.getFilterInfo(), oldModel.getFilters());
 		
 	    if(RecordDB.getDefault().save(newModel, IS)) {
 	    	if(!RecordDB.getDefault().delete(id, classType)) {
@@ -90,7 +90,7 @@ public class BasicModelJson extends BasicAbstractJson {
 
 			if(!PackageRecord.isEcoreRegistered(ecore_id)) {
 				try {
-					if(!PackageRecord.registerPackages(ecore_id, RecordDB.getDefault().getInputStream(ecore_id, Ecore.class), RecordDB.getDefault().readOne(ecore_id, Ecore.class).getObjectName())) {
+					if(!PackageRecord.registerPackages(ecore_id, RecordDB.getDefault().getInputStream(ecore_id, Ecore.class), RecordDB.getDefault().readOne(ecore_id, Ecore.class).getObjectname())) {
 						return BasicModelCodes.Regis_fail;
 					}
 				} catch (Exception e) {

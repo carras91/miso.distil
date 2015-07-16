@@ -46,6 +46,7 @@ class RulesValidator extends AbstractRulesValidator {
   	public static val RECURSIVE_REFERENCE= 'recursiveReference'
   	public static val ARTIFACT_TODO = 'artifactToDo'
   	public static val SERVICE_TODO = 'serviceToDo'
+  	public static val EMPTY_MONGO_URI = 'emptyMongoURI'
   	
   	@Inject 
 	private miso.distil.codeGenerator.generator.Names names
@@ -164,12 +165,15 @@ class RulesValidator extends AbstractRulesValidator {
 	}
 	
 	@Check
-	// Los atributos deben comenzar por minuscula
-	def checkAttributeStartsWithLower(Attribute att) {	
-		if (!Character.isLowerCase(att.name.charAt(0))) {
-			error('Identifier should start with a low case', 
-				CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
-				LOWER_CASE)
+	// Los atributos deben ser en minuscula
+	def checkAttributeLowerCase(Attribute att) {
+		for(var i=0; i<att.name.length; i++) {
+			if (!Character.isLowerCase(att.name.charAt(i))) {
+				error('This name has to be lower case', 
+					CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
+					LOWER_CASE)
+				return;
+			}
 		}
 	}
 	
@@ -329,5 +333,15 @@ class RulesValidator extends AbstractRulesValidator {
 			}
 			scanner.close
 		}
-	} 
+	}
+	
+	@Check
+	// Es necesario al menos una mongoURI
+	def checkMongoURI(Root root) {
+		if(root.mongoURIs.empty) {
+			warning("You need to set at least one MongoURI",
+	        	CodeGeneratorModelPackage.Literals.ROOT__MONGO_UR_IS,
+	       		EMPTY_MONGO_URI)
+		}
+	}
 }

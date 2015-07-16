@@ -67,6 +67,8 @@ public class RulesValidator extends AbstractRulesValidator {
   
   public final static String SERVICE_TODO = "serviceToDo";
   
+  public final static String EMPTY_MONGO_URI = "emptyMongoURI";
+  
   @Inject
   private Names names;
   
@@ -314,15 +316,18 @@ public class RulesValidator extends AbstractRulesValidator {
   }
   
   @Check
-  public void checkAttributeStartsWithLower(final Attribute att) {
-    String _name = att.getName();
-    char _charAt = _name.charAt(0);
-    boolean _isLowerCase = Character.isLowerCase(_charAt);
-    boolean _not = (!_isLowerCase);
-    if (_not) {
-      this.error("Identifier should start with a low case", 
-        CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
-        RulesValidator.LOWER_CASE);
+  public void checkAttributeLowerCase(final Attribute att) {
+    for (int i = 0; (i < att.getName().length()); i++) {
+      String _name = att.getName();
+      char _charAt = _name.charAt(i);
+      boolean _isLowerCase = Character.isLowerCase(_charAt);
+      boolean _not = (!_isLowerCase);
+      if (_not) {
+        this.error("This name has to be lower case", 
+          CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
+          RulesValidator.LOWER_CASE);
+        return;
+      }
     }
   }
   
@@ -595,6 +600,17 @@ public class RulesValidator extends AbstractRulesValidator {
       }
     } catch (Throwable _e) {
       throw Exceptions.sneakyThrow(_e);
+    }
+  }
+  
+  @Check
+  public void checkMongoURI(final Root root) {
+    EList<String> _mongoURIs = root.getMongoURIs();
+    boolean _isEmpty = _mongoURIs.isEmpty();
+    if (_isEmpty) {
+      this.warning("You need to set at least one MongoURI", 
+        CodeGeneratorModelPackage.Literals.ROOT__MONGO_UR_IS, 
+        RulesValidator.EMPTY_MONGO_URI);
     }
   }
 }

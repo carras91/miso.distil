@@ -61,8 +61,8 @@ public class ATLTrafoJson extends BasicAbstractJson {
 			}
 
 			// Not required params and artifact's id
-			// TODO : complete these params!
-			String nameATL = null;
+			// complete these params!
+			String nameATL = "nameAtl";
 
 			//Composed params
 

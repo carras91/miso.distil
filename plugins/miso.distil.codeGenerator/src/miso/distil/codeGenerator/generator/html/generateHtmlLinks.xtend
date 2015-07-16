@@ -48,7 +48,7 @@ class generateHtmlLinks {
 				 * @author miso.distil.codeGenerator
 				 */
 				public static String getReadJsonLink(«name» «namelow») {
-					return "<a href=" + Basic«name»Spark.ReadJson + «namelow».getObjectId() + ">View as Json</a>";
+					return "<a href=" + Basic«name»Spark.ReadJson + «namelow».getObjectid() + ">View as Json</a>";
 				}
 
 				/**
@@ -57,7 +57,7 @@ class generateHtmlLinks {
 				 * @author miso.distil.codeGenerator
 				 */
 				public static String getReadHtmlLink(«name» «namelow») {
-					return "<a href=" + Html«name»Spark.ReadHTML + «namelow».getObjectId() + ">" + «namelow».getObjectName() + "</a>";
+					return "<a href=" + Html«name»Spark.ReadHTML + «namelow».getObjectid() + ">" + «namelow».getObjectname() + "</a>";
 				}
 
 			«ENDIF»
@@ -68,7 +68,7 @@ class generateHtmlLinks {
 				 * @author miso.distil.codeGenerator
 				 */
 				public static String getDownloadZipJsonLink(«name» «namelow») {
-					return "<a href=" + Basic«name»Spark.DownloadZipJson + «namelow».getObjectId() + ">Download zip</a>";
+					return "<a href=" + Basic«name»Spark.DownloadZipJson + «namelow».getObjectid() + ">Download zip</a>";
 				}
 
 				/**
@@ -77,7 +77,7 @@ class generateHtmlLinks {
 				 * @author miso.distil.codeGenerator
 				 */
 				public static String getDownloadFileJsonLink(«name» «namelow») {
-					return "<a href=" + Basic«name»Spark.DownloadFileJson + «namelow».getObjectId() + ">Download «namelow»</a>";
+					return "<a href=" + Basic«name»Spark.DownloadFileJson + «namelow».getObjectid() + ">Download «namelow»</a>";
 				}
 
 			«ENDIF»
@@ -89,9 +89,9 @@ class generateHtmlLinks {
 				 */
 				public static String getDeleteFormJsonLink(«name» «namelow») {
 					String form = "";
-					form = "<form id=\"delete" + «namelow».getObjectId() + "\"action=\"" + Basic«name»Spark.DeleteJson + "\" method=\"POST\">";
-					form += "<input type='hidden' name='" + Basic«name»Param.IdPost + "' value=\"" + «namelow».getObjectId() + "\"/>";
-					form += "<a href=\"javascript:{}\" onclick=\"document.getElementById('delete" + «namelow».getObjectId() + "').submit(); return false;\">Delete</a>";
+					form = "<form id=\"delete" + «namelow».getObjectid() + "\"action=\"" + Basic«name»Spark.DeleteJson + "\" method=\"POST\">";
+					form += "<input type='hidden' name='" + Basic«name»Param.IdPost + "' value=\"" + «namelow».getObjectid() + "\"/>";
+					form += "<a href=\"javascript:{}\" onclick=\"document.getElementById('delete" + «namelow».getObjectid() + "').submit(); return false;\">Delete</a>";
 					form += "</form>";
 				    return form;
 				}
@@ -104,7 +104,7 @@ class generateHtmlLinks {
 				 * @author miso.distil.codeGenerator
 				 */
 				public static String getUpdateHtmlLink(«name» «namelow») {
-					return "<a href=" + Html«name»Spark.UpdateFormHTML + «namelow».getObjectId() + ">Update</a>";
+					return "<a href=" + Html«name»Spark.UpdateFormHTML + «namelow».getObjectid() + ">Update</a>";
 				}
 		    «ENDIF»
 		}

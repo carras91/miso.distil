@@ -791,9 +791,9 @@ public class generateJson {
         _builder.append(name, "\t\t");
         _builder.append("(old");
         _builder.append(name, "\t\t");
-        _builder.append(".getObjectName(), old");
+        _builder.append(".getObjectname(), old");
         _builder.append(name, "\t\t");
-        _builder.append(".getFileSize()");
+        _builder.append(".getFilesize()");
         {
           for(final Attribute att_6 : atts) {
             _builder.append(", ");

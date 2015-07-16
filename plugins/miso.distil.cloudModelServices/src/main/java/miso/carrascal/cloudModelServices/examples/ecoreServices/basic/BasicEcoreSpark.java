@@ -2,10 +2,9 @@ package miso.carrascal.cloudModelServices.examples.ecoreServices.basic;
 
 import static spark.Spark.post;
 import static spark.Spark.get;
-import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark;
 import miso.carrascal.cloudModelServices.abstractServices.basic.JsonTransformer;
 
-public final class BasicEcoreSpark implements BasicInterfaceSpark
+public final class BasicEcoreSpark // implements BasicInterfaceSpark
 {
 	public static String DeleteJSON = "/json/ecore/delete";
 	public static String ReadJSON = "/json/ecore/read/";
@@ -19,7 +18,7 @@ public final class BasicEcoreSpark implements BasicInterfaceSpark
 	public static String DownloadFileJSON = "/json/ecore/download/file/";
 	public static String DownloadFileIdJSON = DownloadFileJSON + BasicEcoreParam.IdGet;
 	
-	@Override
+	// @Override
 	public void runService() {
 		
 		BasicEcoreJson JSON = new BasicEcoreJson();

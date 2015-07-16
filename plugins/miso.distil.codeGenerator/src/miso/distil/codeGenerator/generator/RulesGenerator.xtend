@@ -12,12 +12,12 @@ import com.google.inject.Inject
 import miso.distil.codeGenerator.generator.entities.generateMain
 import miso.distil.codeGenerator.generator.entities.generateArtifactClass
 import miso.distil.codeGenerator.generator.entities.generateEntityClass
+import miso.distil.codeGenerator.generator.entities.generateMongoDataBase
 
 import miso.distil.codeGenerator.generator.basic.generateBasicCodes
 import miso.distil.codeGenerator.generator.basic.generateBasicParam
 import miso.distil.codeGenerator.generator.basic.generateBasicSpark
 
-import miso.distil.codeGenerator.generator.custom.generateCustomDB
 import miso.distil.codeGenerator.generator.custom.generateJson
 import miso.distil.codeGenerator.generator.custom.generateCustomHtml
 
@@ -50,7 +50,7 @@ class RulesGenerator implements IGenerator {
 	@Inject Names names
 	
 	@Inject generateMain genMain
-	@Inject generateCustomDB genCusDB
+	@Inject generateMongoDataBase genMongoDB
 	@Inject generateJson genJso
 	@Inject generateArtifactClass genArtifact
 	@Inject generateEntityClass genEnti
@@ -77,11 +77,10 @@ class RulesGenerator implements IGenerator {
 			names.mainFileStri + ".java",
 			genMain.write())
 			
-		// Custom DB (not overwrite existing files)
+		// Custom DB (overwrite)
 		fsa.generateFile(
 			names.DBFileStri + ".java",
-			GeneratorOutputConfiguration::GEN_ONCE_OUTPUT,
-			genCusDB.write())
+			genMongoDB.write(resource.allContents.filter(Root).last))
 			    	
 		// Auxiliar entities (overwrite)
 		resource.allContents.filter(Entity).forEach[
@@ -90,7 +89,7 @@ class RulesGenerator implements IGenerator {
 		    	genEnti.write(it))
 		]
 		
-		// Simple services (once)
+		// Simple services (not overwrite existing files)
 		resource.allContents.filter(SimpleService).forEach[
 			fsa.generateFile(
 				names.getServiceFileStri(it) + ".java",

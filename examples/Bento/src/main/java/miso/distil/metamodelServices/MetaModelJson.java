@@ -59,10 +59,9 @@ public class MetaModelJson extends BasicAbstractJson {
 			if(fileName.isEmpty() || !fileName.endsWith(".ecore")) {
 				return BasicMetaModelCodes.Param_emptyfile;
 			}
-
 			// Not required params and artifact's id
-			// TODO : complete these params!
-			String uri = null;
+			// complete these params!
+			String uri = "URI";
 
 			//Composed params
 

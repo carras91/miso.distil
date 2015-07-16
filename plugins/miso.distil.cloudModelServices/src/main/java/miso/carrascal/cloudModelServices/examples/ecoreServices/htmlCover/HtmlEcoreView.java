@@ -25,12 +25,12 @@ public class HtmlEcoreView implements HtmlInterfaceView<Ecore> {
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Ecore ecore) {
 		List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-		entries.add(new HtmlEntry(ecore.getObjectName(), EntrySize.H3));
+		entries.add(new HtmlEntry(ecore.getObjectname(), EntrySize.H3));
 		entries.add(new HtmlEntry(ecore.getAuthor(), EntrySize.H4));
-		entries.add(new HtmlEntry(ecore.getCreatedAtString(), EntrySize.H4));
+		entries.add(new HtmlEntry(ecore.getCreatedatString(), EntrySize.H4));
 		entries.add(new HtmlEntry(ecore.getSummary(), EntrySize.H4));
-		entries.add(new HtmlEntry(ecore.getFileSize().toString(), EntrySize.H4));
-		entries.add(new HtmlEntry(ecore.getObjectId().toString(), EntrySize.H4));
+		entries.add(new HtmlEntry(ecore.getFilesize().toString(), EntrySize.H4));
+		entries.add(new HtmlEntry(ecore.getObjectid().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry(ecore.getTagsString(), EntrySize.H4));
 		entries.add(new HtmlEntry(ecore.getActive().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry(HtmlEcoreLinks.getDeleteFormJsonLink(ecore), EntrySize.H4));
@@ -48,7 +48,7 @@ public class HtmlEcoreView implements HtmlInterfaceView<Ecore> {
 			List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
 			entries.add(new HtmlEntry(HtmlEcoreLinks.getReadHtmlLink(ecore), EntrySize.H3));
 			entries.add(new HtmlEntry(ecore.getAuthor(), EntrySize.H4));
-			entries.add(new HtmlEntry(ecore.getCreatedAtString(), EntrySize.H4));
+			entries.add(new HtmlEntry(ecore.getCreatedatString(), EntrySize.H4));
 			entries.add(new HtmlEntry(ecore.getSummary(), EntrySize.H4));
 			entries.add(new HtmlEntry(HtmlEcoreLinks.getReadJsonLink(ecore), EntrySize.H4));
 			entries.add(new HtmlEntry(HtmlEcoreLinks.getUpdateHtmlLink(ecore) + " | " + HtmlEcoreLinks.getDeleteFormJsonLink(ecore), EntrySize.H4));
@@ -101,7 +101,7 @@ public class HtmlEcoreView implements HtmlInterfaceView<Ecore> {
 		viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 		
 		List<HtmlHidden> hiddens = new ArrayList<HtmlHidden>();
-		hiddens.add(new HtmlHidden(BasicEcoreParam.IdPost, ecore.getObjectId()));
+		hiddens.add(new HtmlHidden(BasicEcoreParam.IdPost, ecore.getObjectid()));
 		viewObjects.put(HtmlFreeMarker.HIDDENS, hiddens);
 		
 		return viewObjects;

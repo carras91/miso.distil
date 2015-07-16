@@ -4,7 +4,7 @@ import static spark.Spark.post;
 import static spark.Spark.get;
 import miso.carrascal.cloudModelServices.abstractServices.basic.JsonTransformer;
 
-public final class BasicModelSpark
+public final class BasicModelSpark // implements BasicInterfaceSpark
 {
 	public static String DeleteJSON = "/json/model/delete";
 	public static String ReadJSON = "/json/model/read/";

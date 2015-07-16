@@ -459,7 +459,7 @@ public class Names {
   }
   
   private String getDB() {
-    return "CustomDB";
+    return "MongoDataBase";
   }
   
   public String getDBFileStri() {

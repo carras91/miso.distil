@@ -78,19 +78,45 @@ ruleRoot returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+((	otherlv_0='MongoURI' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getRootAccess().getMongoURIKeyword_0_0());
+    }
+	otherlv_1=':' 
+    {
+    	newLeafNode(otherlv_1, grammarAccess.getRootAccess().getColonKeyword_0_1());
+    }
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getRootAccess().getMongoURIsEStringParserRuleCall_0_2_0()); 
 	    }
-		lv_artifacts_0_0=ruleArtifact		{
+		lv_mongoURIs_2_0=ruleEString		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getRootRule());
+	        }
+       		add(
+       			$current, 
+       			"mongoURIs",
+        		lv_mongoURIs_2_0, 
+        		"EString");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_1_0()); 
+	    }
+		lv_artifacts_3_0=ruleArtifact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRootRule());
 	        }
        		add(
        			$current, 
        			"artifacts",
-        		lv_artifacts_0_0, 
+        		lv_artifacts_3_0, 
         		"Artifact");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -99,16 +125,16 @@ ruleRoot returns [EObject current=null]
 )((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_1_0_0()); 
+	        newCompositeNode(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_2_0_0()); 
 	    }
-		lv_artifacts_1_0=ruleArtifact		{
+		lv_artifacts_4_0=ruleArtifact		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRootRule());
 	        }
        		add(
        			$current, 
        			"artifacts",
-        		lv_artifacts_1_0, 
+        		lv_artifacts_4_0, 
         		"Artifact");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -118,16 +144,16 @@ ruleRoot returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRootAccess().getEntitiesEntityParserRuleCall_1_1_0()); 
+	        newCompositeNode(grammarAccess.getRootAccess().getEntitiesEntityParserRuleCall_2_1_0()); 
 	    }
-		lv_entities_2_0=ruleEntity		{
+		lv_entities_5_0=ruleEntity		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRootRule());
 	        }
        		add(
        			$current, 
        			"entities",
-        		lv_entities_2_0, 
+        		lv_entities_5_0, 
         		"Entity");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -137,16 +163,16 @@ ruleRoot returns [EObject current=null]
     |(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getRootAccess().getServicesServiceParserRuleCall_1_2_0()); 
+	        newCompositeNode(grammarAccess.getRootAccess().getServicesServiceParserRuleCall_2_2_0()); 
 	    }
-		lv_services_3_0=ruleService		{
+		lv_services_6_0=ruleService		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getRootRule());
 	        }
        		add(
        			$current, 
        			"services",
-        		lv_services_3_0, 
+        		lv_services_6_0, 
         		"Service");
 	        afterParserOrEnumRuleCall();
 	    }

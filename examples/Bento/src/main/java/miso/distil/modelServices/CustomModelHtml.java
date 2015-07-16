@@ -50,7 +50,7 @@ public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterface
 	public List<HtmlEntry> constructInfoReadOne(Model model) {
 		List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
 			// Add the information you want, line per line
-			entries.add(new HtmlEntry(model.getObjectName(), EntrySize.H3));
+			entries.add(new HtmlEntry(model.getObjectname(), EntrySize.H3));
 			// ..
 		return entries;
 	}
@@ -66,7 +66,7 @@ public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterface
 		// Add the information you want, line per line, from various Models
 		for(Model model : models) {
 			List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-			entries.add(new HtmlEntry(model.getObjectName(), EntrySize.H4));
+			entries.add(new HtmlEntry(model.getObjectname(), EntrySize.H4));
 			// ..
 			multientries.add(entries);
 		}
@@ -129,7 +129,7 @@ public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterface
 		// viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 		List<HtmlHidden> hiddens = new ArrayList<HtmlHidden>();
-		hiddens.add(new HtmlHidden(BasicModelParam.IdPost, model.getObjectId()));
+		hiddens.add(new HtmlHidden(BasicModelParam.IdPost, model.getObjectid()));
 		// ..
 		viewObjects.put(HtmlFreeMarker.HIDDENS, hiddens);
 

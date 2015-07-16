@@ -195,7 +195,7 @@ class generateJson {
 					«ENDFOR»
 					
 					// Create new «name»
-					«name» new«name» = new «name»(old«name».getObjectName(), old«name».getFileSize()«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»);
+					«name» new«name» = new «name»(old«name».getObjectname(), old«name».getFilesize()«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»);
 
 					// Save new «name» and delete old «name»
 					if(RecordDB.getDefault().save(new«name», IS)) {

@@ -45,7 +45,7 @@ public class CustomATLTrafoHtml implements HtmlInterfaceView<ATLTrafo>, BasicInt
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
-		Map<String, Object> viewObjects = new HashMap<String, Object>();
+		Map<String, Object> viewObjects = new HashMap<String, Object>(); 
 
 		// You need to add first a Form
 		HtmlForm form = new HtmlForm(HtmlATLTrafoSpark.SearchHTML, "atltrafo-search-form", HtmlFreeMarker.ENCTYPE_DEFAULT, "Search", "GET");
@@ -53,7 +53,7 @@ public class CustomATLTrafoHtml implements HtmlInterfaceView<ATLTrafo>, BasicInt
 
 		// Then, whatever you want in your Form: Text, Radio, Hidden, File
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicATLTrafoParam.Search_query, "", "Search (name)", "search", "Enter where do you want to search"));
+		texts.add(new HtmlText(BasicATLTrafoParam.Search_query, "?", "Search (name)", "search", "Enter where do you want to search"));
 		texts.add(new HtmlText(BasicATLTrafoParam.Search_value, "", "Search (value)", "search", "Enter what do you want to search"));
 		// ..
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);

@@ -19,6 +19,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
+import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -32,6 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link codeGeneratorModel.impl.RootImpl#getArtifacts <em>Artifacts</em>}</li>
  *   <li>{@link codeGeneratorModel.impl.RootImpl#getEntities <em>Entities</em>}</li>
  *   <li>{@link codeGeneratorModel.impl.RootImpl#getServices <em>Services</em>}</li>
+ *   <li>{@link codeGeneratorModel.impl.RootImpl#getMongoURIs <em>Mongo UR Is</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,6 +69,16 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * @ordered
 	 */
 	protected EList<Service> services;
+
+	/**
+	 * The cached value of the '{@link #getMongoURIs() <em>Mongo UR Is</em>}' attribute list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getMongoURIs()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<String> mongoURIs;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -128,6 +140,18 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EList<String> getMongoURIs() {
+		if (mongoURIs == null) {
+			mongoURIs = new EDataTypeUniqueEList<String>(String.class, this, CodeGeneratorModelPackage.ROOT__MONGO_UR_IS);
+		}
+		return mongoURIs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -155,6 +179,8 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return getEntities();
 			case CodeGeneratorModelPackage.ROOT__SERVICES:
 				return getServices();
+			case CodeGeneratorModelPackage.ROOT__MONGO_UR_IS:
+				return getMongoURIs();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -180,6 +206,10 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				getServices().clear();
 				getServices().addAll((Collection<? extends Service>)newValue);
 				return;
+			case CodeGeneratorModelPackage.ROOT__MONGO_UR_IS:
+				getMongoURIs().clear();
+				getMongoURIs().addAll((Collection<? extends String>)newValue);
+				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -201,6 +231,9 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 			case CodeGeneratorModelPackage.ROOT__SERVICES:
 				getServices().clear();
 				return;
+			case CodeGeneratorModelPackage.ROOT__MONGO_UR_IS:
+				getMongoURIs().clear();
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -219,8 +252,26 @@ public class RootImpl extends MinimalEObjectImpl.Container implements Root {
 				return entities != null && !entities.isEmpty();
 			case CodeGeneratorModelPackage.ROOT__SERVICES:
 				return services != null && !services.isEmpty();
+			case CodeGeneratorModelPackage.ROOT__MONGO_UR_IS:
+				return mongoURIs != null && !mongoURIs.isEmpty();
 		}
 		return super.eIsSet(featureID);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy()) return super.toString();
+
+		StringBuffer result = new StringBuffer(super.toString());
+		result.append(" (mongoURIs: ");
+		result.append(mongoURIs);
+		result.append(')');
+		return result.toString();
 	}
 
 } //RootImpl

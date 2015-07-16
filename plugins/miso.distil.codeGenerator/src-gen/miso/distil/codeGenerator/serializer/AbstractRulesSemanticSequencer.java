@@ -143,7 +143,7 @@ public abstract class AbstractRulesSemanticSequencer extends AbstractDelegatingS
 	
 	/**
 	 * Constraint:
-	 *     (artifacts+=Artifact (artifacts+=Artifact | entities+=Entity | services+=Service)*)
+	 *     (mongoURIs+=EString* artifacts+=Artifact (artifacts+=Artifact | entities+=Entity | services+=Service)*)
 	 */
 	protected void sequence_Root(EObject context, Root semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

@@ -150,7 +150,7 @@ class Names {
 	/// DB
 	
 	// CustomDB.java
-	def private getDB() { return "CustomDB"}
+	def private getDB() { return "MongoDataBase"}
 	// miso/distil/CustomDB.java
 	def getDBFileStri() { return RootStri + "/" + DB }
 	def getDBFileChar() '''«RootChar».«DB»'''

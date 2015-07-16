@@ -39,8 +39,8 @@ class RulesQuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.Default
 		acceptor.accept(issue, 'Lowercase name', 'Lowercase the name.', 'lowercase.png') [
 			context |
 			val xtextDocument = context.xtextDocument
-			val firstLetter = xtextDocument.get(issue.offset, 1)
-			xtextDocument.replace(issue.offset, 1, firstLetter.toLowerCase)
+			val name = xtextDocument.get(issue.offset, issue.length)
+			xtextDocument.replace(issue.offset, issue.length, name.toLowerCase)
 		]
 	}
 	
@@ -80,6 +80,20 @@ class RulesQuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.Default
 				context.getXtextDocument(URI.createPlatformResourceURI(file_json.fullPath.toString() , true))
 			}
 			
+		]
+	}
+	
+	@Fix(RulesValidator::EMPTY_MONGO_URI)
+	def serviceMongoURI(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, 'I will implement my own data base later', 'I will implement my own data base later.', 'mongol.png') [
+			context | 
+            var xtextDocument = context.xtextDocument
+            xtextDocument.replace(0, 0, 'MongoURI : ""\n')
+		]
+		acceptor.accept(issue, 'I have no idea what i\'m doing', 'I have no idea  what i\'m doing.', 'mongol.png') [
+			context |
+            var xtextDocument = context.xtextDocument
+            xtextDocument.replace(0, 0, 'MongoURI : "mongodb://[username]:[password]@[host]:[port1]/[database]"\n') 
 		]
 	}
 }

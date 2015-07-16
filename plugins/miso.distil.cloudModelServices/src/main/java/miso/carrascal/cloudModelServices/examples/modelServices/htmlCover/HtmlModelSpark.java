@@ -11,7 +11,7 @@ import miso.carrascal.cloudModelServices.examples.modelServices.basic.BasicModel
 import miso.carrascal.cloudModelServices.examples.modelServices.htmlCover.HtmlModelJson;
 import spark.template.freemarker.FreeMarkerEngine;
 
-public final class HtmlModelSpark
+public final class HtmlModelSpark // implements BasicInterfaceSpark
 {
 	public static String ReadHTML = "/html/model/read/";
 	public static String ReadIdHTML = ReadHTML + BasicModelParam.IdGet;

@@ -111,20 +111,22 @@ public class ConvertToMaven {
 		// src/main/resources/*.rules
 		for(File f : res.listFiles()) {
 			if(f.isFile()) {
-				PrintStream stream;
+				File newFile;
 				if(f.getName().contains(".rules")) {
-					stream = new PrintStream(new File(resources.getLocation().toOSString()+"\\" + f.getName()));
+					newFile = new File(resources.getLocation().toOSString()+"\\" + f.getName());
 				} else {
-					stream = new PrintStream(new File(project.getLocation().toOSString()+"\\" + f.getName()));
+					newFile = new File(project.getLocation().toOSString()+"\\" + f.getName());
 				}
-				
-				Scanner scanner = new Scanner(f);
-				while(scanner.hasNextLine()) {
-					String lineString = scanner.nextLine();
-					stream.println(lineString.replaceAll(PROJECT_NAME, project.getName()));
+				if(!newFile.exists()) {
+					PrintStream stream = new PrintStream(newFile);
+					Scanner scanner = new Scanner(f);
+					while(scanner.hasNextLine()) {
+						String lineString = scanner.nextLine();
+						stream.println(lineString.replaceAll(PROJECT_NAME, project.getName()));
+					}
+					stream.close();
+					scanner.close();
 				}
-				stream.close();
-				scanner.close();
 			}
 		}
 	}	
@@ -145,22 +147,6 @@ public class ConvertToMaven {
 		}
 		return newFolder;
 	}
-	
-	/**
-	 * Copy file "file" inside targetFolder
-	 * @author Carlos Carrascal
-	 *  
-	 * @param targetFolder
-	 * @param file
-	 * @throws CoreException
-	 * @throws FileNotFoundException 
-	 */
-//	private static void copyFile(IContainer targetFolder, FileWriter file) throws CoreException, FileNotFoundException {
-//		IFile newFile = targetFolder.getFile(new Path(file.getName()));
-//		if(!newFile.exists()) {
-//			newFile.create(new FileInputStream(file), true, null);
-//		}
-//	}
 	
 	/**
 	 * Copy cloudModelServices jar and pom inside repo/miso/distil/cloudModelServices/0.0.1
@@ -208,15 +194,16 @@ public class ConvertToMaven {
 		
 		// Copy JAR
 		IFile jarFile = srcMainDistilCloudVersion.getFile(new Path(FINAL_NAME + ".jar"));
-		if(!jarFile.exists()) {
-			FilenameFilter filterJar = new FilenameFilter() {
-				@Override
-				public boolean accept(File dir, String name) {
-					return name.equalsIgnoreCase(JAR);
-				}
-			};
-			jarFile.create(new FileInputStream(jar.listFiles(filterJar)[0]), true, null);
+		if(jarFile.exists()) {
+			jarFile.delete(true, null);
 		}
+		FilenameFilter filterJar = new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String name) {
+				return name.equalsIgnoreCase(JAR);
+			}
+		};
+		jarFile.create(new FileInputStream(jar.listFiles(filterJar)[0]), true, null);
 	}
 		
 	/**

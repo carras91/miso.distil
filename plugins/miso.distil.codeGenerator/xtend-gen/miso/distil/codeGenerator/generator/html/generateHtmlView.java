@@ -1,6 +1,7 @@
 package miso.distil.codeGenerator.generator.html;
 
 import codeGeneratorModel.Artifact;
+import codeGeneratorModel.ArtifactID;
 import codeGeneratorModel.Attribute;
 import codeGeneratorModel.DataEnum;
 import codeGeneratorModel.Primitive;
@@ -10,7 +11,6 @@ import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * To write HtmlXXXView.java
@@ -134,7 +134,7 @@ public class generateHtmlView {
             {
               boolean _and = false;
               boolean _and_1 = false;
-              if (!(att instanceof Primitive)) {
+              if (!((att instanceof Primitive) || (att instanceof ArtifactID))) {
                 _and_1 = false;
               } else {
                 boolean _isMany = att.isMany();
@@ -258,25 +258,25 @@ public class generateHtmlView {
         _builder.append("\t");
         _builder.append("entries.add(new HtmlEntry(");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectName(), EntrySize.H3));");
+        _builder.append(".getObjectname(), EntrySize.H3));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("entries.add(new HtmlEntry(");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getCreatedAtString(), EntrySize.H4));");
+        _builder.append(".getCreatedatString(), EntrySize.H4));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("entries.add(new HtmlEntry(\"FileSize (bytes): \" + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getFileSize().toString(), EntrySize.H4));");
+        _builder.append(".getFilesize().toString(), EntrySize.H4));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("entries.add(new HtmlEntry(\"ObjectId : \" + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId().toString(), EntrySize.H4));");
+        _builder.append(".getObjectid().toString(), EntrySize.H4));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
@@ -302,8 +302,7 @@ public class generateHtmlView {
               if ((att_1 instanceof Primitive)) {
                 _builder.append("\t");
                 _builder.append("\t");
-                String _newAttName = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
-                final String newName = StringExtensions.toFirstUpper(_newAttName);
+                final String newName = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                 _builder.newLineIfNotEmpty();
                 {
                   boolean _and_2 = false;
@@ -381,6 +380,39 @@ public class generateHtmlView {
                 }
               }
             }
+            {
+              if ((att_1 instanceof ArtifactID)) {
+                _builder.append("\t");
+                _builder.append("\t");
+                final String newName_1 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                _builder.newLineIfNotEmpty();
+                {
+                  boolean _isMany_4 = ((ArtifactID)att_1).isMany();
+                  boolean _not_2 = (!_isMany_4);
+                  if (_not_2) {
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("entries.add(new HtmlEntry(\"");
+                    _builder.append(newName_1, "\t\t");
+                    _builder.append(" : \" + ");
+                    String _nestedGets_3 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
+                    _builder.append(_nestedGets_3, "\t\t");
+                    _builder.append(", EntrySize.H5));");
+                    _builder.newLineIfNotEmpty();
+                  } else {
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    _builder.append("entries.add(new HtmlEntry(\"");
+                    _builder.append(newName_1, "\t\t");
+                    _builder.append(" : \" + Utils.ListToString(");
+                    String _nestedGets_4 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
+                    _builder.append(_nestedGets_4, "\t\t");
+                    _builder.append("), EntrySize.H5));\t\t\t\t");
+                    _builder.newLineIfNotEmpty();
+                  }
+                }
+              }
+            }
           }
         }
         {
@@ -398,30 +430,32 @@ public class generateHtmlView {
             _builder.append(namelow, "\t\t");
             _builder.append("), EntrySize.H5));");
             _builder.newLineIfNotEmpty();
-          } else {
-            boolean _contains_16 = basicServices.contains(ServiceEnum.UPDATE);
-            if (_contains_16) {
-              _builder.append("\t");
-              _builder.append("\t");
-              _builder.append("entries.add(new HtmlEntry(Html");
-              _builder.append(name, "\t\t");
-              _builder.append("Links.getUpdateHtmlLink(");
-              _builder.append(namelow, "\t\t");
-              _builder.append("), EntrySize.H5));");
-              _builder.newLineIfNotEmpty();
-            } else {
-              boolean _contains_17 = basicServices.contains(ServiceEnum.DELETE);
-              if (_contains_17) {
-                _builder.append("\t");
-                _builder.append("\t");
-                _builder.append("entries.add(new HtmlEntry(Html");
-                _builder.append(name, "\t\t");
-                _builder.append("Links.getDeleteFormJsonLink(");
-                _builder.append(namelow, "\t\t");
-                _builder.append("), EntrySize.H5));");
-                _builder.newLineIfNotEmpty();
-              }
-            }
+          }
+        }
+        {
+          boolean _contains_16 = basicServices.contains(ServiceEnum.UPDATE);
+          if (_contains_16) {
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("entries.add(new HtmlEntry(Html");
+            _builder.append(name, "\t\t");
+            _builder.append("Links.getUpdateHtmlLink(");
+            _builder.append(namelow, "\t\t");
+            _builder.append("), EntrySize.H5));");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          boolean _contains_17 = basicServices.contains(ServiceEnum.DELETE);
+          if (_contains_17) {
+            _builder.append("\t");
+            _builder.append("\t");
+            _builder.append("entries.add(new HtmlEntry(Html");
+            _builder.append(name, "\t\t");
+            _builder.append("Links.getDeleteFormJsonLink(");
+            _builder.append(namelow, "\t\t");
+            _builder.append("), EntrySize.H5));");
+            _builder.newLineIfNotEmpty();
           }
         }
         _builder.newLine();
@@ -502,7 +536,7 @@ public class generateHtmlView {
         _builder.append("\t\t\t");
         _builder.append("entries.add(new HtmlEntry(");
         _builder.append(namelow, "\t\t\t\t");
-        _builder.append(".getCreatedAtString(), EntrySize.H4));");
+        _builder.append(".getCreatedatString(), EntrySize.H4));");
         _builder.newLineIfNotEmpty();
         {
           boolean _contains_20 = basicServices.contains(ServiceEnum.READ);
@@ -515,30 +549,32 @@ public class generateHtmlView {
             _builder.append(namelow, "\t\t\t\t");
             _builder.append("), EntrySize.H5));");
             _builder.newLineIfNotEmpty();
-          } else {
-            boolean _contains_21 = basicServices.contains(ServiceEnum.UPDATE);
-            if (_contains_21) {
-              _builder.append("\t");
-              _builder.append("\t\t\t");
-              _builder.append("entries.add(new HtmlEntry(Html");
-              _builder.append(name, "\t\t\t\t");
-              _builder.append("Links.getUpdateHtmlLink(");
-              _builder.append(namelow, "\t\t\t\t");
-              _builder.append("), EntrySize.H5));");
-              _builder.newLineIfNotEmpty();
-            } else {
-              boolean _contains_22 = basicServices.contains(ServiceEnum.DELETE);
-              if (_contains_22) {
-                _builder.append("\t");
-                _builder.append("\t\t\t");
-                _builder.append("entries.add(new HtmlEntry(Html");
-                _builder.append(name, "\t\t\t\t");
-                _builder.append("Links.getDeleteFormJsonLink(");
-                _builder.append(namelow, "\t\t\t\t");
-                _builder.append("), EntrySize.H5));");
-                _builder.newLineIfNotEmpty();
-              }
-            }
+          }
+        }
+        {
+          boolean _contains_21 = basicServices.contains(ServiceEnum.UPDATE);
+          if (_contains_21) {
+            _builder.append("\t");
+            _builder.append("\t\t\t");
+            _builder.append("entries.add(new HtmlEntry(Html");
+            _builder.append(name, "\t\t\t\t");
+            _builder.append("Links.getUpdateHtmlLink(");
+            _builder.append(namelow, "\t\t\t\t");
+            _builder.append("), EntrySize.H5));");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        {
+          boolean _contains_22 = basicServices.contains(ServiceEnum.DELETE);
+          if (_contains_22) {
+            _builder.append("\t");
+            _builder.append("\t\t\t");
+            _builder.append("entries.add(new HtmlEntry(Html");
+            _builder.append(name, "\t\t\t\t");
+            _builder.append("Links.getDeleteFormJsonLink(");
+            _builder.append(namelow, "\t\t\t\t");
+            _builder.append("), EntrySize.H5));");
+            _builder.newLineIfNotEmpty();
           }
         }
         _builder.append("\t");
@@ -738,8 +774,7 @@ public class generateHtmlView {
                   if (_isRequired) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    String _newAttName_1 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
-                    final String newName_1 = StringExtensions.toFirstUpper(_newAttName_1);
+                    final String newName_2 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
                     {
                       boolean _and_4 = false;
@@ -748,9 +783,9 @@ public class generateHtmlView {
                       if (!_equals_4) {
                         _and_4 = false;
                       } else {
-                        boolean _isMany_4 = ((Primitive)att_2).isMany();
-                        boolean _not_2 = (!_isMany_4);
-                        _and_4 = _not_2;
+                        boolean _isMany_5 = ((Primitive)att_2).isMany();
+                        boolean _not_3 = (!_isMany_5);
+                        _and_4 = _not_3;
                       }
                       if (_and_4) {
                         _builder.append("\t");
@@ -758,12 +793,12 @@ public class generateHtmlView {
                         _builder.append("texts.add(new HtmlText(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_1, "\t\t");
+                        _builder.append(newName_2, "\t\t");
                         _builder.append(", ");
-                        String _nestedGets_3 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
-                        _builder.append(_nestedGets_3, "\t\t");
+                        String _nestedGets_5 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
+                        _builder.append(_nestedGets_5, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase = newName_1.toLowerCase();
+                        String _lowerCase = newName_2.toLowerCase();
                         _builder.append(_lowerCase, "\t\t");
                         _builder.append("\", \"");
                         String _name_1 = ((Primitive)att_2).getName();
@@ -785,9 +820,9 @@ public class generateHtmlView {
                         if (!_or_10) {
                           _and_5 = false;
                         } else {
-                          boolean _isMany_5 = ((Primitive)att_2).isMany();
-                          boolean _not_3 = (!_isMany_5);
-                          _and_5 = _not_3;
+                          boolean _isMany_6 = ((Primitive)att_2).isMany();
+                          boolean _not_4 = (!_isMany_6);
+                          _and_5 = _not_4;
                         }
                         if (_and_5) {
                           _builder.append("\t");
@@ -795,12 +830,12 @@ public class generateHtmlView {
                           _builder.append("texts.add(new HtmlText(Basic");
                           _builder.append(name, "\t\t");
                           _builder.append("Param.");
-                          _builder.append(newName_1, "\t\t");
+                          _builder.append(newName_2, "\t\t");
                           _builder.append(", ");
-                          String _nestedGets_4 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
-                          _builder.append(_nestedGets_4, "\t\t");
+                          String _nestedGets_6 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
+                          _builder.append(_nestedGets_6, "\t\t");
                           _builder.append(".toString(), \"");
-                          String _lowerCase_1 = newName_1.toLowerCase();
+                          String _lowerCase_1 = newName_2.toLowerCase();
                           _builder.append(_lowerCase_1, "\t\t");
                           _builder.append("\", \"");
                           String _name_2 = ((Primitive)att_2).getName();
@@ -808,19 +843,19 @@ public class generateHtmlView {
                           _builder.append("\", \"\"));");
                           _builder.newLineIfNotEmpty();
                         } else {
-                          boolean _isMany_6 = ((Primitive)att_2).isMany();
-                          if (_isMany_6) {
+                          boolean _isMany_7 = ((Primitive)att_2).isMany();
+                          if (_isMany_7) {
                             _builder.append("\t");
                             _builder.append("\t");
                             _builder.append("texts.add(new HtmlText(Basic");
                             _builder.append(name, "\t\t");
                             _builder.append("Param.");
-                            _builder.append(newName_1, "\t\t");
+                            _builder.append(newName_2, "\t\t");
                             _builder.append(", Utils.ListToString(");
-                            String _nestedGets_5 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
-                            _builder.append(_nestedGets_5, "\t\t");
+                            String _nestedGets_7 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
+                            _builder.append(_nestedGets_7, "\t\t");
                             _builder.append("), \"");
-                            String _lowerCase_2 = newName_1.toLowerCase();
+                            String _lowerCase_2 = newName_2.toLowerCase();
                             _builder.append(_lowerCase_2, "\t\t");
                             _builder.append(" (");
                             String _name_3 = ((Primitive)att_2).getName();
@@ -879,8 +914,7 @@ public class generateHtmlView {
                   if (_isRequired_1) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    String _newAttName_2 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
-                    String newName_2 = StringExtensions.toFirstUpper(_newAttName_2);
+                    String newName_3 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
                     {
                       boolean _and_6 = false;
@@ -889,9 +923,9 @@ public class generateHtmlView {
                       if (!_equals_7) {
                         _and_6 = false;
                       } else {
-                        boolean _isMany_7 = ((Primitive)att_3).isMany();
-                        boolean _not_4 = (!_isMany_7);
-                        _and_6 = _not_4;
+                        boolean _isMany_8 = ((Primitive)att_3).isMany();
+                        boolean _not_5 = (!_isMany_8);
+                        _and_6 = _not_5;
                       }
                       if (_and_6) {
                         _builder.append("\t");
@@ -899,16 +933,16 @@ public class generateHtmlView {
                         _builder.append("radios.add(new HtmlRadio(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_2, "\t\t");
+                        _builder.append(newName_3, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase_3 = newName_2.toLowerCase();
+                        String _lowerCase_3 = newName_3.toLowerCase();
                         _builder.append(_lowerCase_3, "\t\t");
                         _builder.append("\", \"");
                         String _name_6 = ((Primitive)att_3).getName();
                         _builder.append(_name_6, "\t\t");
                         _builder.append("\", ");
-                        String _nestedGets_6 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
-                        _builder.append(_nestedGets_6, "\t\t");
+                        String _nestedGets_8 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
+                        _builder.append(_nestedGets_8, "\t\t");
                         _builder.append("));");
                         _builder.newLineIfNotEmpty();
                       }
@@ -934,7 +968,7 @@ public class generateHtmlView {
         _builder.append(name, "\t\t");
         _builder.append("Param.IdPost, ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId()));");
+        _builder.append(".getObjectid()));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
@@ -1027,20 +1061,19 @@ public class generateHtmlView {
                   if (_isRequired_2) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    String _newAttName_3 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
-                    final String newName_3 = StringExtensions.toFirstUpper(_newAttName_3);
+                    final String newName_4 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
                     {
                       boolean _and_7 = false;
                       DataEnum _type_8 = ((Primitive)att_4).getType();
                       boolean _equals_8 = _type_8.equals(DataEnum.BOOLEAN);
-                      boolean _not_5 = (!_equals_8);
-                      if (!_not_5) {
+                      boolean _not_6 = (!_equals_8);
+                      if (!_not_6) {
                         _and_7 = false;
                       } else {
-                        boolean _isMany_8 = ((Primitive)att_4).isMany();
-                        boolean _not_6 = (!_isMany_8);
-                        _and_7 = _not_6;
+                        boolean _isMany_9 = ((Primitive)att_4).isMany();
+                        boolean _not_7 = (!_isMany_9);
+                        _and_7 = _not_7;
                       }
                       if (_and_7) {
                         _builder.append("\t");
@@ -1048,9 +1081,9 @@ public class generateHtmlView {
                         _builder.append("texts.add(new HtmlText(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_3, "\t\t");
+                        _builder.append(newName_4, "\t\t");
                         _builder.append(", \"\", \"");
-                        String _lowerCase_4 = newName_3.toLowerCase();
+                        String _lowerCase_4 = newName_4.toLowerCase();
                         _builder.append(_lowerCase_4, "\t\t");
                         _builder.append("\", \"");
                         String _name_7 = ((Primitive)att_4).getName();
@@ -1062,16 +1095,16 @@ public class generateHtmlView {
                         _builder.append("\"));");
                         _builder.newLineIfNotEmpty();
                       } else {
-                        boolean _isMany_9 = ((Primitive)att_4).isMany();
-                        if (_isMany_9) {
+                        boolean _isMany_10 = ((Primitive)att_4).isMany();
+                        if (_isMany_10) {
                           _builder.append("\t");
                           _builder.append("\t");
                           _builder.append("texts.add(new HtmlText(Basic");
                           _builder.append(name, "\t\t");
                           _builder.append("Param.");
-                          _builder.append(newName_3, "\t\t");
+                          _builder.append(newName_4, "\t\t");
                           _builder.append(", \"\", \"");
-                          String _lowerCase_5 = newName_3.toLowerCase();
+                          String _lowerCase_5 = newName_4.toLowerCase();
                           _builder.append(_lowerCase_5, "\t\t");
                           _builder.append(" (");
                           String _name_8 = ((Primitive)att_4).getName();
@@ -1133,8 +1166,7 @@ public class generateHtmlView {
                   if (_isRequired_3) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    String _newAttName_4 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
-                    final String newName_4 = StringExtensions.toFirstUpper(_newAttName_4);
+                    final String newName_5 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
                     {
                       boolean _and_8 = false;
@@ -1143,9 +1175,9 @@ public class generateHtmlView {
                       if (!_equals_9) {
                         _and_8 = false;
                       } else {
-                        boolean _isMany_10 = ((Primitive)att_5).isMany();
-                        boolean _not_7 = (!_isMany_10);
-                        _and_8 = _not_7;
+                        boolean _isMany_11 = ((Primitive)att_5).isMany();
+                        boolean _not_8 = (!_isMany_11);
+                        _and_8 = _not_8;
                       }
                       if (_and_8) {
                         _builder.append("\t");
@@ -1153,9 +1185,9 @@ public class generateHtmlView {
                         _builder.append("radios.add(new HtmlRadio(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_4, "\t\t");
+                        _builder.append(newName_5, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase_6 = newName_4.toLowerCase();
+                        String _lowerCase_6 = newName_5.toLowerCase();
                         _builder.append(_lowerCase_6, "\t\t");
                         _builder.append("\", \"");
                         String _name_11 = ((Primitive)att_5).getName();

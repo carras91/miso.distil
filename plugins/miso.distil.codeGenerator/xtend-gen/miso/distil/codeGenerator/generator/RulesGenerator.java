@@ -18,12 +18,12 @@ import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.basic.generateBasicCodes;
 import miso.distil.codeGenerator.generator.basic.generateBasicParam;
 import miso.distil.codeGenerator.generator.basic.generateBasicSpark;
-import miso.distil.codeGenerator.generator.custom.generateCustomDB;
 import miso.distil.codeGenerator.generator.custom.generateCustomHtml;
 import miso.distil.codeGenerator.generator.custom.generateJson;
 import miso.distil.codeGenerator.generator.entities.generateArtifactClass;
 import miso.distil.codeGenerator.generator.entities.generateEntityClass;
 import miso.distil.codeGenerator.generator.entities.generateMain;
+import miso.distil.codeGenerator.generator.entities.generateMongoDataBase;
 import miso.distil.codeGenerator.generator.html.generateHtmlJson;
 import miso.distil.codeGenerator.generator.html.generateHtmlLinks;
 import miso.distil.codeGenerator.generator.html.generateHtmlSpark;
@@ -56,7 +56,7 @@ public class RulesGenerator implements IGenerator {
   private generateMain genMain;
   
   @Inject
-  private generateCustomDB genCusDB;
+  private generateMongoDataBase genMongoDB;
   
   @Inject
   private generateJson genJso;
@@ -108,20 +108,22 @@ public class RulesGenerator implements IGenerator {
     fsa.generateFile(_plus, _write);
     String _dBFileStri = this.names.getDBFileStri();
     String _plus_1 = (_dBFileStri + ".java");
-    CharSequence _write_1 = this.genCusDB.write();
-    fsa.generateFile(_plus_1, 
-      GeneratorOutputConfiguration.GEN_ONCE_OUTPUT, _write_1);
     TreeIterator<EObject> _allContents = resource.getAllContents();
-    Iterator<Entity> _filter = Iterators.<Entity>filter(_allContents, Entity.class);
+    Iterator<Root> _filter = Iterators.<Root>filter(_allContents, Root.class);
+    Root _last = IteratorExtensions.<Root>last(_filter);
+    CharSequence _write_1 = this.genMongoDB.write(_last);
+    fsa.generateFile(_plus_1, _write_1);
+    TreeIterator<EObject> _allContents_1 = resource.getAllContents();
+    Iterator<Entity> _filter_1 = Iterators.<Entity>filter(_allContents_1, Entity.class);
     final Procedure1<Entity> _function = (Entity it) -> {
       String _entityFileStri = this.names.getEntityFileStri(it);
       String _plus_2 = (_entityFileStri + ".java");
       CharSequence _write_2 = this.genEnti.write(it);
       fsa.generateFile(_plus_2, _write_2);
     };
-    IteratorExtensions.<Entity>forEach(_filter, _function);
-    TreeIterator<EObject> _allContents_1 = resource.getAllContents();
-    Iterator<SimpleService> _filter_1 = Iterators.<SimpleService>filter(_allContents_1, SimpleService.class);
+    IteratorExtensions.<Entity>forEach(_filter_1, _function);
+    TreeIterator<EObject> _allContents_2 = resource.getAllContents();
+    Iterator<SimpleService> _filter_2 = Iterators.<SimpleService>filter(_allContents_2, SimpleService.class);
     final Procedure1<SimpleService> _function_1 = (SimpleService it) -> {
       String _serviceFileStri = this.names.getServiceFileStri(it);
       String _plus_2 = (_serviceFileStri + ".java");
@@ -129,36 +131,36 @@ public class RulesGenerator implements IGenerator {
       fsa.generateFile(_plus_2, 
         GeneratorOutputConfiguration.GEN_ONCE_OUTPUT, _write_2);
     };
-    IteratorExtensions.<SimpleService>forEach(_filter_1, _function_1);
-    TreeIterator<EObject> _allContents_2 = resource.getAllContents();
-    Iterator<MultiService> _filter_2 = Iterators.<MultiService>filter(_allContents_2, MultiService.class);
+    IteratorExtensions.<SimpleService>forEach(_filter_2, _function_1);
+    TreeIterator<EObject> _allContents_3 = resource.getAllContents();
+    Iterator<MultiService> _filter_3 = Iterators.<MultiService>filter(_allContents_3, MultiService.class);
     final Procedure1<MultiService> _function_2 = (MultiService it) -> {
       String _serviceFileStri = this.names.getServiceFileStri(it);
       String _plus_2 = (_serviceFileStri + ".java");
       CharSequence _write_2 = this.genMulSer.write(it);
       fsa.generateFile(_plus_2, _write_2);
     };
-    IteratorExtensions.<MultiService>forEach(_filter_2, _function_2);
-    TreeIterator<EObject> _allContents_3 = resource.getAllContents();
-    Iterator<Root> _filter_3 = Iterators.<Root>filter(_allContents_3, Root.class);
-    Root _last = IteratorExtensions.<Root>last(_filter_3);
-    EList<Service> _services = _last.getServices();
+    IteratorExtensions.<MultiService>forEach(_filter_3, _function_2);
+    TreeIterator<EObject> _allContents_4 = resource.getAllContents();
+    Iterator<Root> _filter_4 = Iterators.<Root>filter(_allContents_4, Root.class);
+    Root _last_1 = IteratorExtensions.<Root>last(_filter_4);
+    EList<Service> _services = _last_1.getServices();
     boolean _isEmpty = _services.isEmpty();
     boolean _not = (!_isEmpty);
     if (_not) {
       String _servicesSparkFileStri = this.names.getServicesSparkFileStri();
       String _plus_2 = (_servicesSparkFileStri + ".java");
-      TreeIterator<EObject> _allContents_4 = resource.getAllContents();
-      Iterator<Root> _filter_4 = Iterators.<Root>filter(_allContents_4, Root.class);
-      Root _last_1 = IteratorExtensions.<Root>last(_filter_4);
-      EList<Service> _services_1 = _last_1.getServices();
+      TreeIterator<EObject> _allContents_5 = resource.getAllContents();
+      Iterator<Root> _filter_5 = Iterators.<Root>filter(_allContents_5, Root.class);
+      Root _last_2 = IteratorExtensions.<Root>last(_filter_5);
+      EList<Service> _services_1 = _last_2.getServices();
       CharSequence _write_2 = this.genSerSpa.write(((EList<Service>) _services_1));
       fsa.generateFile(_plus_2, _write_2);
     }
-    TreeIterator<EObject> _allContents_5 = resource.getAllContents();
-    Iterator<Root> _filter_5 = Iterators.<Root>filter(_allContents_5, Root.class);
-    Root _last_2 = IteratorExtensions.<Root>last(_filter_5);
-    EList<Artifact> _artifacts = _last_2.getArtifacts();
+    TreeIterator<EObject> _allContents_6 = resource.getAllContents();
+    Iterator<Root> _filter_6 = Iterators.<Root>filter(_allContents_6, Root.class);
+    Root _last_3 = IteratorExtensions.<Root>last(_filter_6);
+    EList<Artifact> _artifacts = _last_3.getArtifacts();
     for (final Artifact artifact : ((EList<Artifact>) _artifacts)) {
       {
         String _artifactFileStri = this.names.getArtifactFileStri(artifact);

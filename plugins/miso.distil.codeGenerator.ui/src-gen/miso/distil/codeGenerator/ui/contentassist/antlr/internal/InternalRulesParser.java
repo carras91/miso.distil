@@ -22,7 +22,7 @@ import java.util.ArrayList;
 @SuppressWarnings("all")
 public class InternalRulesParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'XMI'", "'BINARY'", "'TEXT'", "'XML'", "'JSON'", "'ATL'", "'ZIP'", "'upload'", "'download'", "'update'", "'read'", "'readAll'", "'search'", "'delete'", "'all'", "'Boolean'", "'Double'", "'Integer'", "'String'", "'Artifact'", "'{'", "'}'", "'['", "']'", "'extension '", "'.'", "'format '", "'services : '", "','", "'Entity'", "':'", "'ref'", "'id'", "'Service'", "'input : '", "'output : '", "'when : '", "'MultiService'", "'with'", "'='", "'many'", "'required'", "'parallel'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_STRING", "RULE_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'XMI'", "'BINARY'", "'TEXT'", "'XML'", "'JSON'", "'ATL'", "'ZIP'", "'upload'", "'download'", "'update'", "'read'", "'readAll'", "'search'", "'delete'", "'all'", "'Boolean'", "'Double'", "'Integer'", "'String'", "'MongoURI'", "':'", "'Artifact'", "'{'", "'}'", "'['", "']'", "'extension '", "'.'", "'format '", "'services : '", "','", "'Entity'", "'ref'", "'id'", "'Service'", "'input : '", "'output : '", "'when : '", "'MultiService'", "'with'", "'='", "'many'", "'required'", "'parallel'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -37,6 +37,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
     public static final int T__51=51;
     public static final int T__52=52;
     public static final int T__53=53;
+    public static final int T__54=54;
     public static final int RULE_ID=5;
     public static final int T__26=26;
     public static final int T__27=27;
@@ -1332,28 +1333,28 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "ruleDataEnum"
 
 
-    // $ANTLR start "rule__Root__Alternatives_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:513:1: rule__Root__Alternatives_1 : ( ( ( rule__Root__ArtifactsAssignment_1_0 ) ) | ( ( rule__Root__EntitiesAssignment_1_1 ) ) | ( ( rule__Root__ServicesAssignment_1_2 ) ) );
-    public final void rule__Root__Alternatives_1() throws RecognitionException {
+    // $ANTLR start "rule__Root__Alternatives_2"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:513:1: rule__Root__Alternatives_2 : ( ( ( rule__Root__ArtifactsAssignment_2_0 ) ) | ( ( rule__Root__EntitiesAssignment_2_1 ) ) | ( ( rule__Root__ServicesAssignment_2_2 ) ) );
+    public final void rule__Root__Alternatives_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:517:1: ( ( ( rule__Root__ArtifactsAssignment_1_0 ) ) | ( ( rule__Root__EntitiesAssignment_1_1 ) ) | ( ( rule__Root__ServicesAssignment_1_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:517:1: ( ( ( rule__Root__ArtifactsAssignment_2_0 ) ) | ( ( rule__Root__EntitiesAssignment_2_1 ) ) | ( ( rule__Root__ServicesAssignment_2_2 ) ) )
             int alt1=3;
             switch ( input.LA(1) ) {
-            case 30:
+            case 32:
                 {
                 alt1=1;
                 }
                 break;
-            case 40:
+            case 42:
                 {
                 alt1=2;
                 }
                 break;
-            case 44:
-            case 48:
+            case 45:
+            case 49:
                 {
                 alt1=3;
                 }
@@ -1367,24 +1368,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
             switch (alt1) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:518:1: ( ( rule__Root__ArtifactsAssignment_1_0 ) )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:518:1: ( ( rule__Root__ArtifactsAssignment_2_0 ) )
                     {
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:518:1: ( ( rule__Root__ArtifactsAssignment_1_0 ) )
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:519:1: ( rule__Root__ArtifactsAssignment_1_0 )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:518:1: ( ( rule__Root__ArtifactsAssignment_2_0 ) )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:519:1: ( rule__Root__ArtifactsAssignment_2_0 )
                     {
-                     before(grammarAccess.getRootAccess().getArtifactsAssignment_1_0()); 
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:520:1: ( rule__Root__ArtifactsAssignment_1_0 )
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:520:2: rule__Root__ArtifactsAssignment_1_0
+                     before(grammarAccess.getRootAccess().getArtifactsAssignment_2_0()); 
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:520:1: ( rule__Root__ArtifactsAssignment_2_0 )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:520:2: rule__Root__ArtifactsAssignment_2_0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Root__ArtifactsAssignment_1_0_in_rule__Root__Alternatives_11022);
-                    rule__Root__ArtifactsAssignment_1_0();
+                    pushFollow(FollowSets000.FOLLOW_rule__Root__ArtifactsAssignment_2_0_in_rule__Root__Alternatives_21022);
+                    rule__Root__ArtifactsAssignment_2_0();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getRootAccess().getArtifactsAssignment_1_0()); 
+                     after(grammarAccess.getRootAccess().getArtifactsAssignment_2_0()); 
 
                     }
 
@@ -1392,24 +1393,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 2 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:524:6: ( ( rule__Root__EntitiesAssignment_1_1 ) )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:524:6: ( ( rule__Root__EntitiesAssignment_2_1 ) )
                     {
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:524:6: ( ( rule__Root__EntitiesAssignment_1_1 ) )
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:525:1: ( rule__Root__EntitiesAssignment_1_1 )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:524:6: ( ( rule__Root__EntitiesAssignment_2_1 ) )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:525:1: ( rule__Root__EntitiesAssignment_2_1 )
                     {
-                     before(grammarAccess.getRootAccess().getEntitiesAssignment_1_1()); 
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:526:1: ( rule__Root__EntitiesAssignment_1_1 )
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:526:2: rule__Root__EntitiesAssignment_1_1
+                     before(grammarAccess.getRootAccess().getEntitiesAssignment_2_1()); 
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:526:1: ( rule__Root__EntitiesAssignment_2_1 )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:526:2: rule__Root__EntitiesAssignment_2_1
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Root__EntitiesAssignment_1_1_in_rule__Root__Alternatives_11040);
-                    rule__Root__EntitiesAssignment_1_1();
+                    pushFollow(FollowSets000.FOLLOW_rule__Root__EntitiesAssignment_2_1_in_rule__Root__Alternatives_21040);
+                    rule__Root__EntitiesAssignment_2_1();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getRootAccess().getEntitiesAssignment_1_1()); 
+                     after(grammarAccess.getRootAccess().getEntitiesAssignment_2_1()); 
 
                     }
 
@@ -1417,24 +1418,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
                     }
                     break;
                 case 3 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:530:6: ( ( rule__Root__ServicesAssignment_1_2 ) )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:530:6: ( ( rule__Root__ServicesAssignment_2_2 ) )
                     {
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:530:6: ( ( rule__Root__ServicesAssignment_1_2 ) )
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:531:1: ( rule__Root__ServicesAssignment_1_2 )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:530:6: ( ( rule__Root__ServicesAssignment_2_2 ) )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:531:1: ( rule__Root__ServicesAssignment_2_2 )
                     {
-                     before(grammarAccess.getRootAccess().getServicesAssignment_1_2()); 
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:532:1: ( rule__Root__ServicesAssignment_1_2 )
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:532:2: rule__Root__ServicesAssignment_1_2
+                     before(grammarAccess.getRootAccess().getServicesAssignment_2_2()); 
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:532:1: ( rule__Root__ServicesAssignment_2_2 )
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:532:2: rule__Root__ServicesAssignment_2_2
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Root__ServicesAssignment_1_2_in_rule__Root__Alternatives_11058);
-                    rule__Root__ServicesAssignment_1_2();
+                    pushFollow(FollowSets000.FOLLOW_rule__Root__ServicesAssignment_2_2_in_rule__Root__Alternatives_21058);
+                    rule__Root__ServicesAssignment_2_2();
 
                     state._fsp--;
 
 
                     }
 
-                     after(grammarAccess.getRootAccess().getServicesAssignment_1_2()); 
+                     after(grammarAccess.getRootAccess().getServicesAssignment_2_2()); 
 
                     }
 
@@ -1455,7 +1456,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Root__Alternatives_1"
+    // $ANTLR end "rule__Root__Alternatives_2"
 
 
     // $ANTLR start "rule__Service__Alternatives"
@@ -1469,10 +1470,10 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             int alt2=2;
             int LA2_0 = input.LA(1);
 
-            if ( (LA2_0==44) ) {
+            if ( (LA2_0==45) ) {
                 alt2=1;
             }
-            else if ( (LA2_0==48) ) {
+            else if ( (LA2_0==49) ) {
                 alt2=2;
             }
             else {
@@ -1549,18 +1550,18 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             switch ( input.LA(1) ) {
             case RULE_STRING:
             case RULE_ID:
-            case 51:
             case 52:
+            case 53:
                 {
                 alt3=1;
                 }
                 break;
-            case 42:
+            case 43:
                 {
                 alt3=2;
                 }
                 break;
-            case 43:
+            case 44:
                 {
                 alt3=3;
                 }
@@ -2356,31 +2357,49 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Root__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:792:1: rule__Root__Group__0__Impl : ( ( rule__Root__ArtifactsAssignment_0 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:792:1: rule__Root__Group__0__Impl : ( ( rule__Root__Group_0__0 )* ) ;
     public final void rule__Root__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:796:1: ( ( ( rule__Root__ArtifactsAssignment_0 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:797:1: ( ( rule__Root__ArtifactsAssignment_0 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:796:1: ( ( ( rule__Root__Group_0__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:797:1: ( ( rule__Root__Group_0__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:797:1: ( ( rule__Root__ArtifactsAssignment_0 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:798:1: ( rule__Root__ArtifactsAssignment_0 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:797:1: ( ( rule__Root__Group_0__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:798:1: ( rule__Root__Group_0__0 )*
             {
-             before(grammarAccess.getRootAccess().getArtifactsAssignment_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:799:1: ( rule__Root__ArtifactsAssignment_0 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:799:2: rule__Root__ArtifactsAssignment_0
-            {
-            pushFollow(FollowSets000.FOLLOW_rule__Root__ArtifactsAssignment_0_in_rule__Root__Group__0__Impl1729);
-            rule__Root__ArtifactsAssignment_0();
+             before(grammarAccess.getRootAccess().getGroup_0()); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:799:1: ( rule__Root__Group_0__0 )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
 
-            state._fsp--;
+                if ( (LA8_0==30) ) {
+                    alt8=1;
+                }
 
 
-            }
+                switch (alt8) {
+            	case 1 :
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:799:2: rule__Root__Group_0__0
+            	    {
+            	    pushFollow(FollowSets000.FOLLOW_rule__Root__Group_0__0_in_rule__Root__Group__0__Impl1729);
+            	    rule__Root__Group_0__0();
 
-             after(grammarAccess.getRootAccess().getArtifactsAssignment_0()); 
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+             after(grammarAccess.getRootAccess().getGroup_0()); 
 
             }
 
@@ -2403,17 +2422,22 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Root__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:809:1: rule__Root__Group__1 : rule__Root__Group__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:809:1: rule__Root__Group__1 : rule__Root__Group__1__Impl rule__Root__Group__2 ;
     public final void rule__Root__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:813:1: ( rule__Root__Group__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:814:2: rule__Root__Group__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:813:1: ( rule__Root__Group__1__Impl rule__Root__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:814:2: rule__Root__Group__1__Impl rule__Root__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Root__Group__1__Impl_in_rule__Root__Group__11759);
+            pushFollow(FollowSets000.FOLLOW_rule__Root__Group__1__Impl_in_rule__Root__Group__11760);
             rule__Root__Group__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets000.FOLLOW_rule__Root__Group__2_in_rule__Root__Group__11763);
+            rule__Root__Group__2();
 
             state._fsp--;
 
@@ -2436,49 +2460,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Root__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:820:1: rule__Root__Group__1__Impl : ( ( rule__Root__Alternatives_1 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:821:1: rule__Root__Group__1__Impl : ( ( rule__Root__ArtifactsAssignment_1 ) ) ;
     public final void rule__Root__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:824:1: ( ( ( rule__Root__Alternatives_1 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:825:1: ( ( rule__Root__Alternatives_1 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:825:1: ( ( ( rule__Root__ArtifactsAssignment_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:826:1: ( ( rule__Root__ArtifactsAssignment_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:825:1: ( ( rule__Root__Alternatives_1 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:826:1: ( rule__Root__Alternatives_1 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:826:1: ( ( rule__Root__ArtifactsAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:827:1: ( rule__Root__ArtifactsAssignment_1 )
             {
-             before(grammarAccess.getRootAccess().getAlternatives_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:827:1: ( rule__Root__Alternatives_1 )*
-            loop8:
-            do {
-                int alt8=2;
-                int LA8_0 = input.LA(1);
+             before(grammarAccess.getRootAccess().getArtifactsAssignment_1()); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:828:1: ( rule__Root__ArtifactsAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:828:2: rule__Root__ArtifactsAssignment_1
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__Root__ArtifactsAssignment_1_in_rule__Root__Group__1__Impl1790);
+            rule__Root__ArtifactsAssignment_1();
 
-                if ( (LA8_0==30||LA8_0==40||LA8_0==44||LA8_0==48) ) {
-                    alt8=1;
-                }
+            state._fsp--;
 
 
-                switch (alt8) {
-            	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:827:2: rule__Root__Alternatives_1
-            	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__Root__Alternatives_1_in_rule__Root__Group__1__Impl1786);
-            	    rule__Root__Alternatives_1();
+            }
 
-            	    state._fsp--;
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop8;
-                }
-            } while (true);
-
-             after(grammarAccess.getRootAccess().getAlternatives_1()); 
+             after(grammarAccess.getRootAccess().getArtifactsAssignment_1()); 
 
             }
 
@@ -2500,22 +2506,350 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Root__Group__1__Impl"
 
 
+    // $ANTLR start "rule__Root__Group__2"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:838:1: rule__Root__Group__2 : rule__Root__Group__2__Impl ;
+    public final void rule__Root__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:842:1: ( rule__Root__Group__2__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:843:2: rule__Root__Group__2__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__Root__Group__2__Impl_in_rule__Root__Group__21820);
+            rule__Root__Group__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__Group__2"
+
+
+    // $ANTLR start "rule__Root__Group__2__Impl"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:849:1: rule__Root__Group__2__Impl : ( ( rule__Root__Alternatives_2 )* ) ;
+    public final void rule__Root__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:853:1: ( ( ( rule__Root__Alternatives_2 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:854:1: ( ( rule__Root__Alternatives_2 )* )
+            {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:854:1: ( ( rule__Root__Alternatives_2 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:855:1: ( rule__Root__Alternatives_2 )*
+            {
+             before(grammarAccess.getRootAccess().getAlternatives_2()); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:856:1: ( rule__Root__Alternatives_2 )*
+            loop9:
+            do {
+                int alt9=2;
+                int LA9_0 = input.LA(1);
+
+                if ( (LA9_0==32||LA9_0==42||LA9_0==45||LA9_0==49) ) {
+                    alt9=1;
+                }
+
+
+                switch (alt9) {
+            	case 1 :
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:856:2: rule__Root__Alternatives_2
+            	    {
+            	    pushFollow(FollowSets000.FOLLOW_rule__Root__Alternatives_2_in_rule__Root__Group__2__Impl1847);
+            	    rule__Root__Alternatives_2();
+
+            	    state._fsp--;
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop9;
+                }
+            } while (true);
+
+             after(grammarAccess.getRootAccess().getAlternatives_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Root__Group_0__0"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:872:1: rule__Root__Group_0__0 : rule__Root__Group_0__0__Impl rule__Root__Group_0__1 ;
+    public final void rule__Root__Group_0__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:876:1: ( rule__Root__Group_0__0__Impl rule__Root__Group_0__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:877:2: rule__Root__Group_0__0__Impl rule__Root__Group_0__1
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__Root__Group_0__0__Impl_in_rule__Root__Group_0__01884);
+            rule__Root__Group_0__0__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets000.FOLLOW_rule__Root__Group_0__1_in_rule__Root__Group_0__01887);
+            rule__Root__Group_0__1();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__Group_0__0"
+
+
+    // $ANTLR start "rule__Root__Group_0__0__Impl"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:884:1: rule__Root__Group_0__0__Impl : ( 'MongoURI' ) ;
+    public final void rule__Root__Group_0__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:888:1: ( ( 'MongoURI' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:889:1: ( 'MongoURI' )
+            {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:889:1: ( 'MongoURI' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:890:1: 'MongoURI'
+            {
+             before(grammarAccess.getRootAccess().getMongoURIKeyword_0_0()); 
+            match(input,30,FollowSets000.FOLLOW_30_in_rule__Root__Group_0__0__Impl1915); 
+             after(grammarAccess.getRootAccess().getMongoURIKeyword_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__Group_0__0__Impl"
+
+
+    // $ANTLR start "rule__Root__Group_0__1"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:903:1: rule__Root__Group_0__1 : rule__Root__Group_0__1__Impl rule__Root__Group_0__2 ;
+    public final void rule__Root__Group_0__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:907:1: ( rule__Root__Group_0__1__Impl rule__Root__Group_0__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:908:2: rule__Root__Group_0__1__Impl rule__Root__Group_0__2
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__Root__Group_0__1__Impl_in_rule__Root__Group_0__11946);
+            rule__Root__Group_0__1__Impl();
+
+            state._fsp--;
+
+            pushFollow(FollowSets000.FOLLOW_rule__Root__Group_0__2_in_rule__Root__Group_0__11949);
+            rule__Root__Group_0__2();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__Group_0__1"
+
+
+    // $ANTLR start "rule__Root__Group_0__1__Impl"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:915:1: rule__Root__Group_0__1__Impl : ( ':' ) ;
+    public final void rule__Root__Group_0__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:919:1: ( ( ':' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:920:1: ( ':' )
+            {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:920:1: ( ':' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:921:1: ':'
+            {
+             before(grammarAccess.getRootAccess().getColonKeyword_0_1()); 
+            match(input,31,FollowSets000.FOLLOW_31_in_rule__Root__Group_0__1__Impl1977); 
+             after(grammarAccess.getRootAccess().getColonKeyword_0_1()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__Group_0__1__Impl"
+
+
+    // $ANTLR start "rule__Root__Group_0__2"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:934:1: rule__Root__Group_0__2 : rule__Root__Group_0__2__Impl ;
+    public final void rule__Root__Group_0__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:938:1: ( rule__Root__Group_0__2__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:939:2: rule__Root__Group_0__2__Impl
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__Root__Group_0__2__Impl_in_rule__Root__Group_0__22008);
+            rule__Root__Group_0__2__Impl();
+
+            state._fsp--;
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__Group_0__2"
+
+
+    // $ANTLR start "rule__Root__Group_0__2__Impl"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:945:1: rule__Root__Group_0__2__Impl : ( ( rule__Root__MongoURIsAssignment_0_2 ) ) ;
+    public final void rule__Root__Group_0__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:949:1: ( ( ( rule__Root__MongoURIsAssignment_0_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:950:1: ( ( rule__Root__MongoURIsAssignment_0_2 ) )
+            {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:950:1: ( ( rule__Root__MongoURIsAssignment_0_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:951:1: ( rule__Root__MongoURIsAssignment_0_2 )
+            {
+             before(grammarAccess.getRootAccess().getMongoURIsAssignment_0_2()); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:952:1: ( rule__Root__MongoURIsAssignment_0_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:952:2: rule__Root__MongoURIsAssignment_0_2
+            {
+            pushFollow(FollowSets000.FOLLOW_rule__Root__MongoURIsAssignment_0_2_in_rule__Root__Group_0__2__Impl2035);
+            rule__Root__MongoURIsAssignment_0_2();
+
+            state._fsp--;
+
+
+            }
+
+             after(grammarAccess.getRootAccess().getMongoURIsAssignment_0_2()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__Group_0__2__Impl"
+
+
     // $ANTLR start "rule__Artifact__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:841:1: rule__Artifact__Group__0 : rule__Artifact__Group__0__Impl rule__Artifact__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:968:1: rule__Artifact__Group__0 : rule__Artifact__Group__0__Impl rule__Artifact__Group__1 ;
     public final void rule__Artifact__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:845:1: ( rule__Artifact__Group__0__Impl rule__Artifact__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:846:2: rule__Artifact__Group__0__Impl rule__Artifact__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:972:1: ( rule__Artifact__Group__0__Impl rule__Artifact__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:973:2: rule__Artifact__Group__0__Impl rule__Artifact__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__0__Impl_in_rule__Artifact__Group__01821);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__0__Impl_in_rule__Artifact__Group__02071);
             rule__Artifact__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__1_in_rule__Artifact__Group__01824);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__1_in_rule__Artifact__Group__02074);
             rule__Artifact__Group__1();
 
             state._fsp--;
@@ -2539,20 +2873,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:853:1: rule__Artifact__Group__0__Impl : ( 'Artifact' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:980:1: rule__Artifact__Group__0__Impl : ( 'Artifact' ) ;
     public final void rule__Artifact__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:857:1: ( ( 'Artifact' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:858:1: ( 'Artifact' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:984:1: ( ( 'Artifact' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:985:1: ( 'Artifact' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:858:1: ( 'Artifact' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:859:1: 'Artifact'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:985:1: ( 'Artifact' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:986:1: 'Artifact'
             {
              before(grammarAccess.getArtifactAccess().getArtifactKeyword_0()); 
-            match(input,30,FollowSets000.FOLLOW_30_in_rule__Artifact__Group__0__Impl1852); 
+            match(input,32,FollowSets000.FOLLOW_32_in_rule__Artifact__Group__0__Impl2102); 
              after(grammarAccess.getArtifactAccess().getArtifactKeyword_0()); 
 
             }
@@ -2576,21 +2910,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:872:1: rule__Artifact__Group__1 : rule__Artifact__Group__1__Impl rule__Artifact__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:999:1: rule__Artifact__Group__1 : rule__Artifact__Group__1__Impl rule__Artifact__Group__2 ;
     public final void rule__Artifact__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:876:1: ( rule__Artifact__Group__1__Impl rule__Artifact__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:877:2: rule__Artifact__Group__1__Impl rule__Artifact__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1003:1: ( rule__Artifact__Group__1__Impl rule__Artifact__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1004:2: rule__Artifact__Group__1__Impl rule__Artifact__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__1__Impl_in_rule__Artifact__Group__11883);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__1__Impl_in_rule__Artifact__Group__12133);
             rule__Artifact__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__2_in_rule__Artifact__Group__11886);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__2_in_rule__Artifact__Group__12136);
             rule__Artifact__Group__2();
 
             state._fsp--;
@@ -2614,23 +2948,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:884:1: rule__Artifact__Group__1__Impl : ( ( rule__Artifact__NameAssignment_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1011:1: rule__Artifact__Group__1__Impl : ( ( rule__Artifact__NameAssignment_1 ) ) ;
     public final void rule__Artifact__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:888:1: ( ( ( rule__Artifact__NameAssignment_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:889:1: ( ( rule__Artifact__NameAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1015:1: ( ( ( rule__Artifact__NameAssignment_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1016:1: ( ( rule__Artifact__NameAssignment_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:889:1: ( ( rule__Artifact__NameAssignment_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:890:1: ( rule__Artifact__NameAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1016:1: ( ( rule__Artifact__NameAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1017:1: ( rule__Artifact__NameAssignment_1 )
             {
              before(grammarAccess.getArtifactAccess().getNameAssignment_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:891:1: ( rule__Artifact__NameAssignment_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:891:2: rule__Artifact__NameAssignment_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1018:1: ( rule__Artifact__NameAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1018:2: rule__Artifact__NameAssignment_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__NameAssignment_1_in_rule__Artifact__Group__1__Impl1913);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__NameAssignment_1_in_rule__Artifact__Group__1__Impl2163);
             rule__Artifact__NameAssignment_1();
 
             state._fsp--;
@@ -2661,21 +2995,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:901:1: rule__Artifact__Group__2 : rule__Artifact__Group__2__Impl rule__Artifact__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1028:1: rule__Artifact__Group__2 : rule__Artifact__Group__2__Impl rule__Artifact__Group__3 ;
     public final void rule__Artifact__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:905:1: ( rule__Artifact__Group__2__Impl rule__Artifact__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:906:2: rule__Artifact__Group__2__Impl rule__Artifact__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1032:1: ( rule__Artifact__Group__2__Impl rule__Artifact__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1033:2: rule__Artifact__Group__2__Impl rule__Artifact__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__2__Impl_in_rule__Artifact__Group__21943);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__2__Impl_in_rule__Artifact__Group__22193);
             rule__Artifact__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__3_in_rule__Artifact__Group__21946);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__3_in_rule__Artifact__Group__22196);
             rule__Artifact__Group__3();
 
             state._fsp--;
@@ -2699,31 +3033,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:913:1: rule__Artifact__Group__2__Impl : ( ( rule__Artifact__Group_2__0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1040:1: rule__Artifact__Group__2__Impl : ( ( rule__Artifact__Group_2__0 )? ) ;
     public final void rule__Artifact__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:917:1: ( ( ( rule__Artifact__Group_2__0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:918:1: ( ( rule__Artifact__Group_2__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1044:1: ( ( ( rule__Artifact__Group_2__0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1045:1: ( ( rule__Artifact__Group_2__0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:918:1: ( ( rule__Artifact__Group_2__0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:919:1: ( rule__Artifact__Group_2__0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1045:1: ( ( rule__Artifact__Group_2__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1046:1: ( rule__Artifact__Group_2__0 )?
             {
              before(grammarAccess.getArtifactAccess().getGroup_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:920:1: ( rule__Artifact__Group_2__0 )?
-            int alt9=2;
-            int LA9_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1047:1: ( rule__Artifact__Group_2__0 )?
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA9_0==33) ) {
-                alt9=1;
+            if ( (LA10_0==35) ) {
+                alt10=1;
             }
-            switch (alt9) {
+            switch (alt10) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:920:2: rule__Artifact__Group_2__0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1047:2: rule__Artifact__Group_2__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__0_in_rule__Artifact__Group__2__Impl1973);
+                    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__0_in_rule__Artifact__Group__2__Impl2223);
                     rule__Artifact__Group_2__0();
 
                     state._fsp--;
@@ -2757,21 +3091,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:930:1: rule__Artifact__Group__3 : rule__Artifact__Group__3__Impl rule__Artifact__Group__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1057:1: rule__Artifact__Group__3 : rule__Artifact__Group__3__Impl rule__Artifact__Group__4 ;
     public final void rule__Artifact__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:934:1: ( rule__Artifact__Group__3__Impl rule__Artifact__Group__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:935:2: rule__Artifact__Group__3__Impl rule__Artifact__Group__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1061:1: ( rule__Artifact__Group__3__Impl rule__Artifact__Group__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1062:2: rule__Artifact__Group__3__Impl rule__Artifact__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__3__Impl_in_rule__Artifact__Group__32004);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__3__Impl_in_rule__Artifact__Group__32254);
             rule__Artifact__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__4_in_rule__Artifact__Group__32007);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__4_in_rule__Artifact__Group__32257);
             rule__Artifact__Group__4();
 
             state._fsp--;
@@ -2795,20 +3129,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:942:1: rule__Artifact__Group__3__Impl : ( '{' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1069:1: rule__Artifact__Group__3__Impl : ( '{' ) ;
     public final void rule__Artifact__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:946:1: ( ( '{' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:947:1: ( '{' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1073:1: ( ( '{' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1074:1: ( '{' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:947:1: ( '{' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:948:1: '{'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1074:1: ( '{' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1075:1: '{'
             {
              before(grammarAccess.getArtifactAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,31,FollowSets000.FOLLOW_31_in_rule__Artifact__Group__3__Impl2035); 
+            match(input,33,FollowSets000.FOLLOW_33_in_rule__Artifact__Group__3__Impl2285); 
              after(grammarAccess.getArtifactAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -2832,21 +3166,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:961:1: rule__Artifact__Group__4 : rule__Artifact__Group__4__Impl rule__Artifact__Group__5 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1088:1: rule__Artifact__Group__4 : rule__Artifact__Group__4__Impl rule__Artifact__Group__5 ;
     public final void rule__Artifact__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:965:1: ( rule__Artifact__Group__4__Impl rule__Artifact__Group__5 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:966:2: rule__Artifact__Group__4__Impl rule__Artifact__Group__5
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1092:1: ( rule__Artifact__Group__4__Impl rule__Artifact__Group__5 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1093:2: rule__Artifact__Group__4__Impl rule__Artifact__Group__5
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__4__Impl_in_rule__Artifact__Group__42066);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__4__Impl_in_rule__Artifact__Group__42316);
             rule__Artifact__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__5_in_rule__Artifact__Group__42069);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__5_in_rule__Artifact__Group__42319);
             rule__Artifact__Group__5();
 
             state._fsp--;
@@ -2870,35 +3204,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:973:1: rule__Artifact__Group__4__Impl : ( ( rule__Artifact__AttributesAssignment_4 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1100:1: rule__Artifact__Group__4__Impl : ( ( rule__Artifact__AttributesAssignment_4 )* ) ;
     public final void rule__Artifact__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:977:1: ( ( ( rule__Artifact__AttributesAssignment_4 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:978:1: ( ( rule__Artifact__AttributesAssignment_4 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1104:1: ( ( ( rule__Artifact__AttributesAssignment_4 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1105:1: ( ( rule__Artifact__AttributesAssignment_4 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:978:1: ( ( rule__Artifact__AttributesAssignment_4 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:979:1: ( rule__Artifact__AttributesAssignment_4 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1105:1: ( ( rule__Artifact__AttributesAssignment_4 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1106:1: ( rule__Artifact__AttributesAssignment_4 )*
             {
              before(grammarAccess.getArtifactAccess().getAttributesAssignment_4()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:980:1: ( rule__Artifact__AttributesAssignment_4 )*
-            loop10:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1107:1: ( rule__Artifact__AttributesAssignment_4 )*
+            loop11:
             do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
+                int alt11=2;
+                int LA11_0 = input.LA(1);
 
-                if ( ((LA10_0>=RULE_STRING && LA10_0<=RULE_ID)||(LA10_0>=42 && LA10_0<=43)||(LA10_0>=51 && LA10_0<=52)) ) {
-                    alt10=1;
+                if ( ((LA11_0>=RULE_STRING && LA11_0<=RULE_ID)||(LA11_0>=43 && LA11_0<=44)||(LA11_0>=52 && LA11_0<=53)) ) {
+                    alt11=1;
                 }
 
 
-                switch (alt10) {
+                switch (alt11) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:980:2: rule__Artifact__AttributesAssignment_4
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1107:2: rule__Artifact__AttributesAssignment_4
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__Artifact__AttributesAssignment_4_in_rule__Artifact__Group__4__Impl2096);
+            	    pushFollow(FollowSets000.FOLLOW_rule__Artifact__AttributesAssignment_4_in_rule__Artifact__Group__4__Impl2346);
             	    rule__Artifact__AttributesAssignment_4();
 
             	    state._fsp--;
@@ -2908,7 +3242,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop10;
+            	    break loop11;
                 }
             } while (true);
 
@@ -2935,16 +3269,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__5"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:990:1: rule__Artifact__Group__5 : rule__Artifact__Group__5__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1117:1: rule__Artifact__Group__5 : rule__Artifact__Group__5__Impl ;
     public final void rule__Artifact__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:994:1: ( rule__Artifact__Group__5__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:995:2: rule__Artifact__Group__5__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1121:1: ( rule__Artifact__Group__5__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1122:2: rule__Artifact__Group__5__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__5__Impl_in_rule__Artifact__Group__52127);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group__5__Impl_in_rule__Artifact__Group__52377);
             rule__Artifact__Group__5__Impl();
 
             state._fsp--;
@@ -2968,20 +3302,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group__5__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1001:1: rule__Artifact__Group__5__Impl : ( '}' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1128:1: rule__Artifact__Group__5__Impl : ( '}' ) ;
     public final void rule__Artifact__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1005:1: ( ( '}' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1006:1: ( '}' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1132:1: ( ( '}' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1133:1: ( '}' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1006:1: ( '}' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1007:1: '}'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1133:1: ( '}' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1134:1: '}'
             {
              before(grammarAccess.getArtifactAccess().getRightCurlyBracketKeyword_5()); 
-            match(input,32,FollowSets000.FOLLOW_32_in_rule__Artifact__Group__5__Impl2155); 
+            match(input,34,FollowSets000.FOLLOW_34_in_rule__Artifact__Group__5__Impl2405); 
              after(grammarAccess.getArtifactAccess().getRightCurlyBracketKeyword_5()); 
 
             }
@@ -3005,21 +3339,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1032:1: rule__Artifact__Group_2__0 : rule__Artifact__Group_2__0__Impl rule__Artifact__Group_2__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1159:1: rule__Artifact__Group_2__0 : rule__Artifact__Group_2__0__Impl rule__Artifact__Group_2__1 ;
     public final void rule__Artifact__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1036:1: ( rule__Artifact__Group_2__0__Impl rule__Artifact__Group_2__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1037:2: rule__Artifact__Group_2__0__Impl rule__Artifact__Group_2__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1163:1: ( rule__Artifact__Group_2__0__Impl rule__Artifact__Group_2__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1164:2: rule__Artifact__Group_2__0__Impl rule__Artifact__Group_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__0__Impl_in_rule__Artifact__Group_2__02198);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__0__Impl_in_rule__Artifact__Group_2__02448);
             rule__Artifact__Group_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__1_in_rule__Artifact__Group_2__02201);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__1_in_rule__Artifact__Group_2__02451);
             rule__Artifact__Group_2__1();
 
             state._fsp--;
@@ -3043,20 +3377,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1044:1: rule__Artifact__Group_2__0__Impl : ( '[' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1171:1: rule__Artifact__Group_2__0__Impl : ( '[' ) ;
     public final void rule__Artifact__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1048:1: ( ( '[' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1049:1: ( '[' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1175:1: ( ( '[' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1176:1: ( '[' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1049:1: ( '[' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1050:1: '['
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1176:1: ( '[' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1177:1: '['
             {
              before(grammarAccess.getArtifactAccess().getLeftSquareBracketKeyword_2_0()); 
-            match(input,33,FollowSets000.FOLLOW_33_in_rule__Artifact__Group_2__0__Impl2229); 
+            match(input,35,FollowSets000.FOLLOW_35_in_rule__Artifact__Group_2__0__Impl2479); 
              after(grammarAccess.getArtifactAccess().getLeftSquareBracketKeyword_2_0()); 
 
             }
@@ -3080,21 +3414,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1063:1: rule__Artifact__Group_2__1 : rule__Artifact__Group_2__1__Impl rule__Artifact__Group_2__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1190:1: rule__Artifact__Group_2__1 : rule__Artifact__Group_2__1__Impl rule__Artifact__Group_2__2 ;
     public final void rule__Artifact__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1067:1: ( rule__Artifact__Group_2__1__Impl rule__Artifact__Group_2__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1068:2: rule__Artifact__Group_2__1__Impl rule__Artifact__Group_2__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1194:1: ( rule__Artifact__Group_2__1__Impl rule__Artifact__Group_2__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1195:2: rule__Artifact__Group_2__1__Impl rule__Artifact__Group_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__1__Impl_in_rule__Artifact__Group_2__12260);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__1__Impl_in_rule__Artifact__Group_2__12510);
             rule__Artifact__Group_2__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__2_in_rule__Artifact__Group_2__12263);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__2_in_rule__Artifact__Group_2__12513);
             rule__Artifact__Group_2__2();
 
             state._fsp--;
@@ -3118,31 +3452,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1075:1: rule__Artifact__Group_2__1__Impl : ( ( rule__Artifact__Group_2_1__0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1202:1: rule__Artifact__Group_2__1__Impl : ( ( rule__Artifact__Group_2_1__0 )? ) ;
     public final void rule__Artifact__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1079:1: ( ( ( rule__Artifact__Group_2_1__0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1080:1: ( ( rule__Artifact__Group_2_1__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1206:1: ( ( ( rule__Artifact__Group_2_1__0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1207:1: ( ( rule__Artifact__Group_2_1__0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1080:1: ( ( rule__Artifact__Group_2_1__0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1081:1: ( rule__Artifact__Group_2_1__0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1207:1: ( ( rule__Artifact__Group_2_1__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1208:1: ( rule__Artifact__Group_2_1__0 )?
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1082:1: ( rule__Artifact__Group_2_1__0 )?
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1209:1: ( rule__Artifact__Group_2_1__0 )?
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA11_0==35) ) {
-                alt11=1;
+            if ( (LA12_0==37) ) {
+                alt12=1;
             }
-            switch (alt11) {
+            switch (alt12) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1082:2: rule__Artifact__Group_2_1__0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1209:2: rule__Artifact__Group_2_1__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__0_in_rule__Artifact__Group_2__1__Impl2290);
+                    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__0_in_rule__Artifact__Group_2__1__Impl2540);
                     rule__Artifact__Group_2_1__0();
 
                     state._fsp--;
@@ -3176,21 +3510,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1092:1: rule__Artifact__Group_2__2 : rule__Artifact__Group_2__2__Impl rule__Artifact__Group_2__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1219:1: rule__Artifact__Group_2__2 : rule__Artifact__Group_2__2__Impl rule__Artifact__Group_2__3 ;
     public final void rule__Artifact__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1096:1: ( rule__Artifact__Group_2__2__Impl rule__Artifact__Group_2__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1097:2: rule__Artifact__Group_2__2__Impl rule__Artifact__Group_2__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1223:1: ( rule__Artifact__Group_2__2__Impl rule__Artifact__Group_2__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1224:2: rule__Artifact__Group_2__2__Impl rule__Artifact__Group_2__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__2__Impl_in_rule__Artifact__Group_2__22321);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__2__Impl_in_rule__Artifact__Group_2__22571);
             rule__Artifact__Group_2__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__3_in_rule__Artifact__Group_2__22324);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__3_in_rule__Artifact__Group_2__22574);
             rule__Artifact__Group_2__3();
 
             state._fsp--;
@@ -3214,31 +3548,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1104:1: rule__Artifact__Group_2__2__Impl : ( ( rule__Artifact__Group_2_2__0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1231:1: rule__Artifact__Group_2__2__Impl : ( ( rule__Artifact__Group_2_2__0 )? ) ;
     public final void rule__Artifact__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1108:1: ( ( ( rule__Artifact__Group_2_2__0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1109:1: ( ( rule__Artifact__Group_2_2__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1235:1: ( ( ( rule__Artifact__Group_2_2__0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1236:1: ( ( rule__Artifact__Group_2_2__0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1109:1: ( ( rule__Artifact__Group_2_2__0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1110:1: ( rule__Artifact__Group_2_2__0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1236:1: ( ( rule__Artifact__Group_2_2__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1237:1: ( rule__Artifact__Group_2_2__0 )?
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1111:1: ( rule__Artifact__Group_2_2__0 )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1238:1: ( rule__Artifact__Group_2_2__0 )?
+            int alt13=2;
+            int LA13_0 = input.LA(1);
 
-            if ( (LA12_0==37) ) {
-                alt12=1;
+            if ( (LA13_0==39) ) {
+                alt13=1;
             }
-            switch (alt12) {
+            switch (alt13) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1111:2: rule__Artifact__Group_2_2__0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1238:2: rule__Artifact__Group_2_2__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_2__0_in_rule__Artifact__Group_2__2__Impl2351);
+                    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_2__0_in_rule__Artifact__Group_2__2__Impl2601);
                     rule__Artifact__Group_2_2__0();
 
                     state._fsp--;
@@ -3272,21 +3606,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1121:1: rule__Artifact__Group_2__3 : rule__Artifact__Group_2__3__Impl rule__Artifact__Group_2__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1248:1: rule__Artifact__Group_2__3 : rule__Artifact__Group_2__3__Impl rule__Artifact__Group_2__4 ;
     public final void rule__Artifact__Group_2__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1125:1: ( rule__Artifact__Group_2__3__Impl rule__Artifact__Group_2__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1126:2: rule__Artifact__Group_2__3__Impl rule__Artifact__Group_2__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1252:1: ( rule__Artifact__Group_2__3__Impl rule__Artifact__Group_2__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1253:2: rule__Artifact__Group_2__3__Impl rule__Artifact__Group_2__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__3__Impl_in_rule__Artifact__Group_2__32382);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__3__Impl_in_rule__Artifact__Group_2__32632);
             rule__Artifact__Group_2__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__4_in_rule__Artifact__Group_2__32385);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__4_in_rule__Artifact__Group_2__32635);
             rule__Artifact__Group_2__4();
 
             state._fsp--;
@@ -3310,31 +3644,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1133:1: rule__Artifact__Group_2__3__Impl : ( ( rule__Artifact__Group_2_3__0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1260:1: rule__Artifact__Group_2__3__Impl : ( ( rule__Artifact__Group_2_3__0 )? ) ;
     public final void rule__Artifact__Group_2__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1137:1: ( ( ( rule__Artifact__Group_2_3__0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1138:1: ( ( rule__Artifact__Group_2_3__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1264:1: ( ( ( rule__Artifact__Group_2_3__0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1265:1: ( ( rule__Artifact__Group_2_3__0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1138:1: ( ( rule__Artifact__Group_2_3__0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1139:1: ( rule__Artifact__Group_2_3__0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1265:1: ( ( rule__Artifact__Group_2_3__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1266:1: ( rule__Artifact__Group_2_3__0 )?
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_3()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1140:1: ( rule__Artifact__Group_2_3__0 )?
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1267:1: ( rule__Artifact__Group_2_3__0 )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
 
-            if ( (LA13_0==38) ) {
-                alt13=1;
+            if ( (LA14_0==40) ) {
+                alt14=1;
             }
-            switch (alt13) {
+            switch (alt14) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1140:2: rule__Artifact__Group_2_3__0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1267:2: rule__Artifact__Group_2_3__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__0_in_rule__Artifact__Group_2__3__Impl2412);
+                    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__0_in_rule__Artifact__Group_2__3__Impl2662);
                     rule__Artifact__Group_2_3__0();
 
                     state._fsp--;
@@ -3368,16 +3702,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1150:1: rule__Artifact__Group_2__4 : rule__Artifact__Group_2__4__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1277:1: rule__Artifact__Group_2__4 : rule__Artifact__Group_2__4__Impl ;
     public final void rule__Artifact__Group_2__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1154:1: ( rule__Artifact__Group_2__4__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1155:2: rule__Artifact__Group_2__4__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1281:1: ( rule__Artifact__Group_2__4__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1282:2: rule__Artifact__Group_2__4__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__4__Impl_in_rule__Artifact__Group_2__42443);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2__4__Impl_in_rule__Artifact__Group_2__42693);
             rule__Artifact__Group_2__4__Impl();
 
             state._fsp--;
@@ -3401,20 +3735,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1161:1: rule__Artifact__Group_2__4__Impl : ( ']' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1288:1: rule__Artifact__Group_2__4__Impl : ( ']' ) ;
     public final void rule__Artifact__Group_2__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1165:1: ( ( ']' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1166:1: ( ']' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1292:1: ( ( ']' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1293:1: ( ']' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1166:1: ( ']' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1167:1: ']'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1293:1: ( ']' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1294:1: ']'
             {
              before(grammarAccess.getArtifactAccess().getRightSquareBracketKeyword_2_4()); 
-            match(input,34,FollowSets000.FOLLOW_34_in_rule__Artifact__Group_2__4__Impl2471); 
+            match(input,36,FollowSets000.FOLLOW_36_in_rule__Artifact__Group_2__4__Impl2721); 
              after(grammarAccess.getArtifactAccess().getRightSquareBracketKeyword_2_4()); 
 
             }
@@ -3438,21 +3772,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_1__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1190:1: rule__Artifact__Group_2_1__0 : rule__Artifact__Group_2_1__0__Impl rule__Artifact__Group_2_1__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1317:1: rule__Artifact__Group_2_1__0 : rule__Artifact__Group_2_1__0__Impl rule__Artifact__Group_2_1__1 ;
     public final void rule__Artifact__Group_2_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1194:1: ( rule__Artifact__Group_2_1__0__Impl rule__Artifact__Group_2_1__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1195:2: rule__Artifact__Group_2_1__0__Impl rule__Artifact__Group_2_1__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1321:1: ( rule__Artifact__Group_2_1__0__Impl rule__Artifact__Group_2_1__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1322:2: rule__Artifact__Group_2_1__0__Impl rule__Artifact__Group_2_1__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__0__Impl_in_rule__Artifact__Group_2_1__02512);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__0__Impl_in_rule__Artifact__Group_2_1__02762);
             rule__Artifact__Group_2_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__1_in_rule__Artifact__Group_2_1__02515);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__1_in_rule__Artifact__Group_2_1__02765);
             rule__Artifact__Group_2_1__1();
 
             state._fsp--;
@@ -3476,20 +3810,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_1__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1202:1: rule__Artifact__Group_2_1__0__Impl : ( 'extension ' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1329:1: rule__Artifact__Group_2_1__0__Impl : ( 'extension ' ) ;
     public final void rule__Artifact__Group_2_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1206:1: ( ( 'extension ' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1207:1: ( 'extension ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1333:1: ( ( 'extension ' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1334:1: ( 'extension ' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1207:1: ( 'extension ' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1208:1: 'extension '
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1334:1: ( 'extension ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1335:1: 'extension '
             {
              before(grammarAccess.getArtifactAccess().getExtensionKeyword_2_1_0()); 
-            match(input,35,FollowSets000.FOLLOW_35_in_rule__Artifact__Group_2_1__0__Impl2543); 
+            match(input,37,FollowSets000.FOLLOW_37_in_rule__Artifact__Group_2_1__0__Impl2793); 
              after(grammarAccess.getArtifactAccess().getExtensionKeyword_2_1_0()); 
 
             }
@@ -3513,21 +3847,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_1__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1221:1: rule__Artifact__Group_2_1__1 : rule__Artifact__Group_2_1__1__Impl rule__Artifact__Group_2_1__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1348:1: rule__Artifact__Group_2_1__1 : rule__Artifact__Group_2_1__1__Impl rule__Artifact__Group_2_1__2 ;
     public final void rule__Artifact__Group_2_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1225:1: ( rule__Artifact__Group_2_1__1__Impl rule__Artifact__Group_2_1__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1226:2: rule__Artifact__Group_2_1__1__Impl rule__Artifact__Group_2_1__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1352:1: ( rule__Artifact__Group_2_1__1__Impl rule__Artifact__Group_2_1__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1353:2: rule__Artifact__Group_2_1__1__Impl rule__Artifact__Group_2_1__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__1__Impl_in_rule__Artifact__Group_2_1__12574);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__1__Impl_in_rule__Artifact__Group_2_1__12824);
             rule__Artifact__Group_2_1__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__2_in_rule__Artifact__Group_2_1__12577);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__2_in_rule__Artifact__Group_2_1__12827);
             rule__Artifact__Group_2_1__2();
 
             state._fsp--;
@@ -3551,20 +3885,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_1__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1233:1: rule__Artifact__Group_2_1__1__Impl : ( '.' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1360:1: rule__Artifact__Group_2_1__1__Impl : ( '.' ) ;
     public final void rule__Artifact__Group_2_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1237:1: ( ( '.' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1238:1: ( '.' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1364:1: ( ( '.' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1365:1: ( '.' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1238:1: ( '.' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1239:1: '.'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1365:1: ( '.' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1366:1: '.'
             {
              before(grammarAccess.getArtifactAccess().getFullStopKeyword_2_1_1()); 
-            match(input,36,FollowSets000.FOLLOW_36_in_rule__Artifact__Group_2_1__1__Impl2605); 
+            match(input,38,FollowSets000.FOLLOW_38_in_rule__Artifact__Group_2_1__1__Impl2855); 
              after(grammarAccess.getArtifactAccess().getFullStopKeyword_2_1_1()); 
 
             }
@@ -3588,16 +3922,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_1__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1252:1: rule__Artifact__Group_2_1__2 : rule__Artifact__Group_2_1__2__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1379:1: rule__Artifact__Group_2_1__2 : rule__Artifact__Group_2_1__2__Impl ;
     public final void rule__Artifact__Group_2_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1256:1: ( rule__Artifact__Group_2_1__2__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1257:2: rule__Artifact__Group_2_1__2__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1383:1: ( rule__Artifact__Group_2_1__2__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1384:2: rule__Artifact__Group_2_1__2__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__2__Impl_in_rule__Artifact__Group_2_1__22636);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_1__2__Impl_in_rule__Artifact__Group_2_1__22886);
             rule__Artifact__Group_2_1__2__Impl();
 
             state._fsp--;
@@ -3621,23 +3955,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_1__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1263:1: rule__Artifact__Group_2_1__2__Impl : ( ( rule__Artifact__ExtensionAssignment_2_1_2 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1390:1: rule__Artifact__Group_2_1__2__Impl : ( ( rule__Artifact__ExtensionAssignment_2_1_2 ) ) ;
     public final void rule__Artifact__Group_2_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1267:1: ( ( ( rule__Artifact__ExtensionAssignment_2_1_2 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1268:1: ( ( rule__Artifact__ExtensionAssignment_2_1_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1394:1: ( ( ( rule__Artifact__ExtensionAssignment_2_1_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1395:1: ( ( rule__Artifact__ExtensionAssignment_2_1_2 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1268:1: ( ( rule__Artifact__ExtensionAssignment_2_1_2 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1269:1: ( rule__Artifact__ExtensionAssignment_2_1_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1395:1: ( ( rule__Artifact__ExtensionAssignment_2_1_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1396:1: ( rule__Artifact__ExtensionAssignment_2_1_2 )
             {
              before(grammarAccess.getArtifactAccess().getExtensionAssignment_2_1_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1270:1: ( rule__Artifact__ExtensionAssignment_2_1_2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1270:2: rule__Artifact__ExtensionAssignment_2_1_2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1397:1: ( rule__Artifact__ExtensionAssignment_2_1_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1397:2: rule__Artifact__ExtensionAssignment_2_1_2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__ExtensionAssignment_2_1_2_in_rule__Artifact__Group_2_1__2__Impl2663);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__ExtensionAssignment_2_1_2_in_rule__Artifact__Group_2_1__2__Impl2913);
             rule__Artifact__ExtensionAssignment_2_1_2();
 
             state._fsp--;
@@ -3668,21 +4002,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_2__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1286:1: rule__Artifact__Group_2_2__0 : rule__Artifact__Group_2_2__0__Impl rule__Artifact__Group_2_2__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1413:1: rule__Artifact__Group_2_2__0 : rule__Artifact__Group_2_2__0__Impl rule__Artifact__Group_2_2__1 ;
     public final void rule__Artifact__Group_2_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1290:1: ( rule__Artifact__Group_2_2__0__Impl rule__Artifact__Group_2_2__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1291:2: rule__Artifact__Group_2_2__0__Impl rule__Artifact__Group_2_2__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1417:1: ( rule__Artifact__Group_2_2__0__Impl rule__Artifact__Group_2_2__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1418:2: rule__Artifact__Group_2_2__0__Impl rule__Artifact__Group_2_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_2__0__Impl_in_rule__Artifact__Group_2_2__02699);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_2__0__Impl_in_rule__Artifact__Group_2_2__02949);
             rule__Artifact__Group_2_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_2__1_in_rule__Artifact__Group_2_2__02702);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_2__1_in_rule__Artifact__Group_2_2__02952);
             rule__Artifact__Group_2_2__1();
 
             state._fsp--;
@@ -3706,20 +4040,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_2__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1298:1: rule__Artifact__Group_2_2__0__Impl : ( 'format ' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1425:1: rule__Artifact__Group_2_2__0__Impl : ( 'format ' ) ;
     public final void rule__Artifact__Group_2_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1302:1: ( ( 'format ' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1303:1: ( 'format ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1429:1: ( ( 'format ' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1430:1: ( 'format ' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1303:1: ( 'format ' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1304:1: 'format '
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1430:1: ( 'format ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1431:1: 'format '
             {
              before(grammarAccess.getArtifactAccess().getFormatKeyword_2_2_0()); 
-            match(input,37,FollowSets000.FOLLOW_37_in_rule__Artifact__Group_2_2__0__Impl2730); 
+            match(input,39,FollowSets000.FOLLOW_39_in_rule__Artifact__Group_2_2__0__Impl2980); 
              after(grammarAccess.getArtifactAccess().getFormatKeyword_2_2_0()); 
 
             }
@@ -3743,16 +4077,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_2__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1317:1: rule__Artifact__Group_2_2__1 : rule__Artifact__Group_2_2__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1444:1: rule__Artifact__Group_2_2__1 : rule__Artifact__Group_2_2__1__Impl ;
     public final void rule__Artifact__Group_2_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1321:1: ( rule__Artifact__Group_2_2__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1322:2: rule__Artifact__Group_2_2__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1448:1: ( rule__Artifact__Group_2_2__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1449:2: rule__Artifact__Group_2_2__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_2__1__Impl_in_rule__Artifact__Group_2_2__12761);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_2__1__Impl_in_rule__Artifact__Group_2_2__13011);
             rule__Artifact__Group_2_2__1__Impl();
 
             state._fsp--;
@@ -3776,23 +4110,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_2__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1328:1: rule__Artifact__Group_2_2__1__Impl : ( ( rule__Artifact__FormatAssignment_2_2_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1455:1: rule__Artifact__Group_2_2__1__Impl : ( ( rule__Artifact__FormatAssignment_2_2_1 ) ) ;
     public final void rule__Artifact__Group_2_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1332:1: ( ( ( rule__Artifact__FormatAssignment_2_2_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1333:1: ( ( rule__Artifact__FormatAssignment_2_2_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1459:1: ( ( ( rule__Artifact__FormatAssignment_2_2_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1460:1: ( ( rule__Artifact__FormatAssignment_2_2_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1333:1: ( ( rule__Artifact__FormatAssignment_2_2_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1334:1: ( rule__Artifact__FormatAssignment_2_2_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1460:1: ( ( rule__Artifact__FormatAssignment_2_2_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1461:1: ( rule__Artifact__FormatAssignment_2_2_1 )
             {
              before(grammarAccess.getArtifactAccess().getFormatAssignment_2_2_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1335:1: ( rule__Artifact__FormatAssignment_2_2_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1335:2: rule__Artifact__FormatAssignment_2_2_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1462:1: ( rule__Artifact__FormatAssignment_2_2_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1462:2: rule__Artifact__FormatAssignment_2_2_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__FormatAssignment_2_2_1_in_rule__Artifact__Group_2_2__1__Impl2788);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__FormatAssignment_2_2_1_in_rule__Artifact__Group_2_2__1__Impl3038);
             rule__Artifact__FormatAssignment_2_2_1();
 
             state._fsp--;
@@ -3823,21 +4157,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1349:1: rule__Artifact__Group_2_3__0 : rule__Artifact__Group_2_3__0__Impl rule__Artifact__Group_2_3__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1476:1: rule__Artifact__Group_2_3__0 : rule__Artifact__Group_2_3__0__Impl rule__Artifact__Group_2_3__1 ;
     public final void rule__Artifact__Group_2_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1353:1: ( rule__Artifact__Group_2_3__0__Impl rule__Artifact__Group_2_3__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1354:2: rule__Artifact__Group_2_3__0__Impl rule__Artifact__Group_2_3__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1480:1: ( rule__Artifact__Group_2_3__0__Impl rule__Artifact__Group_2_3__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1481:2: rule__Artifact__Group_2_3__0__Impl rule__Artifact__Group_2_3__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__0__Impl_in_rule__Artifact__Group_2_3__02822);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__0__Impl_in_rule__Artifact__Group_2_3__03072);
             rule__Artifact__Group_2_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__1_in_rule__Artifact__Group_2_3__02825);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__1_in_rule__Artifact__Group_2_3__03075);
             rule__Artifact__Group_2_3__1();
 
             state._fsp--;
@@ -3861,20 +4195,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1361:1: rule__Artifact__Group_2_3__0__Impl : ( 'services : ' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1488:1: rule__Artifact__Group_2_3__0__Impl : ( 'services : ' ) ;
     public final void rule__Artifact__Group_2_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1365:1: ( ( 'services : ' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1366:1: ( 'services : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1492:1: ( ( 'services : ' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1493:1: ( 'services : ' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1366:1: ( 'services : ' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1367:1: 'services : '
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1493:1: ( 'services : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1494:1: 'services : '
             {
              before(grammarAccess.getArtifactAccess().getServicesKeyword_2_3_0()); 
-            match(input,38,FollowSets000.FOLLOW_38_in_rule__Artifact__Group_2_3__0__Impl2853); 
+            match(input,40,FollowSets000.FOLLOW_40_in_rule__Artifact__Group_2_3__0__Impl3103); 
              after(grammarAccess.getArtifactAccess().getServicesKeyword_2_3_0()); 
 
             }
@@ -3898,21 +4232,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1380:1: rule__Artifact__Group_2_3__1 : rule__Artifact__Group_2_3__1__Impl rule__Artifact__Group_2_3__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1507:1: rule__Artifact__Group_2_3__1 : rule__Artifact__Group_2_3__1__Impl rule__Artifact__Group_2_3__2 ;
     public final void rule__Artifact__Group_2_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1384:1: ( rule__Artifact__Group_2_3__1__Impl rule__Artifact__Group_2_3__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1385:2: rule__Artifact__Group_2_3__1__Impl rule__Artifact__Group_2_3__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1511:1: ( rule__Artifact__Group_2_3__1__Impl rule__Artifact__Group_2_3__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1512:2: rule__Artifact__Group_2_3__1__Impl rule__Artifact__Group_2_3__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__1__Impl_in_rule__Artifact__Group_2_3__12884);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__1__Impl_in_rule__Artifact__Group_2_3__13134);
             rule__Artifact__Group_2_3__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__2_in_rule__Artifact__Group_2_3__12887);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__2_in_rule__Artifact__Group_2_3__13137);
             rule__Artifact__Group_2_3__2();
 
             state._fsp--;
@@ -3936,23 +4270,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1392:1: rule__Artifact__Group_2_3__1__Impl : ( ( rule__Artifact__BasicServicesAssignment_2_3_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1519:1: rule__Artifact__Group_2_3__1__Impl : ( ( rule__Artifact__BasicServicesAssignment_2_3_1 ) ) ;
     public final void rule__Artifact__Group_2_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1396:1: ( ( ( rule__Artifact__BasicServicesAssignment_2_3_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1397:1: ( ( rule__Artifact__BasicServicesAssignment_2_3_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1523:1: ( ( ( rule__Artifact__BasicServicesAssignment_2_3_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1524:1: ( ( rule__Artifact__BasicServicesAssignment_2_3_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1397:1: ( ( rule__Artifact__BasicServicesAssignment_2_3_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1398:1: ( rule__Artifact__BasicServicesAssignment_2_3_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1524:1: ( ( rule__Artifact__BasicServicesAssignment_2_3_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1525:1: ( rule__Artifact__BasicServicesAssignment_2_3_1 )
             {
              before(grammarAccess.getArtifactAccess().getBasicServicesAssignment_2_3_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1399:1: ( rule__Artifact__BasicServicesAssignment_2_3_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1399:2: rule__Artifact__BasicServicesAssignment_2_3_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1526:1: ( rule__Artifact__BasicServicesAssignment_2_3_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1526:2: rule__Artifact__BasicServicesAssignment_2_3_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__BasicServicesAssignment_2_3_1_in_rule__Artifact__Group_2_3__1__Impl2914);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__BasicServicesAssignment_2_3_1_in_rule__Artifact__Group_2_3__1__Impl3164);
             rule__Artifact__BasicServicesAssignment_2_3_1();
 
             state._fsp--;
@@ -3983,16 +4317,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1409:1: rule__Artifact__Group_2_3__2 : rule__Artifact__Group_2_3__2__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1536:1: rule__Artifact__Group_2_3__2 : rule__Artifact__Group_2_3__2__Impl ;
     public final void rule__Artifact__Group_2_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1413:1: ( rule__Artifact__Group_2_3__2__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1414:2: rule__Artifact__Group_2_3__2__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1540:1: ( rule__Artifact__Group_2_3__2__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1541:2: rule__Artifact__Group_2_3__2__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__2__Impl_in_rule__Artifact__Group_2_3__22944);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3__2__Impl_in_rule__Artifact__Group_2_3__23194);
             rule__Artifact__Group_2_3__2__Impl();
 
             state._fsp--;
@@ -4016,35 +4350,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1420:1: rule__Artifact__Group_2_3__2__Impl : ( ( rule__Artifact__Group_2_3_2__0 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1547:1: rule__Artifact__Group_2_3__2__Impl : ( ( rule__Artifact__Group_2_3_2__0 )* ) ;
     public final void rule__Artifact__Group_2_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1424:1: ( ( ( rule__Artifact__Group_2_3_2__0 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1425:1: ( ( rule__Artifact__Group_2_3_2__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1551:1: ( ( ( rule__Artifact__Group_2_3_2__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1552:1: ( ( rule__Artifact__Group_2_3_2__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1425:1: ( ( rule__Artifact__Group_2_3_2__0 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1426:1: ( rule__Artifact__Group_2_3_2__0 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1552:1: ( ( rule__Artifact__Group_2_3_2__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1553:1: ( rule__Artifact__Group_2_3_2__0 )*
             {
              before(grammarAccess.getArtifactAccess().getGroup_2_3_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1427:1: ( rule__Artifact__Group_2_3_2__0 )*
-            loop14:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1554:1: ( rule__Artifact__Group_2_3_2__0 )*
+            loop15:
             do {
-                int alt14=2;
-                int LA14_0 = input.LA(1);
+                int alt15=2;
+                int LA15_0 = input.LA(1);
 
-                if ( (LA14_0==39) ) {
-                    alt14=1;
+                if ( (LA15_0==41) ) {
+                    alt15=1;
                 }
 
 
-                switch (alt14) {
+                switch (alt15) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1427:2: rule__Artifact__Group_2_3_2__0
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1554:2: rule__Artifact__Group_2_3_2__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3_2__0_in_rule__Artifact__Group_2_3__2__Impl2971);
+            	    pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3_2__0_in_rule__Artifact__Group_2_3__2__Impl3221);
             	    rule__Artifact__Group_2_3_2__0();
 
             	    state._fsp--;
@@ -4054,7 +4388,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop14;
+            	    break loop15;
                 }
             } while (true);
 
@@ -4081,21 +4415,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3_2__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1443:1: rule__Artifact__Group_2_3_2__0 : rule__Artifact__Group_2_3_2__0__Impl rule__Artifact__Group_2_3_2__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1570:1: rule__Artifact__Group_2_3_2__0 : rule__Artifact__Group_2_3_2__0__Impl rule__Artifact__Group_2_3_2__1 ;
     public final void rule__Artifact__Group_2_3_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1447:1: ( rule__Artifact__Group_2_3_2__0__Impl rule__Artifact__Group_2_3_2__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1448:2: rule__Artifact__Group_2_3_2__0__Impl rule__Artifact__Group_2_3_2__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1574:1: ( rule__Artifact__Group_2_3_2__0__Impl rule__Artifact__Group_2_3_2__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1575:2: rule__Artifact__Group_2_3_2__0__Impl rule__Artifact__Group_2_3_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3_2__0__Impl_in_rule__Artifact__Group_2_3_2__03008);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3_2__0__Impl_in_rule__Artifact__Group_2_3_2__03258);
             rule__Artifact__Group_2_3_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3_2__1_in_rule__Artifact__Group_2_3_2__03011);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3_2__1_in_rule__Artifact__Group_2_3_2__03261);
             rule__Artifact__Group_2_3_2__1();
 
             state._fsp--;
@@ -4119,20 +4453,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3_2__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1455:1: rule__Artifact__Group_2_3_2__0__Impl : ( ',' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1582:1: rule__Artifact__Group_2_3_2__0__Impl : ( ',' ) ;
     public final void rule__Artifact__Group_2_3_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1459:1: ( ( ',' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1460:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1586:1: ( ( ',' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1587:1: ( ',' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1460:1: ( ',' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1461:1: ','
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1587:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1588:1: ','
             {
              before(grammarAccess.getArtifactAccess().getCommaKeyword_2_3_2_0()); 
-            match(input,39,FollowSets000.FOLLOW_39_in_rule__Artifact__Group_2_3_2__0__Impl3039); 
+            match(input,41,FollowSets000.FOLLOW_41_in_rule__Artifact__Group_2_3_2__0__Impl3289); 
              after(grammarAccess.getArtifactAccess().getCommaKeyword_2_3_2_0()); 
 
             }
@@ -4156,16 +4490,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3_2__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1474:1: rule__Artifact__Group_2_3_2__1 : rule__Artifact__Group_2_3_2__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1601:1: rule__Artifact__Group_2_3_2__1 : rule__Artifact__Group_2_3_2__1__Impl ;
     public final void rule__Artifact__Group_2_3_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1478:1: ( rule__Artifact__Group_2_3_2__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1479:2: rule__Artifact__Group_2_3_2__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1605:1: ( rule__Artifact__Group_2_3_2__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1606:2: rule__Artifact__Group_2_3_2__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3_2__1__Impl_in_rule__Artifact__Group_2_3_2__13070);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__Group_2_3_2__1__Impl_in_rule__Artifact__Group_2_3_2__13320);
             rule__Artifact__Group_2_3_2__1__Impl();
 
             state._fsp--;
@@ -4189,23 +4523,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__Group_2_3_2__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1485:1: rule__Artifact__Group_2_3_2__1__Impl : ( ( rule__Artifact__BasicServicesAssignment_2_3_2_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1612:1: rule__Artifact__Group_2_3_2__1__Impl : ( ( rule__Artifact__BasicServicesAssignment_2_3_2_1 ) ) ;
     public final void rule__Artifact__Group_2_3_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1489:1: ( ( ( rule__Artifact__BasicServicesAssignment_2_3_2_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1490:1: ( ( rule__Artifact__BasicServicesAssignment_2_3_2_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1616:1: ( ( ( rule__Artifact__BasicServicesAssignment_2_3_2_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1617:1: ( ( rule__Artifact__BasicServicesAssignment_2_3_2_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1490:1: ( ( rule__Artifact__BasicServicesAssignment_2_3_2_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1491:1: ( rule__Artifact__BasicServicesAssignment_2_3_2_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1617:1: ( ( rule__Artifact__BasicServicesAssignment_2_3_2_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1618:1: ( rule__Artifact__BasicServicesAssignment_2_3_2_1 )
             {
              before(grammarAccess.getArtifactAccess().getBasicServicesAssignment_2_3_2_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1492:1: ( rule__Artifact__BasicServicesAssignment_2_3_2_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1492:2: rule__Artifact__BasicServicesAssignment_2_3_2_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1619:1: ( rule__Artifact__BasicServicesAssignment_2_3_2_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1619:2: rule__Artifact__BasicServicesAssignment_2_3_2_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Artifact__BasicServicesAssignment_2_3_2_1_in_rule__Artifact__Group_2_3_2__1__Impl3097);
+            pushFollow(FollowSets000.FOLLOW_rule__Artifact__BasicServicesAssignment_2_3_2_1_in_rule__Artifact__Group_2_3_2__1__Impl3347);
             rule__Artifact__BasicServicesAssignment_2_3_2_1();
 
             state._fsp--;
@@ -4236,21 +4570,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1506:1: rule__Entity__Group__0 : rule__Entity__Group__0__Impl rule__Entity__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1633:1: rule__Entity__Group__0 : rule__Entity__Group__0__Impl rule__Entity__Group__1 ;
     public final void rule__Entity__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1510:1: ( rule__Entity__Group__0__Impl rule__Entity__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1511:2: rule__Entity__Group__0__Impl rule__Entity__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1637:1: ( rule__Entity__Group__0__Impl rule__Entity__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1638:2: rule__Entity__Group__0__Impl rule__Entity__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__03131);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__03381);
             rule__Entity__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__03134);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__03384);
             rule__Entity__Group__1();
 
             state._fsp--;
@@ -4274,20 +4608,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1518:1: rule__Entity__Group__0__Impl : ( 'Entity' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1645:1: rule__Entity__Group__0__Impl : ( 'Entity' ) ;
     public final void rule__Entity__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1522:1: ( ( 'Entity' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1523:1: ( 'Entity' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1649:1: ( ( 'Entity' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1650:1: ( 'Entity' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1523:1: ( 'Entity' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1524:1: 'Entity'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1650:1: ( 'Entity' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1651:1: 'Entity'
             {
              before(grammarAccess.getEntityAccess().getEntityKeyword_0()); 
-            match(input,40,FollowSets000.FOLLOW_40_in_rule__Entity__Group__0__Impl3162); 
+            match(input,42,FollowSets000.FOLLOW_42_in_rule__Entity__Group__0__Impl3412); 
              after(grammarAccess.getEntityAccess().getEntityKeyword_0()); 
 
             }
@@ -4311,21 +4645,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1537:1: rule__Entity__Group__1 : rule__Entity__Group__1__Impl rule__Entity__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1664:1: rule__Entity__Group__1 : rule__Entity__Group__1__Impl rule__Entity__Group__2 ;
     public final void rule__Entity__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1541:1: ( rule__Entity__Group__1__Impl rule__Entity__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1542:2: rule__Entity__Group__1__Impl rule__Entity__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1668:1: ( rule__Entity__Group__1__Impl rule__Entity__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1669:2: rule__Entity__Group__1__Impl rule__Entity__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__13193);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__13443);
             rule__Entity__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__13196);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__13446);
             rule__Entity__Group__2();
 
             state._fsp--;
@@ -4349,23 +4683,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1549:1: rule__Entity__Group__1__Impl : ( ( rule__Entity__NameAssignment_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1676:1: rule__Entity__Group__1__Impl : ( ( rule__Entity__NameAssignment_1 ) ) ;
     public final void rule__Entity__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1553:1: ( ( ( rule__Entity__NameAssignment_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1554:1: ( ( rule__Entity__NameAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1680:1: ( ( ( rule__Entity__NameAssignment_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1681:1: ( ( rule__Entity__NameAssignment_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1554:1: ( ( rule__Entity__NameAssignment_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1555:1: ( rule__Entity__NameAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1681:1: ( ( rule__Entity__NameAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1682:1: ( rule__Entity__NameAssignment_1 )
             {
              before(grammarAccess.getEntityAccess().getNameAssignment_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1556:1: ( rule__Entity__NameAssignment_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1556:2: rule__Entity__NameAssignment_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1683:1: ( rule__Entity__NameAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1683:2: rule__Entity__NameAssignment_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__NameAssignment_1_in_rule__Entity__Group__1__Impl3223);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__NameAssignment_1_in_rule__Entity__Group__1__Impl3473);
             rule__Entity__NameAssignment_1();
 
             state._fsp--;
@@ -4396,21 +4730,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1566:1: rule__Entity__Group__2 : rule__Entity__Group__2__Impl rule__Entity__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1693:1: rule__Entity__Group__2 : rule__Entity__Group__2__Impl rule__Entity__Group__3 ;
     public final void rule__Entity__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1570:1: ( rule__Entity__Group__2__Impl rule__Entity__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1571:2: rule__Entity__Group__2__Impl rule__Entity__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1697:1: ( rule__Entity__Group__2__Impl rule__Entity__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1698:2: rule__Entity__Group__2__Impl rule__Entity__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__23253);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__23503);
             rule__Entity__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__23256);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__23506);
             rule__Entity__Group__3();
 
             state._fsp--;
@@ -4434,20 +4768,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1578:1: rule__Entity__Group__2__Impl : ( '{' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1705:1: rule__Entity__Group__2__Impl : ( '{' ) ;
     public final void rule__Entity__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1582:1: ( ( '{' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1583:1: ( '{' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1709:1: ( ( '{' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1710:1: ( '{' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1583:1: ( '{' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1584:1: '{'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1710:1: ( '{' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1711:1: '{'
             {
              before(grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_2()); 
-            match(input,31,FollowSets000.FOLLOW_31_in_rule__Entity__Group__2__Impl3284); 
+            match(input,33,FollowSets000.FOLLOW_33_in_rule__Entity__Group__2__Impl3534); 
              after(grammarAccess.getEntityAccess().getLeftCurlyBracketKeyword_2()); 
 
             }
@@ -4471,21 +4805,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1597:1: rule__Entity__Group__3 : rule__Entity__Group__3__Impl rule__Entity__Group__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1724:1: rule__Entity__Group__3 : rule__Entity__Group__3__Impl rule__Entity__Group__4 ;
     public final void rule__Entity__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1601:1: ( rule__Entity__Group__3__Impl rule__Entity__Group__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1602:2: rule__Entity__Group__3__Impl rule__Entity__Group__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1728:1: ( rule__Entity__Group__3__Impl rule__Entity__Group__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1729:2: rule__Entity__Group__3__Impl rule__Entity__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__33315);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__33565);
             rule__Entity__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__33318);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__33568);
             rule__Entity__Group__4();
 
             state._fsp--;
@@ -4509,35 +4843,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1609:1: rule__Entity__Group__3__Impl : ( ( rule__Entity__AttributesAssignment_3 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1736:1: rule__Entity__Group__3__Impl : ( ( rule__Entity__AttributesAssignment_3 )* ) ;
     public final void rule__Entity__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1613:1: ( ( ( rule__Entity__AttributesAssignment_3 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1614:1: ( ( rule__Entity__AttributesAssignment_3 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1740:1: ( ( ( rule__Entity__AttributesAssignment_3 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1741:1: ( ( rule__Entity__AttributesAssignment_3 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1614:1: ( ( rule__Entity__AttributesAssignment_3 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1615:1: ( rule__Entity__AttributesAssignment_3 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1741:1: ( ( rule__Entity__AttributesAssignment_3 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1742:1: ( rule__Entity__AttributesAssignment_3 )*
             {
              before(grammarAccess.getEntityAccess().getAttributesAssignment_3()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1616:1: ( rule__Entity__AttributesAssignment_3 )*
-            loop15:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1743:1: ( rule__Entity__AttributesAssignment_3 )*
+            loop16:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt16=2;
+                int LA16_0 = input.LA(1);
 
-                if ( ((LA15_0>=RULE_STRING && LA15_0<=RULE_ID)||(LA15_0>=42 && LA15_0<=43)||(LA15_0>=51 && LA15_0<=52)) ) {
-                    alt15=1;
+                if ( ((LA16_0>=RULE_STRING && LA16_0<=RULE_ID)||(LA16_0>=43 && LA16_0<=44)||(LA16_0>=52 && LA16_0<=53)) ) {
+                    alt16=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt16) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1616:2: rule__Entity__AttributesAssignment_3
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1743:2: rule__Entity__AttributesAssignment_3
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__Entity__AttributesAssignment_3_in_rule__Entity__Group__3__Impl3345);
+            	    pushFollow(FollowSets000.FOLLOW_rule__Entity__AttributesAssignment_3_in_rule__Entity__Group__3__Impl3595);
             	    rule__Entity__AttributesAssignment_3();
 
             	    state._fsp--;
@@ -4547,7 +4881,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop16;
                 }
             } while (true);
 
@@ -4574,16 +4908,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1626:1: rule__Entity__Group__4 : rule__Entity__Group__4__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1753:1: rule__Entity__Group__4 : rule__Entity__Group__4__Impl ;
     public final void rule__Entity__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1630:1: ( rule__Entity__Group__4__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1631:2: rule__Entity__Group__4__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1757:1: ( rule__Entity__Group__4__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1758:2: rule__Entity__Group__4__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__43376);
+            pushFollow(FollowSets000.FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__43626);
             rule__Entity__Group__4__Impl();
 
             state._fsp--;
@@ -4607,20 +4941,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__Group__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1637:1: rule__Entity__Group__4__Impl : ( '}' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1764:1: rule__Entity__Group__4__Impl : ( '}' ) ;
     public final void rule__Entity__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1641:1: ( ( '}' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1642:1: ( '}' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1768:1: ( ( '}' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1769:1: ( '}' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1642:1: ( '}' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1643:1: '}'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1769:1: ( '}' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1770:1: '}'
             {
              before(grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_4()); 
-            match(input,32,FollowSets000.FOLLOW_32_in_rule__Entity__Group__4__Impl3404); 
+            match(input,34,FollowSets000.FOLLOW_34_in_rule__Entity__Group__4__Impl3654); 
              after(grammarAccess.getEntityAccess().getRightCurlyBracketKeyword_4()); 
 
             }
@@ -4644,21 +4978,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1666:1: rule__Primitive__Group__0 : rule__Primitive__Group__0__Impl rule__Primitive__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1793:1: rule__Primitive__Group__0 : rule__Primitive__Group__0__Impl rule__Primitive__Group__1 ;
     public final void rule__Primitive__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1670:1: ( rule__Primitive__Group__0__Impl rule__Primitive__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1671:2: rule__Primitive__Group__0__Impl rule__Primitive__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1797:1: ( rule__Primitive__Group__0__Impl rule__Primitive__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1798:2: rule__Primitive__Group__0__Impl rule__Primitive__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__0__Impl_in_rule__Primitive__Group__03445);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__0__Impl_in_rule__Primitive__Group__03695);
             rule__Primitive__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__1_in_rule__Primitive__Group__03448);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__1_in_rule__Primitive__Group__03698);
             rule__Primitive__Group__1();
 
             state._fsp--;
@@ -4682,31 +5016,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1678:1: rule__Primitive__Group__0__Impl : ( ( rule__Primitive__ManyAssignment_0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1805:1: rule__Primitive__Group__0__Impl : ( ( rule__Primitive__ManyAssignment_0 )? ) ;
     public final void rule__Primitive__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1682:1: ( ( ( rule__Primitive__ManyAssignment_0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1683:1: ( ( rule__Primitive__ManyAssignment_0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1809:1: ( ( ( rule__Primitive__ManyAssignment_0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1810:1: ( ( rule__Primitive__ManyAssignment_0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1683:1: ( ( rule__Primitive__ManyAssignment_0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1684:1: ( rule__Primitive__ManyAssignment_0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1810:1: ( ( rule__Primitive__ManyAssignment_0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1811:1: ( rule__Primitive__ManyAssignment_0 )?
             {
              before(grammarAccess.getPrimitiveAccess().getManyAssignment_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1685:1: ( rule__Primitive__ManyAssignment_0 )?
-            int alt16=2;
-            int LA16_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1812:1: ( rule__Primitive__ManyAssignment_0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA16_0==51) ) {
-                alt16=1;
+            if ( (LA17_0==52) ) {
+                alt17=1;
             }
-            switch (alt16) {
+            switch (alt17) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1685:2: rule__Primitive__ManyAssignment_0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1812:2: rule__Primitive__ManyAssignment_0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Primitive__ManyAssignment_0_in_rule__Primitive__Group__0__Impl3475);
+                    pushFollow(FollowSets000.FOLLOW_rule__Primitive__ManyAssignment_0_in_rule__Primitive__Group__0__Impl3725);
                     rule__Primitive__ManyAssignment_0();
 
                     state._fsp--;
@@ -4740,21 +5074,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1695:1: rule__Primitive__Group__1 : rule__Primitive__Group__1__Impl rule__Primitive__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1822:1: rule__Primitive__Group__1 : rule__Primitive__Group__1__Impl rule__Primitive__Group__2 ;
     public final void rule__Primitive__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1699:1: ( rule__Primitive__Group__1__Impl rule__Primitive__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1700:2: rule__Primitive__Group__1__Impl rule__Primitive__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1826:1: ( rule__Primitive__Group__1__Impl rule__Primitive__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1827:2: rule__Primitive__Group__1__Impl rule__Primitive__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__1__Impl_in_rule__Primitive__Group__13506);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__1__Impl_in_rule__Primitive__Group__13756);
             rule__Primitive__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__2_in_rule__Primitive__Group__13509);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__2_in_rule__Primitive__Group__13759);
             rule__Primitive__Group__2();
 
             state._fsp--;
@@ -4778,31 +5112,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1707:1: rule__Primitive__Group__1__Impl : ( ( rule__Primitive__RequiredAssignment_1 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1834:1: rule__Primitive__Group__1__Impl : ( ( rule__Primitive__RequiredAssignment_1 )? ) ;
     public final void rule__Primitive__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1711:1: ( ( ( rule__Primitive__RequiredAssignment_1 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1712:1: ( ( rule__Primitive__RequiredAssignment_1 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1838:1: ( ( ( rule__Primitive__RequiredAssignment_1 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1839:1: ( ( rule__Primitive__RequiredAssignment_1 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1712:1: ( ( rule__Primitive__RequiredAssignment_1 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1713:1: ( rule__Primitive__RequiredAssignment_1 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1839:1: ( ( rule__Primitive__RequiredAssignment_1 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1840:1: ( rule__Primitive__RequiredAssignment_1 )?
             {
              before(grammarAccess.getPrimitiveAccess().getRequiredAssignment_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1714:1: ( rule__Primitive__RequiredAssignment_1 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1841:1: ( rule__Primitive__RequiredAssignment_1 )?
+            int alt18=2;
+            int LA18_0 = input.LA(1);
 
-            if ( (LA17_0==52) ) {
-                alt17=1;
+            if ( (LA18_0==53) ) {
+                alt18=1;
             }
-            switch (alt17) {
+            switch (alt18) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1714:2: rule__Primitive__RequiredAssignment_1
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1841:2: rule__Primitive__RequiredAssignment_1
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Primitive__RequiredAssignment_1_in_rule__Primitive__Group__1__Impl3536);
+                    pushFollow(FollowSets000.FOLLOW_rule__Primitive__RequiredAssignment_1_in_rule__Primitive__Group__1__Impl3786);
                     rule__Primitive__RequiredAssignment_1();
 
                     state._fsp--;
@@ -4836,21 +5170,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1724:1: rule__Primitive__Group__2 : rule__Primitive__Group__2__Impl rule__Primitive__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1851:1: rule__Primitive__Group__2 : rule__Primitive__Group__2__Impl rule__Primitive__Group__3 ;
     public final void rule__Primitive__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1728:1: ( rule__Primitive__Group__2__Impl rule__Primitive__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1729:2: rule__Primitive__Group__2__Impl rule__Primitive__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1855:1: ( rule__Primitive__Group__2__Impl rule__Primitive__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1856:2: rule__Primitive__Group__2__Impl rule__Primitive__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__2__Impl_in_rule__Primitive__Group__23567);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__2__Impl_in_rule__Primitive__Group__23817);
             rule__Primitive__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__3_in_rule__Primitive__Group__23570);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__3_in_rule__Primitive__Group__23820);
             rule__Primitive__Group__3();
 
             state._fsp--;
@@ -4874,23 +5208,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1736:1: rule__Primitive__Group__2__Impl : ( ( rule__Primitive__NameAssignment_2 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1863:1: rule__Primitive__Group__2__Impl : ( ( rule__Primitive__NameAssignment_2 ) ) ;
     public final void rule__Primitive__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1740:1: ( ( ( rule__Primitive__NameAssignment_2 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1741:1: ( ( rule__Primitive__NameAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1867:1: ( ( ( rule__Primitive__NameAssignment_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1868:1: ( ( rule__Primitive__NameAssignment_2 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1741:1: ( ( rule__Primitive__NameAssignment_2 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1742:1: ( rule__Primitive__NameAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1868:1: ( ( rule__Primitive__NameAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1869:1: ( rule__Primitive__NameAssignment_2 )
             {
              before(grammarAccess.getPrimitiveAccess().getNameAssignment_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1743:1: ( rule__Primitive__NameAssignment_2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1743:2: rule__Primitive__NameAssignment_2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1870:1: ( rule__Primitive__NameAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1870:2: rule__Primitive__NameAssignment_2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__NameAssignment_2_in_rule__Primitive__Group__2__Impl3597);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__NameAssignment_2_in_rule__Primitive__Group__2__Impl3847);
             rule__Primitive__NameAssignment_2();
 
             state._fsp--;
@@ -4921,21 +5255,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1753:1: rule__Primitive__Group__3 : rule__Primitive__Group__3__Impl rule__Primitive__Group__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1880:1: rule__Primitive__Group__3 : rule__Primitive__Group__3__Impl rule__Primitive__Group__4 ;
     public final void rule__Primitive__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1757:1: ( rule__Primitive__Group__3__Impl rule__Primitive__Group__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1758:2: rule__Primitive__Group__3__Impl rule__Primitive__Group__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1884:1: ( rule__Primitive__Group__3__Impl rule__Primitive__Group__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1885:2: rule__Primitive__Group__3__Impl rule__Primitive__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__3__Impl_in_rule__Primitive__Group__33627);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__3__Impl_in_rule__Primitive__Group__33877);
             rule__Primitive__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__4_in_rule__Primitive__Group__33630);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__4_in_rule__Primitive__Group__33880);
             rule__Primitive__Group__4();
 
             state._fsp--;
@@ -4959,20 +5293,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1765:1: rule__Primitive__Group__3__Impl : ( ':' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1892:1: rule__Primitive__Group__3__Impl : ( ':' ) ;
     public final void rule__Primitive__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1769:1: ( ( ':' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1770:1: ( ':' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1896:1: ( ( ':' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1897:1: ( ':' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1770:1: ( ':' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1771:1: ':'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1897:1: ( ':' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1898:1: ':'
             {
              before(grammarAccess.getPrimitiveAccess().getColonKeyword_3()); 
-            match(input,41,FollowSets000.FOLLOW_41_in_rule__Primitive__Group__3__Impl3658); 
+            match(input,31,FollowSets000.FOLLOW_31_in_rule__Primitive__Group__3__Impl3908); 
              after(grammarAccess.getPrimitiveAccess().getColonKeyword_3()); 
 
             }
@@ -4996,16 +5330,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1784:1: rule__Primitive__Group__4 : rule__Primitive__Group__4__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1911:1: rule__Primitive__Group__4 : rule__Primitive__Group__4__Impl ;
     public final void rule__Primitive__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1788:1: ( rule__Primitive__Group__4__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1789:2: rule__Primitive__Group__4__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1915:1: ( rule__Primitive__Group__4__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1916:2: rule__Primitive__Group__4__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__4__Impl_in_rule__Primitive__Group__43689);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__Group__4__Impl_in_rule__Primitive__Group__43939);
             rule__Primitive__Group__4__Impl();
 
             state._fsp--;
@@ -5029,23 +5363,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__Group__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1795:1: rule__Primitive__Group__4__Impl : ( ( rule__Primitive__TypeAssignment_4 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1922:1: rule__Primitive__Group__4__Impl : ( ( rule__Primitive__TypeAssignment_4 ) ) ;
     public final void rule__Primitive__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1799:1: ( ( ( rule__Primitive__TypeAssignment_4 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1800:1: ( ( rule__Primitive__TypeAssignment_4 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1926:1: ( ( ( rule__Primitive__TypeAssignment_4 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1927:1: ( ( rule__Primitive__TypeAssignment_4 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1800:1: ( ( rule__Primitive__TypeAssignment_4 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1801:1: ( rule__Primitive__TypeAssignment_4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1927:1: ( ( rule__Primitive__TypeAssignment_4 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1928:1: ( rule__Primitive__TypeAssignment_4 )
             {
              before(grammarAccess.getPrimitiveAccess().getTypeAssignment_4()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1802:1: ( rule__Primitive__TypeAssignment_4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1802:2: rule__Primitive__TypeAssignment_4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1929:1: ( rule__Primitive__TypeAssignment_4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1929:2: rule__Primitive__TypeAssignment_4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Primitive__TypeAssignment_4_in_rule__Primitive__Group__4__Impl3716);
+            pushFollow(FollowSets000.FOLLOW_rule__Primitive__TypeAssignment_4_in_rule__Primitive__Group__4__Impl3966);
             rule__Primitive__TypeAssignment_4();
 
             state._fsp--;
@@ -5076,21 +5410,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1822:1: rule__Reference__Group__0 : rule__Reference__Group__0__Impl rule__Reference__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1949:1: rule__Reference__Group__0 : rule__Reference__Group__0__Impl rule__Reference__Group__1 ;
     public final void rule__Reference__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1826:1: ( rule__Reference__Group__0__Impl rule__Reference__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1827:2: rule__Reference__Group__0__Impl rule__Reference__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1953:1: ( rule__Reference__Group__0__Impl rule__Reference__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1954:2: rule__Reference__Group__0__Impl rule__Reference__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__0__Impl_in_rule__Reference__Group__03756);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__0__Impl_in_rule__Reference__Group__04006);
             rule__Reference__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__1_in_rule__Reference__Group__03759);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__1_in_rule__Reference__Group__04009);
             rule__Reference__Group__1();
 
             state._fsp--;
@@ -5114,20 +5448,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1834:1: rule__Reference__Group__0__Impl : ( 'ref' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1961:1: rule__Reference__Group__0__Impl : ( 'ref' ) ;
     public final void rule__Reference__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1838:1: ( ( 'ref' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1839:1: ( 'ref' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1965:1: ( ( 'ref' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1966:1: ( 'ref' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1839:1: ( 'ref' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1840:1: 'ref'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1966:1: ( 'ref' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1967:1: 'ref'
             {
              before(grammarAccess.getReferenceAccess().getRefKeyword_0()); 
-            match(input,42,FollowSets000.FOLLOW_42_in_rule__Reference__Group__0__Impl3787); 
+            match(input,43,FollowSets000.FOLLOW_43_in_rule__Reference__Group__0__Impl4037); 
              after(grammarAccess.getReferenceAccess().getRefKeyword_0()); 
 
             }
@@ -5151,21 +5485,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1853:1: rule__Reference__Group__1 : rule__Reference__Group__1__Impl rule__Reference__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1980:1: rule__Reference__Group__1 : rule__Reference__Group__1__Impl rule__Reference__Group__2 ;
     public final void rule__Reference__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1857:1: ( rule__Reference__Group__1__Impl rule__Reference__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1858:2: rule__Reference__Group__1__Impl rule__Reference__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1984:1: ( rule__Reference__Group__1__Impl rule__Reference__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1985:2: rule__Reference__Group__1__Impl rule__Reference__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__1__Impl_in_rule__Reference__Group__13818);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__1__Impl_in_rule__Reference__Group__14068);
             rule__Reference__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__2_in_rule__Reference__Group__13821);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__2_in_rule__Reference__Group__14071);
             rule__Reference__Group__2();
 
             state._fsp--;
@@ -5189,31 +5523,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1865:1: rule__Reference__Group__1__Impl : ( ( rule__Reference__ManyAssignment_1 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1992:1: rule__Reference__Group__1__Impl : ( ( rule__Reference__ManyAssignment_1 )? ) ;
     public final void rule__Reference__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1869:1: ( ( ( rule__Reference__ManyAssignment_1 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1870:1: ( ( rule__Reference__ManyAssignment_1 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1996:1: ( ( ( rule__Reference__ManyAssignment_1 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1997:1: ( ( rule__Reference__ManyAssignment_1 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1870:1: ( ( rule__Reference__ManyAssignment_1 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1871:1: ( rule__Reference__ManyAssignment_1 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1997:1: ( ( rule__Reference__ManyAssignment_1 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1998:1: ( rule__Reference__ManyAssignment_1 )?
             {
              before(grammarAccess.getReferenceAccess().getManyAssignment_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1872:1: ( rule__Reference__ManyAssignment_1 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1999:1: ( rule__Reference__ManyAssignment_1 )?
+            int alt19=2;
+            int LA19_0 = input.LA(1);
 
-            if ( (LA18_0==51) ) {
-                alt18=1;
+            if ( (LA19_0==52) ) {
+                alt19=1;
             }
-            switch (alt18) {
+            switch (alt19) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1872:2: rule__Reference__ManyAssignment_1
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1999:2: rule__Reference__ManyAssignment_1
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Reference__ManyAssignment_1_in_rule__Reference__Group__1__Impl3848);
+                    pushFollow(FollowSets000.FOLLOW_rule__Reference__ManyAssignment_1_in_rule__Reference__Group__1__Impl4098);
                     rule__Reference__ManyAssignment_1();
 
                     state._fsp--;
@@ -5247,21 +5581,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1882:1: rule__Reference__Group__2 : rule__Reference__Group__2__Impl rule__Reference__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2009:1: rule__Reference__Group__2 : rule__Reference__Group__2__Impl rule__Reference__Group__3 ;
     public final void rule__Reference__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1886:1: ( rule__Reference__Group__2__Impl rule__Reference__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1887:2: rule__Reference__Group__2__Impl rule__Reference__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2013:1: ( rule__Reference__Group__2__Impl rule__Reference__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2014:2: rule__Reference__Group__2__Impl rule__Reference__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__2__Impl_in_rule__Reference__Group__23879);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__2__Impl_in_rule__Reference__Group__24129);
             rule__Reference__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__3_in_rule__Reference__Group__23882);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__3_in_rule__Reference__Group__24132);
             rule__Reference__Group__3();
 
             state._fsp--;
@@ -5285,23 +5619,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1894:1: rule__Reference__Group__2__Impl : ( ( rule__Reference__NameAssignment_2 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2021:1: rule__Reference__Group__2__Impl : ( ( rule__Reference__NameAssignment_2 ) ) ;
     public final void rule__Reference__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1898:1: ( ( ( rule__Reference__NameAssignment_2 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1899:1: ( ( rule__Reference__NameAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2025:1: ( ( ( rule__Reference__NameAssignment_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2026:1: ( ( rule__Reference__NameAssignment_2 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1899:1: ( ( rule__Reference__NameAssignment_2 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1900:1: ( rule__Reference__NameAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2026:1: ( ( rule__Reference__NameAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2027:1: ( rule__Reference__NameAssignment_2 )
             {
              before(grammarAccess.getReferenceAccess().getNameAssignment_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1901:1: ( rule__Reference__NameAssignment_2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1901:2: rule__Reference__NameAssignment_2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2028:1: ( rule__Reference__NameAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2028:2: rule__Reference__NameAssignment_2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__NameAssignment_2_in_rule__Reference__Group__2__Impl3909);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__NameAssignment_2_in_rule__Reference__Group__2__Impl4159);
             rule__Reference__NameAssignment_2();
 
             state._fsp--;
@@ -5332,21 +5666,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1911:1: rule__Reference__Group__3 : rule__Reference__Group__3__Impl rule__Reference__Group__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2038:1: rule__Reference__Group__3 : rule__Reference__Group__3__Impl rule__Reference__Group__4 ;
     public final void rule__Reference__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1915:1: ( rule__Reference__Group__3__Impl rule__Reference__Group__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1916:2: rule__Reference__Group__3__Impl rule__Reference__Group__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2042:1: ( rule__Reference__Group__3__Impl rule__Reference__Group__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2043:2: rule__Reference__Group__3__Impl rule__Reference__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__3__Impl_in_rule__Reference__Group__33939);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__3__Impl_in_rule__Reference__Group__34189);
             rule__Reference__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__4_in_rule__Reference__Group__33942);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__4_in_rule__Reference__Group__34192);
             rule__Reference__Group__4();
 
             state._fsp--;
@@ -5370,20 +5704,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1923:1: rule__Reference__Group__3__Impl : ( ':' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2050:1: rule__Reference__Group__3__Impl : ( ':' ) ;
     public final void rule__Reference__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1927:1: ( ( ':' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1928:1: ( ':' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2054:1: ( ( ':' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2055:1: ( ':' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1928:1: ( ':' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1929:1: ':'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2055:1: ( ':' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2056:1: ':'
             {
              before(grammarAccess.getReferenceAccess().getColonKeyword_3()); 
-            match(input,41,FollowSets000.FOLLOW_41_in_rule__Reference__Group__3__Impl3970); 
+            match(input,31,FollowSets000.FOLLOW_31_in_rule__Reference__Group__3__Impl4220); 
              after(grammarAccess.getReferenceAccess().getColonKeyword_3()); 
 
             }
@@ -5407,16 +5741,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1942:1: rule__Reference__Group__4 : rule__Reference__Group__4__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2069:1: rule__Reference__Group__4 : rule__Reference__Group__4__Impl ;
     public final void rule__Reference__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1946:1: ( rule__Reference__Group__4__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1947:2: rule__Reference__Group__4__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2073:1: ( rule__Reference__Group__4__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2074:2: rule__Reference__Group__4__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__4__Impl_in_rule__Reference__Group__44001);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__Group__4__Impl_in_rule__Reference__Group__44251);
             rule__Reference__Group__4__Impl();
 
             state._fsp--;
@@ -5440,23 +5774,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__Group__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1953:1: rule__Reference__Group__4__Impl : ( ( rule__Reference__TypeAssignment_4 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2080:1: rule__Reference__Group__4__Impl : ( ( rule__Reference__TypeAssignment_4 ) ) ;
     public final void rule__Reference__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1957:1: ( ( ( rule__Reference__TypeAssignment_4 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1958:1: ( ( rule__Reference__TypeAssignment_4 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2084:1: ( ( ( rule__Reference__TypeAssignment_4 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2085:1: ( ( rule__Reference__TypeAssignment_4 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1958:1: ( ( rule__Reference__TypeAssignment_4 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1959:1: ( rule__Reference__TypeAssignment_4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2085:1: ( ( rule__Reference__TypeAssignment_4 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2086:1: ( rule__Reference__TypeAssignment_4 )
             {
              before(grammarAccess.getReferenceAccess().getTypeAssignment_4()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1960:1: ( rule__Reference__TypeAssignment_4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1960:2: rule__Reference__TypeAssignment_4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2087:1: ( rule__Reference__TypeAssignment_4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2087:2: rule__Reference__TypeAssignment_4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Reference__TypeAssignment_4_in_rule__Reference__Group__4__Impl4028);
+            pushFollow(FollowSets000.FOLLOW_rule__Reference__TypeAssignment_4_in_rule__Reference__Group__4__Impl4278);
             rule__Reference__TypeAssignment_4();
 
             state._fsp--;
@@ -5487,21 +5821,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1980:1: rule__ArtifactID__Group__0 : rule__ArtifactID__Group__0__Impl rule__ArtifactID__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2107:1: rule__ArtifactID__Group__0 : rule__ArtifactID__Group__0__Impl rule__ArtifactID__Group__1 ;
     public final void rule__ArtifactID__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1984:1: ( rule__ArtifactID__Group__0__Impl rule__ArtifactID__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1985:2: rule__ArtifactID__Group__0__Impl rule__ArtifactID__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2111:1: ( rule__ArtifactID__Group__0__Impl rule__ArtifactID__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2112:2: rule__ArtifactID__Group__0__Impl rule__ArtifactID__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__0__Impl_in_rule__ArtifactID__Group__04068);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__0__Impl_in_rule__ArtifactID__Group__04318);
             rule__ArtifactID__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__1_in_rule__ArtifactID__Group__04071);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__1_in_rule__ArtifactID__Group__04321);
             rule__ArtifactID__Group__1();
 
             state._fsp--;
@@ -5525,20 +5859,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1992:1: rule__ArtifactID__Group__0__Impl : ( 'id' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2119:1: rule__ArtifactID__Group__0__Impl : ( 'id' ) ;
     public final void rule__ArtifactID__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1996:1: ( ( 'id' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1997:1: ( 'id' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2123:1: ( ( 'id' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2124:1: ( 'id' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1997:1: ( 'id' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:1998:1: 'id'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2124:1: ( 'id' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2125:1: 'id'
             {
              before(grammarAccess.getArtifactIDAccess().getIdKeyword_0()); 
-            match(input,43,FollowSets000.FOLLOW_43_in_rule__ArtifactID__Group__0__Impl4099); 
+            match(input,44,FollowSets000.FOLLOW_44_in_rule__ArtifactID__Group__0__Impl4349); 
              after(grammarAccess.getArtifactIDAccess().getIdKeyword_0()); 
 
             }
@@ -5562,21 +5896,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2011:1: rule__ArtifactID__Group__1 : rule__ArtifactID__Group__1__Impl rule__ArtifactID__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2138:1: rule__ArtifactID__Group__1 : rule__ArtifactID__Group__1__Impl rule__ArtifactID__Group__2 ;
     public final void rule__ArtifactID__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2015:1: ( rule__ArtifactID__Group__1__Impl rule__ArtifactID__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2016:2: rule__ArtifactID__Group__1__Impl rule__ArtifactID__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2142:1: ( rule__ArtifactID__Group__1__Impl rule__ArtifactID__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2143:2: rule__ArtifactID__Group__1__Impl rule__ArtifactID__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__1__Impl_in_rule__ArtifactID__Group__14130);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__1__Impl_in_rule__ArtifactID__Group__14380);
             rule__ArtifactID__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__2_in_rule__ArtifactID__Group__14133);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__2_in_rule__ArtifactID__Group__14383);
             rule__ArtifactID__Group__2();
 
             state._fsp--;
@@ -5600,31 +5934,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2023:1: rule__ArtifactID__Group__1__Impl : ( ( rule__ArtifactID__ManyAssignment_1 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2150:1: rule__ArtifactID__Group__1__Impl : ( ( rule__ArtifactID__ManyAssignment_1 )? ) ;
     public final void rule__ArtifactID__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2027:1: ( ( ( rule__ArtifactID__ManyAssignment_1 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2028:1: ( ( rule__ArtifactID__ManyAssignment_1 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2154:1: ( ( ( rule__ArtifactID__ManyAssignment_1 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2155:1: ( ( rule__ArtifactID__ManyAssignment_1 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2028:1: ( ( rule__ArtifactID__ManyAssignment_1 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2029:1: ( rule__ArtifactID__ManyAssignment_1 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2155:1: ( ( rule__ArtifactID__ManyAssignment_1 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2156:1: ( rule__ArtifactID__ManyAssignment_1 )?
             {
              before(grammarAccess.getArtifactIDAccess().getManyAssignment_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2030:1: ( rule__ArtifactID__ManyAssignment_1 )?
-            int alt19=2;
-            int LA19_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2157:1: ( rule__ArtifactID__ManyAssignment_1 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA19_0==51) ) {
-                alt19=1;
+            if ( (LA20_0==52) ) {
+                alt20=1;
             }
-            switch (alt19) {
+            switch (alt20) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2030:2: rule__ArtifactID__ManyAssignment_1
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2157:2: rule__ArtifactID__ManyAssignment_1
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__ManyAssignment_1_in_rule__ArtifactID__Group__1__Impl4160);
+                    pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__ManyAssignment_1_in_rule__ArtifactID__Group__1__Impl4410);
                     rule__ArtifactID__ManyAssignment_1();
 
                     state._fsp--;
@@ -5658,21 +5992,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2040:1: rule__ArtifactID__Group__2 : rule__ArtifactID__Group__2__Impl rule__ArtifactID__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2167:1: rule__ArtifactID__Group__2 : rule__ArtifactID__Group__2__Impl rule__ArtifactID__Group__3 ;
     public final void rule__ArtifactID__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2044:1: ( rule__ArtifactID__Group__2__Impl rule__ArtifactID__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2045:2: rule__ArtifactID__Group__2__Impl rule__ArtifactID__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2171:1: ( rule__ArtifactID__Group__2__Impl rule__ArtifactID__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2172:2: rule__ArtifactID__Group__2__Impl rule__ArtifactID__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__2__Impl_in_rule__ArtifactID__Group__24191);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__2__Impl_in_rule__ArtifactID__Group__24441);
             rule__ArtifactID__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__3_in_rule__ArtifactID__Group__24194);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__3_in_rule__ArtifactID__Group__24444);
             rule__ArtifactID__Group__3();
 
             state._fsp--;
@@ -5696,23 +6030,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2052:1: rule__ArtifactID__Group__2__Impl : ( ( rule__ArtifactID__NameAssignment_2 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2179:1: rule__ArtifactID__Group__2__Impl : ( ( rule__ArtifactID__NameAssignment_2 ) ) ;
     public final void rule__ArtifactID__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2056:1: ( ( ( rule__ArtifactID__NameAssignment_2 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2057:1: ( ( rule__ArtifactID__NameAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2183:1: ( ( ( rule__ArtifactID__NameAssignment_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2184:1: ( ( rule__ArtifactID__NameAssignment_2 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2057:1: ( ( rule__ArtifactID__NameAssignment_2 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2058:1: ( rule__ArtifactID__NameAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2184:1: ( ( rule__ArtifactID__NameAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2185:1: ( rule__ArtifactID__NameAssignment_2 )
             {
              before(grammarAccess.getArtifactIDAccess().getNameAssignment_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2059:1: ( rule__ArtifactID__NameAssignment_2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2059:2: rule__ArtifactID__NameAssignment_2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2186:1: ( rule__ArtifactID__NameAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2186:2: rule__ArtifactID__NameAssignment_2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__NameAssignment_2_in_rule__ArtifactID__Group__2__Impl4221);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__NameAssignment_2_in_rule__ArtifactID__Group__2__Impl4471);
             rule__ArtifactID__NameAssignment_2();
 
             state._fsp--;
@@ -5743,21 +6077,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2069:1: rule__ArtifactID__Group__3 : rule__ArtifactID__Group__3__Impl rule__ArtifactID__Group__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2196:1: rule__ArtifactID__Group__3 : rule__ArtifactID__Group__3__Impl rule__ArtifactID__Group__4 ;
     public final void rule__ArtifactID__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2073:1: ( rule__ArtifactID__Group__3__Impl rule__ArtifactID__Group__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2074:2: rule__ArtifactID__Group__3__Impl rule__ArtifactID__Group__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2200:1: ( rule__ArtifactID__Group__3__Impl rule__ArtifactID__Group__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2201:2: rule__ArtifactID__Group__3__Impl rule__ArtifactID__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__3__Impl_in_rule__ArtifactID__Group__34251);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__3__Impl_in_rule__ArtifactID__Group__34501);
             rule__ArtifactID__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__4_in_rule__ArtifactID__Group__34254);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__4_in_rule__ArtifactID__Group__34504);
             rule__ArtifactID__Group__4();
 
             state._fsp--;
@@ -5781,20 +6115,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2081:1: rule__ArtifactID__Group__3__Impl : ( ':' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2208:1: rule__ArtifactID__Group__3__Impl : ( ':' ) ;
     public final void rule__ArtifactID__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2085:1: ( ( ':' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2086:1: ( ':' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2212:1: ( ( ':' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2213:1: ( ':' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2086:1: ( ':' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2087:1: ':'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2213:1: ( ':' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2214:1: ':'
             {
              before(grammarAccess.getArtifactIDAccess().getColonKeyword_3()); 
-            match(input,41,FollowSets000.FOLLOW_41_in_rule__ArtifactID__Group__3__Impl4282); 
+            match(input,31,FollowSets000.FOLLOW_31_in_rule__ArtifactID__Group__3__Impl4532); 
              after(grammarAccess.getArtifactIDAccess().getColonKeyword_3()); 
 
             }
@@ -5818,16 +6152,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2100:1: rule__ArtifactID__Group__4 : rule__ArtifactID__Group__4__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2227:1: rule__ArtifactID__Group__4 : rule__ArtifactID__Group__4__Impl ;
     public final void rule__ArtifactID__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2104:1: ( rule__ArtifactID__Group__4__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2105:2: rule__ArtifactID__Group__4__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2231:1: ( rule__ArtifactID__Group__4__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2232:2: rule__ArtifactID__Group__4__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__4__Impl_in_rule__ArtifactID__Group__44313);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__Group__4__Impl_in_rule__ArtifactID__Group__44563);
             rule__ArtifactID__Group__4__Impl();
 
             state._fsp--;
@@ -5851,23 +6185,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__Group__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2111:1: rule__ArtifactID__Group__4__Impl : ( ( rule__ArtifactID__TypeAssignment_4 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2238:1: rule__ArtifactID__Group__4__Impl : ( ( rule__ArtifactID__TypeAssignment_4 ) ) ;
     public final void rule__ArtifactID__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2115:1: ( ( ( rule__ArtifactID__TypeAssignment_4 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2116:1: ( ( rule__ArtifactID__TypeAssignment_4 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2242:1: ( ( ( rule__ArtifactID__TypeAssignment_4 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2243:1: ( ( rule__ArtifactID__TypeAssignment_4 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2116:1: ( ( rule__ArtifactID__TypeAssignment_4 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2117:1: ( rule__ArtifactID__TypeAssignment_4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2243:1: ( ( rule__ArtifactID__TypeAssignment_4 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2244:1: ( rule__ArtifactID__TypeAssignment_4 )
             {
              before(grammarAccess.getArtifactIDAccess().getTypeAssignment_4()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2118:1: ( rule__ArtifactID__TypeAssignment_4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2118:2: rule__ArtifactID__TypeAssignment_4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2245:1: ( rule__ArtifactID__TypeAssignment_4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2245:2: rule__ArtifactID__TypeAssignment_4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__TypeAssignment_4_in_rule__ArtifactID__Group__4__Impl4340);
+            pushFollow(FollowSets000.FOLLOW_rule__ArtifactID__TypeAssignment_4_in_rule__ArtifactID__Group__4__Impl4590);
             rule__ArtifactID__TypeAssignment_4();
 
             state._fsp--;
@@ -5898,21 +6232,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2138:1: rule__OnService__Group__0 : rule__OnService__Group__0__Impl rule__OnService__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2265:1: rule__OnService__Group__0 : rule__OnService__Group__0__Impl rule__OnService__Group__1 ;
     public final void rule__OnService__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2142:1: ( rule__OnService__Group__0__Impl rule__OnService__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2143:2: rule__OnService__Group__0__Impl rule__OnService__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2269:1: ( rule__OnService__Group__0__Impl rule__OnService__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2270:2: rule__OnService__Group__0__Impl rule__OnService__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__0__Impl_in_rule__OnService__Group__04380);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__0__Impl_in_rule__OnService__Group__04630);
             rule__OnService__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__1_in_rule__OnService__Group__04383);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__1_in_rule__OnService__Group__04633);
             rule__OnService__Group__1();
 
             state._fsp--;
@@ -5936,23 +6270,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2150:1: rule__OnService__Group__0__Impl : ( ( rule__OnService__ArtifactAssignment_0 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2277:1: rule__OnService__Group__0__Impl : ( ( rule__OnService__ArtifactAssignment_0 ) ) ;
     public final void rule__OnService__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2154:1: ( ( ( rule__OnService__ArtifactAssignment_0 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2155:1: ( ( rule__OnService__ArtifactAssignment_0 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2281:1: ( ( ( rule__OnService__ArtifactAssignment_0 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2282:1: ( ( rule__OnService__ArtifactAssignment_0 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2155:1: ( ( rule__OnService__ArtifactAssignment_0 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2156:1: ( rule__OnService__ArtifactAssignment_0 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2282:1: ( ( rule__OnService__ArtifactAssignment_0 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2283:1: ( rule__OnService__ArtifactAssignment_0 )
             {
              before(grammarAccess.getOnServiceAccess().getArtifactAssignment_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2157:1: ( rule__OnService__ArtifactAssignment_0 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2157:2: rule__OnService__ArtifactAssignment_0
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2284:1: ( rule__OnService__ArtifactAssignment_0 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2284:2: rule__OnService__ArtifactAssignment_0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__ArtifactAssignment_0_in_rule__OnService__Group__0__Impl4410);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__ArtifactAssignment_0_in_rule__OnService__Group__0__Impl4660);
             rule__OnService__ArtifactAssignment_0();
 
             state._fsp--;
@@ -5983,21 +6317,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2167:1: rule__OnService__Group__1 : rule__OnService__Group__1__Impl rule__OnService__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2294:1: rule__OnService__Group__1 : rule__OnService__Group__1__Impl rule__OnService__Group__2 ;
     public final void rule__OnService__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2171:1: ( rule__OnService__Group__1__Impl rule__OnService__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2172:2: rule__OnService__Group__1__Impl rule__OnService__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2298:1: ( rule__OnService__Group__1__Impl rule__OnService__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2299:2: rule__OnService__Group__1__Impl rule__OnService__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__1__Impl_in_rule__OnService__Group__14440);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__1__Impl_in_rule__OnService__Group__14690);
             rule__OnService__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__2_in_rule__OnService__Group__14443);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__2_in_rule__OnService__Group__14693);
             rule__OnService__Group__2();
 
             state._fsp--;
@@ -6021,20 +6355,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2179:1: rule__OnService__Group__1__Impl : ( '[' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2306:1: rule__OnService__Group__1__Impl : ( '[' ) ;
     public final void rule__OnService__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2183:1: ( ( '[' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2184:1: ( '[' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2310:1: ( ( '[' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2311:1: ( '[' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2184:1: ( '[' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2185:1: '['
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2311:1: ( '[' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2312:1: '['
             {
              before(grammarAccess.getOnServiceAccess().getLeftSquareBracketKeyword_1()); 
-            match(input,33,FollowSets000.FOLLOW_33_in_rule__OnService__Group__1__Impl4471); 
+            match(input,35,FollowSets000.FOLLOW_35_in_rule__OnService__Group__1__Impl4721); 
              after(grammarAccess.getOnServiceAccess().getLeftSquareBracketKeyword_1()); 
 
             }
@@ -6058,21 +6392,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2198:1: rule__OnService__Group__2 : rule__OnService__Group__2__Impl rule__OnService__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2325:1: rule__OnService__Group__2 : rule__OnService__Group__2__Impl rule__OnService__Group__3 ;
     public final void rule__OnService__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2202:1: ( rule__OnService__Group__2__Impl rule__OnService__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2203:2: rule__OnService__Group__2__Impl rule__OnService__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2329:1: ( rule__OnService__Group__2__Impl rule__OnService__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2330:2: rule__OnService__Group__2__Impl rule__OnService__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__2__Impl_in_rule__OnService__Group__24502);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__2__Impl_in_rule__OnService__Group__24752);
             rule__OnService__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__3_in_rule__OnService__Group__24505);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__3_in_rule__OnService__Group__24755);
             rule__OnService__Group__3();
 
             state._fsp--;
@@ -6096,23 +6430,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2210:1: rule__OnService__Group__2__Impl : ( ( rule__OnService__WhenServicesAssignment_2 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2337:1: rule__OnService__Group__2__Impl : ( ( rule__OnService__WhenServicesAssignment_2 ) ) ;
     public final void rule__OnService__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2214:1: ( ( ( rule__OnService__WhenServicesAssignment_2 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2215:1: ( ( rule__OnService__WhenServicesAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2341:1: ( ( ( rule__OnService__WhenServicesAssignment_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2342:1: ( ( rule__OnService__WhenServicesAssignment_2 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2215:1: ( ( rule__OnService__WhenServicesAssignment_2 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2216:1: ( rule__OnService__WhenServicesAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2342:1: ( ( rule__OnService__WhenServicesAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2343:1: ( rule__OnService__WhenServicesAssignment_2 )
             {
              before(grammarAccess.getOnServiceAccess().getWhenServicesAssignment_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2217:1: ( rule__OnService__WhenServicesAssignment_2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2217:2: rule__OnService__WhenServicesAssignment_2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2344:1: ( rule__OnService__WhenServicesAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2344:2: rule__OnService__WhenServicesAssignment_2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__WhenServicesAssignment_2_in_rule__OnService__Group__2__Impl4532);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__WhenServicesAssignment_2_in_rule__OnService__Group__2__Impl4782);
             rule__OnService__WhenServicesAssignment_2();
 
             state._fsp--;
@@ -6143,21 +6477,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2227:1: rule__OnService__Group__3 : rule__OnService__Group__3__Impl rule__OnService__Group__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2354:1: rule__OnService__Group__3 : rule__OnService__Group__3__Impl rule__OnService__Group__4 ;
     public final void rule__OnService__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2231:1: ( rule__OnService__Group__3__Impl rule__OnService__Group__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2232:2: rule__OnService__Group__3__Impl rule__OnService__Group__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2358:1: ( rule__OnService__Group__3__Impl rule__OnService__Group__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2359:2: rule__OnService__Group__3__Impl rule__OnService__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__3__Impl_in_rule__OnService__Group__34562);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__3__Impl_in_rule__OnService__Group__34812);
             rule__OnService__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__4_in_rule__OnService__Group__34565);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__4_in_rule__OnService__Group__34815);
             rule__OnService__Group__4();
 
             state._fsp--;
@@ -6181,35 +6515,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2239:1: rule__OnService__Group__3__Impl : ( ( rule__OnService__Group_3__0 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2366:1: rule__OnService__Group__3__Impl : ( ( rule__OnService__Group_3__0 )* ) ;
     public final void rule__OnService__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2243:1: ( ( ( rule__OnService__Group_3__0 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2244:1: ( ( rule__OnService__Group_3__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2370:1: ( ( ( rule__OnService__Group_3__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2371:1: ( ( rule__OnService__Group_3__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2244:1: ( ( rule__OnService__Group_3__0 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2245:1: ( rule__OnService__Group_3__0 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2371:1: ( ( rule__OnService__Group_3__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2372:1: ( rule__OnService__Group_3__0 )*
             {
              before(grammarAccess.getOnServiceAccess().getGroup_3()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2246:1: ( rule__OnService__Group_3__0 )*
-            loop20:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2373:1: ( rule__OnService__Group_3__0 )*
+            loop21:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt21=2;
+                int LA21_0 = input.LA(1);
 
-                if ( (LA20_0==39) ) {
-                    alt20=1;
+                if ( (LA21_0==41) ) {
+                    alt21=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt21) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2246:2: rule__OnService__Group_3__0
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2373:2: rule__OnService__Group_3__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__OnService__Group_3__0_in_rule__OnService__Group__3__Impl4592);
+            	    pushFollow(FollowSets000.FOLLOW_rule__OnService__Group_3__0_in_rule__OnService__Group__3__Impl4842);
             	    rule__OnService__Group_3__0();
 
             	    state._fsp--;
@@ -6219,7 +6553,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop21;
                 }
             } while (true);
 
@@ -6246,16 +6580,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2256:1: rule__OnService__Group__4 : rule__OnService__Group__4__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2383:1: rule__OnService__Group__4 : rule__OnService__Group__4__Impl ;
     public final void rule__OnService__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2260:1: ( rule__OnService__Group__4__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2261:2: rule__OnService__Group__4__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2387:1: ( rule__OnService__Group__4__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2388:2: rule__OnService__Group__4__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__4__Impl_in_rule__OnService__Group__44623);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group__4__Impl_in_rule__OnService__Group__44873);
             rule__OnService__Group__4__Impl();
 
             state._fsp--;
@@ -6279,20 +6613,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2267:1: rule__OnService__Group__4__Impl : ( ']' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2394:1: rule__OnService__Group__4__Impl : ( ']' ) ;
     public final void rule__OnService__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2271:1: ( ( ']' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2272:1: ( ']' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2398:1: ( ( ']' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2399:1: ( ']' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2272:1: ( ']' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2273:1: ']'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2399:1: ( ']' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2400:1: ']'
             {
              before(grammarAccess.getOnServiceAccess().getRightSquareBracketKeyword_4()); 
-            match(input,34,FollowSets000.FOLLOW_34_in_rule__OnService__Group__4__Impl4651); 
+            match(input,36,FollowSets000.FOLLOW_36_in_rule__OnService__Group__4__Impl4901); 
              after(grammarAccess.getOnServiceAccess().getRightSquareBracketKeyword_4()); 
 
             }
@@ -6316,21 +6650,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group_3__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2296:1: rule__OnService__Group_3__0 : rule__OnService__Group_3__0__Impl rule__OnService__Group_3__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2423:1: rule__OnService__Group_3__0 : rule__OnService__Group_3__0__Impl rule__OnService__Group_3__1 ;
     public final void rule__OnService__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2300:1: ( rule__OnService__Group_3__0__Impl rule__OnService__Group_3__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2301:2: rule__OnService__Group_3__0__Impl rule__OnService__Group_3__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2427:1: ( rule__OnService__Group_3__0__Impl rule__OnService__Group_3__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2428:2: rule__OnService__Group_3__0__Impl rule__OnService__Group_3__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group_3__0__Impl_in_rule__OnService__Group_3__04692);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group_3__0__Impl_in_rule__OnService__Group_3__04942);
             rule__OnService__Group_3__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group_3__1_in_rule__OnService__Group_3__04695);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group_3__1_in_rule__OnService__Group_3__04945);
             rule__OnService__Group_3__1();
 
             state._fsp--;
@@ -6354,20 +6688,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group_3__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2308:1: rule__OnService__Group_3__0__Impl : ( ',' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2435:1: rule__OnService__Group_3__0__Impl : ( ',' ) ;
     public final void rule__OnService__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2312:1: ( ( ',' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2313:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2439:1: ( ( ',' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2440:1: ( ',' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2313:1: ( ',' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2314:1: ','
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2440:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2441:1: ','
             {
              before(grammarAccess.getOnServiceAccess().getCommaKeyword_3_0()); 
-            match(input,39,FollowSets000.FOLLOW_39_in_rule__OnService__Group_3__0__Impl4723); 
+            match(input,41,FollowSets000.FOLLOW_41_in_rule__OnService__Group_3__0__Impl4973); 
              after(grammarAccess.getOnServiceAccess().getCommaKeyword_3_0()); 
 
             }
@@ -6391,16 +6725,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group_3__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2327:1: rule__OnService__Group_3__1 : rule__OnService__Group_3__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2454:1: rule__OnService__Group_3__1 : rule__OnService__Group_3__1__Impl ;
     public final void rule__OnService__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2331:1: ( rule__OnService__Group_3__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2332:2: rule__OnService__Group_3__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2458:1: ( rule__OnService__Group_3__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2459:2: rule__OnService__Group_3__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group_3__1__Impl_in_rule__OnService__Group_3__14754);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__Group_3__1__Impl_in_rule__OnService__Group_3__15004);
             rule__OnService__Group_3__1__Impl();
 
             state._fsp--;
@@ -6424,23 +6758,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__Group_3__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2338:1: rule__OnService__Group_3__1__Impl : ( ( rule__OnService__WhenServicesAssignment_3_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2465:1: rule__OnService__Group_3__1__Impl : ( ( rule__OnService__WhenServicesAssignment_3_1 ) ) ;
     public final void rule__OnService__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2342:1: ( ( ( rule__OnService__WhenServicesAssignment_3_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2343:1: ( ( rule__OnService__WhenServicesAssignment_3_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2469:1: ( ( ( rule__OnService__WhenServicesAssignment_3_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2470:1: ( ( rule__OnService__WhenServicesAssignment_3_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2343:1: ( ( rule__OnService__WhenServicesAssignment_3_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2344:1: ( rule__OnService__WhenServicesAssignment_3_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2470:1: ( ( rule__OnService__WhenServicesAssignment_3_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2471:1: ( rule__OnService__WhenServicesAssignment_3_1 )
             {
              before(grammarAccess.getOnServiceAccess().getWhenServicesAssignment_3_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2345:1: ( rule__OnService__WhenServicesAssignment_3_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2345:2: rule__OnService__WhenServicesAssignment_3_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2472:1: ( rule__OnService__WhenServicesAssignment_3_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2472:2: rule__OnService__WhenServicesAssignment_3_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__OnService__WhenServicesAssignment_3_1_in_rule__OnService__Group_3__1__Impl4781);
+            pushFollow(FollowSets000.FOLLOW_rule__OnService__WhenServicesAssignment_3_1_in_rule__OnService__Group_3__1__Impl5031);
             rule__OnService__WhenServicesAssignment_3_1();
 
             state._fsp--;
@@ -6471,21 +6805,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2359:1: rule__SimpleService__Group__0 : rule__SimpleService__Group__0__Impl rule__SimpleService__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2486:1: rule__SimpleService__Group__0 : rule__SimpleService__Group__0__Impl rule__SimpleService__Group__1 ;
     public final void rule__SimpleService__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2363:1: ( rule__SimpleService__Group__0__Impl rule__SimpleService__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2364:2: rule__SimpleService__Group__0__Impl rule__SimpleService__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2490:1: ( rule__SimpleService__Group__0__Impl rule__SimpleService__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2491:2: rule__SimpleService__Group__0__Impl rule__SimpleService__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__0__Impl_in_rule__SimpleService__Group__04815);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__0__Impl_in_rule__SimpleService__Group__05065);
             rule__SimpleService__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__1_in_rule__SimpleService__Group__04818);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__1_in_rule__SimpleService__Group__05068);
             rule__SimpleService__Group__1();
 
             state._fsp--;
@@ -6509,21 +6843,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2371:1: rule__SimpleService__Group__0__Impl : ( () ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2498:1: rule__SimpleService__Group__0__Impl : ( () ) ;
     public final void rule__SimpleService__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2375:1: ( ( () ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2376:1: ( () )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2502:1: ( ( () ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2503:1: ( () )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2376:1: ( () )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2377:1: ()
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2503:1: ( () )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2504:1: ()
             {
              before(grammarAccess.getSimpleServiceAccess().getSimpleServiceAction_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2378:1: ()
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2380:1: 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2505:1: ()
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2507:1: 
             {
             }
 
@@ -6546,21 +6880,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2390:1: rule__SimpleService__Group__1 : rule__SimpleService__Group__1__Impl rule__SimpleService__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2517:1: rule__SimpleService__Group__1 : rule__SimpleService__Group__1__Impl rule__SimpleService__Group__2 ;
     public final void rule__SimpleService__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2394:1: ( rule__SimpleService__Group__1__Impl rule__SimpleService__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2395:2: rule__SimpleService__Group__1__Impl rule__SimpleService__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2521:1: ( rule__SimpleService__Group__1__Impl rule__SimpleService__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2522:2: rule__SimpleService__Group__1__Impl rule__SimpleService__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__1__Impl_in_rule__SimpleService__Group__14876);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__1__Impl_in_rule__SimpleService__Group__15126);
             rule__SimpleService__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__2_in_rule__SimpleService__Group__14879);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__2_in_rule__SimpleService__Group__15129);
             rule__SimpleService__Group__2();
 
             state._fsp--;
@@ -6584,20 +6918,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2402:1: rule__SimpleService__Group__1__Impl : ( 'Service' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2529:1: rule__SimpleService__Group__1__Impl : ( 'Service' ) ;
     public final void rule__SimpleService__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2406:1: ( ( 'Service' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2407:1: ( 'Service' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2533:1: ( ( 'Service' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2534:1: ( 'Service' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2407:1: ( 'Service' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2408:1: 'Service'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2534:1: ( 'Service' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2535:1: 'Service'
             {
              before(grammarAccess.getSimpleServiceAccess().getServiceKeyword_1()); 
-            match(input,44,FollowSets000.FOLLOW_44_in_rule__SimpleService__Group__1__Impl4907); 
+            match(input,45,FollowSets000.FOLLOW_45_in_rule__SimpleService__Group__1__Impl5157); 
              after(grammarAccess.getSimpleServiceAccess().getServiceKeyword_1()); 
 
             }
@@ -6621,21 +6955,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2421:1: rule__SimpleService__Group__2 : rule__SimpleService__Group__2__Impl rule__SimpleService__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2548:1: rule__SimpleService__Group__2 : rule__SimpleService__Group__2__Impl rule__SimpleService__Group__3 ;
     public final void rule__SimpleService__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2425:1: ( rule__SimpleService__Group__2__Impl rule__SimpleService__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2426:2: rule__SimpleService__Group__2__Impl rule__SimpleService__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2552:1: ( rule__SimpleService__Group__2__Impl rule__SimpleService__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2553:2: rule__SimpleService__Group__2__Impl rule__SimpleService__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__2__Impl_in_rule__SimpleService__Group__24938);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__2__Impl_in_rule__SimpleService__Group__25188);
             rule__SimpleService__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__3_in_rule__SimpleService__Group__24941);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__3_in_rule__SimpleService__Group__25191);
             rule__SimpleService__Group__3();
 
             state._fsp--;
@@ -6659,23 +6993,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2433:1: rule__SimpleService__Group__2__Impl : ( ( rule__SimpleService__NameAssignment_2 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2560:1: rule__SimpleService__Group__2__Impl : ( ( rule__SimpleService__NameAssignment_2 ) ) ;
     public final void rule__SimpleService__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2437:1: ( ( ( rule__SimpleService__NameAssignment_2 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2438:1: ( ( rule__SimpleService__NameAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2564:1: ( ( ( rule__SimpleService__NameAssignment_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2565:1: ( ( rule__SimpleService__NameAssignment_2 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2438:1: ( ( rule__SimpleService__NameAssignment_2 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2439:1: ( rule__SimpleService__NameAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2565:1: ( ( rule__SimpleService__NameAssignment_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2566:1: ( rule__SimpleService__NameAssignment_2 )
             {
              before(grammarAccess.getSimpleServiceAccess().getNameAssignment_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2440:1: ( rule__SimpleService__NameAssignment_2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2440:2: rule__SimpleService__NameAssignment_2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2567:1: ( rule__SimpleService__NameAssignment_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2567:2: rule__SimpleService__NameAssignment_2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__NameAssignment_2_in_rule__SimpleService__Group__2__Impl4968);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__NameAssignment_2_in_rule__SimpleService__Group__2__Impl5218);
             rule__SimpleService__NameAssignment_2();
 
             state._fsp--;
@@ -6706,21 +7040,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2450:1: rule__SimpleService__Group__3 : rule__SimpleService__Group__3__Impl rule__SimpleService__Group__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2577:1: rule__SimpleService__Group__3 : rule__SimpleService__Group__3__Impl rule__SimpleService__Group__4 ;
     public final void rule__SimpleService__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2454:1: ( rule__SimpleService__Group__3__Impl rule__SimpleService__Group__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2455:2: rule__SimpleService__Group__3__Impl rule__SimpleService__Group__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2581:1: ( rule__SimpleService__Group__3__Impl rule__SimpleService__Group__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2582:2: rule__SimpleService__Group__3__Impl rule__SimpleService__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__3__Impl_in_rule__SimpleService__Group__34998);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__3__Impl_in_rule__SimpleService__Group__35248);
             rule__SimpleService__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__4_in_rule__SimpleService__Group__35001);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__4_in_rule__SimpleService__Group__35251);
             rule__SimpleService__Group__4();
 
             state._fsp--;
@@ -6744,20 +7078,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2462:1: rule__SimpleService__Group__3__Impl : ( '{' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2589:1: rule__SimpleService__Group__3__Impl : ( '{' ) ;
     public final void rule__SimpleService__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2466:1: ( ( '{' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2467:1: ( '{' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2593:1: ( ( '{' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2594:1: ( '{' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2467:1: ( '{' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2468:1: '{'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2594:1: ( '{' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2595:1: '{'
             {
              before(grammarAccess.getSimpleServiceAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,31,FollowSets000.FOLLOW_31_in_rule__SimpleService__Group__3__Impl5029); 
+            match(input,33,FollowSets000.FOLLOW_33_in_rule__SimpleService__Group__3__Impl5279); 
              after(grammarAccess.getSimpleServiceAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -6781,21 +7115,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2481:1: rule__SimpleService__Group__4 : rule__SimpleService__Group__4__Impl rule__SimpleService__Group__5 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2608:1: rule__SimpleService__Group__4 : rule__SimpleService__Group__4__Impl rule__SimpleService__Group__5 ;
     public final void rule__SimpleService__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2485:1: ( rule__SimpleService__Group__4__Impl rule__SimpleService__Group__5 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2486:2: rule__SimpleService__Group__4__Impl rule__SimpleService__Group__5
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2612:1: ( rule__SimpleService__Group__4__Impl rule__SimpleService__Group__5 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2613:2: rule__SimpleService__Group__4__Impl rule__SimpleService__Group__5
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__4__Impl_in_rule__SimpleService__Group__45060);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__4__Impl_in_rule__SimpleService__Group__45310);
             rule__SimpleService__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__5_in_rule__SimpleService__Group__45063);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__5_in_rule__SimpleService__Group__45313);
             rule__SimpleService__Group__5();
 
             state._fsp--;
@@ -6819,31 +7153,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2493:1: rule__SimpleService__Group__4__Impl : ( ( rule__SimpleService__Group_4__0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2620:1: rule__SimpleService__Group__4__Impl : ( ( rule__SimpleService__Group_4__0 )? ) ;
     public final void rule__SimpleService__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2497:1: ( ( ( rule__SimpleService__Group_4__0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2498:1: ( ( rule__SimpleService__Group_4__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2624:1: ( ( ( rule__SimpleService__Group_4__0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2625:1: ( ( rule__SimpleService__Group_4__0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2498:1: ( ( rule__SimpleService__Group_4__0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2499:1: ( rule__SimpleService__Group_4__0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2625:1: ( ( rule__SimpleService__Group_4__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2626:1: ( rule__SimpleService__Group_4__0 )?
             {
              before(grammarAccess.getSimpleServiceAccess().getGroup_4()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2500:1: ( rule__SimpleService__Group_4__0 )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2627:1: ( rule__SimpleService__Group_4__0 )?
+            int alt22=2;
+            int LA22_0 = input.LA(1);
 
-            if ( (LA21_0==45) ) {
-                alt21=1;
+            if ( (LA22_0==46) ) {
+                alt22=1;
             }
-            switch (alt21) {
+            switch (alt22) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2500:2: rule__SimpleService__Group_4__0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2627:2: rule__SimpleService__Group_4__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__0_in_rule__SimpleService__Group__4__Impl5090);
+                    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__0_in_rule__SimpleService__Group__4__Impl5340);
                     rule__SimpleService__Group_4__0();
 
                     state._fsp--;
@@ -6877,21 +7211,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__5"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2510:1: rule__SimpleService__Group__5 : rule__SimpleService__Group__5__Impl rule__SimpleService__Group__6 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2637:1: rule__SimpleService__Group__5 : rule__SimpleService__Group__5__Impl rule__SimpleService__Group__6 ;
     public final void rule__SimpleService__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2514:1: ( rule__SimpleService__Group__5__Impl rule__SimpleService__Group__6 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2515:2: rule__SimpleService__Group__5__Impl rule__SimpleService__Group__6
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2641:1: ( rule__SimpleService__Group__5__Impl rule__SimpleService__Group__6 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2642:2: rule__SimpleService__Group__5__Impl rule__SimpleService__Group__6
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__5__Impl_in_rule__SimpleService__Group__55121);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__5__Impl_in_rule__SimpleService__Group__55371);
             rule__SimpleService__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__6_in_rule__SimpleService__Group__55124);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__6_in_rule__SimpleService__Group__55374);
             rule__SimpleService__Group__6();
 
             state._fsp--;
@@ -6915,31 +7249,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__5__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2522:1: rule__SimpleService__Group__5__Impl : ( ( rule__SimpleService__Group_5__0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2649:1: rule__SimpleService__Group__5__Impl : ( ( rule__SimpleService__Group_5__0 )? ) ;
     public final void rule__SimpleService__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2526:1: ( ( ( rule__SimpleService__Group_5__0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2527:1: ( ( rule__SimpleService__Group_5__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2653:1: ( ( ( rule__SimpleService__Group_5__0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2654:1: ( ( rule__SimpleService__Group_5__0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2527:1: ( ( rule__SimpleService__Group_5__0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2528:1: ( rule__SimpleService__Group_5__0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2654:1: ( ( rule__SimpleService__Group_5__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2655:1: ( rule__SimpleService__Group_5__0 )?
             {
              before(grammarAccess.getSimpleServiceAccess().getGroup_5()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2529:1: ( rule__SimpleService__Group_5__0 )?
-            int alt22=2;
-            int LA22_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2656:1: ( rule__SimpleService__Group_5__0 )?
+            int alt23=2;
+            int LA23_0 = input.LA(1);
 
-            if ( (LA22_0==46) ) {
-                alt22=1;
+            if ( (LA23_0==47) ) {
+                alt23=1;
             }
-            switch (alt22) {
+            switch (alt23) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2529:2: rule__SimpleService__Group_5__0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2656:2: rule__SimpleService__Group_5__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__0_in_rule__SimpleService__Group__5__Impl5151);
+                    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__0_in_rule__SimpleService__Group__5__Impl5401);
                     rule__SimpleService__Group_5__0();
 
                     state._fsp--;
@@ -6973,21 +7307,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__6"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2539:1: rule__SimpleService__Group__6 : rule__SimpleService__Group__6__Impl rule__SimpleService__Group__7 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2666:1: rule__SimpleService__Group__6 : rule__SimpleService__Group__6__Impl rule__SimpleService__Group__7 ;
     public final void rule__SimpleService__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2543:1: ( rule__SimpleService__Group__6__Impl rule__SimpleService__Group__7 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2544:2: rule__SimpleService__Group__6__Impl rule__SimpleService__Group__7
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2670:1: ( rule__SimpleService__Group__6__Impl rule__SimpleService__Group__7 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2671:2: rule__SimpleService__Group__6__Impl rule__SimpleService__Group__7
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__6__Impl_in_rule__SimpleService__Group__65182);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__6__Impl_in_rule__SimpleService__Group__65432);
             rule__SimpleService__Group__6__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__7_in_rule__SimpleService__Group__65185);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__7_in_rule__SimpleService__Group__65435);
             rule__SimpleService__Group__7();
 
             state._fsp--;
@@ -7011,35 +7345,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__6__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2551:1: rule__SimpleService__Group__6__Impl : ( ( rule__SimpleService__Group_6__0 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2678:1: rule__SimpleService__Group__6__Impl : ( ( rule__SimpleService__Group_6__0 )* ) ;
     public final void rule__SimpleService__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2555:1: ( ( ( rule__SimpleService__Group_6__0 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2556:1: ( ( rule__SimpleService__Group_6__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2682:1: ( ( ( rule__SimpleService__Group_6__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2683:1: ( ( rule__SimpleService__Group_6__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2556:1: ( ( rule__SimpleService__Group_6__0 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2557:1: ( rule__SimpleService__Group_6__0 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2683:1: ( ( rule__SimpleService__Group_6__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2684:1: ( rule__SimpleService__Group_6__0 )*
             {
              before(grammarAccess.getSimpleServiceAccess().getGroup_6()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2558:1: ( rule__SimpleService__Group_6__0 )*
-            loop23:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2685:1: ( rule__SimpleService__Group_6__0 )*
+            loop24:
             do {
-                int alt23=2;
-                int LA23_0 = input.LA(1);
+                int alt24=2;
+                int LA24_0 = input.LA(1);
 
-                if ( (LA23_0==47) ) {
-                    alt23=1;
+                if ( (LA24_0==48) ) {
+                    alt24=1;
                 }
 
 
-                switch (alt23) {
+                switch (alt24) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2558:2: rule__SimpleService__Group_6__0
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2685:2: rule__SimpleService__Group_6__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_6__0_in_rule__SimpleService__Group__6__Impl5212);
+            	    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_6__0_in_rule__SimpleService__Group__6__Impl5462);
             	    rule__SimpleService__Group_6__0();
 
             	    state._fsp--;
@@ -7049,7 +7383,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop23;
+            	    break loop24;
                 }
             } while (true);
 
@@ -7076,16 +7410,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__7"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2568:1: rule__SimpleService__Group__7 : rule__SimpleService__Group__7__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2695:1: rule__SimpleService__Group__7 : rule__SimpleService__Group__7__Impl ;
     public final void rule__SimpleService__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2572:1: ( rule__SimpleService__Group__7__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2573:2: rule__SimpleService__Group__7__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2699:1: ( rule__SimpleService__Group__7__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2700:2: rule__SimpleService__Group__7__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__7__Impl_in_rule__SimpleService__Group__75243);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group__7__Impl_in_rule__SimpleService__Group__75493);
             rule__SimpleService__Group__7__Impl();
 
             state._fsp--;
@@ -7109,20 +7443,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group__7__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2579:1: rule__SimpleService__Group__7__Impl : ( '}' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2706:1: rule__SimpleService__Group__7__Impl : ( '}' ) ;
     public final void rule__SimpleService__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2583:1: ( ( '}' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2584:1: ( '}' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2710:1: ( ( '}' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2711:1: ( '}' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2584:1: ( '}' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2585:1: '}'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2711:1: ( '}' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2712:1: '}'
             {
              before(grammarAccess.getSimpleServiceAccess().getRightCurlyBracketKeyword_7()); 
-            match(input,32,FollowSets000.FOLLOW_32_in_rule__SimpleService__Group__7__Impl5271); 
+            match(input,34,FollowSets000.FOLLOW_34_in_rule__SimpleService__Group__7__Impl5521); 
              after(grammarAccess.getSimpleServiceAccess().getRightCurlyBracketKeyword_7()); 
 
             }
@@ -7146,21 +7480,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2614:1: rule__SimpleService__Group_4__0 : rule__SimpleService__Group_4__0__Impl rule__SimpleService__Group_4__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2741:1: rule__SimpleService__Group_4__0 : rule__SimpleService__Group_4__0__Impl rule__SimpleService__Group_4__1 ;
     public final void rule__SimpleService__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2618:1: ( rule__SimpleService__Group_4__0__Impl rule__SimpleService__Group_4__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2619:2: rule__SimpleService__Group_4__0__Impl rule__SimpleService__Group_4__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2745:1: ( rule__SimpleService__Group_4__0__Impl rule__SimpleService__Group_4__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2746:2: rule__SimpleService__Group_4__0__Impl rule__SimpleService__Group_4__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__0__Impl_in_rule__SimpleService__Group_4__05318);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__0__Impl_in_rule__SimpleService__Group_4__05568);
             rule__SimpleService__Group_4__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__1_in_rule__SimpleService__Group_4__05321);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__1_in_rule__SimpleService__Group_4__05571);
             rule__SimpleService__Group_4__1();
 
             state._fsp--;
@@ -7184,20 +7518,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2626:1: rule__SimpleService__Group_4__0__Impl : ( 'input : ' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2753:1: rule__SimpleService__Group_4__0__Impl : ( 'input : ' ) ;
     public final void rule__SimpleService__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2630:1: ( ( 'input : ' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2631:1: ( 'input : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2757:1: ( ( 'input : ' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2758:1: ( 'input : ' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2631:1: ( 'input : ' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2632:1: 'input : '
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2758:1: ( 'input : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2759:1: 'input : '
             {
              before(grammarAccess.getSimpleServiceAccess().getInputKeyword_4_0()); 
-            match(input,45,FollowSets000.FOLLOW_45_in_rule__SimpleService__Group_4__0__Impl5349); 
+            match(input,46,FollowSets000.FOLLOW_46_in_rule__SimpleService__Group_4__0__Impl5599); 
              after(grammarAccess.getSimpleServiceAccess().getInputKeyword_4_0()); 
 
             }
@@ -7221,21 +7555,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2645:1: rule__SimpleService__Group_4__1 : rule__SimpleService__Group_4__1__Impl rule__SimpleService__Group_4__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2772:1: rule__SimpleService__Group_4__1 : rule__SimpleService__Group_4__1__Impl rule__SimpleService__Group_4__2 ;
     public final void rule__SimpleService__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2649:1: ( rule__SimpleService__Group_4__1__Impl rule__SimpleService__Group_4__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2650:2: rule__SimpleService__Group_4__1__Impl rule__SimpleService__Group_4__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2776:1: ( rule__SimpleService__Group_4__1__Impl rule__SimpleService__Group_4__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2777:2: rule__SimpleService__Group_4__1__Impl rule__SimpleService__Group_4__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__1__Impl_in_rule__SimpleService__Group_4__15380);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__1__Impl_in_rule__SimpleService__Group_4__15630);
             rule__SimpleService__Group_4__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__2_in_rule__SimpleService__Group_4__15383);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__2_in_rule__SimpleService__Group_4__15633);
             rule__SimpleService__Group_4__2();
 
             state._fsp--;
@@ -7259,23 +7593,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2657:1: rule__SimpleService__Group_4__1__Impl : ( ( rule__SimpleService__InputAssignment_4_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2784:1: rule__SimpleService__Group_4__1__Impl : ( ( rule__SimpleService__InputAssignment_4_1 ) ) ;
     public final void rule__SimpleService__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2661:1: ( ( ( rule__SimpleService__InputAssignment_4_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2662:1: ( ( rule__SimpleService__InputAssignment_4_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2788:1: ( ( ( rule__SimpleService__InputAssignment_4_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2789:1: ( ( rule__SimpleService__InputAssignment_4_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2662:1: ( ( rule__SimpleService__InputAssignment_4_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2663:1: ( rule__SimpleService__InputAssignment_4_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2789:1: ( ( rule__SimpleService__InputAssignment_4_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2790:1: ( rule__SimpleService__InputAssignment_4_1 )
             {
              before(grammarAccess.getSimpleServiceAccess().getInputAssignment_4_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2664:1: ( rule__SimpleService__InputAssignment_4_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2664:2: rule__SimpleService__InputAssignment_4_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2791:1: ( rule__SimpleService__InputAssignment_4_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2791:2: rule__SimpleService__InputAssignment_4_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__InputAssignment_4_1_in_rule__SimpleService__Group_4__1__Impl5410);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__InputAssignment_4_1_in_rule__SimpleService__Group_4__1__Impl5660);
             rule__SimpleService__InputAssignment_4_1();
 
             state._fsp--;
@@ -7306,16 +7640,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2674:1: rule__SimpleService__Group_4__2 : rule__SimpleService__Group_4__2__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2801:1: rule__SimpleService__Group_4__2 : rule__SimpleService__Group_4__2__Impl ;
     public final void rule__SimpleService__Group_4__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2678:1: ( rule__SimpleService__Group_4__2__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2679:2: rule__SimpleService__Group_4__2__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2805:1: ( rule__SimpleService__Group_4__2__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2806:2: rule__SimpleService__Group_4__2__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__2__Impl_in_rule__SimpleService__Group_4__25440);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4__2__Impl_in_rule__SimpleService__Group_4__25690);
             rule__SimpleService__Group_4__2__Impl();
 
             state._fsp--;
@@ -7339,35 +7673,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2685:1: rule__SimpleService__Group_4__2__Impl : ( ( rule__SimpleService__Group_4_2__0 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2812:1: rule__SimpleService__Group_4__2__Impl : ( ( rule__SimpleService__Group_4_2__0 )* ) ;
     public final void rule__SimpleService__Group_4__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2689:1: ( ( ( rule__SimpleService__Group_4_2__0 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2690:1: ( ( rule__SimpleService__Group_4_2__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2816:1: ( ( ( rule__SimpleService__Group_4_2__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2817:1: ( ( rule__SimpleService__Group_4_2__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2690:1: ( ( rule__SimpleService__Group_4_2__0 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2691:1: ( rule__SimpleService__Group_4_2__0 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2817:1: ( ( rule__SimpleService__Group_4_2__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2818:1: ( rule__SimpleService__Group_4_2__0 )*
             {
              before(grammarAccess.getSimpleServiceAccess().getGroup_4_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2692:1: ( rule__SimpleService__Group_4_2__0 )*
-            loop24:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2819:1: ( rule__SimpleService__Group_4_2__0 )*
+            loop25:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( (LA24_0==39) ) {
-                    alt24=1;
+                if ( (LA25_0==41) ) {
+                    alt25=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt25) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2692:2: rule__SimpleService__Group_4_2__0
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2819:2: rule__SimpleService__Group_4_2__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4_2__0_in_rule__SimpleService__Group_4__2__Impl5467);
+            	    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4_2__0_in_rule__SimpleService__Group_4__2__Impl5717);
             	    rule__SimpleService__Group_4_2__0();
 
             	    state._fsp--;
@@ -7377,7 +7711,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop25;
                 }
             } while (true);
 
@@ -7404,21 +7738,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4_2__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2708:1: rule__SimpleService__Group_4_2__0 : rule__SimpleService__Group_4_2__0__Impl rule__SimpleService__Group_4_2__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2835:1: rule__SimpleService__Group_4_2__0 : rule__SimpleService__Group_4_2__0__Impl rule__SimpleService__Group_4_2__1 ;
     public final void rule__SimpleService__Group_4_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2712:1: ( rule__SimpleService__Group_4_2__0__Impl rule__SimpleService__Group_4_2__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2713:2: rule__SimpleService__Group_4_2__0__Impl rule__SimpleService__Group_4_2__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2839:1: ( rule__SimpleService__Group_4_2__0__Impl rule__SimpleService__Group_4_2__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2840:2: rule__SimpleService__Group_4_2__0__Impl rule__SimpleService__Group_4_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4_2__0__Impl_in_rule__SimpleService__Group_4_2__05504);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4_2__0__Impl_in_rule__SimpleService__Group_4_2__05754);
             rule__SimpleService__Group_4_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4_2__1_in_rule__SimpleService__Group_4_2__05507);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4_2__1_in_rule__SimpleService__Group_4_2__05757);
             rule__SimpleService__Group_4_2__1();
 
             state._fsp--;
@@ -7442,20 +7776,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4_2__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2720:1: rule__SimpleService__Group_4_2__0__Impl : ( ',' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2847:1: rule__SimpleService__Group_4_2__0__Impl : ( ',' ) ;
     public final void rule__SimpleService__Group_4_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2724:1: ( ( ',' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2725:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2851:1: ( ( ',' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2852:1: ( ',' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2725:1: ( ',' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2726:1: ','
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2852:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2853:1: ','
             {
              before(grammarAccess.getSimpleServiceAccess().getCommaKeyword_4_2_0()); 
-            match(input,39,FollowSets000.FOLLOW_39_in_rule__SimpleService__Group_4_2__0__Impl5535); 
+            match(input,41,FollowSets000.FOLLOW_41_in_rule__SimpleService__Group_4_2__0__Impl5785); 
              after(grammarAccess.getSimpleServiceAccess().getCommaKeyword_4_2_0()); 
 
             }
@@ -7479,16 +7813,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4_2__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2739:1: rule__SimpleService__Group_4_2__1 : rule__SimpleService__Group_4_2__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2866:1: rule__SimpleService__Group_4_2__1 : rule__SimpleService__Group_4_2__1__Impl ;
     public final void rule__SimpleService__Group_4_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2743:1: ( rule__SimpleService__Group_4_2__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2744:2: rule__SimpleService__Group_4_2__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2870:1: ( rule__SimpleService__Group_4_2__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2871:2: rule__SimpleService__Group_4_2__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4_2__1__Impl_in_rule__SimpleService__Group_4_2__15566);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_4_2__1__Impl_in_rule__SimpleService__Group_4_2__15816);
             rule__SimpleService__Group_4_2__1__Impl();
 
             state._fsp--;
@@ -7512,23 +7846,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_4_2__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2750:1: rule__SimpleService__Group_4_2__1__Impl : ( ( rule__SimpleService__InputAssignment_4_2_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2877:1: rule__SimpleService__Group_4_2__1__Impl : ( ( rule__SimpleService__InputAssignment_4_2_1 ) ) ;
     public final void rule__SimpleService__Group_4_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2754:1: ( ( ( rule__SimpleService__InputAssignment_4_2_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2755:1: ( ( rule__SimpleService__InputAssignment_4_2_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2881:1: ( ( ( rule__SimpleService__InputAssignment_4_2_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2882:1: ( ( rule__SimpleService__InputAssignment_4_2_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2755:1: ( ( rule__SimpleService__InputAssignment_4_2_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2756:1: ( rule__SimpleService__InputAssignment_4_2_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2882:1: ( ( rule__SimpleService__InputAssignment_4_2_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2883:1: ( rule__SimpleService__InputAssignment_4_2_1 )
             {
              before(grammarAccess.getSimpleServiceAccess().getInputAssignment_4_2_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2757:1: ( rule__SimpleService__InputAssignment_4_2_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2757:2: rule__SimpleService__InputAssignment_4_2_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2884:1: ( rule__SimpleService__InputAssignment_4_2_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2884:2: rule__SimpleService__InputAssignment_4_2_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__InputAssignment_4_2_1_in_rule__SimpleService__Group_4_2__1__Impl5593);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__InputAssignment_4_2_1_in_rule__SimpleService__Group_4_2__1__Impl5843);
             rule__SimpleService__InputAssignment_4_2_1();
 
             state._fsp--;
@@ -7559,21 +7893,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2771:1: rule__SimpleService__Group_5__0 : rule__SimpleService__Group_5__0__Impl rule__SimpleService__Group_5__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2898:1: rule__SimpleService__Group_5__0 : rule__SimpleService__Group_5__0__Impl rule__SimpleService__Group_5__1 ;
     public final void rule__SimpleService__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2775:1: ( rule__SimpleService__Group_5__0__Impl rule__SimpleService__Group_5__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2776:2: rule__SimpleService__Group_5__0__Impl rule__SimpleService__Group_5__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2902:1: ( rule__SimpleService__Group_5__0__Impl rule__SimpleService__Group_5__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2903:2: rule__SimpleService__Group_5__0__Impl rule__SimpleService__Group_5__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__0__Impl_in_rule__SimpleService__Group_5__05627);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__0__Impl_in_rule__SimpleService__Group_5__05877);
             rule__SimpleService__Group_5__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__1_in_rule__SimpleService__Group_5__05630);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__1_in_rule__SimpleService__Group_5__05880);
             rule__SimpleService__Group_5__1();
 
             state._fsp--;
@@ -7597,20 +7931,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2783:1: rule__SimpleService__Group_5__0__Impl : ( 'output : ' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2910:1: rule__SimpleService__Group_5__0__Impl : ( 'output : ' ) ;
     public final void rule__SimpleService__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2787:1: ( ( 'output : ' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2788:1: ( 'output : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2914:1: ( ( 'output : ' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2915:1: ( 'output : ' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2788:1: ( 'output : ' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2789:1: 'output : '
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2915:1: ( 'output : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2916:1: 'output : '
             {
              before(grammarAccess.getSimpleServiceAccess().getOutputKeyword_5_0()); 
-            match(input,46,FollowSets000.FOLLOW_46_in_rule__SimpleService__Group_5__0__Impl5658); 
+            match(input,47,FollowSets000.FOLLOW_47_in_rule__SimpleService__Group_5__0__Impl5908); 
              after(grammarAccess.getSimpleServiceAccess().getOutputKeyword_5_0()); 
 
             }
@@ -7634,21 +7968,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2802:1: rule__SimpleService__Group_5__1 : rule__SimpleService__Group_5__1__Impl rule__SimpleService__Group_5__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2929:1: rule__SimpleService__Group_5__1 : rule__SimpleService__Group_5__1__Impl rule__SimpleService__Group_5__2 ;
     public final void rule__SimpleService__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2806:1: ( rule__SimpleService__Group_5__1__Impl rule__SimpleService__Group_5__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2807:2: rule__SimpleService__Group_5__1__Impl rule__SimpleService__Group_5__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2933:1: ( rule__SimpleService__Group_5__1__Impl rule__SimpleService__Group_5__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2934:2: rule__SimpleService__Group_5__1__Impl rule__SimpleService__Group_5__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__1__Impl_in_rule__SimpleService__Group_5__15689);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__1__Impl_in_rule__SimpleService__Group_5__15939);
             rule__SimpleService__Group_5__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__2_in_rule__SimpleService__Group_5__15692);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__2_in_rule__SimpleService__Group_5__15942);
             rule__SimpleService__Group_5__2();
 
             state._fsp--;
@@ -7672,23 +8006,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2814:1: rule__SimpleService__Group_5__1__Impl : ( ( rule__SimpleService__OutputAssignment_5_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2941:1: rule__SimpleService__Group_5__1__Impl : ( ( rule__SimpleService__OutputAssignment_5_1 ) ) ;
     public final void rule__SimpleService__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2818:1: ( ( ( rule__SimpleService__OutputAssignment_5_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2819:1: ( ( rule__SimpleService__OutputAssignment_5_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2945:1: ( ( ( rule__SimpleService__OutputAssignment_5_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2946:1: ( ( rule__SimpleService__OutputAssignment_5_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2819:1: ( ( rule__SimpleService__OutputAssignment_5_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2820:1: ( rule__SimpleService__OutputAssignment_5_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2946:1: ( ( rule__SimpleService__OutputAssignment_5_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2947:1: ( rule__SimpleService__OutputAssignment_5_1 )
             {
              before(grammarAccess.getSimpleServiceAccess().getOutputAssignment_5_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2821:1: ( rule__SimpleService__OutputAssignment_5_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2821:2: rule__SimpleService__OutputAssignment_5_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2948:1: ( rule__SimpleService__OutputAssignment_5_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2948:2: rule__SimpleService__OutputAssignment_5_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__OutputAssignment_5_1_in_rule__SimpleService__Group_5__1__Impl5719);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__OutputAssignment_5_1_in_rule__SimpleService__Group_5__1__Impl5969);
             rule__SimpleService__OutputAssignment_5_1();
 
             state._fsp--;
@@ -7719,16 +8053,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2831:1: rule__SimpleService__Group_5__2 : rule__SimpleService__Group_5__2__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2958:1: rule__SimpleService__Group_5__2 : rule__SimpleService__Group_5__2__Impl ;
     public final void rule__SimpleService__Group_5__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2835:1: ( rule__SimpleService__Group_5__2__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2836:2: rule__SimpleService__Group_5__2__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2962:1: ( rule__SimpleService__Group_5__2__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2963:2: rule__SimpleService__Group_5__2__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__2__Impl_in_rule__SimpleService__Group_5__25749);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5__2__Impl_in_rule__SimpleService__Group_5__25999);
             rule__SimpleService__Group_5__2__Impl();
 
             state._fsp--;
@@ -7752,35 +8086,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2842:1: rule__SimpleService__Group_5__2__Impl : ( ( rule__SimpleService__Group_5_2__0 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2969:1: rule__SimpleService__Group_5__2__Impl : ( ( rule__SimpleService__Group_5_2__0 )* ) ;
     public final void rule__SimpleService__Group_5__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2846:1: ( ( ( rule__SimpleService__Group_5_2__0 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2847:1: ( ( rule__SimpleService__Group_5_2__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2973:1: ( ( ( rule__SimpleService__Group_5_2__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2974:1: ( ( rule__SimpleService__Group_5_2__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2847:1: ( ( rule__SimpleService__Group_5_2__0 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2848:1: ( rule__SimpleService__Group_5_2__0 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2974:1: ( ( rule__SimpleService__Group_5_2__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2975:1: ( rule__SimpleService__Group_5_2__0 )*
             {
              before(grammarAccess.getSimpleServiceAccess().getGroup_5_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2849:1: ( rule__SimpleService__Group_5_2__0 )*
-            loop25:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2976:1: ( rule__SimpleService__Group_5_2__0 )*
+            loop26:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt26=2;
+                int LA26_0 = input.LA(1);
 
-                if ( (LA25_0==39) ) {
-                    alt25=1;
+                if ( (LA26_0==41) ) {
+                    alt26=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt26) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2849:2: rule__SimpleService__Group_5_2__0
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2976:2: rule__SimpleService__Group_5_2__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5_2__0_in_rule__SimpleService__Group_5__2__Impl5776);
+            	    pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5_2__0_in_rule__SimpleService__Group_5__2__Impl6026);
             	    rule__SimpleService__Group_5_2__0();
 
             	    state._fsp--;
@@ -7790,7 +8124,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop26;
                 }
             } while (true);
 
@@ -7817,21 +8151,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5_2__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2865:1: rule__SimpleService__Group_5_2__0 : rule__SimpleService__Group_5_2__0__Impl rule__SimpleService__Group_5_2__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2992:1: rule__SimpleService__Group_5_2__0 : rule__SimpleService__Group_5_2__0__Impl rule__SimpleService__Group_5_2__1 ;
     public final void rule__SimpleService__Group_5_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2869:1: ( rule__SimpleService__Group_5_2__0__Impl rule__SimpleService__Group_5_2__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2870:2: rule__SimpleService__Group_5_2__0__Impl rule__SimpleService__Group_5_2__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2996:1: ( rule__SimpleService__Group_5_2__0__Impl rule__SimpleService__Group_5_2__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2997:2: rule__SimpleService__Group_5_2__0__Impl rule__SimpleService__Group_5_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5_2__0__Impl_in_rule__SimpleService__Group_5_2__05813);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5_2__0__Impl_in_rule__SimpleService__Group_5_2__06063);
             rule__SimpleService__Group_5_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5_2__1_in_rule__SimpleService__Group_5_2__05816);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5_2__1_in_rule__SimpleService__Group_5_2__06066);
             rule__SimpleService__Group_5_2__1();
 
             state._fsp--;
@@ -7855,20 +8189,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5_2__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2877:1: rule__SimpleService__Group_5_2__0__Impl : ( ',' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3004:1: rule__SimpleService__Group_5_2__0__Impl : ( ',' ) ;
     public final void rule__SimpleService__Group_5_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2881:1: ( ( ',' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2882:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3008:1: ( ( ',' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3009:1: ( ',' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2882:1: ( ',' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2883:1: ','
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3009:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3010:1: ','
             {
              before(grammarAccess.getSimpleServiceAccess().getCommaKeyword_5_2_0()); 
-            match(input,39,FollowSets000.FOLLOW_39_in_rule__SimpleService__Group_5_2__0__Impl5844); 
+            match(input,41,FollowSets000.FOLLOW_41_in_rule__SimpleService__Group_5_2__0__Impl6094); 
              after(grammarAccess.getSimpleServiceAccess().getCommaKeyword_5_2_0()); 
 
             }
@@ -7892,16 +8226,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5_2__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2896:1: rule__SimpleService__Group_5_2__1 : rule__SimpleService__Group_5_2__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3023:1: rule__SimpleService__Group_5_2__1 : rule__SimpleService__Group_5_2__1__Impl ;
     public final void rule__SimpleService__Group_5_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2900:1: ( rule__SimpleService__Group_5_2__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2901:2: rule__SimpleService__Group_5_2__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3027:1: ( rule__SimpleService__Group_5_2__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3028:2: rule__SimpleService__Group_5_2__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5_2__1__Impl_in_rule__SimpleService__Group_5_2__15875);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_5_2__1__Impl_in_rule__SimpleService__Group_5_2__16125);
             rule__SimpleService__Group_5_2__1__Impl();
 
             state._fsp--;
@@ -7925,23 +8259,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_5_2__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2907:1: rule__SimpleService__Group_5_2__1__Impl : ( ( rule__SimpleService__OutputAssignment_5_2_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3034:1: rule__SimpleService__Group_5_2__1__Impl : ( ( rule__SimpleService__OutputAssignment_5_2_1 ) ) ;
     public final void rule__SimpleService__Group_5_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2911:1: ( ( ( rule__SimpleService__OutputAssignment_5_2_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2912:1: ( ( rule__SimpleService__OutputAssignment_5_2_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3038:1: ( ( ( rule__SimpleService__OutputAssignment_5_2_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3039:1: ( ( rule__SimpleService__OutputAssignment_5_2_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2912:1: ( ( rule__SimpleService__OutputAssignment_5_2_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2913:1: ( rule__SimpleService__OutputAssignment_5_2_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3039:1: ( ( rule__SimpleService__OutputAssignment_5_2_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3040:1: ( rule__SimpleService__OutputAssignment_5_2_1 )
             {
              before(grammarAccess.getSimpleServiceAccess().getOutputAssignment_5_2_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2914:1: ( rule__SimpleService__OutputAssignment_5_2_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2914:2: rule__SimpleService__OutputAssignment_5_2_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3041:1: ( rule__SimpleService__OutputAssignment_5_2_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3041:2: rule__SimpleService__OutputAssignment_5_2_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__OutputAssignment_5_2_1_in_rule__SimpleService__Group_5_2__1__Impl5902);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__OutputAssignment_5_2_1_in_rule__SimpleService__Group_5_2__1__Impl6152);
             rule__SimpleService__OutputAssignment_5_2_1();
 
             state._fsp--;
@@ -7972,21 +8306,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_6__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2928:1: rule__SimpleService__Group_6__0 : rule__SimpleService__Group_6__0__Impl rule__SimpleService__Group_6__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3055:1: rule__SimpleService__Group_6__0 : rule__SimpleService__Group_6__0__Impl rule__SimpleService__Group_6__1 ;
     public final void rule__SimpleService__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2932:1: ( rule__SimpleService__Group_6__0__Impl rule__SimpleService__Group_6__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2933:2: rule__SimpleService__Group_6__0__Impl rule__SimpleService__Group_6__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3059:1: ( rule__SimpleService__Group_6__0__Impl rule__SimpleService__Group_6__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3060:2: rule__SimpleService__Group_6__0__Impl rule__SimpleService__Group_6__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_6__0__Impl_in_rule__SimpleService__Group_6__05936);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_6__0__Impl_in_rule__SimpleService__Group_6__06186);
             rule__SimpleService__Group_6__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_6__1_in_rule__SimpleService__Group_6__05939);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_6__1_in_rule__SimpleService__Group_6__06189);
             rule__SimpleService__Group_6__1();
 
             state._fsp--;
@@ -8010,20 +8344,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_6__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2940:1: rule__SimpleService__Group_6__0__Impl : ( 'when : ' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3067:1: rule__SimpleService__Group_6__0__Impl : ( 'when : ' ) ;
     public final void rule__SimpleService__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2944:1: ( ( 'when : ' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2945:1: ( 'when : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3071:1: ( ( 'when : ' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3072:1: ( 'when : ' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2945:1: ( 'when : ' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2946:1: 'when : '
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3072:1: ( 'when : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3073:1: 'when : '
             {
              before(grammarAccess.getSimpleServiceAccess().getWhenKeyword_6_0()); 
-            match(input,47,FollowSets000.FOLLOW_47_in_rule__SimpleService__Group_6__0__Impl5967); 
+            match(input,48,FollowSets000.FOLLOW_48_in_rule__SimpleService__Group_6__0__Impl6217); 
              after(grammarAccess.getSimpleServiceAccess().getWhenKeyword_6_0()); 
 
             }
@@ -8047,16 +8381,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_6__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2959:1: rule__SimpleService__Group_6__1 : rule__SimpleService__Group_6__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3086:1: rule__SimpleService__Group_6__1 : rule__SimpleService__Group_6__1__Impl ;
     public final void rule__SimpleService__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2963:1: ( rule__SimpleService__Group_6__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2964:2: rule__SimpleService__Group_6__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3090:1: ( rule__SimpleService__Group_6__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3091:2: rule__SimpleService__Group_6__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_6__1__Impl_in_rule__SimpleService__Group_6__15998);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__Group_6__1__Impl_in_rule__SimpleService__Group_6__16248);
             rule__SimpleService__Group_6__1__Impl();
 
             state._fsp--;
@@ -8080,23 +8414,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__Group_6__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2970:1: rule__SimpleService__Group_6__1__Impl : ( ( rule__SimpleService__WhenAssignment_6_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3097:1: rule__SimpleService__Group_6__1__Impl : ( ( rule__SimpleService__WhenAssignment_6_1 ) ) ;
     public final void rule__SimpleService__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2974:1: ( ( ( rule__SimpleService__WhenAssignment_6_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2975:1: ( ( rule__SimpleService__WhenAssignment_6_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3101:1: ( ( ( rule__SimpleService__WhenAssignment_6_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3102:1: ( ( rule__SimpleService__WhenAssignment_6_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2975:1: ( ( rule__SimpleService__WhenAssignment_6_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2976:1: ( rule__SimpleService__WhenAssignment_6_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3102:1: ( ( rule__SimpleService__WhenAssignment_6_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3103:1: ( rule__SimpleService__WhenAssignment_6_1 )
             {
              before(grammarAccess.getSimpleServiceAccess().getWhenAssignment_6_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2977:1: ( rule__SimpleService__WhenAssignment_6_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2977:2: rule__SimpleService__WhenAssignment_6_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3104:1: ( rule__SimpleService__WhenAssignment_6_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3104:2: rule__SimpleService__WhenAssignment_6_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__WhenAssignment_6_1_in_rule__SimpleService__Group_6__1__Impl6025);
+            pushFollow(FollowSets000.FOLLOW_rule__SimpleService__WhenAssignment_6_1_in_rule__SimpleService__Group_6__1__Impl6275);
             rule__SimpleService__WhenAssignment_6_1();
 
             state._fsp--;
@@ -8127,21 +8461,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2991:1: rule__MultiService__Group__0 : rule__MultiService__Group__0__Impl rule__MultiService__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3118:1: rule__MultiService__Group__0 : rule__MultiService__Group__0__Impl rule__MultiService__Group__1 ;
     public final void rule__MultiService__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2995:1: ( rule__MultiService__Group__0__Impl rule__MultiService__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:2996:2: rule__MultiService__Group__0__Impl rule__MultiService__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3122:1: ( rule__MultiService__Group__0__Impl rule__MultiService__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3123:2: rule__MultiService__Group__0__Impl rule__MultiService__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__0__Impl_in_rule__MultiService__Group__06059);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__0__Impl_in_rule__MultiService__Group__06309);
             rule__MultiService__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__1_in_rule__MultiService__Group__06062);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__1_in_rule__MultiService__Group__06312);
             rule__MultiService__Group__1();
 
             state._fsp--;
@@ -8165,20 +8499,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3003:1: rule__MultiService__Group__0__Impl : ( 'MultiService' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3130:1: rule__MultiService__Group__0__Impl : ( 'MultiService' ) ;
     public final void rule__MultiService__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3007:1: ( ( 'MultiService' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3008:1: ( 'MultiService' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3134:1: ( ( 'MultiService' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3135:1: ( 'MultiService' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3008:1: ( 'MultiService' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3009:1: 'MultiService'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3135:1: ( 'MultiService' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3136:1: 'MultiService'
             {
              before(grammarAccess.getMultiServiceAccess().getMultiServiceKeyword_0()); 
-            match(input,48,FollowSets000.FOLLOW_48_in_rule__MultiService__Group__0__Impl6090); 
+            match(input,49,FollowSets000.FOLLOW_49_in_rule__MultiService__Group__0__Impl6340); 
              after(grammarAccess.getMultiServiceAccess().getMultiServiceKeyword_0()); 
 
             }
@@ -8202,21 +8536,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3022:1: rule__MultiService__Group__1 : rule__MultiService__Group__1__Impl rule__MultiService__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3149:1: rule__MultiService__Group__1 : rule__MultiService__Group__1__Impl rule__MultiService__Group__2 ;
     public final void rule__MultiService__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3026:1: ( rule__MultiService__Group__1__Impl rule__MultiService__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3027:2: rule__MultiService__Group__1__Impl rule__MultiService__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3153:1: ( rule__MultiService__Group__1__Impl rule__MultiService__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3154:2: rule__MultiService__Group__1__Impl rule__MultiService__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__1__Impl_in_rule__MultiService__Group__16121);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__1__Impl_in_rule__MultiService__Group__16371);
             rule__MultiService__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__2_in_rule__MultiService__Group__16124);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__2_in_rule__MultiService__Group__16374);
             rule__MultiService__Group__2();
 
             state._fsp--;
@@ -8240,23 +8574,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3034:1: rule__MultiService__Group__1__Impl : ( ( rule__MultiService__NameAssignment_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3161:1: rule__MultiService__Group__1__Impl : ( ( rule__MultiService__NameAssignment_1 ) ) ;
     public final void rule__MultiService__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3038:1: ( ( ( rule__MultiService__NameAssignment_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3039:1: ( ( rule__MultiService__NameAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3165:1: ( ( ( rule__MultiService__NameAssignment_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3166:1: ( ( rule__MultiService__NameAssignment_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3039:1: ( ( rule__MultiService__NameAssignment_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3040:1: ( rule__MultiService__NameAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3166:1: ( ( rule__MultiService__NameAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3167:1: ( rule__MultiService__NameAssignment_1 )
             {
              before(grammarAccess.getMultiServiceAccess().getNameAssignment_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3041:1: ( rule__MultiService__NameAssignment_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3041:2: rule__MultiService__NameAssignment_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3168:1: ( rule__MultiService__NameAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3168:2: rule__MultiService__NameAssignment_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__NameAssignment_1_in_rule__MultiService__Group__1__Impl6151);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__NameAssignment_1_in_rule__MultiService__Group__1__Impl6401);
             rule__MultiService__NameAssignment_1();
 
             state._fsp--;
@@ -8287,21 +8621,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3051:1: rule__MultiService__Group__2 : rule__MultiService__Group__2__Impl rule__MultiService__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3178:1: rule__MultiService__Group__2 : rule__MultiService__Group__2__Impl rule__MultiService__Group__3 ;
     public final void rule__MultiService__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3055:1: ( rule__MultiService__Group__2__Impl rule__MultiService__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3056:2: rule__MultiService__Group__2__Impl rule__MultiService__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3182:1: ( rule__MultiService__Group__2__Impl rule__MultiService__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3183:2: rule__MultiService__Group__2__Impl rule__MultiService__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__2__Impl_in_rule__MultiService__Group__26181);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__2__Impl_in_rule__MultiService__Group__26431);
             rule__MultiService__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__3_in_rule__MultiService__Group__26184);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__3_in_rule__MultiService__Group__26434);
             rule__MultiService__Group__3();
 
             state._fsp--;
@@ -8325,31 +8659,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3063:1: rule__MultiService__Group__2__Impl : ( ( rule__MultiService__Group_2__0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3190:1: rule__MultiService__Group__2__Impl : ( ( rule__MultiService__Group_2__0 )? ) ;
     public final void rule__MultiService__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3067:1: ( ( ( rule__MultiService__Group_2__0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3068:1: ( ( rule__MultiService__Group_2__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3194:1: ( ( ( rule__MultiService__Group_2__0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3195:1: ( ( rule__MultiService__Group_2__0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3068:1: ( ( rule__MultiService__Group_2__0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3069:1: ( rule__MultiService__Group_2__0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3195:1: ( ( rule__MultiService__Group_2__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3196:1: ( rule__MultiService__Group_2__0 )?
             {
              before(grammarAccess.getMultiServiceAccess().getGroup_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3070:1: ( rule__MultiService__Group_2__0 )?
-            int alt26=2;
-            int LA26_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3197:1: ( rule__MultiService__Group_2__0 )?
+            int alt27=2;
+            int LA27_0 = input.LA(1);
 
-            if ( (LA26_0==33) ) {
-                alt26=1;
+            if ( (LA27_0==35) ) {
+                alt27=1;
             }
-            switch (alt26) {
+            switch (alt27) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3070:2: rule__MultiService__Group_2__0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3197:2: rule__MultiService__Group_2__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__0_in_rule__MultiService__Group__2__Impl6211);
+                    pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__0_in_rule__MultiService__Group__2__Impl6461);
                     rule__MultiService__Group_2__0();
 
                     state._fsp--;
@@ -8383,21 +8717,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3080:1: rule__MultiService__Group__3 : rule__MultiService__Group__3__Impl rule__MultiService__Group__4 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3207:1: rule__MultiService__Group__3 : rule__MultiService__Group__3__Impl rule__MultiService__Group__4 ;
     public final void rule__MultiService__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3084:1: ( rule__MultiService__Group__3__Impl rule__MultiService__Group__4 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3085:2: rule__MultiService__Group__3__Impl rule__MultiService__Group__4
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3211:1: ( rule__MultiService__Group__3__Impl rule__MultiService__Group__4 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3212:2: rule__MultiService__Group__3__Impl rule__MultiService__Group__4
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__3__Impl_in_rule__MultiService__Group__36242);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__3__Impl_in_rule__MultiService__Group__36492);
             rule__MultiService__Group__3__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__4_in_rule__MultiService__Group__36245);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__4_in_rule__MultiService__Group__36495);
             rule__MultiService__Group__4();
 
             state._fsp--;
@@ -8421,20 +8755,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3092:1: rule__MultiService__Group__3__Impl : ( '{' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3219:1: rule__MultiService__Group__3__Impl : ( '{' ) ;
     public final void rule__MultiService__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3096:1: ( ( '{' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3097:1: ( '{' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3223:1: ( ( '{' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3224:1: ( '{' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3097:1: ( '{' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3098:1: '{'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3224:1: ( '{' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3225:1: '{'
             {
              before(grammarAccess.getMultiServiceAccess().getLeftCurlyBracketKeyword_3()); 
-            match(input,31,FollowSets000.FOLLOW_31_in_rule__MultiService__Group__3__Impl6273); 
+            match(input,33,FollowSets000.FOLLOW_33_in_rule__MultiService__Group__3__Impl6523); 
              after(grammarAccess.getMultiServiceAccess().getLeftCurlyBracketKeyword_3()); 
 
             }
@@ -8458,21 +8792,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3111:1: rule__MultiService__Group__4 : rule__MultiService__Group__4__Impl rule__MultiService__Group__5 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3238:1: rule__MultiService__Group__4 : rule__MultiService__Group__4__Impl rule__MultiService__Group__5 ;
     public final void rule__MultiService__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3115:1: ( rule__MultiService__Group__4__Impl rule__MultiService__Group__5 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3116:2: rule__MultiService__Group__4__Impl rule__MultiService__Group__5
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3242:1: ( rule__MultiService__Group__4__Impl rule__MultiService__Group__5 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3243:2: rule__MultiService__Group__4__Impl rule__MultiService__Group__5
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__4__Impl_in_rule__MultiService__Group__46304);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__4__Impl_in_rule__MultiService__Group__46554);
             rule__MultiService__Group__4__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__5_in_rule__MultiService__Group__46307);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__5_in_rule__MultiService__Group__46557);
             rule__MultiService__Group__5();
 
             state._fsp--;
@@ -8496,35 +8830,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__4__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3123:1: rule__MultiService__Group__4__Impl : ( ( rule__MultiService__Group_4__0 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3250:1: rule__MultiService__Group__4__Impl : ( ( rule__MultiService__Group_4__0 )* ) ;
     public final void rule__MultiService__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3127:1: ( ( ( rule__MultiService__Group_4__0 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3128:1: ( ( rule__MultiService__Group_4__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3254:1: ( ( ( rule__MultiService__Group_4__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3255:1: ( ( rule__MultiService__Group_4__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3128:1: ( ( rule__MultiService__Group_4__0 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3129:1: ( rule__MultiService__Group_4__0 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3255:1: ( ( rule__MultiService__Group_4__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3256:1: ( rule__MultiService__Group_4__0 )*
             {
              before(grammarAccess.getMultiServiceAccess().getGroup_4()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3130:1: ( rule__MultiService__Group_4__0 )*
-            loop27:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3257:1: ( rule__MultiService__Group_4__0 )*
+            loop28:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA27_0==47) ) {
-                    alt27=1;
+                if ( (LA28_0==48) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt28) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3130:2: rule__MultiService__Group_4__0
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3257:2: rule__MultiService__Group_4__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_4__0_in_rule__MultiService__Group__4__Impl6334);
+            	    pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_4__0_in_rule__MultiService__Group__4__Impl6584);
             	    rule__MultiService__Group_4__0();
 
             	    state._fsp--;
@@ -8534,7 +8868,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop28;
                 }
             } while (true);
 
@@ -8561,21 +8895,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__5"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3140:1: rule__MultiService__Group__5 : rule__MultiService__Group__5__Impl rule__MultiService__Group__6 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3267:1: rule__MultiService__Group__5 : rule__MultiService__Group__5__Impl rule__MultiService__Group__6 ;
     public final void rule__MultiService__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3144:1: ( rule__MultiService__Group__5__Impl rule__MultiService__Group__6 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3145:2: rule__MultiService__Group__5__Impl rule__MultiService__Group__6
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3271:1: ( rule__MultiService__Group__5__Impl rule__MultiService__Group__6 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3272:2: rule__MultiService__Group__5__Impl rule__MultiService__Group__6
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__5__Impl_in_rule__MultiService__Group__56365);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__5__Impl_in_rule__MultiService__Group__56615);
             rule__MultiService__Group__5__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__6_in_rule__MultiService__Group__56368);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__6_in_rule__MultiService__Group__56618);
             rule__MultiService__Group__6();
 
             state._fsp--;
@@ -8599,20 +8933,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__5__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3152:1: rule__MultiService__Group__5__Impl : ( 'services : ' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3279:1: rule__MultiService__Group__5__Impl : ( 'services : ' ) ;
     public final void rule__MultiService__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3156:1: ( ( 'services : ' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3157:1: ( 'services : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3283:1: ( ( 'services : ' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3284:1: ( 'services : ' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3157:1: ( 'services : ' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3158:1: 'services : '
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3284:1: ( 'services : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3285:1: 'services : '
             {
              before(grammarAccess.getMultiServiceAccess().getServicesKeyword_5()); 
-            match(input,38,FollowSets000.FOLLOW_38_in_rule__MultiService__Group__5__Impl6396); 
+            match(input,40,FollowSets000.FOLLOW_40_in_rule__MultiService__Group__5__Impl6646); 
              after(grammarAccess.getMultiServiceAccess().getServicesKeyword_5()); 
 
             }
@@ -8636,21 +8970,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__6"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3171:1: rule__MultiService__Group__6 : rule__MultiService__Group__6__Impl rule__MultiService__Group__7 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3298:1: rule__MultiService__Group__6 : rule__MultiService__Group__6__Impl rule__MultiService__Group__7 ;
     public final void rule__MultiService__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3175:1: ( rule__MultiService__Group__6__Impl rule__MultiService__Group__7 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3176:2: rule__MultiService__Group__6__Impl rule__MultiService__Group__7
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3302:1: ( rule__MultiService__Group__6__Impl rule__MultiService__Group__7 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3303:2: rule__MultiService__Group__6__Impl rule__MultiService__Group__7
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__6__Impl_in_rule__MultiService__Group__66427);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__6__Impl_in_rule__MultiService__Group__66677);
             rule__MultiService__Group__6__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__7_in_rule__MultiService__Group__66430);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__7_in_rule__MultiService__Group__66680);
             rule__MultiService__Group__7();
 
             state._fsp--;
@@ -8674,23 +9008,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__6__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3183:1: rule__MultiService__Group__6__Impl : ( ( rule__MultiService__ServicesAssignment_6 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3310:1: rule__MultiService__Group__6__Impl : ( ( rule__MultiService__ServicesAssignment_6 ) ) ;
     public final void rule__MultiService__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3187:1: ( ( ( rule__MultiService__ServicesAssignment_6 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3188:1: ( ( rule__MultiService__ServicesAssignment_6 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3314:1: ( ( ( rule__MultiService__ServicesAssignment_6 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3315:1: ( ( rule__MultiService__ServicesAssignment_6 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3188:1: ( ( rule__MultiService__ServicesAssignment_6 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3189:1: ( rule__MultiService__ServicesAssignment_6 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3315:1: ( ( rule__MultiService__ServicesAssignment_6 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3316:1: ( rule__MultiService__ServicesAssignment_6 )
             {
              before(grammarAccess.getMultiServiceAccess().getServicesAssignment_6()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3190:1: ( rule__MultiService__ServicesAssignment_6 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3190:2: rule__MultiService__ServicesAssignment_6
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3317:1: ( rule__MultiService__ServicesAssignment_6 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3317:2: rule__MultiService__ServicesAssignment_6
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__ServicesAssignment_6_in_rule__MultiService__Group__6__Impl6457);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__ServicesAssignment_6_in_rule__MultiService__Group__6__Impl6707);
             rule__MultiService__ServicesAssignment_6();
 
             state._fsp--;
@@ -8721,21 +9055,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__7"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3200:1: rule__MultiService__Group__7 : rule__MultiService__Group__7__Impl rule__MultiService__Group__8 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3327:1: rule__MultiService__Group__7 : rule__MultiService__Group__7__Impl rule__MultiService__Group__8 ;
     public final void rule__MultiService__Group__7() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3204:1: ( rule__MultiService__Group__7__Impl rule__MultiService__Group__8 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3205:2: rule__MultiService__Group__7__Impl rule__MultiService__Group__8
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3331:1: ( rule__MultiService__Group__7__Impl rule__MultiService__Group__8 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3332:2: rule__MultiService__Group__7__Impl rule__MultiService__Group__8
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__7__Impl_in_rule__MultiService__Group__76487);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__7__Impl_in_rule__MultiService__Group__76737);
             rule__MultiService__Group__7__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__8_in_rule__MultiService__Group__76490);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__8_in_rule__MultiService__Group__76740);
             rule__MultiService__Group__8();
 
             state._fsp--;
@@ -8759,26 +9093,26 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__7__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3212:1: rule__MultiService__Group__7__Impl : ( ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3339:1: rule__MultiService__Group__7__Impl : ( ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* ) ) ;
     public final void rule__MultiService__Group__7__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3216:1: ( ( ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3217:1: ( ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3343:1: ( ( ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3344:1: ( ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3217:1: ( ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3218:1: ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3344:1: ( ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3345:1: ( ( rule__MultiService__Group_7__0 ) ) ( ( rule__MultiService__Group_7__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3218:1: ( ( rule__MultiService__Group_7__0 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3219:1: ( rule__MultiService__Group_7__0 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3345:1: ( ( rule__MultiService__Group_7__0 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3346:1: ( rule__MultiService__Group_7__0 )
             {
              before(grammarAccess.getMultiServiceAccess().getGroup_7()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3220:1: ( rule__MultiService__Group_7__0 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3220:2: rule__MultiService__Group_7__0
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3347:1: ( rule__MultiService__Group_7__0 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3347:2: rule__MultiService__Group_7__0
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__0_in_rule__MultiService__Group__7__Impl6519);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__0_in_rule__MultiService__Group__7__Impl6769);
             rule__MultiService__Group_7__0();
 
             state._fsp--;
@@ -8790,26 +9124,26 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
             }
 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3223:1: ( ( rule__MultiService__Group_7__0 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3224:1: ( rule__MultiService__Group_7__0 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3350:1: ( ( rule__MultiService__Group_7__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3351:1: ( rule__MultiService__Group_7__0 )*
             {
              before(grammarAccess.getMultiServiceAccess().getGroup_7()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3225:1: ( rule__MultiService__Group_7__0 )*
-            loop28:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3352:1: ( rule__MultiService__Group_7__0 )*
+            loop29:
             do {
-                int alt28=2;
-                int LA28_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA28_0==39) ) {
-                    alt28=1;
+                if ( (LA29_0==41) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt28) {
+                switch (alt29) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3225:2: rule__MultiService__Group_7__0
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3352:2: rule__MultiService__Group_7__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__0_in_rule__MultiService__Group__7__Impl6531);
+            	    pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__0_in_rule__MultiService__Group__7__Impl6781);
             	    rule__MultiService__Group_7__0();
 
             	    state._fsp--;
@@ -8819,7 +9153,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop28;
+            	    break loop29;
                 }
             } while (true);
 
@@ -8849,16 +9183,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__8"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3236:1: rule__MultiService__Group__8 : rule__MultiService__Group__8__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3363:1: rule__MultiService__Group__8 : rule__MultiService__Group__8__Impl ;
     public final void rule__MultiService__Group__8() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3240:1: ( rule__MultiService__Group__8__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3241:2: rule__MultiService__Group__8__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3367:1: ( rule__MultiService__Group__8__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3368:2: rule__MultiService__Group__8__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__8__Impl_in_rule__MultiService__Group__86564);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group__8__Impl_in_rule__MultiService__Group__86814);
             rule__MultiService__Group__8__Impl();
 
             state._fsp--;
@@ -8882,20 +9216,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group__8__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3247:1: rule__MultiService__Group__8__Impl : ( '}' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3374:1: rule__MultiService__Group__8__Impl : ( '}' ) ;
     public final void rule__MultiService__Group__8__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3251:1: ( ( '}' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3252:1: ( '}' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3378:1: ( ( '}' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3379:1: ( '}' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3252:1: ( '}' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3253:1: '}'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3379:1: ( '}' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3380:1: '}'
             {
              before(grammarAccess.getMultiServiceAccess().getRightCurlyBracketKeyword_8()); 
-            match(input,32,FollowSets000.FOLLOW_32_in_rule__MultiService__Group__8__Impl6592); 
+            match(input,34,FollowSets000.FOLLOW_34_in_rule__MultiService__Group__8__Impl6842); 
              after(grammarAccess.getMultiServiceAccess().getRightCurlyBracketKeyword_8()); 
 
             }
@@ -8919,21 +9253,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_2__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3284:1: rule__MultiService__Group_2__0 : rule__MultiService__Group_2__0__Impl rule__MultiService__Group_2__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3411:1: rule__MultiService__Group_2__0 : rule__MultiService__Group_2__0__Impl rule__MultiService__Group_2__1 ;
     public final void rule__MultiService__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3288:1: ( rule__MultiService__Group_2__0__Impl rule__MultiService__Group_2__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3289:2: rule__MultiService__Group_2__0__Impl rule__MultiService__Group_2__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3415:1: ( rule__MultiService__Group_2__0__Impl rule__MultiService__Group_2__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3416:2: rule__MultiService__Group_2__0__Impl rule__MultiService__Group_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__0__Impl_in_rule__MultiService__Group_2__06641);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__0__Impl_in_rule__MultiService__Group_2__06891);
             rule__MultiService__Group_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__1_in_rule__MultiService__Group_2__06644);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__1_in_rule__MultiService__Group_2__06894);
             rule__MultiService__Group_2__1();
 
             state._fsp--;
@@ -8957,20 +9291,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_2__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3296:1: rule__MultiService__Group_2__0__Impl : ( '[' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3423:1: rule__MultiService__Group_2__0__Impl : ( '[' ) ;
     public final void rule__MultiService__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3300:1: ( ( '[' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3301:1: ( '[' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3427:1: ( ( '[' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3428:1: ( '[' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3301:1: ( '[' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3302:1: '['
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3428:1: ( '[' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3429:1: '['
             {
              before(grammarAccess.getMultiServiceAccess().getLeftSquareBracketKeyword_2_0()); 
-            match(input,33,FollowSets000.FOLLOW_33_in_rule__MultiService__Group_2__0__Impl6672); 
+            match(input,35,FollowSets000.FOLLOW_35_in_rule__MultiService__Group_2__0__Impl6922); 
              after(grammarAccess.getMultiServiceAccess().getLeftSquareBracketKeyword_2_0()); 
 
             }
@@ -8994,21 +9328,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_2__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3315:1: rule__MultiService__Group_2__1 : rule__MultiService__Group_2__1__Impl rule__MultiService__Group_2__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3442:1: rule__MultiService__Group_2__1 : rule__MultiService__Group_2__1__Impl rule__MultiService__Group_2__2 ;
     public final void rule__MultiService__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3319:1: ( rule__MultiService__Group_2__1__Impl rule__MultiService__Group_2__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3320:2: rule__MultiService__Group_2__1__Impl rule__MultiService__Group_2__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3446:1: ( rule__MultiService__Group_2__1__Impl rule__MultiService__Group_2__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3447:2: rule__MultiService__Group_2__1__Impl rule__MultiService__Group_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__1__Impl_in_rule__MultiService__Group_2__16703);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__1__Impl_in_rule__MultiService__Group_2__16953);
             rule__MultiService__Group_2__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__2_in_rule__MultiService__Group_2__16706);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__2_in_rule__MultiService__Group_2__16956);
             rule__MultiService__Group_2__2();
 
             state._fsp--;
@@ -9032,31 +9366,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_2__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3327:1: rule__MultiService__Group_2__1__Impl : ( ( rule__MultiService__ParallelAssignment_2_1 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3454:1: rule__MultiService__Group_2__1__Impl : ( ( rule__MultiService__ParallelAssignment_2_1 )? ) ;
     public final void rule__MultiService__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3331:1: ( ( ( rule__MultiService__ParallelAssignment_2_1 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3332:1: ( ( rule__MultiService__ParallelAssignment_2_1 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3458:1: ( ( ( rule__MultiService__ParallelAssignment_2_1 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3459:1: ( ( rule__MultiService__ParallelAssignment_2_1 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3332:1: ( ( rule__MultiService__ParallelAssignment_2_1 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3333:1: ( rule__MultiService__ParallelAssignment_2_1 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3459:1: ( ( rule__MultiService__ParallelAssignment_2_1 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3460:1: ( rule__MultiService__ParallelAssignment_2_1 )?
             {
              before(grammarAccess.getMultiServiceAccess().getParallelAssignment_2_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3334:1: ( rule__MultiService__ParallelAssignment_2_1 )?
-            int alt29=2;
-            int LA29_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3461:1: ( rule__MultiService__ParallelAssignment_2_1 )?
+            int alt30=2;
+            int LA30_0 = input.LA(1);
 
-            if ( (LA29_0==53) ) {
-                alt29=1;
+            if ( (LA30_0==54) ) {
+                alt30=1;
             }
-            switch (alt29) {
+            switch (alt30) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3334:2: rule__MultiService__ParallelAssignment_2_1
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3461:2: rule__MultiService__ParallelAssignment_2_1
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__MultiService__ParallelAssignment_2_1_in_rule__MultiService__Group_2__1__Impl6733);
+                    pushFollow(FollowSets000.FOLLOW_rule__MultiService__ParallelAssignment_2_1_in_rule__MultiService__Group_2__1__Impl6983);
                     rule__MultiService__ParallelAssignment_2_1();
 
                     state._fsp--;
@@ -9090,16 +9424,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_2__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3344:1: rule__MultiService__Group_2__2 : rule__MultiService__Group_2__2__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3471:1: rule__MultiService__Group_2__2 : rule__MultiService__Group_2__2__Impl ;
     public final void rule__MultiService__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3348:1: ( rule__MultiService__Group_2__2__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3349:2: rule__MultiService__Group_2__2__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3475:1: ( rule__MultiService__Group_2__2__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3476:2: rule__MultiService__Group_2__2__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__2__Impl_in_rule__MultiService__Group_2__26764);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_2__2__Impl_in_rule__MultiService__Group_2__27014);
             rule__MultiService__Group_2__2__Impl();
 
             state._fsp--;
@@ -9123,20 +9457,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_2__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3355:1: rule__MultiService__Group_2__2__Impl : ( ']' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3482:1: rule__MultiService__Group_2__2__Impl : ( ']' ) ;
     public final void rule__MultiService__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3359:1: ( ( ']' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3360:1: ( ']' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3486:1: ( ( ']' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3487:1: ( ']' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3360:1: ( ']' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3361:1: ']'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3487:1: ( ']' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3488:1: ']'
             {
              before(grammarAccess.getMultiServiceAccess().getRightSquareBracketKeyword_2_2()); 
-            match(input,34,FollowSets000.FOLLOW_34_in_rule__MultiService__Group_2__2__Impl6792); 
+            match(input,36,FollowSets000.FOLLOW_36_in_rule__MultiService__Group_2__2__Impl7042); 
              after(grammarAccess.getMultiServiceAccess().getRightSquareBracketKeyword_2_2()); 
 
             }
@@ -9160,21 +9494,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_4__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3380:1: rule__MultiService__Group_4__0 : rule__MultiService__Group_4__0__Impl rule__MultiService__Group_4__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3507:1: rule__MultiService__Group_4__0 : rule__MultiService__Group_4__0__Impl rule__MultiService__Group_4__1 ;
     public final void rule__MultiService__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3384:1: ( rule__MultiService__Group_4__0__Impl rule__MultiService__Group_4__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3385:2: rule__MultiService__Group_4__0__Impl rule__MultiService__Group_4__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3511:1: ( rule__MultiService__Group_4__0__Impl rule__MultiService__Group_4__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3512:2: rule__MultiService__Group_4__0__Impl rule__MultiService__Group_4__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_4__0__Impl_in_rule__MultiService__Group_4__06829);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_4__0__Impl_in_rule__MultiService__Group_4__07079);
             rule__MultiService__Group_4__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_4__1_in_rule__MultiService__Group_4__06832);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_4__1_in_rule__MultiService__Group_4__07082);
             rule__MultiService__Group_4__1();
 
             state._fsp--;
@@ -9198,20 +9532,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_4__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3392:1: rule__MultiService__Group_4__0__Impl : ( 'when : ' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3519:1: rule__MultiService__Group_4__0__Impl : ( 'when : ' ) ;
     public final void rule__MultiService__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3396:1: ( ( 'when : ' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3397:1: ( 'when : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3523:1: ( ( 'when : ' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3524:1: ( 'when : ' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3397:1: ( 'when : ' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3398:1: 'when : '
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3524:1: ( 'when : ' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3525:1: 'when : '
             {
              before(grammarAccess.getMultiServiceAccess().getWhenKeyword_4_0()); 
-            match(input,47,FollowSets000.FOLLOW_47_in_rule__MultiService__Group_4__0__Impl6860); 
+            match(input,48,FollowSets000.FOLLOW_48_in_rule__MultiService__Group_4__0__Impl7110); 
              after(grammarAccess.getMultiServiceAccess().getWhenKeyword_4_0()); 
 
             }
@@ -9235,16 +9569,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_4__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3411:1: rule__MultiService__Group_4__1 : rule__MultiService__Group_4__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3538:1: rule__MultiService__Group_4__1 : rule__MultiService__Group_4__1__Impl ;
     public final void rule__MultiService__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3415:1: ( rule__MultiService__Group_4__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3416:2: rule__MultiService__Group_4__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3542:1: ( rule__MultiService__Group_4__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3543:2: rule__MultiService__Group_4__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_4__1__Impl_in_rule__MultiService__Group_4__16891);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_4__1__Impl_in_rule__MultiService__Group_4__17141);
             rule__MultiService__Group_4__1__Impl();
 
             state._fsp--;
@@ -9268,23 +9602,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_4__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3422:1: rule__MultiService__Group_4__1__Impl : ( ( rule__MultiService__WhenAssignment_4_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3549:1: rule__MultiService__Group_4__1__Impl : ( ( rule__MultiService__WhenAssignment_4_1 ) ) ;
     public final void rule__MultiService__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3426:1: ( ( ( rule__MultiService__WhenAssignment_4_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3427:1: ( ( rule__MultiService__WhenAssignment_4_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3553:1: ( ( ( rule__MultiService__WhenAssignment_4_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3554:1: ( ( rule__MultiService__WhenAssignment_4_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3427:1: ( ( rule__MultiService__WhenAssignment_4_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3428:1: ( rule__MultiService__WhenAssignment_4_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3554:1: ( ( rule__MultiService__WhenAssignment_4_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3555:1: ( rule__MultiService__WhenAssignment_4_1 )
             {
              before(grammarAccess.getMultiServiceAccess().getWhenAssignment_4_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3429:1: ( rule__MultiService__WhenAssignment_4_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3429:2: rule__MultiService__WhenAssignment_4_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3556:1: ( rule__MultiService__WhenAssignment_4_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3556:2: rule__MultiService__WhenAssignment_4_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__WhenAssignment_4_1_in_rule__MultiService__Group_4__1__Impl6918);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__WhenAssignment_4_1_in_rule__MultiService__Group_4__1__Impl7168);
             rule__MultiService__WhenAssignment_4_1();
 
             state._fsp--;
@@ -9315,21 +9649,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_7__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3443:1: rule__MultiService__Group_7__0 : rule__MultiService__Group_7__0__Impl rule__MultiService__Group_7__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3570:1: rule__MultiService__Group_7__0 : rule__MultiService__Group_7__0__Impl rule__MultiService__Group_7__1 ;
     public final void rule__MultiService__Group_7__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3447:1: ( rule__MultiService__Group_7__0__Impl rule__MultiService__Group_7__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3448:2: rule__MultiService__Group_7__0__Impl rule__MultiService__Group_7__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3574:1: ( rule__MultiService__Group_7__0__Impl rule__MultiService__Group_7__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3575:2: rule__MultiService__Group_7__0__Impl rule__MultiService__Group_7__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__0__Impl_in_rule__MultiService__Group_7__06952);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__0__Impl_in_rule__MultiService__Group_7__07202);
             rule__MultiService__Group_7__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__1_in_rule__MultiService__Group_7__06955);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__1_in_rule__MultiService__Group_7__07205);
             rule__MultiService__Group_7__1();
 
             state._fsp--;
@@ -9353,20 +9687,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_7__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3455:1: rule__MultiService__Group_7__0__Impl : ( ',' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3582:1: rule__MultiService__Group_7__0__Impl : ( ',' ) ;
     public final void rule__MultiService__Group_7__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3459:1: ( ( ',' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3460:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3586:1: ( ( ',' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3587:1: ( ',' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3460:1: ( ',' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3461:1: ','
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3587:1: ( ',' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3588:1: ','
             {
              before(grammarAccess.getMultiServiceAccess().getCommaKeyword_7_0()); 
-            match(input,39,FollowSets000.FOLLOW_39_in_rule__MultiService__Group_7__0__Impl6983); 
+            match(input,41,FollowSets000.FOLLOW_41_in_rule__MultiService__Group_7__0__Impl7233); 
              after(grammarAccess.getMultiServiceAccess().getCommaKeyword_7_0()); 
 
             }
@@ -9390,16 +9724,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_7__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3474:1: rule__MultiService__Group_7__1 : rule__MultiService__Group_7__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3601:1: rule__MultiService__Group_7__1 : rule__MultiService__Group_7__1__Impl ;
     public final void rule__MultiService__Group_7__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3478:1: ( rule__MultiService__Group_7__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3479:2: rule__MultiService__Group_7__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3605:1: ( rule__MultiService__Group_7__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3606:2: rule__MultiService__Group_7__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__1__Impl_in_rule__MultiService__Group_7__17014);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__Group_7__1__Impl_in_rule__MultiService__Group_7__17264);
             rule__MultiService__Group_7__1__Impl();
 
             state._fsp--;
@@ -9423,23 +9757,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__Group_7__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3485:1: rule__MultiService__Group_7__1__Impl : ( ( rule__MultiService__ServicesAssignment_7_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3612:1: rule__MultiService__Group_7__1__Impl : ( ( rule__MultiService__ServicesAssignment_7_1 ) ) ;
     public final void rule__MultiService__Group_7__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3489:1: ( ( ( rule__MultiService__ServicesAssignment_7_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3490:1: ( ( rule__MultiService__ServicesAssignment_7_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3616:1: ( ( ( rule__MultiService__ServicesAssignment_7_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3617:1: ( ( rule__MultiService__ServicesAssignment_7_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3490:1: ( ( rule__MultiService__ServicesAssignment_7_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3491:1: ( rule__MultiService__ServicesAssignment_7_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3617:1: ( ( rule__MultiService__ServicesAssignment_7_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3618:1: ( rule__MultiService__ServicesAssignment_7_1 )
             {
              before(grammarAccess.getMultiServiceAccess().getServicesAssignment_7_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3492:1: ( rule__MultiService__ServicesAssignment_7_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3492:2: rule__MultiService__ServicesAssignment_7_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3619:1: ( rule__MultiService__ServicesAssignment_7_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3619:2: rule__MultiService__ServicesAssignment_7_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__MultiService__ServicesAssignment_7_1_in_rule__MultiService__Group_7__1__Impl7041);
+            pushFollow(FollowSets000.FOLLOW_rule__MultiService__ServicesAssignment_7_1_in_rule__MultiService__Group_7__1__Impl7291);
             rule__MultiService__ServicesAssignment_7_1();
 
             state._fsp--;
@@ -9470,21 +9804,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3506:1: rule__Inout__Group__0 : rule__Inout__Group__0__Impl rule__Inout__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3633:1: rule__Inout__Group__0 : rule__Inout__Group__0__Impl rule__Inout__Group__1 ;
     public final void rule__Inout__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3510:1: ( rule__Inout__Group__0__Impl rule__Inout__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3511:2: rule__Inout__Group__0__Impl rule__Inout__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3637:1: ( rule__Inout__Group__0__Impl rule__Inout__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3638:2: rule__Inout__Group__0__Impl rule__Inout__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__0__Impl_in_rule__Inout__Group__07075);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__0__Impl_in_rule__Inout__Group__07325);
             rule__Inout__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__1_in_rule__Inout__Group__07078);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__1_in_rule__Inout__Group__07328);
             rule__Inout__Group__1();
 
             state._fsp--;
@@ -9508,31 +9842,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3518:1: rule__Inout__Group__0__Impl : ( ( rule__Inout__ManyAssignment_0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3645:1: rule__Inout__Group__0__Impl : ( ( rule__Inout__ManyAssignment_0 )? ) ;
     public final void rule__Inout__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3522:1: ( ( ( rule__Inout__ManyAssignment_0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3523:1: ( ( rule__Inout__ManyAssignment_0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3649:1: ( ( ( rule__Inout__ManyAssignment_0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3650:1: ( ( rule__Inout__ManyAssignment_0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3523:1: ( ( rule__Inout__ManyAssignment_0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3524:1: ( rule__Inout__ManyAssignment_0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3650:1: ( ( rule__Inout__ManyAssignment_0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3651:1: ( rule__Inout__ManyAssignment_0 )?
             {
              before(grammarAccess.getInoutAccess().getManyAssignment_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3525:1: ( rule__Inout__ManyAssignment_0 )?
-            int alt30=2;
-            int LA30_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3652:1: ( rule__Inout__ManyAssignment_0 )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA30_0==51) ) {
-                alt30=1;
+            if ( (LA31_0==52) ) {
+                alt31=1;
             }
-            switch (alt30) {
+            switch (alt31) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3525:2: rule__Inout__ManyAssignment_0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3652:2: rule__Inout__ManyAssignment_0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Inout__ManyAssignment_0_in_rule__Inout__Group__0__Impl7105);
+                    pushFollow(FollowSets000.FOLLOW_rule__Inout__ManyAssignment_0_in_rule__Inout__Group__0__Impl7355);
                     rule__Inout__ManyAssignment_0();
 
                     state._fsp--;
@@ -9566,21 +9900,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3535:1: rule__Inout__Group__1 : rule__Inout__Group__1__Impl rule__Inout__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3662:1: rule__Inout__Group__1 : rule__Inout__Group__1__Impl rule__Inout__Group__2 ;
     public final void rule__Inout__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3539:1: ( rule__Inout__Group__1__Impl rule__Inout__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3540:2: rule__Inout__Group__1__Impl rule__Inout__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3666:1: ( rule__Inout__Group__1__Impl rule__Inout__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3667:2: rule__Inout__Group__1__Impl rule__Inout__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__1__Impl_in_rule__Inout__Group__17136);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__1__Impl_in_rule__Inout__Group__17386);
             rule__Inout__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__2_in_rule__Inout__Group__17139);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__2_in_rule__Inout__Group__17389);
             rule__Inout__Group__2();
 
             state._fsp--;
@@ -9604,23 +9938,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3547:1: rule__Inout__Group__1__Impl : ( ( rule__Inout__TypeAssignment_1 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3674:1: rule__Inout__Group__1__Impl : ( ( rule__Inout__TypeAssignment_1 ) ) ;
     public final void rule__Inout__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3551:1: ( ( ( rule__Inout__TypeAssignment_1 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3552:1: ( ( rule__Inout__TypeAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3678:1: ( ( ( rule__Inout__TypeAssignment_1 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3679:1: ( ( rule__Inout__TypeAssignment_1 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3552:1: ( ( rule__Inout__TypeAssignment_1 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3553:1: ( rule__Inout__TypeAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3679:1: ( ( rule__Inout__TypeAssignment_1 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3680:1: ( rule__Inout__TypeAssignment_1 )
             {
              before(grammarAccess.getInoutAccess().getTypeAssignment_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3554:1: ( rule__Inout__TypeAssignment_1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3554:2: rule__Inout__TypeAssignment_1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3681:1: ( rule__Inout__TypeAssignment_1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3681:2: rule__Inout__TypeAssignment_1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__TypeAssignment_1_in_rule__Inout__Group__1__Impl7166);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__TypeAssignment_1_in_rule__Inout__Group__1__Impl7416);
             rule__Inout__TypeAssignment_1();
 
             state._fsp--;
@@ -9651,16 +9985,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3564:1: rule__Inout__Group__2 : rule__Inout__Group__2__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3691:1: rule__Inout__Group__2 : rule__Inout__Group__2__Impl ;
     public final void rule__Inout__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3568:1: ( rule__Inout__Group__2__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3569:2: rule__Inout__Group__2__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3695:1: ( rule__Inout__Group__2__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3696:2: rule__Inout__Group__2__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__2__Impl_in_rule__Inout__Group__27196);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group__2__Impl_in_rule__Inout__Group__27446);
             rule__Inout__Group__2__Impl();
 
             state._fsp--;
@@ -9684,31 +10018,31 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3575:1: rule__Inout__Group__2__Impl : ( ( rule__Inout__Group_2__0 )? ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3702:1: rule__Inout__Group__2__Impl : ( ( rule__Inout__Group_2__0 )? ) ;
     public final void rule__Inout__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3579:1: ( ( ( rule__Inout__Group_2__0 )? ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3580:1: ( ( rule__Inout__Group_2__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3706:1: ( ( ( rule__Inout__Group_2__0 )? ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3707:1: ( ( rule__Inout__Group_2__0 )? )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3580:1: ( ( rule__Inout__Group_2__0 )? )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3581:1: ( rule__Inout__Group_2__0 )?
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3707:1: ( ( rule__Inout__Group_2__0 )? )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3708:1: ( rule__Inout__Group_2__0 )?
             {
              before(grammarAccess.getInoutAccess().getGroup_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3582:1: ( rule__Inout__Group_2__0 )?
-            int alt31=2;
-            int LA31_0 = input.LA(1);
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3709:1: ( rule__Inout__Group_2__0 )?
+            int alt32=2;
+            int LA32_0 = input.LA(1);
 
-            if ( (LA31_0==33) ) {
-                alt31=1;
+            if ( (LA32_0==35) ) {
+                alt32=1;
             }
-            switch (alt31) {
+            switch (alt32) {
                 case 1 :
-                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3582:2: rule__Inout__Group_2__0
+                    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3709:2: rule__Inout__Group_2__0
                     {
-                    pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__0_in_rule__Inout__Group__2__Impl7223);
+                    pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__0_in_rule__Inout__Group__2__Impl7473);
                     rule__Inout__Group_2__0();
 
                     state._fsp--;
@@ -9742,21 +10076,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group_2__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3598:1: rule__Inout__Group_2__0 : rule__Inout__Group_2__0__Impl rule__Inout__Group_2__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3725:1: rule__Inout__Group_2__0 : rule__Inout__Group_2__0__Impl rule__Inout__Group_2__1 ;
     public final void rule__Inout__Group_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3602:1: ( rule__Inout__Group_2__0__Impl rule__Inout__Group_2__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3603:2: rule__Inout__Group_2__0__Impl rule__Inout__Group_2__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3729:1: ( rule__Inout__Group_2__0__Impl rule__Inout__Group_2__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3730:2: rule__Inout__Group_2__0__Impl rule__Inout__Group_2__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__0__Impl_in_rule__Inout__Group_2__07260);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__0__Impl_in_rule__Inout__Group_2__07510);
             rule__Inout__Group_2__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__1_in_rule__Inout__Group_2__07263);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__1_in_rule__Inout__Group_2__07513);
             rule__Inout__Group_2__1();
 
             state._fsp--;
@@ -9780,20 +10114,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group_2__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3610:1: rule__Inout__Group_2__0__Impl : ( '[' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3737:1: rule__Inout__Group_2__0__Impl : ( '[' ) ;
     public final void rule__Inout__Group_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3614:1: ( ( '[' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3615:1: ( '[' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3741:1: ( ( '[' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3742:1: ( '[' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3615:1: ( '[' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3616:1: '['
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3742:1: ( '[' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3743:1: '['
             {
              before(grammarAccess.getInoutAccess().getLeftSquareBracketKeyword_2_0()); 
-            match(input,33,FollowSets000.FOLLOW_33_in_rule__Inout__Group_2__0__Impl7291); 
+            match(input,35,FollowSets000.FOLLOW_35_in_rule__Inout__Group_2__0__Impl7541); 
              after(grammarAccess.getInoutAccess().getLeftSquareBracketKeyword_2_0()); 
 
             }
@@ -9817,21 +10151,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group_2__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3629:1: rule__Inout__Group_2__1 : rule__Inout__Group_2__1__Impl rule__Inout__Group_2__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3756:1: rule__Inout__Group_2__1 : rule__Inout__Group_2__1__Impl rule__Inout__Group_2__2 ;
     public final void rule__Inout__Group_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3633:1: ( rule__Inout__Group_2__1__Impl rule__Inout__Group_2__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3634:2: rule__Inout__Group_2__1__Impl rule__Inout__Group_2__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3760:1: ( rule__Inout__Group_2__1__Impl rule__Inout__Group_2__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3761:2: rule__Inout__Group_2__1__Impl rule__Inout__Group_2__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__1__Impl_in_rule__Inout__Group_2__17322);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__1__Impl_in_rule__Inout__Group_2__17572);
             rule__Inout__Group_2__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__2_in_rule__Inout__Group_2__17325);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__2_in_rule__Inout__Group_2__17575);
             rule__Inout__Group_2__2();
 
             state._fsp--;
@@ -9855,20 +10189,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group_2__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3641:1: rule__Inout__Group_2__1__Impl : ( 'with' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3768:1: rule__Inout__Group_2__1__Impl : ( 'with' ) ;
     public final void rule__Inout__Group_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3645:1: ( ( 'with' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3646:1: ( 'with' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3772:1: ( ( 'with' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3773:1: ( 'with' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3646:1: ( 'with' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3647:1: 'with'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3773:1: ( 'with' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3774:1: 'with'
             {
              before(grammarAccess.getInoutAccess().getWithKeyword_2_1()); 
-            match(input,49,FollowSets000.FOLLOW_49_in_rule__Inout__Group_2__1__Impl7353); 
+            match(input,50,FollowSets000.FOLLOW_50_in_rule__Inout__Group_2__1__Impl7603); 
              after(grammarAccess.getInoutAccess().getWithKeyword_2_1()); 
 
             }
@@ -9892,21 +10226,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group_2__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3660:1: rule__Inout__Group_2__2 : rule__Inout__Group_2__2__Impl rule__Inout__Group_2__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3787:1: rule__Inout__Group_2__2 : rule__Inout__Group_2__2__Impl rule__Inout__Group_2__3 ;
     public final void rule__Inout__Group_2__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3664:1: ( rule__Inout__Group_2__2__Impl rule__Inout__Group_2__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3665:2: rule__Inout__Group_2__2__Impl rule__Inout__Group_2__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3791:1: ( rule__Inout__Group_2__2__Impl rule__Inout__Group_2__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3792:2: rule__Inout__Group_2__2__Impl rule__Inout__Group_2__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__2__Impl_in_rule__Inout__Group_2__27384);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__2__Impl_in_rule__Inout__Group_2__27634);
             rule__Inout__Group_2__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__3_in_rule__Inout__Group_2__27387);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__3_in_rule__Inout__Group_2__27637);
             rule__Inout__Group_2__3();
 
             state._fsp--;
@@ -9930,23 +10264,23 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group_2__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3672:1: rule__Inout__Group_2__2__Impl : ( ( rule__Inout__CompatibilityAssignment_2_2 ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3799:1: rule__Inout__Group_2__2__Impl : ( ( rule__Inout__CompatibilityAssignment_2_2 ) ) ;
     public final void rule__Inout__Group_2__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3676:1: ( ( ( rule__Inout__CompatibilityAssignment_2_2 ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3677:1: ( ( rule__Inout__CompatibilityAssignment_2_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3803:1: ( ( ( rule__Inout__CompatibilityAssignment_2_2 ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3804:1: ( ( rule__Inout__CompatibilityAssignment_2_2 ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3677:1: ( ( rule__Inout__CompatibilityAssignment_2_2 ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3678:1: ( rule__Inout__CompatibilityAssignment_2_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3804:1: ( ( rule__Inout__CompatibilityAssignment_2_2 ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3805:1: ( rule__Inout__CompatibilityAssignment_2_2 )
             {
              before(grammarAccess.getInoutAccess().getCompatibilityAssignment_2_2()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3679:1: ( rule__Inout__CompatibilityAssignment_2_2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3679:2: rule__Inout__CompatibilityAssignment_2_2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3806:1: ( rule__Inout__CompatibilityAssignment_2_2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3806:2: rule__Inout__CompatibilityAssignment_2_2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__CompatibilityAssignment_2_2_in_rule__Inout__Group_2__2__Impl7414);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__CompatibilityAssignment_2_2_in_rule__Inout__Group_2__2__Impl7664);
             rule__Inout__CompatibilityAssignment_2_2();
 
             state._fsp--;
@@ -9977,16 +10311,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group_2__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3689:1: rule__Inout__Group_2__3 : rule__Inout__Group_2__3__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3816:1: rule__Inout__Group_2__3 : rule__Inout__Group_2__3__Impl ;
     public final void rule__Inout__Group_2__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3693:1: ( rule__Inout__Group_2__3__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3694:2: rule__Inout__Group_2__3__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3820:1: ( rule__Inout__Group_2__3__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3821:2: rule__Inout__Group_2__3__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__3__Impl_in_rule__Inout__Group_2__37444);
+            pushFollow(FollowSets000.FOLLOW_rule__Inout__Group_2__3__Impl_in_rule__Inout__Group_2__37694);
             rule__Inout__Group_2__3__Impl();
 
             state._fsp--;
@@ -10010,20 +10344,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__Group_2__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3700:1: rule__Inout__Group_2__3__Impl : ( ']' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3827:1: rule__Inout__Group_2__3__Impl : ( ']' ) ;
     public final void rule__Inout__Group_2__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3704:1: ( ( ']' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3705:1: ( ']' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3831:1: ( ( ']' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3832:1: ( ']' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3705:1: ( ']' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3706:1: ']'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3832:1: ( ']' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3833:1: ']'
             {
              before(grammarAccess.getInoutAccess().getRightSquareBracketKeyword_2_3()); 
-            match(input,34,FollowSets000.FOLLOW_34_in_rule__Inout__Group_2__3__Impl7472); 
+            match(input,36,FollowSets000.FOLLOW_36_in_rule__Inout__Group_2__3__Impl7722); 
              after(grammarAccess.getInoutAccess().getRightSquareBracketKeyword_2_3()); 
 
             }
@@ -10047,21 +10381,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3727:1: rule__Comp__Group__0 : rule__Comp__Group__0__Impl rule__Comp__Group__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3854:1: rule__Comp__Group__0 : rule__Comp__Group__0__Impl rule__Comp__Group__1 ;
     public final void rule__Comp__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3731:1: ( rule__Comp__Group__0__Impl rule__Comp__Group__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3732:2: rule__Comp__Group__0__Impl rule__Comp__Group__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3858:1: ( rule__Comp__Group__0__Impl rule__Comp__Group__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3859:2: rule__Comp__Group__0__Impl rule__Comp__Group__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__0__Impl_in_rule__Comp__Group__07511);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__0__Impl_in_rule__Comp__Group__07761);
             rule__Comp__Group__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__1_in_rule__Comp__Group__07514);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__1_in_rule__Comp__Group__07764);
             rule__Comp__Group__1();
 
             state._fsp--;
@@ -10085,20 +10419,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3739:1: rule__Comp__Group__0__Impl : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3866:1: rule__Comp__Group__0__Impl : ( ruleEString ) ;
     public final void rule__Comp__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3743:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3744:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3870:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3871:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3744:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3745:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3871:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3872:1: ruleEString
             {
              before(grammarAccess.getCompAccess().getEStringParserRuleCall_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Comp__Group__0__Impl7541);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Comp__Group__0__Impl7791);
             ruleEString();
 
             state._fsp--;
@@ -10126,21 +10460,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3756:1: rule__Comp__Group__1 : rule__Comp__Group__1__Impl rule__Comp__Group__2 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3883:1: rule__Comp__Group__1 : rule__Comp__Group__1__Impl rule__Comp__Group__2 ;
     public final void rule__Comp__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3760:1: ( rule__Comp__Group__1__Impl rule__Comp__Group__2 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3761:2: rule__Comp__Group__1__Impl rule__Comp__Group__2
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3887:1: ( rule__Comp__Group__1__Impl rule__Comp__Group__2 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3888:2: rule__Comp__Group__1__Impl rule__Comp__Group__2
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__1__Impl_in_rule__Comp__Group__17570);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__1__Impl_in_rule__Comp__Group__17820);
             rule__Comp__Group__1__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__2_in_rule__Comp__Group__17573);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__2_in_rule__Comp__Group__17823);
             rule__Comp__Group__2();
 
             state._fsp--;
@@ -10164,35 +10498,35 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3768:1: rule__Comp__Group__1__Impl : ( ( rule__Comp__Group_1__0 )* ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3895:1: rule__Comp__Group__1__Impl : ( ( rule__Comp__Group_1__0 )* ) ;
     public final void rule__Comp__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3772:1: ( ( ( rule__Comp__Group_1__0 )* ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3773:1: ( ( rule__Comp__Group_1__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3899:1: ( ( ( rule__Comp__Group_1__0 )* ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3900:1: ( ( rule__Comp__Group_1__0 )* )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3773:1: ( ( rule__Comp__Group_1__0 )* )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3774:1: ( rule__Comp__Group_1__0 )*
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3900:1: ( ( rule__Comp__Group_1__0 )* )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3901:1: ( rule__Comp__Group_1__0 )*
             {
              before(grammarAccess.getCompAccess().getGroup_1()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3775:1: ( rule__Comp__Group_1__0 )*
-            loop32:
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3902:1: ( rule__Comp__Group_1__0 )*
+            loop33:
             do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA32_0==36) ) {
-                    alt32=1;
+                if ( (LA33_0==38) ) {
+                    alt33=1;
                 }
 
 
-                switch (alt32) {
+                switch (alt33) {
             	case 1 :
-            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3775:2: rule__Comp__Group_1__0
+            	    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3902:2: rule__Comp__Group_1__0
             	    {
-            	    pushFollow(FollowSets000.FOLLOW_rule__Comp__Group_1__0_in_rule__Comp__Group__1__Impl7600);
+            	    pushFollow(FollowSets000.FOLLOW_rule__Comp__Group_1__0_in_rule__Comp__Group__1__Impl7850);
             	    rule__Comp__Group_1__0();
 
             	    state._fsp--;
@@ -10202,7 +10536,7 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
             	    break;
 
             	default :
-            	    break loop32;
+            	    break loop33;
                 }
             } while (true);
 
@@ -10229,21 +10563,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group__2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3785:1: rule__Comp__Group__2 : rule__Comp__Group__2__Impl rule__Comp__Group__3 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3912:1: rule__Comp__Group__2 : rule__Comp__Group__2__Impl rule__Comp__Group__3 ;
     public final void rule__Comp__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3789:1: ( rule__Comp__Group__2__Impl rule__Comp__Group__3 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3790:2: rule__Comp__Group__2__Impl rule__Comp__Group__3
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3916:1: ( rule__Comp__Group__2__Impl rule__Comp__Group__3 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3917:2: rule__Comp__Group__2__Impl rule__Comp__Group__3
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__2__Impl_in_rule__Comp__Group__27631);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__2__Impl_in_rule__Comp__Group__27881);
             rule__Comp__Group__2__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__3_in_rule__Comp__Group__27634);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__3_in_rule__Comp__Group__27884);
             rule__Comp__Group__3();
 
             state._fsp--;
@@ -10267,20 +10601,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group__2__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3797:1: rule__Comp__Group__2__Impl : ( '=' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3924:1: rule__Comp__Group__2__Impl : ( '=' ) ;
     public final void rule__Comp__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3801:1: ( ( '=' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3802:1: ( '=' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3928:1: ( ( '=' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3929:1: ( '=' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3802:1: ( '=' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3803:1: '='
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3929:1: ( '=' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3930:1: '='
             {
              before(grammarAccess.getCompAccess().getEqualsSignKeyword_2()); 
-            match(input,50,FollowSets000.FOLLOW_50_in_rule__Comp__Group__2__Impl7662); 
+            match(input,51,FollowSets000.FOLLOW_51_in_rule__Comp__Group__2__Impl7912); 
              after(grammarAccess.getCompAccess().getEqualsSignKeyword_2()); 
 
             }
@@ -10304,16 +10638,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group__3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3816:1: rule__Comp__Group__3 : rule__Comp__Group__3__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3943:1: rule__Comp__Group__3 : rule__Comp__Group__3__Impl ;
     public final void rule__Comp__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3820:1: ( rule__Comp__Group__3__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3821:2: rule__Comp__Group__3__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3947:1: ( rule__Comp__Group__3__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3948:2: rule__Comp__Group__3__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__3__Impl_in_rule__Comp__Group__37693);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group__3__Impl_in_rule__Comp__Group__37943);
             rule__Comp__Group__3__Impl();
 
             state._fsp--;
@@ -10337,20 +10671,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group__3__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3827:1: rule__Comp__Group__3__Impl : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3954:1: rule__Comp__Group__3__Impl : ( ruleEString ) ;
     public final void rule__Comp__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3831:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3832:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3958:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3959:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3832:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3833:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3959:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3960:1: ruleEString
             {
              before(grammarAccess.getCompAccess().getEStringParserRuleCall_3()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Comp__Group__3__Impl7720);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Comp__Group__3__Impl7970);
             ruleEString();
 
             state._fsp--;
@@ -10378,21 +10712,21 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group_1__0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3852:1: rule__Comp__Group_1__0 : rule__Comp__Group_1__0__Impl rule__Comp__Group_1__1 ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3979:1: rule__Comp__Group_1__0 : rule__Comp__Group_1__0__Impl rule__Comp__Group_1__1 ;
     public final void rule__Comp__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3856:1: ( rule__Comp__Group_1__0__Impl rule__Comp__Group_1__1 )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3857:2: rule__Comp__Group_1__0__Impl rule__Comp__Group_1__1
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3983:1: ( rule__Comp__Group_1__0__Impl rule__Comp__Group_1__1 )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3984:2: rule__Comp__Group_1__0__Impl rule__Comp__Group_1__1
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group_1__0__Impl_in_rule__Comp__Group_1__07757);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group_1__0__Impl_in_rule__Comp__Group_1__08007);
             rule__Comp__Group_1__0__Impl();
 
             state._fsp--;
 
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group_1__1_in_rule__Comp__Group_1__07760);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group_1__1_in_rule__Comp__Group_1__08010);
             rule__Comp__Group_1__1();
 
             state._fsp--;
@@ -10416,20 +10750,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group_1__0__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3864:1: rule__Comp__Group_1__0__Impl : ( '.' ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3991:1: rule__Comp__Group_1__0__Impl : ( '.' ) ;
     public final void rule__Comp__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3868:1: ( ( '.' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3869:1: ( '.' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3995:1: ( ( '.' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3996:1: ( '.' )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3869:1: ( '.' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3870:1: '.'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3996:1: ( '.' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3997:1: '.'
             {
              before(grammarAccess.getCompAccess().getFullStopKeyword_1_0()); 
-            match(input,36,FollowSets000.FOLLOW_36_in_rule__Comp__Group_1__0__Impl7788); 
+            match(input,38,FollowSets000.FOLLOW_38_in_rule__Comp__Group_1__0__Impl8038); 
              after(grammarAccess.getCompAccess().getFullStopKeyword_1_0()); 
 
             }
@@ -10453,16 +10787,16 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group_1__1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3883:1: rule__Comp__Group_1__1 : rule__Comp__Group_1__1__Impl ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4010:1: rule__Comp__Group_1__1 : rule__Comp__Group_1__1__Impl ;
     public final void rule__Comp__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3887:1: ( rule__Comp__Group_1__1__Impl )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3888:2: rule__Comp__Group_1__1__Impl
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4014:1: ( rule__Comp__Group_1__1__Impl )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4015:2: rule__Comp__Group_1__1__Impl
             {
-            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group_1__1__Impl_in_rule__Comp__Group_1__17819);
+            pushFollow(FollowSets000.FOLLOW_rule__Comp__Group_1__1__Impl_in_rule__Comp__Group_1__18069);
             rule__Comp__Group_1__1__Impl();
 
             state._fsp--;
@@ -10486,20 +10820,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Comp__Group_1__1__Impl"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3894:1: rule__Comp__Group_1__1__Impl : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4021:1: rule__Comp__Group_1__1__Impl : ( ruleEString ) ;
     public final void rule__Comp__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3898:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3899:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4025:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4026:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3899:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3900:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4026:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4027:1: ruleEString
             {
              before(grammarAccess.getCompAccess().getEStringParserRuleCall_1_1()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Comp__Group_1__1__Impl7846);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Comp__Group_1__1__Impl8096);
             ruleEString();
 
             state._fsp--;
@@ -10526,26 +10860,26 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
     // $ANTLR end "rule__Comp__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__Root__ArtifactsAssignment_0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3916:1: rule__Root__ArtifactsAssignment_0 : ( ruleArtifact ) ;
-    public final void rule__Root__ArtifactsAssignment_0() throws RecognitionException {
+    // $ANTLR start "rule__Root__MongoURIsAssignment_0_2"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4043:1: rule__Root__MongoURIsAssignment_0_2 : ( ruleEString ) ;
+    public final void rule__Root__MongoURIsAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3920:1: ( ( ruleArtifact ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3921:1: ( ruleArtifact )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4047:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4048:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3921:1: ( ruleArtifact )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3922:1: ruleArtifact
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4048:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4049:1: ruleEString
             {
-             before(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_0_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleArtifact_in_rule__Root__ArtifactsAssignment_07884);
-            ruleArtifact();
+             before(grammarAccess.getRootAccess().getMongoURIsEStringParserRuleCall_0_2_0()); 
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Root__MongoURIsAssignment_0_28134);
+            ruleEString();
 
             state._fsp--;
 
-             after(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_0_0()); 
+             after(grammarAccess.getRootAccess().getMongoURIsEStringParserRuleCall_0_2_0()); 
 
             }
 
@@ -10564,29 +10898,29 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Root__ArtifactsAssignment_0"
+    // $ANTLR end "rule__Root__MongoURIsAssignment_0_2"
 
 
-    // $ANTLR start "rule__Root__ArtifactsAssignment_1_0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3931:1: rule__Root__ArtifactsAssignment_1_0 : ( ruleArtifact ) ;
-    public final void rule__Root__ArtifactsAssignment_1_0() throws RecognitionException {
+    // $ANTLR start "rule__Root__ArtifactsAssignment_1"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4058:1: rule__Root__ArtifactsAssignment_1 : ( ruleArtifact ) ;
+    public final void rule__Root__ArtifactsAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3935:1: ( ( ruleArtifact ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3936:1: ( ruleArtifact )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4062:1: ( ( ruleArtifact ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4063:1: ( ruleArtifact )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3936:1: ( ruleArtifact )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3937:1: ruleArtifact
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4063:1: ( ruleArtifact )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4064:1: ruleArtifact
             {
-             before(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_1_0_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleArtifact_in_rule__Root__ArtifactsAssignment_1_07915);
+             before(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_1_0()); 
+            pushFollow(FollowSets000.FOLLOW_ruleArtifact_in_rule__Root__ArtifactsAssignment_18165);
             ruleArtifact();
 
             state._fsp--;
 
-             after(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_1_0_0()); 
+             after(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_1_0()); 
 
             }
 
@@ -10605,29 +10939,70 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Root__ArtifactsAssignment_1_0"
+    // $ANTLR end "rule__Root__ArtifactsAssignment_1"
 
 
-    // $ANTLR start "rule__Root__EntitiesAssignment_1_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3946:1: rule__Root__EntitiesAssignment_1_1 : ( ruleEntity ) ;
-    public final void rule__Root__EntitiesAssignment_1_1() throws RecognitionException {
+    // $ANTLR start "rule__Root__ArtifactsAssignment_2_0"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4073:1: rule__Root__ArtifactsAssignment_2_0 : ( ruleArtifact ) ;
+    public final void rule__Root__ArtifactsAssignment_2_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3950:1: ( ( ruleEntity ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3951:1: ( ruleEntity )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4077:1: ( ( ruleArtifact ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4078:1: ( ruleArtifact )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3951:1: ( ruleEntity )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3952:1: ruleEntity
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4078:1: ( ruleArtifact )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4079:1: ruleArtifact
             {
-             before(grammarAccess.getRootAccess().getEntitiesEntityParserRuleCall_1_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEntity_in_rule__Root__EntitiesAssignment_1_17946);
+             before(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_2_0_0()); 
+            pushFollow(FollowSets000.FOLLOW_ruleArtifact_in_rule__Root__ArtifactsAssignment_2_08196);
+            ruleArtifact();
+
+            state._fsp--;
+
+             after(grammarAccess.getRootAccess().getArtifactsArtifactParserRuleCall_2_0_0()); 
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Root__ArtifactsAssignment_2_0"
+
+
+    // $ANTLR start "rule__Root__EntitiesAssignment_2_1"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4088:1: rule__Root__EntitiesAssignment_2_1 : ( ruleEntity ) ;
+    public final void rule__Root__EntitiesAssignment_2_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4092:1: ( ( ruleEntity ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4093:1: ( ruleEntity )
+            {
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4093:1: ( ruleEntity )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4094:1: ruleEntity
+            {
+             before(grammarAccess.getRootAccess().getEntitiesEntityParserRuleCall_2_1_0()); 
+            pushFollow(FollowSets000.FOLLOW_ruleEntity_in_rule__Root__EntitiesAssignment_2_18227);
             ruleEntity();
 
             state._fsp--;
 
-             after(grammarAccess.getRootAccess().getEntitiesEntityParserRuleCall_1_1_0()); 
+             after(grammarAccess.getRootAccess().getEntitiesEntityParserRuleCall_2_1_0()); 
 
             }
 
@@ -10646,29 +11021,29 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Root__EntitiesAssignment_1_1"
+    // $ANTLR end "rule__Root__EntitiesAssignment_2_1"
 
 
-    // $ANTLR start "rule__Root__ServicesAssignment_1_2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3961:1: rule__Root__ServicesAssignment_1_2 : ( ruleService ) ;
-    public final void rule__Root__ServicesAssignment_1_2() throws RecognitionException {
+    // $ANTLR start "rule__Root__ServicesAssignment_2_2"
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4103:1: rule__Root__ServicesAssignment_2_2 : ( ruleService ) ;
+    public final void rule__Root__ServicesAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3965:1: ( ( ruleService ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3966:1: ( ruleService )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4107:1: ( ( ruleService ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4108:1: ( ruleService )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3966:1: ( ruleService )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3967:1: ruleService
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4108:1: ( ruleService )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4109:1: ruleService
             {
-             before(grammarAccess.getRootAccess().getServicesServiceParserRuleCall_1_2_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleService_in_rule__Root__ServicesAssignment_1_27977);
+             before(grammarAccess.getRootAccess().getServicesServiceParserRuleCall_2_2_0()); 
+            pushFollow(FollowSets000.FOLLOW_ruleService_in_rule__Root__ServicesAssignment_2_28258);
             ruleService();
 
             state._fsp--;
 
-             after(grammarAccess.getRootAccess().getServicesServiceParserRuleCall_1_2_0()); 
+             after(grammarAccess.getRootAccess().getServicesServiceParserRuleCall_2_2_0()); 
 
             }
 
@@ -10687,24 +11062,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
         }
         return ;
     }
-    // $ANTLR end "rule__Root__ServicesAssignment_1_2"
+    // $ANTLR end "rule__Root__ServicesAssignment_2_2"
 
 
     // $ANTLR start "rule__Artifact__NameAssignment_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3976:1: rule__Artifact__NameAssignment_1 : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4118:1: rule__Artifact__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__Artifact__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3980:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3981:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4122:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4123:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3981:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3982:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4123:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4124:1: ruleEString
             {
              before(grammarAccess.getArtifactAccess().getNameEStringParserRuleCall_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Artifact__NameAssignment_18008);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Artifact__NameAssignment_18289);
             ruleEString();
 
             state._fsp--;
@@ -10732,20 +11107,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__ExtensionAssignment_2_1_2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3991:1: rule__Artifact__ExtensionAssignment_2_1_2 : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4133:1: rule__Artifact__ExtensionAssignment_2_1_2 : ( ruleEString ) ;
     public final void rule__Artifact__ExtensionAssignment_2_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3995:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3996:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4137:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4138:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3996:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:3997:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4138:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4139:1: ruleEString
             {
              before(grammarAccess.getArtifactAccess().getExtensionEStringParserRuleCall_2_1_2_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Artifact__ExtensionAssignment_2_1_28039);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Artifact__ExtensionAssignment_2_1_28320);
             ruleEString();
 
             state._fsp--;
@@ -10773,20 +11148,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__FormatAssignment_2_2_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4006:1: rule__Artifact__FormatAssignment_2_2_1 : ( ruleFormatEnum ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4148:1: rule__Artifact__FormatAssignment_2_2_1 : ( ruleFormatEnum ) ;
     public final void rule__Artifact__FormatAssignment_2_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4010:1: ( ( ruleFormatEnum ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4011:1: ( ruleFormatEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4152:1: ( ( ruleFormatEnum ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4153:1: ( ruleFormatEnum )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4011:1: ( ruleFormatEnum )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4012:1: ruleFormatEnum
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4153:1: ( ruleFormatEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4154:1: ruleFormatEnum
             {
              before(grammarAccess.getArtifactAccess().getFormatFormatEnumEnumRuleCall_2_2_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleFormatEnum_in_rule__Artifact__FormatAssignment_2_2_18070);
+            pushFollow(FollowSets000.FOLLOW_ruleFormatEnum_in_rule__Artifact__FormatAssignment_2_2_18351);
             ruleFormatEnum();
 
             state._fsp--;
@@ -10814,20 +11189,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__BasicServicesAssignment_2_3_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4021:1: rule__Artifact__BasicServicesAssignment_2_3_1 : ( ruleServiceEnum ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4163:1: rule__Artifact__BasicServicesAssignment_2_3_1 : ( ruleServiceEnum ) ;
     public final void rule__Artifact__BasicServicesAssignment_2_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4025:1: ( ( ruleServiceEnum ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4026:1: ( ruleServiceEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4167:1: ( ( ruleServiceEnum ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4168:1: ( ruleServiceEnum )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4026:1: ( ruleServiceEnum )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4027:1: ruleServiceEnum
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4168:1: ( ruleServiceEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4169:1: ruleServiceEnum
             {
              before(grammarAccess.getArtifactAccess().getBasicServicesServiceEnumEnumRuleCall_2_3_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleServiceEnum_in_rule__Artifact__BasicServicesAssignment_2_3_18101);
+            pushFollow(FollowSets000.FOLLOW_ruleServiceEnum_in_rule__Artifact__BasicServicesAssignment_2_3_18382);
             ruleServiceEnum();
 
             state._fsp--;
@@ -10855,20 +11230,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__BasicServicesAssignment_2_3_2_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4036:1: rule__Artifact__BasicServicesAssignment_2_3_2_1 : ( ruleServiceEnum ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4178:1: rule__Artifact__BasicServicesAssignment_2_3_2_1 : ( ruleServiceEnum ) ;
     public final void rule__Artifact__BasicServicesAssignment_2_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4040:1: ( ( ruleServiceEnum ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4041:1: ( ruleServiceEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4182:1: ( ( ruleServiceEnum ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4183:1: ( ruleServiceEnum )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4041:1: ( ruleServiceEnum )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4042:1: ruleServiceEnum
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4183:1: ( ruleServiceEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4184:1: ruleServiceEnum
             {
              before(grammarAccess.getArtifactAccess().getBasicServicesServiceEnumEnumRuleCall_2_3_2_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleServiceEnum_in_rule__Artifact__BasicServicesAssignment_2_3_2_18132);
+            pushFollow(FollowSets000.FOLLOW_ruleServiceEnum_in_rule__Artifact__BasicServicesAssignment_2_3_2_18413);
             ruleServiceEnum();
 
             state._fsp--;
@@ -10896,20 +11271,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Artifact__AttributesAssignment_4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4051:1: rule__Artifact__AttributesAssignment_4 : ( ruleAttribute ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4193:1: rule__Artifact__AttributesAssignment_4 : ( ruleAttribute ) ;
     public final void rule__Artifact__AttributesAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4055:1: ( ( ruleAttribute ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4056:1: ( ruleAttribute )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4197:1: ( ( ruleAttribute ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4198:1: ( ruleAttribute )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4056:1: ( ruleAttribute )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4057:1: ruleAttribute
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4198:1: ( ruleAttribute )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4199:1: ruleAttribute
             {
              before(grammarAccess.getArtifactAccess().getAttributesAttributeParserRuleCall_4_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleAttribute_in_rule__Artifact__AttributesAssignment_48163);
+            pushFollow(FollowSets000.FOLLOW_ruleAttribute_in_rule__Artifact__AttributesAssignment_48444);
             ruleAttribute();
 
             state._fsp--;
@@ -10937,20 +11312,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__NameAssignment_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4066:1: rule__Entity__NameAssignment_1 : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4208:1: rule__Entity__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__Entity__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4070:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4071:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4212:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4213:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4071:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4072:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4213:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4214:1: ruleEString
             {
              before(grammarAccess.getEntityAccess().getNameEStringParserRuleCall_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Entity__NameAssignment_18194);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Entity__NameAssignment_18475);
             ruleEString();
 
             state._fsp--;
@@ -10978,20 +11353,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Entity__AttributesAssignment_3"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4081:1: rule__Entity__AttributesAssignment_3 : ( ruleAttribute ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4223:1: rule__Entity__AttributesAssignment_3 : ( ruleAttribute ) ;
     public final void rule__Entity__AttributesAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4085:1: ( ( ruleAttribute ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4086:1: ( ruleAttribute )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4227:1: ( ( ruleAttribute ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4228:1: ( ruleAttribute )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4086:1: ( ruleAttribute )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4087:1: ruleAttribute
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4228:1: ( ruleAttribute )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4229:1: ruleAttribute
             {
              before(grammarAccess.getEntityAccess().getAttributesAttributeParserRuleCall_3_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_38225);
+            pushFollow(FollowSets000.FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_38506);
             ruleAttribute();
 
             state._fsp--;
@@ -11019,24 +11394,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__ManyAssignment_0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4096:1: rule__Primitive__ManyAssignment_0 : ( ( 'many' ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4238:1: rule__Primitive__ManyAssignment_0 : ( ( 'many' ) ) ;
     public final void rule__Primitive__ManyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4100:1: ( ( ( 'many' ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4101:1: ( ( 'many' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4242:1: ( ( ( 'many' ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4243:1: ( ( 'many' ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4101:1: ( ( 'many' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4102:1: ( 'many' )
-            {
-             before(grammarAccess.getPrimitiveAccess().getManyManyKeyword_0_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4103:1: ( 'many' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4104:1: 'many'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4243:1: ( ( 'many' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4244:1: ( 'many' )
             {
              before(grammarAccess.getPrimitiveAccess().getManyManyKeyword_0_0()); 
-            match(input,51,FollowSets000.FOLLOW_51_in_rule__Primitive__ManyAssignment_08261); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4245:1: ( 'many' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4246:1: 'many'
+            {
+             before(grammarAccess.getPrimitiveAccess().getManyManyKeyword_0_0()); 
+            match(input,52,FollowSets000.FOLLOW_52_in_rule__Primitive__ManyAssignment_08542); 
              after(grammarAccess.getPrimitiveAccess().getManyManyKeyword_0_0()); 
 
             }
@@ -11064,24 +11439,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__RequiredAssignment_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4119:1: rule__Primitive__RequiredAssignment_1 : ( ( 'required' ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4261:1: rule__Primitive__RequiredAssignment_1 : ( ( 'required' ) ) ;
     public final void rule__Primitive__RequiredAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4123:1: ( ( ( 'required' ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4124:1: ( ( 'required' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4265:1: ( ( ( 'required' ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4266:1: ( ( 'required' ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4124:1: ( ( 'required' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4125:1: ( 'required' )
-            {
-             before(grammarAccess.getPrimitiveAccess().getRequiredRequiredKeyword_1_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4126:1: ( 'required' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4127:1: 'required'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4266:1: ( ( 'required' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4267:1: ( 'required' )
             {
              before(grammarAccess.getPrimitiveAccess().getRequiredRequiredKeyword_1_0()); 
-            match(input,52,FollowSets000.FOLLOW_52_in_rule__Primitive__RequiredAssignment_18305); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4268:1: ( 'required' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4269:1: 'required'
+            {
+             before(grammarAccess.getPrimitiveAccess().getRequiredRequiredKeyword_1_0()); 
+            match(input,53,FollowSets000.FOLLOW_53_in_rule__Primitive__RequiredAssignment_18586); 
              after(grammarAccess.getPrimitiveAccess().getRequiredRequiredKeyword_1_0()); 
 
             }
@@ -11109,20 +11484,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__NameAssignment_2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4142:1: rule__Primitive__NameAssignment_2 : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4284:1: rule__Primitive__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__Primitive__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4146:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4147:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4288:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4289:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4147:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4148:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4289:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4290:1: ruleEString
             {
              before(grammarAccess.getPrimitiveAccess().getNameEStringParserRuleCall_2_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Primitive__NameAssignment_28344);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Primitive__NameAssignment_28625);
             ruleEString();
 
             state._fsp--;
@@ -11150,20 +11525,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Primitive__TypeAssignment_4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4157:1: rule__Primitive__TypeAssignment_4 : ( ruleDataEnum ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4299:1: rule__Primitive__TypeAssignment_4 : ( ruleDataEnum ) ;
     public final void rule__Primitive__TypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4161:1: ( ( ruleDataEnum ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4162:1: ( ruleDataEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4303:1: ( ( ruleDataEnum ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4304:1: ( ruleDataEnum )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4162:1: ( ruleDataEnum )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4163:1: ruleDataEnum
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4304:1: ( ruleDataEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4305:1: ruleDataEnum
             {
              before(grammarAccess.getPrimitiveAccess().getTypeDataEnumEnumRuleCall_4_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleDataEnum_in_rule__Primitive__TypeAssignment_48375);
+            pushFollow(FollowSets000.FOLLOW_ruleDataEnum_in_rule__Primitive__TypeAssignment_48656);
             ruleDataEnum();
 
             state._fsp--;
@@ -11191,24 +11566,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__ManyAssignment_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4172:1: rule__Reference__ManyAssignment_1 : ( ( 'many' ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4314:1: rule__Reference__ManyAssignment_1 : ( ( 'many' ) ) ;
     public final void rule__Reference__ManyAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4176:1: ( ( ( 'many' ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4177:1: ( ( 'many' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4318:1: ( ( ( 'many' ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4319:1: ( ( 'many' ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4177:1: ( ( 'many' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4178:1: ( 'many' )
-            {
-             before(grammarAccess.getReferenceAccess().getManyManyKeyword_1_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4179:1: ( 'many' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4180:1: 'many'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4319:1: ( ( 'many' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4320:1: ( 'many' )
             {
              before(grammarAccess.getReferenceAccess().getManyManyKeyword_1_0()); 
-            match(input,51,FollowSets000.FOLLOW_51_in_rule__Reference__ManyAssignment_18411); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4321:1: ( 'many' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4322:1: 'many'
+            {
+             before(grammarAccess.getReferenceAccess().getManyManyKeyword_1_0()); 
+            match(input,52,FollowSets000.FOLLOW_52_in_rule__Reference__ManyAssignment_18692); 
              after(grammarAccess.getReferenceAccess().getManyManyKeyword_1_0()); 
 
             }
@@ -11236,20 +11611,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__NameAssignment_2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4195:1: rule__Reference__NameAssignment_2 : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4337:1: rule__Reference__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__Reference__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4199:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4200:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4341:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4342:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4200:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4201:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4342:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4343:1: ruleEString
             {
              before(grammarAccess.getReferenceAccess().getNameEStringParserRuleCall_2_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Reference__NameAssignment_28450);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Reference__NameAssignment_28731);
             ruleEString();
 
             state._fsp--;
@@ -11277,24 +11652,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Reference__TypeAssignment_4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4210:1: rule__Reference__TypeAssignment_4 : ( ( ruleEString ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4352:1: rule__Reference__TypeAssignment_4 : ( ( ruleEString ) ) ;
     public final void rule__Reference__TypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4214:1: ( ( ( ruleEString ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4215:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4356:1: ( ( ( ruleEString ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4357:1: ( ( ruleEString ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4215:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4216:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4357:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4358:1: ( ruleEString )
             {
              before(grammarAccess.getReferenceAccess().getTypeEntityCrossReference_4_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4217:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4218:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4359:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4360:1: ruleEString
             {
              before(grammarAccess.getReferenceAccess().getTypeEntityEStringParserRuleCall_4_0_1()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Reference__TypeAssignment_48485);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Reference__TypeAssignment_48766);
             ruleEString();
 
             state._fsp--;
@@ -11326,24 +11701,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__ManyAssignment_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4229:1: rule__ArtifactID__ManyAssignment_1 : ( ( 'many' ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4371:1: rule__ArtifactID__ManyAssignment_1 : ( ( 'many' ) ) ;
     public final void rule__ArtifactID__ManyAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4233:1: ( ( ( 'many' ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4234:1: ( ( 'many' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4375:1: ( ( ( 'many' ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4376:1: ( ( 'many' ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4234:1: ( ( 'many' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4235:1: ( 'many' )
-            {
-             before(grammarAccess.getArtifactIDAccess().getManyManyKeyword_1_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4236:1: ( 'many' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4237:1: 'many'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4376:1: ( ( 'many' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4377:1: ( 'many' )
             {
              before(grammarAccess.getArtifactIDAccess().getManyManyKeyword_1_0()); 
-            match(input,51,FollowSets000.FOLLOW_51_in_rule__ArtifactID__ManyAssignment_18525); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4378:1: ( 'many' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4379:1: 'many'
+            {
+             before(grammarAccess.getArtifactIDAccess().getManyManyKeyword_1_0()); 
+            match(input,52,FollowSets000.FOLLOW_52_in_rule__ArtifactID__ManyAssignment_18806); 
              after(grammarAccess.getArtifactIDAccess().getManyManyKeyword_1_0()); 
 
             }
@@ -11371,20 +11746,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__NameAssignment_2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4252:1: rule__ArtifactID__NameAssignment_2 : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4394:1: rule__ArtifactID__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__ArtifactID__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4256:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4257:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4398:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4399:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4257:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4258:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4399:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4400:1: ruleEString
             {
              before(grammarAccess.getArtifactIDAccess().getNameEStringParserRuleCall_2_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__ArtifactID__NameAssignment_28564);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__ArtifactID__NameAssignment_28845);
             ruleEString();
 
             state._fsp--;
@@ -11412,24 +11787,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__ArtifactID__TypeAssignment_4"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4267:1: rule__ArtifactID__TypeAssignment_4 : ( ( ruleEString ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4409:1: rule__ArtifactID__TypeAssignment_4 : ( ( ruleEString ) ) ;
     public final void rule__ArtifactID__TypeAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4271:1: ( ( ( ruleEString ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4272:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4413:1: ( ( ( ruleEString ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4414:1: ( ( ruleEString ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4272:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4273:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4414:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4415:1: ( ruleEString )
             {
              before(grammarAccess.getArtifactIDAccess().getTypeArtifactCrossReference_4_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4274:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4275:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4416:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4417:1: ruleEString
             {
              before(grammarAccess.getArtifactIDAccess().getTypeArtifactEStringParserRuleCall_4_0_1()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__ArtifactID__TypeAssignment_48599);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__ArtifactID__TypeAssignment_48880);
             ruleEString();
 
             state._fsp--;
@@ -11461,24 +11836,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__ArtifactAssignment_0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4286:1: rule__OnService__ArtifactAssignment_0 : ( ( ruleEString ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4428:1: rule__OnService__ArtifactAssignment_0 : ( ( ruleEString ) ) ;
     public final void rule__OnService__ArtifactAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4290:1: ( ( ( ruleEString ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4291:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4432:1: ( ( ( ruleEString ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4433:1: ( ( ruleEString ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4291:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4292:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4433:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4434:1: ( ruleEString )
             {
              before(grammarAccess.getOnServiceAccess().getArtifactArtifactCrossReference_0_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4293:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4294:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4435:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4436:1: ruleEString
             {
              before(grammarAccess.getOnServiceAccess().getArtifactArtifactEStringParserRuleCall_0_0_1()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__OnService__ArtifactAssignment_08638);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__OnService__ArtifactAssignment_08919);
             ruleEString();
 
             state._fsp--;
@@ -11510,20 +11885,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__WhenServicesAssignment_2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4305:1: rule__OnService__WhenServicesAssignment_2 : ( ruleServiceEnum ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4447:1: rule__OnService__WhenServicesAssignment_2 : ( ruleServiceEnum ) ;
     public final void rule__OnService__WhenServicesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4309:1: ( ( ruleServiceEnum ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4310:1: ( ruleServiceEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4451:1: ( ( ruleServiceEnum ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4452:1: ( ruleServiceEnum )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4310:1: ( ruleServiceEnum )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4311:1: ruleServiceEnum
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4452:1: ( ruleServiceEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4453:1: ruleServiceEnum
             {
              before(grammarAccess.getOnServiceAccess().getWhenServicesServiceEnumEnumRuleCall_2_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleServiceEnum_in_rule__OnService__WhenServicesAssignment_28673);
+            pushFollow(FollowSets000.FOLLOW_ruleServiceEnum_in_rule__OnService__WhenServicesAssignment_28954);
             ruleServiceEnum();
 
             state._fsp--;
@@ -11551,20 +11926,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__OnService__WhenServicesAssignment_3_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4320:1: rule__OnService__WhenServicesAssignment_3_1 : ( ruleServiceEnum ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4462:1: rule__OnService__WhenServicesAssignment_3_1 : ( ruleServiceEnum ) ;
     public final void rule__OnService__WhenServicesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4324:1: ( ( ruleServiceEnum ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4325:1: ( ruleServiceEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4466:1: ( ( ruleServiceEnum ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4467:1: ( ruleServiceEnum )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4325:1: ( ruleServiceEnum )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4326:1: ruleServiceEnum
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4467:1: ( ruleServiceEnum )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4468:1: ruleServiceEnum
             {
              before(grammarAccess.getOnServiceAccess().getWhenServicesServiceEnumEnumRuleCall_3_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleServiceEnum_in_rule__OnService__WhenServicesAssignment_3_18704);
+            pushFollow(FollowSets000.FOLLOW_ruleServiceEnum_in_rule__OnService__WhenServicesAssignment_3_18985);
             ruleServiceEnum();
 
             state._fsp--;
@@ -11592,20 +11967,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__NameAssignment_2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4335:1: rule__SimpleService__NameAssignment_2 : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4477:1: rule__SimpleService__NameAssignment_2 : ( ruleEString ) ;
     public final void rule__SimpleService__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4339:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4340:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4481:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4482:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4340:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4341:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4482:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4483:1: ruleEString
             {
              before(grammarAccess.getSimpleServiceAccess().getNameEStringParserRuleCall_2_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__SimpleService__NameAssignment_28735);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__SimpleService__NameAssignment_29016);
             ruleEString();
 
             state._fsp--;
@@ -11633,20 +12008,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__InputAssignment_4_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4350:1: rule__SimpleService__InputAssignment_4_1 : ( ruleInout ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4492:1: rule__SimpleService__InputAssignment_4_1 : ( ruleInout ) ;
     public final void rule__SimpleService__InputAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4354:1: ( ( ruleInout ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4355:1: ( ruleInout )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4496:1: ( ( ruleInout ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4497:1: ( ruleInout )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4355:1: ( ruleInout )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4356:1: ruleInout
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4497:1: ( ruleInout )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4498:1: ruleInout
             {
              before(grammarAccess.getSimpleServiceAccess().getInputInoutParserRuleCall_4_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleInout_in_rule__SimpleService__InputAssignment_4_18766);
+            pushFollow(FollowSets000.FOLLOW_ruleInout_in_rule__SimpleService__InputAssignment_4_19047);
             ruleInout();
 
             state._fsp--;
@@ -11674,20 +12049,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__InputAssignment_4_2_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4365:1: rule__SimpleService__InputAssignment_4_2_1 : ( ruleInout ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4507:1: rule__SimpleService__InputAssignment_4_2_1 : ( ruleInout ) ;
     public final void rule__SimpleService__InputAssignment_4_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4369:1: ( ( ruleInout ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4370:1: ( ruleInout )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4511:1: ( ( ruleInout ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4512:1: ( ruleInout )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4370:1: ( ruleInout )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4371:1: ruleInout
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4512:1: ( ruleInout )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4513:1: ruleInout
             {
              before(grammarAccess.getSimpleServiceAccess().getInputInoutParserRuleCall_4_2_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleInout_in_rule__SimpleService__InputAssignment_4_2_18797);
+            pushFollow(FollowSets000.FOLLOW_ruleInout_in_rule__SimpleService__InputAssignment_4_2_19078);
             ruleInout();
 
             state._fsp--;
@@ -11715,20 +12090,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__OutputAssignment_5_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4380:1: rule__SimpleService__OutputAssignment_5_1 : ( ruleInout ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4522:1: rule__SimpleService__OutputAssignment_5_1 : ( ruleInout ) ;
     public final void rule__SimpleService__OutputAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4384:1: ( ( ruleInout ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4385:1: ( ruleInout )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4526:1: ( ( ruleInout ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4527:1: ( ruleInout )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4385:1: ( ruleInout )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4386:1: ruleInout
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4527:1: ( ruleInout )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4528:1: ruleInout
             {
              before(grammarAccess.getSimpleServiceAccess().getOutputInoutParserRuleCall_5_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleInout_in_rule__SimpleService__OutputAssignment_5_18828);
+            pushFollow(FollowSets000.FOLLOW_ruleInout_in_rule__SimpleService__OutputAssignment_5_19109);
             ruleInout();
 
             state._fsp--;
@@ -11756,20 +12131,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__OutputAssignment_5_2_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4395:1: rule__SimpleService__OutputAssignment_5_2_1 : ( ruleInout ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4537:1: rule__SimpleService__OutputAssignment_5_2_1 : ( ruleInout ) ;
     public final void rule__SimpleService__OutputAssignment_5_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4399:1: ( ( ruleInout ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4400:1: ( ruleInout )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4541:1: ( ( ruleInout ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4542:1: ( ruleInout )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4400:1: ( ruleInout )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4401:1: ruleInout
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4542:1: ( ruleInout )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4543:1: ruleInout
             {
              before(grammarAccess.getSimpleServiceAccess().getOutputInoutParserRuleCall_5_2_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleInout_in_rule__SimpleService__OutputAssignment_5_2_18859);
+            pushFollow(FollowSets000.FOLLOW_ruleInout_in_rule__SimpleService__OutputAssignment_5_2_19140);
             ruleInout();
 
             state._fsp--;
@@ -11797,20 +12172,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__SimpleService__WhenAssignment_6_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4410:1: rule__SimpleService__WhenAssignment_6_1 : ( ruleOnService ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4552:1: rule__SimpleService__WhenAssignment_6_1 : ( ruleOnService ) ;
     public final void rule__SimpleService__WhenAssignment_6_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4414:1: ( ( ruleOnService ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4415:1: ( ruleOnService )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4556:1: ( ( ruleOnService ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4557:1: ( ruleOnService )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4415:1: ( ruleOnService )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4416:1: ruleOnService
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4557:1: ( ruleOnService )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4558:1: ruleOnService
             {
              before(grammarAccess.getSimpleServiceAccess().getWhenOnServiceParserRuleCall_6_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleOnService_in_rule__SimpleService__WhenAssignment_6_18890);
+            pushFollow(FollowSets000.FOLLOW_ruleOnService_in_rule__SimpleService__WhenAssignment_6_19171);
             ruleOnService();
 
             state._fsp--;
@@ -11838,20 +12213,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__NameAssignment_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4425:1: rule__MultiService__NameAssignment_1 : ( ruleEString ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4567:1: rule__MultiService__NameAssignment_1 : ( ruleEString ) ;
     public final void rule__MultiService__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4429:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4430:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4571:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4572:1: ( ruleEString )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4430:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4431:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4572:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4573:1: ruleEString
             {
              before(grammarAccess.getMultiServiceAccess().getNameEStringParserRuleCall_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__MultiService__NameAssignment_18921);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__MultiService__NameAssignment_19202);
             ruleEString();
 
             state._fsp--;
@@ -11879,24 +12254,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__ParallelAssignment_2_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4440:1: rule__MultiService__ParallelAssignment_2_1 : ( ( 'parallel' ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4582:1: rule__MultiService__ParallelAssignment_2_1 : ( ( 'parallel' ) ) ;
     public final void rule__MultiService__ParallelAssignment_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4444:1: ( ( ( 'parallel' ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4445:1: ( ( 'parallel' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4586:1: ( ( ( 'parallel' ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4587:1: ( ( 'parallel' ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4445:1: ( ( 'parallel' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4446:1: ( 'parallel' )
-            {
-             before(grammarAccess.getMultiServiceAccess().getParallelParallelKeyword_2_1_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4447:1: ( 'parallel' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4448:1: 'parallel'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4587:1: ( ( 'parallel' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4588:1: ( 'parallel' )
             {
              before(grammarAccess.getMultiServiceAccess().getParallelParallelKeyword_2_1_0()); 
-            match(input,53,FollowSets000.FOLLOW_53_in_rule__MultiService__ParallelAssignment_2_18957); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4589:1: ( 'parallel' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4590:1: 'parallel'
+            {
+             before(grammarAccess.getMultiServiceAccess().getParallelParallelKeyword_2_1_0()); 
+            match(input,54,FollowSets000.FOLLOW_54_in_rule__MultiService__ParallelAssignment_2_19238); 
              after(grammarAccess.getMultiServiceAccess().getParallelParallelKeyword_2_1_0()); 
 
             }
@@ -11924,20 +12299,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__WhenAssignment_4_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4463:1: rule__MultiService__WhenAssignment_4_1 : ( ruleOnService ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4605:1: rule__MultiService__WhenAssignment_4_1 : ( ruleOnService ) ;
     public final void rule__MultiService__WhenAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4467:1: ( ( ruleOnService ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4468:1: ( ruleOnService )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4609:1: ( ( ruleOnService ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4610:1: ( ruleOnService )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4468:1: ( ruleOnService )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4469:1: ruleOnService
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4610:1: ( ruleOnService )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4611:1: ruleOnService
             {
              before(grammarAccess.getMultiServiceAccess().getWhenOnServiceParserRuleCall_4_1_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleOnService_in_rule__MultiService__WhenAssignment_4_18996);
+            pushFollow(FollowSets000.FOLLOW_ruleOnService_in_rule__MultiService__WhenAssignment_4_19277);
             ruleOnService();
 
             state._fsp--;
@@ -11965,24 +12340,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__ServicesAssignment_6"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4478:1: rule__MultiService__ServicesAssignment_6 : ( ( ruleEString ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4620:1: rule__MultiService__ServicesAssignment_6 : ( ( ruleEString ) ) ;
     public final void rule__MultiService__ServicesAssignment_6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4482:1: ( ( ( ruleEString ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4483:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4624:1: ( ( ( ruleEString ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4625:1: ( ( ruleEString ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4483:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4484:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4625:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4626:1: ( ruleEString )
             {
              before(grammarAccess.getMultiServiceAccess().getServicesServiceCrossReference_6_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4485:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4486:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4627:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4628:1: ruleEString
             {
              before(grammarAccess.getMultiServiceAccess().getServicesServiceEStringParserRuleCall_6_0_1()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__MultiService__ServicesAssignment_69031);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__MultiService__ServicesAssignment_69312);
             ruleEString();
 
             state._fsp--;
@@ -12014,24 +12389,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__MultiService__ServicesAssignment_7_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4497:1: rule__MultiService__ServicesAssignment_7_1 : ( ( ruleEString ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4639:1: rule__MultiService__ServicesAssignment_7_1 : ( ( ruleEString ) ) ;
     public final void rule__MultiService__ServicesAssignment_7_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4501:1: ( ( ( ruleEString ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4502:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4643:1: ( ( ( ruleEString ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4644:1: ( ( ruleEString ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4502:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4503:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4644:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4645:1: ( ruleEString )
             {
              before(grammarAccess.getMultiServiceAccess().getServicesServiceCrossReference_7_1_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4504:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4505:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4646:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4647:1: ruleEString
             {
              before(grammarAccess.getMultiServiceAccess().getServicesServiceEStringParserRuleCall_7_1_0_1()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__MultiService__ServicesAssignment_7_19070);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__MultiService__ServicesAssignment_7_19351);
             ruleEString();
 
             state._fsp--;
@@ -12063,24 +12438,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__ManyAssignment_0"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4516:1: rule__Inout__ManyAssignment_0 : ( ( 'many' ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4658:1: rule__Inout__ManyAssignment_0 : ( ( 'many' ) ) ;
     public final void rule__Inout__ManyAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4520:1: ( ( ( 'many' ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4521:1: ( ( 'many' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4662:1: ( ( ( 'many' ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4663:1: ( ( 'many' ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4521:1: ( ( 'many' ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4522:1: ( 'many' )
-            {
-             before(grammarAccess.getInoutAccess().getManyManyKeyword_0_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4523:1: ( 'many' )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4524:1: 'many'
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4663:1: ( ( 'many' ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4664:1: ( 'many' )
             {
              before(grammarAccess.getInoutAccess().getManyManyKeyword_0_0()); 
-            match(input,51,FollowSets000.FOLLOW_51_in_rule__Inout__ManyAssignment_09110); 
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4665:1: ( 'many' )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4666:1: 'many'
+            {
+             before(grammarAccess.getInoutAccess().getManyManyKeyword_0_0()); 
+            match(input,52,FollowSets000.FOLLOW_52_in_rule__Inout__ManyAssignment_09391); 
              after(grammarAccess.getInoutAccess().getManyManyKeyword_0_0()); 
 
             }
@@ -12108,24 +12483,24 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__TypeAssignment_1"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4539:1: rule__Inout__TypeAssignment_1 : ( ( ruleEString ) ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4681:1: rule__Inout__TypeAssignment_1 : ( ( ruleEString ) ) ;
     public final void rule__Inout__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4543:1: ( ( ( ruleEString ) ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4544:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4685:1: ( ( ( ruleEString ) ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4686:1: ( ( ruleEString ) )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4544:1: ( ( ruleEString ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4545:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4686:1: ( ( ruleEString ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4687:1: ( ruleEString )
             {
              before(grammarAccess.getInoutAccess().getTypeAbstractEntityCrossReference_1_0()); 
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4546:1: ( ruleEString )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4547:1: ruleEString
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4688:1: ( ruleEString )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4689:1: ruleEString
             {
              before(grammarAccess.getInoutAccess().getTypeAbstractEntityEStringParserRuleCall_1_0_1()); 
-            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Inout__TypeAssignment_19153);
+            pushFollow(FollowSets000.FOLLOW_ruleEString_in_rule__Inout__TypeAssignment_19434);
             ruleEString();
 
             state._fsp--;
@@ -12157,20 +12532,20 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
 
 
     // $ANTLR start "rule__Inout__CompatibilityAssignment_2_2"
-    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4558:1: rule__Inout__CompatibilityAssignment_2_2 : ( ruleComp ) ;
+    // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4700:1: rule__Inout__CompatibilityAssignment_2_2 : ( ruleComp ) ;
     public final void rule__Inout__CompatibilityAssignment_2_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4562:1: ( ( ruleComp ) )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4563:1: ( ruleComp )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4704:1: ( ( ruleComp ) )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4705:1: ( ruleComp )
             {
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4563:1: ( ruleComp )
-            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4564:1: ruleComp
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4705:1: ( ruleComp )
+            // ../miso.distil.codeGenerator.ui/src-gen/miso/distil/codeGenerator/ui/contentassist/antlr/internal/InternalRules.g:4706:1: ruleComp
             {
              before(grammarAccess.getInoutAccess().getCompatibilityCompParserRuleCall_2_2_0()); 
-            pushFollow(FollowSets000.FOLLOW_ruleComp_in_rule__Inout__CompatibilityAssignment_2_29188);
+            pushFollow(FollowSets000.FOLLOW_ruleComp_in_rule__Inout__CompatibilityAssignment_2_29469);
             ruleComp();
 
             state._fsp--;
@@ -12248,9 +12623,9 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_rule__FormatEnum__Alternatives_in_ruleFormatEnum915 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__ServiceEnum__Alternatives_in_ruleServiceEnum951 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rule__DataEnum__Alternatives_in_ruleDataEnum987 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Root__ArtifactsAssignment_1_0_in_rule__Root__Alternatives_11022 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Root__EntitiesAssignment_1_1_in_rule__Root__Alternatives_11040 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Root__ServicesAssignment_1_2_in_rule__Root__Alternatives_11058 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__ArtifactsAssignment_2_0_in_rule__Root__Alternatives_21022 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__EntitiesAssignment_2_1_in_rule__Root__Alternatives_21040 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__ServicesAssignment_2_2_in_rule__Root__Alternatives_21058 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleSimpleService_in_rule__Service__Alternatives1091 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_ruleMultiService_in_rule__Service__Alternatives1108 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_rulePrimitive_in_rule__Attribute__Alternatives1140 = new BitSet(new long[]{0x0000000000000002L});
@@ -12277,315 +12652,327 @@ public class InternalRulesParser extends AbstractInternalContentAssistParser {
         public static final BitSet FOLLOW_27_in_rule__DataEnum__Alternatives1624 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_28_in_rule__DataEnum__Alternatives1645 = new BitSet(new long[]{0x0000000000000002L});
         public static final BitSet FOLLOW_29_in_rule__DataEnum__Alternatives1666 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Root__Group__0__Impl_in_rule__Root__Group__01699 = new BitSet(new long[]{0x0001110040000000L});
+        public static final BitSet FOLLOW_rule__Root__Group__0__Impl_in_rule__Root__Group__01699 = new BitSet(new long[]{0x0000000100000000L});
         public static final BitSet FOLLOW_rule__Root__Group__1_in_rule__Root__Group__01702 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Root__ArtifactsAssignment_0_in_rule__Root__Group__0__Impl1729 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Root__Group__1__Impl_in_rule__Root__Group__11759 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Root__Alternatives_1_in_rule__Root__Group__1__Impl1786 = new BitSet(new long[]{0x0001110040000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__0__Impl_in_rule__Artifact__Group__01821 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__1_in_rule__Artifact__Group__01824 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_30_in_rule__Artifact__Group__0__Impl1852 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__1__Impl_in_rule__Artifact__Group__11883 = new BitSet(new long[]{0x0000000280000000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__2_in_rule__Artifact__Group__11886 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__NameAssignment_1_in_rule__Artifact__Group__1__Impl1913 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__2__Impl_in_rule__Artifact__Group__21943 = new BitSet(new long[]{0x0000000280000000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__3_in_rule__Artifact__Group__21946 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__0_in_rule__Artifact__Group__2__Impl1973 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__3__Impl_in_rule__Artifact__Group__32004 = new BitSet(new long[]{0x00180C0100000030L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__4_in_rule__Artifact__Group__32007 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_31_in_rule__Artifact__Group__3__Impl2035 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__4__Impl_in_rule__Artifact__Group__42066 = new BitSet(new long[]{0x00180C0100000030L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__5_in_rule__Artifact__Group__42069 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__AttributesAssignment_4_in_rule__Artifact__Group__4__Impl2096 = new BitSet(new long[]{0x00180C0000000032L});
-        public static final BitSet FOLLOW_rule__Artifact__Group__5__Impl_in_rule__Artifact__Group__52127 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_32_in_rule__Artifact__Group__5__Impl2155 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__0__Impl_in_rule__Artifact__Group_2__02198 = new BitSet(new long[]{0x0000006C00000000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__1_in_rule__Artifact__Group_2__02201 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_33_in_rule__Artifact__Group_2__0__Impl2229 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__1__Impl_in_rule__Artifact__Group_2__12260 = new BitSet(new long[]{0x0000006C00000000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__2_in_rule__Artifact__Group_2__12263 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__0_in_rule__Artifact__Group_2__1__Impl2290 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__2__Impl_in_rule__Artifact__Group_2__22321 = new BitSet(new long[]{0x0000006C00000000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__3_in_rule__Artifact__Group_2__22324 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_2__0_in_rule__Artifact__Group_2__2__Impl2351 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__3__Impl_in_rule__Artifact__Group_2__32382 = new BitSet(new long[]{0x0000006C00000000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__4_in_rule__Artifact__Group_2__32385 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__0_in_rule__Artifact__Group_2__3__Impl2412 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2__4__Impl_in_rule__Artifact__Group_2__42443 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_34_in_rule__Artifact__Group_2__4__Impl2471 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__0__Impl_in_rule__Artifact__Group_2_1__02512 = new BitSet(new long[]{0x0000001000000000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__1_in_rule__Artifact__Group_2_1__02515 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_35_in_rule__Artifact__Group_2_1__0__Impl2543 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__1__Impl_in_rule__Artifact__Group_2_1__12574 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__2_in_rule__Artifact__Group_2_1__12577 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_36_in_rule__Artifact__Group_2_1__1__Impl2605 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__2__Impl_in_rule__Artifact__Group_2_1__22636 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__ExtensionAssignment_2_1_2_in_rule__Artifact__Group_2_1__2__Impl2663 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_2__0__Impl_in_rule__Artifact__Group_2_2__02699 = new BitSet(new long[]{0x000000000003F800L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_2__1_in_rule__Artifact__Group_2_2__02702 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_37_in_rule__Artifact__Group_2_2__0__Impl2730 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_2__1__Impl_in_rule__Artifact__Group_2_2__12761 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__FormatAssignment_2_2_1_in_rule__Artifact__Group_2_2__1__Impl2788 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__0__Impl_in_rule__Artifact__Group_2_3__02822 = new BitSet(new long[]{0x0000000003FC0000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__1_in_rule__Artifact__Group_2_3__02825 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_38_in_rule__Artifact__Group_2_3__0__Impl2853 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__1__Impl_in_rule__Artifact__Group_2_3__12884 = new BitSet(new long[]{0x0000008000000000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__2_in_rule__Artifact__Group_2_3__12887 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__BasicServicesAssignment_2_3_1_in_rule__Artifact__Group_2_3__1__Impl2914 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__2__Impl_in_rule__Artifact__Group_2_3__22944 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3_2__0_in_rule__Artifact__Group_2_3__2__Impl2971 = new BitSet(new long[]{0x0000008000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3_2__0__Impl_in_rule__Artifact__Group_2_3_2__03008 = new BitSet(new long[]{0x0000000003FC0000L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3_2__1_in_rule__Artifact__Group_2_3_2__03011 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_39_in_rule__Artifact__Group_2_3_2__0__Impl3039 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__Group_2_3_2__1__Impl_in_rule__Artifact__Group_2_3_2__13070 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Artifact__BasicServicesAssignment_2_3_2_1_in_rule__Artifact__Group_2_3_2__1__Impl3097 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__03131 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__03134 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_40_in_rule__Entity__Group__0__Impl3162 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__13193 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__13196 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Entity__NameAssignment_1_in_rule__Entity__Group__1__Impl3223 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__23253 = new BitSet(new long[]{0x00180C0100000030L});
-        public static final BitSet FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__23256 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_31_in_rule__Entity__Group__2__Impl3284 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__33315 = new BitSet(new long[]{0x00180C0100000030L});
-        public static final BitSet FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__33318 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Entity__AttributesAssignment_3_in_rule__Entity__Group__3__Impl3345 = new BitSet(new long[]{0x00180C0000000032L});
-        public static final BitSet FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__43376 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_32_in_rule__Entity__Group__4__Impl3404 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__0__Impl_in_rule__Primitive__Group__03445 = new BitSet(new long[]{0x0018000000000030L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__1_in_rule__Primitive__Group__03448 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__ManyAssignment_0_in_rule__Primitive__Group__0__Impl3475 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__1__Impl_in_rule__Primitive__Group__13506 = new BitSet(new long[]{0x0018000000000030L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__2_in_rule__Primitive__Group__13509 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__RequiredAssignment_1_in_rule__Primitive__Group__1__Impl3536 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__2__Impl_in_rule__Primitive__Group__23567 = new BitSet(new long[]{0x0000020000000000L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__3_in_rule__Primitive__Group__23570 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__NameAssignment_2_in_rule__Primitive__Group__2__Impl3597 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__3__Impl_in_rule__Primitive__Group__33627 = new BitSet(new long[]{0x000000003C000000L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__4_in_rule__Primitive__Group__33630 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_41_in_rule__Primitive__Group__3__Impl3658 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__Group__4__Impl_in_rule__Primitive__Group__43689 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Primitive__TypeAssignment_4_in_rule__Primitive__Group__4__Impl3716 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Reference__Group__0__Impl_in_rule__Reference__Group__03756 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__Reference__Group__1_in_rule__Reference__Group__03759 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_42_in_rule__Reference__Group__0__Impl3787 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Reference__Group__1__Impl_in_rule__Reference__Group__13818 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__Reference__Group__2_in_rule__Reference__Group__13821 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Reference__ManyAssignment_1_in_rule__Reference__Group__1__Impl3848 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Reference__Group__2__Impl_in_rule__Reference__Group__23879 = new BitSet(new long[]{0x0000020000000000L});
-        public static final BitSet FOLLOW_rule__Reference__Group__3_in_rule__Reference__Group__23882 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Reference__NameAssignment_2_in_rule__Reference__Group__2__Impl3909 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Reference__Group__3__Impl_in_rule__Reference__Group__33939 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__Reference__Group__4_in_rule__Reference__Group__33942 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_41_in_rule__Reference__Group__3__Impl3970 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Reference__Group__4__Impl_in_rule__Reference__Group__44001 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Reference__TypeAssignment_4_in_rule__Reference__Group__4__Impl4028 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__0__Impl_in_rule__ArtifactID__Group__04068 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__1_in_rule__ArtifactID__Group__04071 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_43_in_rule__ArtifactID__Group__0__Impl4099 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__1__Impl_in_rule__ArtifactID__Group__14130 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__2_in_rule__ArtifactID__Group__14133 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ArtifactID__ManyAssignment_1_in_rule__ArtifactID__Group__1__Impl4160 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__2__Impl_in_rule__ArtifactID__Group__24191 = new BitSet(new long[]{0x0000020000000000L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__3_in_rule__ArtifactID__Group__24194 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ArtifactID__NameAssignment_2_in_rule__ArtifactID__Group__2__Impl4221 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__3__Impl_in_rule__ArtifactID__Group__34251 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__4_in_rule__ArtifactID__Group__34254 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_41_in_rule__ArtifactID__Group__3__Impl4282 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ArtifactID__Group__4__Impl_in_rule__ArtifactID__Group__44313 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__ArtifactID__TypeAssignment_4_in_rule__ArtifactID__Group__4__Impl4340 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__Group__0__Impl_in_rule__OnService__Group__04380 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_rule__OnService__Group__1_in_rule__OnService__Group__04383 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__ArtifactAssignment_0_in_rule__OnService__Group__0__Impl4410 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__Group__1__Impl_in_rule__OnService__Group__14440 = new BitSet(new long[]{0x0000000003FC0000L});
-        public static final BitSet FOLLOW_rule__OnService__Group__2_in_rule__OnService__Group__14443 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_33_in_rule__OnService__Group__1__Impl4471 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__Group__2__Impl_in_rule__OnService__Group__24502 = new BitSet(new long[]{0x0000008400000000L});
-        public static final BitSet FOLLOW_rule__OnService__Group__3_in_rule__OnService__Group__24505 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__WhenServicesAssignment_2_in_rule__OnService__Group__2__Impl4532 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__Group__3__Impl_in_rule__OnService__Group__34562 = new BitSet(new long[]{0x0000008400000000L});
-        public static final BitSet FOLLOW_rule__OnService__Group__4_in_rule__OnService__Group__34565 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__Group_3__0_in_rule__OnService__Group__3__Impl4592 = new BitSet(new long[]{0x0000008000000002L});
-        public static final BitSet FOLLOW_rule__OnService__Group__4__Impl_in_rule__OnService__Group__44623 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_34_in_rule__OnService__Group__4__Impl4651 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__Group_3__0__Impl_in_rule__OnService__Group_3__04692 = new BitSet(new long[]{0x0000000003FC0000L});
-        public static final BitSet FOLLOW_rule__OnService__Group_3__1_in_rule__OnService__Group_3__04695 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_39_in_rule__OnService__Group_3__0__Impl4723 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__Group_3__1__Impl_in_rule__OnService__Group_3__14754 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__OnService__WhenServicesAssignment_3_1_in_rule__OnService__Group_3__1__Impl4781 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__0__Impl_in_rule__SimpleService__Group__04815 = new BitSet(new long[]{0x0000100000000000L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__1_in_rule__SimpleService__Group__04818 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__1__Impl_in_rule__SimpleService__Group__14876 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__2_in_rule__SimpleService__Group__14879 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_44_in_rule__SimpleService__Group__1__Impl4907 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__2__Impl_in_rule__SimpleService__Group__24938 = new BitSet(new long[]{0x0000000080000000L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__3_in_rule__SimpleService__Group__24941 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__NameAssignment_2_in_rule__SimpleService__Group__2__Impl4968 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__3__Impl_in_rule__SimpleService__Group__34998 = new BitSet(new long[]{0x0000E00100000000L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__4_in_rule__SimpleService__Group__35001 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_31_in_rule__SimpleService__Group__3__Impl5029 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__4__Impl_in_rule__SimpleService__Group__45060 = new BitSet(new long[]{0x0000E00100000000L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__5_in_rule__SimpleService__Group__45063 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4__0_in_rule__SimpleService__Group__4__Impl5090 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__5__Impl_in_rule__SimpleService__Group__55121 = new BitSet(new long[]{0x0000E00100000000L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__6_in_rule__SimpleService__Group__55124 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5__0_in_rule__SimpleService__Group__5__Impl5151 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__6__Impl_in_rule__SimpleService__Group__65182 = new BitSet(new long[]{0x0000E00100000000L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__7_in_rule__SimpleService__Group__65185 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_6__0_in_rule__SimpleService__Group__6__Impl5212 = new BitSet(new long[]{0x0000800000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group__7__Impl_in_rule__SimpleService__Group__75243 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_32_in_rule__SimpleService__Group__7__Impl5271 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4__0__Impl_in_rule__SimpleService__Group_4__05318 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4__1_in_rule__SimpleService__Group_4__05321 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_45_in_rule__SimpleService__Group_4__0__Impl5349 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4__1__Impl_in_rule__SimpleService__Group_4__15380 = new BitSet(new long[]{0x0000008000000000L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4__2_in_rule__SimpleService__Group_4__15383 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__InputAssignment_4_1_in_rule__SimpleService__Group_4__1__Impl5410 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4__2__Impl_in_rule__SimpleService__Group_4__25440 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4_2__0_in_rule__SimpleService__Group_4__2__Impl5467 = new BitSet(new long[]{0x0000008000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4_2__0__Impl_in_rule__SimpleService__Group_4_2__05504 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4_2__1_in_rule__SimpleService__Group_4_2__05507 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_39_in_rule__SimpleService__Group_4_2__0__Impl5535 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_4_2__1__Impl_in_rule__SimpleService__Group_4_2__15566 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__InputAssignment_4_2_1_in_rule__SimpleService__Group_4_2__1__Impl5593 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5__0__Impl_in_rule__SimpleService__Group_5__05627 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5__1_in_rule__SimpleService__Group_5__05630 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_46_in_rule__SimpleService__Group_5__0__Impl5658 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5__1__Impl_in_rule__SimpleService__Group_5__15689 = new BitSet(new long[]{0x0000008000000000L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5__2_in_rule__SimpleService__Group_5__15692 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__OutputAssignment_5_1_in_rule__SimpleService__Group_5__1__Impl5719 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5__2__Impl_in_rule__SimpleService__Group_5__25749 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5_2__0_in_rule__SimpleService__Group_5__2__Impl5776 = new BitSet(new long[]{0x0000008000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5_2__0__Impl_in_rule__SimpleService__Group_5_2__05813 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5_2__1_in_rule__SimpleService__Group_5_2__05816 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_39_in_rule__SimpleService__Group_5_2__0__Impl5844 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_5_2__1__Impl_in_rule__SimpleService__Group_5_2__15875 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__OutputAssignment_5_2_1_in_rule__SimpleService__Group_5_2__1__Impl5902 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_6__0__Impl_in_rule__SimpleService__Group_6__05936 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_6__1_in_rule__SimpleService__Group_6__05939 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_47_in_rule__SimpleService__Group_6__0__Impl5967 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__Group_6__1__Impl_in_rule__SimpleService__Group_6__15998 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__SimpleService__WhenAssignment_6_1_in_rule__SimpleService__Group_6__1__Impl6025 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__0__Impl_in_rule__MultiService__Group__06059 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__1_in_rule__MultiService__Group__06062 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_48_in_rule__MultiService__Group__0__Impl6090 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__1__Impl_in_rule__MultiService__Group__16121 = new BitSet(new long[]{0x0000000280000000L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__2_in_rule__MultiService__Group__16124 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__NameAssignment_1_in_rule__MultiService__Group__1__Impl6151 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__2__Impl_in_rule__MultiService__Group__26181 = new BitSet(new long[]{0x0000000280000000L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__3_in_rule__MultiService__Group__26184 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_2__0_in_rule__MultiService__Group__2__Impl6211 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__3__Impl_in_rule__MultiService__Group__36242 = new BitSet(new long[]{0x0000804000000000L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__4_in_rule__MultiService__Group__36245 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_31_in_rule__MultiService__Group__3__Impl6273 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__4__Impl_in_rule__MultiService__Group__46304 = new BitSet(new long[]{0x0000804000000000L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__5_in_rule__MultiService__Group__46307 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_4__0_in_rule__MultiService__Group__4__Impl6334 = new BitSet(new long[]{0x0000800000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__5__Impl_in_rule__MultiService__Group__56365 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__6_in_rule__MultiService__Group__56368 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_38_in_rule__MultiService__Group__5__Impl6396 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__6__Impl_in_rule__MultiService__Group__66427 = new BitSet(new long[]{0x0000008000000000L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__7_in_rule__MultiService__Group__66430 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__ServicesAssignment_6_in_rule__MultiService__Group__6__Impl6457 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__7__Impl_in_rule__MultiService__Group__76487 = new BitSet(new long[]{0x0000000100000000L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__8_in_rule__MultiService__Group__76490 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_7__0_in_rule__MultiService__Group__7__Impl6519 = new BitSet(new long[]{0x0000008000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_7__0_in_rule__MultiService__Group__7__Impl6531 = new BitSet(new long[]{0x0000008000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group__8__Impl_in_rule__MultiService__Group__86564 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_32_in_rule__MultiService__Group__8__Impl6592 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_2__0__Impl_in_rule__MultiService__Group_2__06641 = new BitSet(new long[]{0x0020000400000000L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_2__1_in_rule__MultiService__Group_2__06644 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_33_in_rule__MultiService__Group_2__0__Impl6672 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_2__1__Impl_in_rule__MultiService__Group_2__16703 = new BitSet(new long[]{0x0020000400000000L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_2__2_in_rule__MultiService__Group_2__16706 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__ParallelAssignment_2_1_in_rule__MultiService__Group_2__1__Impl6733 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_2__2__Impl_in_rule__MultiService__Group_2__26764 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_34_in_rule__MultiService__Group_2__2__Impl6792 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_4__0__Impl_in_rule__MultiService__Group_4__06829 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_4__1_in_rule__MultiService__Group_4__06832 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_47_in_rule__MultiService__Group_4__0__Impl6860 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_4__1__Impl_in_rule__MultiService__Group_4__16891 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__WhenAssignment_4_1_in_rule__MultiService__Group_4__1__Impl6918 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_7__0__Impl_in_rule__MultiService__Group_7__06952 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_7__1_in_rule__MultiService__Group_7__06955 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_39_in_rule__MultiService__Group_7__0__Impl6983 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__Group_7__1__Impl_in_rule__MultiService__Group_7__17014 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__MultiService__ServicesAssignment_7_1_in_rule__MultiService__Group_7__1__Impl7041 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__Group__0__Impl_in_rule__Inout__Group__07075 = new BitSet(new long[]{0x0008000000000030L});
-        public static final BitSet FOLLOW_rule__Inout__Group__1_in_rule__Inout__Group__07078 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__ManyAssignment_0_in_rule__Inout__Group__0__Impl7105 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__Group__1__Impl_in_rule__Inout__Group__17136 = new BitSet(new long[]{0x0000000200000000L});
-        public static final BitSet FOLLOW_rule__Inout__Group__2_in_rule__Inout__Group__17139 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__TypeAssignment_1_in_rule__Inout__Group__1__Impl7166 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__Group__2__Impl_in_rule__Inout__Group__27196 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__Group_2__0_in_rule__Inout__Group__2__Impl7223 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__Group_2__0__Impl_in_rule__Inout__Group_2__07260 = new BitSet(new long[]{0x0002000000000000L});
-        public static final BitSet FOLLOW_rule__Inout__Group_2__1_in_rule__Inout__Group_2__07263 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_33_in_rule__Inout__Group_2__0__Impl7291 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__Group_2__1__Impl_in_rule__Inout__Group_2__17322 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__Inout__Group_2__2_in_rule__Inout__Group_2__17325 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_49_in_rule__Inout__Group_2__1__Impl7353 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__Group_2__2__Impl_in_rule__Inout__Group_2__27384 = new BitSet(new long[]{0x0000000400000000L});
-        public static final BitSet FOLLOW_rule__Inout__Group_2__3_in_rule__Inout__Group_2__27387 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__CompatibilityAssignment_2_2_in_rule__Inout__Group_2__2__Impl7414 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Inout__Group_2__3__Impl_in_rule__Inout__Group_2__37444 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_34_in_rule__Inout__Group_2__3__Impl7472 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Comp__Group__0__Impl_in_rule__Comp__Group__07511 = new BitSet(new long[]{0x0004001000000000L});
-        public static final BitSet FOLLOW_rule__Comp__Group__1_in_rule__Comp__Group__07514 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Comp__Group__0__Impl7541 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Comp__Group__1__Impl_in_rule__Comp__Group__17570 = new BitSet(new long[]{0x0004001000000000L});
-        public static final BitSet FOLLOW_rule__Comp__Group__2_in_rule__Comp__Group__17573 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Comp__Group_1__0_in_rule__Comp__Group__1__Impl7600 = new BitSet(new long[]{0x0000001000000002L});
-        public static final BitSet FOLLOW_rule__Comp__Group__2__Impl_in_rule__Comp__Group__27631 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__Comp__Group__3_in_rule__Comp__Group__27634 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_50_in_rule__Comp__Group__2__Impl7662 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Comp__Group__3__Impl_in_rule__Comp__Group__37693 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Comp__Group__3__Impl7720 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Comp__Group_1__0__Impl_in_rule__Comp__Group_1__07757 = new BitSet(new long[]{0x0000000000000030L});
-        public static final BitSet FOLLOW_rule__Comp__Group_1__1_in_rule__Comp__Group_1__07760 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_36_in_rule__Comp__Group_1__0__Impl7788 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_rule__Comp__Group_1__1__Impl_in_rule__Comp__Group_1__17819 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Comp__Group_1__1__Impl7846 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleArtifact_in_rule__Root__ArtifactsAssignment_07884 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleArtifact_in_rule__Root__ArtifactsAssignment_1_07915 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEntity_in_rule__Root__EntitiesAssignment_1_17946 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleService_in_rule__Root__ServicesAssignment_1_27977 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Artifact__NameAssignment_18008 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Artifact__ExtensionAssignment_2_1_28039 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleFormatEnum_in_rule__Artifact__FormatAssignment_2_2_18070 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleServiceEnum_in_rule__Artifact__BasicServicesAssignment_2_3_18101 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleServiceEnum_in_rule__Artifact__BasicServicesAssignment_2_3_2_18132 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAttribute_in_rule__Artifact__AttributesAssignment_48163 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Entity__NameAssignment_18194 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_38225 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_51_in_rule__Primitive__ManyAssignment_08261 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_52_in_rule__Primitive__RequiredAssignment_18305 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Primitive__NameAssignment_28344 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleDataEnum_in_rule__Primitive__TypeAssignment_48375 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_51_in_rule__Reference__ManyAssignment_18411 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Reference__NameAssignment_28450 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Reference__TypeAssignment_48485 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_51_in_rule__ArtifactID__ManyAssignment_18525 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__ArtifactID__NameAssignment_28564 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__ArtifactID__TypeAssignment_48599 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__OnService__ArtifactAssignment_08638 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleServiceEnum_in_rule__OnService__WhenServicesAssignment_28673 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleServiceEnum_in_rule__OnService__WhenServicesAssignment_3_18704 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__SimpleService__NameAssignment_28735 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleInout_in_rule__SimpleService__InputAssignment_4_18766 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleInout_in_rule__SimpleService__InputAssignment_4_2_18797 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleInout_in_rule__SimpleService__OutputAssignment_5_18828 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleInout_in_rule__SimpleService__OutputAssignment_5_2_18859 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleOnService_in_rule__SimpleService__WhenAssignment_6_18890 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__MultiService__NameAssignment_18921 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_53_in_rule__MultiService__ParallelAssignment_2_18957 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleOnService_in_rule__MultiService__WhenAssignment_4_18996 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__MultiService__ServicesAssignment_69031 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__MultiService__ServicesAssignment_7_19070 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_51_in_rule__Inout__ManyAssignment_09110 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleEString_in_rule__Inout__TypeAssignment_19153 = new BitSet(new long[]{0x0000000000000002L});
-        public static final BitSet FOLLOW_ruleComp_in_rule__Inout__CompatibilityAssignment_2_29188 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__Group_0__0_in_rule__Root__Group__0__Impl1729 = new BitSet(new long[]{0x0000000040000002L});
+        public static final BitSet FOLLOW_rule__Root__Group__1__Impl_in_rule__Root__Group__11760 = new BitSet(new long[]{0x0002240100000000L});
+        public static final BitSet FOLLOW_rule__Root__Group__2_in_rule__Root__Group__11763 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__ArtifactsAssignment_1_in_rule__Root__Group__1__Impl1790 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__Group__2__Impl_in_rule__Root__Group__21820 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__Alternatives_2_in_rule__Root__Group__2__Impl1847 = new BitSet(new long[]{0x0002240100000002L});
+        public static final BitSet FOLLOW_rule__Root__Group_0__0__Impl_in_rule__Root__Group_0__01884 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_rule__Root__Group_0__1_in_rule__Root__Group_0__01887 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_30_in_rule__Root__Group_0__0__Impl1915 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__Group_0__1__Impl_in_rule__Root__Group_0__11946 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Root__Group_0__2_in_rule__Root__Group_0__11949 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_31_in_rule__Root__Group_0__1__Impl1977 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__Group_0__2__Impl_in_rule__Root__Group_0__22008 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Root__MongoURIsAssignment_0_2_in_rule__Root__Group_0__2__Impl2035 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__0__Impl_in_rule__Artifact__Group__02071 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__1_in_rule__Artifact__Group__02074 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_32_in_rule__Artifact__Group__0__Impl2102 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__1__Impl_in_rule__Artifact__Group__12133 = new BitSet(new long[]{0x0000000A00000000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__2_in_rule__Artifact__Group__12136 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__NameAssignment_1_in_rule__Artifact__Group__1__Impl2163 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__2__Impl_in_rule__Artifact__Group__22193 = new BitSet(new long[]{0x0000000A00000000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__3_in_rule__Artifact__Group__22196 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__0_in_rule__Artifact__Group__2__Impl2223 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__3__Impl_in_rule__Artifact__Group__32254 = new BitSet(new long[]{0x0030180400000030L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__4_in_rule__Artifact__Group__32257 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_33_in_rule__Artifact__Group__3__Impl2285 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__4__Impl_in_rule__Artifact__Group__42316 = new BitSet(new long[]{0x0030180400000030L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__5_in_rule__Artifact__Group__42319 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__AttributesAssignment_4_in_rule__Artifact__Group__4__Impl2346 = new BitSet(new long[]{0x0030180000000032L});
+        public static final BitSet FOLLOW_rule__Artifact__Group__5__Impl_in_rule__Artifact__Group__52377 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_34_in_rule__Artifact__Group__5__Impl2405 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__0__Impl_in_rule__Artifact__Group_2__02448 = new BitSet(new long[]{0x000001B000000000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__1_in_rule__Artifact__Group_2__02451 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_35_in_rule__Artifact__Group_2__0__Impl2479 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__1__Impl_in_rule__Artifact__Group_2__12510 = new BitSet(new long[]{0x000001B000000000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__2_in_rule__Artifact__Group_2__12513 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__0_in_rule__Artifact__Group_2__1__Impl2540 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__2__Impl_in_rule__Artifact__Group_2__22571 = new BitSet(new long[]{0x000001B000000000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__3_in_rule__Artifact__Group_2__22574 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_2__0_in_rule__Artifact__Group_2__2__Impl2601 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__3__Impl_in_rule__Artifact__Group_2__32632 = new BitSet(new long[]{0x000001B000000000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__4_in_rule__Artifact__Group_2__32635 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__0_in_rule__Artifact__Group_2__3__Impl2662 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2__4__Impl_in_rule__Artifact__Group_2__42693 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_36_in_rule__Artifact__Group_2__4__Impl2721 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__0__Impl_in_rule__Artifact__Group_2_1__02762 = new BitSet(new long[]{0x0000004000000000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__1_in_rule__Artifact__Group_2_1__02765 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_37_in_rule__Artifact__Group_2_1__0__Impl2793 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__1__Impl_in_rule__Artifact__Group_2_1__12824 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__2_in_rule__Artifact__Group_2_1__12827 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_38_in_rule__Artifact__Group_2_1__1__Impl2855 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_1__2__Impl_in_rule__Artifact__Group_2_1__22886 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__ExtensionAssignment_2_1_2_in_rule__Artifact__Group_2_1__2__Impl2913 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_2__0__Impl_in_rule__Artifact__Group_2_2__02949 = new BitSet(new long[]{0x000000000003F800L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_2__1_in_rule__Artifact__Group_2_2__02952 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_39_in_rule__Artifact__Group_2_2__0__Impl2980 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_2__1__Impl_in_rule__Artifact__Group_2_2__13011 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__FormatAssignment_2_2_1_in_rule__Artifact__Group_2_2__1__Impl3038 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__0__Impl_in_rule__Artifact__Group_2_3__03072 = new BitSet(new long[]{0x0000000003FC0000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__1_in_rule__Artifact__Group_2_3__03075 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_40_in_rule__Artifact__Group_2_3__0__Impl3103 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__1__Impl_in_rule__Artifact__Group_2_3__13134 = new BitSet(new long[]{0x0000020000000000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__2_in_rule__Artifact__Group_2_3__13137 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__BasicServicesAssignment_2_3_1_in_rule__Artifact__Group_2_3__1__Impl3164 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3__2__Impl_in_rule__Artifact__Group_2_3__23194 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3_2__0_in_rule__Artifact__Group_2_3__2__Impl3221 = new BitSet(new long[]{0x0000020000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3_2__0__Impl_in_rule__Artifact__Group_2_3_2__03258 = new BitSet(new long[]{0x0000000003FC0000L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3_2__1_in_rule__Artifact__Group_2_3_2__03261 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_rule__Artifact__Group_2_3_2__0__Impl3289 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__Group_2_3_2__1__Impl_in_rule__Artifact__Group_2_3_2__13320 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Artifact__BasicServicesAssignment_2_3_2_1_in_rule__Artifact__Group_2_3_2__1__Impl3347 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Entity__Group__0__Impl_in_rule__Entity__Group__03381 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Entity__Group__1_in_rule__Entity__Group__03384 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_42_in_rule__Entity__Group__0__Impl3412 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Entity__Group__1__Impl_in_rule__Entity__Group__13443 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_rule__Entity__Group__2_in_rule__Entity__Group__13446 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Entity__NameAssignment_1_in_rule__Entity__Group__1__Impl3473 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Entity__Group__2__Impl_in_rule__Entity__Group__23503 = new BitSet(new long[]{0x0030180400000030L});
+        public static final BitSet FOLLOW_rule__Entity__Group__3_in_rule__Entity__Group__23506 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_33_in_rule__Entity__Group__2__Impl3534 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Entity__Group__3__Impl_in_rule__Entity__Group__33565 = new BitSet(new long[]{0x0030180400000030L});
+        public static final BitSet FOLLOW_rule__Entity__Group__4_in_rule__Entity__Group__33568 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Entity__AttributesAssignment_3_in_rule__Entity__Group__3__Impl3595 = new BitSet(new long[]{0x0030180000000032L});
+        public static final BitSet FOLLOW_rule__Entity__Group__4__Impl_in_rule__Entity__Group__43626 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_34_in_rule__Entity__Group__4__Impl3654 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__0__Impl_in_rule__Primitive__Group__03695 = new BitSet(new long[]{0x0030000000000030L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__1_in_rule__Primitive__Group__03698 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__ManyAssignment_0_in_rule__Primitive__Group__0__Impl3725 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__1__Impl_in_rule__Primitive__Group__13756 = new BitSet(new long[]{0x0030000000000030L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__2_in_rule__Primitive__Group__13759 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__RequiredAssignment_1_in_rule__Primitive__Group__1__Impl3786 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__2__Impl_in_rule__Primitive__Group__23817 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__3_in_rule__Primitive__Group__23820 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__NameAssignment_2_in_rule__Primitive__Group__2__Impl3847 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__3__Impl_in_rule__Primitive__Group__33877 = new BitSet(new long[]{0x000000003C000000L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__4_in_rule__Primitive__Group__33880 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_31_in_rule__Primitive__Group__3__Impl3908 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__Group__4__Impl_in_rule__Primitive__Group__43939 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Primitive__TypeAssignment_4_in_rule__Primitive__Group__4__Impl3966 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Reference__Group__0__Impl_in_rule__Reference__Group__04006 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__Reference__Group__1_in_rule__Reference__Group__04009 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_43_in_rule__Reference__Group__0__Impl4037 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Reference__Group__1__Impl_in_rule__Reference__Group__14068 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__Reference__Group__2_in_rule__Reference__Group__14071 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Reference__ManyAssignment_1_in_rule__Reference__Group__1__Impl4098 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Reference__Group__2__Impl_in_rule__Reference__Group__24129 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_rule__Reference__Group__3_in_rule__Reference__Group__24132 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Reference__NameAssignment_2_in_rule__Reference__Group__2__Impl4159 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Reference__Group__3__Impl_in_rule__Reference__Group__34189 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Reference__Group__4_in_rule__Reference__Group__34192 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_31_in_rule__Reference__Group__3__Impl4220 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Reference__Group__4__Impl_in_rule__Reference__Group__44251 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Reference__TypeAssignment_4_in_rule__Reference__Group__4__Impl4278 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__0__Impl_in_rule__ArtifactID__Group__04318 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__1_in_rule__ArtifactID__Group__04321 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_44_in_rule__ArtifactID__Group__0__Impl4349 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__1__Impl_in_rule__ArtifactID__Group__14380 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__2_in_rule__ArtifactID__Group__14383 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ArtifactID__ManyAssignment_1_in_rule__ArtifactID__Group__1__Impl4410 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__2__Impl_in_rule__ArtifactID__Group__24441 = new BitSet(new long[]{0x0000000080000000L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__3_in_rule__ArtifactID__Group__24444 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ArtifactID__NameAssignment_2_in_rule__ArtifactID__Group__2__Impl4471 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__3__Impl_in_rule__ArtifactID__Group__34501 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__4_in_rule__ArtifactID__Group__34504 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_31_in_rule__ArtifactID__Group__3__Impl4532 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ArtifactID__Group__4__Impl_in_rule__ArtifactID__Group__44563 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__ArtifactID__TypeAssignment_4_in_rule__ArtifactID__Group__4__Impl4590 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__Group__0__Impl_in_rule__OnService__Group__04630 = new BitSet(new long[]{0x0000000800000000L});
+        public static final BitSet FOLLOW_rule__OnService__Group__1_in_rule__OnService__Group__04633 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__ArtifactAssignment_0_in_rule__OnService__Group__0__Impl4660 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__Group__1__Impl_in_rule__OnService__Group__14690 = new BitSet(new long[]{0x0000000003FC0000L});
+        public static final BitSet FOLLOW_rule__OnService__Group__2_in_rule__OnService__Group__14693 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_35_in_rule__OnService__Group__1__Impl4721 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__Group__2__Impl_in_rule__OnService__Group__24752 = new BitSet(new long[]{0x0000021000000000L});
+        public static final BitSet FOLLOW_rule__OnService__Group__3_in_rule__OnService__Group__24755 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__WhenServicesAssignment_2_in_rule__OnService__Group__2__Impl4782 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__Group__3__Impl_in_rule__OnService__Group__34812 = new BitSet(new long[]{0x0000021000000000L});
+        public static final BitSet FOLLOW_rule__OnService__Group__4_in_rule__OnService__Group__34815 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__Group_3__0_in_rule__OnService__Group__3__Impl4842 = new BitSet(new long[]{0x0000020000000002L});
+        public static final BitSet FOLLOW_rule__OnService__Group__4__Impl_in_rule__OnService__Group__44873 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_36_in_rule__OnService__Group__4__Impl4901 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__Group_3__0__Impl_in_rule__OnService__Group_3__04942 = new BitSet(new long[]{0x0000000003FC0000L});
+        public static final BitSet FOLLOW_rule__OnService__Group_3__1_in_rule__OnService__Group_3__04945 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_rule__OnService__Group_3__0__Impl4973 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__Group_3__1__Impl_in_rule__OnService__Group_3__15004 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__OnService__WhenServicesAssignment_3_1_in_rule__OnService__Group_3__1__Impl5031 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__0__Impl_in_rule__SimpleService__Group__05065 = new BitSet(new long[]{0x0000200000000000L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__1_in_rule__SimpleService__Group__05068 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__1__Impl_in_rule__SimpleService__Group__15126 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__2_in_rule__SimpleService__Group__15129 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_45_in_rule__SimpleService__Group__1__Impl5157 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__2__Impl_in_rule__SimpleService__Group__25188 = new BitSet(new long[]{0x0000000200000000L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__3_in_rule__SimpleService__Group__25191 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__NameAssignment_2_in_rule__SimpleService__Group__2__Impl5218 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__3__Impl_in_rule__SimpleService__Group__35248 = new BitSet(new long[]{0x0001C00400000000L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__4_in_rule__SimpleService__Group__35251 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_33_in_rule__SimpleService__Group__3__Impl5279 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__4__Impl_in_rule__SimpleService__Group__45310 = new BitSet(new long[]{0x0001C00400000000L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__5_in_rule__SimpleService__Group__45313 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4__0_in_rule__SimpleService__Group__4__Impl5340 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__5__Impl_in_rule__SimpleService__Group__55371 = new BitSet(new long[]{0x0001C00400000000L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__6_in_rule__SimpleService__Group__55374 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5__0_in_rule__SimpleService__Group__5__Impl5401 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__6__Impl_in_rule__SimpleService__Group__65432 = new BitSet(new long[]{0x0001C00400000000L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__7_in_rule__SimpleService__Group__65435 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_6__0_in_rule__SimpleService__Group__6__Impl5462 = new BitSet(new long[]{0x0001000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group__7__Impl_in_rule__SimpleService__Group__75493 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_34_in_rule__SimpleService__Group__7__Impl5521 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4__0__Impl_in_rule__SimpleService__Group_4__05568 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4__1_in_rule__SimpleService__Group_4__05571 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_46_in_rule__SimpleService__Group_4__0__Impl5599 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4__1__Impl_in_rule__SimpleService__Group_4__15630 = new BitSet(new long[]{0x0000020000000000L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4__2_in_rule__SimpleService__Group_4__15633 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__InputAssignment_4_1_in_rule__SimpleService__Group_4__1__Impl5660 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4__2__Impl_in_rule__SimpleService__Group_4__25690 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4_2__0_in_rule__SimpleService__Group_4__2__Impl5717 = new BitSet(new long[]{0x0000020000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4_2__0__Impl_in_rule__SimpleService__Group_4_2__05754 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4_2__1_in_rule__SimpleService__Group_4_2__05757 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_rule__SimpleService__Group_4_2__0__Impl5785 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_4_2__1__Impl_in_rule__SimpleService__Group_4_2__15816 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__InputAssignment_4_2_1_in_rule__SimpleService__Group_4_2__1__Impl5843 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5__0__Impl_in_rule__SimpleService__Group_5__05877 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5__1_in_rule__SimpleService__Group_5__05880 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_47_in_rule__SimpleService__Group_5__0__Impl5908 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5__1__Impl_in_rule__SimpleService__Group_5__15939 = new BitSet(new long[]{0x0000020000000000L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5__2_in_rule__SimpleService__Group_5__15942 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__OutputAssignment_5_1_in_rule__SimpleService__Group_5__1__Impl5969 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5__2__Impl_in_rule__SimpleService__Group_5__25999 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5_2__0_in_rule__SimpleService__Group_5__2__Impl6026 = new BitSet(new long[]{0x0000020000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5_2__0__Impl_in_rule__SimpleService__Group_5_2__06063 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5_2__1_in_rule__SimpleService__Group_5_2__06066 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_rule__SimpleService__Group_5_2__0__Impl6094 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_5_2__1__Impl_in_rule__SimpleService__Group_5_2__16125 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__OutputAssignment_5_2_1_in_rule__SimpleService__Group_5_2__1__Impl6152 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_6__0__Impl_in_rule__SimpleService__Group_6__06186 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_6__1_in_rule__SimpleService__Group_6__06189 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_48_in_rule__SimpleService__Group_6__0__Impl6217 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__Group_6__1__Impl_in_rule__SimpleService__Group_6__16248 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__SimpleService__WhenAssignment_6_1_in_rule__SimpleService__Group_6__1__Impl6275 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__0__Impl_in_rule__MultiService__Group__06309 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__1_in_rule__MultiService__Group__06312 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_49_in_rule__MultiService__Group__0__Impl6340 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__1__Impl_in_rule__MultiService__Group__16371 = new BitSet(new long[]{0x0000000A00000000L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__2_in_rule__MultiService__Group__16374 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__NameAssignment_1_in_rule__MultiService__Group__1__Impl6401 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__2__Impl_in_rule__MultiService__Group__26431 = new BitSet(new long[]{0x0000000A00000000L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__3_in_rule__MultiService__Group__26434 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_2__0_in_rule__MultiService__Group__2__Impl6461 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__3__Impl_in_rule__MultiService__Group__36492 = new BitSet(new long[]{0x0001010000000000L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__4_in_rule__MultiService__Group__36495 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_33_in_rule__MultiService__Group__3__Impl6523 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__4__Impl_in_rule__MultiService__Group__46554 = new BitSet(new long[]{0x0001010000000000L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__5_in_rule__MultiService__Group__46557 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_4__0_in_rule__MultiService__Group__4__Impl6584 = new BitSet(new long[]{0x0001000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__5__Impl_in_rule__MultiService__Group__56615 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__6_in_rule__MultiService__Group__56618 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_40_in_rule__MultiService__Group__5__Impl6646 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__6__Impl_in_rule__MultiService__Group__66677 = new BitSet(new long[]{0x0000020000000000L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__7_in_rule__MultiService__Group__66680 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__ServicesAssignment_6_in_rule__MultiService__Group__6__Impl6707 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__7__Impl_in_rule__MultiService__Group__76737 = new BitSet(new long[]{0x0000000400000000L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__8_in_rule__MultiService__Group__76740 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_7__0_in_rule__MultiService__Group__7__Impl6769 = new BitSet(new long[]{0x0000020000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_7__0_in_rule__MultiService__Group__7__Impl6781 = new BitSet(new long[]{0x0000020000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group__8__Impl_in_rule__MultiService__Group__86814 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_34_in_rule__MultiService__Group__8__Impl6842 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_2__0__Impl_in_rule__MultiService__Group_2__06891 = new BitSet(new long[]{0x0040001000000000L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_2__1_in_rule__MultiService__Group_2__06894 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_35_in_rule__MultiService__Group_2__0__Impl6922 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_2__1__Impl_in_rule__MultiService__Group_2__16953 = new BitSet(new long[]{0x0040001000000000L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_2__2_in_rule__MultiService__Group_2__16956 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__ParallelAssignment_2_1_in_rule__MultiService__Group_2__1__Impl6983 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_2__2__Impl_in_rule__MultiService__Group_2__27014 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_36_in_rule__MultiService__Group_2__2__Impl7042 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_4__0__Impl_in_rule__MultiService__Group_4__07079 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_4__1_in_rule__MultiService__Group_4__07082 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_48_in_rule__MultiService__Group_4__0__Impl7110 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_4__1__Impl_in_rule__MultiService__Group_4__17141 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__WhenAssignment_4_1_in_rule__MultiService__Group_4__1__Impl7168 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_7__0__Impl_in_rule__MultiService__Group_7__07202 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_7__1_in_rule__MultiService__Group_7__07205 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_41_in_rule__MultiService__Group_7__0__Impl7233 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__Group_7__1__Impl_in_rule__MultiService__Group_7__17264 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__MultiService__ServicesAssignment_7_1_in_rule__MultiService__Group_7__1__Impl7291 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__Group__0__Impl_in_rule__Inout__Group__07325 = new BitSet(new long[]{0x0010000000000030L});
+        public static final BitSet FOLLOW_rule__Inout__Group__1_in_rule__Inout__Group__07328 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__ManyAssignment_0_in_rule__Inout__Group__0__Impl7355 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__Group__1__Impl_in_rule__Inout__Group__17386 = new BitSet(new long[]{0x0000000800000000L});
+        public static final BitSet FOLLOW_rule__Inout__Group__2_in_rule__Inout__Group__17389 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__TypeAssignment_1_in_rule__Inout__Group__1__Impl7416 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__Group__2__Impl_in_rule__Inout__Group__27446 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__Group_2__0_in_rule__Inout__Group__2__Impl7473 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__Group_2__0__Impl_in_rule__Inout__Group_2__07510 = new BitSet(new long[]{0x0004000000000000L});
+        public static final BitSet FOLLOW_rule__Inout__Group_2__1_in_rule__Inout__Group_2__07513 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_35_in_rule__Inout__Group_2__0__Impl7541 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__Group_2__1__Impl_in_rule__Inout__Group_2__17572 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Inout__Group_2__2_in_rule__Inout__Group_2__17575 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_50_in_rule__Inout__Group_2__1__Impl7603 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__Group_2__2__Impl_in_rule__Inout__Group_2__27634 = new BitSet(new long[]{0x0000001000000000L});
+        public static final BitSet FOLLOW_rule__Inout__Group_2__3_in_rule__Inout__Group_2__27637 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__CompatibilityAssignment_2_2_in_rule__Inout__Group_2__2__Impl7664 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Inout__Group_2__3__Impl_in_rule__Inout__Group_2__37694 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_36_in_rule__Inout__Group_2__3__Impl7722 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Comp__Group__0__Impl_in_rule__Comp__Group__07761 = new BitSet(new long[]{0x0008004000000000L});
+        public static final BitSet FOLLOW_rule__Comp__Group__1_in_rule__Comp__Group__07764 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Comp__Group__0__Impl7791 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Comp__Group__1__Impl_in_rule__Comp__Group__17820 = new BitSet(new long[]{0x0008004000000000L});
+        public static final BitSet FOLLOW_rule__Comp__Group__2_in_rule__Comp__Group__17823 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Comp__Group_1__0_in_rule__Comp__Group__1__Impl7850 = new BitSet(new long[]{0x0000004000000002L});
+        public static final BitSet FOLLOW_rule__Comp__Group__2__Impl_in_rule__Comp__Group__27881 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Comp__Group__3_in_rule__Comp__Group__27884 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_51_in_rule__Comp__Group__2__Impl7912 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Comp__Group__3__Impl_in_rule__Comp__Group__37943 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Comp__Group__3__Impl7970 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Comp__Group_1__0__Impl_in_rule__Comp__Group_1__08007 = new BitSet(new long[]{0x0000000000000030L});
+        public static final BitSet FOLLOW_rule__Comp__Group_1__1_in_rule__Comp__Group_1__08010 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_38_in_rule__Comp__Group_1__0__Impl8038 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_rule__Comp__Group_1__1__Impl_in_rule__Comp__Group_1__18069 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Comp__Group_1__1__Impl8096 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Root__MongoURIsAssignment_0_28134 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleArtifact_in_rule__Root__ArtifactsAssignment_18165 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleArtifact_in_rule__Root__ArtifactsAssignment_2_08196 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEntity_in_rule__Root__EntitiesAssignment_2_18227 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleService_in_rule__Root__ServicesAssignment_2_28258 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Artifact__NameAssignment_18289 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Artifact__ExtensionAssignment_2_1_28320 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleFormatEnum_in_rule__Artifact__FormatAssignment_2_2_18351 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleServiceEnum_in_rule__Artifact__BasicServicesAssignment_2_3_18382 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleServiceEnum_in_rule__Artifact__BasicServicesAssignment_2_3_2_18413 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAttribute_in_rule__Artifact__AttributesAssignment_48444 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Entity__NameAssignment_18475 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleAttribute_in_rule__Entity__AttributesAssignment_38506 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_52_in_rule__Primitive__ManyAssignment_08542 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_53_in_rule__Primitive__RequiredAssignment_18586 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Primitive__NameAssignment_28625 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleDataEnum_in_rule__Primitive__TypeAssignment_48656 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_52_in_rule__Reference__ManyAssignment_18692 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Reference__NameAssignment_28731 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Reference__TypeAssignment_48766 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_52_in_rule__ArtifactID__ManyAssignment_18806 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__ArtifactID__NameAssignment_28845 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__ArtifactID__TypeAssignment_48880 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__OnService__ArtifactAssignment_08919 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleServiceEnum_in_rule__OnService__WhenServicesAssignment_28954 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleServiceEnum_in_rule__OnService__WhenServicesAssignment_3_18985 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__SimpleService__NameAssignment_29016 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInout_in_rule__SimpleService__InputAssignment_4_19047 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInout_in_rule__SimpleService__InputAssignment_4_2_19078 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInout_in_rule__SimpleService__OutputAssignment_5_19109 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleInout_in_rule__SimpleService__OutputAssignment_5_2_19140 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOnService_in_rule__SimpleService__WhenAssignment_6_19171 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__MultiService__NameAssignment_19202 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_54_in_rule__MultiService__ParallelAssignment_2_19238 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleOnService_in_rule__MultiService__WhenAssignment_4_19277 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__MultiService__ServicesAssignment_69312 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__MultiService__ServicesAssignment_7_19351 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_52_in_rule__Inout__ManyAssignment_09391 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleEString_in_rule__Inout__TypeAssignment_19434 = new BitSet(new long[]{0x0000000000000002L});
+        public static final BitSet FOLLOW_ruleComp_in_rule__Inout__CompatibilityAssignment_2_29469 = new BitSet(new long[]{0x0000000000000002L});
     }
 
 

@@ -136,7 +136,7 @@ public class generateHtmlLinks {
         _builder.append(name, "\t\t");
         _builder.append("Spark.ReadJson + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId() + \">View as Json</a>\";");
+        _builder.append(".getObjectid() + \">View as Json</a>\";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("}");
@@ -174,9 +174,9 @@ public class generateHtmlLinks {
         _builder.append(name, "\t\t");
         _builder.append("Spark.ReadHTML + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId() + \">\" + ");
+        _builder.append(".getObjectid() + \">\" + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectName() + \"</a>\";");
+        _builder.append(".getObjectname() + \"</a>\";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("}");
@@ -219,7 +219,7 @@ public class generateHtmlLinks {
         _builder.append(name, "\t\t");
         _builder.append("Spark.DownloadZipJson + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId() + \">Download zip</a>\";");
+        _builder.append(".getObjectid() + \">Download zip</a>\";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("}");
@@ -257,7 +257,7 @@ public class generateHtmlLinks {
         _builder.append(name, "\t\t");
         _builder.append("Spark.DownloadFileJson + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId() + \">Download ");
+        _builder.append(".getObjectid() + \">Download ");
         _builder.append(namelow, "\t\t");
         _builder.append("</a>\";");
         _builder.newLineIfNotEmpty();
@@ -304,7 +304,7 @@ public class generateHtmlLinks {
         _builder.append("\t");
         _builder.append("form = \"<form id=\\\"delete\" + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId() + \"\\\"action=\\\"\" + Basic");
+        _builder.append(".getObjectid() + \"\\\"action=\\\"\" + Basic");
         _builder.append(name, "\t\t");
         _builder.append("Spark.DeleteJson + \"\\\" method=\\\"POST\\\">\";");
         _builder.newLineIfNotEmpty();
@@ -314,13 +314,13 @@ public class generateHtmlLinks {
         _builder.append(name, "\t\t");
         _builder.append("Param.IdPost + \"\' value=\\\"\" + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId() + \"\\\"/>\";");
+        _builder.append(".getObjectid() + \"\\\"/>\";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("form += \"<a href=\\\"javascript:{}\\\" onclick=\\\"document.getElementById(\'delete\" + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId() + \"\').submit(); return false;\\\">Delete</a>\";");
+        _builder.append(".getObjectid() + \"\').submit(); return false;\\\">Delete</a>\";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
@@ -371,7 +371,7 @@ public class generateHtmlLinks {
         _builder.append(name, "\t\t");
         _builder.append("Spark.UpdateFormHTML + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getObjectId() + \">Update</a>\";");
+        _builder.append(".getObjectid() + \">Update</a>\";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("}");

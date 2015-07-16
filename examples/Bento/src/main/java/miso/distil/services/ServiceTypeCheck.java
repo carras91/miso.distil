@@ -5,10 +5,8 @@ import java.util.List;
 
 import spark.Request;
 import spark.Response;
-
 import miso.carrascal.cloudModelServices.abstractServices.services.ServiceAbstractJson;
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
-
 import miso.distil.modelServices.Model;
 
 /**
@@ -42,7 +40,9 @@ public class ServiceTypeCheck extends ServiceAbstractJson {
 	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
 
-		// TODO : Create the input objects to your service and use (or not) the artifacts
+		// Create the input objects to your service and use (or not) the artifacts
+
+		System.out.println("TypeCheck has started");
 
 		return this.exeService(input);
 	}
@@ -57,10 +57,15 @@ public class ServiceTypeCheck extends ServiceAbstractJson {
 		List<Object> output = new ArrayList<Object>();
 		if(!this.testInput(input))
 			return output;
-		// TODO : do something!
+		// do something!
 
 		// Create your outputs (do something!)
-		output.add(new Model());
+		List<String> type = new ArrayList<String>();
+		type.add("model type 1");
+		type.add("model type 2");
+		output.add(new Model("object name", 42, "model name", type));
+		
+		System.out.println("TypeCheck has finished");
 
 		return output;
 	}

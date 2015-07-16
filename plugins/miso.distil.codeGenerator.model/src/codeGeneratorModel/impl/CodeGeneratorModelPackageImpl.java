@@ -250,6 +250,15 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getRoot_MongoURIs() {
+		return (EAttribute)rootEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getArtifact() {
 		return artifactEClass;
 	}
@@ -610,6 +619,7 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 		createEReference(rootEClass, ROOT__ARTIFACTS);
 		createEReference(rootEClass, ROOT__ENTITIES);
 		createEReference(rootEClass, ROOT__SERVICES);
+		createEAttribute(rootEClass, ROOT__MONGO_UR_IS);
 
 		artifactEClass = createEClass(ARTIFACT);
 		createEAttribute(artifactEClass, ARTIFACT__EXTENSION);
@@ -704,6 +714,7 @@ public class CodeGeneratorModelPackageImpl extends EPackageImpl implements CodeG
 		initEReference(getRoot_Artifacts(), this.getArtifact(), null, "artifacts", null, 1, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoot_Entities(), this.getEntity(), null, "entities", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getRoot_Services(), this.getService(), null, "services", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getRoot_MongoURIs(), ecorePackage.getEString(), "mongoURIs", null, 0, -1, Root.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(artifactEClass, Artifact.class, "Artifact", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getArtifact_Extension(), ecorePackage.getEString(), "extension", null, 0, 1, Artifact.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

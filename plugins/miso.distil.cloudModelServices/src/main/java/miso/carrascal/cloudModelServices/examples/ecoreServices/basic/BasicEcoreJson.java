@@ -95,13 +95,13 @@ public class BasicEcoreJson extends BasicAbstractJson {
 			}
 		}
 	    
-	    List<EPackage> ePackages = PackageRecord.getPackages(IScopy, oldEcore.getObjectName());
+	    List<EPackage> ePackages = PackageRecord.getPackages(IScopy, oldEcore.getObjectname());
 		List<FilterEcoreInfo> infos = new ArrayList<FilterEcoreInfo>();
 		for(EPackage ePackage : ePackages) {
 			infos.add(filters.execute(ePackage));
 		}
 		
-	    Ecore newEcore = new Ecore(oldEcore.getObjectName(), oldEcore.getFileSize(), Utils.tagsStringToList(tags), summary, author, active, infos, activeFilters);
+	    Ecore newEcore = new Ecore(oldEcore.getObjectname(), oldEcore.getFilesize(), Utils.tagsStringToList(tags), summary, author, active, infos, activeFilters);
 		
 	    if(RecordDB.getDefault().save(newEcore, IS)) {
 	    	if(!RecordDB.getDefault().delete(id, classType)) {
@@ -179,7 +179,7 @@ public class BasicEcoreJson extends BasicAbstractJson {
 				}
 			}
 			
-			if(!PackageRecord.registerPackages(ecore.getObjectId(), ePackages))
+			if(!PackageRecord.registerPackages(ecore.getObjectid(), ePackages))
 				return BasicEcoreCodes.Regis_fail;
 			
 			return ecore;
