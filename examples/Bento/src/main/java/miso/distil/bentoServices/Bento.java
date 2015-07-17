@@ -55,30 +55,39 @@ public class Bento extends Persistent {
 	
 	public void setInputconcepts(List<String> inputconcepts) {
 		this.inputconcepts = inputconcepts;
+		for(int i=0; i < this.inputconcepts.size(); i++) {
+			this.inputconcepts.set(i, this.inputconcepts.get(i).toLowerCase());
+		}
 	}
-	
 	public List<String> getOutputconcepts() {
 		return outputconcepts;
 	}
 	
 	public void setOutputconcepts(List<String> outputconcepts) {
 		this.outputconcepts = outputconcepts;
+		for(int i=0; i < this.outputconcepts.size(); i++) {
+			this.outputconcepts.set(i, this.outputconcepts.get(i).toLowerCase());
+		}
 	}
-	
 	public List<String> getAtl() {
 		return atl;
 	}
 	
 	public void setAtl(List<String> atl) {
 		this.atl = atl;
+		for(int i=0; i < this.atl.size(); i++) {
+			this.atl.set(i, this.atl.get(i).toLowerCase());
+		}
 	}
-	
 	public List<String> getTags() {
 		return tags;
 	}
 	
 	public void setTags(List<String> tags) {
 		this.tags = tags;
+		for(int i=0; i < this.tags.size(); i++) {
+			this.tags.set(i, this.tags.get(i).toLowerCase());
+		}
 	}
 
 	// To string method

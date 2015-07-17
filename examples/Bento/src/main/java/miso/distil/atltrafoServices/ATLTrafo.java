@@ -34,7 +34,7 @@ public class ATLTrafo extends Persistent {
 	}
 	
 	public void setNameatl(String nameatl) {
-		this.nameatl = nameatl;
+		this.nameatl = nameatl.toLowerCase();
 	}
 
 	// To string method

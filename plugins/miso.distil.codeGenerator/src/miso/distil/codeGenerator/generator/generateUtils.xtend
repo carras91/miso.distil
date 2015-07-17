@@ -12,6 +12,7 @@ import java.util.HashMap
 import org.eclipse.emf.common.util.BasicEList
 import com.google.inject.Inject
 import codeGeneratorModel.ServiceEnum
+import codeGeneratorModel.DataEnum
 
 /*
  * Some methos used everywhere
@@ -232,11 +233,32 @@ class generateUtils {
 			}
 
 			public void set«att.name.toFirstUpper»(«att.typeName» «att.name») {
-				this.«att.name» = «att.name»;
+				«IF att instanceof Primitive»
+					«IF att.type.equals(DataEnum.STRING)»
+						«IF att.many»
+							this.«att.name» = «att.name»;
+							for(int i=0; i < this.«att.name».size(); i++) {
+								this.«att.name».set(i, this.«att.name».get(i).toLowerCase());
+							}
+						«ELSE»
+							this.«att.name» = «att.name».toLowerCase();
+						«ENDIF»
+					«ELSE»
+						this.«att.name» = «att.name»;
+					«ENDIF»
+				«ELSEIF att instanceof Reference»
+					this.«att.name» = «att.name»;
+				«ELSE»
+					«IF att.many»
+						this.«att.name» = «att.name»;
+						for(int i=0; i < this.«att.name».size(); i++) {
+							this.«att.name».set(i, this.«att.name».get(i).toLowerCase());
+						}
+					«ELSE»
+						this.«att.name» = «att.name».toLowerCase();
+					«ENDIF»
+				«ENDIF»
 			}
-			«IF !atts.last.equals(att)»
-
-			«ENDIF»
 		«ENDFOR»
 	'''
 	

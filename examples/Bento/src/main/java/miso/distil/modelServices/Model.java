@@ -41,15 +41,17 @@ public class Model extends Persistent {
 	}
 	
 	public void setNamemodel(String namemodel) {
-		this.namemodel = namemodel;
+		this.namemodel = namemodel.toLowerCase();
 	}
-	
 	public List<String> getType() {
 		return type;
 	}
 	
 	public void setType(List<String> type) {
 		this.type = type;
+		for(int i=0; i < this.type.size(); i++) {
+			this.type.set(i, this.type.get(i).toLowerCase());
+		}
 	}
 
 	// To string method

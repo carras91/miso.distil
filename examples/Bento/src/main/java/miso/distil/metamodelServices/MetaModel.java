@@ -34,7 +34,7 @@ public class MetaModel extends Persistent {
 	}
 	
 	public void setUri(String uri) {
-		this.uri = uri;
+		this.uri = uri.toLowerCase();
 	}
 
 	// To string method

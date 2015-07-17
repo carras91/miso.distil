@@ -19,7 +19,7 @@ Artifact ATLTrafo [
 	nameatl : String
 }  
        
-Artifact MetaModel [ 
+Artifact MetaModel [  
 	extension .ecore  
 	format XMI 
 	services : upload, delete, download, search, readAll, read
