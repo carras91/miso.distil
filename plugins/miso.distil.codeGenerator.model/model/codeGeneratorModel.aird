@@ -126,9 +126,6 @@
               <children xmi:type="notation:Node" xmi:id="_TnLP2P1HEeS8F5VitqYCPA" type="3010" element="_Tm_CzP1HEeS8F5VitqYCPA">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_TnLP2f1HEeS8F5VitqYCPA"/>
               </children>
-              <children xmi:type="notation:Node" xmi:id="_xhJEMA6VEeWlDYHAWuiArw" type="3010" element="_xg6asA6VEeWlDYHAWuiArw">
-                <layoutConstraint xmi:type="notation:Location" xmi:id="_xhJEMQ6VEeWlDYHAWuiArw"/>
-              </children>
               <children xmi:type="notation:Node" xmi:id="_n2gDcBQ-EeW7fcGw0Hq1Cg" type="3010" element="_n2NIgBQ-EeW7fcGw0Hq1Cg">
                 <layoutConstraint xmi:type="notation:Location" xmi:id="_n2gDcRQ-EeW7fcGw0Hq1Cg"/>
               </children>
@@ -1076,7 +1073,7 @@
           <foregroundColor xmi:type="viewpoint:RGBValues" xmi:id="_AEzJRCuSEeWivrCyOtwhpQ" red="255" green="252" blue="216"/>
         </ownedStyle>
         <actualMapping xmi:type="description_1:ContainerMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EClass']"/>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_7ckZ4CuREeWivrCyOtwhpQ" name="mongoURIs : EString" tooltipText="&#xA;ERROR : The required feature 'eAttributeType' of 'org.eclipse.emf.ecore.impl.EAttributeImpl@2877e4ba{platform:/resource/miso.distil.codeGenerator.model/model/codeGeneratorModel.ecore#//Root/newAttribute}' must be set&#xA;ERROR : The typed element must have a type">
+        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_7ckZ4CuREeWivrCyOtwhpQ" name="mongoURIs : EString" tooltipText="">
           <target xmi:type="ecore:EAttribute" href="codeGeneratorModel.ecore#//Root/mongoURIs"/>
           <semanticElements xmi:type="ecore:EAttribute" href="codeGeneratorModel.ecore#//Root/mongoURIs"/>
           <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_AE86QCuSEeWivrCyOtwhpQ" labelAlignment="LEFT">
@@ -1292,17 +1289,6 @@
             <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
             <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_Tm_Cz_1HEeS8F5VitqYCPA"/>
             <color xmi:type="viewpoint:RGBValues" xmi:id="_Tm_C0P1HEeS8F5VitqYCPA"/>
-          </ownedStyle>
-          <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
-        </ownedElements>
-        <ownedElements xmi:type="diagram:DNodeListElement" xmi:id="_xg6asA6VEeWlDYHAWuiArw" name="ATL" tooltipText="">
-          <target xmi:type="ecore:EEnumLiteral" href="codeGeneratorModel.ecore#//FormatEnum/ATL"/>
-          <semanticElements xmi:type="ecore:EEnumLiteral" href="codeGeneratorModel.ecore#//FormatEnum/ATL"/>
-          <ownedStyle xmi:type="diagram:BundledImage" xmi:id="_xg6asQ6VEeWlDYHAWuiArw" labelAlignment="LEFT">
-            <labelColor xmi:type="viewpoint:RGBValues" xmi:id="_xg6asg6VEeWlDYHAWuiArw"/>
-            <description xmi:type="style:BundledImageDescription" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']/@style"/>
-            <borderColor xmi:type="viewpoint:RGBValues" xmi:id="_xg6asw6VEeWlDYHAWuiArw"/>
-            <color xmi:type="viewpoint:RGBValues" xmi:id="_xg6atA6VEeWlDYHAWuiArw"/>
           </ownedStyle>
           <actualMapping xmi:type="description_1:NodeMapping" href="platform:/plugin/org.eclipse.emf.ecoretools.design/description/ecore.odesign#//@ownedViewpoints[name='Design']/@ownedRepresentations[name='Entities']/@defaultLayer/@containerMappings[name='EC%20EEnum']/@subNodeMappings[name='EC%20EEnumLiteral']"/>
         </ownedElements>

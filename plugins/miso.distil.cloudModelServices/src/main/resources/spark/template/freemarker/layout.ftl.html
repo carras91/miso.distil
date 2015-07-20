@@ -18,7 +18,7 @@
 					    	<select name="select_box_${KEY}" id="select_box_${KEY}" onchange="location = this.options[this.selectedIndex].value" onmouseenter="expand(this, ${VALUES?size}+1)" onmouseleave="unexpand(this)" >
 								<option class="glyphicon glyphicon-pencil" value="" selected="selected">${KEY}</option>
 								<#list VALUES as VALUE>
-							        	<option class="active" value="${VALUE.getHref()}">${VALUE.getLabel()}</option>
+							        	<option class="active" value="${VALUE.getValue()}">${VALUE.getLabel()}</option>
 						        </#list>
 					    	</select>
 					    </li>
@@ -27,25 +27,27 @@
                </div>
            </div>
         </div>
-        	
-		<script type="text/javascript">
-		
-			window.onload = function() {
-				<#if LAYOUTS??><#list LAYOUTS?keys as KEY>
-				unexpand(document.getElementById('select_box_${KEY}'));
-				</#list></#if>
-			};
+        
+        <#if LAYOUTS??>	
+			<script type="text/javascript">
 			
-			function expand(obj, size)
-			{
-			    obj.size = size;
-			}
-			
-			function unexpand(obj)
-			{
-			    obj.size = 1;
-			}
-        </script>
+				window.onload = function() {
+					<#list LAYOUTS?keys as KEY>
+					unexpand(document.getElementById('select_box_${KEY}'));
+					</#list>
+				};
+				
+				function expand(obj, size)
+				{
+				    obj.size = size;
+				}
+				
+				function unexpand(obj)
+				{
+				    obj.size = 1;
+				}
+	        </script>
+        </#if>
 
         <div class="container">
         	<div class="starter-template">

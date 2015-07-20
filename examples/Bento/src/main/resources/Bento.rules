@@ -1,54 +1,44 @@
-MongoURI : "mongodb://user:password@ds055722.mongolab.com:55722/heroku_m7s6bbkn" 
+MongoURI : "mongodb://user:password@ds055722.mongolab.com:55722/heroku_m7s6bbkn"
  
 Artifact Bento [ 
-	extension .bentoz  
-	format ZIP
-	services : all
+	extension .bentoz format ZIP services : all
 ] {
 	id many inputconcepts : MetaModel    
 	id many outputconcepts : MetaModel 
 	id many atl : ATLTrafo
-	many tags : String
-}   
-
+	many tags : String 
+}
 Artifact ATLTrafo [ 
-	extension .atl  
-	format TEXT 
-	services : upload, delete, download, search, readAll, read
+	extension .atl format TEXT 
+	services : upload, delete, download, search
 ] {
 	nameatl : String
-}  
-       
-Artifact MetaModel [  
-	extension .ecore  
-	format XMI 
-	services : upload, delete, download, search, readAll, read
-] {
+}
+Artifact MetaModel [   
+	extension .ecore format XMI 
+	services : upload, delete, download, search
+] { 
 	uri : String    	   
 }
 
+
 Artifact Model [  
-	format XMI
-	services : all
+	format XMI services : all
 ] {   
 	namemodel : String
-	id many type : MetaModel 
+	id type : MetaModel 
 }
-
 MultiService Analyse {
 	when : Bento [upload, update]
 	services : TypeCheck, Metrics
 }
- 
 Service TypeCheck {
 	output : Model [with type.uri = "http://prob.ecore"]
 }
-
 Service Metrics {
 	input : Model [with type.uri = "http://prob.ecore"]
 	output : Model [with type.uri = "http://mtr.ecore"]
 }
-
 Service SemanticSearch {
 	input : MetaModel
 	output : many Bento

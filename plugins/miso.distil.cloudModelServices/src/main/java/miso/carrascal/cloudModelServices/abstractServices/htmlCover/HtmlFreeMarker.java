@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import spark.ModelAndView;
-import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.HtmlLayout;
+import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.HtmlSelectBox;
 
 public class HtmlFreeMarker {
 	public static String FORM_HTML = "form.ftl.html";
@@ -15,6 +15,7 @@ public class HtmlFreeMarker {
 	public static String LIST_HTML = "list.ftl.html";
 	
 	public static String FORM = "FORM";
+	public static String SELECTBOX = "SELECTBOX";
 	public static String TEXTS = "TEXTS";
 	public static String RADIOS = "RADIOS";
 	public static String FILE = "FILES";
@@ -29,13 +30,12 @@ public class HtmlFreeMarker {
 	public static String ERROR = "ERROR";
 	public static String TEMPLATE = "TEMPLATE";
 	public static String COUNT = "COUNT";
-	public static String SYNONYMS_QUERY = "SYNONYMSQUERY";
-	public static String SYNONYMS_VALUE = "SYNONYMSVALUE";
+	public static String SYNONYMS_VALUES = "SYNONYMS_VALUES";
 	
 	private static String LAYOUTS = "LAYOUTS";
 	private static String LAYOUT_HTML = "layout.ftl.html";
-	private static Map<String, List<HtmlLayout>> layouts = new HashMap<String, List<HtmlLayout>>();
-	public static void addLayout(String label, List<HtmlLayout> layout) {
+	private static Map<String, List<HtmlSelectBox>> layouts = new HashMap<String, List<HtmlSelectBox>>();
+	public static void addLayout(String label, List<HtmlSelectBox> layout) {
 		layouts.put(label, layout);
 	}
 	

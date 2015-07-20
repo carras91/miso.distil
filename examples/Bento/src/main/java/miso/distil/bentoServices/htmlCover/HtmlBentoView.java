@@ -73,15 +73,22 @@ public class HtmlBentoView implements HtmlInterfaceView<Bento>{
 
 		HtmlForm form = new HtmlForm(HtmlBentoSpark.SearchHTML, "bento-search-form", HtmlFreeMarker.ENCTYPE_DEFAULT, "Search", "GET");
 		viewObjects.put(HtmlFreeMarker.FORM, form);
+		
+		Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();
+		List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();
+		boxes.add(new HtmlSelectBox("inputconcepts", "inputconcepts"));
+		boxes.add(new HtmlSelectBox("outputconcepts", "outputconcepts"));
+		boxes.add(new HtmlSelectBox("atl", "atl"));
+		boxes.add(new HtmlSelectBox("tags", "tags"));
+		selectbox.put(BasicBentoParam.Search_query, boxes);
+		viewObjects.put(HtmlFreeMarker.SELECTBOX, selectbox);
 
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicBentoParam.Search_query, "", "Search (name)", "search", "Enter where do you want to search"));
-		texts.add(new HtmlText(BasicBentoParam.Search_value, "", "Search (value)", "search", "Enter what do you want to search"));
+		texts.add(new HtmlText(BasicBentoParam.Search_value, "", "Value", "search", "Enter what do you want to search"));
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 		List<HtmlRadio> radios = new ArrayList<HtmlRadio>();
-		radios.add(new HtmlRadio(BasicBentoParam.Synonyms_query, "Synonyms (name)", "synonyms", true));
-		radios.add(new HtmlRadio(BasicBentoParam.Synonyms_value, "Synonyms (value)", "synonyms", true));
+		radios.add(new HtmlRadio(BasicBentoParam.Search_synonyms, "Synonyms", "synonyms", true));
 		viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 		return viewObjects;

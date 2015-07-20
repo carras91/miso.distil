@@ -37,7 +37,7 @@ class generateHtmlSpark {
 		import «names.MisoBasic».BasicInterfaceSpark;
 		«IF basicServices.contains(ServiceEnum.READ_ALL) || basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.SEARCH)»
 			import «names.MisoHtml».HtmlFreeMarker;
-			import «names.MisoHtml».htmlObjects.HtmlLayout;
+			import «names.MisoHtml».htmlObjects.HtmlSelectBox;
 
 		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.READ)»
@@ -132,15 +132,15 @@ class generateHtmlSpark {
 				 * @author miso.distil.codeGenerator
 				 */
 				private void addLayout() {
-					List<HtmlLayout> layouts = new ArrayList<HtmlLayout>();
+					List<HtmlSelectBox> layouts = new ArrayList<HtmlSelectBox>();
 					«IF basicServices.contains(ServiceEnum.READ_ALL)»
-						layouts.add(new HtmlLayout("Read all «namelow»s" , ReadAllHTML));
+						layouts.add(new HtmlSelectBox("Read all «namelow»s" , ReadAllHTML));
 					«ENDIF»
 					«IF basicServices.contains(ServiceEnum.UPLOAD)»
-						layouts.add(new HtmlLayout("Upload «namelow»" , UploadFormHTML));
+						layouts.add(new HtmlSelectBox("Upload «namelow»" , UploadFormHTML));
 					«ENDIF»
 					«IF basicServices.contains(ServiceEnum.SEARCH)»
-						layouts.add(new HtmlLayout("Search «namelow»" , SearchFormHTML));
+						layouts.add(new HtmlSelectBox("Search «namelow»" , SearchFormHTML));
 					«ENDIF»
 					HtmlFreeMarker.addLayout("«name»", layouts);
 				}

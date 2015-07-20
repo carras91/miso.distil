@@ -66,9 +66,6 @@ public class RulesHyperlinkHelper implements IHyperlinkHelper  {
 		if(elem == null)
 			return null;
 		
-		System.out.println(elem);
-		System.out.println(offset);
-		
 		// proyecto
 		String filePath = resource.getURI().toPlatformString(true);
 		IFile file_project = ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(filePath));
@@ -110,7 +107,6 @@ public class RulesHyperlinkHelper implements IHyperlinkHelper  {
 		IJavaProject jproject = JavaCore.create(project);
 		List<JdtHyperlink> hyperlinks = new ArrayList<JdtHyperlink>();
 		for(String path : paths) {
-			System.out.println(path);
 			IType type = jproject.findType(path);
 			if(type == null) {
 				return null;

@@ -1,11 +1,8 @@
 <#if COUNT??>
 	<h2>We have found ${COUNT}</h2>
 </#if>
-<#if SYNONYMS_QUERY??>
-	<h3>Searching query words : </h3><h5>${SYNONYMS_QUERY}</h5>
-</#if>
-<#if SYNONYMS_VALUE??>
-	<h3>Searching value words : </h3><h5>${SYNONYMS_VALUE}</h5>
+<#if SYNONYMS_VALUES??>
+	<h3>Searching words : </h3><h5>${SYNONYMS_VALUES}</h5>
 </#if>
 <#if MULTI_ENTRIES??>
 	<#list MULTI_ENTRIES as ENTRIES>

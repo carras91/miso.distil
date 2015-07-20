@@ -8,7 +8,7 @@ import java.util.List;
 
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
-import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.HtmlLayout;
+import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.HtmlSelectBox;
 
 import miso.distil.modelServices.basic.BasicModelParam;
 import miso.distil.modelServices.CustomModelHtml;
@@ -74,10 +74,10 @@ public final class HtmlModelSpark implements BasicInterfaceSpark {
 	 * @author miso.distil.codeGenerator
 	 */
 	private void addLayout() {
-		List<HtmlLayout> layouts = new ArrayList<HtmlLayout>();
-		layouts.add(new HtmlLayout("Read all models" , ReadAllHTML));
-		layouts.add(new HtmlLayout("Upload model" , UploadFormHTML));
-		layouts.add(new HtmlLayout("Search model" , SearchFormHTML));
+		List<HtmlSelectBox> layouts = new ArrayList<HtmlSelectBox>();
+		layouts.add(new HtmlSelectBox("Read all models" , ReadAllHTML));
+		layouts.add(new HtmlSelectBox("Upload model" , UploadFormHTML));
+		layouts.add(new HtmlSelectBox("Search model" , SearchFormHTML));
 		HtmlFreeMarker.addLayout("Model", layouts);
 	}
 

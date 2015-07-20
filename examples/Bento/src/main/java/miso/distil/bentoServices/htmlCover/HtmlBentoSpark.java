@@ -8,7 +8,7 @@ import java.util.List;
 
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
-import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.HtmlLayout;
+import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.HtmlSelectBox;
 
 import miso.distil.bentoServices.basic.BasicBentoParam;
 import miso.distil.bentoServices.CustomBentoHtml;
@@ -74,10 +74,10 @@ public final class HtmlBentoSpark implements BasicInterfaceSpark {
 	 * @author miso.distil.codeGenerator
 	 */
 	private void addLayout() {
-		List<HtmlLayout> layouts = new ArrayList<HtmlLayout>();
-		layouts.add(new HtmlLayout("Read all bentos" , ReadAllHTML));
-		layouts.add(new HtmlLayout("Upload bento" , UploadFormHTML));
-		layouts.add(new HtmlLayout("Search bento" , SearchFormHTML));
+		List<HtmlSelectBox> layouts = new ArrayList<HtmlSelectBox>();
+		layouts.add(new HtmlSelectBox("Read all bentos" , ReadAllHTML));
+		layouts.add(new HtmlSelectBox("Upload bento" , UploadFormHTML));
+		layouts.add(new HtmlSelectBox("Search bento" , SearchFormHTML));
 		HtmlFreeMarker.addLayout("Bento", layouts);
 	}
 

@@ -16,9 +16,6 @@ import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSp
 public final class BasicMetaModelSpark implements BasicInterfaceSpark {
 
 	// URL's
-	public static String ReadJson = "/json/metamodel/read/";
-	public static String ReadIdJson = ReadJson + BasicMetaModelParam.IdGet;
-	public static String ReadAllJson = "/json/metamodel/all";
 	public static String SearchJson = "/json/metamodel/search";
 	public static String UploadJson = "/json/metamodel/upload";
 	public static String DeleteJson = "/json/metamodel/delete";
@@ -36,14 +33,6 @@ public final class BasicMetaModelSpark implements BasicInterfaceSpark {
 	public void runService() {
 
 		MetaModelJson Json = new MetaModelJson();
-
-		get(ReadIdJson, "application/json",
-			(request, response) -> Json.getRead(request, response), 
-			new JsonTransformer());
-
-		get(ReadAllJson, "application/json",
-			(request, response) -> Json.getReadAll(request, response),
-			new JsonTransformer());
 
 		get(SearchJson, "application/json",
 			(request, response) -> Json.getSearch(request, response), 

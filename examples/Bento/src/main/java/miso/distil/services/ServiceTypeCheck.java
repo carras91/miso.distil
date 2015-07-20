@@ -23,7 +23,7 @@ public class ServiceTypeCheck extends ServiceAbstractJson {
 	 */
 	public ServiceTypeCheck() {
 		// Input classes
-		// Outpu classes
+		// Output classes
 		addOutputClass(Model.class);
 	}
 
@@ -60,9 +60,7 @@ public class ServiceTypeCheck extends ServiceAbstractJson {
 		// do something!
 
 		// Create your outputs (do something!)
-		List<String> type = new ArrayList<String>();
-		type.add("model type 1");
-		type.add("model type 2");
+		String type = "model type";
 		output.add(new Model("object name", 42, "model name", type));
 		
 		System.out.println("TypeCheck has finished");

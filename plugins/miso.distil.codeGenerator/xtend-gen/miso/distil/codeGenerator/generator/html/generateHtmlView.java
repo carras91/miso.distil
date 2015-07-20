@@ -641,6 +641,71 @@ public class generateHtmlView {
         _builder.append("\t");
         _builder.append("viewObjects.put(HtmlFreeMarker.FORM, form);");
         _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append("\t");
+        Object _xblockexpression_3 = null;
+        {
+          pos = (-1);
+          _xblockexpression_3 = null;
+        }
+        _builder.append(_xblockexpression_3, "\t\t");
+        _builder.newLineIfNotEmpty();
+        {
+          for(final Attribute att_2 : allAtts) {
+            _builder.append("\t");
+            _builder.append("\t");
+            Object _xblockexpression_4 = null;
+            {
+              pos++;
+              _xblockexpression_4 = null;
+            }
+            _builder.append(_xblockexpression_4, "\t\t");
+            _builder.newLineIfNotEmpty();
+            {
+              boolean _or_10 = false;
+              if ((att_2 instanceof Primitive)) {
+                _or_10 = true;
+              } else {
+                _or_10 = (att_2 instanceof ArtifactID);
+              }
+              if (_or_10) {
+                _builder.append("\t");
+                _builder.append("\t");
+                final String newName_2 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                _builder.newLineIfNotEmpty();
+                _builder.append("\t");
+                _builder.append("\t");
+                _builder.append("boxes.add(new HtmlSelectBox(\"");
+                _builder.append(newName_2, "\t\t");
+                _builder.append("\", \"");
+                _builder.append(newName_2, "\t\t");
+                _builder.append("\"));");
+                _builder.newLineIfNotEmpty();
+              }
+            }
+          }
+        }
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("selectbox.put(Basic");
+        _builder.append(name, "\t\t");
+        _builder.append("Param.Search_query, boxes);");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("\t");
+        _builder.append("viewObjects.put(HtmlFreeMarker.SELECTBOX, selectbox);");
+        _builder.newLine();
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
@@ -650,13 +715,7 @@ public class generateHtmlView {
         _builder.append("\t");
         _builder.append("texts.add(new HtmlText(Basic");
         _builder.append(name, "\t\t");
-        _builder.append("Param.Search_query, \"\", \"Search (name)\", \"search\", \"Enter where do you want to search\"));");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("texts.add(new HtmlText(Basic");
-        _builder.append(name, "\t\t");
-        _builder.append("Param.Search_value, \"\", \"Search (value)\", \"search\", \"Enter what do you want to search\"));");
+        _builder.append("Param.Search_value, \"\", \"Value\", \"search\", \"Enter what do you want to search\"));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
@@ -671,13 +730,7 @@ public class generateHtmlView {
         _builder.append("\t");
         _builder.append("radios.add(new HtmlRadio(Basic");
         _builder.append(name, "\t\t");
-        _builder.append("Param.Synonyms_query, \"Synonyms (name)\", \"synonyms\", true));");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
-        _builder.append("\t");
-        _builder.append("radios.add(new HtmlRadio(Basic");
-        _builder.append(name, "\t\t");
-        _builder.append("Param.Synonyms_value, \"Synonyms (value)\", \"synonyms\", true));");
+        _builder.append("Param.Search_synonyms, \"Synonyms\", \"synonyms\", true));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
@@ -749,41 +802,41 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        Object _xblockexpression_3 = null;
+        Object _xblockexpression_5 = null;
         {
           pos = (-1);
-          _xblockexpression_3 = null;
+          _xblockexpression_5 = null;
         }
-        _builder.append(_xblockexpression_3, "\t\t");
+        _builder.append(_xblockexpression_5, "\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_2 : allAtts) {
+          for(final Attribute att_3 : allAtts) {
             _builder.append("\t");
             _builder.append("\t");
-            Object _xblockexpression_4 = null;
+            Object _xblockexpression_6 = null;
             {
               pos++;
-              _xblockexpression_4 = null;
+              _xblockexpression_6 = null;
             }
-            _builder.append(_xblockexpression_4, "\t\t");
+            _builder.append(_xblockexpression_6, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_2 instanceof Primitive)) {
+              if ((att_3 instanceof Primitive)) {
                 {
-                  boolean _isRequired = ((Primitive)att_2).isRequired();
+                  boolean _isRequired = ((Primitive)att_3).isRequired();
                   if (_isRequired) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    final String newName_2 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                    final String newName_3 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
                     {
                       boolean _and_4 = false;
-                      DataEnum _type_4 = ((Primitive)att_2).getType();
+                      DataEnum _type_4 = ((Primitive)att_3).getType();
                       boolean _equals_4 = _type_4.equals(DataEnum.STRING);
                       if (!_equals_4) {
                         _and_4 = false;
                       } else {
-                        boolean _isMany_5 = ((Primitive)att_2).isMany();
+                        boolean _isMany_5 = ((Primitive)att_3).isMany();
                         boolean _not_3 = (!_isMany_5);
                         _and_4 = _not_3;
                       }
@@ -793,34 +846,34 @@ public class generateHtmlView {
                         _builder.append("texts.add(new HtmlText(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_2, "\t\t");
+                        _builder.append(newName_3, "\t\t");
                         _builder.append(", ");
                         String _nestedGets_5 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                         _builder.append(_nestedGets_5, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase = newName_2.toLowerCase();
+                        String _lowerCase = newName_3.toLowerCase();
                         _builder.append(_lowerCase, "\t\t");
                         _builder.append("\", \"");
-                        String _name_1 = ((Primitive)att_2).getName();
+                        String _name_1 = ((Primitive)att_3).getName();
                         _builder.append(_name_1, "\t\t");
                         _builder.append("\", \"\"));");
                         _builder.newLineIfNotEmpty();
                       } else {
                         boolean _and_5 = false;
-                        boolean _or_10 = false;
-                        DataEnum _type_5 = ((Primitive)att_2).getType();
+                        boolean _or_11 = false;
+                        DataEnum _type_5 = ((Primitive)att_3).getType();
                         boolean _equals_5 = _type_5.equals(DataEnum.DOUBLE);
                         if (_equals_5) {
-                          _or_10 = true;
+                          _or_11 = true;
                         } else {
-                          DataEnum _type_6 = ((Primitive)att_2).getType();
+                          DataEnum _type_6 = ((Primitive)att_3).getType();
                           boolean _equals_6 = _type_6.equals(DataEnum.INTEGER);
-                          _or_10 = _equals_6;
+                          _or_11 = _equals_6;
                         }
-                        if (!_or_10) {
+                        if (!_or_11) {
                           _and_5 = false;
                         } else {
-                          boolean _isMany_6 = ((Primitive)att_2).isMany();
+                          boolean _isMany_6 = ((Primitive)att_3).isMany();
                           boolean _not_4 = (!_isMany_6);
                           _and_5 = _not_4;
                         }
@@ -830,41 +883,41 @@ public class generateHtmlView {
                           _builder.append("texts.add(new HtmlText(Basic");
                           _builder.append(name, "\t\t");
                           _builder.append("Param.");
-                          _builder.append(newName_2, "\t\t");
+                          _builder.append(newName_3, "\t\t");
                           _builder.append(", ");
                           String _nestedGets_6 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                           _builder.append(_nestedGets_6, "\t\t");
                           _builder.append(".toString(), \"");
-                          String _lowerCase_1 = newName_2.toLowerCase();
+                          String _lowerCase_1 = newName_3.toLowerCase();
                           _builder.append(_lowerCase_1, "\t\t");
                           _builder.append("\", \"");
-                          String _name_2 = ((Primitive)att_2).getName();
+                          String _name_2 = ((Primitive)att_3).getName();
                           _builder.append(_name_2, "\t\t");
                           _builder.append("\", \"\"));");
                           _builder.newLineIfNotEmpty();
                         } else {
-                          boolean _isMany_7 = ((Primitive)att_2).isMany();
+                          boolean _isMany_7 = ((Primitive)att_3).isMany();
                           if (_isMany_7) {
                             _builder.append("\t");
                             _builder.append("\t");
                             _builder.append("texts.add(new HtmlText(Basic");
                             _builder.append(name, "\t\t");
                             _builder.append("Param.");
-                            _builder.append(newName_2, "\t\t");
+                            _builder.append(newName_3, "\t\t");
                             _builder.append(", Utils.ListToString(");
                             String _nestedGets_7 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                             _builder.append(_nestedGets_7, "\t\t");
                             _builder.append("), \"");
-                            String _lowerCase_2 = newName_2.toLowerCase();
+                            String _lowerCase_2 = newName_3.toLowerCase();
                             _builder.append(_lowerCase_2, "\t\t");
                             _builder.append(" (");
-                            String _name_3 = ((Primitive)att_2).getName();
+                            String _name_3 = ((Primitive)att_3).getName();
                             _builder.append(_name_3, "\t\t");
                             _builder.append("1,");
-                            String _name_4 = ((Primitive)att_2).getName();
+                            String _name_4 = ((Primitive)att_3).getName();
                             _builder.append(_name_4, "\t\t");
                             _builder.append("2,...)\", \"");
-                            String _name_5 = ((Primitive)att_2).getName();
+                            String _name_5 = ((Primitive)att_3).getName();
                             _builder.append(_name_5, "\t\t");
                             _builder.append("\", \"\"));");
                             _builder.newLineIfNotEmpty();
@@ -889,41 +942,41 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        Object _xblockexpression_5 = null;
+        Object _xblockexpression_7 = null;
         {
           pos = (-1);
-          _xblockexpression_5 = null;
+          _xblockexpression_7 = null;
         }
-        _builder.append(_xblockexpression_5, "\t\t");
+        _builder.append(_xblockexpression_7, "\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_3 : allAtts) {
+          for(final Attribute att_4 : allAtts) {
             _builder.append("\t");
             _builder.append("\t");
-            Object _xblockexpression_6 = null;
+            Object _xblockexpression_8 = null;
             {
               pos++;
-              _xblockexpression_6 = null;
+              _xblockexpression_8 = null;
             }
-            _builder.append(_xblockexpression_6, "\t\t");
+            _builder.append(_xblockexpression_8, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_3 instanceof Primitive)) {
+              if ((att_4 instanceof Primitive)) {
                 {
-                  boolean _isRequired_1 = ((Primitive)att_3).isRequired();
+                  boolean _isRequired_1 = ((Primitive)att_4).isRequired();
                   if (_isRequired_1) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    String newName_3 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                    String newName_4 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
                     {
                       boolean _and_6 = false;
-                      DataEnum _type_7 = ((Primitive)att_3).getType();
+                      DataEnum _type_7 = ((Primitive)att_4).getType();
                       boolean _equals_7 = _type_7.equals(DataEnum.BOOLEAN);
                       if (!_equals_7) {
                         _and_6 = false;
                       } else {
-                        boolean _isMany_8 = ((Primitive)att_3).isMany();
+                        boolean _isMany_8 = ((Primitive)att_4).isMany();
                         boolean _not_5 = (!_isMany_8);
                         _and_6 = _not_5;
                       }
@@ -933,12 +986,12 @@ public class generateHtmlView {
                         _builder.append("radios.add(new HtmlRadio(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_3, "\t\t");
+                        _builder.append(newName_4, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase_3 = newName_3.toLowerCase();
+                        String _lowerCase_3 = newName_4.toLowerCase();
                         _builder.append(_lowerCase_3, "\t\t");
                         _builder.append("\", \"");
-                        String _name_6 = ((Primitive)att_3).getName();
+                        String _name_6 = ((Primitive)att_4).getName();
                         _builder.append(_name_6, "\t\t");
                         _builder.append("\", ");
                         String _nestedGets_8 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
@@ -1036,42 +1089,42 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        Object _xblockexpression_7 = null;
+        Object _xblockexpression_9 = null;
         {
           pos = (-1);
-          _xblockexpression_7 = null;
+          _xblockexpression_9 = null;
         }
-        _builder.append(_xblockexpression_7, "\t\t");
+        _builder.append(_xblockexpression_9, "\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_4 : allAtts) {
+          for(final Attribute att_5 : allAtts) {
             _builder.append("\t");
             _builder.append("\t");
-            Object _xblockexpression_8 = null;
+            Object _xblockexpression_10 = null;
             {
               pos++;
-              _xblockexpression_8 = null;
+              _xblockexpression_10 = null;
             }
-            _builder.append(_xblockexpression_8, "\t\t");
+            _builder.append(_xblockexpression_10, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_4 instanceof Primitive)) {
+              if ((att_5 instanceof Primitive)) {
                 {
-                  boolean _isRequired_2 = ((Primitive)att_4).isRequired();
+                  boolean _isRequired_2 = ((Primitive)att_5).isRequired();
                   if (_isRequired_2) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    final String newName_4 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                    final String newName_5 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
                     {
                       boolean _and_7 = false;
-                      DataEnum _type_8 = ((Primitive)att_4).getType();
+                      DataEnum _type_8 = ((Primitive)att_5).getType();
                       boolean _equals_8 = _type_8.equals(DataEnum.BOOLEAN);
                       boolean _not_6 = (!_equals_8);
                       if (!_not_6) {
                         _and_7 = false;
                       } else {
-                        boolean _isMany_9 = ((Primitive)att_4).isMany();
+                        boolean _isMany_9 = ((Primitive)att_5).isMany();
                         boolean _not_7 = (!_isMany_9);
                         _and_7 = _not_7;
                       }
@@ -1081,42 +1134,42 @@ public class generateHtmlView {
                         _builder.append("texts.add(new HtmlText(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_4, "\t\t");
+                        _builder.append(newName_5, "\t\t");
                         _builder.append(", \"\", \"");
-                        String _lowerCase_4 = newName_4.toLowerCase();
+                        String _lowerCase_4 = newName_5.toLowerCase();
                         _builder.append(_lowerCase_4, "\t\t");
                         _builder.append("\", \"");
-                        String _name_7 = ((Primitive)att_4).getName();
+                        String _name_7 = ((Primitive)att_5).getName();
                         _builder.append(_name_7, "\t\t");
                         _builder.append("\", \"Enter valid ");
-                        DataEnum _type_9 = ((Primitive)att_4).getType();
+                        DataEnum _type_9 = ((Primitive)att_5).getType();
                         String _string = _type_9.toString();
                         _builder.append(_string, "\t\t");
                         _builder.append("\"));");
                         _builder.newLineIfNotEmpty();
                       } else {
-                        boolean _isMany_10 = ((Primitive)att_4).isMany();
+                        boolean _isMany_10 = ((Primitive)att_5).isMany();
                         if (_isMany_10) {
                           _builder.append("\t");
                           _builder.append("\t");
                           _builder.append("texts.add(new HtmlText(Basic");
                           _builder.append(name, "\t\t");
                           _builder.append("Param.");
-                          _builder.append(newName_4, "\t\t");
+                          _builder.append(newName_5, "\t\t");
                           _builder.append(", \"\", \"");
-                          String _lowerCase_5 = newName_4.toLowerCase();
+                          String _lowerCase_5 = newName_5.toLowerCase();
                           _builder.append(_lowerCase_5, "\t\t");
                           _builder.append(" (");
-                          String _name_8 = ((Primitive)att_4).getName();
+                          String _name_8 = ((Primitive)att_5).getName();
                           _builder.append(_name_8, "\t\t");
                           _builder.append("1,");
-                          String _name_9 = ((Primitive)att_4).getName();
+                          String _name_9 = ((Primitive)att_5).getName();
                           _builder.append(_name_9, "\t\t");
                           _builder.append("2,...)\", \"");
-                          String _name_10 = ((Primitive)att_4).getName();
+                          String _name_10 = ((Primitive)att_5).getName();
                           _builder.append(_name_10, "\t\t");
                           _builder.append("\", \"Enter new list of valid ");
-                          DataEnum _type_10 = ((Primitive)att_4).getType();
+                          DataEnum _type_10 = ((Primitive)att_5).getType();
                           String _string_1 = _type_10.toString();
                           _builder.append(_string_1, "\t\t");
                           _builder.append("\"));");
@@ -1141,41 +1194,41 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        Object _xblockexpression_9 = null;
+        Object _xblockexpression_11 = null;
         {
           pos = (-1);
-          _xblockexpression_9 = null;
+          _xblockexpression_11 = null;
         }
-        _builder.append(_xblockexpression_9, "\t\t");
+        _builder.append(_xblockexpression_11, "\t\t");
         _builder.newLineIfNotEmpty();
         {
-          for(final Attribute att_5 : allAtts) {
+          for(final Attribute att_6 : allAtts) {
             _builder.append("\t");
             _builder.append("\t");
-            Object _xblockexpression_10 = null;
+            Object _xblockexpression_12 = null;
             {
               pos++;
-              _xblockexpression_10 = null;
+              _xblockexpression_12 = null;
             }
-            _builder.append(_xblockexpression_10, "\t\t");
+            _builder.append(_xblockexpression_12, "\t\t");
             _builder.newLineIfNotEmpty();
             {
-              if ((att_5 instanceof Primitive)) {
+              if ((att_6 instanceof Primitive)) {
                 {
-                  boolean _isRequired_3 = ((Primitive)att_5).isRequired();
+                  boolean _isRequired_3 = ((Primitive)att_6).isRequired();
                   if (_isRequired_3) {
                     _builder.append("\t");
                     _builder.append("\t");
-                    final String newName_5 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                    final String newName_6 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
                     {
                       boolean _and_8 = false;
-                      DataEnum _type_11 = ((Primitive)att_5).getType();
+                      DataEnum _type_11 = ((Primitive)att_6).getType();
                       boolean _equals_9 = _type_11.equals(DataEnum.BOOLEAN);
                       if (!_equals_9) {
                         _and_8 = false;
                       } else {
-                        boolean _isMany_11 = ((Primitive)att_5).isMany();
+                        boolean _isMany_11 = ((Primitive)att_6).isMany();
                         boolean _not_8 = (!_isMany_11);
                         _and_8 = _not_8;
                       }
@@ -1185,12 +1238,12 @@ public class generateHtmlView {
                         _builder.append("radios.add(new HtmlRadio(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_5, "\t\t");
+                        _builder.append(newName_6, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase_6 = newName_5.toLowerCase();
+                        String _lowerCase_6 = newName_6.toLowerCase();
                         _builder.append(_lowerCase_6, "\t\t");
                         _builder.append("\", \"");
-                        String _name_11 = ((Primitive)att_5).getName();
+                        String _name_11 = ((Primitive)att_6).getName();
                         _builder.append(_name_11, "\t\t");
                         _builder.append("\", true));");
                         _builder.newLineIfNotEmpty();

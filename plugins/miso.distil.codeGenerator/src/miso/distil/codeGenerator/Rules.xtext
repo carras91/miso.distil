@@ -46,7 +46,7 @@ EString returns ecore::EString:
 	STRING | ID;
 
 enum FormatEnum returns FormatEnum:
-	XMI = 'XMI' | BINARY = 'BINARY' | TEXT = 'TEXT' | XML = 'XML' | JSON = 'JSON' | ATL = 'ATL' | ZIP = 'ZIP';
+	XMI = 'XMI' | BINARY = 'BINARY' | TEXT = 'TEXT' | XML = 'XML' | JSON = 'JSON' | ZIP = 'ZIP';
 
 enum ServiceEnum returns ServiceEnum:
 	upload = 'upload' | download = 'download' | update = 'update' | read = 'read' | readAll = 'readAll' | search = 'search' | delete = 'delete' | all = 'all';

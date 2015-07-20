@@ -13,6 +13,7 @@ import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfac
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
+import miso.carrascal.cloudModelServices.utils.Utils;
 
 import miso.distil.atltrafoServices.basic.BasicATLTrafoCodes;
 import miso.distil.atltrafoServices.ATLTrafoJson;
@@ -49,46 +50,6 @@ public class HtmlATLTrafoJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to read the information from an artifact
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	@Override
-	public ModelAndView getRead(Request req, Response res) {
-		Map<String, Object> viewObjects = new HashMap<String, Object>();
-
-		ATLTrafo atltrafo = (ATLTrafo) Json.getRead(req, res);
-		if(atltrafo == null) {
-			viewObjects.put(HtmlFreeMarker.ERROR, BasicATLTrafoCodes.DB_notfound);
-		} else {
-			viewObjects.put(HtmlFreeMarker.ENTRIES, customView.constructInfoReadOne(atltrafo));
-		}
-		viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.READ_HTML);
-
-		return HtmlFreeMarker.closeHtml(viewObjects);
-	}
-
-	/**
-	 * Auto-generated method to read the information from an artifact's list
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	@Override
-	public ModelAndView getReadAll(Request req, Response res) {
-		Map<String, Object> viewObjects = new HashMap<String, Object>();
-
-		ArrayList<ATLTrafo> atltrafos = new ArrayList<ATLTrafo>();
-		for(Persistent atltrafo : Json.getReadAll(req, res)) {
-			atltrafos.add((ATLTrafo)atltrafo);
-		}
-		viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(atltrafos));
-		viewObjects.put(HtmlFreeMarker.COUNT, atltrafos.size());
-		viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
-
-		return HtmlFreeMarker.closeHtml(viewObjects);
-	}
-
-	/**
 	 * Auto-generated method to construct the search form
 	 * 
 	 * @author miso.distil.codeGenerator
@@ -119,12 +80,12 @@ public class HtmlATLTrafoJson implements HtmlInterfaceJson {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
 			viewObjects.put(HtmlFreeMarker.EMPTY, BasicATLTrafoCodes.ATLTrafo_notfound);
+			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));
 		} else {	
 			viewObjects = new HashMap<String, Object>();
 			viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(atltrafos));
 			viewObjects.put(HtmlFreeMarker.COUNT, atltrafos.size());
-			viewObjects.put(HtmlFreeMarker.SYNONYMS_QUERY, Json.getSynonymesQuery(req, res));
-			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUE, Json.getSynonymesValue(req, res));
+			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
 		}
 

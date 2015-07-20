@@ -2,12 +2,7 @@ package miso.distil.modelServices;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.Map;
-import java.util.List;
-
-import spark.Request;
-import spark.Response;
 
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletException;
@@ -15,9 +10,10 @@ import javax.servlet.http.Part;
 
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
-import miso.distil.modelServices.Model;
 import miso.distil.modelServices.basic.BasicModelCodes;
 import miso.distil.modelServices.basic.BasicModelParam;
+import spark.Request;
+import spark.Response;
 
 /**
  * Auto-generated custom json methods
@@ -64,9 +60,7 @@ public class ModelJson extends BasicAbstractJson {
 		// Not required params and artifact's id
 		// complete these params!
 		String nameModel = "model name or not model name (updated)";
-		List<String> type = new ArrayList<String>();
-		type.add("type1 (updated)");
-		type.add("type2 (updated)");
+		String type = "type (updated)";
 
 		//Composed params
 		
@@ -115,9 +109,7 @@ public class ModelJson extends BasicAbstractJson {
 			// Not required params and artifact's id
 			// complete these params!
 			String nameModel = "model name or not model name";
-			List<String> type = new ArrayList<String>();
-			type.add("type1");
-			type.add("type2");
+			String type = "type";
 
 			//Composed params
 

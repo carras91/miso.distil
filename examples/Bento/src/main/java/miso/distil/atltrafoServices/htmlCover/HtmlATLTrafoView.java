@@ -18,45 +18,6 @@ import miso.distil.atltrafoServices.ATLTrafo;
 public class HtmlATLTrafoView implements HtmlInterfaceView<ATLTrafo>{
 
 	/**
-	 * Auto-generated method to construct the information from an artifact
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	@Override
-	public List<HtmlEntry> constructInfoReadOne(ATLTrafo atltrafo) {
-		List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-		entries.add(new HtmlEntry(atltrafo.getObjectname(), EntrySize.H3));
-		entries.add(new HtmlEntry(atltrafo.getCreatedatString(), EntrySize.H4));
-		entries.add(new HtmlEntry("FileSize (bytes): " + atltrafo.getFilesize().toString(), EntrySize.H4));
-		entries.add(new HtmlEntry("ObjectId : " + atltrafo.getObjectid().toString(), EntrySize.H4));
-		entries.add(new HtmlEntry("nameatl : " + atltrafo.getNameatl(), EntrySize.H5));
-		entries.add(new HtmlEntry(HtmlATLTrafoLinks.getDownloadZipJsonLink(atltrafo) + " | " + HtmlATLTrafoLinks.getDownloadFileJsonLink(atltrafo), EntrySize.H5));
-		entries.add(new HtmlEntry(HtmlATLTrafoLinks.getDeleteFormJsonLink(atltrafo), EntrySize.H5));
-
-		return entries;
-	}
-
-	/**
-	 * Auto-generated method to construct the information from an artifact's list
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	@Override
-	public List<List<HtmlEntry>> constructInfoReadAll(List<ATLTrafo> atltrafos) {
-		List<List<HtmlEntry>> multientries = new ArrayList<List<HtmlEntry>>();
-			for(ATLTrafo atltrafo : atltrafos) {
-				List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-				entries.add(new HtmlEntry(HtmlATLTrafoLinks.getReadHtmlLink(atltrafo), EntrySize.H3));
-				entries.add(new HtmlEntry(atltrafo.getCreatedatString(), EntrySize.H4));
-				entries.add(new HtmlEntry(HtmlATLTrafoLinks.getReadJsonLink(atltrafo), EntrySize.H5));
-				entries.add(new HtmlEntry(HtmlATLTrafoLinks.getDeleteFormJsonLink(atltrafo), EntrySize.H5));
-				multientries.add(entries);
-			}
-
-		return multientries;
-	}
-
-	/**
 	 * Auto-generated method to construct the search form
 	 * 
 	 * @author miso.distil.codeGenerator
@@ -67,15 +28,19 @@ public class HtmlATLTrafoView implements HtmlInterfaceView<ATLTrafo>{
 
 		HtmlForm form = new HtmlForm(HtmlATLTrafoSpark.SearchHTML, "atltrafo-search-form", HtmlFreeMarker.ENCTYPE_DEFAULT, "Search", "GET");
 		viewObjects.put(HtmlFreeMarker.FORM, form);
+		
+		Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();
+		List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();
+		boxes.add(new HtmlSelectBox("nameatl", "nameatl"));
+		selectbox.put(BasicATLTrafoParam.Search_query, boxes);
+		viewObjects.put(HtmlFreeMarker.SELECTBOX, selectbox);
 
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicATLTrafoParam.Search_query, "", "Search (name)", "search", "Enter where do you want to search"));
-		texts.add(new HtmlText(BasicATLTrafoParam.Search_value, "", "Search (value)", "search", "Enter what do you want to search"));
+		texts.add(new HtmlText(BasicATLTrafoParam.Search_value, "", "Value", "search", "Enter what do you want to search"));
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 		List<HtmlRadio> radios = new ArrayList<HtmlRadio>();
-		radios.add(new HtmlRadio(BasicATLTrafoParam.Synonyms_query, "Synonyms (name)", "synonyms", true));
-		radios.add(new HtmlRadio(BasicATLTrafoParam.Synonyms_value, "Synonyms (value)", "synonyms", true));
+		radios.add(new HtmlRadio(BasicATLTrafoParam.Search_synonyms, "Synonyms", "synonyms", true));
 		viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 		return viewObjects;

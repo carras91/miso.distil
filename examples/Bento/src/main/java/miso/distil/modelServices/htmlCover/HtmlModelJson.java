@@ -13,6 +13,7 @@ import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfac
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
+import miso.carrascal.cloudModelServices.utils.Utils;
 
 import miso.distil.modelServices.basic.BasicModelCodes;
 import miso.distil.modelServices.ModelJson;
@@ -119,12 +120,12 @@ public class HtmlModelJson implements HtmlInterfaceJson {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
 			viewObjects.put(HtmlFreeMarker.EMPTY, BasicModelCodes.Model_notfound);
+			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));
 		} else {	
 			viewObjects = new HashMap<String, Object>();
 			viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(models));
 			viewObjects.put(HtmlFreeMarker.COUNT, models.size());
-			viewObjects.put(HtmlFreeMarker.SYNONYMS_QUERY, Json.getSynonymesQuery(req, res));
-			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUE, Json.getSynonymesValue(req, res));
+			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
 		}
 

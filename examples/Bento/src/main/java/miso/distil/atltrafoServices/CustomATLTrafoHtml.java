@@ -45,22 +45,29 @@ public class CustomATLTrafoHtml implements HtmlInterfaceView<ATLTrafo>, BasicInt
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
-		Map<String, Object> viewObjects = new HashMap<String, Object>(); 
+		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		// You need to add first a Form
 		HtmlForm form = new HtmlForm(HtmlATLTrafoSpark.SearchHTML, "atltrafo-search-form", HtmlFreeMarker.ENCTYPE_DEFAULT, "Search", "GET");
 		viewObjects.put(HtmlFreeMarker.FORM, form);
 
-		// Then, whatever you want in your Form: Text, Radio, Hidden, File
+		// Then, whatever you want in your Form: SelectBox, Text, Radio, Hidden, File
+		Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();
+		List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();
+		boxes.add(new HtmlSelectBox("Option 1", "Option1"));
+		boxes.add(new HtmlSelectBox("Option 2", "Option2"));
+		// ...
+		selectbox.put(BasicATLTrafoParam.Search_query, boxes);
+		// ...
+		viewObjects.put(HtmlFreeMarker.SELECTBOX, selectbox);
+							
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicATLTrafoParam.Search_query, "?", "Search (name)", "search", "Enter where do you want to search"));
 		texts.add(new HtmlText(BasicATLTrafoParam.Search_value, "", "Search (value)", "search", "Enter what do you want to search"));
 		// ..
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 		List<HtmlRadio> radios = new ArrayList<HtmlRadio>();
-		radios.add(new HtmlRadio(BasicATLTrafoParam.Synonyms_query, "Synonyms (name)", "synonyms", true));
-		radios.add(new HtmlRadio(BasicATLTrafoParam.Synonyms_value, "Synonyms (value)", "synonyms", true));
+		radios.add(new HtmlRadio(BasicATLTrafoParam.Search_synonyms, "Synonyms", "synonyms", true));
 		// ..
 		viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 

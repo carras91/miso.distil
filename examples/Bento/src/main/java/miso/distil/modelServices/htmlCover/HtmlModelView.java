@@ -10,7 +10,6 @@ import java.util.List;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.*;
-import miso.carrascal.cloudModelServices.utils.Utils;
 
 import miso.distil.modelServices.basic.BasicModelParam;
 import miso.distil.modelServices.basic.BasicModelSpark;
@@ -31,7 +30,7 @@ public class HtmlModelView implements HtmlInterfaceView<Model>{
 		entries.add(new HtmlEntry("FileSize (bytes): " + model.getFilesize().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry("ObjectId : " + model.getObjectid().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry("namemodel : " + model.getNamemodel(), EntrySize.H5));
-		entries.add(new HtmlEntry("type : " + Utils.ListToString(model.getType()), EntrySize.H5));				
+		entries.add(new HtmlEntry("type : " + model.getType(), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlModelLinks.getDownloadZipJsonLink(model) + " | " + HtmlModelLinks.getDownloadFileJsonLink(model), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlModelLinks.getUpdateHtmlLink(model), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlModelLinks.getDeleteFormJsonLink(model), EntrySize.H5));
@@ -71,15 +70,20 @@ public class HtmlModelView implements HtmlInterfaceView<Model>{
 
 		HtmlForm form = new HtmlForm(HtmlModelSpark.SearchHTML, "model-search-form", HtmlFreeMarker.ENCTYPE_DEFAULT, "Search", "GET");
 		viewObjects.put(HtmlFreeMarker.FORM, form);
+		
+		Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();
+		List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();
+		boxes.add(new HtmlSelectBox("namemodel", "namemodel"));
+		boxes.add(new HtmlSelectBox("type", "type"));
+		selectbox.put(BasicModelParam.Search_query, boxes);
+		viewObjects.put(HtmlFreeMarker.SELECTBOX, selectbox);
 
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicModelParam.Search_query, "", "Search (name)", "search", "Enter where do you want to search"));
-		texts.add(new HtmlText(BasicModelParam.Search_value, "", "Search (value)", "search", "Enter what do you want to search"));
+		texts.add(new HtmlText(BasicModelParam.Search_value, "", "Value", "search", "Enter what do you want to search"));
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 		List<HtmlRadio> radios = new ArrayList<HtmlRadio>();
-		radios.add(new HtmlRadio(BasicModelParam.Synonyms_query, "Synonyms (name)", "synonyms", true));
-		radios.add(new HtmlRadio(BasicModelParam.Synonyms_value, "Synonyms (value)", "synonyms", true));
+		radios.add(new HtmlRadio(BasicModelParam.Search_synonyms, "Synonyms", "synonyms", true));
 		viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 		return viewObjects;

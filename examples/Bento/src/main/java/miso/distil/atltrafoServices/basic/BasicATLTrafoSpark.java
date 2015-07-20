@@ -16,9 +16,6 @@ import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSp
 public final class BasicATLTrafoSpark implements BasicInterfaceSpark {
 
 	// URL's
-	public static String ReadJson = "/json/atltrafo/read/";
-	public static String ReadIdJson = ReadJson + BasicATLTrafoParam.IdGet;
-	public static String ReadAllJson = "/json/atltrafo/all";
 	public static String SearchJson = "/json/atltrafo/search";
 	public static String UploadJson = "/json/atltrafo/upload";
 	public static String DeleteJson = "/json/atltrafo/delete";
@@ -36,14 +33,6 @@ public final class BasicATLTrafoSpark implements BasicInterfaceSpark {
 	public void runService() {
 
 		ATLTrafoJson Json = new ATLTrafoJson();
-
-		get(ReadIdJson, "application/json",
-			(request, response) -> Json.getRead(request, response), 
-			new JsonTransformer());
-
-		get(ReadAllJson, "application/json",
-			(request, response) -> Json.getReadAll(request, response),
-			new JsonTransformer());
 
 		get(SearchJson, "application/json",
 			(request, response) -> Json.getSearch(request, response), 

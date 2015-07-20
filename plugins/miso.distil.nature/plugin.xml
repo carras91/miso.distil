@@ -45,7 +45,7 @@
             locationURI="popup:org.eclipse.ui.projectConfigure?after=additions">
          <command
                commandId="miso.distil.nature.addRemoveDistilNature"
-               label="Remove Distil Nature"
+               label="Update Distil Nature"
                style="push">
             <visibleWhen
                   checkEnabled="false">

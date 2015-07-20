@@ -160,15 +160,26 @@ class generateHtmlView {
 
 					HtmlForm form = new HtmlForm(Html«name»Spark.SearchHTML, "«namelow»-search-form", HtmlFreeMarker.ENCTYPE_DEFAULT, "Search", "GET");
 					viewObjects.put(HtmlFreeMarker.FORM, form);
+					
+					Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();
+					List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();
+					«{pos = -1; null}»
+					«FOR att:allAtts»
+						«{pos++; null}»
+						«IF att instanceof Primitive || att instanceof ArtifactID»
+							«val newName = genUti.getNewAttName(pos, artifact)»
+							boxes.add(new HtmlSelectBox("«newName»", "«newName»"));
+						«ENDIF»
+					«ENDFOR»
+					selectbox.put(Basic«name»Param.Search_query, boxes);
+					viewObjects.put(HtmlFreeMarker.SELECTBOX, selectbox);
 
 					List<HtmlText> texts = new ArrayList<HtmlText>();
-					texts.add(new HtmlText(Basic«name»Param.Search_query, "", "Search (name)", "search", "Enter where do you want to search"));
-					texts.add(new HtmlText(Basic«name»Param.Search_value, "", "Search (value)", "search", "Enter what do you want to search"));
+					texts.add(new HtmlText(Basic«name»Param.Search_value, "", "Value", "search", "Enter what do you want to search"));
 					viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 					List<HtmlRadio> radios = new ArrayList<HtmlRadio>();
-					radios.add(new HtmlRadio(Basic«name»Param.Synonyms_query, "Synonyms (name)", "synonyms", true));
-					radios.add(new HtmlRadio(Basic«name»Param.Synonyms_value, "Synonyms (value)", "synonyms", true));
+					radios.add(new HtmlRadio(Basic«name»Param.Search_synonyms, "Synonyms", "synonyms", true));
 					viewObjects.put(HtmlFreeMarker.RADIOS, radios);
 
 					return viewObjects;

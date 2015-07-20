@@ -47,7 +47,6 @@
     <eLiterals name="TEXT" value="2" literal="TEXT"/>
     <eLiterals name="XML" value="3" literal="XML"/>
     <eLiterals name="JSON" value="4" literal="JSON"/>
-    <eLiterals name="ATL" value="5"/>
     <eLiterals name="ZIP" value="6"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SimpleService" eSuperTypes="#//Service">

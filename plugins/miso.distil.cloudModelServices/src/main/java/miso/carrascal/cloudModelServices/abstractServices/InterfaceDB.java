@@ -16,7 +16,7 @@ public interface InterfaceDB {
 	
 	public ArrayList<? extends Persistent> readAll(Class<? extends Persistent> classType);
 
-	public ArrayList<? extends Persistent> search(String attribute, Boolean synonymes_att, String value, Boolean synonymes_val, Class<? extends Persistent> classType);
+	public ArrayList<? extends Persistent> search(String query, String value, Boolean synonymes, Class<? extends Persistent> classType);
 	
 	public List<String> getSynonymes(String query);
 

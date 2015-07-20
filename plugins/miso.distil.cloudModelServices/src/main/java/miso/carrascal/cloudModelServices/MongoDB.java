@@ -74,7 +74,7 @@ public class MongoDB implements InterfaceDB {
 	
         try {
         	for(Class<? extends Persistent> classType : collections.keySet()) {
-            	if(!search("objectname", false, artifact.getObjectname(), false, classType).isEmpty())
+            	if(!search("objectname", artifact.getObjectname(), false, classType).isEmpty())
             		return false;
         	}
         	
@@ -163,32 +163,25 @@ public class MongoDB implements InterfaceDB {
     }
 
     @Override
-    public ArrayList<? extends Persistent> search(String attribute, Boolean synomymes_att, String value, Boolean synomymes_val, Class<? extends Persistent> classType) {
-		if(attribute == null || value == null || classType == null || synomymes_att == null || synomymes_val == null) {
+    public ArrayList<? extends Persistent> search(String query, String value, Boolean synomymes, Class<? extends Persistent> classType) {
+		if(query == null || value == null || classType == null || synomymes == null) {
 			(new NullArgumentException()).printStackTrace();
 			return new ArrayList<Persistent>();
 		}
-		List<String> final_attribute = new ArrayList<String>();
-		if(synomymes_att) {
-			final_attribute.addAll(getSynonymes(attribute));
-		} else {
-			final_attribute.add(attribute);
-		}
 		List<String> final_value = new ArrayList<String>();
-		if(synomymes_val) {
+		if(synomymes) {
 			final_value.addAll(getSynonymes(value));
 		} else {
 			final_value.add(value);
 		}
 		
 		ArrayList<Persistent> result = new ArrayList<Persistent>();	
-		for(String att : final_attribute) {
-			for(String val : final_value) {
-				BasicDBObject query = new BasicDBObject(att, val);
-				DBCursor cursorDB = getCollection(classType).find(query);
-		    	result.addAll(processDBCursor(cursorDB, classType));
-			}
-		}			
+		for(String val : final_value) {
+			BasicDBObject objectQuery = new BasicDBObject(query, val);
+			DBCursor cursorDB = getCollection(classType).find(objectQuery);
+	    	result.addAll(processDBCursor(cursorDB, classType));
+		}
+	
         return result;
     }
     

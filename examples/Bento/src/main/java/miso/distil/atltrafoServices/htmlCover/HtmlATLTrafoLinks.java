@@ -12,24 +12,6 @@ import miso.distil.atltrafoServices.ATLTrafo;
 public class HtmlATLTrafoLinks {
 
 	/**
-	 * Auto-generated link to the service read one json
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getReadJsonLink(ATLTrafo atltrafo) {
-		return "<a href=" + BasicATLTrafoSpark.ReadJson + atltrafo.getObjectid() + ">View as Json</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service read one html
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getReadHtmlLink(ATLTrafo atltrafo) {
-		return "<a href=" + HtmlATLTrafoSpark.ReadHTML + atltrafo.getObjectid() + ">" + atltrafo.getObjectname() + "</a>";
-	}
-
-	/**
 	 * Auto-generated link to the service download zip
 	 * 
 	 * @author miso.distil.codeGenerator

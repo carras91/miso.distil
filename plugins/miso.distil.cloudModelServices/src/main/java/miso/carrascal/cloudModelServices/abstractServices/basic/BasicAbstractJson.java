@@ -41,33 +41,19 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		return RecordDB.getDefault().readAll(classType); 
 	}
 	
-	public List<String> getSynonymesQuery(Request req, Response res) {
-		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
-		String search_query = map.get(BasicAbstractParam.Search_query).toLowerCase();
-	    Boolean synonyms_query = map.get(BasicAbstractParam.Synonyms_query).equalsIgnoreCase("true");
-		
-	    List<String> result = new ArrayList<String>();
-		
-		if(synonyms_query) {
-			result = RecordDB.getDefault().getSynonymes(search_query);
-		} else {
-			result.add(search_query);
-		}
-		return result;
-	}
-	
 	public List<String> getSynonymesValue(Request req, Response res) {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String search_value = map.get(BasicAbstractParam.Search_value).toLowerCase();
-	    Boolean synonyms_value = map.get(BasicAbstractParam.Synonyms_value).equalsIgnoreCase("true");
+	    Boolean search_synonyms = map.get(BasicAbstractParam.Search_synonyms).equalsIgnoreCase("true");
 	    
 		List<String> result = new ArrayList<String>();
 		
-		if(synonyms_value) {
+		if(search_synonyms) {
 			result = RecordDB.getDefault().getSynonymes(search_value);
 		} else {
 			result.add(search_value);
 		}
+		
 		return result;
 	}
 		
@@ -75,13 +61,12 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String search_query = map.get(BasicAbstractParam.Search_query).toLowerCase();
 		String search_value = map.get(BasicAbstractParam.Search_value).toLowerCase();
-	    Boolean synonyms_query = map.get(BasicAbstractParam.Synonyms_query).equalsIgnoreCase("true");
-	    Boolean synonyms_value = map.get(BasicAbstractParam.Synonyms_value).equalsIgnoreCase("true");
+	    Boolean search_syonyms = map.get(BasicAbstractParam.Search_synonyms).equalsIgnoreCase("true");
 
-		return RecordDB.getDefault().search(search_query, synonyms_query, search_value, synonyms_value, classType);
+		return RecordDB.getDefault().search(search_query, search_value, search_syonyms, classType);
 	}
 
-	public String getDownloadZip(Request req, Response res) {
+	public String getDownloadZip(Request req, Response res) { 
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String id = map.get(BasicAbstractParam.IdGet);
 		

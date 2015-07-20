@@ -12,24 +12,6 @@ import miso.distil.metamodelServices.MetaModel;
 public class HtmlMetaModelLinks {
 
 	/**
-	 * Auto-generated link to the service read one json
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getReadJsonLink(MetaModel metamodel) {
-		return "<a href=" + BasicMetaModelSpark.ReadJson + metamodel.getObjectid() + ">View as Json</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service read one html
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getReadHtmlLink(MetaModel metamodel) {
-		return "<a href=" + HtmlMetaModelSpark.ReadHTML + metamodel.getObjectid() + ">" + metamodel.getObjectname() + "</a>";
-	}
-
-	/**
 	 * Auto-generated link to the service download zip
 	 * 
 	 * @author miso.distil.codeGenerator

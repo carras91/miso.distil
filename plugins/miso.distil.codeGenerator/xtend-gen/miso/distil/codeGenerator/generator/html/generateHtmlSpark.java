@@ -97,7 +97,7 @@ public class generateHtmlSpark {
         _builder.newLineIfNotEmpty();
         _builder.append("import ");
         _builder.append(this.names.MisoHtml, "");
-        _builder.append(".htmlObjects.HtmlLayout;");
+        _builder.append(".htmlObjects.HtmlSelectBox;");
         _builder.newLineIfNotEmpty();
         _builder.newLine();
       }
@@ -423,14 +423,14 @@ public class generateHtmlSpark {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("List<HtmlLayout> layouts = new ArrayList<HtmlLayout>();");
+        _builder.append("List<HtmlSelectBox> layouts = new ArrayList<HtmlSelectBox>();");
         _builder.newLine();
         {
           boolean _contains_25 = basicServices.contains(ServiceEnum.READ_ALL);
           if (_contains_25) {
             _builder.append("\t");
             _builder.append("\t");
-            _builder.append("layouts.add(new HtmlLayout(\"Read all ");
+            _builder.append("layouts.add(new HtmlSelectBox(\"Read all ");
             _builder.append(namelow, "\t\t");
             _builder.append("s\" , ReadAllHTML));");
             _builder.newLineIfNotEmpty();
@@ -441,7 +441,7 @@ public class generateHtmlSpark {
           if (_contains_26) {
             _builder.append("\t");
             _builder.append("\t");
-            _builder.append("layouts.add(new HtmlLayout(\"Upload ");
+            _builder.append("layouts.add(new HtmlSelectBox(\"Upload ");
             _builder.append(namelow, "\t\t");
             _builder.append("\" , UploadFormHTML));");
             _builder.newLineIfNotEmpty();
@@ -452,7 +452,7 @@ public class generateHtmlSpark {
           if (_contains_27) {
             _builder.append("\t");
             _builder.append("\t");
-            _builder.append("layouts.add(new HtmlLayout(\"Search ");
+            _builder.append("layouts.add(new HtmlSelectBox(\"Search ");
             _builder.append(namelow, "\t\t");
             _builder.append("\" , SearchFormHTML));");
             _builder.newLineIfNotEmpty();

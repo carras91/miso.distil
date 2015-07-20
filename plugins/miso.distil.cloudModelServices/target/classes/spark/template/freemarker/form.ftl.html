@@ -4,8 +4,20 @@
 			<font color="red" size="4">${EMPTY}</font>
 		</div>
 	</#if>
+	<#if SYNONYMS_VALUES??>
+		<h3>Searching words : </h3><h5>${SYNONYMS_VALUES}</h5>
+	</#if>
 
     <form class="form-horizontal" role="form" id='${FORM.getId()}' method='${FORM.getMethod()}' action="${FORM.getUrl()}" enctype="${FORM.getEnctype()}">
+		<#if SELECTBOX??><#list SELECTBOX?keys as KEY><#assign BOXES = SELECTBOX[KEY]>
+			<div class="form-group">
+	       		<select name="${KEY}" id="${KEY}" size=${BOXES?size}>
+					<#list BOXES as BOX>
+						<option class="active" value="${BOX.getValue()}">${BOX.getLabel()}</option>
+					</#list>
+				</select>
+	       	</div>
+       	</#list></#if>
 
     	<#if TEXTS??><#list TEXTS as TEXT>
 	        <div class="form-group">
