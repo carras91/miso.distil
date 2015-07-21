@@ -145,13 +145,13 @@ class generateJson {
 									«ELSEIF att.type.equals(DataEnum.BOOLEAN) && !att.many»
 										«newName» = map.get(Basic«name»Param.«newName.toFirstUpper»).equalsIgnoreCase("true");
 									«ELSEIF att.type.equals(DataEnum.STRING)»
-										«newName» = Utils.StringToListString(map.get(Basic«name»Param.«newName.toFirstUpper»));
+										«newName» = Utils.stringToListString(map.get(Basic«name»Param.«newName.toFirstUpper»));
 									«ELSEIF att.type.equals(DataEnum.INTEGER)»
-										«newName» = Utils.StringToListInteger(map.get(Basic«name»Param.«newName.toFirstUpper»));
+										«newName» = Utils.stringToListInteger(map.get(Basic«name»Param.«newName.toFirstUpper»));
 									«ELSEIF att.type.equals(DataEnum.DOUBLE)»
-										«newName» = Utils.StringToListDouble(map.get(Basic«name»Param.«newName.toFirstUpper»));
+										«newName» = Utils.stringToListDouble(map.get(Basic«name»Param.«newName.toFirstUpper»));
 									«ELSEIF att.type.equals(DataEnum.BOOLEAN)»
-										«newName» = Utils.StringToListBoolean(map.get(Basic«name»Param.«newName.toFirstUpper»));
+										«newName» = Utils.stringToListBoolean(map.get(Basic«name»Param.«newName.toFirstUpper»));
 									«ENDIF»
 								«ENDIF»
 							«ENDIF»
@@ -195,7 +195,7 @@ class generateJson {
 					«ENDFOR»
 					
 					// Create new «name»
-					«name» new«name» = new «name»(old«name».getObjectname(), old«name».getFilesize()«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»);
+					«name» new«name» = new «name»(old«name».getFilename(), old«name».getFilesize()«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»);
 
 					// Save new «name» and delete old «name»
 					if(RecordDB.getDefault().save(new«name», IS)) {
@@ -246,13 +246,13 @@ class generateJson {
 									«ELSEIF att.type.equals(DataEnum.STRING) && !att.many»
 										«type» «newName» = req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»);
 									«ELSEIF att.type.equals(DataEnum.INTEGER)»
-										«type» «newName» = Utils.StringToListInteger(req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»));
+										«type» «newName» = Utils.stringToListInteger(req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»));
 									«ELSEIF att.type.equals(DataEnum.DOUBLE)»
-										«type» «newName» = Utils.StringToListDouble(req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»));
+										«type» «newName» = Utils.stringToListDouble(req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»));
 									«ELSEIF att.type.equals(DataEnum.STRING)»
-										«type» «newName» = Utils.StringToListString(req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»));
+										«type» «newName» = Utils.stringToListString(req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»));
 									«ELSEIF att.type.equals(DataEnum.BOOLEAN)»
-										«type» «newName» = Utils.StringToListBoolean(req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»));
+										«type» «newName» = Utils.stringToListBoolean(req.raw().getParameter(Basic«name»Param.«newName.toFirstUpper»));
 									«ENDIF»
 								«ENDIF»
 							«ENDIF»

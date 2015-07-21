@@ -22,20 +22,47 @@ import java.util.List;
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.InterfaceDB;
 import miso.carrascal.cloudModelServices.utils.DictionaryUtils;
-import miso.carrascal.cloudModelServices.utils.NullArgumentException;
 
 import org.bson.types.ObjectId;
 
 import com.carrotsearch.sizeof.RamUsageEstimator;
  
+/**
+ * Custom implementation of and non-relational mongo database.
+ * It uses com.mongodb.gridfs.GridFS to store files.
+ * It creates one com.mongodb.DBCollection for each {@link miso.carrascal.cloudModelServices.abstractServices.Persistent Persistent} class stored.
+ * 
+ * @author Carlos Carrascal
+ */
 public class MongoDB implements InterfaceDB {
 
+	/**
+	 * URI from a mongo client.
+	 */
 	private MongoClientURI uri;
+    /**
+     * Client from mongo.
+     */
     private MongoClient client;
+    /**
+     * DataBase.
+     */
     private DB db;
+    /**
+     * One collection for each {@link miso.carrascal.cloudModelServices.abstractServices.Persistent Persistent} class.
+     */
     private HashMap<Class<? extends Persistent>, DBCollection> collections;
+    /**
+     * One gridfs for each {@link miso.carrascal.cloudModelServices.abstractServices.Persistent Persistent} class.
+     */
     private HashMap<Class<? extends Persistent>, GridFS> gridfs;
  
+	/**
+	 * MongoDB constructor.
+	 * 
+	 * @param mongoURI Valid URI. Example: "mongodb://[username]:[password]@[host]:[port1]/[database]".
+	 * @throws Exception If mongoURI not valid.
+	 */
 	public MongoDB(String mongoURI) throws Exception {
        	this.uri  = new MongoClientURI(mongoURI);
 		this.client = new MongoClient(uri);
@@ -44,6 +71,12 @@ public class MongoDB implements InterfaceDB {
        	this.gridfs = new HashMap<Class<? extends Persistent>, GridFS>();
     }
     
+	/**
+	 * Get a collection for classType, or create a new one.
+	 * 
+	 * @param classType Class of the object to be stored.
+	 * @return The DBCollection associated.
+	 */
 	private DBCollection getCollection(Class<? extends Persistent> classType) {
 		if(collections.containsKey(classType)) {
 			return collections.get(classType);
@@ -54,6 +87,12 @@ public class MongoDB implements InterfaceDB {
 		}		
 	}
 	
+	/**
+	 * Get a gridfs for classType, or create a new one.
+	 * 
+	 * @param classType Class of the object to be stored.
+	 * @return The GridFS associated. 
+	 */
 	private GridFS getGridFS(Class<? extends Persistent> classType) {
 		if(gridfs.containsKey(classType)) {
 			return gridfs.get(classType);
@@ -64,17 +103,20 @@ public class MongoDB implements InterfaceDB {
 		}		
 	}
 	
+    /* (non-Javadoc)
+     * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#save(miso.carrascal.cloudModelServices.abstractServices.Persistent, java.io.InputStream)
+     */
     @SuppressWarnings("deprecation")
     @Override
 	public Boolean save(Persistent artifact, InputStream inputStream) {
     	if(artifact == null) {
-			(new NullArgumentException()).printStackTrace();
+			(new NullPointerException()).printStackTrace();
     		return false;
     	}
 	
         try {
         	for(Class<? extends Persistent> classType : collections.keySet()) {
-            	if(!search("objectname", artifact.getObjectname(), false, classType).isEmpty())
+            	if(!search("filename", artifact.getFilename(), false, classType).isEmpty())
             		return false;
         	}
         	
@@ -99,10 +141,13 @@ public class MongoDB implements InterfaceDB {
         return true;
     }
 
+    /* (non-Javadoc)
+     * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#delete(java.lang.String, java.lang.Class)
+     */
     @Override
     public Boolean delete(String id, Class<? extends Persistent> classType) {
     	if(id == null) {
-			(new NullArgumentException()).printStackTrace();
+			(new NullPointerException()).printStackTrace();
 			return false;
     	}
     	
@@ -129,10 +174,13 @@ public class MongoDB implements InterfaceDB {
         }
     }
 
+    /* (non-Javadoc)
+     * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#readOne(java.lang.String, java.lang.Class)
+     */
     @Override
 	public Persistent readOne(String id, Class<? extends Persistent> classType) {
 		if(id == null) {
-			(new NullArgumentException()).printStackTrace();
+			(new NullPointerException()).printStackTrace();
 			return null;
 		}
 		
@@ -151,10 +199,13 @@ public class MongoDB implements InterfaceDB {
         
     }
 
+    /* (non-Javadoc)
+     * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#readAll(java.lang.Class)
+     */
     @Override
     public ArrayList<? extends Persistent> readAll(Class<? extends Persistent> classType) {
     	if(classType == null) {
-			(new NullArgumentException()).printStackTrace();
+			(new NullPointerException()).printStackTrace();
 			return new ArrayList<Persistent>();
     	}
     	
@@ -162,15 +213,18 @@ public class MongoDB implements InterfaceDB {
         return processDBCursor(cursorDB, classType);
     }
 
+    /* (non-Javadoc)
+     * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#search(java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Class)
+     */
     @Override
-    public ArrayList<? extends Persistent> search(String query, String value, Boolean synomymes, Class<? extends Persistent> classType) {
-		if(query == null || value == null || classType == null || synomymes == null) {
-			(new NullArgumentException()).printStackTrace();
+    public ArrayList<? extends Persistent> search(String query, String value, Boolean synomyms, Class<? extends Persistent> classType) {
+		if(query == null || value == null || classType == null || synomyms == null) {
+			(new NullPointerException()).printStackTrace();
 			return new ArrayList<Persistent>();
 		}
 		List<String> final_value = new ArrayList<String>();
-		if(synomymes) {
-			final_value.addAll(getSynonymes(value));
+		if(synomyms) {
+			final_value.addAll(getSynonyms(value));
 		} else {
 			final_value.add(value);
 		}
@@ -185,17 +239,27 @@ public class MongoDB implements InterfaceDB {
         return result;
     }
     
+    /* (non-Javadoc)
+     * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#getSynonyms(java.lang.String)
+     */
     @Override
-    public List<String> getSynonymes(String query) {
-    	return DictionaryUtils.getSynonymes(query);
+    public List<String> getSynonyms(String query) {
+    	return DictionaryUtils.getSynonyms(query);
     }
     
+    /**
+     * Go through cursorDB and transforms the search results into classType class.
+     * 
+     * @param cursorDB DBCursor to get through
+     * @param classType Class of the object to be converted.
+     * @return ArrayList({@link miso.carrascal.cloudModelServices.abstractServices.Persistent Persistent}) with the results. Empty if NullPointerException().
+     */
     @SuppressWarnings("deprecation")
 	private ArrayList<Persistent> processDBCursor(DBCursor cursorDB, Class<? extends Persistent> classType) {
     	ArrayList<Persistent> results = new ArrayList<Persistent>();
     	
     	if(cursorDB == null) {
-			(new NullArgumentException()).printStackTrace();
+			(new NullPointerException()).printStackTrace();
 			return results;
     	}
     	
@@ -215,10 +279,13 @@ public class MongoDB implements InterfaceDB {
         return results;
     }
 
+    /* (non-Javadoc)
+     * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#getInputStream(java.lang.String, java.lang.Class)
+     */
     @Override
 	public InputStream getInputStream(String id, Class<? extends Persistent> classType) {
 		if(id == null) {
-			(new NullArgumentException()).printStackTrace();
+			(new NullPointerException()).printStackTrace();
 			return null;
 		}
 		
@@ -227,23 +294,5 @@ public class MongoDB implements InterfaceDB {
         	 return null;
          else
         	 return docFS.getInputStream();
-    }
-
-    @Override
-    public long count() {
-    	long count = 0;
-    	for(DBCollection collection : collections.values())
-    		count =+ collection.count();
-    	return count;
-    }
-
-    @Override
-    public long count(Class<? extends Persistent> classType) {
-    	return getCollection(classType).count();
-    }
-
-    @Override
-    public int maxSaveSize() {
-    	return client.getMaxBsonObjectSize();
     }
  }

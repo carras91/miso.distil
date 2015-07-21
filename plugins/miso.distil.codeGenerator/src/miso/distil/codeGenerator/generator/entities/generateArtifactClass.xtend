@@ -68,9 +68,9 @@ class generateArtifactClass {
 	 */
 	def private getConstructorArtifact(Artifact artifact) '''
 		«val EList<Attribute> atts = artifact.attributes»
-		public «artifact.name»(String objectName, long fileSize«FOR att:atts», «genUti.getTypeName(att)» «att.name»«ENDFOR») {
+		public «artifact.name»(String filename, long filesize«FOR att:atts», «genUti.getTypeName(att)» «att.name»«ENDFOR») {
 
-			super(objectName, fileSize);
+			super(filename, filesize);
 
 			«FOR att:atts» 
 				«IF att instanceof Primitive»

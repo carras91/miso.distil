@@ -18,8 +18,20 @@ import org.reflections.util.ClasspathHelper;
 import freemarker.log.Logger;
 import spark.template.freemarker.FreeMarkerEngine;
 
+/**
+ * To initialice the ports, logger, some default spark configurations and find and run implementations of {@link miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark BasicInterfaceSpark}.
+ * 
+ * @author Carlos Carrascal
+ */
 public class CloudModelServices {
 	 		
+	    /**
+	     * To run in order:
+	     * 1 - setPort - if port does not exists, 2345.
+	     * 2 - setLoogger - it selects Logger.LIBRARY_SLF4J.
+	     * 3 - setDefaultSpark - it sets /public as public (.css) and send empty calls (/) to main page.
+	     * 4 - runServices - it finds and run all BasicInterfaceSpark implementations.
+	     */
 	    public static void run() {
 	       	
 	    	// Establecimiento de puerto, necesario para puerto automatico de Heroku
@@ -35,6 +47,9 @@ public class CloudModelServices {
 	        runServices();
 	    }
 	    
+	    /**
+	     * If port does not exists, 2345.
+	     */
 	    private static void setPort() {
 	    	ProcessBuilder process = new ProcessBuilder();
 	        Integer port;
@@ -47,6 +62,9 @@ public class CloudModelServices {
 	        System.out.println("Port set to " + port);
 	    }
 	    
+	    /**
+	     * It selects Logger.LIBRARY_SLF4J.
+	     */
 	    private static void setLogger() {
 	   		try {
 	   			Logger.selectLoggerLibrary(Logger.LIBRARY_SLF4J);
@@ -56,6 +74,9 @@ public class CloudModelServices {
 	       	BasicConfigurator.configure();
 	    }
 	    
+	    /**
+	     * It sets /public as public (.css) and send empty calls (/) to main page.
+	     */
 	    private static void setDefaultSpark() {
 	    	
 	    	// Configure css location
@@ -67,6 +88,9 @@ public class CloudModelServices {
 	    	}, new FreeMarkerEngine());
 	    }
 	    
+	    /**
+	     * It finds and run all BasicInterfaceSpark implementations.
+	     */
 	    private static void runServices() {
 	    	// Let's use Reflections to find Spark services
 	    	Reflections refl = new Reflections ("miso.distil", new SubTypesScanner(false), ClasspathHelper.forClassLoader());
