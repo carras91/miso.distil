@@ -77,7 +77,7 @@ class generateHtmlView {
 				@Override
 				public List<HtmlEntry> constructInfoReadOne(«name» «namelow») {
 					List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-					entries.add(new HtmlEntry(«namelow».getObjectname(), EntrySize.H3));
+					entries.add(new HtmlEntry(«namelow».getFilename(), EntrySize.H3));
 					entries.add(new HtmlEntry(«namelow».getCreatedatString(), EntrySize.H4));
 					entries.add(new HtmlEntry("FileSize (bytes): " + «namelow».getFilesize().toString(), EntrySize.H4));
 					entries.add(new HtmlEntry("ObjectId : " + «namelow».getObjectid().toString(), EntrySize.H4));

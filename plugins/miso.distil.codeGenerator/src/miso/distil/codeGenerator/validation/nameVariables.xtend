@@ -10,8 +10,8 @@ class nameVariables {
 	/*
 	 * Names inside the artifact
 	 */
-	private static val artifact = newArrayList("objectId", "serialVersionUID", "objectName", "createdAt",
-											"fileName", "fileSize", "filtersEType", "filters")
+	private static val artifact = newArrayList("objectId", "serialVersionUID", "createdAt",
+											"filename", "filesize", "filtersEType", "filters")
 	/*
 	 * Names inside update method
 	 */

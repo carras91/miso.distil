@@ -5,7 +5,6 @@ import java.util.List;
 
 import javax.servlet.http.Part;
 
-import miso.carrascal.cloudModelServices.utils.NullArgumentException;
 import spark.Request;
 import spark.Response;
 
@@ -22,7 +21,7 @@ public interface BasicInterfaceJson {
 		HashMap<String, String> map = new HashMap<String, String>();
 		
 		if(req == null) {
-			(new NullArgumentException()).printStackTrace();
+			(new NullPointerException()).printStackTrace();
 			return map;
 		}
 		

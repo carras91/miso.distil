@@ -14,8 +14,8 @@ public class nameVariables {
   /**
    * Names inside the artifact
    */
-  private final static ArrayList<String> artifact = CollectionLiterals.<String>newArrayList("objectId", "serialVersionUID", "objectName", "createdAt", 
-    "fileName", "fileSize", "filtersEType", "filters");
+  private final static ArrayList<String> artifact = CollectionLiterals.<String>newArrayList("objectId", "serialVersionUID", "createdAt", 
+    "filename", "filesize", "filtersEType", "filters");
   
   /**
    * Names inside update method

@@ -542,7 +542,7 @@ public class generateJson {
                                 _builder.append("\t");
                                 _builder.append("\t\t");
                                 _builder.append(newName, "\t\t\t");
-                                _builder.append(" = Utils.StringToListString(map.get(Basic");
+                                _builder.append(" = Utils.stringToListString(map.get(Basic");
                                 _builder.append(name, "\t\t\t");
                                 _builder.append("Param.");
                                 String _firstUpper_4 = StringExtensions.toFirstUpper(newName);
@@ -556,7 +556,7 @@ public class generateJson {
                                   _builder.append("\t");
                                   _builder.append("\t\t");
                                   _builder.append(newName, "\t\t\t");
-                                  _builder.append(" = Utils.StringToListInteger(map.get(Basic");
+                                  _builder.append(" = Utils.stringToListInteger(map.get(Basic");
                                   _builder.append(name, "\t\t\t");
                                   _builder.append("Param.");
                                   String _firstUpper_5 = StringExtensions.toFirstUpper(newName);
@@ -570,7 +570,7 @@ public class generateJson {
                                     _builder.append("\t");
                                     _builder.append("\t\t");
                                     _builder.append(newName, "\t\t\t");
-                                    _builder.append(" = Utils.StringToListDouble(map.get(Basic");
+                                    _builder.append(" = Utils.stringToListDouble(map.get(Basic");
                                     _builder.append(name, "\t\t\t");
                                     _builder.append("Param.");
                                     String _firstUpper_6 = StringExtensions.toFirstUpper(newName);
@@ -584,7 +584,7 @@ public class generateJson {
                                       _builder.append("\t");
                                       _builder.append("\t\t");
                                       _builder.append(newName, "\t\t\t");
-                                      _builder.append(" = Utils.StringToListBoolean(map.get(Basic");
+                                      _builder.append(" = Utils.stringToListBoolean(map.get(Basic");
                                       _builder.append(name, "\t\t\t");
                                       _builder.append("Param.");
                                       String _firstUpper_7 = StringExtensions.toFirstUpper(newName);
@@ -791,7 +791,7 @@ public class generateJson {
         _builder.append(name, "\t\t");
         _builder.append("(old");
         _builder.append(name, "\t\t");
-        _builder.append(".getObjectname(), old");
+        _builder.append(".getFilename(), old");
         _builder.append(name, "\t\t");
         _builder.append(".getFilesize()");
         {
@@ -1071,7 +1071,7 @@ public class generateJson {
                                 _builder.append(type, "\t\t\t");
                                 _builder.append(" ");
                                 _builder.append(newName_2, "\t\t\t");
-                                _builder.append(" = Utils.StringToListInteger(req.raw().getParameter(Basic");
+                                _builder.append(" = Utils.stringToListInteger(req.raw().getParameter(Basic");
                                 _builder.append(name, "\t\t\t");
                                 _builder.append("Param.");
                                 String _firstUpper_12 = StringExtensions.toFirstUpper(newName_2);
@@ -1087,7 +1087,7 @@ public class generateJson {
                                   _builder.append(type, "\t\t\t");
                                   _builder.append(" ");
                                   _builder.append(newName_2, "\t\t\t");
-                                  _builder.append(" = Utils.StringToListDouble(req.raw().getParameter(Basic");
+                                  _builder.append(" = Utils.stringToListDouble(req.raw().getParameter(Basic");
                                   _builder.append(name, "\t\t\t");
                                   _builder.append("Param.");
                                   String _firstUpper_13 = StringExtensions.toFirstUpper(newName_2);
@@ -1103,7 +1103,7 @@ public class generateJson {
                                     _builder.append(type, "\t\t\t");
                                     _builder.append(" ");
                                     _builder.append(newName_2, "\t\t\t");
-                                    _builder.append(" = Utils.StringToListString(req.raw().getParameter(Basic");
+                                    _builder.append(" = Utils.stringToListString(req.raw().getParameter(Basic");
                                     _builder.append(name, "\t\t\t");
                                     _builder.append("Param.");
                                     String _firstUpper_14 = StringExtensions.toFirstUpper(newName_2);
@@ -1119,7 +1119,7 @@ public class generateJson {
                                       _builder.append(type, "\t\t\t");
                                       _builder.append(" ");
                                       _builder.append(newName_2, "\t\t\t");
-                                      _builder.append(" = Utils.StringToListBoolean(req.raw().getParameter(Basic");
+                                      _builder.append(" = Utils.stringToListBoolean(req.raw().getParameter(Basic");
                                       _builder.append(name, "\t\t\t");
                                       _builder.append("Param.");
                                       String _firstUpper_15 = StringExtensions.toFirstUpper(newName_2);
