@@ -140,7 +140,7 @@ public class generateArtifactClass {
     _builder.append("public ");
     String _name = artifact.getName();
     _builder.append(_name, "");
-    _builder.append("(String filename, long filesize");
+    _builder.append("(String objectName, long fileSize");
     {
       for(final Attribute att : atts) {
         _builder.append(", ");
@@ -155,7 +155,7 @@ public class generateArtifactClass {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("super(filename, filesize);");
+    _builder.append("super(objectName, fileSize);");
     _builder.newLine();
     _builder.newLine();
     {

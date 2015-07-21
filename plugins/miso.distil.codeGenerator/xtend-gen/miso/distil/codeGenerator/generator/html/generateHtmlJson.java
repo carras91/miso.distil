@@ -604,7 +604,7 @@ public class generateHtmlJson {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymsValue(req, res)));");
+        _builder.append("viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
@@ -628,7 +628,7 @@ public class generateHtmlJson {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymsValue(req, res)));");
+        _builder.append("viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");

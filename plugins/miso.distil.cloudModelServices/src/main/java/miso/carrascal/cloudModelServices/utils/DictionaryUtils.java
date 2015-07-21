@@ -11,23 +11,12 @@ import net.sf.extjwnl.data.Synset;
 import net.sf.extjwnl.data.Word;
 import net.sf.extjwnl.dictionary.Dictionary;
 
-/**
- * Dictionary utils. It finds a word synonyms using WordNet database.
- *
- * @author Carlos Carrascal
- */
 public class DictionaryUtils {
     
-	/**
-	 * Find a word synonyms inside WordNet database.
-	 * 
-	 * @param word String to be found.
-	 * @return List(String) with the synonyms. Empty if NullPointerException().
-	 */
-	public static List<String> getSynonyms(String word) {
+	public static List<String> getSynonymes(String word) {
     	List<String> synonyms = new ArrayList<String>();    	
     	if(word == null) {
-			(new NullPointerException()).printStackTrace();
+			(new NullArgumentException()).printStackTrace();
 			return synonyms;
     	}
     	synonyms.add(word.toLowerCase());

@@ -176,7 +176,7 @@ public class generateHtmlLinks {
         _builder.append(namelow, "\t\t");
         _builder.append(".getObjectid() + \">\" + ");
         _builder.append(namelow, "\t\t");
-        _builder.append(".getFilename() + \"</a>\";");
+        _builder.append(".getObjectname() + \"</a>\";");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("}");

@@ -352,7 +352,7 @@ public class generateCustomHtml {
         _builder.append("\t\t");
         _builder.append("entries.add(new HtmlEntry(");
         _builder.append(namelow, "\t\t\t");
-        _builder.append(".getFilename(), EntrySize.H3));");
+        _builder.append(".getObjectname(), EntrySize.H3));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t");
@@ -428,7 +428,7 @@ public class generateCustomHtml {
         _builder.append("\t\t");
         _builder.append("entries.add(new HtmlEntry(");
         _builder.append(namelow, "\t\t\t");
-        _builder.append(".getFilename(), EntrySize.H4));");
+        _builder.append(".getObjectname(), EntrySize.H4));");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t");

@@ -41,7 +41,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		return RecordDB.getDefault().readAll(classType); 
 	}
 	
-	public List<String> getSynonymsValue(Request req, Response res) {
+	public List<String> getSynonymesValue(Request req, Response res) {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String search_value = map.get(BasicAbstractParam.Search_value).toLowerCase();
 	    Boolean search_synonyms = map.get(BasicAbstractParam.Search_synonyms).equalsIgnoreCase("true");
@@ -49,7 +49,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		List<String> result = new ArrayList<String>();
 		
 		if(search_synonyms) {
-			result = RecordDB.getDefault().getSynonyms(search_value);
+			result = RecordDB.getDefault().getSynonymes(search_value);
 		} else {
 			result.add(search_value);
 		}
@@ -76,7 +76,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		}
 		
 		try {
-			DownloadUtils.downloadZip(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getFilename(), object.getFilename());
+			DownloadUtils.downloadZip(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getObjectname(), object.getObjectname());
 		    return BasicAbstractCodes.OK;
 		    
 		} catch (IOException e) {
@@ -95,7 +95,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		}
 		
 		try {
-			DownloadUtils.downloadFile(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getFilename());
+			DownloadUtils.downloadFile(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getObjectname());
 		    return BasicAbstractCodes.OK;
 		    
 		} catch (IOException e) {

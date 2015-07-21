@@ -57,7 +57,7 @@ class generateHtmlLinks {
 				 * @author miso.distil.codeGenerator
 				 */
 				public static String getReadHtmlLink(«name» «namelow») {
-					return "<a href=" + Html«name»Spark.ReadHTML + «namelow».getObjectid() + ">" + «namelow».getFilename() + "</a>";
+					return "<a href=" + Html«name»Spark.ReadHTML + «namelow».getObjectid() + ">" + «namelow».getObjectname() + "</a>";
 				}
 
 			«ENDIF»
