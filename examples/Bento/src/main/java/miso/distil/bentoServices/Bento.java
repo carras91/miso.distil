@@ -25,9 +25,9 @@ public class Bento extends Persistent {
 	}
 
 	// Full constructor
-	public Bento(String objectName, long fileSize, List<String> inputconcepts, List<String> outputconcepts, List<String> atl, List<String> tags) {
+	public Bento(String filename, long filesize, List<String> inputconcepts, List<String> outputconcepts, List<String> atl, List<String> tags) {
 	
-		super(objectName, fileSize);
+		super(filename, filesize);
 	
 		this.inputconcepts = inputconcepts;
 		for(int i=0; i < this.inputconcepts.size(); i++) {

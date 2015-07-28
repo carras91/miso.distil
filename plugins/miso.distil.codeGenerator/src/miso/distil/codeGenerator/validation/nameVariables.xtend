@@ -1,37 +1,54 @@
 package miso.distil.codeGenerator.validation
 
-/*
+/**
  * Names prohibited because they are used by the generation code
  * 
  * @author Carlos Carrascal
  */
 class nameVariables {
 	
-	/*
-	 * Names inside the artifact
+	/**
+	 * Name to change by artifact name 
 	 */
-	private static val artifact = newArrayList("objectId", "serialVersionUID", "createdAt",
-											"filename", "filesize", "filtersEType", "filters")
-	/*
-	 * Names inside update method
+	 public static val artifactName = "XXX";	
+	/**
+	 * Variables inside BasicCodes
 	 */
-	private static val update = newArrayList("map", "id", "eclass", "esupertype", "eabstract", "einterface", "eattribute", "ereference",
-											"newXX", "oldXX", "IS", "activeFilters", "filters")
-	/*
-	 * Names inside upload method
+	 private static val basicCodes = newArrayList("emptyfilename", "emptyfile", "filenotfound", "corruptfile", "notfound", "DB")
+	/**
+	 * Variables inside BasicParam
 	 */
-	private static val upload = newArrayList("items", "fieldName", "fileContent", "XX")
-	/*
-	 * Names inside html class
+	 private static val basicParam = newArrayList("IdGet", "IdPost", "File", "Search_query", "Search_value", "Search_synonyms")
+	/**
+	 * Variables inside CustomHtml
 	 */
-	private static val html   = newArrayList("XXs", "viewObjects", "JSON", "View", "customView", "entries", "multientries", "form", "texts", "radios",
-											"hiddens", "file")
-	/*
-	 * Basic names from java
+	 private static val customHtml = newArrayList("multientries", "entries", "viewObjects", "form", "selectbox", "boxes", "box",
+	 											"texts", "radios", "hiddens", "file")
+	/**
+	 * Variables inside Json
 	 */
-	private static val java = newArrayList("int", "Integer", "bool", "Boolean", "String", "Double", "Float", "List", "ArrayList", "Map", "HashMap")
-	/*
-	 * All of them
+	 private static val json = newArrayList("map", "id", "IS", "old"+artifactName, "new"+artifactName, "multipartConfigElement", "filePart", "fileName",
+	 										"fileSize", "fileContent")
+	/**
+	 * Variables inside the artifact class
 	 */
-	public static val prohibitedNames = artifact + update + upload + html + java
+	private static val artifact = newArrayList("objectid", "serialVersionUID", "createdAt", "filename", "filesize")
+	/**
+	 * Variables inside HtmlJson
+	 */
+	private static val htmlSpark = newArrayList("viewObjects", "viewObject", artifactName+"s")
+	/**
+	 * Variables inside HtmlJson
+	 */
+	private static val htmlView = newArrayList("entries", "multientries", "entries", "viewObjects", "form", "selectbox", "boxes",
+												"texts", "radios", "hiddens", "file")
+	/**
+	 * Variables names from java
+	 */
+	private static val java = newArrayList("int", "Integer", "bool", "Boolean", "String", "Double", "Float", "List", "ArrayList", "Map", "HashMap",
+											"public", "private", "final", "static", "interface", "abstract", "class", "void")
+	/**
+	 * All variables
+	 */
+	public static val prohibitedNames = basicCodes + basicParam + customHtml + json + artifact + htmlSpark + htmlView + java
 }

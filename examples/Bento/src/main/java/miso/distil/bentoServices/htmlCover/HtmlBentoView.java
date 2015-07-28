@@ -26,14 +26,14 @@ public class HtmlBentoView implements HtmlInterfaceView<Bento>{
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Bento bento) {
 		List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-		entries.add(new HtmlEntry(bento.getObjectname(), EntrySize.H3));
+		entries.add(new HtmlEntry(bento.getFilename(), EntrySize.H3));
 		entries.add(new HtmlEntry(bento.getCreatedatString(), EntrySize.H4));
 		entries.add(new HtmlEntry("FileSize (bytes): " + bento.getFilesize().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry("ObjectId : " + bento.getObjectid().toString(), EntrySize.H4));
-		entries.add(new HtmlEntry("inputconcepts : " + Utils.ListToString(bento.getInputconcepts()), EntrySize.H5));				
-		entries.add(new HtmlEntry("outputconcepts : " + Utils.ListToString(bento.getOutputconcepts()), EntrySize.H5));				
-		entries.add(new HtmlEntry("atl : " + Utils.ListToString(bento.getAtl()), EntrySize.H5));				
-		entries.add(new HtmlEntry("tags : " + Utils.ListToString(bento.getTags()), EntrySize.H5));				
+		entries.add(new HtmlEntry("inputconcepts : " + Utils.listToString(bento.getInputconcepts()), EntrySize.H5));				
+		entries.add(new HtmlEntry("outputconcepts : " + Utils.listToString(bento.getOutputconcepts()), EntrySize.H5));				
+		entries.add(new HtmlEntry("atl : " + Utils.listToString(bento.getAtl()), EntrySize.H5));				
+		entries.add(new HtmlEntry("tags : " + Utils.listToString(bento.getTags()), EntrySize.H5));				
 		entries.add(new HtmlEntry(HtmlBentoLinks.getDownloadZipJsonLink(bento) + " | " + HtmlBentoLinks.getDownloadFileJsonLink(bento), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlBentoLinks.getUpdateHtmlLink(bento), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlBentoLinks.getDeleteFormJsonLink(bento), EntrySize.H5));

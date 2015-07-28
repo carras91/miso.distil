@@ -214,7 +214,7 @@ public class generateSimpleService {
       }
     }
     _builder.append("\t\t");
-    _builder.append("// Outpu classes");
+    _builder.append("// Output classes");
     _builder.newLine();
     {
       EList<Inout> _output_1 = simpleService.getOutput();
@@ -250,7 +250,7 @@ public class generateSimpleService {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Method called automatically");
+    _builder.append("* Method called automatically to prepare the inputs");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* If triggered :");
@@ -277,7 +277,7 @@ public class generateSimpleService {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {");
+    _builder.append("protected List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("List<Object> input = new ArrayList<Object>();");
@@ -288,7 +288,7 @@ public class generateSimpleService {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t\t");
-    _builder.append("return this.exeService(input);");
+    _builder.append("return input;");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("}");
@@ -298,7 +298,7 @@ public class generateSimpleService {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Execution method. It uses an object\'s list (see the constructor input order) and generates other object\'s list (see the constructor output order)");
+    _builder.append("* Execution method. It uses prepareService return and generates other object\'s list (see the constructor output order)");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* ");
@@ -313,7 +313,7 @@ public class generateSimpleService {
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public List<Object> exeService(List<Object> input) {");
+    _builder.append("protected List<Object> exeService(List<Object> input) {");
     _builder.newLine();
     _builder.append("\t\t");
     _builder.append("List<Object> output = new ArrayList<Object>();");

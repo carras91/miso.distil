@@ -50,7 +50,7 @@ public class CustomBentoHtml implements HtmlInterfaceView<Bento>, BasicInterface
 	public List<HtmlEntry> constructInfoReadOne(Bento bento) {
 		List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
 			// Add the information you want, line per line
-			entries.add(new HtmlEntry(bento.getObjectname(), EntrySize.H3));
+			entries.add(new HtmlEntry(bento.getFilename(), EntrySize.H3));
 			// ..
 		return entries;
 	}
@@ -66,7 +66,7 @@ public class CustomBentoHtml implements HtmlInterfaceView<Bento>, BasicInterface
 		// Add the information you want, line per line, from various Bentos
 		for(Bento bento : bentos) {
 			List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-			entries.add(new HtmlEntry(bento.getObjectname(), EntrySize.H4));
+			entries.add(new HtmlEntry(bento.getFilename(), EntrySize.H4));
 			// ..
 			multientries.add(entries);
 		}

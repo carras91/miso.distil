@@ -59,6 +59,8 @@ public class RulesValidator extends AbstractRulesValidator {
   
   public final static String PROHIBITED_NAME = "prohibitedName";
   
+  public final static String INVALID_NAME = "invalidName";
+  
   public final static String PROHIBITED_REFERENCE = "prohibitedReference";
   
   public final static String RECURSIVE_REFERENCE = "recursiveReference";
@@ -305,28 +307,56 @@ public class RulesValidator extends AbstractRulesValidator {
   @Check
   public void checkEntityStartsWithCapital(final AbstractEntity ent) {
     String _name = ent.getName();
-    char _charAt = _name.charAt(0);
-    boolean _isUpperCase = Character.isUpperCase(_charAt);
-    boolean _not = (!_isUpperCase);
+    List<Integer> _checkValidCharacters = this.checkValidCharacters(_name);
+    boolean _isEmpty = _checkValidCharacters.isEmpty();
+    boolean _not = (!_isEmpty);
     if (_not) {
-      this.error("Identifier should start with a capital", 
+      String _name_1 = ent.getName();
+      List<Integer> _checkValidCharacters_1 = this.checkValidCharacters(_name_1);
+      String _string = _checkValidCharacters_1.toString();
+      String _plus = ("Invalid characters in positions " + _string);
+      this.error(_plus, 
         CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
-        RulesValidator.UPPER_CASE);
+        RulesValidator.INVALID_NAME);
+    } else {
+      String _name_2 = ent.getName();
+      int _codePointAt = _name_2.codePointAt(0);
+      boolean _isUpperCase = Character.isUpperCase(_codePointAt);
+      boolean _not_1 = (!_isUpperCase);
+      if (_not_1) {
+        this.error("Identifier should start with a capital", 
+          CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
+          RulesValidator.UPPER_CASE);
+      }
     }
   }
   
   @Check
   public void checkAttributeLowerCase(final Attribute att) {
-    for (int i = 0; (i < att.getName().length()); i++) {
-      String _name = att.getName();
-      char _charAt = _name.charAt(i);
-      boolean _isLowerCase = Character.isLowerCase(_charAt);
-      boolean _not = (!_isLowerCase);
-      if (_not) {
-        this.error("This name has to be lower case", 
-          CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
-          RulesValidator.LOWER_CASE);
-        return;
+    String _name = att.getName();
+    List<Integer> _checkValidCharacters = this.checkValidCharacters(_name);
+    boolean _isEmpty = _checkValidCharacters.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      String _name_1 = att.getName();
+      List<Integer> _checkValidCharacters_1 = this.checkValidCharacters(_name_1);
+      String _string = _checkValidCharacters_1.toString();
+      String _plus = ("Invalid characters in positions " + _string);
+      this.error(_plus, 
+        CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
+        RulesValidator.INVALID_NAME);
+    } else {
+      for (int i = 0; (i < att.getName().length()); i++) {
+        String _name_2 = att.getName();
+        int _codePointAt = _name_2.codePointAt(i);
+        boolean _isLowerCase = Character.isLowerCase(_codePointAt);
+        boolean _not_1 = (!_isLowerCase);
+        if (_not_1) {
+          this.error("This name has to be lower case", 
+            CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
+            RulesValidator.LOWER_CASE);
+          return;
+        }
       }
     }
   }
@@ -334,14 +364,41 @@ public class RulesValidator extends AbstractRulesValidator {
   @Check
   public void checkServiceStartsWithCapital(final Service ser) {
     String _name = ser.getName();
-    char _charAt = _name.charAt(0);
-    boolean _isUpperCase = Character.isUpperCase(_charAt);
-    boolean _not = (!_isUpperCase);
+    List<Integer> _checkValidCharacters = this.checkValidCharacters(_name);
+    boolean _isEmpty = _checkValidCharacters.isEmpty();
+    boolean _not = (!_isEmpty);
     if (_not) {
-      this.error("Identifier should start with a capital", 
+      String _name_1 = ser.getName();
+      List<Integer> _checkValidCharacters_1 = this.checkValidCharacters(_name_1);
+      String _string = _checkValidCharacters_1.toString();
+      String _plus = ("Invalid characters in positions " + _string);
+      this.error(_plus, 
         CodeGeneratorModelPackage.Literals.SERVICE__NAME, 
-        RulesValidator.UPPER_CASE);
+        RulesValidator.INVALID_NAME);
+    } else {
+      String _name_2 = ser.getName();
+      int _codePointAt = _name_2.codePointAt(0);
+      boolean _isUpperCase = Character.isUpperCase(_codePointAt);
+      boolean _not_1 = (!_isUpperCase);
+      if (_not_1) {
+        this.error("Identifier should start with a capital", 
+          CodeGeneratorModelPackage.Literals.SERVICE__NAME, 
+          RulesValidator.UPPER_CASE);
+      }
     }
+  }
+  
+  private List<Integer> checkValidCharacters(final String name) {
+    final ArrayList<Integer> list = new ArrayList<Integer>();
+    for (int i = 0; (i < name.length()); i++) {
+      int _codePointAt = name.codePointAt(i);
+      boolean _isLetterOrDigit = Character.isLetterOrDigit(_codePointAt);
+      boolean _not = (!_isLetterOrDigit);
+      if (_not) {
+        list.add(Integer.valueOf(i));
+      }
+    }
+    return list;
   }
   
   @Check
@@ -447,11 +504,21 @@ public class RulesValidator extends AbstractRulesValidator {
   @Check
   public void checkNamesEntityNotProhibited(final AbstractEntity ent) {
     final Consumer<String> _function = (String it) -> {
+      boolean _or = false;
       String _name = ent.getName();
       boolean _equalsIgnoreCase = _name.equalsIgnoreCase(it);
       if (_equalsIgnoreCase) {
+        _or = true;
+      } else {
         String _name_1 = ent.getName();
-        String _plus = ("Name " + _name_1);
+        String _name_2 = ent.getName();
+        String _replaceAll = it.replaceAll(nameVariables.artifactName, _name_2);
+        boolean _equalsIgnoreCase_1 = _name_1.equalsIgnoreCase(_replaceAll);
+        _or = _equalsIgnoreCase_1;
+      }
+      if (_or) {
+        String _name_3 = ent.getName();
+        String _plus = ("Name " + _name_3);
         String _plus_1 = (_plus + " is prohibited");
         this.error(_plus_1, 
           CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME, 
@@ -464,11 +531,21 @@ public class RulesValidator extends AbstractRulesValidator {
   @Check
   public void checkNamesAttributeNotProhibited(final Attribute att) {
     final Consumer<String> _function = (String it) -> {
+      boolean _or = false;
       String _name = att.getName();
       boolean _equalsIgnoreCase = _name.equalsIgnoreCase(it);
       if (_equalsIgnoreCase) {
+        _or = true;
+      } else {
         String _name_1 = att.getName();
-        String _plus = ("Name " + _name_1);
+        String _name_2 = att.getName();
+        String _replaceAll = it.replaceAll(nameVariables.artifactName, _name_2);
+        boolean _equalsIgnoreCase_1 = _name_1.equalsIgnoreCase(_replaceAll);
+        _or = _equalsIgnoreCase_1;
+      }
+      if (_or) {
+        String _name_3 = att.getName();
+        String _plus = ("Name " + _name_3);
         String _plus_1 = (_plus + " is prohibited");
         this.error(_plus_1, 
           CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME, 
@@ -481,11 +558,21 @@ public class RulesValidator extends AbstractRulesValidator {
   @Check
   public void checkNamesServiceNotProhibited(final Service ser) {
     final Consumer<String> _function = (String it) -> {
+      boolean _or = false;
       String _name = ser.getName();
       boolean _equalsIgnoreCase = _name.equalsIgnoreCase(it);
       if (_equalsIgnoreCase) {
+        _or = true;
+      } else {
         String _name_1 = ser.getName();
-        String _plus = ("Name " + _name_1);
+        String _name_2 = ser.getName();
+        String _replaceAll = it.replaceAll(nameVariables.artifactName, _name_2);
+        boolean _equalsIgnoreCase_1 = _name_1.equalsIgnoreCase(_replaceAll);
+        _or = _equalsIgnoreCase_1;
+      }
+      if (_or) {
+        String _name_3 = ser.getName();
+        String _plus = ("Name " + _name_3);
         String _plus_1 = (_plus + " is prohibited");
         this.error(_plus_1, 
           CodeGeneratorModelPackage.Literals.SERVICE__NAME, 

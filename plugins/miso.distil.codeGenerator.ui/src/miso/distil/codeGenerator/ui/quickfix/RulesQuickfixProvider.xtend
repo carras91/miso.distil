@@ -44,6 +44,22 @@ class RulesQuickfixProvider extends org.eclipse.xtext.ui.editor.quickfix.Default
 		]
 	}
 	
+	@Fix(RulesValidator::INVALID_NAME)
+	def validCharacter(Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, 'Delete invalid characters', 'Delete invalid characters.', 'deletecharacters.png') [
+			context |
+			val xtextDocument = context.xtextDocument
+			val name = xtextDocument.get(issue.offset, issue.length)
+			var newname = ""
+			for(var i=0; i<name.length; i++) {
+				if(Character.isLetterOrDigit(name.codePointAt(i))) {
+					newname = newname + name.charAt(i)
+				}
+			}
+			xtextDocument.replace(issue.offset, issue.length, newname)
+		]
+	}
+	
 	@Fix(RulesValidator::PROHIBITED_REFERENCE)
 	def prohibitedReference(Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(issue, 'Delete prohibited reference', 'Delete the prohibited reference.', 'delete.png') [

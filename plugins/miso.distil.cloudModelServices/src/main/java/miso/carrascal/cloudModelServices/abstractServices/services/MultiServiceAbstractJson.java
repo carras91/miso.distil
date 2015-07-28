@@ -38,12 +38,21 @@ public abstract class MultiServiceAbstractJson extends ServiceAbstractJson {
 	}
 	
 	@Override
-	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifact) {
-		return exeService(services.get(0).runService(req, res, artifact));
+	protected List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
+		if(this.parallel) {
+			List<Object> input = new ArrayList<>();
+		
+			for(ServiceAbstractJson service : this.services) {
+				input.addAll(service.prepareService(req, res, artifacts));
+			}
+			return input;
+		} else {
+			return services.get(0).prepareService(req, res, artifacts);
+		}
 	}
 
 	@Override
-	public List<Object> exeService(List<Object> input) {
+	protected List<Object> exeService(List<Object> input) {
 		List<Object> output = new ArrayList<Object>();
 		List<Object> aux_input = null;
 		if(!testInput(input))
@@ -51,7 +60,7 @@ public abstract class MultiServiceAbstractJson extends ServiceAbstractJson {
 		
 		if(parallel) {
 			Integer index = 0;
-			for(int i = 1; i< services.size(); i++) {
+			for(int i = 0; i< services.size(); i++) {
 				ServiceAbstractJson service = services.get(i);
 				aux_input = input.subList(index, index + service.getInputClass().size());
 				index += service.getInputClass().size();
@@ -59,7 +68,7 @@ public abstract class MultiServiceAbstractJson extends ServiceAbstractJson {
 			}
 		} else {
 			aux_input = input;
-			for(int i = 1; i< services.size(); i++) {
+			for(int i = 0; i< services.size(); i++) {
 				output = services.get(i).exeService(aux_input);
 				aux_input = output;
 			}

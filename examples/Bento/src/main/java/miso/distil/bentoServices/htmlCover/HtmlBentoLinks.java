@@ -26,7 +26,7 @@ public class HtmlBentoLinks {
 	 * @author miso.distil.codeGenerator
 	 */
 	public static String getReadHtmlLink(Bento bento) {
-		return "<a href=" + HtmlBentoSpark.ReadHTML + bento.getObjectid() + ">" + bento.getObjectname() + "</a>";
+		return "<a href=" + HtmlBentoSpark.ReadHTML + bento.getObjectid() + ">" + bento.getFilename() + "</a>";
 	}
 
 	/**

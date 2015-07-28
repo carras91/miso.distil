@@ -80,7 +80,7 @@ class generateSimpleService {
 						addInputClass((new ArrayList<«input.type.name»>()).getClass());
 					«ENDIF»
 				«ENDFOR»
-				// Outpu classes
+				// Output classes
 				«FOR output : simpleService.output as EList<Inout>»
 					«IF !output.many»
 						addOutputClass(«output.type.name».class);
@@ -91,7 +91,7 @@ class generateSimpleService {
 			}
 
 			/**
-			 * Method called automatically
+			 * Method called automatically to prepare the inputs
 			 * If triggered :
 			 * - after upload, download, update, read -> artifacts.size = 1, (request, response) from these services
 			 * - after readAll, search -> the results of these services, (request, response) from these services
@@ -100,21 +100,21 @@ class generateSimpleService {
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
+			protected List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 				List<Object> input = new ArrayList<Object>();
 
 				// TODO : Create the input objects to your service and use (or not) the artifacts
 
-				return this.exeService(input);
+				return input;
 			}
 
 			/**
-			 * Execution method. It uses an object's list (see the constructor input order) and generates other object's list (see the constructor output order)
+			 * Execution method. It uses prepareService return and generates other object's list (see the constructor output order)
 			 * 
 			 * @author miso.distil.codeGenerator
 			 */
 			@Override
-			public List<Object> exeService(List<Object> input) {
+			protected List<Object> exeService(List<Object> input) {
 				List<Object> output = new ArrayList<Object>();
 				if(!this.testInput(input))
 					return output;

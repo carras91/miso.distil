@@ -20,9 +20,9 @@ public class MetaModel extends Persistent {
 	}
 
 	// Full constructor
-	public MetaModel(String objectName, long fileSize, String uri) {
+	public MetaModel(String filename, long filesize, String uri) {
 	
-		super(objectName, fileSize);
+		super(filename, filesize);
 	
 		this.uri = uri.toLowerCase();
 	}

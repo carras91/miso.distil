@@ -25,7 +25,7 @@ public class HtmlModelView implements HtmlInterfaceView<Model>{
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Model model) {
 		List<HtmlEntry> entries = new ArrayList<HtmlEntry>();
-		entries.add(new HtmlEntry(model.getObjectname(), EntrySize.H3));
+		entries.add(new HtmlEntry(model.getFilename(), EntrySize.H3));
 		entries.add(new HtmlEntry(model.getCreatedatString(), EntrySize.H4));
 		entries.add(new HtmlEntry("FileSize (bytes): " + model.getFilesize().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry("ObjectId : " + model.getObjectid().toString(), EntrySize.H4));

@@ -120,12 +120,12 @@ public class HtmlModelJson implements HtmlInterfaceJson {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
 			viewObjects.put(HtmlFreeMarker.EMPTY, BasicModelCodes.Model_notfound);
-			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));
+			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 		} else {	
 			viewObjects = new HashMap<String, Object>();
 			viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(models));
 			viewObjects.put(HtmlFreeMarker.COUNT, models.size());
-			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));
+			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
 		}
 

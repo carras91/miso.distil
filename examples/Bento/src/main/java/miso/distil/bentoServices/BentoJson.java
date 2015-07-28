@@ -75,7 +75,7 @@ public class BentoJson extends BasicAbstractJson {
 		//Composed params
 		
 		// Create new Bento
-		Bento newBento = new Bento(oldBento.getObjectname(), oldBento.getFilesize(), inputConcepts, outputConcepts, atl, tags);
+		Bento newBento = new Bento(oldBento.getFilename(), oldBento.getFilesize(), inputConcepts, outputConcepts, atl, tags);
 
 		// Save new Bento and delete old Bento
 		if(RecordDB.getDefault().save(newBento, IS)) {

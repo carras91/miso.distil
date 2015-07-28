@@ -91,7 +91,7 @@ class generateHtmlView {
 							«ELSEIF (att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.INTEGER)) && !att.many»
 								entries.add(new HtmlEntry("«newName» : " + «genUti.getNestedGets(pos, artifact)».toString(), EntrySize.H5));
 							«ELSEIF att.many»
-								entries.add(new HtmlEntry("«newName» : " + Utils.ListToString(«genUti.getNestedGets(pos, artifact)»), EntrySize.H5));				
+								entries.add(new HtmlEntry("«newName» : " + Utils.listToString(«genUti.getNestedGets(pos, artifact)»), EntrySize.H5));				
 							«ENDIF»
 						«ENDIF»
 						«IF att instanceof ArtifactID»
@@ -99,7 +99,7 @@ class generateHtmlView {
 							«IF !att.many»
 								entries.add(new HtmlEntry("«newName» : " + «genUti.getNestedGets(pos, artifact)», EntrySize.H5));
 							«ELSE»
-								entries.add(new HtmlEntry("«newName» : " + Utils.ListToString(«genUti.getNestedGets(pos, artifact)»), EntrySize.H5));				
+								entries.add(new HtmlEntry("«newName» : " + Utils.listToString(«genUti.getNestedGets(pos, artifact)»), EntrySize.H5));				
 							«ENDIF»
 						«ENDIF»
 					«ENDFOR»
@@ -206,11 +206,11 @@ class generateHtmlView {
 							«IF att.required»
 								«val newName = genUti.getNewAttName(pos, artifact)»
 								«IF att.type.equals(DataEnum.STRING) && !att.many»
-									texts.add(new HtmlText(Basic«name»Param.«newName», «genUti.getNestedGets(pos, artifact)», "«newName.toLowerCase»", "«att.name»", ""));
+									texts.add(new HtmlText(Basic«name»Param.«newName.toFirstUpper», «genUti.getNestedGets(pos, artifact)», "«newName.toLowerCase»", "«att.name»", ""));
 								«ELSEIF (att.type.equals(DataEnum.DOUBLE) || att.type.equals(DataEnum.INTEGER)) && !att.many»
-									texts.add(new HtmlText(Basic«name»Param.«newName», «genUti.getNestedGets(pos, artifact)».toString(), "«newName.toLowerCase»", "«att.name»", ""));
+									texts.add(new HtmlText(Basic«name»Param.«newName.toFirstUpper», «genUti.getNestedGets(pos, artifact)».toString(), "«newName.toLowerCase»", "«att.name»", ""));
 								«ELSEIF att.many»
-									texts.add(new HtmlText(Basic«name»Param.«newName», Utils.ListToString(«genUti.getNestedGets(pos, artifact)»), "«newName.toLowerCase» («att.name»1,«att.name»2,...)", "«att.name»", ""));
+									texts.add(new HtmlText(Basic«name»Param.«newName.toFirstUpper», Utils.listToString(«genUti.getNestedGets(pos, artifact)»), "«newName.toLowerCase» («att.name»1,«att.name»2,...)", "«att.name»", ""));
 								«ENDIF»
 							«ENDIF»
 						«ENDIF»
@@ -225,7 +225,7 @@ class generateHtmlView {
 							«IF att.required»
 								«var newName = genUti.getNewAttName(pos, artifact)»
 								«IF att.type.equals(DataEnum.BOOLEAN) && !att.many»
-									radios.add(new HtmlRadio(Basic«name»Param.«newName», "«newName.toLowerCase»", "«att.name»", «genUti.getNestedGets(pos, artifact)»));
+									radios.add(new HtmlRadio(Basic«name»Param.«newName.toFirstUpper», "«newName.toLowerCase»", "«att.name»", «genUti.getNestedGets(pos, artifact)»));
 								«ENDIF»
 							«ENDIF»
 						«ENDIF»
@@ -260,9 +260,9 @@ class generateHtmlView {
 							«IF att.required»
 								«val newName = genUti.getNewAttName(pos, artifact)»
 								«IF !att.type.equals(DataEnum.BOOLEAN) && !att.many»
-									texts.add(new HtmlText(Basic«name»Param.«newName», "", "«newName.toLowerCase»", "«att.name»", "Enter valid «att.type.toString»"));
+									texts.add(new HtmlText(Basic«name»Param.«newName.toFirstUpper», "", "«newName.toLowerCase»", "«att.name»", "Enter valid «att.type.toString»"));
 								«ELSEIF att.many»
-									texts.add(new HtmlText(Basic«name»Param.«newName», "", "«newName.toLowerCase» («att.name»1,«att.name»2,...)", "«att.name»", "Enter new list of valid «att.type.toString»"));
+									texts.add(new HtmlText(Basic«name»Param.«newName.toFirstUpper», "", "«newName.toLowerCase» («att.name»1,«att.name»2,...)", "«att.name»", "Enter new list of valid «att.type.toString»"));
 								«ENDIF»
 							«ENDIF»
 						«ENDIF»
@@ -277,7 +277,7 @@ class generateHtmlView {
 							«IF att.required»
 								«val newName = genUti.getNewAttName(pos, artifact)»
 								«IF att.type.equals(DataEnum.BOOLEAN) && !att.many»
-									radios.add(new HtmlRadio(Basic«name»Param.«newName», "«newName.toLowerCase»", "«att.name»", true));
+									radios.add(new HtmlRadio(Basic«name»Param.«newName.toFirstUpper», "«newName.toLowerCase»", "«att.name»", true));
 								«ENDIF»
 							«ENDIF»
 						«ENDIF»

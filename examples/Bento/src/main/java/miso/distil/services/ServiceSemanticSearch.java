@@ -39,7 +39,7 @@ public class ServiceSemanticSearch extends ServiceAbstractJson {
 	 * @author miso.distil.codeGenerator
 	 */
 	@Override
-	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
+	public List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
 
 		// Create the input objects to your service and use (or not) the artifacts
@@ -48,7 +48,7 @@ public class ServiceSemanticSearch extends ServiceAbstractJson {
 
 		System.out.println("SemanticSearch has started");
 
-		return this.exeService(input);
+		return input;
 	}
 
 	/**

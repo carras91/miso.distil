@@ -42,6 +42,7 @@ class RulesValidator extends AbstractRulesValidator {
   	public static val REPEATED_NAME = 'repeatedName'
   	public static val INPUT_WRONG = 'wrongInput'
   	public static val PROHIBITED_NAME= 'prohibitedName'
+  	public static val INVALID_NAME= 'invalidName'
   	public static val PROHIBITED_REFERENCE= 'prohibitedReference' //
   	public static val RECURSIVE_REFERENCE= 'recursiveReference'
   	public static val ARTIFACT_TODO = 'artifactToDo'
@@ -156,8 +157,12 @@ class RulesValidator extends AbstractRulesValidator {
 
 	@Check
 	// Las clases deben comenzar por mayuscula
-	def checkEntityStartsWithCapital(AbstractEntity ent) {	
-		if (!Character.isUpperCase(ent.name.charAt(0))) {
+	def checkEntityStartsWithCapital(AbstractEntity ent) {
+		if (!ent.name.checkValidCharacters.empty) {
+			error('Invalid characters in positions ' + ent.name.checkValidCharacters.toString, 
+				CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
+				INVALID_NAME)
+		} else if (!Character.isUpperCase(ent.name.codePointAt(0))) {
 			error('Identifier should start with a capital', 
 				CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
 				UPPER_CASE)
@@ -167,12 +172,19 @@ class RulesValidator extends AbstractRulesValidator {
 	@Check
 	// Los atributos deben ser en minuscula
 	def checkAttributeLowerCase(Attribute att) {
-		for(var i=0; i<att.name.length; i++) {
-			if (!Character.isLowerCase(att.name.charAt(i))) {
-				error('This name has to be lower case', 
-					CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
-					LOWER_CASE)
-				return;
+		if (!att.name.checkValidCharacters.empty) {
+			error('Invalid characters in positions ' + att.name.checkValidCharacters.toString, 
+				CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
+				INVALID_NAME)
+		}
+		else {
+			for(var i=0; i<att.name.length; i++) {
+				if (!Character.isLowerCase(att.name.codePointAt(i))) {
+					error('This name has to be lower case', 
+						CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
+						LOWER_CASE)
+					return;
+				}
 			}
 		}
 	}
@@ -180,15 +192,30 @@ class RulesValidator extends AbstractRulesValidator {
 	@Check
 	// Los servicios deben comenzar por mayuscula
 	def checkServiceStartsWithCapital(Service ser) {	
-		if (!Character.isUpperCase(ser.name.charAt(0))) {
+		if (!ser.name.checkValidCharacters.empty) {
+			error('Invalid characters in positions ' + ser.name.checkValidCharacters.toString, 
+				CodeGeneratorModelPackage.Literals.SERVICE__NAME,
+				INVALID_NAME)
+		} else if (!Character.isUpperCase(ser.name.codePointAt(0))) {
 			error('Identifier should start with a capital', 
 				CodeGeneratorModelPackage.Literals.SERVICE__NAME,
 				UPPER_CASE)
 		}
 	}
 	
+	// Caracteres no validos
+	def private List<Integer> checkValidCharacters(String name) {
+		val list = new ArrayList<Integer>()
+		for(var i=0; i<name.length; i++) {
+			if(!Character.isLetterOrDigit(name.codePointAt(i))) {
+				list.add(i)
+			}
+		}
+		return list
+	}
+	
 	@Check
-	// Todos los nombres deben ser unicos
+	// Todos los nombres deben ser unicos y con caracteres validos
 	def checkUniqueNames(Root root) {
 		val List<String> names = new ArrayList<String>()
 		
@@ -253,7 +280,7 @@ class RulesValidator extends AbstractRulesValidator {
 	// Las clases no pueden tener ciertos nombres que ya se usan durante la generacion de codigo
 	def checkNamesEntityNotProhibited(AbstractEntity ent) {
 		nameVariables.prohibitedNames.forEach[
-			if(ent.name.equalsIgnoreCase(it)) {
+			if(ent.name.equalsIgnoreCase(it) || ent.name.equalsIgnoreCase(it.replaceAll(nameVariables.artifactName, ent.name))) {
 				error('Name ' + ent.name + ' is prohibited',
 					CodeGeneratorModelPackage.Literals.ABSTRACT_ENTITY__NAME,
 					PROHIBITED_NAME)
@@ -265,7 +292,7 @@ class RulesValidator extends AbstractRulesValidator {
 	// Los atributos no pueden tener ciertos nombres que ya se usan durante la generacion de codigo
 	def checkNamesAttributeNotProhibited(Attribute att) {
 		nameVariables.prohibitedNames.forEach[
-			if(att.name.equalsIgnoreCase(it)) {
+			if(att.name.equalsIgnoreCase(it) || att.name.equalsIgnoreCase(it.replaceAll(nameVariables.artifactName, att.name))) {
 				error('Name ' + att.name + ' is prohibited',
 					CodeGeneratorModelPackage.Literals.ATTRIBUTE__NAME,
 					PROHIBITED_NAME)
@@ -277,7 +304,7 @@ class RulesValidator extends AbstractRulesValidator {
 	// Los servicios no pueden tener ciertos nombres que ya se usan durante la generacion de codigo
 	def checkNamesServiceNotProhibited(Service ser) {
 		nameVariables.prohibitedNames.forEach[
-			if(ser.name.equalsIgnoreCase(it)) {
+			if(ser.name.equalsIgnoreCase(it) || ser.name.equalsIgnoreCase(it.replaceAll(nameVariables.artifactName, ser.name))) {
 				error('Name ' + ser.name + ' is prohibited',
 					CodeGeneratorModelPackage.Literals.SERVICE__NAME,
 					PROHIBITED_NAME)

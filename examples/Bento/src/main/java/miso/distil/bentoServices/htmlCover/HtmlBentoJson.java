@@ -120,12 +120,12 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
 			viewObjects.put(HtmlFreeMarker.EMPTY, BasicBentoCodes.Bento_notfound);
-			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));
+			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 		} else {	
 			viewObjects = new HashMap<String, Object>();
 			viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(bentos));
 			viewObjects.put(HtmlFreeMarker.COUNT, bentos.size());
-			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymesValue(req, res)));
+			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
 		}
 

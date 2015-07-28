@@ -26,7 +26,7 @@ public class ServiceMetrics extends ServiceAbstractJson {
 	public ServiceMetrics() {
 		// Input classes
 		addInputClass(Model.class);
-		// Outpu classes
+		// Output classes
 		addOutputClass(Model.class);
 	}
 
@@ -40,14 +40,14 @@ public class ServiceMetrics extends ServiceAbstractJson {
 	 * @author miso.distil.codeGenerator
 	 */
 	@Override
-	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
+	public List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
 
 		// Create the input objects to your service and use (or not) the artifacts
 
 		System.out.println("Metrics has started");
 		
-		return this.exeService(input);
+		return input;
 	}
 
 	/**

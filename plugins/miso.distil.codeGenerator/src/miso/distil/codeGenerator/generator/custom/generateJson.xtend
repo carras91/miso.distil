@@ -46,17 +46,14 @@ class generateJson {
 		«IF basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.UPDATE)»
 			«var list = false»
 			«FOR att:allAtts»
-			«{pos = 0; null}»
-			«IF att instanceof Primitive»
-				«IF !att.required && att.many && !list»
+				«IF att instanceof Primitive && att.many && !list»
 					«{list = true; null}»
 					import java.util.List;
 				«ENDIF»
-			«ENDIF»
-			«IF att instanceof ArtifactID && att.many && !list»
-				«{list = true; null}»
-				import java.util.List;
-			«ENDIF»
+				«IF att instanceof ArtifactID && att.many && !list»
+					«{list = true; null}»
+					import java.util.List;
+				«ENDIF»
 			«ENDFOR»
 			
 			import spark.Request;

@@ -66,6 +66,30 @@ public class RulesQuickfixProvider extends DefaultQuickfixProvider {
     acceptor.accept(issue, "Lowercase name", "Lowercase the name.", "lowercase.png", _function);
   }
   
+  @Fix(RulesValidator.INVALID_NAME)
+  public void validCharacter(final Issue issue, final IssueResolutionAcceptor acceptor) {
+    final IModification _function = (IModificationContext context) -> {
+      final IXtextDocument xtextDocument = context.getXtextDocument();
+      Integer _offset = issue.getOffset();
+      Integer _length = issue.getLength();
+      final String name = xtextDocument.get((_offset).intValue(), (_length).intValue());
+      String newname = "";
+      for (int i = 0; (i < name.length()); i++) {
+        int _codePointAt = name.codePointAt(i);
+        boolean _isLetterOrDigit = Character.isLetterOrDigit(_codePointAt);
+        if (_isLetterOrDigit) {
+          char _charAt = name.charAt(i);
+          String _plus = (newname + Character.valueOf(_charAt));
+          newname = _plus;
+        }
+      }
+      Integer _offset_1 = issue.getOffset();
+      Integer _length_1 = issue.getLength();
+      xtextDocument.replace((_offset_1).intValue(), (_length_1).intValue(), newname);
+    };
+    acceptor.accept(issue, "Delete invalid characters", "Delete invalid characters.", "deletecharacters.png", _function);
+  }
+  
   @Fix(RulesValidator.PROHIBITED_REFERENCE)
   public void prohibitedReference(final Issue issue, final IssueResolutionAcceptor acceptor) {
     final IModification _function = (IModificationContext context) -> {

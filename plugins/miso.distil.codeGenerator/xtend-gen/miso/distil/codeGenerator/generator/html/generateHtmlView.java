@@ -11,6 +11,7 @@ import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.generateUtils;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
  * To write HtmlXXXView.java
@@ -369,7 +370,7 @@ public class generateHtmlView {
                         _builder.append("\t");
                         _builder.append("entries.add(new HtmlEntry(\"");
                         _builder.append(newName, "\t\t");
-                        _builder.append(" : \" + Utils.ListToString(");
+                        _builder.append(" : \" + Utils.listToString(");
                         String _nestedGets_2 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                         _builder.append(_nestedGets_2, "\t\t");
                         _builder.append("), EntrySize.H5));\t\t\t\t");
@@ -404,7 +405,7 @@ public class generateHtmlView {
                     _builder.append("\t");
                     _builder.append("entries.add(new HtmlEntry(\"");
                     _builder.append(newName_1, "\t\t");
-                    _builder.append(" : \" + Utils.ListToString(");
+                    _builder.append(" : \" + Utils.listToString(");
                     String _nestedGets_4 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                     _builder.append(_nestedGets_4, "\t\t");
                     _builder.append("), EntrySize.H5));\t\t\t\t");
@@ -846,7 +847,8 @@ public class generateHtmlView {
                         _builder.append("texts.add(new HtmlText(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_3, "\t\t");
+                        String _firstUpper = StringExtensions.toFirstUpper(newName_3);
+                        _builder.append(_firstUpper, "\t\t");
                         _builder.append(", ");
                         String _nestedGets_5 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                         _builder.append(_nestedGets_5, "\t\t");
@@ -883,7 +885,8 @@ public class generateHtmlView {
                           _builder.append("texts.add(new HtmlText(Basic");
                           _builder.append(name, "\t\t");
                           _builder.append("Param.");
-                          _builder.append(newName_3, "\t\t");
+                          String _firstUpper_1 = StringExtensions.toFirstUpper(newName_3);
+                          _builder.append(_firstUpper_1, "\t\t");
                           _builder.append(", ");
                           String _nestedGets_6 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                           _builder.append(_nestedGets_6, "\t\t");
@@ -903,8 +906,9 @@ public class generateHtmlView {
                             _builder.append("texts.add(new HtmlText(Basic");
                             _builder.append(name, "\t\t");
                             _builder.append("Param.");
-                            _builder.append(newName_3, "\t\t");
-                            _builder.append(", Utils.ListToString(");
+                            String _firstUpper_2 = StringExtensions.toFirstUpper(newName_3);
+                            _builder.append(_firstUpper_2, "\t\t");
+                            _builder.append(", Utils.listToString(");
                             String _nestedGets_7 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                             _builder.append(_nestedGets_7, "\t\t");
                             _builder.append("), \"");
@@ -986,7 +990,8 @@ public class generateHtmlView {
                         _builder.append("radios.add(new HtmlRadio(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_4, "\t\t");
+                        String _firstUpper_3 = StringExtensions.toFirstUpper(newName_4);
+                        _builder.append(_firstUpper_3, "\t\t");
                         _builder.append(", \"");
                         String _lowerCase_3 = newName_4.toLowerCase();
                         _builder.append(_lowerCase_3, "\t\t");
@@ -1134,7 +1139,8 @@ public class generateHtmlView {
                         _builder.append("texts.add(new HtmlText(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_5, "\t\t");
+                        String _firstUpper_4 = StringExtensions.toFirstUpper(newName_5);
+                        _builder.append(_firstUpper_4, "\t\t");
                         _builder.append(", \"\", \"");
                         String _lowerCase_4 = newName_5.toLowerCase();
                         _builder.append(_lowerCase_4, "\t\t");
@@ -1155,7 +1161,8 @@ public class generateHtmlView {
                           _builder.append("texts.add(new HtmlText(Basic");
                           _builder.append(name, "\t\t");
                           _builder.append("Param.");
-                          _builder.append(newName_5, "\t\t");
+                          String _firstUpper_5 = StringExtensions.toFirstUpper(newName_5);
+                          _builder.append(_firstUpper_5, "\t\t");
                           _builder.append(", \"\", \"");
                           String _lowerCase_5 = newName_5.toLowerCase();
                           _builder.append(_lowerCase_5, "\t\t");
@@ -1238,7 +1245,8 @@ public class generateHtmlView {
                         _builder.append("radios.add(new HtmlRadio(Basic");
                         _builder.append(name, "\t\t");
                         _builder.append("Param.");
-                        _builder.append(newName_6, "\t\t");
+                        String _firstUpper_6 = StringExtensions.toFirstUpper(newName_6);
+                        _builder.append(_firstUpper_6, "\t\t");
                         _builder.append(", \"");
                         String _lowerCase_6 = newName_6.toLowerCase();
                         _builder.append(_lowerCase_6, "\t\t");

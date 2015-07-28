@@ -50,8 +50,12 @@ public abstract class ServiceAbstractJson {
 		}
 		return true;
 	}
-
-	public abstract List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts);
 	
-	public abstract List<Object> exeService(List<Object> input);
+	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
+		return exeService(prepareService(req, res, artifacts));
+	}
+
+	protected abstract List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts);
+	
+	protected abstract List<Object> exeService(List<Object> input);
 }

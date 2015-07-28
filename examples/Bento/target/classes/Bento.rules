@@ -1,19 +1,19 @@
 MongoURI : "mongodb://user:password@ds055722.mongolab.com:55722/heroku_m7s6bbkn"
  
 Artifact Bento [ 
-	extension .bentoz format ZIP services : all
+	extension .bentoz format ZIP services : all 
 ] {
 	id many inputconcepts : MetaModel    
 	id many outputconcepts : MetaModel 
 	id many atl : ATLTrafo
 	many tags : String 
-}
-Artifact ATLTrafo [ 
+} 
+Artifact ATLTrafo [  
 	extension .atl format TEXT 
 	services : upload, delete, download, search
 ] {
-	nameatl : String
-}
+	nameatl : String 
+} 
 Artifact MetaModel [   
 	extension .ecore format XMI 
 	services : upload, delete, download, search

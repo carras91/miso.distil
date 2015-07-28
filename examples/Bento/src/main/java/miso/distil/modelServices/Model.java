@@ -21,9 +21,9 @@ public class Model extends Persistent {
 	}
 
 	// Full constructor
-	public Model(String objectName, long fileSize, String namemodel, String type) {
+	public Model(String filename, long filesize, String namemodel, String type) {
 	
-		super(objectName, fileSize);
+		super(filename, filesize);
 	
 		this.namemodel = namemodel.toLowerCase();
 		this.type = type.toLowerCase();

@@ -37,14 +37,14 @@ public class ServiceTypeCheck extends ServiceAbstractJson {
 	 * @author miso.distil.codeGenerator
 	 */
 	@Override
-	public List<Object> runService(Request req, Response res, List<? extends Persistent> artifacts) {
+	public List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
 
 		// Create the input objects to your service and use (or not) the artifacts
 
 		System.out.println("TypeCheck has started");
 
-		return this.exeService(input);
+		return input;
 	}
 
 	/**

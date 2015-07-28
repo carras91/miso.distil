@@ -65,7 +65,7 @@ public class ModelJson extends BasicAbstractJson {
 		//Composed params
 		
 		// Create new Model
-		Model newModel = new Model(oldModel.getObjectname(), oldModel.getFilesize(), nameModel, type);
+		Model newModel = new Model(oldModel.getFilename(), oldModel.getFilesize(), nameModel, type);
 
 		// Save new Model and delete old Model
 		if(RecordDB.getDefault().save(newModel, IS)) {

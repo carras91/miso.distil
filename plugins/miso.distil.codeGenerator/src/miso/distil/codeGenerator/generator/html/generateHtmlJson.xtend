@@ -167,12 +167,12 @@ class generateHtmlJson {
 						viewObjects = View.constructSearchForm();
 						viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
 						viewObjects.put(HtmlFreeMarker.EMPTY, Basic«name»Codes.«name»_notfound);
-						viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymsValue(req, res)));
+						viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 					} else {	
 						viewObjects = new HashMap<String, Object>();
 						viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(«namelow»s));
 						viewObjects.put(HtmlFreeMarker.COUNT, «namelow»s.size());
-						viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.ListToString(Json.getSynonymsValue(req, res)));
+						viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 						viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
 					}
 

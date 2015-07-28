@@ -20,9 +20,9 @@ public class ATLTrafo extends Persistent {
 	}
 
 	// Full constructor
-	public ATLTrafo(String objectName, long fileSize, String nameatl) {
+	public ATLTrafo(String filename, long filesize, String nameatl) {
 	
-		super(objectName, fileSize);
+		super(filename, filesize);
 	
 		this.nameatl = nameatl.toLowerCase();
 	}

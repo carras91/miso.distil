@@ -12,35 +12,56 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 @SuppressWarnings("all")
 public class nameVariables {
   /**
-   * Names inside the artifact
+   * Name to change by artifact name
    */
-  private final static ArrayList<String> artifact = CollectionLiterals.<String>newArrayList("objectId", "serialVersionUID", "createdAt", 
-    "filename", "filesize", "filtersEType", "filters");
+  public final static String artifactName = "XXX";
   
   /**
-   * Names inside update method
+   * Variables inside BasicCodes
    */
-  private final static ArrayList<String> update = CollectionLiterals.<String>newArrayList("map", "id", "eclass", "esupertype", "eabstract", "einterface", "eattribute", "ereference", 
-    "newXX", "oldXX", "IS", "activeFilters", "filters");
+  private final static ArrayList<String> basicCodes = CollectionLiterals.<String>newArrayList("emptyfilename", "emptyfile", "filenotfound", "corruptfile", "notfound", "DB");
   
   /**
-   * Names inside upload method
+   * Variables inside BasicParam
    */
-  private final static ArrayList<String> upload = CollectionLiterals.<String>newArrayList("items", "fieldName", "fileContent", "XX");
+  private final static ArrayList<String> basicParam = CollectionLiterals.<String>newArrayList("IdGet", "IdPost", "File", "Search_query", "Search_value", "Search_synonyms");
   
   /**
-   * Names inside html class
+   * Variables inside CustomHtml
    */
-  private final static ArrayList<String> html = CollectionLiterals.<String>newArrayList("XXs", "viewObjects", "JSON", "View", "customView", "entries", "multientries", "form", "texts", "radios", 
-    "hiddens", "file");
+  private final static ArrayList<String> customHtml = CollectionLiterals.<String>newArrayList("multientries", "entries", "viewObjects", "form", "selectbox", "boxes", "box", 
+    "texts", "radios", "hiddens", "file");
   
   /**
-   * Basic names from java
+   * Variables inside Json
    */
-  private final static ArrayList<String> java = CollectionLiterals.<String>newArrayList("int", "Integer", "bool", "Boolean", "String", "Double", "Float", "List", "ArrayList", "Map", "HashMap");
+  private final static ArrayList<String> json = CollectionLiterals.<String>newArrayList("map", "id", "IS", ("old" + nameVariables.artifactName), ("new" + nameVariables.artifactName), "multipartConfigElement", "filePart", "fileName", 
+    "fileSize", "fileContent");
   
   /**
-   * All of them
+   * Variables inside the artifact class
    */
-  public final static Iterable<String> prohibitedNames = Iterables.<String>concat(Iterables.<String>concat(Iterables.<String>concat(Iterables.<String>concat(nameVariables.artifact, nameVariables.update), nameVariables.upload), nameVariables.html), nameVariables.java);
+  private final static ArrayList<String> artifact = CollectionLiterals.<String>newArrayList("objectid", "serialVersionUID", "createdAt", "filename", "filesize");
+  
+  /**
+   * Variables inside HtmlJson
+   */
+  private final static ArrayList<String> htmlSpark = CollectionLiterals.<String>newArrayList("viewObjects", "viewObject", (nameVariables.artifactName + "s"));
+  
+  /**
+   * Variables inside HtmlJson
+   */
+  private final static ArrayList<String> htmlView = CollectionLiterals.<String>newArrayList("entries", "multientries", "entries", "viewObjects", "form", "selectbox", "boxes", 
+    "texts", "radios", "hiddens", "file");
+  
+  /**
+   * Variables names from java
+   */
+  private final static ArrayList<String> java = CollectionLiterals.<String>newArrayList("int", "Integer", "bool", "Boolean", "String", "Double", "Float", "List", "ArrayList", "Map", "HashMap", 
+    "public", "private", "final", "static", "interface", "abstract", "class", "void");
+  
+  /**
+   * All variables
+   */
+  public final static Iterable<String> prohibitedNames = Iterables.<String>concat(Iterables.<String>concat(Iterables.<String>concat(Iterables.<String>concat(Iterables.<String>concat(Iterables.<String>concat(Iterables.<String>concat(nameVariables.basicCodes, nameVariables.basicParam), nameVariables.customHtml), nameVariables.json), nameVariables.artifact), nameVariables.htmlSpark), nameVariables.htmlView), nameVariables.java);
 }

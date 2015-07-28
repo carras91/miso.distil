@@ -26,7 +26,7 @@ public class HtmlModelLinks {
 	 * @author miso.distil.codeGenerator
 	 */
 	public static String getReadHtmlLink(Model model) {
-		return "<a href=" + HtmlModelSpark.ReadHTML + model.getObjectid() + ">" + model.getObjectname() + "</a>";
+		return "<a href=" + HtmlModelSpark.ReadHTML + model.getObjectid() + ">" + model.getFilename() + "</a>";
 	}
 
 	/**
