@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceJson;
-
-import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.utils.Utils;
@@ -79,9 +77,7 @@ public class HtmlDocumentJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<Document> documents = new ArrayList<Document>();
-		for(Persistent document : Json.getReadAll(req, res)) {
-			documents.add((Document)document);
-		}
+		documents.addAll(Json.getReadAll(req, res));
 		viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(documents));
 		viewObjects.put(HtmlFreeMarker.COUNT, documents.size());
 		viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
@@ -113,9 +109,7 @@ public class HtmlDocumentJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<Document> documents = new ArrayList<Document>();
-		for(Persistent document : Json.getSearch(req, res)) {
-			documents.add((Document)document);
-		}
+		documents.addAll(Json.getSearch(req, res));
 		if(documents.isEmpty()) {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 

@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceJson;
-
-import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.utils.Utils;
@@ -79,9 +77,7 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<Bento> bentos = new ArrayList<Bento>();
-		for(Persistent bento : Json.getReadAll(req, res)) {
-			bentos.add((Bento)bento);
-		}
+		bentos.addAll(Json.getReadAll(req, res));
 		viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(bentos));
 		viewObjects.put(HtmlFreeMarker.COUNT, bentos.size());
 		viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
@@ -113,9 +109,7 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<Bento> bentos = new ArrayList<Bento>();
-		for(Persistent bento : Json.getSearch(req, res)) {
-			bentos.add((Bento)bento);
-		}
+		bentos.addAll(Json.getSearch(req, res));
 		if(bentos.isEmpty()) {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 

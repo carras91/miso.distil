@@ -30,12 +30,12 @@ public class HtmlVideoView implements HtmlInterfaceView<Video>{
 		entries.add(new HtmlEntry(video.getCreatedatString(), EntrySize.H4));
 		entries.add(new HtmlEntry("FileSize (bytes): " + video.getFilesize().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry("ObjectId : " + video.getObjectid().toString(), EntrySize.H4));
-		entries.add(new HtmlEntry("author_videoinfo : " + video.getVideoinfo().getAuthor(), EntrySize.H5));
-		entries.add(new HtmlEntry("source_videoinfo : " + video.getVideoinfo().getSource(), EntrySize.H5));
-		entries.add(new HtmlEntry("tags_videoinfo : " + Utils.listToString(video.getVideoinfo().getTags()), EntrySize.H5));				
-		entries.add(new HtmlEntry("fileextension_videoinfo : " + video.getVideoinfo().getFileextension(), EntrySize.H5));
+		entries.add(new HtmlEntry("videoinfo.author : " + video.getVideoinfo().getAuthor(), EntrySize.H5));
+		entries.add(new HtmlEntry("videoinfo.source : " + video.getVideoinfo().getSource(), EntrySize.H5));
+		entries.add(new HtmlEntry("videoinfo.tags : " + Utils.listToString(video.getVideoinfo().getTags()), EntrySize.H5));				
+		entries.add(new HtmlEntry("videoinfo.fileextension : " + video.getVideoinfo().getFileextension(), EntrySize.H5));
 		entries.add(new HtmlEntry("length : " + video.getLength().toString(), EntrySize.H5));
-		entries.add(new HtmlEntry(HtmlVideoLinks.getDownloadZipJsonLink(video) + " | " + HtmlVideoLinks.getDownloadFileJsonLink(video), EntrySize.H5));
+		entries.add(new HtmlEntry(HtmlVideoLinks.getDownloadJsonLink(video), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlVideoLinks.getDeleteFormJsonLink(video), EntrySize.H5));
 
 		return entries;
@@ -75,10 +75,10 @@ public class HtmlVideoView implements HtmlInterfaceView<Video>{
 		
 		Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();
 		List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();
-		boxes.add(new HtmlSelectBox("author_videoinfo", "author_videoinfo"));
-		boxes.add(new HtmlSelectBox("source_videoinfo", "source_videoinfo"));
-		boxes.add(new HtmlSelectBox("tags_videoinfo", "tags_videoinfo"));
-		boxes.add(new HtmlSelectBox("fileextension_videoinfo", "fileextension_videoinfo"));
+		boxes.add(new HtmlSelectBox("videoinfo.author", "videoinfo.author"));
+		boxes.add(new HtmlSelectBox("videoinfo.source", "videoinfo.source"));
+		boxes.add(new HtmlSelectBox("videoinfo.tags", "videoinfo.tags"));
+		boxes.add(new HtmlSelectBox("videoinfo.fileextension", "videoinfo.fileextension"));
 		boxes.add(new HtmlSelectBox("length", "length"));
 		selectbox.put(BasicVideoParam.Search_query, boxes);
 		viewObjects.put(HtmlFreeMarker.SELECTBOX, selectbox);
@@ -107,9 +107,9 @@ public class HtmlVideoView implements HtmlInterfaceView<Video>{
 		viewObjects.put(HtmlFreeMarker.FORM, form);
 
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicVideoParam.Author_videoinfo, "", "author_videoinfo", "author", "Enter valid String"));
-		texts.add(new HtmlText(BasicVideoParam.Source_videoinfo, "", "source_videoinfo", "source", "Enter valid String"));
-		texts.add(new HtmlText(BasicVideoParam.Tags_videoinfo, "", "tags_videoinfo (tags1,tags2,...)", "tags", "Enter new list of valid String"));
+		texts.add(new HtmlText(BasicVideoParam.Author_videoinfo, "", "videoinfo.author", "author", "Enter valid String"));
+		texts.add(new HtmlText(BasicVideoParam.Source_videoinfo, "", "videoinfo.source", "source", "Enter valid String"));
+		texts.add(new HtmlText(BasicVideoParam.Tags_videoinfo, "", "videoinfo.tags (tags1,tags2,...)", "tags", "Enter new list of valid String"));
 		texts.add(new HtmlText(BasicVideoParam.Length, "", "length", "length", "Enter valid Double"));
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 

@@ -10,7 +10,7 @@
 		<dependency>
 			<groupId>miso.distil</groupId>
 			<artifactId>cloudModelServices</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.1</version>			
 		</dependency>
 	</dependencies>
 	<repositories>

@@ -30,21 +30,12 @@ public class HtmlModelLinks {
 	}
 
 	/**
-	 * Auto-generated link to the service download zip
+	 * Auto-generated link to the service download
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public static String getDownloadZipJsonLink(Model model) {
-		return "<a href=" + BasicModelSpark.DownloadZipJson + model.getObjectid() + ">Download zip</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service download file
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getDownloadFileJsonLink(Model model) {
-		return "<a href=" + BasicModelSpark.DownloadFileJson + model.getObjectid() + ">Download model</a>";
+	public static String getDownloadJsonLink(Model model) {
+		return "<a href=" + BasicModelSpark.DownloadJson + model.getObjectid() + ">Download</a>";
 	}
 
 	/**

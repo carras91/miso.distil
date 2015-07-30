@@ -12,7 +12,6 @@ import javax.servlet.http.Part;
 
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
-
 import miso.distil.atltrafoServices.ATLTrafo;
 import miso.distil.atltrafoServices.basic.BasicATLTrafoCodes;
 import miso.distil.atltrafoServices.basic.BasicATLTrafoParam;
@@ -22,16 +21,16 @@ import miso.distil.atltrafoServices.basic.BasicATLTrafoParam;
  * 
  * @author miso.distil.codeGenerator
  */
-public class ATLTrafoJson extends BasicAbstractJson {
+public class ATLTrafoJson extends BasicAbstractJson<ATLTrafo> {
 
 	/**
 	 * Auto-generated empty constructor
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public ATLTrafoJson() {
-		super(ATLTrafo.class);	
-	}
+	 public ATLTrafoJson() {
+	 	super(ATLTrafo.class);	
+	 }
 
 	/**
 	 * Auto-generated method to cusomice the upload method

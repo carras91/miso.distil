@@ -21,6 +21,7 @@ import java.util.List;
 
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.InterfaceDB;
+import miso.carrascal.cloudModelServices.abstractServices.basic.JsonTransformer;
 import miso.carrascal.cloudModelServices.utils.DictionaryUtils;
 
 import org.bson.types.ObjectId;
@@ -74,10 +75,11 @@ public class MongoDB implements InterfaceDB {
 	/**
 	 * Get a collection for classType, or create a new one.
 	 * 
+	 * @param <T> class extending Persistent.
 	 * @param classType Class of the object to be stored.
 	 * @return The DBCollection associated.
 	 */
-	private DBCollection getCollection(Class<? extends Persistent> classType) {
+	private <T extends Persistent> DBCollection getCollection(Class<T> classType) {
 		if(collections.containsKey(classType)) {
 			return collections.get(classType);
 		} else {
@@ -90,10 +92,11 @@ public class MongoDB implements InterfaceDB {
 	/**
 	 * Get a gridfs for classType, or create a new one.
 	 * 
+	 * @param <T> class extending Persistent.
 	 * @param classType Class of the object to be stored.
 	 * @return The GridFS associated. 
 	 */
-	private GridFS getGridFS(Class<? extends Persistent> classType) {
+	private <T extends Persistent> GridFS getGridFS(Class<T> classType) {
 		if(gridfs.containsKey(classType)) {
 			return gridfs.get(classType);
 		} else {
@@ -108,7 +111,7 @@ public class MongoDB implements InterfaceDB {
      */
     @SuppressWarnings("deprecation")
     @Override
-	public Boolean save(Persistent artifact, InputStream inputStream) {
+	public <T extends Persistent> Boolean save(T artifact, InputStream inputStream) {
     	if(artifact == null) {
 			(new NullPointerException()).printStackTrace();
     		return false;
@@ -145,7 +148,7 @@ public class MongoDB implements InterfaceDB {
      * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#delete(java.lang.String, java.lang.Class)
      */
     @Override
-    public Boolean delete(String id, Class<? extends Persistent> classType) {
+    public <T extends Persistent> Boolean delete(String id, Class<T> classType) {
     	if(id == null) {
 			(new NullPointerException()).printStackTrace();
 			return false;
@@ -178,7 +181,7 @@ public class MongoDB implements InterfaceDB {
      * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#readOne(java.lang.String, java.lang.Class)
      */
     @Override
-	public Persistent readOne(String id, Class<? extends Persistent> classType) {
+	public <T extends Persistent> T readOne(String id, Class<T> classType) {
 		if(id == null) {
 			(new NullPointerException()).printStackTrace();
 			return null;
@@ -187,7 +190,7 @@ public class MongoDB implements InterfaceDB {
 		try {
 	        BasicDBObject query = new BasicDBObject("_id", new ObjectId(id));
 	        DBCursor cursorDB = getCollection(classType).find(query);      
-	        ArrayList<? extends Persistent> list = processDBCursor(cursorDB, classType);
+	        ArrayList<T> list = processDBCursor(cursorDB, classType);
 	        if(list.isEmpty()) {
 	        	return null;
 	        } else {
@@ -203,10 +206,10 @@ public class MongoDB implements InterfaceDB {
      * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#readAll(java.lang.Class)
      */
     @Override
-    public ArrayList<? extends Persistent> readAll(Class<? extends Persistent> classType) {
+    public <T extends Persistent> ArrayList<T> readAll(Class<T> classType) {
     	if(classType == null) {
 			(new NullPointerException()).printStackTrace();
-			return new ArrayList<Persistent>();
+			return new ArrayList<T>();
     	}
     	
         DBCursor cursorDB = getCollection(classType).find();   
@@ -217,19 +220,19 @@ public class MongoDB implements InterfaceDB {
      * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#search(java.lang.String, java.lang.String, java.lang.Boolean, java.lang.Class)
      */
     @Override
-    public ArrayList<? extends Persistent> search(String query, String value, Boolean synomyms, Class<? extends Persistent> classType) {
-		if(query == null || value == null || classType == null || synomyms == null) {
+    public <T extends Persistent> ArrayList<T> search(String query, String value, Boolean synonyms, Class<T> classType) {
+		if(query == null || value == null || classType == null || synonyms == null) {
 			(new NullPointerException()).printStackTrace();
-			return new ArrayList<Persistent>();
+			return new ArrayList<T>();
 		}
 		List<String> final_value = new ArrayList<String>();
-		if(synomyms) {
+		if(synonyms) {
 			final_value.addAll(getSynonyms(value));
 		} else {
 			final_value.add(value);
 		}
 		
-		ArrayList<Persistent> result = new ArrayList<Persistent>();	
+		ArrayList<T> result = new ArrayList<T>();	
 		for(String val : final_value) {
 			BasicDBObject objectQuery = new BasicDBObject(query, val);
 			DBCursor cursorDB = getCollection(classType).find(objectQuery);
@@ -255,8 +258,8 @@ public class MongoDB implements InterfaceDB {
      * @return ArrayList({@link miso.carrascal.cloudModelServices.abstractServices.Persistent Persistent}) with the results. Empty if NullPointerException().
      */
     @SuppressWarnings("deprecation")
-	private ArrayList<Persistent> processDBCursor(DBCursor cursorDB, Class<? extends Persistent> classType) {
-    	ArrayList<Persistent> results = new ArrayList<Persistent>();
+	private <T extends Persistent> ArrayList<T> processDBCursor(DBCursor cursorDB, Class<T> classType) {
+    	ArrayList<T> results = new ArrayList<T>();
     	
     	if(cursorDB == null) {
 			(new NullPointerException()).printStackTrace();
@@ -266,7 +269,7 @@ public class MongoDB implements InterfaceDB {
         while(cursorDB.hasNext()) {
 			try {
 	            DBObject doc = cursorDB.next();
-	            Persistent artifact = (Persistent) (new Gson()).fromJson(doc.toString(), classType);
+	            T artifact = JsonTransformer.fromJson(doc.toString(), classType);
 				artifact.setObjectid(doc.get("_id").toString());
 				results.add(artifact);
 			} catch (JsonSyntaxException e) {
@@ -283,7 +286,7 @@ public class MongoDB implements InterfaceDB {
      * @see miso.carrascal.cloudModelServices.abstractServices.InterfaceDB#getInputStream(java.lang.String, java.lang.Class)
      */
     @Override
-	public InputStream getInputStream(String id, Class<? extends Persistent> classType) {
+	public <T extends Persistent> InputStream getInputStream(String id, Class<T> classType) {
 		if(id == null) {
 			(new NullPointerException()).printStackTrace();
 			return null;

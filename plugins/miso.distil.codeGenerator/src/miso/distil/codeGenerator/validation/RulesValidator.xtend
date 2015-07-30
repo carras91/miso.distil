@@ -366,7 +366,7 @@ class RulesValidator extends AbstractRulesValidator {
 	// Es necesario al menos una mongoURI
 	def checkMongoURI(Root root) {
 		if(root.mongoURIs.empty) {
-			warning("You need to set at least one MongoURI",
+			error("You need to set at least one MongoURI",
 	        	CodeGeneratorModelPackage.Literals.ROOT__MONGO_UR_IS,
 	       		EMPTY_MONGO_URI)
 		}

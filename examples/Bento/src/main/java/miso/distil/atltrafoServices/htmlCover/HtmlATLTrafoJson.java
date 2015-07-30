@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceJson;
-
-import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.utils.Utils;
@@ -73,9 +71,7 @@ public class HtmlATLTrafoJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<ATLTrafo> atltrafos = new ArrayList<ATLTrafo>();
-		for(Persistent atltrafo : Json.getSearch(req, res)) {
-			atltrafos.add((ATLTrafo)atltrafo);
-		}
+		atltrafos.addAll(Json.getSearch(req, res));
 		if(atltrafos.isEmpty()) {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 

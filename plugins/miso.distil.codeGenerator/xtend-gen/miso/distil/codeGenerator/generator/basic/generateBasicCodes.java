@@ -41,11 +41,6 @@ public class generateBasicCodes {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("import ");
-    _builder.append(this.names.MisoBasic, "");
-    _builder.append(".BasicAbstractCodes;");
-    _builder.newLineIfNotEmpty();
-    _builder.newLine();
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
@@ -62,7 +57,7 @@ public class generateBasicCodes {
     _builder.newLine();
     _builder.append("public class Basic");
     _builder.append(name, "");
-    _builder.append("Codes extends BasicAbstractCodes {");
+    _builder.append("Codes {");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("\t");
@@ -103,18 +98,17 @@ public class generateBasicCodes {
     }
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("public static String Param_emptyfilename = \"ParameterError : Filename is empty\";");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("public static String Param_emptyfile = \"ParameterError : File or filename not found\";");
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("public static String Param_filenotfound = \"ParameterError : File not found\";");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public static String Param_corruptfile = \"ParameterError : Corrupt file\";");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("\t");
+    _builder.append("public static String DB_notfound = \"DataBaseError : ");
+    _builder.append(name, "\t");
+    _builder.append(" not found\";");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("public static String DB_notupdated = \"DataBaseError : ");
     _builder.append(name, "\t");
@@ -125,9 +119,6 @@ public class generateBasicCodes {
     _builder.append(name, "\t");
     _builder.append(" not uploaded\";");
     _builder.newLineIfNotEmpty();
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("public static String Search_empty = \"Your search has no results. Try again\";");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("public static String ");

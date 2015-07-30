@@ -12,21 +12,12 @@ import miso.distil.atltrafoServices.ATLTrafo;
 public class HtmlATLTrafoLinks {
 
 	/**
-	 * Auto-generated link to the service download zip
+	 * Auto-generated link to the service download
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public static String getDownloadZipJsonLink(ATLTrafo atltrafo) {
-		return "<a href=" + BasicATLTrafoSpark.DownloadZipJson + atltrafo.getObjectid() + ">Download zip</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service download file
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getDownloadFileJsonLink(ATLTrafo atltrafo) {
-		return "<a href=" + BasicATLTrafoSpark.DownloadFileJson + atltrafo.getObjectid() + ">Download atltrafo</a>";
+	public static String getDownloadJsonLink(ATLTrafo atltrafo) {
+		return "<a href=" + BasicATLTrafoSpark.DownloadJson + atltrafo.getObjectid() + ">Download</a>";
 	}
 
 	/**

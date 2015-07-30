@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceJson;
-
-import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.utils.Utils;
@@ -73,9 +71,7 @@ public class HtmlMetaModelJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<MetaModel> metamodels = new ArrayList<MetaModel>();
-		for(Persistent metamodel : Json.getSearch(req, res)) {
-			metamodels.add((MetaModel)metamodel);
-		}
+		metamodels.addAll(Json.getSearch(req, res));
 		if(metamodels.isEmpty()) {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 

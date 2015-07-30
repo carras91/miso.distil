@@ -37,10 +37,6 @@ class generateHtmlJson {
 		import java.util.Map;
 		
 		import «names.MisoHtml».HtmlInterfaceJson;
-
-		«IF basicServices.contains(ServiceEnum.READ_ALL) || basicServices.contains(ServiceEnum.SEARCH)»
-			import «names.MisoAbstract».Persistent;
-		«ENDIF»
 		import «names.MisoHtml».HtmlFreeMarker;
 		import «names.MisoHtml».HtmlInterfaceView;
 		«IF basicServices.contains(ServiceEnum.SEARCH)»
@@ -122,9 +118,7 @@ class generateHtmlJson {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 					ArrayList<«name»> «namelow»s = new ArrayList<«name»>();
-					for(Persistent «namelow» : Json.getReadAll(req, res)) {
-						«namelow»s.add((«name»)«namelow»);
-					}
+					«namelow»s.addAll(Json.getReadAll(req, res));
 					viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(«namelow»s));
 					viewObjects.put(HtmlFreeMarker.COUNT, «namelow»s.size());
 					viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
@@ -160,9 +154,7 @@ class generateHtmlJson {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 					ArrayList<«name»> «namelow»s = new ArrayList<«name»>();
-					for(Persistent «namelow» : Json.getSearch(req, res)) {
-						«namelow»s.add((«name»)«namelow»);
-					}
+					«namelow»s.addAll(Json.getSearch(req, res));
 					if(«namelow»s.isEmpty()) {
 						viewObjects = View.constructSearchForm();
 						viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 

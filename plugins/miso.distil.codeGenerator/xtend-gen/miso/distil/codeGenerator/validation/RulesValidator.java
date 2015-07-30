@@ -695,7 +695,7 @@ public class RulesValidator extends AbstractRulesValidator {
     EList<String> _mongoURIs = root.getMongoURIs();
     boolean _isEmpty = _mongoURIs.isEmpty();
     if (_isEmpty) {
-      this.warning("You need to set at least one MongoURI", 
+      this.error("You need to set at least one MongoURI", 
         CodeGeneratorModelPackage.Literals.ROOT__MONGO_UR_IS, 
         RulesValidator.EMPTY_MONGO_URI);
     }

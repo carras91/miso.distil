@@ -24,16 +24,16 @@ import miso.distil.bentoServices.basic.BasicBentoParam;
  * 
  * @author miso.distil.codeGenerator
  */
-public class BentoJson extends BasicAbstractJson {
+public class BentoJson extends BasicAbstractJson<Bento> {
 
 	/**
 	 * Auto-generated empty constructor
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public BentoJson() {
-		super(Bento.class);	
-	}
+	 public BentoJson() {
+	 	super(Bento.class);	
+	 }
 
 	/**
 	 * Auto-generated method to cusomice the update method
@@ -55,7 +55,7 @@ public class BentoJson extends BasicAbstractJson {
 		}
 
 		// Read old Bento and his InputStream
-		Bento oldBento = (Bento) RecordDB.getDefault().readOne(id, classType);
+		Bento oldBento = RecordDB.getDefault().readOne(id, classType);
 		InputStream IS = RecordDB.getDefault().getInputStream(id, classType);
 		if(oldBento == null || IS == null) {
 			return BasicBentoCodes.DB_notfound;
@@ -63,10 +63,10 @@ public class BentoJson extends BasicAbstractJson {
 
 		// Not required params and artifact's id
 		// complete these params!
-		List<String> inputConcepts = new ArrayList<String>();
-		inputConcepts.add("i am inputConcept updated");
-		List<String> outputConcepts = new ArrayList<String>();
-		outputConcepts.add("i am outputConcept updated");
+		List<String> inputconcepts = new ArrayList<String>();
+		inputconcepts.add("i am inputConcept updated");
+		List<String> outputconcepts = new ArrayList<String>();
+		outputconcepts.add("i am outputConcept updated");
 		List<String> atl = new ArrayList<String>();
 		atl.add("i am atl updated");
 		List<String> tags = new ArrayList<String>();
@@ -75,7 +75,7 @@ public class BentoJson extends BasicAbstractJson {
 		//Composed params
 		
 		// Create new Bento
-		Bento newBento = new Bento(oldBento.getFilename(), oldBento.getFilesize(), inputConcepts, outputConcepts, atl, tags);
+		Bento newBento = new Bento(oldBento.getFilename(), oldBento.getFilesize(), inputconcepts, outputconcepts, atl, tags);
 
 		// Save new Bento and delete old Bento
 		if(RecordDB.getDefault().save(newBento, IS)) {
@@ -118,20 +118,19 @@ public class BentoJson extends BasicAbstractJson {
 
 			// Not required params and artifact's id
 			// complete these params!
-			List<String> inputConcepts = new ArrayList<String>();
-			inputConcepts.add("i am inputConcept");
-			List<String> outputConcepts = new ArrayList<String>();
-			outputConcepts.add("i am outputConcept");
+			List<String> inputconcepts = new ArrayList<String>();
+			inputconcepts.add("i am inputConcept");
+			List<String> outputconcepts = new ArrayList<String>();
+			outputconcepts.add("i am outputConcept");
 			List<String> atl = new ArrayList<String>();
 			atl.add("i am atl");
 			List<String> tags = new ArrayList<String>();
 			tags.add("i am tag");
 
-
 			//Composed params
 
 			// Create new Bento
-			Bento bento = new Bento(fileName, fileSize, inputConcepts, outputConcepts, atl, tags);
+			Bento bento = new Bento(fileName, fileSize, inputconcepts, outputconcepts, atl, tags);
 
 			if(!RecordDB.getDefault().save(bento, fileContent)) {
 				return BasicBentoCodes.DB_notuploaded;

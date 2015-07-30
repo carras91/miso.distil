@@ -7,6 +7,7 @@ import spark.Request;
 import spark.Response;
 import miso.carrascal.cloudModelServices.abstractServices.services.ServiceAbstractJson;
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
+import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.distil.entities.PersonalData;
 import miso.distil.pictureServices.Picture;
 
@@ -32,7 +33,7 @@ public class ServiceComparePictures extends ServiceAbstractJson {
 	/**
 	 * Method called automatically to prepare the inputs
 	 * If triggered :
-	 * - after upload, download, update, read -> artifacts.size = 1, (request, response) from these services
+	 * - after upload, download, update, read - artifacts.size = 1, (request, response) from these services
 	 * - after readAll, search -> the results of these services, (request, response) from these services
 	 * - on request -> artifacts.size = 0, , (request, response) sent by user
 	 * 
@@ -41,9 +42,12 @@ public class ServiceComparePictures extends ServiceAbstractJson {
 	@Override
 	protected List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
+		System.out.println("Starting prepare service ComparePictures");
 
 		// Create the input objects to your service and use (or not) the artifacts
 		input.add(new Picture());
+		
+		System.out.println("Finishing prepare service ComparePictures");
 
 		return input;
 	}
@@ -56,20 +60,19 @@ public class ServiceComparePictures extends ServiceAbstractJson {
 	@Override
 	protected List<Object> exeService(List<Object> input) {
 		List<Object> output = new ArrayList<Object>();
+		System.out.println("Starting execute service ComparePictures");
 		if(!this.testInput(input))
 			return output;
 
 		// Take your inputs
 		PersonalData personaldata = PersonalData.class.cast(input.get(0));
 		// : do something!
-		ArrayList<Picture> pictures = new ArrayList<Picture>();
-		Picture picture = new Picture("unknown", 0, personaldata, new ArrayList<String>(), "nowhere", false);
-		Picture picture1 = new Picture("unknown", 1, personaldata, new ArrayList<String>(), "nowhere", false);
+		List<Picture> pictures = RecordDB.getDefault().search("source", personaldata.getSource(), false, Picture.class);
+		pictures.addAll(RecordDB.getDefault().search("fileextension", personaldata.getFileextension(), false, Picture.class));
 		
-		pictures.add(picture);
-		pictures.add(picture1);
 		// Create your outputs (do something!)
 		output.add(pictures);
+		System.out.println("Finishing execute service ComparePictures");
 
 		return output;
 	}

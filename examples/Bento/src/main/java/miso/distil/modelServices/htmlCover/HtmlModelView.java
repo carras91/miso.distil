@@ -31,7 +31,7 @@ public class HtmlModelView implements HtmlInterfaceView<Model>{
 		entries.add(new HtmlEntry("ObjectId : " + model.getObjectid().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry("namemodel : " + model.getNamemodel(), EntrySize.H5));
 		entries.add(new HtmlEntry("type : " + model.getType(), EntrySize.H5));
-		entries.add(new HtmlEntry(HtmlModelLinks.getDownloadZipJsonLink(model) + " | " + HtmlModelLinks.getDownloadFileJsonLink(model), EntrySize.H5));
+		entries.add(new HtmlEntry(HtmlModelLinks.getDownloadJsonLink(model), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlModelLinks.getUpdateHtmlLink(model), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlModelLinks.getDeleteFormJsonLink(model), EntrySize.H5));
 

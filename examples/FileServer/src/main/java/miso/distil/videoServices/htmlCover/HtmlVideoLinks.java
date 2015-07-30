@@ -30,21 +30,12 @@ public class HtmlVideoLinks {
 	}
 
 	/**
-	 * Auto-generated link to the service download zip
+	 * Auto-generated link to the service download
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public static String getDownloadZipJsonLink(Video video) {
-		return "<a href=" + BasicVideoSpark.DownloadZipJson + video.getObjectid() + ">Download zip</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service download file
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getDownloadFileJsonLink(Video video) {
-		return "<a href=" + BasicVideoSpark.DownloadFileJson + video.getObjectid() + ">Download video</a>";
+	public static String getDownloadJsonLink(Video video) {
+		return "<a href=" + BasicVideoSpark.DownloadJson + video.getObjectid() + ">Download</a>";
 	}
 
 	/**

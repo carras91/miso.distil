@@ -11,7 +11,7 @@ import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
  */
 public class MongoDataBase implements BasicInterfaceSpark 
 {
-	private final static String MONGO_URI_0 = "mongodb://user:password@ds055722.mongolab.com:55722/heroku_m7s6bbkn";
+	private final static String MONGO_URI_0 = "mongodb://user:password@ds053972.mongolab.com:53972/heroku_1pbz17rf";
 
 	/**
 	 * Auto-generated spark service to find and activate some Mongo DataBases

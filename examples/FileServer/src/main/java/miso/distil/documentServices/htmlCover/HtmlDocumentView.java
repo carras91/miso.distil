@@ -30,12 +30,12 @@ public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 		entries.add(new HtmlEntry(document.getCreatedatString(), EntrySize.H4));
 		entries.add(new HtmlEntry("FileSize (bytes): " + document.getFilesize().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry("ObjectId : " + document.getObjectid().toString(), EntrySize.H4));
-		entries.add(new HtmlEntry("author_docinfo : " + document.getDocinfo().getAuthor(), EntrySize.H5));
-		entries.add(new HtmlEntry("source_docinfo : " + document.getDocinfo().getSource(), EntrySize.H5));
-		entries.add(new HtmlEntry("tags_docinfo : " + Utils.listToString(document.getDocinfo().getTags()), EntrySize.H5));				
-		entries.add(new HtmlEntry("fileextension_docinfo : " + document.getDocinfo().getFileextension(), EntrySize.H5));
+		entries.add(new HtmlEntry("docinfo.author : " + document.getDocinfo().getAuthor(), EntrySize.H5));
+		entries.add(new HtmlEntry("docinfo.source : " + document.getDocinfo().getSource(), EntrySize.H5));
+		entries.add(new HtmlEntry("docinfo.tags : " + Utils.listToString(document.getDocinfo().getTags()), EntrySize.H5));				
+		entries.add(new HtmlEntry("docinfo.fileextension : " + document.getDocinfo().getFileextension(), EntrySize.H5));
 		entries.add(new HtmlEntry("coauthors : " + Utils.listToString(document.getCoauthors()), EntrySize.H5));				
-		entries.add(new HtmlEntry(HtmlDocumentLinks.getDownloadZipJsonLink(document) + " | " + HtmlDocumentLinks.getDownloadFileJsonLink(document), EntrySize.H5));
+		entries.add(new HtmlEntry(HtmlDocumentLinks.getDownloadJsonLink(document), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlDocumentLinks.getUpdateHtmlLink(document), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlDocumentLinks.getDeleteFormJsonLink(document), EntrySize.H5));
 
@@ -77,10 +77,10 @@ public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 		
 		Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();
 		List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();
-		boxes.add(new HtmlSelectBox("author_docinfo", "author_docinfo"));
-		boxes.add(new HtmlSelectBox("source_docinfo", "source_docinfo"));
-		boxes.add(new HtmlSelectBox("tags_docinfo", "tags_docinfo"));
-		boxes.add(new HtmlSelectBox("fileextension_docinfo", "fileextension_docinfo"));
+		boxes.add(new HtmlSelectBox("docinfo.author", "docinfo.author"));
+		boxes.add(new HtmlSelectBox("docinfo.source", "docinfo.source"));
+		boxes.add(new HtmlSelectBox("docinfo.tags", "docinfo.tags"));
+		boxes.add(new HtmlSelectBox("docinfo.fileextension", "docinfo.fileextension"));
 		boxes.add(new HtmlSelectBox("coauthors", "coauthors"));
 		boxes.add(new HtmlSelectBox("isfinished", "isfinished"));
 		selectbox.put(BasicDocumentParam.Search_query, boxes);
@@ -109,9 +109,9 @@ public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 		viewObjects.put(HtmlFreeMarker.FORM, form);
 
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicDocumentParam.Author_docinfo, document.getDocinfo().getAuthor(), "author_docinfo", "author", ""));
-		texts.add(new HtmlText(BasicDocumentParam.Source_docinfo, document.getDocinfo().getSource(), "source_docinfo", "source", ""));
-		texts.add(new HtmlText(BasicDocumentParam.Tags_docinfo, Utils.listToString(document.getDocinfo().getTags()), "tags_docinfo (tags1,tags2,...)", "tags", ""));
+		texts.add(new HtmlText(BasicDocumentParam.Author_docinfo, document.getDocinfo().getAuthor(), "docinfo.author", "author", ""));
+		texts.add(new HtmlText(BasicDocumentParam.Source_docinfo, document.getDocinfo().getSource(), "docinfo.source", "source", ""));
+		texts.add(new HtmlText(BasicDocumentParam.Tags_docinfo, Utils.listToString(document.getDocinfo().getTags()), "docinfo.tags (tags1,tags2,...)", "tags", ""));
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 		List<HtmlRadio> radios = new ArrayList<HtmlRadio>();
@@ -137,9 +137,9 @@ public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 		viewObjects.put(HtmlFreeMarker.FORM, form);
 
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicDocumentParam.Author_docinfo, "", "author_docinfo", "author", "Enter valid String"));
-		texts.add(new HtmlText(BasicDocumentParam.Source_docinfo, "", "source_docinfo", "source", "Enter valid String"));
-		texts.add(new HtmlText(BasicDocumentParam.Tags_docinfo, "", "tags_docinfo (tags1,tags2,...)", "tags", "Enter new list of valid String"));
+		texts.add(new HtmlText(BasicDocumentParam.Author_docinfo, "", "docinfo.author", "author", "Enter valid String"));
+		texts.add(new HtmlText(BasicDocumentParam.Source_docinfo, "", "docinfo.source", "source", "Enter valid String"));
+		texts.add(new HtmlText(BasicDocumentParam.Tags_docinfo, "", "docinfo.tags (tags1,tags2,...)", "tags", "Enter new list of valid String"));
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);
 
 		List<HtmlRadio> radios = new ArrayList<HtmlRadio>();

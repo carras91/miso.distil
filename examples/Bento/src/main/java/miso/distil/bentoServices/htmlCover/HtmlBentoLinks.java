@@ -30,21 +30,12 @@ public class HtmlBentoLinks {
 	}
 
 	/**
-	 * Auto-generated link to the service download zip
+	 * Auto-generated link to the service download
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public static String getDownloadZipJsonLink(Bento bento) {
-		return "<a href=" + BasicBentoSpark.DownloadZipJson + bento.getObjectid() + ">Download zip</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service download file
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getDownloadFileJsonLink(Bento bento) {
-		return "<a href=" + BasicBentoSpark.DownloadFileJson + bento.getObjectid() + ">Download bento</a>";
+	public static String getDownloadJsonLink(Bento bento) {
+		return "<a href=" + BasicBentoSpark.DownloadJson + bento.getObjectid() + ">Download</a>";
 	}
 
 	/**

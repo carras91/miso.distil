@@ -303,7 +303,7 @@ public class generateHtmlView {
               if ((att_1 instanceof Primitive)) {
                 _builder.append("\t");
                 _builder.append("\t");
-                final String newName = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                final String newName = this.genUti.getNewAttNameByPoint(Integer.valueOf(pos), artifact);
                 _builder.newLineIfNotEmpty();
                 {
                   boolean _and_2 = false;
@@ -423,11 +423,7 @@ public class generateHtmlView {
             _builder.append("\t");
             _builder.append("entries.add(new HtmlEntry(Html");
             _builder.append(name, "\t\t");
-            _builder.append("Links.getDownloadZipJsonLink(");
-            _builder.append(namelow, "\t\t");
-            _builder.append(") + \" | \" + Html");
-            _builder.append(name, "\t\t");
-            _builder.append("Links.getDownloadFileJsonLink(");
+            _builder.append("Links.getDownloadJsonLink(");
             _builder.append(namelow, "\t\t");
             _builder.append("), EntrySize.H5));");
             _builder.newLineIfNotEmpty();
@@ -683,7 +679,7 @@ public class generateHtmlView {
               if (_or_10) {
                 _builder.append("\t");
                 _builder.append("\t");
-                final String newName_2 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
+                final String newName_2 = this.genUti.getNewAttNameByPoint(Integer.valueOf(pos), artifact);
                 _builder.newLineIfNotEmpty();
                 _builder.append("\t");
                 _builder.append("\t");
@@ -830,6 +826,10 @@ public class generateHtmlView {
                     _builder.append("\t");
                     final String newName_3 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    final String newPointName = this.genUti.getNewAttNameByPoint(Integer.valueOf(pos), artifact);
+                    _builder.newLineIfNotEmpty();
                     {
                       boolean _and_4 = false;
                       DataEnum _type_4 = ((Primitive)att_3).getType();
@@ -853,7 +853,7 @@ public class generateHtmlView {
                         String _nestedGets_5 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                         _builder.append(_nestedGets_5, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase = newName_3.toLowerCase();
+                        String _lowerCase = newPointName.toLowerCase();
                         _builder.append(_lowerCase, "\t\t");
                         _builder.append("\", \"");
                         String _name_1 = ((Primitive)att_3).getName();
@@ -891,7 +891,7 @@ public class generateHtmlView {
                           String _nestedGets_6 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                           _builder.append(_nestedGets_6, "\t\t");
                           _builder.append(".toString(), \"");
-                          String _lowerCase_1 = newName_3.toLowerCase();
+                          String _lowerCase_1 = newPointName.toLowerCase();
                           _builder.append(_lowerCase_1, "\t\t");
                           _builder.append("\", \"");
                           String _name_2 = ((Primitive)att_3).getName();
@@ -912,7 +912,7 @@ public class generateHtmlView {
                             String _nestedGets_7 = this.genUti.getNestedGets(Integer.valueOf(pos), artifact);
                             _builder.append(_nestedGets_7, "\t\t");
                             _builder.append("), \"");
-                            String _lowerCase_2 = newName_3.toLowerCase();
+                            String _lowerCase_2 = newPointName.toLowerCase();
                             _builder.append(_lowerCase_2, "\t\t");
                             _builder.append(" (");
                             String _name_3 = ((Primitive)att_3).getName();
@@ -973,6 +973,10 @@ public class generateHtmlView {
                     _builder.append("\t");
                     String newName_4 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    final String newPointName_1 = this.genUti.getNewAttNameByPoint(Integer.valueOf(pos), artifact);
+                    _builder.newLineIfNotEmpty();
                     {
                       boolean _and_6 = false;
                       DataEnum _type_7 = ((Primitive)att_4).getType();
@@ -993,7 +997,7 @@ public class generateHtmlView {
                         String _firstUpper_3 = StringExtensions.toFirstUpper(newName_4);
                         _builder.append(_firstUpper_3, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase_3 = newName_4.toLowerCase();
+                        String _lowerCase_3 = newPointName_1.toLowerCase();
                         _builder.append(_lowerCase_3, "\t\t");
                         _builder.append("\", \"");
                         String _name_6 = ((Primitive)att_4).getName();
@@ -1121,6 +1125,10 @@ public class generateHtmlView {
                     _builder.append("\t");
                     final String newName_5 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    final String newPointName_2 = this.genUti.getNewAttNameByPoint(Integer.valueOf(pos), artifact);
+                    _builder.newLineIfNotEmpty();
                     {
                       boolean _and_7 = false;
                       DataEnum _type_8 = ((Primitive)att_5).getType();
@@ -1142,7 +1150,7 @@ public class generateHtmlView {
                         String _firstUpper_4 = StringExtensions.toFirstUpper(newName_5);
                         _builder.append(_firstUpper_4, "\t\t");
                         _builder.append(", \"\", \"");
-                        String _lowerCase_4 = newName_5.toLowerCase();
+                        String _lowerCase_4 = newPointName_2.toLowerCase();
                         _builder.append(_lowerCase_4, "\t\t");
                         _builder.append("\", \"");
                         String _name_7 = ((Primitive)att_5).getName();
@@ -1164,7 +1172,7 @@ public class generateHtmlView {
                           String _firstUpper_5 = StringExtensions.toFirstUpper(newName_5);
                           _builder.append(_firstUpper_5, "\t\t");
                           _builder.append(", \"\", \"");
-                          String _lowerCase_5 = newName_5.toLowerCase();
+                          String _lowerCase_5 = newPointName_2.toLowerCase();
                           _builder.append(_lowerCase_5, "\t\t");
                           _builder.append(" (");
                           String _name_8 = ((Primitive)att_5).getName();
@@ -1228,6 +1236,10 @@ public class generateHtmlView {
                     _builder.append("\t");
                     final String newName_6 = this.genUti.getNewAttName(Integer.valueOf(pos), artifact);
                     _builder.newLineIfNotEmpty();
+                    _builder.append("\t");
+                    _builder.append("\t");
+                    final String newPointName_3 = this.genUti.getNewAttNameByPoint(Integer.valueOf(pos), artifact);
+                    _builder.newLineIfNotEmpty();
                     {
                       boolean _and_8 = false;
                       DataEnum _type_11 = ((Primitive)att_6).getType();
@@ -1248,7 +1260,7 @@ public class generateHtmlView {
                         String _firstUpper_6 = StringExtensions.toFirstUpper(newName_6);
                         _builder.append(_firstUpper_6, "\t\t");
                         _builder.append(", \"");
-                        String _lowerCase_6 = newName_6.toLowerCase();
+                        String _lowerCase_6 = newPointName_3.toLowerCase();
                         _builder.append(_lowerCase_6, "\t\t");
                         _builder.append("\", \"");
                         String _name_11 = ((Primitive)att_6).getName();

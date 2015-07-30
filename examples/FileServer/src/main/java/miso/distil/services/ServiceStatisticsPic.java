@@ -5,10 +5,8 @@ import java.util.List;
 
 import spark.Request;
 import spark.Response;
-
 import miso.carrascal.cloudModelServices.abstractServices.services.ServiceAbstractJson;
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
-
 import miso.distil.pictureServices.Picture;
 import miso.distil.entities.PersonalData;
 
@@ -43,6 +41,7 @@ public class ServiceStatisticsPic extends ServiceAbstractJson {
 	@Override
 	protected List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
+		System.out.println("Starting prepare service StatisticsPic");
 
 		// Create the input objects to your service and use (or not) the artifacts
 		if(artifacts.size() == 1) {
@@ -50,6 +49,7 @@ public class ServiceStatisticsPic extends ServiceAbstractJson {
 		} else {
 			input.add(new Picture());
 		}
+		System.out.println("Finishing prepare service StatisticsPic");
 
 		return input;
 	}
@@ -62,6 +62,7 @@ public class ServiceStatisticsPic extends ServiceAbstractJson {
 	@Override
 	protected List<Object> exeService(List<Object> input) {
 		List<Object> output = new ArrayList<Object>();
+		System.out.println("Starting execute service StatisticsPic");
 		if(!this.testInput(input))
 			return output;
 
@@ -71,6 +72,7 @@ public class ServiceStatisticsPic extends ServiceAbstractJson {
 
 		// Create your outputs (do something!)
 		output.add(picture.getPictureinfo());
+		System.out.println("Finishing execute service StatisticsPic");
 
 		return output;
 	}

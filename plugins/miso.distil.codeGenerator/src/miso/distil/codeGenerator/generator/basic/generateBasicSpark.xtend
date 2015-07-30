@@ -68,10 +68,8 @@ class generateBasicSpark {
 				public static String DeleteJson = "/json/«namelow»/delete";
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.DOWNLOAD)»
-				public static String DownloadZipJson = "/json/«namelow»/download/zip/";
-				public static String DownloadZipIdJson = DownloadZipJson + Basic«name»Param.IdGet;
-				public static String DownloadFileJson = "/json/«namelow»/download/file/";
-				public static String DownloadFileIdJson = DownloadFileJson + Basic«name»Param.IdGet;
+				public static String DownloadJson = "/json/«namelow»/download/zip/";
+				public static String DownloadIdJson = DownloadJson + Basic«name»Param.IdGet;
 			«ENDIF»
 
 			/**
@@ -86,48 +84,65 @@ class generateBasicSpark {
 
 				«IF basicServices.contains(ServiceEnum.READ)»
 					get(ReadIdJson, "application/json",
-						(request, response) -> Json.getRead(request, response), 
-						new JsonTransformer());
+						(request, response) -> {
+							Object obj = Json.getRead(request, response);
+							response.body((new JsonTransformer()).render(obj));
+							return obj;
+						}, new JsonTransformer());
 
 				«ENDIF»
 				«IF basicServices.contains(ServiceEnum.READ_ALL)»
 					get(ReadAllJson, "application/json",
-						(request, response) -> Json.getReadAll(request, response),
-						new JsonTransformer());
+						(request, response) -> {
+							Object obj = Json.getReadAll(request, response);
+							response.body((new JsonTransformer()).render(obj));
+							return obj;
+						}, new JsonTransformer());
 
 				«ENDIF»
 				«IF basicServices.contains(ServiceEnum.SEARCH)»
 					get(SearchJson, "application/json",
-						(request, response) -> Json.getSearch(request, response), 
-						new JsonTransformer());
+						(request, response) -> {
+							Object obj = Json.getSearch(request, response);
+							response.body((new JsonTransformer()).render(obj));
+							return obj;
+						}, new JsonTransformer());
 
 				«ENDIF»
 				«IF basicServices.contains(ServiceEnum.UPDATE)»
 					post(UpdateJson, "application/json",
-						(request, response) -> Json.postUpdate(request, response), 
-						new JsonTransformer());
+						(request, response) -> {
+							Object obj = Json.postUpdate(request, response);
+							response.body((new JsonTransformer()).render(obj));
+							return obj;
+						}, new JsonTransformer());
 
 				«ENDIF»
 				«IF basicServices.contains(ServiceEnum.UPLOAD)»
 					post(UploadJson, "application/json",
-						(request, response) -> Json.postUpload(request, response),
-						new JsonTransformer());
+						(request, response) -> {
+							Object obj = Json.postUpload(request, response);
+							response.body((new JsonTransformer()).render(obj));
+							return obj;
+						}, new JsonTransformer());
 
 				«ENDIF»
 				«IF basicServices.contains(ServiceEnum.DELETE)»
 					post(DeleteJson, "application/json",
-						(request, response) -> Json.postDelete(request, response),
-						new JsonTransformer());
+						(request, response) -> {
+							Object obj = Json.postDelete(request, response);
+							response.body((new JsonTransformer()).render(obj));
+							return obj;
+						}, new JsonTransformer());
 
 				«ENDIF»
 				«IF basicServices.contains(ServiceEnum.DOWNLOAD)»
-					get(DownloadZipIdJson, "application/json",
-						(request, response) -> Json.getDownloadZip(request, response),
-						new JsonTransformer());
-
-					get(DownloadFileIdJson, "application/json",
-						(request, response) -> Json.getDownloadFile(request, response),
-						new JsonTransformer());
+					get(DownloadIdJson, "application/json",
+						(request, response) -> {
+							Object obj = Json.getDownload(request, response);
+							response.body((new JsonTransformer()).render(obj));
+							return obj;
+						}, new JsonTransformer());
 				«ENDIF»
 			}
 		}

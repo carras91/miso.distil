@@ -12,21 +12,12 @@ import miso.distil.metamodelServices.MetaModel;
 public class HtmlMetaModelLinks {
 
 	/**
-	 * Auto-generated link to the service download zip
+	 * Auto-generated link to the service download
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public static String getDownloadZipJsonLink(MetaModel metamodel) {
-		return "<a href=" + BasicMetaModelSpark.DownloadZipJson + metamodel.getObjectid() + ">Download zip</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service download file
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getDownloadFileJsonLink(MetaModel metamodel) {
-		return "<a href=" + BasicMetaModelSpark.DownloadFileJson + metamodel.getObjectid() + ">Download metamodel</a>";
+	public static String getDownloadJsonLink(MetaModel metamodel) {
+		return "<a href=" + BasicMetaModelSpark.DownloadJson + metamodel.getObjectid() + ">Download</a>";
 	}
 
 	/**

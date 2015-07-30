@@ -30,21 +30,12 @@ public class HtmlPictureLinks {
 	}
 
 	/**
-	 * Auto-generated link to the service download zip
+	 * Auto-generated link to the service download
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public static String getDownloadZipJsonLink(Picture picture) {
-		return "<a href=" + BasicPictureSpark.DownloadZipJson + picture.getObjectid() + ">Download zip</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service download file
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getDownloadFileJsonLink(Picture picture) {
-		return "<a href=" + BasicPictureSpark.DownloadFileJson + picture.getObjectid() + ">Download picture</a>";
+	public static String getDownloadJsonLink(Picture picture) {
+		return "<a href=" + BasicPictureSpark.DownloadJson + picture.getObjectid() + ">Download</a>";
 	}
 
 	/**

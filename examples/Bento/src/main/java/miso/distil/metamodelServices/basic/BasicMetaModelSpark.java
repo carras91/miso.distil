@@ -19,10 +19,8 @@ public final class BasicMetaModelSpark implements BasicInterfaceSpark {
 	public static String SearchJson = "/json/metamodel/search";
 	public static String UploadJson = "/json/metamodel/upload";
 	public static String DeleteJson = "/json/metamodel/delete";
-	public static String DownloadZipJson = "/json/metamodel/download/zip/";
-	public static String DownloadZipIdJson = DownloadZipJson + BasicMetaModelParam.IdGet;
-	public static String DownloadFileJson = "/json/metamodel/download/file/";
-	public static String DownloadFileIdJson = DownloadFileJson + BasicMetaModelParam.IdGet;
+	public static String DownloadJson = "/json/metamodel/download/zip/";
+	public static String DownloadIdJson = DownloadJson + BasicMetaModelParam.IdGet;
 
 	/**
 	 * Auto-generated spark service. It initializes all url's
@@ -35,23 +33,31 @@ public final class BasicMetaModelSpark implements BasicInterfaceSpark {
 		MetaModelJson Json = new MetaModelJson();
 
 		get(SearchJson, "application/json",
-			(request, response) -> Json.getSearch(request, response), 
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.getSearch(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
 		post(UploadJson, "application/json",
-			(request, response) -> Json.postUpload(request, response),
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.postUpload(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
 		post(DeleteJson, "application/json",
-			(request, response) -> Json.postDelete(request, response),
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.postDelete(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
-		get(DownloadZipIdJson, "application/json",
-			(request, response) -> Json.getDownloadZip(request, response),
-			new JsonTransformer());
-
-		get(DownloadFileIdJson, "application/json",
-			(request, response) -> Json.getDownloadFile(request, response),
-			new JsonTransformer());
+		get(DownloadIdJson, "application/json",
+			(request, response) -> {
+				Object obj = Json.getDownload(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 	}
 }

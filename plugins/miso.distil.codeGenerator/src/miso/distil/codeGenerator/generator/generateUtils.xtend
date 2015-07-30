@@ -14,7 +14,7 @@ import com.google.inject.Inject
 import codeGeneratorModel.ServiceEnum
 import codeGeneratorModel.DataEnum
 
-/*
+/**
  * Some methos used everywhere
  * 
  * @author Carlos Carrascal
@@ -25,7 +25,7 @@ class generateUtils {
 	
 	private var HashMap<Artifact, List<Pair<Attribute, List<String>>>> nestedTree = new HashMap<Artifact, List<Pair<Attribute, List<String>>>>()
 
-	/*
+	/**
 	 * To write the chain ".getX().getY()..." from the attribute number "pos" in artifact
 	 * 
 	 * @author Carlos Carrascal
@@ -43,7 +43,7 @@ class generateUtils {
 		return nestedGets + '''.get''' + name.toString.toFirstUpper + '''()'''
 	}
 	
-	/*
+	/**
 	 * To write a string "att1, att2, att3, ..." from the attributes inside the reference number pos in artifact
 	 * 
 	 * @author Carlos Carrascal
@@ -62,8 +62,8 @@ class generateUtils {
 		return nestedAtt
 	}
 	
-	/*
-	 * To get an attribute name by his position inside nestedTree
+	/**
+	 * To get an attribute name by his position inside nestedTree (separated by _)
 	 * 
 	 * @author Carlos Carrascal
 	 */
@@ -76,7 +76,20 @@ class generateUtils {
 		return newName
 	}
 	
-	/*
+	/**
+	 * To get an attribute name by his position inside nestedTree (separated by .)
+	 * 
+	 * @author Carlos Carrascal
+	 */
+	def getNewAttNameByPoint(Integer pos, Artifact artifact) {
+		var list = artifact.nestedTree.get(pos).value 
+		var newName = ""
+		for(var int i = 1; i < list.size; i++) 
+			newName = newName + list.get(i).toLowerCase + '.'
+		return newName + artifact.nestedTree.get(pos).key.name
+	}
+	
+	/**
 	 * To get an attribute name
 	 * 
 	 * @author Carlos Carrascal
@@ -93,7 +106,7 @@ class generateUtils {
 		}
 	}
 	
-	/*
+	/**
 	 * To fill nestedTree and return artifact's attributes information
 	 * 
 	 * @author Carlos Carrascal
@@ -116,7 +129,7 @@ class generateUtils {
 		}
 	}
 	
-	/*
+	/**
 	 * To get for each attribute his path in an ascendent way (recursive)
 	 * 
 	 * @author Carlos Carrascal 
@@ -134,7 +147,7 @@ class generateUtils {
 		return list
 	}
 	
-	/*
+	/**
 	 * To write "import java.util.List;" if needed
 	 * 
 	 * @author Carlos Carrascal
@@ -151,7 +164,7 @@ class generateUtils {
 		'''	
 	}
 	
-	/*
+	/**
 	 * To write imports from atts
 	 * 
 	 * @author Carlos Carrascal 
@@ -170,7 +183,7 @@ class generateUtils {
 		'''
 	}
 	
-	/*
+	/**
 	 * To get a list of nested attributes (primitive and reference) (recursive)
 	 * 
 	 * @author Carlos Carrascal
@@ -186,7 +199,7 @@ class generateUtils {
 		return list
 	}
 	
-	/*
+	/**
 	 * To get a list of nested attributes (but not references) (recursive)
 	 * 
 	 * @author Carlos Carrascal
@@ -203,14 +216,14 @@ class generateUtils {
 		return list
 	}
 		
-	/*
+	/**
 	 * To write the class name of att
 	 * 
 	 * @author Carlos Carrascal 
 	 */
 	def getTypeName(Attribute att) '''«IF att.many»List<«ENDIF»«IF att instanceof Reference»«att.type.name»«ELSEIF att instanceof Primitive»«(att as Primitive).type.toString»«ELSE»String«ENDIF»«IF att.many»>«ENDIF»'''
 
-	/*
+	/**
 	 * To write private attributes
 	 * 
 	 * @author Carlos Carrascal
@@ -221,7 +234,7 @@ class generateUtils {
 		«ENDFOR»
 	'''	
 	
-	/*
+	/**
 	 * To write getters and setters
 	 * 
 	 * @author Carlos Carrascal
@@ -262,7 +275,7 @@ class generateUtils {
 		«ENDFOR»
 	'''
 	
-	/*
+	/**
 	 * Process ServiceEnum.ALL
 	 * 
 	 * @author Carlos Carrascal
@@ -280,7 +293,7 @@ class generateUtils {
 		return services
 	}
 	
-	/*
+	/**
 	 * To write toString method
 	 * 
 	 * @author Carlos Carrascal

@@ -92,16 +92,16 @@ class generateJson {
 		 * 
 		 * @author miso.distil.codeGenerator
 		 */
-		public class «name»Json extends BasicAbstractJson {
+		public class «name»Json extends BasicAbstractJson<«name»> {
 
-			/**
+			 /**
 			 * Auto-generated empty constructor
 			 * 
 			 * @author miso.distil.codeGenerator
 			 */
-			public «name»Json() {
-				super(«name».class);	
-			}
+			 public «name»Json() {
+			 	super(«name».class);	
+			 }
 
 			«IF basicServices.contains(ServiceEnum.UPDATE)»
 				/**
@@ -159,7 +159,7 @@ class generateJson {
 					}
 
 					// Read old «name» and his InputStream
-					«name» old«name» = («name») RecordDB.getDefault().readOne(id, classType);
+					«name» old«name» = RecordDB.getDefault().readOne(id, classType);
 					InputStream IS = RecordDB.getDefault().getInputStream(id, classType);
 					if(old«name» == null || IS == null) {
 						return Basic«name»Codes.DB_notfound;

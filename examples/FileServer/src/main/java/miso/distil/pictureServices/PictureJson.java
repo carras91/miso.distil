@@ -14,7 +14,6 @@ import javax.servlet.http.Part;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.utils.Utils;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
-
 import miso.distil.pictureServices.Picture;
 import miso.distil.pictureServices.basic.BasicPictureCodes;
 import miso.distil.pictureServices.basic.BasicPictureParam;
@@ -25,16 +24,16 @@ import miso.distil.entities.PersonalData;
  * 
  * @author miso.distil.codeGenerator
  */
-public class PictureJson extends BasicAbstractJson {
+public class PictureJson extends BasicAbstractJson<Picture> {
 
 	/**
 	 * Auto-generated empty constructor
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public PictureJson() {
-		super(Picture.class);	
-	}
+	 public PictureJson() {
+	 	super(Picture.class);	
+	 }
 
 	/**
 	 * Auto-generated method to cusomice the upload method

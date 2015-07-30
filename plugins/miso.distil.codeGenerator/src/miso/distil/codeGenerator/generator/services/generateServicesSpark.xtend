@@ -78,7 +78,6 @@ class generateServicesSpark {
 				«{upload = true; null}»
 				import static spark.Spark.after;
 
-				import com.google.gson.Gson;
 				import com.google.gson.JsonSyntaxException;
 			«ENDIF»
 		«ENDFOR»
@@ -122,18 +121,18 @@ class generateServicesSpark {
 					Service«service.name» service«service.name» = new Service«service.name»();
 					post(«service.name»Url, "application/json",
 						(request, response) -> {
-							List<Persistent> list = new ArrayList<Persistent>();
-							return service«service.name».runService(request, response, list);
+							return service«service.name».runService(request, response, new ArrayList<Persistent>());
 						}, new JsonTransformer());
+
 				«ENDFOR»
 				«FOR artifact : map.keySet»
 					«IF map.get(artifact).containsKey(ServiceEnum.DOWNLOAD) || map.get(artifact).containsKey(ServiceEnum.ALL)»
 
-						after(Basic«artifact.name»Spark.DownloadZipIdJson, "application/json",
+						after(Basic«artifact.name»Spark.DownloadIdJson, "application/json",
 								(request, response) -> {
 									String id = request.params(Basic«artifact.name»Param.IdGet);
-									Persistent artifact = RecordDB.getDefault().readOne(id, «artifact.name».class);
-									List<Persistent> list = new ArrayList<Persistent>();
+									«artifact.name» artifact = RecordDB.getDefault().readOne(id, «artifact.name».class);
+									List<«artifact.name»> list = new ArrayList<«artifact.name»>();
 									list.add(artifact);
 									«{listServices.clear; null}»
 									«IF map.get(artifact).containsKey(ServiceEnum.DOWNLOAD)»
@@ -142,20 +141,11 @@ class generateServicesSpark {
 									«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 										«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 									«ENDIF»
+									String result = "Original response --> " + response.body() + " <-- end of original response. ";
 									«FOR service : listServices»
-										service«service.name».runService(request, response, list);
+										result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
 									«ENDFOR»
-								});
-
-						after(Basic«artifact.name»Spark.DownloadFileIdJson, "application/json",
-								(request, response) -> {
-									String id = request.params(Basic«artifact.name»Param.IdGet);
-									Persistent artifact = RecordDB.getDefault().readOne(id, «artifact.name».class);
-									List<Persistent> list = new ArrayList<Persistent>();
-									list.add(artifact);
-									«FOR service : listServices»
-										service«service.name».runService(request, response, list);
-									«ENDFOR»
+									response.body(result);
 								});
 					«ENDIF»
 					«IF map.get(artifact).containsKey(ServiceEnum.READ) || map.get(artifact).containsKey(ServiceEnum.ALL)»
@@ -163,8 +153,8 @@ class generateServicesSpark {
 						after(Basic«artifact.name»Spark.ReadIdJson, "application/json",
 								(request, response) -> {
 									String id = request.params(Basic«artifact.name»Param.IdGet);
-									Persistent artifact = RecordDB.getDefault().readOne(id, «artifact.name».class);
-									List<Persistent> list = new ArrayList<Persistent>();
+									«artifact.name» artifact = RecordDB.getDefault().readOne(id, «artifact.name».class);
+									List<«artifact.name»> list = new ArrayList<«artifact.name»>();
 									list.add(artifact);
 									«{listServices.clear; null}»
 									«IF map.get(artifact).containsKey(ServiceEnum.READ)»
@@ -173,9 +163,11 @@ class generateServicesSpark {
 									«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 										«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 									«ENDIF»
+									String result = "Original response --> " + response.body() + " <-- end of original response. ";
 									«FOR service : listServices»
-										service«service.name».runService(request, response, list);
+										result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
 									«ENDFOR»
+									response.body(result);
 								});
 					«ENDIF»
 					«IF map.get(artifact).containsKey(ServiceEnum.UPDATE) || map.get(artifact).containsKey(ServiceEnum.ALL)»
@@ -183,8 +175,8 @@ class generateServicesSpark {
 						after(Basic«artifact.name»Spark.UpdateJson, "application/json",
 								(request, response) -> {
 									String id = request.queryParams(Basic«artifact.name»Param.IdPost);
-									Persistent artifact = RecordDB.getDefault().readOne(id, «artifact.name».class);
-									List<Persistent> list = new ArrayList<Persistent>();
+									«artifact.name» artifact = RecordDB.getDefault().readOne(id, «artifact.name».class);
+									List<«artifact.name»> list = new ArrayList<«artifact.name»>();
 									list.add(artifact);
 									«{listServices.clear; null}»
 									«IF map.get(artifact).containsKey(ServiceEnum.UPDATE)»
@@ -193,9 +185,11 @@ class generateServicesSpark {
 									«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 										«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 									«ENDIF»
+									String result = "Original response --> " + response.body() + " <-- end of original response. ";
 									«FOR service : listServices»
-										service«service.name».runService(request, response, list);
+										result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
 									«ENDFOR»
+									response.body(result);
 								});
 					«ENDIF»
 					«IF map.get(artifact).containsKey(ServiceEnum.UPLOAD) || map.get(artifact).containsKey(ServiceEnum.ALL)»
@@ -203,8 +197,8 @@ class generateServicesSpark {
 						after(Basic«artifact.name»Spark.UploadJson, "application/json",
 								(request, response) -> {
 									try {
-							            Persistent artifact = ((Persistent)(new Gson()).fromJson(response.body(), «artifact.name».class));
-										List<Persistent> list = new ArrayList<Persistent>();
+										«artifact.name» artifact = JsonTransformer.fromJson(response.body(), «artifact.name».class);
+										List<«artifact.name»> list = new ArrayList<«artifact.name»>();
 										list.add(artifact);
 										«{listServices.clear; null}»
 										«IF map.get(artifact).containsKey(ServiceEnum.UPLOAD)»
@@ -213,9 +207,11 @@ class generateServicesSpark {
 										«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 										«ENDIF»
+										String result = "Original response --> " + response.body() + " <-- end of original response. ";
 										«FOR service : listServices»
-											service«service.name».runService(request, response, list);
+											result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
 										«ENDFOR»
+										response.body(result);
 									} catch (JsonSyntaxException e) {
 										e.printStackTrace();
 									}
@@ -226,8 +222,8 @@ class generateServicesSpark {
 						after(Basic«artifact.name»Spark.DeleteJson, "application/json",
 								(request, response) -> {
 									try {
-							            Persistent artifact = ((Persistent)(new Gson()).fromJson(response.body(), «artifact.name».class));
-										List<Persistent> list = new ArrayList<Persistent>();
+										«artifact.name» artifact = JsonTransformer.fromJson(response.body(), «artifact.name».class));
+										List<«artifact.name»> list = new ArrayList<«artifact.name»>();
 										list.add(artifact);
 										«{listServices.clear; null}»
 										«IF map.get(artifact).containsKey(ServiceEnum.DELETE)»
@@ -236,9 +232,11 @@ class generateServicesSpark {
 										«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 										«ENDIF»
+										String result = "Original response --> " + response.body() + " <-- end of original response. ";
 										«FOR service : listServices»
-											service«service.name».runService(request, response, list);
+											result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
 										«ENDFOR»
+										response.body(result);
 									} catch (JsonSyntaxException e) {
 										e.printStackTrace();
 									}
@@ -249,8 +247,8 @@ class generateServicesSpark {
 						after(Basic«artifact.name»Spark.ReadAllJson, "application/json",
 								(request, response) -> {
 									try {
-										Persistent[] list = (new Gson()).fromJson(response.body(), Persistent[].class);
-							            List<Persistent> newList = new ArrayList<Persistent>(Arrays.asList(list));
+										«artifact.name»[] list = JsonTransformer.fromJson(response.body(), «artifact.name»[].class));
+							            List<«artifact.name»> newList = new ArrayList<«artifact.name»>(Arrays.asList(list));
 										«{listServices.clear; null}»
 										«IF map.get(artifact).containsKey(ServiceEnum.READ_ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.READ_ALL)); null}»
@@ -258,9 +256,11 @@ class generateServicesSpark {
 										«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 										«ENDIF»
+										String result = "Original response --> " + response.body() + " <-- end of original response. ";
 										«FOR service : listServices»
-											service«service.name».runService(request, response, newList);
+											result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, newList)) + " <-- end of service «service.name». ";
 										«ENDFOR»
+										response.body(result);
 									} catch (JsonSyntaxException e) {
 										e.printStackTrace();
 									}
@@ -271,8 +271,8 @@ class generateServicesSpark {
 						after(Basic«artifact.name»Spark.SearchJson, "application/json",
 								(request, response) -> {
 									try {
-										Persistent[] list = (new Gson()).fromJson(response.body(), Persistent[].class);
-							            List<Persistent> newList = new ArrayList<Persistent>(Arrays.asList(list));
+										«artifact.name»[] list = JsonTransformer.fromJson(response.body(), «artifact.name»[].class));
+							            List<«artifact.name»> newList = new ArrayList<«artifact.name»>(Arrays.asList(list));
 										«{listServices.clear; null}»
 										«IF map.get(artifact).containsKey(ServiceEnum.SEARCH)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.SEARCH)); null}»
@@ -280,9 +280,11 @@ class generateServicesSpark {
 										«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 										«ENDIF»
+										String result = "Original response --> " + response.body() + " <-- end of original response. ";
 										«FOR service : listServices»
-											service«service.name».runService(request, response, newList);
+											result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, newList)) + " <-- end of service «service.name». ";
 										«ENDFOR»
+										response.body(result);
 									} catch (JsonSyntaxException e) {
 										e.printStackTrace();
 									}

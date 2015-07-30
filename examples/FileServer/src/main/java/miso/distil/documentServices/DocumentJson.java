@@ -26,16 +26,16 @@ import miso.distil.entities.PersonalData;
  * 
  * @author miso.distil.codeGenerator
  */
-public class DocumentJson extends BasicAbstractJson {
+public class DocumentJson extends BasicAbstractJson<Document> {
 
 	/**
 	 * Auto-generated empty constructor
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public DocumentJson() {
-		super(Document.class);	
-	}
+	 public DocumentJson() {
+	 	super(Document.class);	
+	 }
 
 	/**
 	 * Auto-generated method to cusomice the update method
@@ -145,7 +145,7 @@ public class DocumentJson extends BasicAbstractJson {
 			if(!RecordDB.getDefault().save(document, fileContent)) {
 				return BasicDocumentCodes.DB_notuploaded;
 			}
-
+			res.body(document.getObjectid());
 			return document;
 
 		} catch (IOException e) {

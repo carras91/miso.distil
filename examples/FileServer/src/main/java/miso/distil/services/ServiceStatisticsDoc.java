@@ -41,6 +41,7 @@ public class ServiceStatisticsDoc extends ServiceAbstractJson {
 	@Override
 	protected List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
+		System.out.println("Starting prepare service StatisticsDoc");
 
 		//  Create the input objects to your service and use (or not) the artifacts
 		if(artifacts.size() == 1) {
@@ -48,6 +49,7 @@ public class ServiceStatisticsDoc extends ServiceAbstractJson {
 		} else {
 			input.add(new Document());
 		}
+		System.out.println("Finishing prepare service StatisticsDoc");
 
 		return input;
 	}
@@ -60,6 +62,7 @@ public class ServiceStatisticsDoc extends ServiceAbstractJson {
 	@Override
 	protected List<Object> exeService(List<Object> input) {
 		List<Object> output = new ArrayList<Object>();
+		System.out.println("Starting execute service StatisticsDoc");
 		if(!this.testInput(input))
 			return output;
 
@@ -69,6 +72,7 @@ public class ServiceStatisticsDoc extends ServiceAbstractJson {
 
 		// Create your outputs (do something!)
 		output.add(document.getDocinfo());
+		System.out.println("Finishing execute service StatisticsDoc");
 
 		return output;
 	}

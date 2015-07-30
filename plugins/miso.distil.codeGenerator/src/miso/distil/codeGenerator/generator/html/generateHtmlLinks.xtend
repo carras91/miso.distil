@@ -63,21 +63,12 @@ class generateHtmlLinks {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.DOWNLOAD)»
 				/**
-				 * Auto-generated link to the service download zip
+				 * Auto-generated link to the service download
 				 * 
 				 * @author miso.distil.codeGenerator
 				 */
-				public static String getDownloadZipJsonLink(«name» «namelow») {
-					return "<a href=" + Basic«name»Spark.DownloadZipJson + «namelow».getObjectid() + ">Download zip</a>";
-				}
-
-				/**
-				 * Auto-generated link to the service download file
-				 * 
-				 * @author miso.distil.codeGenerator
-				 */
-				public static String getDownloadFileJsonLink(«name» «namelow») {
-					return "<a href=" + Basic«name»Spark.DownloadFileJson + «namelow».getObjectid() + ">Download «namelow»</a>";
+				public static String getDownloadJsonLink(«name» «namelow») {
+					return "<a href=" + Basic«name»Spark.DownloadJson + «namelow».getObjectid() + ">Download</a>";
 				}
 
 			«ENDIF»

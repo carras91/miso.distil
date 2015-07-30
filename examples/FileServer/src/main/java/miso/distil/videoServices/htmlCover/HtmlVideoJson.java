@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceJson;
-
-import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.utils.Utils;
@@ -79,9 +77,7 @@ public class HtmlVideoJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<Video> videos = new ArrayList<Video>();
-		for(Persistent video : Json.getReadAll(req, res)) {
-			videos.add((Video)video);
-		}
+		videos.addAll(Json.getReadAll(req, res));
 		viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(videos));
 		viewObjects.put(HtmlFreeMarker.COUNT, videos.size());
 		viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
@@ -113,9 +109,7 @@ public class HtmlVideoJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<Video> videos = new ArrayList<Video>();
-		for(Persistent video : Json.getSearch(req, res)) {
-			videos.add((Video)video);
-		}
+		videos.addAll(Json.getSearch(req, res));
 		if(videos.isEmpty()) {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 

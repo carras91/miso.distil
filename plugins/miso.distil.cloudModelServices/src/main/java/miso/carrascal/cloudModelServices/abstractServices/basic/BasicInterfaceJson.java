@@ -9,6 +9,7 @@ import spark.Request;
 import spark.Response;
 
 public interface BasicInterfaceJson {
+	
 	default public Object postUpload(Request req, Response res) {
 		return "";
 	}

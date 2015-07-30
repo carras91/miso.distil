@@ -34,7 +34,7 @@ public class HtmlBentoView implements HtmlInterfaceView<Bento>{
 		entries.add(new HtmlEntry("outputconcepts : " + Utils.listToString(bento.getOutputconcepts()), EntrySize.H5));				
 		entries.add(new HtmlEntry("atl : " + Utils.listToString(bento.getAtl()), EntrySize.H5));				
 		entries.add(new HtmlEntry("tags : " + Utils.listToString(bento.getTags()), EntrySize.H5));				
-		entries.add(new HtmlEntry(HtmlBentoLinks.getDownloadZipJsonLink(bento) + " | " + HtmlBentoLinks.getDownloadFileJsonLink(bento), EntrySize.H5));
+		entries.add(new HtmlEntry(HtmlBentoLinks.getDownloadJsonLink(bento), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlBentoLinks.getUpdateHtmlLink(bento), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlBentoLinks.getDeleteFormJsonLink(bento), EntrySize.H5));
 

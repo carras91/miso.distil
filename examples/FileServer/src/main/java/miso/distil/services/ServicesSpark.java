@@ -6,7 +6,6 @@ import java.util.List;
 import static spark.Spark.post;
 import static spark.Spark.after;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import miso.carrascal.cloudModelServices.abstractServices.basic.JsonTransformer;
@@ -14,15 +13,15 @@ import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSp
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 
+import miso.distil.documentServices.basic.BasicDocumentParam;
+import miso.distil.documentServices.basic.BasicDocumentSpark;
+import miso.distil.documentServices.Document;
 import miso.distil.pictureServices.basic.BasicPictureParam;
 import miso.distil.pictureServices.basic.BasicPictureSpark;
 import miso.distil.pictureServices.Picture;
 import miso.distil.videoServices.basic.BasicVideoParam;
 import miso.distil.videoServices.basic.BasicVideoSpark;
 import miso.distil.videoServices.Video;
-import miso.distil.documentServices.basic.BasicDocumentParam;
-import miso.distil.documentServices.basic.BasicDocumentSpark;
-import miso.distil.documentServices.Document;
 
 /**
  * Auto-generated services spark server
@@ -51,128 +50,111 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 		ServiceDownloadAuthor serviceDownloadAuthor = new ServiceDownloadAuthor();
 		post(DownloadAuthorUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceDownloadAuthor.runService(request, response, list);
+				return serviceDownloadAuthor.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceSimilarPictures serviceSimilarPictures = new ServiceSimilarPictures();
 		post(SimilarPicturesUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceSimilarPictures.runService(request, response, list);
+				return serviceSimilarPictures.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceStatisticsPic serviceStatisticsPic = new ServiceStatisticsPic();
 		post(StatisticsPicUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceStatisticsPic.runService(request, response, list);
+				return serviceStatisticsPic.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceComparePictures serviceComparePictures = new ServiceComparePictures();
 		post(ComparePicturesUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceComparePictures.runService(request, response, list);
+				return serviceComparePictures.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceAnalyse serviceAnalyse = new ServiceAnalyse();
 		post(AnalyseUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceAnalyse.runService(request, response, list);
+				return serviceAnalyse.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceStatisticsDoc serviceStatisticsDoc = new ServiceStatisticsDoc();
 		post(StatisticsDocUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceStatisticsDoc.runService(request, response, list);
+				return serviceStatisticsDoc.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceDownloadAsTxt serviceDownloadAsTxt = new ServiceDownloadAsTxt();
 		post(DownloadAsTxtUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceDownloadAsTxt.runService(request, response, list);
+				return serviceDownloadAsTxt.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
 
-		after(BasicPictureSpark.DownloadZipIdJson, "application/json",
-				(request, response) -> {
-					String id = request.params(BasicPictureParam.IdGet);
-					Persistent artifact = RecordDB.getDefault().readOne(id, Picture.class);
-					List<Persistent> list = new ArrayList<Persistent>();
-					list.add(artifact);
-					serviceDownloadAuthor.runService(request, response, list);
-				});
 
-		after(BasicPictureSpark.DownloadFileIdJson, "application/json",
-				(request, response) -> {
-					String id = request.params(BasicPictureParam.IdGet);
-					Persistent artifact = RecordDB.getDefault().readOne(id, Picture.class);
-					List<Persistent> list = new ArrayList<Persistent>();
-					list.add(artifact);
-					serviceDownloadAuthor.runService(request, response, list);
-				});
-
-		after(BasicPictureSpark.UploadJson, "application/json",
-				(request, response) -> {
-					try {
-			            Persistent artifact = ((Persistent)(new Gson()).fromJson(response.body(), Picture.class));
-						List<Persistent> list = new ArrayList<Persistent>();
-						list.add(artifact);
-						serviceSimilarPictures.runService(request, response, list);
-					} catch (JsonSyntaxException e) {
-						e.printStackTrace();
-					}
-				});
-
-		after(BasicVideoSpark.DownloadZipIdJson, "application/json",
-				(request, response) -> {
-					String id = request.params(BasicVideoParam.IdGet);
-					Persistent artifact = RecordDB.getDefault().readOne(id, Video.class);
-					List<Persistent> list = new ArrayList<Persistent>();
-					list.add(artifact);
-					serviceDownloadAuthor.runService(request, response, list);
-				});
-
-		after(BasicVideoSpark.DownloadFileIdJson, "application/json",
-				(request, response) -> {
-					String id = request.params(BasicVideoParam.IdGet);
-					Persistent artifact = RecordDB.getDefault().readOne(id, Video.class);
-					List<Persistent> list = new ArrayList<Persistent>();
-					list.add(artifact);
-					serviceDownloadAuthor.runService(request, response, list);
-				});
-
-		after(BasicDocumentSpark.DownloadZipIdJson, "application/json",
+		after(BasicDocumentSpark.DownloadIdJson, "application/json",
 				(request, response) -> {
 					String id = request.params(BasicDocumentParam.IdGet);
-					Persistent artifact = RecordDB.getDefault().readOne(id, Document.class);
-					List<Persistent> list = new ArrayList<Persistent>();
+					Document artifact = RecordDB.getDefault().readOne(id, Document.class);
+					List<Document> list = new ArrayList<Document>();
 					list.add(artifact);
-					serviceDownloadAuthor.runService(request, response, list);
-				});
-
-		after(BasicDocumentSpark.DownloadFileIdJson, "application/json",
-				(request, response) -> {
-					String id = request.params(BasicDocumentParam.IdGet);
-					Persistent artifact = RecordDB.getDefault().readOne(id, Document.class);
-					List<Persistent> list = new ArrayList<Persistent>();
-					list.add(artifact);
-					serviceDownloadAuthor.runService(request, response, list);
+					String result = "Original response --> " + response.body() + " <-- end of original response. ";
+					result = result + " Output from service DownloadAuthor --> " + (new JsonTransformer()).render(serviceDownloadAuthor.runService(request, response, list)) + " <-- end of service DownloadAuthor. ";
+					response.body(result);
 				});
 
 		after(BasicDocumentSpark.UploadJson, "application/json",
 				(request, response) -> {
 					try {
-			            Persistent artifact = ((Persistent)(new Gson()).fromJson(response.body(), Document.class));
-						List<Persistent> list = new ArrayList<Persistent>();
+						Document artifact = JsonTransformer.fromJson(response.body(), Document.class);
+						List<Document> list = new ArrayList<Document>();
 						list.add(artifact);
-						serviceAnalyse.runService(request, response, list);
+						String result = "Original response --> " + response.body() + " <-- end of original response. ";
+						result = result + " Output from service Analyse --> " + (new JsonTransformer()).render(serviceAnalyse.runService(request, response, list)) + " <-- end of service Analyse. ";
+						response.body(result);
 					} catch (JsonSyntaxException e) {
 						e.printStackTrace();
 					}
+				});
+
+		after(BasicPictureSpark.DownloadIdJson, "application/json",
+				(request, response) -> {
+					String id = request.params(BasicPictureParam.IdGet);
+					Picture artifact = RecordDB.getDefault().readOne(id, Picture.class);
+					List<Picture> list = new ArrayList<Picture>();
+					list.add(artifact);
+					String result = "Original response --> " + response.body() + " <-- end of original response. ";
+					result = result + " Output from service DownloadAuthor --> " + (new JsonTransformer()).render(serviceDownloadAuthor.runService(request, response, list)) + " <-- end of service DownloadAuthor. ";
+					response.body(result);
+				});
+
+		after(BasicPictureSpark.UploadJson, "application/json",
+				(request, response) -> {
+					try {
+						Picture artifact = JsonTransformer.fromJson(response.body(), Picture.class);
+						List<Picture> list = new ArrayList<Picture>();
+						list.add(artifact);
+						String result = "Original response --> " + response.body() + " <-- end of original response. ";
+						result = result + " Output from service SimilarPictures --> " + (new JsonTransformer()).render(serviceSimilarPictures.runService(request, response, list)) + " <-- end of service SimilarPictures. ";
+						response.body(result);
+					} catch (JsonSyntaxException e) {
+						e.printStackTrace();
+					}
+				});
+
+		after(BasicVideoSpark.DownloadIdJson, "application/json",
+				(request, response) -> {
+					String id = request.params(BasicVideoParam.IdGet);
+					Video artifact = RecordDB.getDefault().readOne(id, Video.class);
+					List<Video> list = new ArrayList<Video>();
+					list.add(artifact);
+					String result = "Original response --> " + response.body() + " <-- end of original response. ";
+					result = result + " Output from service DownloadAuthor --> " + (new JsonTransformer()).render(serviceDownloadAuthor.runService(request, response, list)) + " <-- end of service DownloadAuthor. ";
+					response.body(result);
 				});
 	}
 }

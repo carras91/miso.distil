@@ -30,13 +30,13 @@ public class HtmlPictureView implements HtmlInterfaceView<Picture>{
 		entries.add(new HtmlEntry(picture.getCreatedatString(), EntrySize.H4));
 		entries.add(new HtmlEntry("FileSize (bytes): " + picture.getFilesize().toString(), EntrySize.H4));
 		entries.add(new HtmlEntry("ObjectId : " + picture.getObjectid().toString(), EntrySize.H4));
-		entries.add(new HtmlEntry("author_pictureinfo : " + picture.getPictureinfo().getAuthor(), EntrySize.H5));
-		entries.add(new HtmlEntry("source_pictureinfo : " + picture.getPictureinfo().getSource(), EntrySize.H5));
-		entries.add(new HtmlEntry("tags_pictureinfo : " + Utils.listToString(picture.getPictureinfo().getTags()), EntrySize.H5));				
-		entries.add(new HtmlEntry("fileextension_pictureinfo : " + picture.getPictureinfo().getFileextension(), EntrySize.H5));
+		entries.add(new HtmlEntry("pictureinfo.author : " + picture.getPictureinfo().getAuthor(), EntrySize.H5));
+		entries.add(new HtmlEntry("pictureinfo.source : " + picture.getPictureinfo().getSource(), EntrySize.H5));
+		entries.add(new HtmlEntry("pictureinfo.tags : " + Utils.listToString(picture.getPictureinfo().getTags()), EntrySize.H5));				
+		entries.add(new HtmlEntry("pictureinfo.fileextension : " + picture.getPictureinfo().getFileextension(), EntrySize.H5));
 		entries.add(new HtmlEntry("peoplepictured : " + Utils.listToString(picture.getPeoplepictured()), EntrySize.H5));				
 		entries.add(new HtmlEntry("place : " + picture.getPlace(), EntrySize.H5));
-		entries.add(new HtmlEntry(HtmlPictureLinks.getDownloadZipJsonLink(picture) + " | " + HtmlPictureLinks.getDownloadFileJsonLink(picture), EntrySize.H5));
+		entries.add(new HtmlEntry(HtmlPictureLinks.getDownloadJsonLink(picture), EntrySize.H5));
 		entries.add(new HtmlEntry(HtmlPictureLinks.getDeleteFormJsonLink(picture), EntrySize.H5));
 
 		return entries;
@@ -76,10 +76,10 @@ public class HtmlPictureView implements HtmlInterfaceView<Picture>{
 		
 		Map<String, List<HtmlSelectBox>> selectbox = new HashMap<String, List<HtmlSelectBox>>();
 		List<HtmlSelectBox> boxes = new ArrayList<HtmlSelectBox>();
-		boxes.add(new HtmlSelectBox("author_pictureinfo", "author_pictureinfo"));
-		boxes.add(new HtmlSelectBox("source_pictureinfo", "source_pictureinfo"));
-		boxes.add(new HtmlSelectBox("tags_pictureinfo", "tags_pictureinfo"));
-		boxes.add(new HtmlSelectBox("fileextension_pictureinfo", "fileextension_pictureinfo"));
+		boxes.add(new HtmlSelectBox("pictureinfo.author", "pictureinfo.author"));
+		boxes.add(new HtmlSelectBox("pictureinfo.source", "pictureinfo.source"));
+		boxes.add(new HtmlSelectBox("pictureinfo.tags", "pictureinfo.tags"));
+		boxes.add(new HtmlSelectBox("pictureinfo.fileextension", "pictureinfo.fileextension"));
 		boxes.add(new HtmlSelectBox("peoplepictured", "peoplepictured"));
 		boxes.add(new HtmlSelectBox("place", "place"));
 		boxes.add(new HtmlSelectBox("edited", "edited"));
@@ -110,9 +110,9 @@ public class HtmlPictureView implements HtmlInterfaceView<Picture>{
 		viewObjects.put(HtmlFreeMarker.FORM, form);
 
 		List<HtmlText> texts = new ArrayList<HtmlText>();
-		texts.add(new HtmlText(BasicPictureParam.Author_pictureinfo, "", "author_pictureinfo", "author", "Enter valid String"));
-		texts.add(new HtmlText(BasicPictureParam.Source_pictureinfo, "", "source_pictureinfo", "source", "Enter valid String"));
-		texts.add(new HtmlText(BasicPictureParam.Tags_pictureinfo, "", "tags_pictureinfo (tags1,tags2,...)", "tags", "Enter new list of valid String"));
+		texts.add(new HtmlText(BasicPictureParam.Author_pictureinfo, "", "pictureinfo.author", "author", "Enter valid String"));
+		texts.add(new HtmlText(BasicPictureParam.Source_pictureinfo, "", "pictureinfo.source", "source", "Enter valid String"));
+		texts.add(new HtmlText(BasicPictureParam.Tags_pictureinfo, "", "pictureinfo.tags (tags1,tags2,...)", "tags", "Enter new list of valid String"));
 		texts.add(new HtmlText(BasicPictureParam.Peoplepictured, "", "peoplepictured (peoplepictured1,peoplepictured2,...)", "peoplepictured", "Enter new list of valid String"));
 		texts.add(new HtmlText(BasicPictureParam.Place, "", "place", "place", "Enter valid String"));
 		viewObjects.put(HtmlFreeMarker.TEXTS, texts);

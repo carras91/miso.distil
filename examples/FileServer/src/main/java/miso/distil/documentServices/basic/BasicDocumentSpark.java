@@ -23,10 +23,8 @@ public final class BasicDocumentSpark implements BasicInterfaceSpark {
 	public static String UpdateJson = "/json/document/update";
 	public static String UploadJson = "/json/document/upload";
 	public static String DeleteJson = "/json/document/delete";
-	public static String DownloadZipJson = "/json/document/download/zip/";
-	public static String DownloadZipIdJson = DownloadZipJson + BasicDocumentParam.IdGet;
-	public static String DownloadFileJson = "/json/document/download/file/";
-	public static String DownloadFileIdJson = DownloadFileJson + BasicDocumentParam.IdGet;
+	public static String DownloadJson = "/json/document/download/zip/";
+	public static String DownloadIdJson = DownloadJson + BasicDocumentParam.IdGet;
 
 	/**
 	 * Auto-generated spark service. It initializes all url's
@@ -39,35 +37,52 @@ public final class BasicDocumentSpark implements BasicInterfaceSpark {
 		DocumentJson Json = new DocumentJson();
 
 		get(ReadIdJson, "application/json",
-			(request, response) -> Json.getRead(request, response), 
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.getRead(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
 		get(ReadAllJson, "application/json",
-			(request, response) -> Json.getReadAll(request, response),
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.getReadAll(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
 		get(SearchJson, "application/json",
-			(request, response) -> Json.getSearch(request, response), 
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.getSearch(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
 		post(UpdateJson, "application/json",
-			(request, response) -> Json.postUpdate(request, response), 
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.postUpdate(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
 		post(UploadJson, "application/json",
-			(request, response) -> Json.postUpload(request, response),
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.postUpload(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
 		post(DeleteJson, "application/json",
-			(request, response) -> Json.postDelete(request, response),
-			new JsonTransformer());
+			(request, response) -> {
+				Object obj = Json.postDelete(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 
-		get(DownloadZipIdJson, "application/json",
-			(request, response) -> Json.getDownloadZip(request, response),
-			new JsonTransformer());
-
-		get(DownloadFileIdJson, "application/json",
-			(request, response) -> Json.getDownloadFile(request, response),
-			new JsonTransformer());
+		get(DownloadIdJson, "application/json",
+			(request, response) -> {
+				Object obj = Json.getDownload(request, response);
+				response.body((new JsonTransformer()).render(obj));
+				return obj;
+			}, new JsonTransformer());
 	}
 }

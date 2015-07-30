@@ -20,17 +20,17 @@ import spark.Response;
  * 
  * @author miso.distil.codeGenerator
  */
-public class ModelJson extends BasicAbstractJson {
+public class ModelJson extends BasicAbstractJson<Model> {
 
 	/**
 	 * Auto-generated empty constructor
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public ModelJson() {
-		super(Model.class);	
-	}
-
+	 public ModelJson() {
+	 	super(Model.class);	
+	 }
+	 
 	/**
 	 * Auto-generated method to cusomice the update method
 	 * 
@@ -59,13 +59,13 @@ public class ModelJson extends BasicAbstractJson {
 
 		// Not required params and artifact's id
 		// complete these params!
-		String nameModel = "model name or not model name (updated)";
+		String namemodel = "model name or not model name (updated)";
 		String type = "type (updated)";
 
 		//Composed params
 		
 		// Create new Model
-		Model newModel = new Model(oldModel.getFilename(), oldModel.getFilesize(), nameModel, type);
+		Model newModel = new Model(oldModel.getFilename(), oldModel.getFilesize(), namemodel, type);
 
 		// Save new Model and delete old Model
 		if(RecordDB.getDefault().save(newModel, IS)) {
@@ -108,13 +108,13 @@ public class ModelJson extends BasicAbstractJson {
 
 			// Not required params and artifact's id
 			// complete these params!
-			String nameModel = "model name or not model name";
+			String namemodel = "model name or not model name";
 			String type = "type";
 
 			//Composed params
 
 			// Create new Model
-			Model model = new Model(fileName, fileSize, nameModel, type);
+			Model model = new Model(fileName, fileSize, namemodel, type);
 
 			if(!RecordDB.getDefault().save(model, fileContent)) {
 				return BasicModelCodes.DB_notuploaded;

@@ -30,21 +30,12 @@ public class HtmlDocumentLinks {
 	}
 
 	/**
-	 * Auto-generated link to the service download zip
+	 * Auto-generated link to the service download
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public static String getDownloadZipJsonLink(Document document) {
-		return "<a href=" + BasicDocumentSpark.DownloadZipJson + document.getObjectid() + ">Download zip</a>";
-	}
-
-	/**
-	 * Auto-generated link to the service download file
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
-	public static String getDownloadFileJsonLink(Document document) {
-		return "<a href=" + BasicDocumentSpark.DownloadFileJson + document.getObjectid() + ">Download document</a>";
+	public static String getDownloadJsonLink(Document document) {
+		return "<a href=" + BasicDocumentSpark.DownloadJson + document.getObjectid() + ">Download</a>";
 	}
 
 	/**

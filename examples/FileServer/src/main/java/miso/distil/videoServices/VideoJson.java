@@ -24,16 +24,16 @@ import miso.distil.entities.PersonalData;
  * 
  * @author miso.distil.codeGenerator
  */
-public class VideoJson extends BasicAbstractJson {
+public class VideoJson extends BasicAbstractJson<Video> {
 
 	/**
 	 * Auto-generated empty constructor
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public VideoJson() {
-		super(Video.class);	
-	}
+	 public VideoJson() {
+	 	super(Video.class);	
+	 }
 
 	/**
 	 * Auto-generated method to cusomice the upload method

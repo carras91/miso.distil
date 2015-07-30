@@ -115,7 +115,7 @@ public class generateUtils {
   }
   
   /**
-   * To get an attribute name by his position inside nestedTree
+   * To get an attribute name by his position inside nestedTree (separated by _)
    * 
    * @author Carlos Carrascal
    */
@@ -139,6 +139,30 @@ public class generateUtils {
       }
     }
     return newName;
+  }
+  
+  /**
+   * To get an attribute name by his position inside nestedTree (separated by .)
+   * 
+   * @author Carlos Carrascal
+   */
+  public String getNewAttNameByPoint(final Integer pos, final Artifact artifact) {
+    List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
+    Pair<Attribute, List<String>> _get = _nestedTree.get((pos).intValue());
+    List<String> list = _get.getValue();
+    String newName = "";
+    for (int i = 1; (i < list.size()); i++) {
+      String _get_1 = list.get(i);
+      String _lowerCase = _get_1.toLowerCase();
+      String _plus = (newName + _lowerCase);
+      String _plus_1 = (_plus + ".");
+      newName = _plus_1;
+    }
+    List<Pair<Attribute, List<String>>> _nestedTree_1 = this.getNestedTree(artifact);
+    Pair<Attribute, List<String>> _get_1 = _nestedTree_1.get((pos).intValue());
+    Attribute _key = _get_1.getKey();
+    String _name = _key.getName();
+    return (newName + _name);
   }
   
   /**

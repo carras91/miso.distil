@@ -3,17 +3,23 @@ package miso.carrascal.cloudModelServices;
 import static spark.Spark.staticFileLocation;
 import static spark.Spark.get;
 import static spark.Spark.port;
+import static spark.Spark.after;
+
 
 import java.util.HashMap;
 import java.util.Set;
 
+
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
+
+import miso.carrascal.cloudModelServices.utils.RecordDownload;
 
 import org.apache.log4j.BasicConfigurator;
 import org.reflections.Reflections;
 import org.reflections.scanners.SubTypesScanner;
 import org.reflections.util.ClasspathHelper;
+
 
 import freemarker.log.Logger;
 import spark.template.freemarker.FreeMarkerEngine;
@@ -45,6 +51,9 @@ public class CloudModelServices {
 	    	
 	        // Busqueda automatica de servicios (subclases de AbstractService)
 	        runServices();
+	        
+	        // Establecimiento de la descarga al final
+	        setFinalDownload();
 	    }
 	    
 	    /**
@@ -111,5 +120,15 @@ public class CloudModelServices {
 					System.out.println("Service illegal acces problem");
 				}
 		    }
+	    }
+	    
+	    /**
+	     * It set an after spark service to execute downloads
+	     */
+	    private static void setFinalDownload() {
+	    	// Configure after
+		    after("*", (request, response) -> {
+		    	RecordDownload.closeDownload(response);
+	    	});
 	    }
 }

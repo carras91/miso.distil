@@ -6,7 +6,6 @@ import java.util.List;
 import static spark.Spark.post;
 import static spark.Spark.after;
 
-import com.google.gson.Gson;
 import com.google.gson.JsonSyntaxException;
 
 import miso.carrascal.cloudModelServices.abstractServices.basic.JsonTransformer;
@@ -42,47 +41,51 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 		ServiceAnalyse serviceAnalyse = new ServiceAnalyse();
 		post(AnalyseUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceAnalyse.runService(request, response, list);
+				return serviceAnalyse.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceTypeCheck serviceTypeCheck = new ServiceTypeCheck();
 		post(TypeCheckUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceTypeCheck.runService(request, response, list);
+				return serviceTypeCheck.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceMetrics serviceMetrics = new ServiceMetrics();
 		post(MetricsUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceMetrics.runService(request, response, list);
+				return serviceMetrics.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		ServiceSemanticSearch serviceSemanticSearch = new ServiceSemanticSearch();
 		post(SemanticSearchUrl, "application/json",
 			(request, response) -> {
-				List<Persistent> list = new ArrayList<Persistent>();
-				return serviceSemanticSearch.runService(request, response, list);
+				return serviceSemanticSearch.runService(request, response, new ArrayList<Persistent>());
 			}, new JsonTransformer());
+
 
 		after(BasicBentoSpark.UpdateJson, "application/json",
 				(request, response) -> {
 					String id = request.queryParams(BasicBentoParam.IdPost);
-					Persistent artifact = RecordDB.getDefault().readOne(id, Bento.class);
-					List<Persistent> list = new ArrayList<Persistent>();
+					Bento artifact = RecordDB.getDefault().readOne(id, Bento.class);
+					List<Bento> list = new ArrayList<Bento>();
 					list.add(artifact);
-					serviceAnalyse.runService(request, response, list);
+					String result = "Original response --> " + response.body() + " <-- end of original response. ";
+					result = result + " Output from service Analyse --> " + (new JsonTransformer()).render(serviceAnalyse.runService(request, response, list)) + " <-- end of service Analyse. ";
+					response.body(result);
 				});
 
 		after(BasicBentoSpark.UploadJson, "application/json",
 				(request, response) -> {
 					try {
-			            Persistent artifact = ((Persistent)(new Gson()).fromJson(response.body(), Bento.class));
-						List<Persistent> list = new ArrayList<Persistent>();
+						Bento artifact = JsonTransformer.fromJson(response.body(), Bento.class);
+						List<Bento> list = new ArrayList<Bento>();
 						list.add(artifact);
-						serviceAnalyse.runService(request, response, list);
+						String result = "Original response --> " + response.body() + " <-- end of original response. ";
+						result = result + " Output from service Analyse --> " + (new JsonTransformer()).render(serviceAnalyse.runService(request, response, list)) + " <-- end of service Analyse. ";
+						response.body(result);
 					} catch (JsonSyntaxException e) {
 						e.printStackTrace();
 					}

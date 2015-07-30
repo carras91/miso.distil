@@ -9,8 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceJson;
-
-import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.utils.Utils;
@@ -79,9 +77,7 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<Picture> pictures = new ArrayList<Picture>();
-		for(Persistent picture : Json.getReadAll(req, res)) {
-			pictures.add((Picture)picture);
-		}
+		pictures.addAll(Json.getReadAll(req, res));
 		viewObjects.put(HtmlFreeMarker.MULTI_ENTRIES, customView.constructInfoReadAll(pictures));
 		viewObjects.put(HtmlFreeMarker.COUNT, pictures.size());
 		viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.LIST_HTML);
@@ -113,9 +109,7 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		ArrayList<Picture> pictures = new ArrayList<Picture>();
-		for(Persistent picture : Json.getSearch(req, res)) {
-			pictures.add((Picture)picture);
-		}
+		pictures.addAll(Json.getSearch(req, res));
 		if(pictures.isEmpty()) {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 

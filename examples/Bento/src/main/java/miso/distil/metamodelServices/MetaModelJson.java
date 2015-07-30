@@ -12,7 +12,6 @@ import javax.servlet.http.Part;
 
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
-
 import miso.distil.metamodelServices.MetaModel;
 import miso.distil.metamodelServices.basic.BasicMetaModelCodes;
 import miso.distil.metamodelServices.basic.BasicMetaModelParam;
@@ -22,16 +21,16 @@ import miso.distil.metamodelServices.basic.BasicMetaModelParam;
  * 
  * @author miso.distil.codeGenerator
  */
-public class MetaModelJson extends BasicAbstractJson {
+public class MetaModelJson extends BasicAbstractJson<MetaModel> {
 
 	/**
 	 * Auto-generated empty constructor
 	 * 
 	 * @author miso.distil.codeGenerator
 	 */
-	public MetaModelJson() {
-		super(MetaModel.class);	
-	}
+	 public MetaModelJson() {
+	 	super(MetaModel.class);	
+	 }
 
 	/**
 	 * Auto-generated method to cusomice the upload method

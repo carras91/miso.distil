@@ -26,14 +26,12 @@ class generateBasicCodes {
 		«var pos = -1»
 		package «names.getBasicChar(artifact)»;
 
-		import «names.MisoBasic».BasicAbstractCodes;
-
 		/**
 		 * Auto-generated error codes
 		 * 
 		 * @author miso.distil.codeGenerator
 		 */
-		public class Basic«name»Codes extends BasicAbstractCodes {
+		public class Basic«name»Codes {
 
 			public static String Param_error = "ParameterError : Parameter is incorrect";
 
@@ -44,15 +42,13 @@ class generateBasicCodes {
 				public static String Param_«genUti.getNewAttName(pos, artifact)» = "ParameterError : «genUti.getNewAttName(pos, artifact)» is incorrect";
 			«ENDFOR»
 
-			public static String Param_emptyfilename = "ParameterError : Filename is empty";
 			public static String Param_emptyfile = "ParameterError : File or filename not found";
-			public static String Param_filenotfound = "ParameterError : File not found";
 			public static String Param_corruptfile = "ParameterError : Corrupt file";
 
+			public static String DB_notfound = "DataBaseError : «name» not found";
 			public static String DB_notupdated = "DataBaseError : «name» not updated";
 			public static String DB_notuploaded = "DataBaseError : «name» not uploaded";
 
-			public static String Search_empty = "Your search has no results. Try again";
 			public static String «name»_notfound = "«name» not found. Try again later";
 		}
 	'''
