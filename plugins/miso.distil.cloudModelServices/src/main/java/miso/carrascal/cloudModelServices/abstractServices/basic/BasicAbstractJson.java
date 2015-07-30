@@ -1,43 +1,40 @@
 package miso.carrascal.cloudModelServices.abstractServices.basic;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
-import miso.carrascal.cloudModelServices.utils.DownloadUtils;
+import miso.carrascal.cloudModelServices.utils.RecordDownload;
 import spark.Request;
 import spark.Response;
 
-public abstract class BasicAbstractJson implements BasicInterfaceJson {
+public abstract class BasicAbstractJson<T extends Persistent> implements BasicInterfaceJson {
 	
-	protected Class<? extends Persistent> classType;
+	protected Class<T> classType;
 	
-	public BasicAbstractJson(Class<? extends Persistent> classType) {
+	public BasicAbstractJson(Class<T> classType) {
 		 this.classType = classType;
 	}
-	
-	public String postDelete(Request req, Response res) {
+
+	public T postDelete(Request req, Response res) {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String id = map.get(BasicAbstractParam.IdPost);
+		T delete = RecordDB.getDefault().readOne(id, classType);
 
-		if(!RecordDB.getDefault().delete(id, classType)) {
-			return BasicAbstractCodes.DB_notfound; 
-		}
-		
-		return BasicAbstractCodes.OK;
+		RecordDB.getDefault().delete(id, classType);
+		return delete;
 	}
 	
-	public Persistent getRead(Request req, Response res) {
+	public T getRead(Request req, Response res) {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String id = map.get(BasicAbstractParam.IdGet);
 		
 		return RecordDB.getDefault().readOne(id, classType);
 	}
 	
-	public ArrayList<? extends Persistent> getReadAll(Request req, Response res) {
+	public ArrayList<T> getReadAll(Request req, Response res) {
 		return RecordDB.getDefault().readAll(classType); 
 	}
 	
@@ -57,7 +54,7 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 		return result;
 	}
 		
-	public ArrayList<? extends Persistent> getSearch(Request req, Response res) {	
+	public ArrayList<T> getSearch(Request req, Response res) {	
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String search_query = map.get(BasicAbstractParam.Search_query).toLowerCase();
 		String search_value = map.get(BasicAbstractParam.Search_value).toLowerCase();
@@ -65,42 +62,22 @@ public abstract class BasicAbstractJson implements BasicInterfaceJson {
 
 		return RecordDB.getDefault().search(search_query, search_value, search_syonyms, classType);
 	}
-
-	public String getDownloadZip(Request req, Response res) { 
-		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
-		String id = map.get(BasicAbstractParam.IdGet);
-		
-		Persistent object = RecordDB.getDefault().readOne(id, classType);
-		if(object == null) {
-			return BasicAbstractCodes.DB_notfound;
-		}
-		
-		try {
-			DownloadUtils.downloadZip(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getFilename(), object.getFilename());
-		    return BasicAbstractCodes.OK;
-		    
-		} catch (IOException e) {
-			e.printStackTrace();
-		    return BasicAbstractCodes.DB_corrupt;
-		}
-	}
 	
-	public String getDownloadFile(Request req, Response res) {
+	public T getDownload(Request req, Response res) {
 		HashMap<String, String> map = parseRequest(req, BasicAbstractParam.values());
 		String id = map.get(BasicAbstractParam.IdGet);
 		
-		Persistent object = RecordDB.getDefault().readOne(id, classType);
+		T object = RecordDB.getDefault().readOne(id, classType);
 		if(object == null) {
-			return BasicAbstractCodes.DB_notfound;
+			try {
+				return classType.newInstance();
+			} catch (InstantiationException | IllegalAccessException e) {
+				e.printStackTrace();
+				return null;
+			}
 		}
 		
-		try {
-			DownloadUtils.downloadFile(res.raw(), RecordDB.getDefault().getInputStream(id, classType), object.getFilename());
-		    return BasicAbstractCodes.OK;
-		    
-		} catch (IOException e) {
-			e.printStackTrace();
-		    return BasicAbstractCodes.DB_corrupt;
-		}
+		RecordDownload.addDownload(res, RecordDB.getDefault().getInputStream(id, classType), object.getFilename());
+		return object;
 	}
 }

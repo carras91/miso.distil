@@ -181,8 +181,6 @@ public class generateServicesSpark {
             _builder.append("import static spark.Spark.after;");
             _builder.newLine();
             _builder.newLine();
-            _builder.append("import com.google.gson.Gson;");
-            _builder.newLine();
             _builder.append("import com.google.gson.JsonSyntaxException;");
             _builder.newLine();
           }
@@ -349,18 +347,15 @@ public class generateServicesSpark {
         _builder.newLine();
         _builder.append("\t\t");
         _builder.append("\t\t");
-        _builder.append("List<Persistent> list = new ArrayList<Persistent>();");
-        _builder.newLine();
-        _builder.append("\t\t");
-        _builder.append("\t\t");
         _builder.append("return service");
         String _name_6 = service_1.getName();
         _builder.append(_name_6, "\t\t\t\t");
-        _builder.append(".runService(request, response, list);");
+        _builder.append(".runService(request, response, new ArrayList<Persistent>());");
         _builder.newLineIfNotEmpty();
         _builder.append("\t\t");
         _builder.append("\t");
         _builder.append("}, new JsonTransformer());");
+        _builder.newLine();
         _builder.newLine();
       }
     }
@@ -384,7 +379,7 @@ public class generateServicesSpark {
             _builder.append("after(Basic");
             String _name_7 = artifact_1.getName();
             _builder.append(_name_7, "\t\t");
-            _builder.append("Spark.DownloadZipIdJson, \"application/json\",");
+            _builder.append("Spark.DownloadIdJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t");
@@ -399,15 +394,23 @@ public class generateServicesSpark {
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("Persistent artifact = RecordDB.getDefault().readOne(id, ");
             String _name_9 = artifact_1.getName();
             _builder.append(_name_9, "\t\t\t\t\t");
+            _builder.append(" artifact = RecordDB.getDefault().readOne(id, ");
+            String _name_10 = artifact_1.getName();
+            _builder.append(_name_10, "\t\t\t\t\t");
             _builder.append(".class);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("List<Persistent> list = new ArrayList<Persistent>();");
-            _builder.newLine();
+            _builder.append("List<");
+            String _name_11 = artifact_1.getName();
+            _builder.append(_name_11, "\t\t\t\t\t");
+            _builder.append("> list = new ArrayList<");
+            String _name_12 = artifact_1.getName();
+            _builder.append(_name_12, "\t\t\t\t\t");
+            _builder.append(">();");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("list.add(artifact);");
@@ -455,65 +458,31 @@ public class generateServicesSpark {
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.newLine();
             {
               for(final Service service_2 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t");
-                _builder.append("service");
-                String _name_10 = service_2.getName();
-                _builder.append(_name_10, "\t\t\t\t\t");
-                _builder.append(".runService(request, response, list);");
-                _builder.newLineIfNotEmpty();
-              }
-            }
-            _builder.append("\t\t");
-            _builder.append("\t\t");
-            _builder.append("});");
-            _builder.newLine();
-            _builder.newLine();
-            _builder.append("\t\t");
-            _builder.append("after(Basic");
-            String _name_11 = artifact_1.getName();
-            _builder.append(_name_11, "\t\t");
-            _builder.append("Spark.DownloadFileIdJson, \"application/json\",");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
-            _builder.append("\t\t");
-            _builder.append("(request, response) -> {");
-            _builder.newLine();
-            _builder.append("\t\t");
-            _builder.append("\t\t\t");
-            _builder.append("String id = request.params(Basic");
-            String _name_12 = artifact_1.getName();
-            _builder.append(_name_12, "\t\t\t\t\t");
-            _builder.append("Param.IdGet);");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
-            _builder.append("\t\t\t");
-            _builder.append("Persistent artifact = RecordDB.getDefault().readOne(id, ");
-            String _name_13 = artifact_1.getName();
-            _builder.append(_name_13, "\t\t\t\t\t");
-            _builder.append(".class);");
-            _builder.newLineIfNotEmpty();
-            _builder.append("\t\t");
-            _builder.append("\t\t\t");
-            _builder.append("List<Persistent> list = new ArrayList<Persistent>();");
-            _builder.newLine();
-            _builder.append("\t\t");
-            _builder.append("\t\t\t");
-            _builder.append("list.add(artifact);");
-            _builder.newLine();
-            {
-              for(final Service service_3 : listServices) {
-                _builder.append("\t\t");
-                _builder.append("\t\t\t");
-                _builder.append("service");
-                String _name_14 = service_3.getName();
+                _builder.append("result = result + \" Output from service ");
+                String _name_13 = service_2.getName();
+                _builder.append(_name_13, "\t\t\t\t\t");
+                _builder.append(" --> \" + (new JsonTransformer()).render(service");
+                String _name_14 = service_2.getName();
                 _builder.append(_name_14, "\t\t\t\t\t");
-                _builder.append(".runService(request, response, list);");
+                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
+                String _name_15 = service_2.getName();
+                _builder.append(_name_15, "\t\t\t\t\t");
+                _builder.append(". \";");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("response.body(result);");
+            _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t");
             _builder.append("});");
@@ -535,8 +504,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_15 = artifact_1.getName();
-            _builder.append(_name_15, "\t\t");
+            String _name_16 = artifact_1.getName();
+            _builder.append(_name_16, "\t\t");
             _builder.append("Spark.ReadIdJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -546,21 +515,29 @@ public class generateServicesSpark {
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("String id = request.params(Basic");
-            String _name_16 = artifact_1.getName();
-            _builder.append(_name_16, "\t\t\t\t\t");
+            String _name_17 = artifact_1.getName();
+            _builder.append(_name_17, "\t\t\t\t\t");
             _builder.append("Param.IdGet);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("Persistent artifact = RecordDB.getDefault().readOne(id, ");
-            String _name_17 = artifact_1.getName();
-            _builder.append(_name_17, "\t\t\t\t\t");
+            String _name_18 = artifact_1.getName();
+            _builder.append(_name_18, "\t\t\t\t\t");
+            _builder.append(" artifact = RecordDB.getDefault().readOne(id, ");
+            String _name_19 = artifact_1.getName();
+            _builder.append(_name_19, "\t\t\t\t\t");
             _builder.append(".class);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("List<Persistent> list = new ArrayList<Persistent>();");
-            _builder.newLine();
+            _builder.append("List<");
+            String _name_20 = artifact_1.getName();
+            _builder.append(_name_20, "\t\t\t\t\t");
+            _builder.append("> list = new ArrayList<");
+            String _name_21 = artifact_1.getName();
+            _builder.append(_name_21, "\t\t\t\t\t");
+            _builder.append(">();");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("list.add(artifact);");
@@ -608,17 +585,31 @@ public class generateServicesSpark {
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.newLine();
             {
-              for(final Service service_4 : listServices) {
+              for(final Service service_3 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t");
-                _builder.append("service");
-                String _name_18 = service_4.getName();
-                _builder.append(_name_18, "\t\t\t\t\t");
-                _builder.append(".runService(request, response, list);");
+                _builder.append("result = result + \" Output from service ");
+                String _name_22 = service_3.getName();
+                _builder.append(_name_22, "\t\t\t\t\t");
+                _builder.append(" --> \" + (new JsonTransformer()).render(service");
+                String _name_23 = service_3.getName();
+                _builder.append(_name_23, "\t\t\t\t\t");
+                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
+                String _name_24 = service_3.getName();
+                _builder.append(_name_24, "\t\t\t\t\t");
+                _builder.append(". \";");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("response.body(result);");
+            _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t");
             _builder.append("});");
@@ -640,8 +631,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_19 = artifact_1.getName();
-            _builder.append(_name_19, "\t\t");
+            String _name_25 = artifact_1.getName();
+            _builder.append(_name_25, "\t\t");
             _builder.append("Spark.UpdateJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -651,21 +642,29 @@ public class generateServicesSpark {
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("String id = request.queryParams(Basic");
-            String _name_20 = artifact_1.getName();
-            _builder.append(_name_20, "\t\t\t\t\t");
+            String _name_26 = artifact_1.getName();
+            _builder.append(_name_26, "\t\t\t\t\t");
             _builder.append("Param.IdPost);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("Persistent artifact = RecordDB.getDefault().readOne(id, ");
-            String _name_21 = artifact_1.getName();
-            _builder.append(_name_21, "\t\t\t\t\t");
+            String _name_27 = artifact_1.getName();
+            _builder.append(_name_27, "\t\t\t\t\t");
+            _builder.append(" artifact = RecordDB.getDefault().readOne(id, ");
+            String _name_28 = artifact_1.getName();
+            _builder.append(_name_28, "\t\t\t\t\t");
             _builder.append(".class);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("List<Persistent> list = new ArrayList<Persistent>();");
-            _builder.newLine();
+            _builder.append("List<");
+            String _name_29 = artifact_1.getName();
+            _builder.append(_name_29, "\t\t\t\t\t");
+            _builder.append("> list = new ArrayList<");
+            String _name_30 = artifact_1.getName();
+            _builder.append(_name_30, "\t\t\t\t\t");
+            _builder.append(">();");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("list.add(artifact);");
@@ -713,17 +712,31 @@ public class generateServicesSpark {
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.newLine();
             {
-              for(final Service service_5 : listServices) {
+              for(final Service service_4 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t");
-                _builder.append("service");
-                String _name_22 = service_5.getName();
-                _builder.append(_name_22, "\t\t\t\t\t");
-                _builder.append(".runService(request, response, list);");
+                _builder.append("result = result + \" Output from service ");
+                String _name_31 = service_4.getName();
+                _builder.append(_name_31, "\t\t\t\t\t");
+                _builder.append(" --> \" + (new JsonTransformer()).render(service");
+                String _name_32 = service_4.getName();
+                _builder.append(_name_32, "\t\t\t\t\t");
+                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
+                String _name_33 = service_4.getName();
+                _builder.append(_name_33, "\t\t\t\t\t");
+                _builder.append(". \";");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("response.body(result);");
+            _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t");
             _builder.append("});");
@@ -745,8 +758,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_23 = artifact_1.getName();
-            _builder.append(_name_23, "\t\t");
+            String _name_34 = artifact_1.getName();
+            _builder.append(_name_34, "\t\t");
             _builder.append("Spark.UploadJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -758,16 +771,24 @@ public class generateServicesSpark {
             _builder.append("try {");
             _builder.newLine();
             _builder.append("\t\t");
-            _builder.append("\t            ");
-            _builder.append("Persistent artifact = ((Persistent)(new Gson()).fromJson(response.body(), ");
-            String _name_24 = artifact_1.getName();
-            _builder.append(_name_24, "\t\t\t            ");
-            _builder.append(".class));");
+            _builder.append("\t\t\t\t");
+            String _name_35 = artifact_1.getName();
+            _builder.append(_name_35, "\t\t\t\t\t\t");
+            _builder.append(" artifact = JsonTransformer.fromJson(response.body(), ");
+            String _name_36 = artifact_1.getName();
+            _builder.append(_name_36, "\t\t\t\t\t\t");
+            _builder.append(".class);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("List<Persistent> list = new ArrayList<Persistent>();");
-            _builder.newLine();
+            _builder.append("List<");
+            String _name_37 = artifact_1.getName();
+            _builder.append(_name_37, "\t\t\t\t\t\t");
+            _builder.append("> list = new ArrayList<");
+            String _name_38 = artifact_1.getName();
+            _builder.append(_name_38, "\t\t\t\t\t\t");
+            _builder.append(">();");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
             _builder.append("list.add(artifact);");
@@ -815,17 +836,31 @@ public class generateServicesSpark {
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.newLine();
             {
-              for(final Service service_6 : listServices) {
+              for(final Service service_5 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t\t");
-                _builder.append("service");
-                String _name_25 = service_6.getName();
-                _builder.append(_name_25, "\t\t\t\t\t\t");
-                _builder.append(".runService(request, response, list);");
+                _builder.append("result = result + \" Output from service ");
+                String _name_39 = service_5.getName();
+                _builder.append(_name_39, "\t\t\t\t\t\t");
+                _builder.append(" --> \" + (new JsonTransformer()).render(service");
+                String _name_40 = service_5.getName();
+                _builder.append(_name_40, "\t\t\t\t\t\t");
+                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
+                String _name_41 = service_5.getName();
+                _builder.append(_name_41, "\t\t\t\t\t\t");
+                _builder.append(". \";");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("response.body(result);");
+            _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("} catch (JsonSyntaxException e) {");
@@ -861,8 +896,8 @@ public class generateServicesSpark {
             _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("after(Basic");
-            String _name_26 = artifact_1.getName();
-            _builder.append(_name_26, "\t\t\t");
+            String _name_42 = artifact_1.getName();
+            _builder.append(_name_42, "\t\t\t");
             _builder.append("Spark.DeleteJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -874,16 +909,24 @@ public class generateServicesSpark {
             _builder.append("try {");
             _builder.newLine();
             _builder.append("\t\t");
-            _builder.append("\t\t            ");
-            _builder.append("Persistent artifact = ((Persistent)(new Gson()).fromJson(response.body(), ");
-            String _name_27 = artifact_1.getName();
-            _builder.append(_name_27, "\t\t\t\t            ");
+            _builder.append("\t\t\t\t\t");
+            String _name_43 = artifact_1.getName();
+            _builder.append(_name_43, "\t\t\t\t\t\t\t");
+            _builder.append(" artifact = JsonTransformer.fromJson(response.body(), ");
+            String _name_44 = artifact_1.getName();
+            _builder.append(_name_44, "\t\t\t\t\t\t\t");
             _builder.append(".class));");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t\t");
-            _builder.append("List<Persistent> list = new ArrayList<Persistent>();");
-            _builder.newLine();
+            _builder.append("List<");
+            String _name_45 = artifact_1.getName();
+            _builder.append(_name_45, "\t\t\t\t\t\t\t");
+            _builder.append("> list = new ArrayList<");
+            String _name_46 = artifact_1.getName();
+            _builder.append(_name_46, "\t\t\t\t\t\t\t");
+            _builder.append(">();");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t\t");
             _builder.append("list.add(artifact);");
@@ -931,17 +974,31 @@ public class generateServicesSpark {
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t\t");
+            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.newLine();
             {
-              for(final Service service_7 : listServices) {
+              for(final Service service_6 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t\t\t");
-                _builder.append("service");
-                String _name_28 = service_7.getName();
-                _builder.append(_name_28, "\t\t\t\t\t\t\t");
-                _builder.append(".runService(request, response, list);");
+                _builder.append("result = result + \" Output from service ");
+                String _name_47 = service_6.getName();
+                _builder.append(_name_47, "\t\t\t\t\t\t\t");
+                _builder.append(" --> \" + (new JsonTransformer()).render(service");
+                String _name_48 = service_6.getName();
+                _builder.append(_name_48, "\t\t\t\t\t\t\t");
+                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
+                String _name_49 = service_6.getName();
+                _builder.append(_name_49, "\t\t\t\t\t\t\t");
+                _builder.append(". \";");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t\t");
+            _builder.append("response.body(result);");
+            _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
             _builder.append("} catch (JsonSyntaxException e) {");
@@ -975,8 +1032,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_29 = artifact_1.getName();
-            _builder.append(_name_29, "\t\t");
+            String _name_50 = artifact_1.getName();
+            _builder.append(_name_50, "\t\t");
             _builder.append("Spark.ReadAllJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -989,12 +1046,23 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("Persistent[] list = (new Gson()).fromJson(response.body(), Persistent[].class);");
-            _builder.newLine();
+            String _name_51 = artifact_1.getName();
+            _builder.append(_name_51, "\t\t\t\t\t\t");
+            _builder.append("[] list = JsonTransformer.fromJson(response.body(), ");
+            String _name_52 = artifact_1.getName();
+            _builder.append(_name_52, "\t\t\t\t\t\t");
+            _builder.append("[].class));");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t            ");
-            _builder.append("List<Persistent> newList = new ArrayList<Persistent>(Arrays.asList(list));");
-            _builder.newLine();
+            _builder.append("List<");
+            String _name_53 = artifact_1.getName();
+            _builder.append(_name_53, "\t\t\t            ");
+            _builder.append("> newList = new ArrayList<");
+            String _name_54 = artifact_1.getName();
+            _builder.append(_name_54, "\t\t\t            ");
+            _builder.append(">(Arrays.asList(list));");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
             Object _xblockexpression_17 = null;
@@ -1038,17 +1106,31 @@ public class generateServicesSpark {
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.newLine();
             {
-              for(final Service service_8 : listServices) {
+              for(final Service service_7 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t\t");
-                _builder.append("service");
-                String _name_30 = service_8.getName();
-                _builder.append(_name_30, "\t\t\t\t\t\t");
-                _builder.append(".runService(request, response, newList);");
+                _builder.append("result = result + \" Output from service ");
+                String _name_55 = service_7.getName();
+                _builder.append(_name_55, "\t\t\t\t\t\t");
+                _builder.append(" --> \" + (new JsonTransformer()).render(service");
+                String _name_56 = service_7.getName();
+                _builder.append(_name_56, "\t\t\t\t\t\t");
+                _builder.append(".runService(request, response, newList)) + \" <-- end of service ");
+                String _name_57 = service_7.getName();
+                _builder.append(_name_57, "\t\t\t\t\t\t");
+                _builder.append(". \";");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("response.body(result);");
+            _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("} catch (JsonSyntaxException e) {");
@@ -1082,8 +1164,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_31 = artifact_1.getName();
-            _builder.append(_name_31, "\t\t");
+            String _name_58 = artifact_1.getName();
+            _builder.append(_name_58, "\t\t");
             _builder.append("Spark.SearchJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -1096,12 +1178,23 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("Persistent[] list = (new Gson()).fromJson(response.body(), Persistent[].class);");
-            _builder.newLine();
+            String _name_59 = artifact_1.getName();
+            _builder.append(_name_59, "\t\t\t\t\t\t");
+            _builder.append("[] list = JsonTransformer.fromJson(response.body(), ");
+            String _name_60 = artifact_1.getName();
+            _builder.append(_name_60, "\t\t\t\t\t\t");
+            _builder.append("[].class));");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t            ");
-            _builder.append("List<Persistent> newList = new ArrayList<Persistent>(Arrays.asList(list));");
-            _builder.newLine();
+            _builder.append("List<");
+            String _name_61 = artifact_1.getName();
+            _builder.append(_name_61, "\t\t\t            ");
+            _builder.append("> newList = new ArrayList<");
+            String _name_62 = artifact_1.getName();
+            _builder.append(_name_62, "\t\t\t            ");
+            _builder.append(">(Arrays.asList(list));");
+            _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
             Object _xblockexpression_20 = null;
@@ -1145,17 +1238,31 @@ public class generateServicesSpark {
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.newLine();
             {
-              for(final Service service_9 : listServices) {
+              for(final Service service_8 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t\t");
-                _builder.append("service");
-                String _name_32 = service_9.getName();
-                _builder.append(_name_32, "\t\t\t\t\t\t");
-                _builder.append(".runService(request, response, newList);");
+                _builder.append("result = result + \" Output from service ");
+                String _name_63 = service_8.getName();
+                _builder.append(_name_63, "\t\t\t\t\t\t");
+                _builder.append(" --> \" + (new JsonTransformer()).render(service");
+                String _name_64 = service_8.getName();
+                _builder.append(_name_64, "\t\t\t\t\t\t");
+                _builder.append(".runService(request, response, newList)) + \" <-- end of service ");
+                String _name_65 = service_8.getName();
+                _builder.append(_name_65, "\t\t\t\t\t\t");
+                _builder.append(". \";");
                 _builder.newLineIfNotEmpty();
               }
             }
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("response.body(result);");
+            _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("} catch (JsonSyntaxException e) {");
