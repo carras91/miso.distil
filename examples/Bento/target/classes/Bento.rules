@@ -5,7 +5,7 @@ Artifact Bento [
 ] {
 	id many inputconcepts : MetaModel     
 	id many outputconcepts : MetaModel 
-	id many atl : ATLTrafo
+	id many atl : ATLTrafo 
 	many tags : String   
 }  
 Artifact ATLTrafo [  

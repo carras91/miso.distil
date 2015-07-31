@@ -6,7 +6,7 @@ Artifact Picture [
 ] { 
 	ref pictureinfo : PersonalData
 	many required peoplepictured : String
-	required place : String 
+	required place : String  
 	required edited : Boolean  
 }   
  

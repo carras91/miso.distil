@@ -18,12 +18,12 @@ import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.distil.pictureServices.basic.BasicPictureParam;
 import miso.distil.pictureServices.basic.BasicPictureSpark;
 import miso.distil.pictureServices.Picture;
-import miso.distil.videoServices.basic.BasicVideoParam;
-import miso.distil.videoServices.basic.BasicVideoSpark;
-import miso.distil.videoServices.Video;
 import miso.distil.documentServices.basic.BasicDocumentParam;
 import miso.distil.documentServices.basic.BasicDocumentSpark;
 import miso.distil.documentServices.Document;
+import miso.distil.videoServices.basic.BasicVideoParam;
+import miso.distil.videoServices.basic.BasicVideoSpark;
+import miso.distil.videoServices.Video;
 
 /**
  * Auto-generated services spark server
@@ -125,18 +125,6 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 					}
 				});
 
-		after(BasicVideoSpark.DownloadIdJson, "application/json",
-				(request, response) -> {
-					String id = request.params(BasicVideoParam.IdGet);
-					Video artifact = RecordDB.getDefault().readOne(id, Video.class);
-					List<Video> list = new ArrayList<Video>();
-					list.add(artifact);
-					HashMap<String, Object> map = new HashMap<String, Object>();
-					map.put("Download", artifact);
-					map.put("DownloadAuthor", serviceDownloadAuthor.runService(request, response, list));
-					response.body((new JsonTransformer()).render(map));
-				});
-
 		after(BasicDocumentSpark.DownloadIdJson, "application/json",
 				(request, response) -> {
 					String id = request.params(BasicDocumentParam.IdGet);
@@ -162,6 +150,18 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 					} catch (JsonSyntaxException e) {
 						e.printStackTrace();
 					}
+				});
+
+		after(BasicVideoSpark.DownloadIdJson, "application/json",
+				(request, response) -> {
+					String id = request.params(BasicVideoParam.IdGet);
+					Video artifact = RecordDB.getDefault().readOne(id, Video.class);
+					List<Video> list = new ArrayList<Video>();
+					list.add(artifact);
+					HashMap<String, Object> map = new HashMap<String, Object>();
+					map.put("Download", artifact);
+					map.put("DownloadAuthor", serviceDownloadAuthor.runService(request, response, list));
+					response.body((new JsonTransformer()).render(map));
 				});
 	}
 }

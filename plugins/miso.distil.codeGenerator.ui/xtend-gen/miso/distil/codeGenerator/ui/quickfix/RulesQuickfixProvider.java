@@ -3,12 +3,26 @@
  */
 package miso.distil.codeGenerator.ui.quickfix;
 
+import codeGeneratorModel.Artifact;
+import codeGeneratorModel.Service;
+import codeGeneratorModel.SimpleService;
 import com.google.inject.Inject;
 import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.validation.RulesValidator;
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.resources.IWorkspace;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.Path;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.ui.editor.model.IXtextDocument;
 import org.eclipse.xtext.ui.editor.model.edit.IModification;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
+import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
 import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
@@ -89,14 +103,54 @@ public class RulesQuickfixProvider extends DefaultQuickfixProvider {
   
   @Fix(RulesValidator.ARTIFACT_TODO)
   public void artifactToDo(final Issue issue, final IssueResolutionAcceptor acceptor) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nArtifact cannot be resolved to a type.");
+    final ISemanticModification _function = (EObject element, IModificationContext context) -> {
+      if ((element instanceof Artifact)) {
+        Resource _eResource = ((Artifact)element).eResource();
+        URI _uRI = _eResource.getURI();
+        final String platformString = _uRI.toPlatformString(true);
+        IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+        IWorkspaceRoot _root = _workspace.getRoot();
+        Path _path = new Path(platformString);
+        final IFile rules_file = _root.getFile(_path);
+        final IProject project = rules_file.getProject();
+        String _artifactJsonFileStri = this.names.getArtifactJsonFileStri(((Artifact)element));
+        String _plus = ("src/main/java/" + _artifactJsonFileStri);
+        String _plus_1 = (_plus + ".java");
+        Path _path_1 = new Path(_plus_1);
+        final IFile file_json = project.getFile(_path_1);
+        IPath _fullPath = file_json.getFullPath();
+        String _string = _fullPath.toString();
+        URI _createPlatformResourceURI = URI.createPlatformResourceURI(_string, true);
+        context.getXtextDocument(_createPlatformResourceURI);
+      }
+    };
+    acceptor.accept(issue, "Complete Upload/Update method", "Complete Upload/Update method.", "whyme.png", _function);
   }
   
   @Fix(RulesValidator.SERVICE_TODO)
   public void serviceToDo(final Issue issue, final IssueResolutionAcceptor acceptor) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nSimpleService cannot be resolved to a type.");
+    final ISemanticModification _function = (EObject element, IModificationContext context) -> {
+      if ((element instanceof SimpleService)) {
+        Resource _eResource = ((SimpleService)element).eResource();
+        URI _uRI = _eResource.getURI();
+        final String platformString = _uRI.toPlatformString(true);
+        IWorkspace _workspace = ResourcesPlugin.getWorkspace();
+        IWorkspaceRoot _root = _workspace.getRoot();
+        Path _path = new Path(platformString);
+        final IFile rules_file = _root.getFile(_path);
+        final IProject project = rules_file.getProject();
+        String _serviceFileStri = this.names.getServiceFileStri(((Service)element));
+        String _plus = ("src/main/java/" + _serviceFileStri);
+        String _plus_1 = (_plus + ".java");
+        Path _path_1 = new Path(_plus_1);
+        final IFile file_json = project.getFile(_path_1);
+        IPath _fullPath = file_json.getFullPath();
+        String _string = _fullPath.toString();
+        URI _createPlatformResourceURI = URI.createPlatformResourceURI(_string, true);
+        context.getXtextDocument(_createPlatformResourceURI);
+      }
+    };
+    acceptor.accept(issue, "Complete service method", "Complete service method.", "whyme.png", _function);
   }
   
   @Fix(RulesValidator.EMPTY_MONGO_URI)

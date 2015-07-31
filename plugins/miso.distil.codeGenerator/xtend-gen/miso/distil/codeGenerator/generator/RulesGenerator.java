@@ -3,7 +3,17 @@
  */
 package miso.distil.codeGenerator.generator;
 
+import codeGeneratorModel.Artifact;
+import codeGeneratorModel.Entity;
+import codeGeneratorModel.MultiService;
+import codeGeneratorModel.Root;
+import codeGeneratorModel.Service;
+import codeGeneratorModel.ServiceEnum;
+import codeGeneratorModel.SimpleService;
+import com.google.common.collect.Iterators;
 import com.google.inject.Inject;
+import java.util.Iterator;
+import miso.distil.codeGenerator.generator.GeneratorOutputConfiguration;
 import miso.distil.codeGenerator.generator.Names;
 import miso.distil.codeGenerator.generator.basic.generateBasicParam;
 import miso.distil.codeGenerator.generator.basic.generateBasicSpark;
@@ -20,9 +30,14 @@ import miso.distil.codeGenerator.generator.html.generateHtmlView;
 import miso.distil.codeGenerator.generator.services.generateMultiService;
 import miso.distil.codeGenerator.generator.services.generateServicesSpark;
 import miso.distil.codeGenerator.generator.services.generateSimpleService;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.common.util.TreeIterator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.IFileSystemAccess;
 import org.eclipse.xtext.generator.IGenerator;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * This class contains custom generation rules.
@@ -83,117 +98,240 @@ public class RulesGenerator implements IGenerator {
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess fsa) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nService cannot be resolved to a type."
-      + "\nArtifact cannot be resolved to a type."
-      + "\nThe method or field Root is undefined for the type RulesGenerator"
-      + "\nThe method or field Entity is undefined for the type RulesGenerator"
-      + "\nThe method or field SimpleService is undefined for the type RulesGenerator"
-      + "\nThe method or field MultiService is undefined for the type RulesGenerator"
-      + "\nThe method services is undefined for the type RulesGenerator"
-      + "\nThe method or field Root is undefined for the type RulesGenerator"
-      + "\nThe method services is undefined for the type RulesGenerator"
-      + "\nThe method or field Root is undefined for the type RulesGenerator"
-      + "\nThe method artifacts is undefined for the type RulesGenerator"
-      + "\nThe method or field Root is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nThe method or field ServiceEnum is undefined for the type RulesGenerator"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nREAD cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nREAD_ALL cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nUPDATE cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nUPLOAD cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nSEARCH cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nALL cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\nempty cannot be resolved"
-      + "\n! cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nREAD cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nREAD_ALL cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nUPDATE cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nUPLOAD cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nSEARCH cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nALL cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\n+ cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nREAD cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nDOWNLOAD cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nUPDATE cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nDELETE cannot be resolved"
-      + "\n|| cannot be resolved"
-      + "\nbasicServices cannot be resolved"
-      + "\ncontains cannot be resolved"
-      + "\nALL cannot be resolved"
-      + "\n+ cannot be resolved");
+    String _mainFileStri = this.names.getMainFileStri();
+    String _plus = (_mainFileStri + ".java");
+    CharSequence _write = this.genMain.write();
+    fsa.generateFile(_plus, _write);
+    String _dBFileStri = this.names.getDBFileStri();
+    String _plus_1 = (_dBFileStri + ".java");
+    TreeIterator<EObject> _allContents = resource.getAllContents();
+    Iterator<Root> _filter = Iterators.<Root>filter(_allContents, Root.class);
+    Root _last = IteratorExtensions.<Root>last(_filter);
+    CharSequence _write_1 = this.genMongoDB.write(_last);
+    fsa.generateFile(_plus_1, _write_1);
+    TreeIterator<EObject> _allContents_1 = resource.getAllContents();
+    Iterator<Entity> _filter_1 = Iterators.<Entity>filter(_allContents_1, Entity.class);
+    final Procedure1<Entity> _function = (Entity it) -> {
+      String _entityFileStri = this.names.getEntityFileStri(it);
+      String _plus_2 = (_entityFileStri + ".java");
+      CharSequence _write_2 = this.genEnti.write(it);
+      fsa.generateFile(_plus_2, _write_2);
+    };
+    IteratorExtensions.<Entity>forEach(_filter_1, _function);
+    TreeIterator<EObject> _allContents_2 = resource.getAllContents();
+    Iterator<SimpleService> _filter_2 = Iterators.<SimpleService>filter(_allContents_2, SimpleService.class);
+    final Procedure1<SimpleService> _function_1 = (SimpleService it) -> {
+      String _serviceFileStri = this.names.getServiceFileStri(it);
+      String _plus_2 = (_serviceFileStri + ".java");
+      CharSequence _write_2 = this.genSimSer.write(it);
+      fsa.generateFile(_plus_2, 
+        GeneratorOutputConfiguration.GEN_ONCE_OUTPUT, _write_2);
+    };
+    IteratorExtensions.<SimpleService>forEach(_filter_2, _function_1);
+    TreeIterator<EObject> _allContents_3 = resource.getAllContents();
+    Iterator<MultiService> _filter_3 = Iterators.<MultiService>filter(_allContents_3, MultiService.class);
+    final Procedure1<MultiService> _function_2 = (MultiService it) -> {
+      String _serviceFileStri = this.names.getServiceFileStri(it);
+      String _plus_2 = (_serviceFileStri + ".java");
+      CharSequence _write_2 = this.genMulSer.write(it);
+      fsa.generateFile(_plus_2, _write_2);
+    };
+    IteratorExtensions.<MultiService>forEach(_filter_3, _function_2);
+    TreeIterator<EObject> _allContents_4 = resource.getAllContents();
+    Iterator<Root> _filter_4 = Iterators.<Root>filter(_allContents_4, Root.class);
+    Root _last_1 = IteratorExtensions.<Root>last(_filter_4);
+    EList<Service> _services = _last_1.getServices();
+    boolean _isEmpty = _services.isEmpty();
+    boolean _not = (!_isEmpty);
+    if (_not) {
+      String _servicesSparkFileStri = this.names.getServicesSparkFileStri();
+      String _plus_2 = (_servicesSparkFileStri + ".java");
+      TreeIterator<EObject> _allContents_5 = resource.getAllContents();
+      Iterator<Root> _filter_5 = Iterators.<Root>filter(_allContents_5, Root.class);
+      Root _last_2 = IteratorExtensions.<Root>last(_filter_5);
+      EList<Service> _services_1 = _last_2.getServices();
+      CharSequence _write_2 = this.genSerSpa.write(((EList<Service>) _services_1));
+      fsa.generateFile(_plus_2, _write_2);
+    }
+    TreeIterator<EObject> _allContents_6 = resource.getAllContents();
+    Iterator<Root> _filter_6 = Iterators.<Root>filter(_allContents_6, Root.class);
+    Root _last_3 = IteratorExtensions.<Root>last(_filter_6);
+    EList<Artifact> _artifacts = _last_3.getArtifacts();
+    for (final Artifact artifact : ((EList<Artifact>) _artifacts)) {
+      {
+        String _artifactFileStri = this.names.getArtifactFileStri(artifact);
+        String _plus_3 = (_artifactFileStri + ".java");
+        CharSequence _write_3 = this.genArtifact.write(artifact);
+        fsa.generateFile(_plus_3, _write_3);
+        EList<ServiceEnum> _basicServices = artifact.getBasicServices();
+        boolean _isEmpty_1 = _basicServices.isEmpty();
+        boolean _not_1 = (!_isEmpty_1);
+        if (_not_1) {
+          String _artifactJsonFileStri = this.names.getArtifactJsonFileStri(artifact);
+          String _plus_4 = (_artifactJsonFileStri + ".java");
+          CharSequence _write_4 = this.genJso.write(artifact);
+          fsa.generateFile(_plus_4, 
+            GeneratorOutputConfiguration.GEN_ONCE_OUTPUT, _write_4);
+        }
+        boolean _or = false;
+        boolean _or_1 = false;
+        boolean _or_2 = false;
+        boolean _or_3 = false;
+        boolean _or_4 = false;
+        EList<ServiceEnum> _basicServices_1 = artifact.getBasicServices();
+        boolean _contains = _basicServices_1.contains(ServiceEnum.READ);
+        if (_contains) {
+          _or_4 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_2 = artifact.getBasicServices();
+          boolean _contains_1 = _basicServices_2.contains(ServiceEnum.READ_ALL);
+          _or_4 = _contains_1;
+        }
+        if (_or_4) {
+          _or_3 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_3 = artifact.getBasicServices();
+          boolean _contains_2 = _basicServices_3.contains(ServiceEnum.UPDATE);
+          _or_3 = _contains_2;
+        }
+        if (_or_3) {
+          _or_2 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_4 = artifact.getBasicServices();
+          boolean _contains_3 = _basicServices_4.contains(ServiceEnum.UPLOAD);
+          _or_2 = _contains_3;
+        }
+        if (_or_2) {
+          _or_1 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_5 = artifact.getBasicServices();
+          boolean _contains_4 = _basicServices_5.contains(ServiceEnum.SEARCH);
+          _or_1 = _contains_4;
+        }
+        if (_or_1) {
+          _or = true;
+        } else {
+          EList<ServiceEnum> _basicServices_6 = artifact.getBasicServices();
+          boolean _contains_5 = _basicServices_6.contains(ServiceEnum.ALL);
+          _or = _contains_5;
+        }
+        if (_or) {
+          String _artifactCustomFileStri = this.names.getArtifactCustomFileStri(artifact);
+          String _plus_5 = (_artifactCustomFileStri + ".java");
+          CharSequence _write_5 = this.genCusHtm.write(artifact);
+          fsa.generateFile(_plus_5, 
+            GeneratorOutputConfiguration.GEN_ONCE_OUTPUT, _write_5);
+        }
+        EList<ServiceEnum> _basicServices_7 = artifact.getBasicServices();
+        boolean _isEmpty_2 = _basicServices_7.isEmpty();
+        boolean _not_2 = (!_isEmpty_2);
+        if (_not_2) {
+          String _bSparkFileStri = this.names.getBSparkFileStri(artifact);
+          String _plus_6 = (_bSparkFileStri + ".java");
+          CharSequence _write_6 = this.genBasSpa.write(artifact);
+          fsa.generateFile(_plus_6, _write_6);
+          String _bParamFileStri = this.names.getBParamFileStri(artifact);
+          String _plus_7 = (_bParamFileStri + ".java");
+          CharSequence _write_7 = this.genBasPar.write(artifact);
+          fsa.generateFile(_plus_7, _write_7);
+        }
+        boolean _or_5 = false;
+        boolean _or_6 = false;
+        boolean _or_7 = false;
+        boolean _or_8 = false;
+        boolean _or_9 = false;
+        EList<ServiceEnum> _basicServices_8 = artifact.getBasicServices();
+        boolean _contains_6 = _basicServices_8.contains(ServiceEnum.READ);
+        if (_contains_6) {
+          _or_9 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_9 = artifact.getBasicServices();
+          boolean _contains_7 = _basicServices_9.contains(ServiceEnum.READ_ALL);
+          _or_9 = _contains_7;
+        }
+        if (_or_9) {
+          _or_8 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_10 = artifact.getBasicServices();
+          boolean _contains_8 = _basicServices_10.contains(ServiceEnum.UPDATE);
+          _or_8 = _contains_8;
+        }
+        if (_or_8) {
+          _or_7 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_11 = artifact.getBasicServices();
+          boolean _contains_9 = _basicServices_11.contains(ServiceEnum.UPLOAD);
+          _or_7 = _contains_9;
+        }
+        if (_or_7) {
+          _or_6 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_12 = artifact.getBasicServices();
+          boolean _contains_10 = _basicServices_12.contains(ServiceEnum.SEARCH);
+          _or_6 = _contains_10;
+        }
+        if (_or_6) {
+          _or_5 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_13 = artifact.getBasicServices();
+          boolean _contains_11 = _basicServices_13.contains(ServiceEnum.ALL);
+          _or_5 = _contains_11;
+        }
+        if (_or_5) {
+          String _hSparkFileStri = this.names.getHSparkFileStri(artifact);
+          String _plus_8 = (_hSparkFileStri + ".java");
+          CharSequence _write_8 = this.genHtmSpa.write(artifact);
+          fsa.generateFile(_plus_8, _write_8);
+          String _hViewFileStri = this.names.getHViewFileStri(artifact);
+          String _plus_9 = (_hViewFileStri + ".java");
+          CharSequence _write_9 = this.genHtmVie.write(artifact);
+          fsa.generateFile(_plus_9, _write_9);
+          String _hJsonFileStri = this.names.getHJsonFileStri(artifact);
+          String _plus_10 = (_hJsonFileStri + ".java");
+          CharSequence _write_10 = this.genHtmJso.write(artifact);
+          fsa.generateFile(_plus_10, _write_10);
+        }
+        boolean _or_10 = false;
+        boolean _or_11 = false;
+        boolean _or_12 = false;
+        boolean _or_13 = false;
+        EList<ServiceEnum> _basicServices_14 = artifact.getBasicServices();
+        boolean _contains_12 = _basicServices_14.contains(ServiceEnum.READ);
+        if (_contains_12) {
+          _or_13 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_15 = artifact.getBasicServices();
+          boolean _contains_13 = _basicServices_15.contains(ServiceEnum.DOWNLOAD);
+          _or_13 = _contains_13;
+        }
+        if (_or_13) {
+          _or_12 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_16 = artifact.getBasicServices();
+          boolean _contains_14 = _basicServices_16.contains(ServiceEnum.UPDATE);
+          _or_12 = _contains_14;
+        }
+        if (_or_12) {
+          _or_11 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_17 = artifact.getBasicServices();
+          boolean _contains_15 = _basicServices_17.contains(ServiceEnum.DELETE);
+          _or_11 = _contains_15;
+        }
+        if (_or_11) {
+          _or_10 = true;
+        } else {
+          EList<ServiceEnum> _basicServices_18 = artifact.getBasicServices();
+          boolean _contains_16 = _basicServices_18.contains(ServiceEnum.ALL);
+          _or_10 = _contains_16;
+        }
+        if (_or_10) {
+          String _hLinksFileStri = this.names.getHLinksFileStri(artifact);
+          String _plus_11 = (_hLinksFileStri + ".java");
+          CharSequence _write_11 = this.genHtmLin.write(artifact);
+          fsa.generateFile(_plus_11, _write_11);
+        }
+      }
+    }
   }
 }
