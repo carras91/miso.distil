@@ -15,15 +15,15 @@ import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSp
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 
+import miso.distil.pictureServices.basic.BasicPictureParam;
+import miso.distil.pictureServices.basic.BasicPictureSpark;
+import miso.distil.pictureServices.Picture;
 import miso.distil.videoServices.basic.BasicVideoParam;
 import miso.distil.videoServices.basic.BasicVideoSpark;
 import miso.distil.videoServices.Video;
 import miso.distil.documentServices.basic.BasicDocumentParam;
 import miso.distil.documentServices.basic.BasicDocumentSpark;
 import miso.distil.documentServices.Document;
-import miso.distil.pictureServices.basic.BasicPictureParam;
-import miso.distil.pictureServices.basic.BasicPictureSpark;
-import miso.distil.pictureServices.Picture;
 
 /**
  * Auto-generated services spark server
@@ -98,6 +98,33 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 			}, new JsonTransformer());
 
 
+		after(BasicPictureSpark.DownloadIdJson, "application/json",
+				(request, response) -> {
+					String id = request.params(BasicPictureParam.IdGet);
+					Picture artifact = RecordDB.getDefault().readOne(id, Picture.class);
+					List<Picture> list = new ArrayList<Picture>();
+					list.add(artifact);
+					HashMap<String, Object> map = new HashMap<String, Object>();
+					map.put("Download", artifact);
+					map.put("DownloadAuthor", serviceDownloadAuthor.runService(request, response, list));
+					response.body((new JsonTransformer()).render(map));
+				});
+
+		after(BasicPictureSpark.UploadJson, "application/json",
+				(request, response) -> {
+					try {
+						Picture artifact = JsonTransformer.fromJson(response.body(), Picture.class);
+						List<Picture> list = new ArrayList<Picture>();
+						list.add(artifact);
+						HashMap<String, Object> map = new HashMap<String, Object>();
+						map.put("Update", artifact);
+						map.put("SimilarPictures", serviceSimilarPictures.runService(request, response, list));
+						response.body((new JsonTransformer()).render(map));
+					} catch (JsonSyntaxException e) {
+						e.printStackTrace();
+					}
+				});
+
 		after(BasicVideoSpark.DownloadIdJson, "application/json",
 				(request, response) -> {
 					String id = request.params(BasicVideoParam.IdGet);
@@ -131,33 +158,6 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 						HashMap<String, Object> map = new HashMap<String, Object>();
 						map.put("Update", artifact);
 						map.put("Analyse", serviceAnalyse.runService(request, response, list));
-						response.body((new JsonTransformer()).render(map));
-					} catch (JsonSyntaxException e) {
-						e.printStackTrace();
-					}
-				});
-
-		after(BasicPictureSpark.DownloadIdJson, "application/json",
-				(request, response) -> {
-					String id = request.params(BasicPictureParam.IdGet);
-					Picture artifact = RecordDB.getDefault().readOne(id, Picture.class);
-					List<Picture> list = new ArrayList<Picture>();
-					list.add(artifact);
-					HashMap<String, Object> map = new HashMap<String, Object>();
-					map.put("Download", artifact);
-					map.put("DownloadAuthor", serviceDownloadAuthor.runService(request, response, list));
-					response.body((new JsonTransformer()).render(map));
-				});
-
-		after(BasicPictureSpark.UploadJson, "application/json",
-				(request, response) -> {
-					try {
-						Picture artifact = JsonTransformer.fromJson(response.body(), Picture.class);
-						List<Picture> list = new ArrayList<Picture>();
-						list.add(artifact);
-						HashMap<String, Object> map = new HashMap<String, Object>();
-						map.put("Update", artifact);
-						map.put("SimilarPictures", serviceSimilarPictures.runService(request, response, list));
 						response.body((new JsonTransformer()).render(map));
 					} catch (JsonSyntaxException e) {
 						e.printStackTrace();

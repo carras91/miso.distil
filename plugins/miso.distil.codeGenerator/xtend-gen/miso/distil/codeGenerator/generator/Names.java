@@ -1,8 +1,5 @@
 package miso.distil.codeGenerator.generator;
 
-import codeGeneratorModel.Artifact;
-import codeGeneratorModel.Entity;
-import codeGeneratorModel.Service;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.Functions.Function0;
 
@@ -109,294 +106,245 @@ public class Names {
     }
   }.apply();
   
-  public String getArtifactStri(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _lowerCase = _name.toLowerCase();
-    String _plus = ((this.RootStri + "/") + _lowerCase);
-    return (_plus + "Services");
+  public String getArtifactStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved"
+      + "\ntoLowerCase cannot be resolved");
   }
   
-  public CharSequence getArtifactChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append(this.RootChar, "");
-    _builder.append(".");
-    String _name = artifact.getName();
-    String _lowerCase = _name.toLowerCase();
-    _builder.append(_lowerCase, "");
-    _builder.append("Services");
-    return _builder;
+  public CharSequence getArtifactChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved"
+      + "\ntoLowerCase cannot be resolved");
   }
   
-  public String getBasicStri(final Artifact artifact) {
-    String _artifactStri = this.getArtifactStri(artifact);
-    return (_artifactStri + "/basic");
+  public Object getBasicStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ngetArtifactStri cannot be resolved"
+      + "\n+ cannot be resolved");
   }
   
-  public CharSequence getBasicChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _artifactChar = this.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".basic");
-    return _builder;
+  public CharSequence getBasicChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ngetArtifactChar cannot be resolved");
   }
   
-  public String getHtmlStri(final Artifact artifact) {
-    String _artifactStri = this.getArtifactStri(artifact);
-    return (_artifactStri + "/htmlCover");
+  public Object getHtmlStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ngetArtifactStri cannot be resolved"
+      + "\n+ cannot be resolved");
   }
   
-  public CharSequence getHtmlChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _artifactChar = this.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".htmlCover");
-    return _builder;
+  public CharSequence getHtmlChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\ngetArtifactChar cannot be resolved");
   }
   
-  private String getBParam(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _plus = ("Basic" + _name);
-    return (_plus + "Param");
+  private String getBParam(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getBParamFileStri(final Artifact artifact) {
-    String _basicStri = this.getBasicStri(artifact);
-    String _plus = (_basicStri + "/");
-    String _bParam = this.getBParam(artifact);
-    return (_plus + _bParam);
+  public Object getBParamFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nbasicStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nBParam cannot be resolved");
   }
   
-  public CharSequence getBParamFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _basicChar = this.getBasicChar(artifact);
-    _builder.append(_basicChar, "");
-    _builder.append(".");
-    String _bParam = this.getBParam(artifact);
-    _builder.append(_bParam, "");
-    return _builder;
+  public CharSequence getBParamFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nbasicChar cannot be resolved"
+      + "\nBParam cannot be resolved");
   }
   
-  private String getBSpark(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _plus = ("Basic" + _name);
-    return (_plus + "Spark");
+  private String getBSpark(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getBSparkFileStri(final Artifact artifact) {
-    String _basicStri = this.getBasicStri(artifact);
-    String _plus = (_basicStri + "/");
-    String _bSpark = this.getBSpark(artifact);
-    return (_plus + _bSpark);
+  public Object getBSparkFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nbasicStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nBSpark cannot be resolved");
   }
   
-  public CharSequence getBSparkFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _basicChar = this.getBasicChar(artifact);
-    _builder.append(_basicChar, "");
-    _builder.append(".");
-    String _bSpark = this.getBSpark(artifact);
-    _builder.append(_bSpark, "");
-    return _builder;
+  public CharSequence getBSparkFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nbasicChar cannot be resolved"
+      + "\nBSpark cannot be resolved");
   }
   
-  private String getHJson(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _plus = ("Html" + _name);
-    return (_plus + "Json");
+  private String getHJson(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getHJsonFileStri(final Artifact artifact) {
-    String _htmlStri = this.getHtmlStri(artifact);
-    String _plus = (_htmlStri + "/");
-    String _hJson = this.getHJson(artifact);
-    return (_plus + _hJson);
+  public Object getHJsonFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nhtmlStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nHJson cannot be resolved");
   }
   
-  public CharSequence getHJsonFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _htmlChar = this.getHtmlChar(artifact);
-    _builder.append(_htmlChar, "");
-    _builder.append(".");
-    String _hJson = this.getHJson(artifact);
-    _builder.append(_hJson, "");
-    return _builder;
+  public CharSequence getHJsonFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nhtmlChar cannot be resolved"
+      + "\nHJson cannot be resolved");
   }
   
-  private String getHLinks(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _plus = ("Html" + _name);
-    return (_plus + "Links");
+  private String getHLinks(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getHLinksFileStri(final Artifact artifact) {
-    String _htmlStri = this.getHtmlStri(artifact);
-    String _plus = (_htmlStri + "/");
-    String _hLinks = this.getHLinks(artifact);
-    return (_plus + _hLinks);
+  public Object getHLinksFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nhtmlStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nHLinks cannot be resolved");
   }
   
-  public CharSequence getHLinksFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _htmlChar = this.getHtmlChar(artifact);
-    _builder.append(_htmlChar, "");
-    _builder.append(".");
-    String _hLinks = this.getHLinks(artifact);
-    _builder.append(_hLinks, "");
-    return _builder;
+  public CharSequence getHLinksFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nhtmlChar cannot be resolved"
+      + "\nHLinks cannot be resolved");
   }
   
-  private String getHSpark(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _plus = ("Html" + _name);
-    return (_plus + "Spark");
+  private String getHSpark(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getHSparkFileStri(final Artifact artifact) {
-    String _htmlStri = this.getHtmlStri(artifact);
-    String _plus = (_htmlStri + "/");
-    String _hSpark = this.getHSpark(artifact);
-    return (_plus + _hSpark);
+  public Object getHSparkFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nhtmlStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nHSpark cannot be resolved");
   }
   
-  public CharSequence getHSparkFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _htmlChar = this.getHtmlChar(artifact);
-    _builder.append(_htmlChar, "");
-    _builder.append(".");
-    String _hSpark = this.getHSpark(artifact);
-    _builder.append(_hSpark, "");
-    return _builder;
+  public CharSequence getHSparkFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nhtmlChar cannot be resolved"
+      + "\nHSpark cannot be resolved");
   }
   
-  private String getHView(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _plus = ("Html" + _name);
-    return (_plus + "View");
+  private String getHView(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getHViewFileStri(final Artifact artifact) {
-    String _htmlStri = this.getHtmlStri(artifact);
-    String _plus = (_htmlStri + "/");
-    String _hView = this.getHView(artifact);
-    return (_plus + _hView);
+  public Object getHViewFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nhtmlStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nHView cannot be resolved");
   }
   
-  public CharSequence getHViewFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _htmlChar = this.getHtmlChar(artifact);
-    _builder.append(_htmlChar, "");
-    _builder.append(".");
-    String _hView = this.getHView(artifact);
-    _builder.append(_hView, "");
-    return _builder;
+  public CharSequence getHViewFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nhtmlChar cannot be resolved"
+      + "\nHView cannot be resolved");
   }
   
-  private String getArtifact(final Artifact artifact) {
-    return artifact.getName();
+  private Object getArtifact(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getArtifactFileStri(final Artifact artifact) {
-    String _artifactStri = this.getArtifactStri(artifact);
-    String _plus = (_artifactStri + "/");
-    String _artifact = this.getArtifact(artifact);
-    return (_plus + _artifact);
+  public Object getArtifactFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nartifactStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nartifact cannot be resolved");
   }
   
-  public CharSequence getArtifactFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _artifactChar = this.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".");
-    String _artifact = this.getArtifact(artifact);
-    _builder.append(_artifact, "");
-    return _builder;
+  public CharSequence getArtifactFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nartifactChar cannot be resolved"
+      + "\nartifact cannot be resolved");
   }
   
-  private String getArtifactJson(final Artifact artifact) {
-    String _name = artifact.getName();
-    return (_name + "Json");
+  private Object getArtifactJson(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved"
+      + "\n+ cannot be resolved");
   }
   
-  public String getArtifactJsonFileStri(final Artifact artifact) {
-    String _artifactStri = this.getArtifactStri(artifact);
-    String _plus = (_artifactStri + "/");
-    String _artifactJson = this.getArtifactJson(artifact);
-    return (_plus + _artifactJson);
+  public Object getArtifactJsonFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nartifactStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nartifactJson cannot be resolved");
   }
   
-  public String getArtifactJsonFileStri2(final Artifact artifact) {
-    String _artifactJsonFileStri = this.getArtifactJsonFileStri(artifact);
-    return _artifactJsonFileStri.replace("/", "\\");
+  public Object getArtifactJsonFileStri2(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nreplace cannot be resolved");
   }
   
-  public CharSequence getArtifactJsonFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _artifactChar = this.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".");
-    String _artifactJson = this.getArtifactJson(artifact);
-    _builder.append(_artifactJson, "");
-    return _builder;
+  public CharSequence getArtifactJsonFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nartifactChar cannot be resolved"
+      + "\nartifactJson cannot be resolved");
   }
   
-  private String getArtifactCustom(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _plus = ("Custom" + _name);
-    return (_plus + "Html");
+  private String getArtifactCustom(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getArtifactCustomFileStri(final Artifact artifact) {
-    String _artifactStri = this.getArtifactStri(artifact);
-    String _plus = (_artifactStri + "/");
-    String _artifactCustom = this.getArtifactCustom(artifact);
-    return (_plus + _artifactCustom);
+  public Object getArtifactCustomFileStri(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nartifactStri cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\n+ cannot be resolved"
+      + "\nartifactCustom cannot be resolved");
   }
   
-  public CharSequence getArtifactCustomFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _artifactChar = this.getArtifactChar(artifact);
-    _builder.append(_artifactChar, "");
-    _builder.append(".");
-    String _artifactCustom = this.getArtifactCustom(artifact);
-    _builder.append(_artifactCustom, "");
-    return _builder;
+  public CharSequence getArtifactCustomFileChar(final /* Artifact */Object artifact) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nartifactChar cannot be resolved"
+      + "\nartifactCustom cannot be resolved");
   }
   
-  private String getEntity(final Entity entity) {
-    return entity.getName();
+  private Object getEntity(final /* Entity */Object entity) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getEntityFileStri(final Entity entity) {
-    String _entity = this.getEntity(entity);
-    return ((this.EntitiesStr + "/") + _entity);
+  public String getEntityFileStri(final /* Entity */Object entity) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nentity cannot be resolved");
   }
   
-  public CharSequence getEntityFileChar(final Entity entity) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append(this.EntitiesCha, "");
-    _builder.append(".");
-    String _entity = this.getEntity(entity);
-    _builder.append(_entity, "");
-    return _builder;
+  public CharSequence getEntityFileChar(final /* Entity */Object entity) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nentity cannot be resolved");
   }
   
-  private String getService(final Service service) {
-    String _name = service.getName();
-    return ("Service" + _name);
+  private String getService(final /* Service */Object service) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nname cannot be resolved");
   }
   
-  public String getServiceFileStri(final Service service) {
-    String _service = this.getService(service);
-    return ((this.ServicesStr + "/") + _service);
+  public String getServiceFileStri(final /* Service */Object service) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nservice cannot be resolved");
   }
   
-  public CharSequence getServiceFileChar(final Service service) {
-    StringConcatenation _builder = new StringConcatenation();
-    _builder.append(this.ServicesCha, "");
-    _builder.append(".");
-    String _service = this.getService(service);
-    _builder.append(_service, "");
-    return _builder;
+  public CharSequence getServiceFileChar(final /* Service */Object service) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nservice cannot be resolved");
   }
   
   private String getServicesSpark() {
