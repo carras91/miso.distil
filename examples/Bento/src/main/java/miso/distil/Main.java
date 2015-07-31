@@ -3,9 +3,9 @@ package miso.distil;
 import miso.carrascal.cloudModelServices.CloudModelServices;
 
 /**
- * Auto-generated main class
+ * Auto-generated main class.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class Main {
 

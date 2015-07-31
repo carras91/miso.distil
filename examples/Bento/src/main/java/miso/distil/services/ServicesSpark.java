@@ -2,6 +2,8 @@ package miso.distil.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+
 
 import static spark.Spark.post;
 import static spark.Spark.after;
@@ -72,9 +74,10 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 					Bento artifact = RecordDB.getDefault().readOne(id, Bento.class);
 					List<Bento> list = new ArrayList<Bento>();
 					list.add(artifact);
-					String result = "Original response --> " + response.body() + " <-- end of original response. ";
-					result = result + " Output from service Analyse --> " + (new JsonTransformer()).render(serviceAnalyse.runService(request, response, list)) + " <-- end of service Analyse. ";
-					response.body(result);
+					HashMap<String, Object> map = new HashMap<String, Object>();
+					map.put("Update", artifact);
+					map.put("Analyse", serviceAnalyse.runService(request, response, list));
+					response.body((new JsonTransformer()).render(map));
 				});
 
 		after(BasicBentoSpark.UploadJson, "application/json",
@@ -83,9 +86,10 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 						Bento artifact = JsonTransformer.fromJson(response.body(), Bento.class);
 						List<Bento> list = new ArrayList<Bento>();
 						list.add(artifact);
-						String result = "Original response --> " + response.body() + " <-- end of original response. ";
-						result = result + " Output from service Analyse --> " + (new JsonTransformer()).render(serviceAnalyse.runService(request, response, list)) + " <-- end of service Analyse. ";
-						response.body(result);
+						HashMap<String, Object> map = new HashMap<String, Object>();
+						map.put("Update", artifact);
+						map.put("Analyse", serviceAnalyse.runService(request, response, list));
+						response.body((new JsonTransformer()).render(map));
 					} catch (JsonSyntaxException e) {
 						e.printStackTrace();
 					}

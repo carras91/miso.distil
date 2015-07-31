@@ -15,7 +15,6 @@ import com.google.inject.Inject;
 import java.util.Iterator;
 import miso.distil.codeGenerator.generator.GeneratorOutputConfiguration;
 import miso.distil.codeGenerator.generator.Names;
-import miso.distil.codeGenerator.generator.basic.generateBasicCodes;
 import miso.distil.codeGenerator.generator.basic.generateBasicParam;
 import miso.distil.codeGenerator.generator.basic.generateBasicSpark;
 import miso.distil.codeGenerator.generator.custom.generateCustomHtml;
@@ -66,9 +65,6 @@ public class RulesGenerator implements IGenerator {
   
   @Inject
   private generateEntityClass genEnti;
-  
-  @Inject
-  private generateBasicCodes genBasCod;
   
   @Inject
   private generateBasicSpark genBasSpa;
@@ -234,14 +230,10 @@ public class RulesGenerator implements IGenerator {
           String _plus_6 = (_bSparkFileStri + ".java");
           CharSequence _write_6 = this.genBasSpa.write(artifact);
           fsa.generateFile(_plus_6, _write_6);
-          String _bCodesFileStri = this.names.getBCodesFileStri(artifact);
-          String _plus_7 = (_bCodesFileStri + ".java");
-          CharSequence _write_7 = this.genBasCod.write(artifact);
-          fsa.generateFile(_plus_7, _write_7);
           String _bParamFileStri = this.names.getBParamFileStri(artifact);
-          String _plus_8 = (_bParamFileStri + ".java");
-          CharSequence _write_8 = this.genBasPar.write(artifact);
-          fsa.generateFile(_plus_8, _write_8);
+          String _plus_7 = (_bParamFileStri + ".java");
+          CharSequence _write_7 = this.genBasPar.write(artifact);
+          fsa.generateFile(_plus_7, _write_7);
         }
         boolean _or_5 = false;
         boolean _or_6 = false;
@@ -287,17 +279,17 @@ public class RulesGenerator implements IGenerator {
         }
         if (_or_5) {
           String _hSparkFileStri = this.names.getHSparkFileStri(artifact);
-          String _plus_9 = (_hSparkFileStri + ".java");
-          CharSequence _write_9 = this.genHtmSpa.write(artifact);
-          fsa.generateFile(_plus_9, _write_9);
+          String _plus_8 = (_hSparkFileStri + ".java");
+          CharSequence _write_8 = this.genHtmSpa.write(artifact);
+          fsa.generateFile(_plus_8, _write_8);
           String _hViewFileStri = this.names.getHViewFileStri(artifact);
-          String _plus_10 = (_hViewFileStri + ".java");
-          CharSequence _write_10 = this.genHtmVie.write(artifact);
-          fsa.generateFile(_plus_10, _write_10);
+          String _plus_9 = (_hViewFileStri + ".java");
+          CharSequence _write_9 = this.genHtmVie.write(artifact);
+          fsa.generateFile(_plus_9, _write_9);
           String _hJsonFileStri = this.names.getHJsonFileStri(artifact);
-          String _plus_11 = (_hJsonFileStri + ".java");
-          CharSequence _write_11 = this.genHtmJso.write(artifact);
-          fsa.generateFile(_plus_11, _write_11);
+          String _plus_10 = (_hJsonFileStri + ".java");
+          CharSequence _write_10 = this.genHtmJso.write(artifact);
+          fsa.generateFile(_plus_10, _write_10);
         }
         boolean _or_10 = false;
         boolean _or_11 = false;
@@ -335,9 +327,9 @@ public class RulesGenerator implements IGenerator {
         }
         if (_or_10) {
           String _hLinksFileStri = this.names.getHLinksFileStri(artifact);
-          String _plus_12 = (_hLinksFileStri + ".java");
-          CharSequence _write_12 = this.genHtmLin.write(artifact);
-          fsa.generateFile(_plus_12, _write_12);
+          String _plus_11 = (_hLinksFileStri + ".java");
+          CharSequence _write_11 = this.genHtmLin.write(artifact);
+          fsa.generateFile(_plus_11, _write_11);
         }
       }
     }

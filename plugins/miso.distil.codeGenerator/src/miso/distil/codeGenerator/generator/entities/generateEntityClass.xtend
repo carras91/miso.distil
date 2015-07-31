@@ -9,9 +9,9 @@ import codeGeneratorModel.DataEnum
 import codeGeneratorModel.Reference
 
 /**
- * To write <entity>.java
+ * To write "entity.name".java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateEntityClass {
 	
@@ -19,18 +19,18 @@ class generateEntityClass {
 	@Inject miso.distil.codeGenerator.generator.Names names
 	
 	/**
-	 * To write <entity.name>.java
+	 * To write "entity.name".java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @author Carlos Carrascal.
 	 */
 	def write(Entity entity) '''
 		package «names.EntitiesCha»;
 
 		«genUti.getImportList(entity.attributes)»
 		/**
-		 * Auto-generated entity class
+		 * Auto-generated entity class.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class «entity.name» {
 
@@ -38,17 +38,18 @@ class generateEntityClass {
 			«genUti.getPrivateAttributes(entity.attributes)»
 
 			«IF entity.attributes.empty»
-				// Constructor
+				/**
+				 * Empty constructor.
+				 */
 				public «entity.name»() {}
 			«ELSE»
-				// Empty constructor
+				/**
+				 * Empty constructor.
+				 */
 				public «entity.name»() {}
 				
-				// Full constructor
 				«entity.getConstructorEntity»
 			«ENDIF»
-
-			// Getters and setters
 
 			«genUti.getGetSetAtt(entity.attributes)»
 
@@ -58,13 +59,20 @@ class generateEntityClass {
 		}
 	'''
 
-	/*
-	 * To write the full constructor of entity
+	/**
+	 * To write the full constructor of entity.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */		
 	def private getConstructorEntity(Entity entity) '''
 		«val EList<Attribute> atts = entity.attributes»
+		/**
+		 * Full constructor.
+		 * 
+		«FOR att : atts»
+		* @param «att.name» Attribute «att.name».
+		«ENDFOR»
+		 */
 		public «entity.name»(«FOR att:atts»«genUti.getTypeName(att)» «att.name»«IF !atts.last.equals(att)», «ENDIF»«ENDFOR») {
 
 			«FOR att:atts» 

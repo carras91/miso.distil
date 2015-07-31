@@ -10,20 +10,20 @@ import codeGeneratorModel.Primitive
 import codeGeneratorModel.ServiceEnum
 import codeGeneratorModel.ArtifactID
 
-/*
- * To write XXXJson.java
+/**
+ * To write XXXJson.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateJson {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
-	/*
-	 * To write <artifact.name>Json.java
+	/**
+	 * To write "artifact.name"Json.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */	
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
@@ -82,22 +82,19 @@ class generateJson {
 
 		import «names.getArtifactFileChar(artifact)»;
 		«IF basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.UPDATE)»
-			import «names.getBCodesFileChar(artifact)»;
 			import «names.getBParamFileChar(artifact)»;
 			«genUti.getImportCompose(allAtts)»
 		«ENDIF»
 
 		/**
-		 * Auto-generated custom json methods
+		 * Auto-generated custom json methods.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class «name»Json extends BasicAbstractJson<«name»> {
 
 			 /**
-			 * Auto-generated empty constructor
-			 * 
-			 * @author miso.distil.codeGenerator
+			 * Auto-generated empty constructor.
 			 */
 			 public «name»Json() {
 			 	super(«name».class);	
@@ -105,12 +102,14 @@ class generateJson {
 
 			«IF basicServices.contains(ServiceEnum.UPDATE)»
 				/**
-				 * Auto-generated method to cusomice the update method
+				 * Auto-generated method to cusomice the update method.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param req Spark request.
+				 * @param res Spark response.
+				 * @return «name» updated or null if error.
 				 */
 				@Override
-				public Object postUpdate(Request req, Response res) {
+				public «name» postUpdate(Request req, Response res) {
 					// Basic Params
 					Map<String, String> map = parseRequest(req, Basic«name»Param.values());
 					String id = map.get(Basic«name»Param.IdPost);
@@ -155,14 +154,14 @@ class generateJson {
 						«ENDFOR»
 					} catch(Exception e) {
 						e.printStackTrace();
-						return Basic«name»Codes.Param_error;
+						return null;
 					}
 
 					// Read old «name» and his InputStream
 					«name» old«name» = RecordDB.getDefault().readOne(id, classType);
 					InputStream IS = RecordDB.getDefault().getInputStream(id, classType);
 					if(old«name» == null || IS == null) {
-						return Basic«name»Codes.DB_notfound;
+						return null;
 					}
 
 					// Not required params and artifact's id
@@ -197,12 +196,12 @@ class generateJson {
 					// Save new «name» and delete old «name»
 					if(RecordDB.getDefault().save(new«name», IS)) {
 						if(!RecordDB.getDefault().delete(id, classType)) {
-							return Basic«name»Codes.DB_notfound;
+							return null;
 						} else {
 							return new«name»;
 						}
 					} else {
-						return Basic«name»Codes.DB_notupdated;
+						return null;
 					}
 				}
 
@@ -211,10 +210,12 @@ class generateJson {
 				/**
 				 * Auto-generated method to cusomice the upload method
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param req Spark request.
+				 * @param res Spark response.
+				 * @return «name» uploaded or null if error.
 				 */
 				@Override
-				public Object postUpload(Request req, Response res) {
+				public «name» postUpload(Request req, Response res) {
 					// There is a file
 					MultipartConfigElement multipartConfigElement = new MultipartConfigElement("/tmp");
 					req.raw().setAttribute("org.eclipse.multipartConfig", multipartConfigElement);
@@ -256,10 +257,10 @@ class generateJson {
 						«ENDFOR»
 
 						if(fileContent == null || fileName == null) {
-							return Basic«name»Codes.Param_emptyfile;
+							return null;
 						}
 						if(fileName.isEmpty() «IF artifact.extension != null»|| !fileName.endsWith(".«artifact.extension»")«ENDIF») {
-							return Basic«name»Codes.Param_emptyfile;
+							return null;
 						}
 
 						// Not required params and artifact's id
@@ -292,20 +293,20 @@ class generateJson {
 						«name» «namelow» = new «name»(fileName, fileSize«FOR att:atts», «genUti.getNewAttName(att, artifact)»«ENDFOR»);
 
 						if(!RecordDB.getDefault().save(«namelow», fileContent)) {
-							return Basic«name»Codes.DB_notuploaded;
+							return null;
 						}
 
 						return «namelow»;
 
 					} catch (IOException e) {
 						e.printStackTrace();
-						return Basic«name»Codes.Param_corruptfile;
+						return null;
 					} catch (ServletException e) {
 						e.printStackTrace();
-						return Basic«name»Codes.Param_corruptfile;
+						return null;
 					} catch (Exception e) {
 						e.printStackTrace();
-						return Basic«name»Codes.Param_error;
+						return null;
 					}
 				}
 			«ENDIF»

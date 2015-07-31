@@ -1,7 +1,5 @@
 package miso.distil.modelServices;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,16 +16,14 @@ import miso.distil.modelServices.htmlCover.HtmlModelSpark;
 import miso.distil.modelServices.Model;
 
 /**
- * Auto-generated custom html spark server
+ * Auto-generated custom html spark server.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterfaceSpark
 {
 	/**
-	 * Auto-generated custom spark service. It overwrites some html URL's
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated custom spark service. It overwrites some html URL's.
 	 */
 	@Override
 	public void runService() {
@@ -42,9 +38,10 @@ public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterface
 	}
 
 	/**
-	 * Auto-generated method to customice the information from an artifact
+	 * Auto-generated method to customice the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param model Model to read.
+	 * @return list with entries to show in html.
 	 */
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Model model) {
@@ -56,9 +53,10 @@ public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterface
 	}
 
 	/**
-	 * Auto-generated method to customice the information from an artifact's list
+	 * Auto-generated method to customice the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param models list of Model to read.
+	 * @return list with lists of entries to show in html.
 	 */
 	@Override
 	public List<List<HtmlEntry>> constructInfoReadAll(List<Model> models) {
@@ -76,7 +74,7 @@ public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterface
 	/**
 	 * Auto-generated method to customice the search form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -114,7 +112,8 @@ public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterface
 	/**
 	 * Auto-generated method to customice the update form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param model Model to update.
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructUpdateForm(Model model) {
@@ -151,10 +150,10 @@ public class CustomModelHtml implements HtmlInterfaceView<Model>, BasicInterface
 	/**
 	 * Auto-generated method to customice the upload form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		// You need to add first a Form

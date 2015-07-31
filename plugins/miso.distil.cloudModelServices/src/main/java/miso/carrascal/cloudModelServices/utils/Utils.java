@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Custom utilities. To transform List(Object) to String and String to List(Object).
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public class Utils {
    	

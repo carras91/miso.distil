@@ -8,19 +8,19 @@ import java.util.ArrayList
 import codeGeneratorModel.Entity
 import codeGeneratorModel.Inout
 
-/*
- * To write XXXService.java
+/**
+ * To write XXXService.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateSimpleService {
 	
 	@Inject miso.distil.codeGenerator.generator.Names names
 	
-	/*
-	 * To write <simpleService.name>Service.java
+	/**
+	 * To write "simpleService.name"Service.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param simpleService the SimpleService.
 	 */		
 	def write(SimpleService simpleService) '''
 		«var position = 0»
@@ -60,16 +60,14 @@ class generateSimpleService {
 
 		«ENDIF»
 		/**
-		 * Auto-generated service class
+		 * Auto-generated service class.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class Service«simpleService.name» extends ServiceAbstractJson {
 
 			/**
-			 * Auto-generated service constructor
-			 * 
-			 * @author miso.distil.codeGenerator
+			 * Auto-generated service constructor.
 			 */
 			public Service«simpleService.name»() {
 				// Input classes
@@ -90,15 +88,6 @@ class generateSimpleService {
 				«ENDFOR»
 			}
 
-			/**
-			 * Method called automatically to prepare the inputs
-			 * If triggered :
-			 * - after upload, download, update, read -> artifacts.size = 1, (request, response) from these services
-			 * - after readAll, search -> the results of these services, (request, response) from these services
-			 * - on request -> artifacts.size = 0, , (request, response) sent by user
-			 * 
-			 * @author miso.distil.codeGenerator
-			 */
 			@Override
 			protected List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 				List<Object> input = new ArrayList<Object>();
@@ -108,11 +97,6 @@ class generateSimpleService {
 				return input;
 			}
 
-			/**
-			 * Execution method. It uses prepareService return and generates other object's list (see the constructor output order)
-			 * 
-			 * @author miso.distil.codeGenerator
-			 */
 			@Override
 			protected List<Object> exeService(List<Object> input) {
 				List<Object> output = new ArrayList<Object>();

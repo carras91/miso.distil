@@ -28,6 +28,7 @@ public class JsonTransformer implements ResponseTransformer{
 	/**
 	 * To convert from string json to classOfT
 	 * 
+	 * @param <T> type.
 	 * @param json String with correct json
 	 * @param classOfT class to be converted
 	 * @return instance of classOfT with json string converted

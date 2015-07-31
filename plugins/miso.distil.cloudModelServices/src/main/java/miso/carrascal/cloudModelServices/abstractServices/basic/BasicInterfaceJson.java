@@ -5,17 +5,18 @@ import java.util.List;
 
 import javax.servlet.http.Part;
 
+import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import spark.Request;
 import spark.Response;
 
-public interface BasicInterfaceJson {
+public interface BasicInterfaceJson<T extends Persistent> {
 	
-	default public Object postUpload(Request req, Response res) {
-		return "";
+	default public T postUpload(Request req, Response res) {
+		return null;
 	}
 	
-	default public Object postUpdate(Request req, Response res) {
-		return "";
+	default public T postUpdate(Request req, Response res) {
+		return null;
 	}
 	
 	default public HashMap<String, String> parseRequest(Request req, List<String> parameters) {

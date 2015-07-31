@@ -15,21 +15,18 @@ import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.utils.Utils;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
 import miso.distil.videoServices.Video;
-import miso.distil.videoServices.basic.BasicVideoCodes;
 import miso.distil.videoServices.basic.BasicVideoParam;
 import miso.distil.entities.PersonalData;
 
 /**
- * Auto-generated custom json methods
+ * Auto-generated custom json methods.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class VideoJson extends BasicAbstractJson<Video> {
 
-	/**
-	 * Auto-generated empty constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 /**
+	 * Auto-generated empty constructor.
 	 */
 	 public VideoJson() {
 	 	super(Video.class);	
@@ -38,10 +35,12 @@ public class VideoJson extends BasicAbstractJson<Video> {
 	/**
 	 * Auto-generated method to cusomice the upload method
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return Video uploaded or null if error.
 	 */
 	@Override
-	public Object postUpload(Request req, Response res) {
+	public Video postUpload(Request req, Response res) {
 		// There is a file
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement("/tmp");
 		req.raw().setAttribute("org.eclipse.multipartConfig", multipartConfigElement);
@@ -60,10 +59,10 @@ public class VideoJson extends BasicAbstractJson<Video> {
 			Double length = Double.parseDouble(req.raw().getParameter(BasicVideoParam.Length));
 
 			if(fileContent == null || fileName == null) {
-				return BasicVideoCodes.Param_emptyfile;
+				return null;
 			}
 			if(fileName.isEmpty() ) {
-				return BasicVideoCodes.Param_emptyfile;
+				return null;
 			}
 
 			// Not required params and artifact's id
@@ -81,20 +80,20 @@ public class VideoJson extends BasicAbstractJson<Video> {
 			Video video = new Video(fileName, fileSize, videoinfo, length);
 
 			if(!RecordDB.getDefault().save(video, fileContent)) {
-				return BasicVideoCodes.DB_notuploaded;
+				return null;
 			}
 
 			return video;
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			return BasicVideoCodes.Param_corruptfile;
+			return null;
 		} catch (ServletException e) {
 			e.printStackTrace();
-			return BasicVideoCodes.Param_corruptfile;
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return BasicVideoCodes.Param_error;
+			return null;
 		}
 	}
 }

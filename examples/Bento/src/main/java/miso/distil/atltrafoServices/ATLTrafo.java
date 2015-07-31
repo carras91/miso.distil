@@ -4,9 +4,9 @@ import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 
 
 /**
- * Auto-generated artifact class
+ * Auto-generated artifact class.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class ATLTrafo extends Persistent {
 
@@ -14,12 +14,20 @@ public class ATLTrafo extends Persistent {
 	// Attributes
 	private String nameatl;
 
-	// Empty constructor
+	/**
+	 * Empty constructor.
+	 */
 	public ATLTrafo() {
 		super();
 	}
 
-	// Full constructor
+	/**
+	 * Full constructor.
+	 * 
+	 * @param filename Name file. 
+	 * @param filesize File size.
+	* @param nameatl Attribute nameatl.
+	 */
 	public ATLTrafo(String filename, long filesize, String nameatl) {
 	
 		super(filename, filesize);
@@ -27,12 +35,20 @@ public class ATLTrafo extends Persistent {
 		this.nameatl = nameatl.toLowerCase();
 	}
 
-	// Getters and setters
-
+	/**
+	 * To get nameatl
+	 *
+	 * @return nameatl
+	 */
 	public String getNameatl() {
 		return nameatl;
 	}
 	
+	/**
+	 * To set nameatl
+	 *
+	 * @param nameatl new nameatl
+	 */
 	public void setNameatl(String nameatl) {
 		this.nameatl = nameatl.toLowerCase();
 	}
@@ -41,7 +57,7 @@ public class ATLTrafo extends Persistent {
 
 	@Override
 	public String toString() {
-		return 
-		"(nameatl : " + nameatl.toString() + ")";
+		return super.toString() +
+		"( nameatl : " + nameatl.toString() + " )";
 	}
 }

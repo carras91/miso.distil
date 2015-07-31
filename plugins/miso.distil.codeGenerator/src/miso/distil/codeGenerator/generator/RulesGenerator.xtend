@@ -14,7 +14,6 @@ import miso.distil.codeGenerator.generator.entities.generateArtifactClass
 import miso.distil.codeGenerator.generator.entities.generateEntityClass
 import miso.distil.codeGenerator.generator.entities.generateMongoDataBase
 
-import miso.distil.codeGenerator.generator.basic.generateBasicCodes
 import miso.distil.codeGenerator.generator.basic.generateBasicParam
 import miso.distil.codeGenerator.generator.basic.generateBasicSpark
 
@@ -55,7 +54,6 @@ class RulesGenerator implements IGenerator {
 	@Inject generateArtifactClass genArtifact
 	@Inject generateEntityClass genEnti
 	
-	@Inject generateBasicCodes genBasCod
 	@Inject generateBasicSpark genBasSpa
 	@Inject generateBasicParam genBasPar
 	
@@ -144,10 +142,6 @@ class RulesGenerator implements IGenerator {
 				fsa.generateFile(
 					names.getBSparkFileStri(artifact) + ".java",
 					genBasSpa.write(artifact))
-					
-				fsa.generateFile(
-					names.getBCodesFileStri(artifact) + ".java",
-					genBasCod.write(artifact))
 					
 				fsa.generateFile(
 					names.getBParamFileStri(artifact) + ".java",

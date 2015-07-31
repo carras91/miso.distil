@@ -9,20 +9,20 @@ import codeGeneratorModel.ServiceEnum
 import codeGeneratorModel.Primitive
 import codeGeneratorModel.ArtifactID
 
-/*
- * To write HtmlXXXView.java
+/**
+ * To write HtmlXXXView.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateHtmlView {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
-	/*
-	 * To write Html<artifact.name>View.java
+	/**
+	 * To write Html"artifact.name"View.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */				
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = artifact.basicServices»
@@ -32,10 +32,6 @@ class generateHtmlView {
 		«var pos = -1»
 		package «names.getHtmlChar(artifact)»;
 
-		«IF basicServices.contains(ServiceEnum.UPLOAD)»
-			import spark.Request;
-
-		«ENDIF»
 		import java.util.ArrayList;
 		«IF basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD)»
 			import java.util.HashMap;
@@ -66,13 +62,19 @@ class generateHtmlView {
 		«ENDIF»
 		import «names.getArtifactFileChar(artifact)»;
 
+		/**
+		 * Auto-generated html view methods.
+		 * 
+		 * @author miso.distil.codeGenerator.
+		 */
 		public class Html«name»View implements HtmlInterfaceView<«name»>{
 
 			«IF basicServices.contains(ServiceEnum.READ)»
 				/**
-				 * Auto-generated method to construct the information from an artifact
+				 * Auto-generated method to construct the information from an artifact.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to read.
+				 * @return list with entries to show in html.
 				 */
 				@Override
 				public List<HtmlEntry> constructInfoReadOne(«name» «namelow») {
@@ -119,9 +121,10 @@ class generateHtmlView {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL)»
 				/**
-				 * Auto-generated method to construct the information from an artifact's list
+				 * Auto-generated method to construct the information from an artifact's list.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow»s list of «name» to read.
+				 * @return list with lists of entries to show in html.
 				 */
 				@Override
 				public List<List<HtmlEntry>> constructInfoReadAll(List<«name»> «namelow»s) {
@@ -150,9 +153,9 @@ class generateHtmlView {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH)»
 				/**
-				 * Auto-generated method to construct the search form
+				 * Auto-generated method to construct the search form.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @return special map of SPARK to show objects in HTML.
 				 */
 				@Override
 				public Map<String, Object> constructSearchForm() {
@@ -188,9 +191,10 @@ class generateHtmlView {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE)»
 				/**
-				 * Auto-generated method to construct the update form
+				 * Auto-generated method to construct the update form.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to update.
+				 * @return special map of SPARK to show objects in HTML.
 				 */
 				@Override
 				public Map<String, Object> constructUpdateForm(«name» «namelow») {
@@ -243,12 +247,12 @@ class generateHtmlView {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD)»
 				/**
-				 * Auto-generated method to construct the upload form
+				 * Auto-generated method to construct the upload form.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @return special map of SPARK to show objects in HTML.
 				 */
 				@Override
-				public Map<String, Object> constructUploadForm(Request req) {
+				public Map<String, Object> constructUploadForm() {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 					HtmlForm form = new HtmlForm(Basic«name»Spark.UploadJson, "«namelow»-upload-form", HtmlFreeMarker.ENCTYPE_FILE, "Upload", "POST");

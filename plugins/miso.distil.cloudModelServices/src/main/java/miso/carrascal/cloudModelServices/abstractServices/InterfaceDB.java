@@ -8,7 +8,7 @@ import java.util.List;
  * Interface for all databases.
  * Important information: The keys for the objects are {id, classType} or their filenames. An id alone can be repeated, but an artifact with same id and classType, or with same filename are prohibited.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public interface InterfaceDB {
 

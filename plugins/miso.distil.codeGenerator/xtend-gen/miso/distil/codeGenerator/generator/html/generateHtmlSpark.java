@@ -9,9 +9,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
- * To write HtmlXXXSpark.java
+ * To write HtmlXXXSpark.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateHtmlSpark {
@@ -22,9 +22,9 @@ public class generateHtmlSpark {
   private Names names;
   
   /**
-   * To write Html<artifact.name>Spark.java
+   * To write Html"artifact.name"Spark.java.
    * 
-   * @author Carlos Carrascal
+   * @author Carlos Carrascal.
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
@@ -133,13 +133,13 @@ public class generateHtmlSpark {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated html spark server");
+    _builder.append("* Auto-generated html spark server.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -149,17 +149,36 @@ public class generateHtmlSpark {
     _builder.append("Spark implements BasicInterfaceSpark {");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    _builder.append("\t");
-    _builder.append("// URL\'s");
-    _builder.newLine();
     {
       boolean _contains_8 = basicServices.contains(ServiceEnum.READ);
       if (_contains_8) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Read html url.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String ReadHTML = \"/html/");
         _builder.append(namelow, "\t");
         _builder.append("/read/\";");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Read html with id url.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String ReadIdHTML = ReadHTML + Basic");
         _builder.append(name, "\t");
@@ -171,10 +190,32 @@ public class generateHtmlSpark {
       boolean _contains_9 = basicServices.contains(ServiceEnum.READ_ALL);
       if (_contains_9) {
         _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Read all html url.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("public static String ReadAllHTML = \"/html/");
         _builder.append(namelow, "\t");
         _builder.append("/all\";");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Search html url.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String SearchHTML = \"/html/");
         _builder.append(namelow, "\t");
@@ -186,6 +227,17 @@ public class generateHtmlSpark {
       boolean _contains_10 = basicServices.contains(ServiceEnum.SEARCH);
       if (_contains_10) {
         _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Get search form html url.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("public static String SearchFormHTML = \"/html/");
         _builder.append(namelow, "\t");
         _builder.append("/search/form\";");
@@ -194,6 +246,17 @@ public class generateHtmlSpark {
           boolean _contains_11 = basicServices.contains(ServiceEnum.READ_ALL);
           boolean _not = (!_contains_11);
           if (_not) {
+            _builder.append("\t");
+            _builder.append("/**");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append(" ");
+            _builder.append("* Search html url.");
+            _builder.newLine();
+            _builder.append("\t");
+            _builder.append(" ");
+            _builder.append("*/");
+            _builder.newLine();
             _builder.append("\t");
             _builder.append("public static String SearchHTML = \"/html/");
             _builder.append(namelow, "\t");
@@ -207,10 +270,32 @@ public class generateHtmlSpark {
       boolean _contains_12 = basicServices.contains(ServiceEnum.UPDATE);
       if (_contains_12) {
         _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Get update form html url.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
+        _builder.append("\t");
         _builder.append("public static String UpdateFormHTML = \"/html/");
         _builder.append(namelow, "\t");
         _builder.append("/update/\";");
         _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Get update form html with id url.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String UpdateFormIdHTML = UpdateFormHTML + Basic");
         _builder.append(name, "\t");
@@ -221,6 +306,17 @@ public class generateHtmlSpark {
     {
       boolean _contains_13 = basicServices.contains(ServiceEnum.UPLOAD);
       if (_contains_13) {
+        _builder.append("\t");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Get upload form html url.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("public static String UploadFormHTML = \"/html/");
         _builder.append(namelow, "\t");
@@ -233,13 +329,7 @@ public class generateHtmlSpark {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Auto-generated html spark service. It initializes all html url\'s");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* ");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* Auto-generated html spark service. It initializes all html url\'s.");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("*/");
@@ -404,15 +494,7 @@ public class generateHtmlSpark {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated layout service. It add\'s to the html layout some permanents links");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* ");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* Auto-generated layout service. It add\'s to the html layout some permanents links.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -471,6 +553,19 @@ public class generateHtmlSpark {
     }
     _builder.newLine();
     _builder.append("\t");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append("\t ");
+    _builder.append("* Html");
+    _builder.append(name, "\t ");
+    _builder.append("Json with Custom");
+    _builder.append(name, "\t ");
+    _builder.append("Html to overwrite html services.");
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t ");
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("\t");
     _builder.append("private static Html");
     _builder.append(name, "\t");
     _builder.append("Json HTML = new Html");
@@ -488,15 +583,7 @@ public class generateHtmlSpark {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to overwrite the information from an artifact");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* ");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* Auto-generated method to overwrite the information from an artifact.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -531,15 +618,7 @@ public class generateHtmlSpark {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to overwrite the information from an artifact\'s list");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* ");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* Auto-generated method to overwrite the information from an artifact\'s list.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -587,15 +666,7 @@ public class generateHtmlSpark {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to overwrite the search form");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* ");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* Auto-generated method to overwrite the search form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -630,15 +701,7 @@ public class generateHtmlSpark {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to overwrite the update form");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* ");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* Auto-generated method to overwrite the update form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -673,15 +736,7 @@ public class generateHtmlSpark {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to overwrite the upload form");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* ");
-        _builder.newLine();
-        _builder.append("\t");
-        _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* Auto-generated method to overwrite the upload form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");

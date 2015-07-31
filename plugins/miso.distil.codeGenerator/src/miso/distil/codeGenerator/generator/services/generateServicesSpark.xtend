@@ -9,19 +9,19 @@ import codeGeneratorModel.Artifact
 import codeGeneratorModel.ServiceEnum
 import codeGeneratorModel.OnService
 
-/*
- * To write ServicesSpark.java
+/**
+ * To write ServicesSpark.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateServicesSpark {
 	
 	@Inject miso.distil.codeGenerator.generator.Names names
 
-	/*
-	 * To get each artifacts list of services and when they are triggered
+	/**
+	 * To get each artifacts list of services and when they are triggered.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param services the services.
 	 */
 	def info(EList<Service> services) {
 		var map = new HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>>()
@@ -51,10 +51,10 @@ class generateServicesSpark {
 		return map
 	}
 
-	/*
-	 * To write ServicesSpark.java
+	/**
+	 * To write ServicesSpark.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param services the services.
 	 */	
 	def write(EList<Service> services) '''
 		«var map = services.info»
@@ -70,6 +70,8 @@ class generateServicesSpark {
 			«ENDIF»
 		«ENDFOR»
 		import java.util.List;
+		import java.util.HashMap;
+		
 
 		import static spark.Spark.post;
 		«var upload = false»
@@ -141,11 +143,12 @@ class generateServicesSpark {
 									«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 										«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 									«ENDIF»
-									String result = "Original response --> " + response.body() + " <-- end of original response. ";
+									HashMap<String, Object> map = new HashMap<String, Object>();
+									map.put("Download", artifact);
 									«FOR service : listServices»
-										result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
+										map.put("«service.name»", service«service.name».runService(request, response, list));
 									«ENDFOR»
-									response.body(result);
+									response.body((new JsonTransformer()).render(map));
 								});
 					«ENDIF»
 					«IF map.get(artifact).containsKey(ServiceEnum.READ) || map.get(artifact).containsKey(ServiceEnum.ALL)»
@@ -163,11 +166,12 @@ class generateServicesSpark {
 									«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 										«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 									«ENDIF»
-									String result = "Original response --> " + response.body() + " <-- end of original response. ";
+									HashMap<String, Object> map = new HashMap<String, Object>();
+									map.put("Download", artifact);
 									«FOR service : listServices»
-										result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
+										map.put("«service.name»", service«service.name».runService(request, response, list));
 									«ENDFOR»
-									response.body(result);
+									response.body((new JsonTransformer()).render(map));
 								});
 					«ENDIF»
 					«IF map.get(artifact).containsKey(ServiceEnum.UPDATE) || map.get(artifact).containsKey(ServiceEnum.ALL)»
@@ -185,11 +189,12 @@ class generateServicesSpark {
 									«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 										«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 									«ENDIF»
-									String result = "Original response --> " + response.body() + " <-- end of original response. ";
+									HashMap<String, Object> map = new HashMap<String, Object>();
+									map.put("Update", artifact);
 									«FOR service : listServices»
-										result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
+										map.put("«service.name»", service«service.name».runService(request, response, list));
 									«ENDFOR»
-									response.body(result);
+									response.body((new JsonTransformer()).render(map));
 								});
 					«ENDIF»
 					«IF map.get(artifact).containsKey(ServiceEnum.UPLOAD) || map.get(artifact).containsKey(ServiceEnum.ALL)»
@@ -207,11 +212,12 @@ class generateServicesSpark {
 										«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 										«ENDIF»
-										String result = "Original response --> " + response.body() + " <-- end of original response. ";
+										HashMap<String, Object> map = new HashMap<String, Object>();
+										map.put("Update", artifact);
 										«FOR service : listServices»
-											result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
+											map.put("«service.name»", service«service.name».runService(request, response, list));
 										«ENDFOR»
-										response.body(result);
+										response.body((new JsonTransformer()).render(map));
 									} catch (JsonSyntaxException e) {
 										e.printStackTrace();
 									}
@@ -232,11 +238,12 @@ class generateServicesSpark {
 										«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 										«ENDIF»
-										String result = "Original response --> " + response.body() + " <-- end of original response. ";
+										HashMap<String, Object> map = new HashMap<String, Object>();
+										map.put("Download", artifact);
 										«FOR service : listServices»
-											result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, list)) + " <-- end of service «service.name». ";
+											map.put("«service.name»", service«service.name».runService(request, response, list));
 										«ENDFOR»
-										response.body(result);
+										response.body((new JsonTransformer()).render(map));
 									} catch (JsonSyntaxException e) {
 										e.printStackTrace();
 									}
@@ -256,11 +263,12 @@ class generateServicesSpark {
 										«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 										«ENDIF»
-										String result = "Original response --> " + response.body() + " <-- end of original response. ";
+										HashMap<String, Object> map = new HashMap<String, Object>();
+										map.put("Download", artifact);
 										«FOR service : listServices»
-											result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, newList)) + " <-- end of service «service.name». ";
+											map.put("«service.name»", service«service.name».runService(request, response, list));
 										«ENDFOR»
-										response.body(result);
+										response.body((new JsonTransformer()).render(map));
 									} catch (JsonSyntaxException e) {
 										e.printStackTrace();
 									}
@@ -280,11 +288,12 @@ class generateServicesSpark {
 										«IF map.get(artifact).containsKey(ServiceEnum.ALL)»
 											«{listServices.addAll(map.get(artifact).get(ServiceEnum.ALL)); null}»
 										«ENDIF»
-										String result = "Original response --> " + response.body() + " <-- end of original response. ";
+										HashMap<String, Object> map = new HashMap<String, Object>();
+										map.put("Download", artifact);
 										«FOR service : listServices»
-											result = result + " Output from service «service.name» --> " + (new JsonTransformer()).render(service«service.name».runService(request, response, newList)) + " <-- end of service «service.name». ";
+											map.put("«service.name»", service«service.name».runService(request, response, list));
 										«ENDFOR»
-										response.body(result);
+										response.body((new JsonTransformer()).render(map));
 									} catch (JsonSyntaxException e) {
 										e.printStackTrace();
 									}

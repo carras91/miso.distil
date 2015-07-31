@@ -1,7 +1,5 @@
 package miso.distil.modelServices.htmlCover;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -15,12 +13,18 @@ import miso.distil.modelServices.basic.BasicModelParam;
 import miso.distil.modelServices.basic.BasicModelSpark;
 import miso.distil.modelServices.Model;
 
+/**
+ * Auto-generated html view methods.
+ * 
+ * @author miso.distil.codeGenerator.
+ */
 public class HtmlModelView implements HtmlInterfaceView<Model>{
 
 	/**
-	 * Auto-generated method to construct the information from an artifact
+	 * Auto-generated method to construct the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param model Model to read.
+	 * @return list with entries to show in html.
 	 */
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Model model) {
@@ -39,9 +43,10 @@ public class HtmlModelView implements HtmlInterfaceView<Model>{
 	}
 
 	/**
-	 * Auto-generated method to construct the information from an artifact's list
+	 * Auto-generated method to construct the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param models list of Model to read.
+	 * @return list with lists of entries to show in html.
 	 */
 	@Override
 	public List<List<HtmlEntry>> constructInfoReadAll(List<Model> models) {
@@ -60,9 +65,9 @@ public class HtmlModelView implements HtmlInterfaceView<Model>{
 	}
 
 	/**
-	 * Auto-generated method to construct the search form
+	 * Auto-generated method to construct the search form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -90,9 +95,10 @@ public class HtmlModelView implements HtmlInterfaceView<Model>{
 	}
 
 	/**
-	 * Auto-generated method to construct the update form
+	 * Auto-generated method to construct the update form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param model Model to update.
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructUpdateForm(Model model) {
@@ -113,12 +119,12 @@ public class HtmlModelView implements HtmlInterfaceView<Model>{
 	}
 
 	/**
-	 * Auto-generated method to construct the upload form
+	 * Auto-generated method to construct the upload form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		HtmlForm form = new HtmlForm(BasicModelSpark.UploadJson, "model-upload-form", HtmlFreeMarker.ENCTYPE_FILE, "Upload", "POST");

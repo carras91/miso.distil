@@ -1,7 +1,5 @@
 package miso.distil.pictureServices.htmlCover;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,12 +14,18 @@ import miso.distil.pictureServices.basic.BasicPictureParam;
 import miso.distil.pictureServices.basic.BasicPictureSpark;
 import miso.distil.pictureServices.Picture;
 
+/**
+ * Auto-generated html view methods.
+ * 
+ * @author miso.distil.codeGenerator.
+ */
 public class HtmlPictureView implements HtmlInterfaceView<Picture>{
 
 	/**
-	 * Auto-generated method to construct the information from an artifact
+	 * Auto-generated method to construct the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param picture Picture to read.
+	 * @return list with entries to show in html.
 	 */
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Picture picture) {
@@ -43,9 +47,10 @@ public class HtmlPictureView implements HtmlInterfaceView<Picture>{
 	}
 
 	/**
-	 * Auto-generated method to construct the information from an artifact's list
+	 * Auto-generated method to construct the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param pictures list of Picture to read.
+	 * @return list with lists of entries to show in html.
 	 */
 	@Override
 	public List<List<HtmlEntry>> constructInfoReadAll(List<Picture> pictures) {
@@ -63,9 +68,9 @@ public class HtmlPictureView implements HtmlInterfaceView<Picture>{
 	}
 
 	/**
-	 * Auto-generated method to construct the search form
+	 * Auto-generated method to construct the search form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -98,12 +103,12 @@ public class HtmlPictureView implements HtmlInterfaceView<Picture>{
 	}
 
 	/**
-	 * Auto-generated method to construct the upload form
+	 * Auto-generated method to construct the upload form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		HtmlForm form = new HtmlForm(BasicPictureSpark.UploadJson, "picture-upload-form", HtmlFreeMarker.ENCTYPE_FILE, "Upload", "POST");

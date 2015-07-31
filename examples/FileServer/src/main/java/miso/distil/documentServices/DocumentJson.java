@@ -17,33 +17,32 @@ import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.utils.Utils;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
 import miso.distil.documentServices.Document;
-import miso.distil.documentServices.basic.BasicDocumentCodes;
 import miso.distil.documentServices.basic.BasicDocumentParam;
 import miso.distil.entities.PersonalData;
 
 /**
- * Auto-generated custom json methods
+ * Auto-generated custom json methods.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class DocumentJson extends BasicAbstractJson<Document> {
 
-	/**
-	 * Auto-generated empty constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 /**
+	 * Auto-generated empty constructor.
 	 */
 	 public DocumentJson() {
 	 	super(Document.class);	
 	 }
 
 	/**
-	 * Auto-generated method to cusomice the update method
+	 * Auto-generated method to cusomice the update method.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return Document updated or null if error.
 	 */
 	@Override
-	public Object postUpdate(Request req, Response res) {
+	public Document postUpdate(Request req, Response res) {
 		// Basic Params
 		Map<String, String> map = parseRequest(req, BasicDocumentParam.values());
 		String id = map.get(BasicDocumentParam.IdPost);
@@ -61,14 +60,14 @@ public class DocumentJson extends BasicAbstractJson<Document> {
 			isfinished = map.get(BasicDocumentParam.Isfinished).equalsIgnoreCase("true");
 		} catch(Exception e) {
 			e.printStackTrace();
-			return BasicDocumentCodes.Param_error;
+			return null;
 		}
 
 		// Read old Document and his InputStream
-		Document oldDocument = (Document) RecordDB.getDefault().readOne(id, classType);
+		Document oldDocument = RecordDB.getDefault().readOne(id, classType);
 		InputStream IS = RecordDB.getDefault().getInputStream(id, classType);
 		if(oldDocument == null || IS == null) {
-			return BasicDocumentCodes.DB_notfound;
+			return null;
 		}
 
 		// Not required params and artifact's id
@@ -85,22 +84,24 @@ public class DocumentJson extends BasicAbstractJson<Document> {
 		// Save new Document and delete old Document
 		if(RecordDB.getDefault().save(newDocument, IS)) {
 			if(!RecordDB.getDefault().delete(id, classType)) {
-				return BasicDocumentCodes.DB_notfound;
+				return null;
 			} else {
 				return newDocument;
 			}
 		} else {
-			return BasicDocumentCodes.DB_notupdated;
+			return null;
 		}
 	}
 
 	/**
 	 * Auto-generated method to cusomice the upload method
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return Document uploaded or null if error.
 	 */
 	@Override
-	public Object postUpload(Request req, Response res) {
+	public Document postUpload(Request req, Response res) {
 		// There is a file
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement("/tmp");
 		req.raw().setAttribute("org.eclipse.multipartConfig", multipartConfigElement);
@@ -119,10 +120,10 @@ public class DocumentJson extends BasicAbstractJson<Document> {
 			Boolean isfinished = req.raw().getParameter(BasicDocumentParam.Isfinished).equalsIgnoreCase("true");
 
 			if(fileContent == null || fileName == null) {
-				return BasicDocumentCodes.Param_emptyfile;
+				return null;
 			}
 			if(fileName.isEmpty() ) {
-				return BasicDocumentCodes.Param_emptyfile;
+				return null;
 			}
 
 			// Not required params and artifact's id
@@ -143,20 +144,20 @@ public class DocumentJson extends BasicAbstractJson<Document> {
 			Document document = new Document(fileName, fileSize, docinfo, coauthors, isfinished);
 
 			if(!RecordDB.getDefault().save(document, fileContent)) {
-				return BasicDocumentCodes.DB_notuploaded;
+				return null;
 			}
-			res.body(document.getObjectid());
+
 			return document;
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			return BasicDocumentCodes.Param_corruptfile;
+			return null;
 		} catch (ServletException e) {
 			e.printStackTrace();
-			return BasicDocumentCodes.Param_corruptfile;
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return BasicDocumentCodes.Param_error;
+			return null;
 		}
 	}
 }

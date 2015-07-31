@@ -3,7 +3,7 @@ package miso.carrascal.cloudModelServices;
 /**
  * Main class of the kernel. It calls {@link CloudModelServices#run() CloudModelServices.run()}.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public class Main {
 	

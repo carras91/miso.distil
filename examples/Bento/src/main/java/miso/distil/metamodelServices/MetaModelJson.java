@@ -13,20 +13,17 @@ import javax.servlet.http.Part;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
 import miso.distil.metamodelServices.MetaModel;
-import miso.distil.metamodelServices.basic.BasicMetaModelCodes;
 import miso.distil.metamodelServices.basic.BasicMetaModelParam;
 
 /**
- * Auto-generated custom json methods
+ * Auto-generated custom json methods.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class MetaModelJson extends BasicAbstractJson<MetaModel> {
 
-	/**
-	 * Auto-generated empty constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 /**
+	 * Auto-generated empty constructor.
 	 */
 	 public MetaModelJson() {
 	 	super(MetaModel.class);	
@@ -35,10 +32,12 @@ public class MetaModelJson extends BasicAbstractJson<MetaModel> {
 	/**
 	 * Auto-generated method to cusomice the upload method
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return MetaModel uploaded or null if error.
 	 */
 	@Override
-	public Object postUpload(Request req, Response res) {
+	public MetaModel postUpload(Request req, Response res) {
 		// There is a file
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement("/tmp");
 		req.raw().setAttribute("org.eclipse.multipartConfig", multipartConfigElement);
@@ -53,11 +52,12 @@ public class MetaModelJson extends BasicAbstractJson<MetaModel> {
 			// Required params
 
 			if(fileContent == null || fileName == null) {
-				return BasicMetaModelCodes.Param_emptyfile;
+				return null;
 			}
 			if(fileName.isEmpty() || !fileName.endsWith(".ecore")) {
-				return BasicMetaModelCodes.Param_emptyfile;
+				return null;
 			}
+
 			// Not required params and artifact's id
 			// complete these params!
 			String uri = "URI";
@@ -68,20 +68,20 @@ public class MetaModelJson extends BasicAbstractJson<MetaModel> {
 			MetaModel metamodel = new MetaModel(fileName, fileSize, uri);
 
 			if(!RecordDB.getDefault().save(metamodel, fileContent)) {
-				return BasicMetaModelCodes.DB_notuploaded;
+				return null;
 			}
 
 			return metamodel;
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			return BasicMetaModelCodes.Param_corruptfile;
+			return null;
 		} catch (ServletException e) {
 			e.printStackTrace();
-			return BasicMetaModelCodes.Param_corruptfile;
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return BasicMetaModelCodes.Param_error;
+			return null;
 		}
 	}
 }

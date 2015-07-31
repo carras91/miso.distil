@@ -1,7 +1,5 @@
 package miso.distil.documentServices.htmlCover;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,12 +14,18 @@ import miso.distil.documentServices.basic.BasicDocumentParam;
 import miso.distil.documentServices.basic.BasicDocumentSpark;
 import miso.distil.documentServices.Document;
 
+/**
+ * Auto-generated html view methods.
+ * 
+ * @author miso.distil.codeGenerator.
+ */
 public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 
 	/**
-	 * Auto-generated method to construct the information from an artifact
+	 * Auto-generated method to construct the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to read.
+	 * @return list with entries to show in html.
 	 */
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Document document) {
@@ -43,9 +47,10 @@ public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 	}
 
 	/**
-	 * Auto-generated method to construct the information from an artifact's list
+	 * Auto-generated method to construct the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param documents list of Document to read.
+	 * @return list with lists of entries to show in html.
 	 */
 	@Override
 	public List<List<HtmlEntry>> constructInfoReadAll(List<Document> documents) {
@@ -64,9 +69,9 @@ public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 	}
 
 	/**
-	 * Auto-generated method to construct the search form
+	 * Auto-generated method to construct the search form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -98,9 +103,10 @@ public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 	}
 
 	/**
-	 * Auto-generated method to construct the update form
+	 * Auto-generated method to construct the update form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to update.
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructUpdateForm(Document document) {
@@ -125,12 +131,12 @@ public class HtmlDocumentView implements HtmlInterfaceView<Document>{
 	}
 
 	/**
-	 * Auto-generated method to construct the upload form
+	 * Auto-generated method to construct the upload form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		HtmlForm form = new HtmlForm(BasicDocumentSpark.UploadJson, "document-upload-form", HtmlFreeMarker.ENCTYPE_FILE, "Upload", "POST");

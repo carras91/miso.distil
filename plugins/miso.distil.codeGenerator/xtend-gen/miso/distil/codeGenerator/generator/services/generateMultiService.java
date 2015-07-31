@@ -8,9 +8,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
- * To write XXXService.java
+ * To write XXXService.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateMultiService {
@@ -18,9 +18,9 @@ public class generateMultiService {
   private Names names;
   
   /**
-   * To write <multiService.name>Service.java
+   * To write "multiService.name"Service.java.
    * 
-   * @author Carlos Carrascal
+   * @mparam multiService the MultiService.
    */
   public CharSequence write(final MultiService multiService) {
     StringConcatenation _builder = new StringConcatenation();
@@ -37,13 +37,13 @@ public class generateMultiService {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated multi service class");
+    _builder.append("* Auto-generated multi service class.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -58,13 +58,7 @@ public class generateMultiService {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Auto-generated multi service constructor");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* ");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* Auto-generated multi service constructor.");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("*/");

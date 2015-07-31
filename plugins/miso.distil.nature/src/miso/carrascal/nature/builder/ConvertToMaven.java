@@ -60,6 +60,14 @@ public class ConvertToMaven {
 	 */
 	private static String JAR = "miso.distil.cloudModelServices-jar-with-dependencies.jar";
 	/**
+	 * JavaDoc jar name (cloudModelServices-javadoc)
+	 */
+	private static String JAR_JAVADOC = "miso.distil.cloudModelServices-javadoc.jar";
+	/**
+	 * Source jar name (cloudModelServices-source)
+	 */
+	private static String JAR_SOURCE = "miso.distil.cloudModelServices-sources.jar";
+	/**
 	 * New name to pom and jar copies
 	 */
 	private static String FINAL_NAME = "cloudModelServices-0.0.1";
@@ -192,7 +200,7 @@ public class ConvertToMaven {
 			pomFile.create(new FileInputStream(root.listFiles(filterPom)[0]), true, null);
 		}
 		
-		// Copy JAR
+		// Copy JARS
 		IFile jarFile = srcMainDistilCloudVersion.getFile(new Path(FINAL_NAME + ".jar"));
 		if(jarFile.exists()) {
 			jarFile.delete(true, null);
@@ -203,7 +211,32 @@ public class ConvertToMaven {
 				return name.equalsIgnoreCase(JAR);
 			}
 		};
-		jarFile.create(new FileInputStream(jar.listFiles(filterJar)[0]), true, null);
+		
+		jarFile.create(new FileInputStream(jar.listFiles(filterJar)[0]), true, null);// Copy JAR
+		
+		IFile jarFileSource = srcMainDistilCloudVersion.getFile(new Path(FINAL_NAME + "-sources.jar"));
+		if(jarFileSource.exists()) {
+			jarFileSource.delete(true, null);
+		}
+		FilenameFilter filterJarSource = new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String name) {
+				return name.equalsIgnoreCase(JAR_SOURCE);
+			}
+		};
+		jarFileSource.create(new FileInputStream(jar.listFiles(filterJarSource)[0]), true, null);
+		
+		IFile jarFileDoc = srcMainDistilCloudVersion.getFile(new Path(FINAL_NAME + "-javadoc.jar"));
+		if(jarFileDoc.exists()) {
+			jarFileDoc.delete(true, null);
+		}
+		FilenameFilter filterJarDoc = new FilenameFilter() {
+			@Override
+			public boolean accept(File dir, String name) {
+				return name.equalsIgnoreCase(JAR_JAVADOC);
+			}
+		};
+		jarFileDoc.create(new FileInputStream(jar.listFiles(filterJarDoc)[0]), true, null);
 	}
 		
 	/**

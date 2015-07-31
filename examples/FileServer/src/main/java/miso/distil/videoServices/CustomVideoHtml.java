@@ -1,7 +1,5 @@
 package miso.distil.videoServices;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,16 +16,14 @@ import miso.distil.videoServices.htmlCover.HtmlVideoSpark;
 import miso.distil.videoServices.Video;
 
 /**
- * Auto-generated custom html spark server
+ * Auto-generated custom html spark server.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class CustomVideoHtml implements HtmlInterfaceView<Video>, BasicInterfaceSpark
 {
 	/**
-	 * Auto-generated custom spark service. It overwrites some html URL's
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated custom spark service. It overwrites some html URL's.
 	 */
 	@Override
 	public void runService() {
@@ -41,9 +37,10 @@ public class CustomVideoHtml implements HtmlInterfaceView<Video>, BasicInterface
 	}
 
 	/**
-	 * Auto-generated method to customice the information from an artifact
+	 * Auto-generated method to customice the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param video Video to read.
+	 * @return list with entries to show in html.
 	 */
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Video video) {
@@ -55,9 +52,10 @@ public class CustomVideoHtml implements HtmlInterfaceView<Video>, BasicInterface
 	}
 
 	/**
-	 * Auto-generated method to customice the information from an artifact's list
+	 * Auto-generated method to customice the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param videos list of Video to read.
+	 * @return list with lists of entries to show in html.
 	 */
 	@Override
 	public List<List<HtmlEntry>> constructInfoReadAll(List<Video> videos) {
@@ -75,7 +73,7 @@ public class CustomVideoHtml implements HtmlInterfaceView<Video>, BasicInterface
 	/**
 	 * Auto-generated method to customice the search form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -113,10 +111,10 @@ public class CustomVideoHtml implements HtmlInterfaceView<Video>, BasicInterface
 	/**
 	 * Auto-generated method to customice the upload form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		// You need to add first a Form

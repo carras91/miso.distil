@@ -11,7 +11,7 @@ import spark.Response;
  * Service composed. It defines if the services are executed at the same time with same inputs (parallel) or
  * in series, one receiving as input the output of the previous one.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public abstract class MultiServiceAbstractJson extends ServiceAbstractJson {
 	
@@ -27,7 +27,7 @@ public abstract class MultiServiceAbstractJson extends ServiceAbstractJson {
 	/**
 	 * Public constructor.
 	 * 
-	 * @param parallel True if all services are to be executed in parallel or in series
+	 * @param parallel True if all services are to be executed in parallel or in series.
 	 */
 	public MultiServiceAbstractJson(Boolean parallel) {
 		super();
@@ -37,7 +37,7 @@ public abstract class MultiServiceAbstractJson extends ServiceAbstractJson {
 	/**
 	 * Add a new service in order.
 	 * 
-	 * @param service new service
+	 * @param service new service.
 	 */
 	public void addService(ServiceAbstractJson service) {
 		this.services.add(service);

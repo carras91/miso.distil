@@ -16,9 +16,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
- * To write XXXJson.java
+ * To write XXXJson.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateJson {
@@ -29,9 +29,9 @@ public class generateJson {
   private Names names;
   
   /**
-   * To write <artifact.name>Json.java
+   * To write "artifact.name"Json.java.
    * 
-   * @author Carlos Carrascal
+   * @param artifact the artifact.
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
@@ -248,11 +248,6 @@ public class generateJson {
       }
       if (_or_3) {
         _builder.append("import ");
-        CharSequence _bCodesFileChar = this.names.getBCodesFileChar(artifact);
-        _builder.append(_bCodesFileChar, "");
-        _builder.append(";");
-        _builder.newLineIfNotEmpty();
-        _builder.append("import ");
         CharSequence _bParamFileChar = this.names.getBParamFileChar(artifact);
         _builder.append(_bParamFileChar, "");
         _builder.append(";");
@@ -266,13 +261,13 @@ public class generateJson {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated custom json methods");
+    _builder.append("* Auto-generated custom json methods.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -288,13 +283,7 @@ public class generateJson {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Auto-generated empty constructor");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* ");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* Auto-generated empty constructor.");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("*/");
@@ -321,7 +310,7 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to cusomice the update method");
+        _builder.append("* Auto-generated method to cusomice the update method.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -329,8 +318,18 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param req Spark request.");
         _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @param res Spark response.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return ");
+        _builder.append(name, "\t ");
+        _builder.append(" updated or null if error.");
+        _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append(" ");
         _builder.append("*/");
@@ -339,8 +338,10 @@ public class generateJson {
         _builder.append("@Override");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("public Object postUpdate(Request req, Response res) {");
-        _builder.newLine();
+        _builder.append("public ");
+        _builder.append(name, "\t");
+        _builder.append(" postUpdate(Request req, Response res) {");
+        _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("// Basic Params");
@@ -605,10 +606,8 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t");
-        _builder.append("Codes.Param_error;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("}");
@@ -639,10 +638,8 @@ public class generateJson {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t");
-        _builder.append("Codes.DB_notfound;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("}");
@@ -810,10 +807,8 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t\t");
-        _builder.append("Codes.DB_notfound;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
         _builder.append("} else {");
@@ -834,10 +829,8 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t");
-        _builder.append("Codes.DB_notupdated;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("}");
@@ -864,8 +857,18 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param req Spark request.");
         _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @param res Spark response.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return ");
+        _builder.append(name, "\t ");
+        _builder.append(" uploaded or null if error.");
+        _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append(" ");
         _builder.append("*/");
@@ -874,8 +877,10 @@ public class generateJson {
         _builder.append("@Override");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("public Object postUpload(Request req, Response res) {");
-        _builder.newLine();
+        _builder.append("public ");
+        _builder.append(name, "\t");
+        _builder.append(" postUpload(Request req, Response res) {");
+        _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("// There is a file");
@@ -1135,10 +1140,8 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t\t");
-        _builder.append("Codes.Param_emptyfile;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
         _builder.append("}");
@@ -1160,10 +1163,8 @@ public class generateJson {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t\t");
-        _builder.append("Codes.Param_emptyfile;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
         _builder.append("}");
@@ -1314,10 +1315,8 @@ public class generateJson {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t\t");
-        _builder.append("Codes.DB_notuploaded;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
         _builder.append("}");
@@ -1340,10 +1339,8 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t");
-        _builder.append("Codes.Param_corruptfile;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("} catch (ServletException e) {");
@@ -1354,10 +1351,8 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t");
-        _builder.append("Codes.Param_corruptfile;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("} catch (Exception e) {");
@@ -1368,10 +1363,8 @@ public class generateJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("return Basic");
-        _builder.append(name, "\t\t\t");
-        _builder.append("Codes.Param_error;");
-        _builder.newLineIfNotEmpty();
+        _builder.append("return null;");
+        _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("}");

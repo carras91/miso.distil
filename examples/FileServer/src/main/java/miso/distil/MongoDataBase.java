@@ -5,18 +5,16 @@ import miso.carrascal.cloudModelServices.MongoDB;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 
 /**
- * Auto-generated data base class
+ * Auto-generated mongo data base.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class MongoDataBase implements BasicInterfaceSpark 
 {
 	private final static String MONGO_URI_0 = "mongodb://user:password@ds053972.mongolab.com:53972/heroku_1pbz17rf";
 
 	/**
-	 * Auto-generated spark service to find and activate some Mongo DataBases
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated spark service to find and activate some Mongo DataBases.
 	 */
 	@Override
 	public void runService() {

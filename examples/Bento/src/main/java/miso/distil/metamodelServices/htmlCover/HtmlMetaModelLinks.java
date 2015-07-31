@@ -5,25 +5,27 @@ import miso.distil.metamodelServices.basic.BasicMetaModelSpark;
 import miso.distil.metamodelServices.MetaModel;
 
 /**
- * Auto-generated html links
+ * Auto-generated html links.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class HtmlMetaModelLinks {
 
 	/**
-	 * Auto-generated link to the service download
+	 * Auto-generated link to the service download.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param metamodel MetaModel to create the link.
+	 * @return the link.
 	 */
 	public static String getDownloadJsonLink(MetaModel metamodel) {
 		return "<a href=" + BasicMetaModelSpark.DownloadJson + metamodel.getObjectid() + ">Download</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service delete
+	 * Auto-generated link to the service delete.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param metamodel MetaModel to create the link.
+	 * @return the link (form type post link).
 	 */
 	public static String getDeleteFormJsonLink(MetaModel metamodel) {
 		String form = "";

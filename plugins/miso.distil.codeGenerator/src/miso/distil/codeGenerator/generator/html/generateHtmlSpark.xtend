@@ -5,20 +5,20 @@ import codeGeneratorModel.Artifact
 import codeGeneratorModel.ServiceEnum
 import org.eclipse.emf.common.util.EList
 
-/*
- * To write HtmlXXXSpark.java
+/**
+ * To write HtmlXXXSpark.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateHtmlSpark { 
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
-	/*
-	 * To write Html<artifact.name>Spark.java
+	/**
+	 * To write Html"artifact.name"Spark.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @author Carlos Carrascal.
 	 */		
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
@@ -47,39 +47,63 @@ class generateHtmlSpark {
 		import «names.getHJsonFileChar(artifact)»;
 
 		/**
-		 * Auto-generated html spark server
+		 * Auto-generated html spark server.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public final class Html«name»Spark implements BasicInterfaceSpark {
 
-			// URL's
 			«IF basicServices.contains(ServiceEnum.READ)»
+				/**
+				 * Read html url.
+				 */
 				public static String ReadHTML = "/html/«namelow»/read/";
+				/**
+				 * Read html with id url.
+				 */
 				public static String ReadIdHTML = ReadHTML + Basic«name»Param.IdGet;
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL)»
+				/**
+				 * Read all html url.
+				 */
 				public static String ReadAllHTML = "/html/«namelow»/all";
+				/**
+				 * Search html url.
+				 */
 				public static String SearchHTML = "/html/«namelow»/search";
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH)»
+				/**
+				 * Get search form html url.
+				 */
 				public static String SearchFormHTML = "/html/«namelow»/search/form";
 				«IF !basicServices.contains(ServiceEnum.READ_ALL)»
+					/**
+					 * Search html url.
+					 */
 					public static String SearchHTML = "/html/«namelow»/search";
 				«ENDIF»
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE)»
+				/**
+				 * Get update form html url.
+				 */
 				public static String UpdateFormHTML = "/html/«namelow»/update/";
+				/**
+				 * Get update form html with id url.
+				 */
 				public static String UpdateFormIdHTML = UpdateFormHTML + Basic«name»Param.IdGet;
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD)»
+				/**
+				 * Get upload form html url.
+				 */
 				public static String UploadFormHTML = "/html/«namelow»/upload";
 			«ENDIF»
 
 			/**
-			 * Auto-generated html spark service. It initializes all html url's
-			 * 
-			 * @author miso.distil.codeGenerator
+			 * Auto-generated html spark service. It initializes all html url's.
 			 */
 			@Override
 			public void runService() {
@@ -127,9 +151,7 @@ class generateHtmlSpark {
 			«IF basicServices.contains(ServiceEnum.READ_ALL) || basicServices.contains(ServiceEnum.UPLOAD) || basicServices.contains(ServiceEnum.SEARCH)»
 
 				/**
-				 * Auto-generated layout service. It add's to the html layout some permanents links
-				 * 
-				 * @author miso.distil.codeGenerator
+				 * Auto-generated layout service. It add's to the html layout some permanents links.
 				 */
 				private void addLayout() {
 					List<HtmlSelectBox> layouts = new ArrayList<HtmlSelectBox>();
@@ -146,13 +168,14 @@ class generateHtmlSpark {
 				}
 			«ENDIF»
 
+			/**
+			 * Html«name»Json with Custom«name»Html to overwrite html services.
+			 */
 			private static Html«name»Json HTML = new Html«name»Json(new Custom«name»Html());
 
 			«IF basicServices.contains(ServiceEnum.READ)»
 				/**
-				 * Auto-generated method to overwrite the information from an artifact
-				 * 
-				 * @author miso.distil.codeGenerator
+				 * Auto-generated method to overwrite the information from an artifact.
 				 */
 				public static void overWriteInfoReadOne() {
 					get(ReadIdHTML,
@@ -163,9 +186,7 @@ class generateHtmlSpark {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL)»
 				/**
-				 * Auto-generated method to overwrite the information from an artifact's list
-				 * 
-				 * @author miso.distil.codeGenerator
+				 * Auto-generated method to overwrite the information from an artifact's list.
 				 */
 				public static void overWriteInfoReadAll() {
 					get(ReadAllHTML,
@@ -180,9 +201,7 @@ class generateHtmlSpark {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH)»
 				/**
-				 * Auto-generated method to overwrite the search form
-				 * 
-				 * @author miso.distil.codeGenerator
+				 * Auto-generated method to overwrite the search form.
 				 */
 				public static void overWriteSearchForm() {
 					get(SearchFormHTML,
@@ -193,9 +212,7 @@ class generateHtmlSpark {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE)»
 				/**
-				 * Auto-generated method to overwrite the update form
-				 * 
-				 * @author miso.distil.codeGenerator
+				 * Auto-generated method to overwrite the update form.
 				 */
 				public static void overWriteUpdateForm() {
 					get(UpdateFormIdHTML,
@@ -206,9 +223,7 @@ class generateHtmlSpark {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD)»
 				/**
-				 * Auto-generated method to overwrite the upload form
-				 * 
-				 * @author miso.distil.codeGenerator
+				 * Auto-generated method to overwrite the upload form.
 				 */
 				public static void overWriteUploadForm() {
 					get(UploadFormHTML,

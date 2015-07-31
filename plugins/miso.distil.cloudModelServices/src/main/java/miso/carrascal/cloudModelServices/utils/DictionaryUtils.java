@@ -14,7 +14,7 @@ import net.sf.extjwnl.dictionary.Dictionary;
 /**
  * Dictionary utils. It finds a word synonyms using WordNet database.
  *
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public class DictionaryUtils {
     

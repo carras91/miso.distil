@@ -11,9 +11,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
- * To write BasicXXXParam.java
+ * To write BasicXXXParam.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateBasicParam {
@@ -24,9 +24,9 @@ public class generateBasicParam {
   private Names names;
   
   /**
-   * To write Basic<artifact.name>Param.java
+   * To write Basic"artifact.name"Param.java.
    * 
-   * @author Carlos Carrascal
+   * @param artifact the artifact.
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
@@ -55,13 +55,13 @@ public class generateBasicParam {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated parameters");
+    _builder.append("* Auto-generated parameters.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -115,22 +115,19 @@ public class generateBasicParam {
     }
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("// List with all parameters");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("private static List<String> values = new ArrayList<String>();");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("* Auto-generated list with all parameters");
+    _builder.append("* Auto-generated list with all parameters.");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("* ");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @return list with values.");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("*/");

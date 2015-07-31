@@ -5,9 +5,9 @@ import java.util.List;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractParam;
 
 /**
- * Auto-generated parameters
+ * Auto-generated parameters.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class BasicDocumentParam extends BasicAbstractParam {
 	// Attributes parameters
@@ -16,12 +16,11 @@ public class BasicDocumentParam extends BasicAbstractParam {
 	public static String Tags_docinfo = "TAGS_DOCINFO";
 	public static String Isfinished = "ISFINISHED";
 
-	// List with all parameters
 	private static List<String> values = new ArrayList<String>();
 	/**
-	* Auto-generated list with all parameters
+	* Auto-generated list with all parameters.
 	* 
-	* @author miso.distil.codeGenerator
+	* @return list with values.
 	*/
 	public static List<String> values() {
 		if(values.isEmpty()) {

@@ -5,19 +5,18 @@ import java.util.List;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractParam;
 
 /**
- * Auto-generated parameters
+ * Auto-generated parameters.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class BasicMetaModelParam extends BasicAbstractParam {
 	// Attributes parameters
 
-	// List with all parameters
 	private static List<String> values = new ArrayList<String>();
 	/**
-	* Auto-generated list with all parameters
+	* Auto-generated list with all parameters.
 	* 
-	* @author miso.distil.codeGenerator
+	* @return list with values.
 	*/
 	public static List<String> values() {
 		if(values.isEmpty()) {

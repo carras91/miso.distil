@@ -14,9 +14,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
- * To write ServicesSpark.java
+ * To write ServicesSpark.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateServicesSpark {
@@ -24,9 +24,9 @@ public class generateServicesSpark {
   private Names names;
   
   /**
-   * To get each artifacts list of services and when they are triggered
+   * To get each artifacts list of services and when they are triggered.
    * 
-   * @author Carlos Carrascal
+   * @param services the services.
    */
   public HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>> info(final EList<Service> services) {
     HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>> map = new HashMap<Artifact, HashMap<ServiceEnum, ArrayList<Service>>>();
@@ -73,9 +73,9 @@ public class generateServicesSpark {
   }
   
   /**
-   * To write ServicesSpark.java
+   * To write ServicesSpark.java.
    * 
-   * @author Carlos Carrascal
+   * @param services the services.
    */
   public CharSequence write(final EList<Service> services) {
     StringConcatenation _builder = new StringConcatenation();
@@ -132,6 +132,9 @@ public class generateServicesSpark {
       }
     }
     _builder.append("import java.util.List;");
+    _builder.newLine();
+    _builder.append("import java.util.HashMap;");
+    _builder.newLine();
     _builder.newLine();
     _builder.newLine();
     _builder.append("import static spark.Spark.post;");
@@ -460,28 +463,29 @@ public class generateServicesSpark {
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.append("HashMap<String, Object> map = new HashMap<String, Object>();");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("map.put(\"Download\", artifact);");
             _builder.newLine();
             {
               for(final Service service_2 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t");
-                _builder.append("result = result + \" Output from service ");
+                _builder.append("map.put(\"");
                 String _name_13 = service_2.getName();
                 _builder.append(_name_13, "\t\t\t\t\t");
-                _builder.append(" --> \" + (new JsonTransformer()).render(service");
+                _builder.append("\", service");
                 String _name_14 = service_2.getName();
                 _builder.append(_name_14, "\t\t\t\t\t");
-                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
-                String _name_15 = service_2.getName();
-                _builder.append(_name_15, "\t\t\t\t\t");
-                _builder.append(". \";");
+                _builder.append(".runService(request, response, list));");
                 _builder.newLineIfNotEmpty();
               }
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("response.body(result);");
+            _builder.append("response.body((new JsonTransformer()).render(map));");
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t");
@@ -504,8 +508,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_16 = artifact_1.getName();
-            _builder.append(_name_16, "\t\t");
+            String _name_15 = artifact_1.getName();
+            _builder.append(_name_15, "\t\t");
             _builder.append("Spark.ReadIdJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -515,27 +519,27 @@ public class generateServicesSpark {
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("String id = request.params(Basic");
-            String _name_17 = artifact_1.getName();
-            _builder.append(_name_17, "\t\t\t\t\t");
+            String _name_16 = artifact_1.getName();
+            _builder.append(_name_16, "\t\t\t\t\t");
             _builder.append("Param.IdGet);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
+            String _name_17 = artifact_1.getName();
+            _builder.append(_name_17, "\t\t\t\t\t");
+            _builder.append(" artifact = RecordDB.getDefault().readOne(id, ");
             String _name_18 = artifact_1.getName();
             _builder.append(_name_18, "\t\t\t\t\t");
-            _builder.append(" artifact = RecordDB.getDefault().readOne(id, ");
-            String _name_19 = artifact_1.getName();
-            _builder.append(_name_19, "\t\t\t\t\t");
             _builder.append(".class);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("List<");
+            String _name_19 = artifact_1.getName();
+            _builder.append(_name_19, "\t\t\t\t\t");
+            _builder.append("> list = new ArrayList<");
             String _name_20 = artifact_1.getName();
             _builder.append(_name_20, "\t\t\t\t\t");
-            _builder.append("> list = new ArrayList<");
-            String _name_21 = artifact_1.getName();
-            _builder.append(_name_21, "\t\t\t\t\t");
             _builder.append(">();");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -587,28 +591,29 @@ public class generateServicesSpark {
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.append("HashMap<String, Object> map = new HashMap<String, Object>();");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("map.put(\"Download\", artifact);");
             _builder.newLine();
             {
               for(final Service service_3 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t");
-                _builder.append("result = result + \" Output from service ");
+                _builder.append("map.put(\"");
+                String _name_21 = service_3.getName();
+                _builder.append(_name_21, "\t\t\t\t\t");
+                _builder.append("\", service");
                 String _name_22 = service_3.getName();
                 _builder.append(_name_22, "\t\t\t\t\t");
-                _builder.append(" --> \" + (new JsonTransformer()).render(service");
-                String _name_23 = service_3.getName();
-                _builder.append(_name_23, "\t\t\t\t\t");
-                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
-                String _name_24 = service_3.getName();
-                _builder.append(_name_24, "\t\t\t\t\t");
-                _builder.append(". \";");
+                _builder.append(".runService(request, response, list));");
                 _builder.newLineIfNotEmpty();
               }
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("response.body(result);");
+            _builder.append("response.body((new JsonTransformer()).render(map));");
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t");
@@ -631,8 +636,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_25 = artifact_1.getName();
-            _builder.append(_name_25, "\t\t");
+            String _name_23 = artifact_1.getName();
+            _builder.append(_name_23, "\t\t");
             _builder.append("Spark.UpdateJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -642,27 +647,27 @@ public class generateServicesSpark {
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("String id = request.queryParams(Basic");
-            String _name_26 = artifact_1.getName();
-            _builder.append(_name_26, "\t\t\t\t\t");
+            String _name_24 = artifact_1.getName();
+            _builder.append(_name_24, "\t\t\t\t\t");
             _builder.append("Param.IdPost);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            String _name_27 = artifact_1.getName();
-            _builder.append(_name_27, "\t\t\t\t\t");
+            String _name_25 = artifact_1.getName();
+            _builder.append(_name_25, "\t\t\t\t\t");
             _builder.append(" artifact = RecordDB.getDefault().readOne(id, ");
-            String _name_28 = artifact_1.getName();
-            _builder.append(_name_28, "\t\t\t\t\t");
+            String _name_26 = artifact_1.getName();
+            _builder.append(_name_26, "\t\t\t\t\t");
             _builder.append(".class);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
             _builder.append("List<");
-            String _name_29 = artifact_1.getName();
-            _builder.append(_name_29, "\t\t\t\t\t");
+            String _name_27 = artifact_1.getName();
+            _builder.append(_name_27, "\t\t\t\t\t");
             _builder.append("> list = new ArrayList<");
-            String _name_30 = artifact_1.getName();
-            _builder.append(_name_30, "\t\t\t\t\t");
+            String _name_28 = artifact_1.getName();
+            _builder.append(_name_28, "\t\t\t\t\t");
             _builder.append(">();");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -714,28 +719,29 @@ public class generateServicesSpark {
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.append("HashMap<String, Object> map = new HashMap<String, Object>();");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t\t\t");
+            _builder.append("map.put(\"Update\", artifact);");
             _builder.newLine();
             {
               for(final Service service_4 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t");
-                _builder.append("result = result + \" Output from service ");
-                String _name_31 = service_4.getName();
-                _builder.append(_name_31, "\t\t\t\t\t");
-                _builder.append(" --> \" + (new JsonTransformer()).render(service");
-                String _name_32 = service_4.getName();
-                _builder.append(_name_32, "\t\t\t\t\t");
-                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
-                String _name_33 = service_4.getName();
-                _builder.append(_name_33, "\t\t\t\t\t");
-                _builder.append(". \";");
+                _builder.append("map.put(\"");
+                String _name_29 = service_4.getName();
+                _builder.append(_name_29, "\t\t\t\t\t");
+                _builder.append("\", service");
+                String _name_30 = service_4.getName();
+                _builder.append(_name_30, "\t\t\t\t\t");
+                _builder.append(".runService(request, response, list));");
                 _builder.newLineIfNotEmpty();
               }
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t");
-            _builder.append("response.body(result);");
+            _builder.append("response.body((new JsonTransformer()).render(map));");
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t");
@@ -758,8 +764,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_34 = artifact_1.getName();
-            _builder.append(_name_34, "\t\t");
+            String _name_31 = artifact_1.getName();
+            _builder.append(_name_31, "\t\t");
             _builder.append("Spark.UploadJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -772,21 +778,21 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            String _name_35 = artifact_1.getName();
-            _builder.append(_name_35, "\t\t\t\t\t\t");
+            String _name_32 = artifact_1.getName();
+            _builder.append(_name_32, "\t\t\t\t\t\t");
             _builder.append(" artifact = JsonTransformer.fromJson(response.body(), ");
-            String _name_36 = artifact_1.getName();
-            _builder.append(_name_36, "\t\t\t\t\t\t");
+            String _name_33 = artifact_1.getName();
+            _builder.append(_name_33, "\t\t\t\t\t\t");
             _builder.append(".class);");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
             _builder.append("List<");
-            String _name_37 = artifact_1.getName();
-            _builder.append(_name_37, "\t\t\t\t\t\t");
+            String _name_34 = artifact_1.getName();
+            _builder.append(_name_34, "\t\t\t\t\t\t");
             _builder.append("> list = new ArrayList<");
-            String _name_38 = artifact_1.getName();
-            _builder.append(_name_38, "\t\t\t\t\t\t");
+            String _name_35 = artifact_1.getName();
+            _builder.append(_name_35, "\t\t\t\t\t\t");
             _builder.append(">();");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -838,28 +844,29 @@ public class generateServicesSpark {
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.append("HashMap<String, Object> map = new HashMap<String, Object>();");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("map.put(\"Update\", artifact);");
             _builder.newLine();
             {
               for(final Service service_5 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t\t");
-                _builder.append("result = result + \" Output from service ");
-                String _name_39 = service_5.getName();
-                _builder.append(_name_39, "\t\t\t\t\t\t");
-                _builder.append(" --> \" + (new JsonTransformer()).render(service");
-                String _name_40 = service_5.getName();
-                _builder.append(_name_40, "\t\t\t\t\t\t");
-                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
-                String _name_41 = service_5.getName();
-                _builder.append(_name_41, "\t\t\t\t\t\t");
-                _builder.append(". \";");
+                _builder.append("map.put(\"");
+                String _name_36 = service_5.getName();
+                _builder.append(_name_36, "\t\t\t\t\t\t");
+                _builder.append("\", service");
+                String _name_37 = service_5.getName();
+                _builder.append(_name_37, "\t\t\t\t\t\t");
+                _builder.append(".runService(request, response, list));");
                 _builder.newLineIfNotEmpty();
               }
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("response.body(result);");
+            _builder.append("response.body((new JsonTransformer()).render(map));");
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
@@ -896,8 +903,8 @@ public class generateServicesSpark {
             _builder.append("\t\t");
             _builder.append("\t");
             _builder.append("after(Basic");
-            String _name_42 = artifact_1.getName();
-            _builder.append(_name_42, "\t\t\t");
+            String _name_38 = artifact_1.getName();
+            _builder.append(_name_38, "\t\t\t");
             _builder.append("Spark.DeleteJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -910,21 +917,21 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t\t");
-            String _name_43 = artifact_1.getName();
-            _builder.append(_name_43, "\t\t\t\t\t\t\t");
+            String _name_39 = artifact_1.getName();
+            _builder.append(_name_39, "\t\t\t\t\t\t\t");
             _builder.append(" artifact = JsonTransformer.fromJson(response.body(), ");
-            String _name_44 = artifact_1.getName();
-            _builder.append(_name_44, "\t\t\t\t\t\t\t");
+            String _name_40 = artifact_1.getName();
+            _builder.append(_name_40, "\t\t\t\t\t\t\t");
             _builder.append(".class));");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t\t");
             _builder.append("List<");
-            String _name_45 = artifact_1.getName();
-            _builder.append(_name_45, "\t\t\t\t\t\t\t");
+            String _name_41 = artifact_1.getName();
+            _builder.append(_name_41, "\t\t\t\t\t\t\t");
             _builder.append("> list = new ArrayList<");
-            String _name_46 = artifact_1.getName();
-            _builder.append(_name_46, "\t\t\t\t\t\t\t");
+            String _name_42 = artifact_1.getName();
+            _builder.append(_name_42, "\t\t\t\t\t\t\t");
             _builder.append(">();");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -976,28 +983,29 @@ public class generateServicesSpark {
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t\t\t");
-            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.append("HashMap<String, Object> map = new HashMap<String, Object>();");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t\t");
+            _builder.append("map.put(\"Download\", artifact);");
             _builder.newLine();
             {
               for(final Service service_6 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t\t\t");
-                _builder.append("result = result + \" Output from service ");
-                String _name_47 = service_6.getName();
-                _builder.append(_name_47, "\t\t\t\t\t\t\t");
-                _builder.append(" --> \" + (new JsonTransformer()).render(service");
-                String _name_48 = service_6.getName();
-                _builder.append(_name_48, "\t\t\t\t\t\t\t");
-                _builder.append(".runService(request, response, list)) + \" <-- end of service ");
-                String _name_49 = service_6.getName();
-                _builder.append(_name_49, "\t\t\t\t\t\t\t");
-                _builder.append(". \";");
+                _builder.append("map.put(\"");
+                String _name_43 = service_6.getName();
+                _builder.append(_name_43, "\t\t\t\t\t\t\t");
+                _builder.append("\", service");
+                String _name_44 = service_6.getName();
+                _builder.append(_name_44, "\t\t\t\t\t\t\t");
+                _builder.append(".runService(request, response, list));");
                 _builder.newLineIfNotEmpty();
               }
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t\t\t");
-            _builder.append("response.body(result);");
+            _builder.append("response.body((new JsonTransformer()).render(map));");
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
@@ -1032,8 +1040,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_50 = artifact_1.getName();
-            _builder.append(_name_50, "\t\t");
+            String _name_45 = artifact_1.getName();
+            _builder.append(_name_45, "\t\t");
             _builder.append("Spark.ReadAllJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -1046,21 +1054,21 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            String _name_51 = artifact_1.getName();
-            _builder.append(_name_51, "\t\t\t\t\t\t");
+            String _name_46 = artifact_1.getName();
+            _builder.append(_name_46, "\t\t\t\t\t\t");
             _builder.append("[] list = JsonTransformer.fromJson(response.body(), ");
-            String _name_52 = artifact_1.getName();
-            _builder.append(_name_52, "\t\t\t\t\t\t");
+            String _name_47 = artifact_1.getName();
+            _builder.append(_name_47, "\t\t\t\t\t\t");
             _builder.append("[].class));");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t            ");
             _builder.append("List<");
-            String _name_53 = artifact_1.getName();
-            _builder.append(_name_53, "\t\t\t            ");
+            String _name_48 = artifact_1.getName();
+            _builder.append(_name_48, "\t\t\t            ");
             _builder.append("> newList = new ArrayList<");
-            String _name_54 = artifact_1.getName();
-            _builder.append(_name_54, "\t\t\t            ");
+            String _name_49 = artifact_1.getName();
+            _builder.append(_name_49, "\t\t\t            ");
             _builder.append(">(Arrays.asList(list));");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -1108,28 +1116,29 @@ public class generateServicesSpark {
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.append("HashMap<String, Object> map = new HashMap<String, Object>();");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("map.put(\"Download\", artifact);");
             _builder.newLine();
             {
               for(final Service service_7 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t\t");
-                _builder.append("result = result + \" Output from service ");
-                String _name_55 = service_7.getName();
-                _builder.append(_name_55, "\t\t\t\t\t\t");
-                _builder.append(" --> \" + (new JsonTransformer()).render(service");
-                String _name_56 = service_7.getName();
-                _builder.append(_name_56, "\t\t\t\t\t\t");
-                _builder.append(".runService(request, response, newList)) + \" <-- end of service ");
-                String _name_57 = service_7.getName();
-                _builder.append(_name_57, "\t\t\t\t\t\t");
-                _builder.append(". \";");
+                _builder.append("map.put(\"");
+                String _name_50 = service_7.getName();
+                _builder.append(_name_50, "\t\t\t\t\t\t");
+                _builder.append("\", service");
+                String _name_51 = service_7.getName();
+                _builder.append(_name_51, "\t\t\t\t\t\t");
+                _builder.append(".runService(request, response, list));");
                 _builder.newLineIfNotEmpty();
               }
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("response.body(result);");
+            _builder.append("response.body((new JsonTransformer()).render(map));");
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t");
@@ -1164,8 +1173,8 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("after(Basic");
-            String _name_58 = artifact_1.getName();
-            _builder.append(_name_58, "\t\t");
+            String _name_52 = artifact_1.getName();
+            _builder.append(_name_52, "\t\t");
             _builder.append("Spark.SearchJson, \"application/json\",");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -1178,21 +1187,21 @@ public class generateServicesSpark {
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            String _name_59 = artifact_1.getName();
-            _builder.append(_name_59, "\t\t\t\t\t\t");
+            String _name_53 = artifact_1.getName();
+            _builder.append(_name_53, "\t\t\t\t\t\t");
             _builder.append("[] list = JsonTransformer.fromJson(response.body(), ");
-            String _name_60 = artifact_1.getName();
-            _builder.append(_name_60, "\t\t\t\t\t\t");
+            String _name_54 = artifact_1.getName();
+            _builder.append(_name_54, "\t\t\t\t\t\t");
             _builder.append("[].class));");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
             _builder.append("\t            ");
             _builder.append("List<");
-            String _name_61 = artifact_1.getName();
-            _builder.append(_name_61, "\t\t\t            ");
+            String _name_55 = artifact_1.getName();
+            _builder.append(_name_55, "\t\t\t            ");
             _builder.append("> newList = new ArrayList<");
-            String _name_62 = artifact_1.getName();
-            _builder.append(_name_62, "\t\t\t            ");
+            String _name_56 = artifact_1.getName();
+            _builder.append(_name_56, "\t\t\t            ");
             _builder.append(">(Arrays.asList(list));");
             _builder.newLineIfNotEmpty();
             _builder.append("\t\t");
@@ -1240,28 +1249,29 @@ public class generateServicesSpark {
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("String result = \"Original response --> \" + response.body() + \" <-- end of original response. \";");
+            _builder.append("HashMap<String, Object> map = new HashMap<String, Object>();");
+            _builder.newLine();
+            _builder.append("\t\t");
+            _builder.append("\t\t\t\t");
+            _builder.append("map.put(\"Download\", artifact);");
             _builder.newLine();
             {
               for(final Service service_8 : listServices) {
                 _builder.append("\t\t");
                 _builder.append("\t\t\t\t");
-                _builder.append("result = result + \" Output from service ");
-                String _name_63 = service_8.getName();
-                _builder.append(_name_63, "\t\t\t\t\t\t");
-                _builder.append(" --> \" + (new JsonTransformer()).render(service");
-                String _name_64 = service_8.getName();
-                _builder.append(_name_64, "\t\t\t\t\t\t");
-                _builder.append(".runService(request, response, newList)) + \" <-- end of service ");
-                String _name_65 = service_8.getName();
-                _builder.append(_name_65, "\t\t\t\t\t\t");
-                _builder.append(". \";");
+                _builder.append("map.put(\"");
+                String _name_57 = service_8.getName();
+                _builder.append(_name_57, "\t\t\t\t\t\t");
+                _builder.append("\", service");
+                String _name_58 = service_8.getName();
+                _builder.append(_name_58, "\t\t\t\t\t\t");
+                _builder.append(".runService(request, response, list));");
                 _builder.newLineIfNotEmpty();
               }
             }
             _builder.append("\t\t");
             _builder.append("\t\t\t\t");
-            _builder.append("response.body(result);");
+            _builder.append("response.body((new JsonTransformer()).render(map));");
             _builder.newLine();
             _builder.append("\t\t");
             _builder.append("\t\t\t");

@@ -9,9 +9,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
- * To write BasicXXXSpark.java
+ * To write BasicXXXSpark.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateBasicSpark {
@@ -22,9 +22,9 @@ public class generateBasicSpark {
   private Names names;
   
   /**
-   * To write Basic<artifact.name>Spark.java
+   * To write Basic"artifact.name"Spark.java.
    * 
-   * @author Carlos Carrascal
+   * @param artifact the artifact.
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
@@ -110,13 +110,13 @@ public class generateBasicSpark {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated spark server");
+    _builder.append("* Auto-generated spark server.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -214,13 +214,7 @@ public class generateBasicSpark {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Auto-generated spark service. It initializes all url\'s");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* ");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* Auto-generated spark service. It initializes all url\'s.");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("*/");

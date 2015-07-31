@@ -1,7 +1,5 @@
 package miso.distil.videoServices.htmlCover;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -16,12 +14,18 @@ import miso.distil.videoServices.basic.BasicVideoParam;
 import miso.distil.videoServices.basic.BasicVideoSpark;
 import miso.distil.videoServices.Video;
 
+/**
+ * Auto-generated html view methods.
+ * 
+ * @author miso.distil.codeGenerator.
+ */
 public class HtmlVideoView implements HtmlInterfaceView<Video>{
 
 	/**
-	 * Auto-generated method to construct the information from an artifact
+	 * Auto-generated method to construct the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param video Video to read.
+	 * @return list with entries to show in html.
 	 */
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Video video) {
@@ -42,9 +46,10 @@ public class HtmlVideoView implements HtmlInterfaceView<Video>{
 	}
 
 	/**
-	 * Auto-generated method to construct the information from an artifact's list
+	 * Auto-generated method to construct the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param videos list of Video to read.
+	 * @return list with lists of entries to show in html.
 	 */
 	@Override
 	public List<List<HtmlEntry>> constructInfoReadAll(List<Video> videos) {
@@ -62,9 +67,9 @@ public class HtmlVideoView implements HtmlInterfaceView<Video>{
 	}
 
 	/**
-	 * Auto-generated method to construct the search form
+	 * Auto-generated method to construct the search form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -95,12 +100,12 @@ public class HtmlVideoView implements HtmlInterfaceView<Video>{
 	}
 
 	/**
-	 * Auto-generated method to construct the upload form
+	 * Auto-generated method to construct the upload form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		HtmlForm form = new HtmlForm(BasicVideoSpark.UploadJson, "video-upload-form", HtmlFreeMarker.ENCTYPE_FILE, "Upload", "POST");

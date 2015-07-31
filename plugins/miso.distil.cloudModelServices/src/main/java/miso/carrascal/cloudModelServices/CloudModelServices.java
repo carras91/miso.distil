@@ -27,7 +27,7 @@ import spark.template.freemarker.FreeMarkerEngine;
 /**
  * To initialice the ports, logger, some default spark configurations and find and run implementations of {@link miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark BasicInterfaceSpark}.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public class CloudModelServices {
 	 		
@@ -123,7 +123,7 @@ public class CloudModelServices {
 	    }
 	    
 	    /**
-	     * It set an after spark service to execute downloads
+	     * It set an after spark service to execute downloads.
 	     */
 	    private static void setFinalDownload() {
 	    	// Configure after

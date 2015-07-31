@@ -5,43 +5,47 @@ import miso.distil.documentServices.basic.BasicDocumentSpark;
 import miso.distil.documentServices.Document;
 
 /**
- * Auto-generated html links
+ * Auto-generated html links.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class HtmlDocumentLinks {
 
 	/**
-	 * Auto-generated link to the service read one json
+	 * Auto-generated link to the service read one json.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to create the link.
+	 * @return the link.
 	 */
 	public static String getReadJsonLink(Document document) {
 		return "<a href=" + BasicDocumentSpark.ReadJson + document.getObjectid() + ">View as Json</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service read one html
+	 * Auto-generated link to the service read one html.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to create the link.
+	 * @return the link.
 	 */
 	public static String getReadHtmlLink(Document document) {
 		return "<a href=" + HtmlDocumentSpark.ReadHTML + document.getObjectid() + ">" + document.getFilename() + "</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service download
+	 * Auto-generated link to the service download.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to create the link.
+	 * @return the link.
 	 */
 	public static String getDownloadJsonLink(Document document) {
 		return "<a href=" + BasicDocumentSpark.DownloadJson + document.getObjectid() + ">Download</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service delete
+	 * Auto-generated link to the service delete.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to create the link.
+	 * @return the link (form type post link).
 	 */
 	public static String getDeleteFormJsonLink(Document document) {
 		String form = "";
@@ -53,9 +57,10 @@ public class HtmlDocumentLinks {
 	}
 
 	/**
-	 * Auto-generated link to the service update form html
+	 * Auto-generated link to the service update form html.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to create the link.
+	 * @return the link.
 	 */
 	public static String getUpdateHtmlLink(Document document) {
 		return "<a href=" + HtmlDocumentSpark.UpdateFormHTML + document.getObjectid() + ">Update</a>";

@@ -13,15 +13,14 @@ import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMark
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.utils.Utils;
 
-import miso.distil.bentoServices.basic.BasicBentoCodes;
 import miso.distil.bentoServices.BentoJson;
 import miso.distil.bentoServices.CustomBentoHtml;
 import miso.distil.bentoServices.Bento;
 
 /**
- * Auto-generated html methods
+ * Auto-generated html methods.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class HtmlBentoJson implements HtmlInterfaceJson {
 
@@ -30,27 +29,27 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 	private HtmlInterfaceView<Bento> customView;
 
 	/**
-	 * Auto-generated empty constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated empty constructor. To use auto-generated HtmlBentoView.
 	 */
 	public HtmlBentoJson() {
 		customView = View;
 	}
 
 	/**
-	 * Auto-generated constructor with a custom view
+	 * Auto-generated constructor with a custom view.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param View Custom View.
 	 */
 	public HtmlBentoJson(CustomBentoHtml View) {
 		customView = View;
 	}
 
 	/**
-	 * Auto-generated method to read the information from an artifact
+	 * Auto-generated method to read the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getRead(Request req, Response res) {
@@ -58,7 +57,7 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 
 		Bento bento = (Bento) Json.getRead(req, res);
 		if(bento == null) {
-			viewObjects.put(HtmlFreeMarker.ERROR, BasicBentoCodes.DB_notfound);
+			viewObjects.put(HtmlFreeMarker.ERROR, "Bento not found in data base");
 		} else {
 			viewObjects.put(HtmlFreeMarker.ENTRIES, customView.constructInfoReadOne(bento));
 		}
@@ -68,9 +67,11 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to read the information from an artifact's list
+	 * Auto-generated method to read the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getReadAll(Request req, Response res) {
@@ -86,9 +87,9 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to construct the search form
+	 * Auto-generated method to construct the search form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getSearchForm() {
@@ -100,9 +101,11 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to read the information from the result list of a search
+	 * Auto-generated method to read the information from the result list of a search.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getSearch(Request req, Response res) {	
@@ -113,7 +116,7 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 		if(bentos.isEmpty()) {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
-			viewObjects.put(HtmlFreeMarker.EMPTY, BasicBentoCodes.Bento_notfound);
+			viewObjects.put(HtmlFreeMarker.EMPTY, "Bento not found in data base");
 			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 		} else {	
 			viewObjects = new HashMap<String, Object>();
@@ -127,9 +130,11 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to construct the update form
+	 * Auto-generated method to construct the update form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getUpdateForm(Request req, Response res) {
@@ -137,7 +142,7 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 
 		Bento bento = (Bento) Json.getRead(req, res);
 		if(bento == null) {
-			viewObjects.put(HtmlFreeMarker.ERROR, BasicBentoCodes.Bento_notfound);
+			viewObjects.put(HtmlFreeMarker.ERROR, "Bento not found in data base");
 		} else {
 			viewObjects = customView.constructUpdateForm(bento);
 		}
@@ -147,14 +152,16 @@ public class HtmlBentoJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to construct the upload form
+	 * Auto-generated method to construct the upload form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getUploadForm(Request req, Response res) {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
-		viewObjects = customView.constructUploadForm(req);
+		viewObjects = customView.constructUploadForm();
 		viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
 
 		return HtmlFreeMarker.closeHtml(viewObjects);

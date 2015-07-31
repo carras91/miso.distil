@@ -153,29 +153,6 @@ public class Names {
     return _builder;
   }
   
-  private String getBCodes(final Artifact artifact) {
-    String _name = artifact.getName();
-    String _plus = ("Basic" + _name);
-    return (_plus + "Codes");
-  }
-  
-  public String getBCodesFileStri(final Artifact artifact) {
-    String _basicStri = this.getBasicStri(artifact);
-    String _plus = (_basicStri + "/");
-    String _bCodes = this.getBCodes(artifact);
-    return (_plus + _bCodes);
-  }
-  
-  public CharSequence getBCodesFileChar(final Artifact artifact) {
-    StringConcatenation _builder = new StringConcatenation();
-    CharSequence _basicChar = this.getBasicChar(artifact);
-    _builder.append(_basicChar, "");
-    _builder.append(".");
-    String _bCodes = this.getBCodes(artifact);
-    _builder.append(_bCodes, "");
-    return _builder;
-  }
-  
   private String getBParam(final Artifact artifact) {
     String _name = artifact.getName();
     String _plus = ("Basic" + _name);

@@ -5,43 +5,47 @@ import miso.distil.pictureServices.basic.BasicPictureSpark;
 import miso.distil.pictureServices.Picture;
 
 /**
- * Auto-generated html links
+ * Auto-generated html links.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class HtmlPictureLinks {
 
 	/**
-	 * Auto-generated link to the service read one json
+	 * Auto-generated link to the service read one json.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param picture Picture to create the link.
+	 * @return the link.
 	 */
 	public static String getReadJsonLink(Picture picture) {
 		return "<a href=" + BasicPictureSpark.ReadJson + picture.getObjectid() + ">View as Json</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service read one html
+	 * Auto-generated link to the service read one html.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param picture Picture to create the link.
+	 * @return the link.
 	 */
 	public static String getReadHtmlLink(Picture picture) {
 		return "<a href=" + HtmlPictureSpark.ReadHTML + picture.getObjectid() + ">" + picture.getFilename() + "</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service download
+	 * Auto-generated link to the service download.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param picture Picture to create the link.
+	 * @return the link.
 	 */
 	public static String getDownloadJsonLink(Picture picture) {
 		return "<a href=" + BasicPictureSpark.DownloadJson + picture.getObjectid() + ">Download</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service delete
+	 * Auto-generated link to the service delete.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param picture Picture to create the link.
+	 * @return the link (form type post link).
 	 */
 	public static String getDeleteFormJsonLink(Picture picture) {
 		String form = "";

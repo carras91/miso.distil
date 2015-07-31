@@ -12,9 +12,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
- * To write XXXService.java
+ * To write XXXService.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateSimpleService {
@@ -22,9 +22,9 @@ public class generateSimpleService {
   private Names names;
   
   /**
-   * To write <simpleService.name>Service.java
+   * To write "simpleService.name"Service.java.
    * 
-   * @author Carlos Carrascal
+   * @param simpleService the SimpleService.
    */
   public CharSequence write(final SimpleService simpleService) {
     StringConcatenation _builder = new StringConcatenation();
@@ -146,13 +146,13 @@ public class generateSimpleService {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated service class");
+    _builder.append("* Auto-generated service class.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -167,13 +167,7 @@ public class generateSimpleService {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Auto-generated service constructor");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* ");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* Auto-generated service constructor.");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("*/");
@@ -247,33 +241,6 @@ public class generateSimpleService {
     _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("/**");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* Method called automatically to prepare the inputs");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* If triggered :");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* - after upload, download, update, read -> artifacts.size = 1, (request, response) from these services");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* - after readAll, search -> the results of these services, (request, response) from these services");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* - on request -> artifacts.size = 0, , (request, response) sent by user");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* ");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("*/");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("@Override");
     _builder.newLine();
     _builder.append("\t");
@@ -293,21 +260,6 @@ public class generateSimpleService {
     _builder.append("\t");
     _builder.append("}");
     _builder.newLine();
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("/**");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* Execution method. It uses prepareService return and generates other object\'s list (see the constructor output order)");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* ");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("*/");
     _builder.newLine();
     _builder.append("\t");
     _builder.append("@Override");

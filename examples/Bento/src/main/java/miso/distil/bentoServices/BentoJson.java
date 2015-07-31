@@ -16,32 +16,31 @@ import javax.servlet.http.Part;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
 import miso.distil.bentoServices.Bento;
-import miso.distil.bentoServices.basic.BasicBentoCodes;
 import miso.distil.bentoServices.basic.BasicBentoParam;
 
 /**
- * Auto-generated custom json methods
+ * Auto-generated custom json methods.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class BentoJson extends BasicAbstractJson<Bento> {
 
-	/**
-	 * Auto-generated empty constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 /**
+	 * Auto-generated empty constructor.
 	 */
 	 public BentoJson() {
 	 	super(Bento.class);	
 	 }
 
 	/**
-	 * Auto-generated method to cusomice the update method
+	 * Auto-generated method to cusomice the update method.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return Bento updated or null if error.
 	 */
 	@Override
-	public Object postUpdate(Request req, Response res) {
+	public Bento postUpdate(Request req, Response res) {
 		// Basic Params
 		Map<String, String> map = parseRequest(req, BasicBentoParam.values());
 		String id = map.get(BasicBentoParam.IdPost);
@@ -51,14 +50,14 @@ public class BentoJson extends BasicAbstractJson<Bento> {
 		try {
 		} catch(Exception e) {
 			e.printStackTrace();
-			return BasicBentoCodes.Param_error;
+			return null;
 		}
 
 		// Read old Bento and his InputStream
 		Bento oldBento = RecordDB.getDefault().readOne(id, classType);
 		InputStream IS = RecordDB.getDefault().getInputStream(id, classType);
 		if(oldBento == null || IS == null) {
-			return BasicBentoCodes.DB_notfound;
+			return null;
 		}
 
 		// Not required params and artifact's id
@@ -80,22 +79,24 @@ public class BentoJson extends BasicAbstractJson<Bento> {
 		// Save new Bento and delete old Bento
 		if(RecordDB.getDefault().save(newBento, IS)) {
 			if(!RecordDB.getDefault().delete(id, classType)) {
-				return BasicBentoCodes.DB_notfound;
+				return null;
 			} else {
 				return newBento;
 			}
 		} else {
-			return BasicBentoCodes.DB_notupdated;
+			return null;
 		}
 	}
 
 	/**
 	 * Auto-generated method to cusomice the upload method
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return Bento uploaded or null if error.
 	 */
 	@Override
-	public Object postUpload(Request req, Response res) {
+	public Bento postUpload(Request req, Response res) {
 		// There is a file
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement("/tmp");
 		req.raw().setAttribute("org.eclipse.multipartConfig", multipartConfigElement);
@@ -110,10 +111,10 @@ public class BentoJson extends BasicAbstractJson<Bento> {
 			// Required params
 
 			if(fileContent == null || fileName == null) {
-				return BasicBentoCodes.Param_emptyfile;
+				return null;
 			}
 			if(fileName.isEmpty() || !fileName.endsWith(".bentoz")) {
-				return BasicBentoCodes.Param_emptyfile;
+				return null;
 			}
 
 			// Not required params and artifact's id
@@ -133,20 +134,20 @@ public class BentoJson extends BasicAbstractJson<Bento> {
 			Bento bento = new Bento(fileName, fileSize, inputconcepts, outputconcepts, atl, tags);
 
 			if(!RecordDB.getDefault().save(bento, fileContent)) {
-				return BasicBentoCodes.DB_notuploaded;
+				return null;
 			}
 
 			return bento;
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			return BasicBentoCodes.Param_corruptfile;
+			return null;
 		} catch (ServletException e) {
 			e.printStackTrace();
-			return BasicBentoCodes.Param_corruptfile;
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return BasicBentoCodes.Param_error;
+			return null;
 		}
 	}
 }

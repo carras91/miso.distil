@@ -2,6 +2,8 @@ package miso.distil.services;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.HashMap;
+
 
 import static spark.Spark.post;
 import static spark.Spark.after;
@@ -13,15 +15,15 @@ import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSp
 import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 
+import miso.distil.videoServices.basic.BasicVideoParam;
+import miso.distil.videoServices.basic.BasicVideoSpark;
+import miso.distil.videoServices.Video;
 import miso.distil.documentServices.basic.BasicDocumentParam;
 import miso.distil.documentServices.basic.BasicDocumentSpark;
 import miso.distil.documentServices.Document;
 import miso.distil.pictureServices.basic.BasicPictureParam;
 import miso.distil.pictureServices.basic.BasicPictureSpark;
 import miso.distil.pictureServices.Picture;
-import miso.distil.videoServices.basic.BasicVideoParam;
-import miso.distil.videoServices.basic.BasicVideoSpark;
-import miso.distil.videoServices.Video;
 
 /**
  * Auto-generated services spark server
@@ -96,15 +98,28 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 			}, new JsonTransformer());
 
 
+		after(BasicVideoSpark.DownloadIdJson, "application/json",
+				(request, response) -> {
+					String id = request.params(BasicVideoParam.IdGet);
+					Video artifact = RecordDB.getDefault().readOne(id, Video.class);
+					List<Video> list = new ArrayList<Video>();
+					list.add(artifact);
+					HashMap<String, Object> map = new HashMap<String, Object>();
+					map.put("Download", artifact);
+					map.put("DownloadAuthor", serviceDownloadAuthor.runService(request, response, list));
+					response.body((new JsonTransformer()).render(map));
+				});
+
 		after(BasicDocumentSpark.DownloadIdJson, "application/json",
 				(request, response) -> {
 					String id = request.params(BasicDocumentParam.IdGet);
 					Document artifact = RecordDB.getDefault().readOne(id, Document.class);
 					List<Document> list = new ArrayList<Document>();
 					list.add(artifact);
-					String result = "Original response --> " + response.body() + " <-- end of original response. ";
-					result = result + " Output from service DownloadAuthor --> " + (new JsonTransformer()).render(serviceDownloadAuthor.runService(request, response, list)) + " <-- end of service DownloadAuthor. ";
-					response.body(result);
+					HashMap<String, Object> map = new HashMap<String, Object>();
+					map.put("Download", artifact);
+					map.put("DownloadAuthor", serviceDownloadAuthor.runService(request, response, list));
+					response.body((new JsonTransformer()).render(map));
 				});
 
 		after(BasicDocumentSpark.UploadJson, "application/json",
@@ -113,9 +128,10 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 						Document artifact = JsonTransformer.fromJson(response.body(), Document.class);
 						List<Document> list = new ArrayList<Document>();
 						list.add(artifact);
-						String result = "Original response --> " + response.body() + " <-- end of original response. ";
-						result = result + " Output from service Analyse --> " + (new JsonTransformer()).render(serviceAnalyse.runService(request, response, list)) + " <-- end of service Analyse. ";
-						response.body(result);
+						HashMap<String, Object> map = new HashMap<String, Object>();
+						map.put("Update", artifact);
+						map.put("Analyse", serviceAnalyse.runService(request, response, list));
+						response.body((new JsonTransformer()).render(map));
 					} catch (JsonSyntaxException e) {
 						e.printStackTrace();
 					}
@@ -127,9 +143,10 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 					Picture artifact = RecordDB.getDefault().readOne(id, Picture.class);
 					List<Picture> list = new ArrayList<Picture>();
 					list.add(artifact);
-					String result = "Original response --> " + response.body() + " <-- end of original response. ";
-					result = result + " Output from service DownloadAuthor --> " + (new JsonTransformer()).render(serviceDownloadAuthor.runService(request, response, list)) + " <-- end of service DownloadAuthor. ";
-					response.body(result);
+					HashMap<String, Object> map = new HashMap<String, Object>();
+					map.put("Download", artifact);
+					map.put("DownloadAuthor", serviceDownloadAuthor.runService(request, response, list));
+					response.body((new JsonTransformer()).render(map));
 				});
 
 		after(BasicPictureSpark.UploadJson, "application/json",
@@ -138,23 +155,13 @@ public final class ServicesSpark implements BasicInterfaceSpark {
 						Picture artifact = JsonTransformer.fromJson(response.body(), Picture.class);
 						List<Picture> list = new ArrayList<Picture>();
 						list.add(artifact);
-						String result = "Original response --> " + response.body() + " <-- end of original response. ";
-						result = result + " Output from service SimilarPictures --> " + (new JsonTransformer()).render(serviceSimilarPictures.runService(request, response, list)) + " <-- end of service SimilarPictures. ";
-						response.body(result);
+						HashMap<String, Object> map = new HashMap<String, Object>();
+						map.put("Update", artifact);
+						map.put("SimilarPictures", serviceSimilarPictures.runService(request, response, list));
+						response.body((new JsonTransformer()).render(map));
 					} catch (JsonSyntaxException e) {
 						e.printStackTrace();
 					}
-				});
-
-		after(BasicVideoSpark.DownloadIdJson, "application/json",
-				(request, response) -> {
-					String id = request.params(BasicVideoParam.IdGet);
-					Video artifact = RecordDB.getDefault().readOne(id, Video.class);
-					List<Video> list = new ArrayList<Video>();
-					list.add(artifact);
-					String result = "Original response --> " + response.body() + " <-- end of original response. ";
-					result = result + " Output from service DownloadAuthor --> " + (new JsonTransformer()).render(serviceDownloadAuthor.runService(request, response, list)) + " <-- end of service DownloadAuthor. ";
-					response.body(result);
 				});
 	}
 }

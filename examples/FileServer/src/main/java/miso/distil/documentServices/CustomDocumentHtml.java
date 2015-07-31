@@ -1,7 +1,5 @@
 package miso.distil.documentServices;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,16 +16,14 @@ import miso.distil.documentServices.htmlCover.HtmlDocumentSpark;
 import miso.distil.documentServices.Document;
 
 /**
- * Auto-generated custom html spark server
+ * Auto-generated custom html spark server.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class CustomDocumentHtml implements HtmlInterfaceView<Document>, BasicInterfaceSpark
 {
 	/**
-	 * Auto-generated custom spark service. It overwrites some html URL's
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated custom spark service. It overwrites some html URL's.
 	 */
 	@Override
 	public void runService() {
@@ -42,9 +38,10 @@ public class CustomDocumentHtml implements HtmlInterfaceView<Document>, BasicInt
 	}
 
 	/**
-	 * Auto-generated method to customice the information from an artifact
+	 * Auto-generated method to customice the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to read.
+	 * @return list with entries to show in html.
 	 */
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Document document) {
@@ -56,9 +53,10 @@ public class CustomDocumentHtml implements HtmlInterfaceView<Document>, BasicInt
 	}
 
 	/**
-	 * Auto-generated method to customice the information from an artifact's list
+	 * Auto-generated method to customice the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param documents list of Document to read.
+	 * @return list with lists of entries to show in html.
 	 */
 	@Override
 	public List<List<HtmlEntry>> constructInfoReadAll(List<Document> documents) {
@@ -76,7 +74,7 @@ public class CustomDocumentHtml implements HtmlInterfaceView<Document>, BasicInt
 	/**
 	 * Auto-generated method to customice the search form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -114,7 +112,8 @@ public class CustomDocumentHtml implements HtmlInterfaceView<Document>, BasicInt
 	/**
 	 * Auto-generated method to customice the update form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param document Document to update.
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructUpdateForm(Document document) {
@@ -151,10 +150,10 @@ public class CustomDocumentHtml implements HtmlInterfaceView<Document>, BasicInt
 	/**
 	 * Auto-generated method to customice the upload form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		// You need to add first a Form

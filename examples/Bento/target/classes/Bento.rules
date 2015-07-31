@@ -7,22 +7,21 @@ Artifact Bento [
 	id many outputconcepts : MetaModel 
 	id many atl : ATLTrafo
 	many tags : String   
-} 
+}  
 Artifact ATLTrafo [  
 	extension .atl format TEXT 
 	services : upload, delete, download, search
-] {
+] { 
 	nameatl : String   
 } 
 Artifact MetaModel [   
 	extension .ecore format XMI 
 	services : upload, delete, download, search
 ] { 
-	uri : String    	   
+	uri : String  
 }
 
-
-Artifact Model [  
+Artifact Model [   
 	format XMI services : all
 ] {   
 	namemodel : String

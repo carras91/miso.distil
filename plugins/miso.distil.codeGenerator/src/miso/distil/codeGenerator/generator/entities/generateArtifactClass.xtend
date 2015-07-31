@@ -8,20 +8,20 @@ import codeGeneratorModel.Primitive
 import codeGeneratorModel.DataEnum
 import codeGeneratorModel.Reference
 
-/*
- * To write <artifact>.java
+/**
+ * To write "artifact.name".java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateArtifactClass {
 
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 	
-	/*
-	 * To write <artifact.name>.java
+	/**
+	 * To write "artifact.name".java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */
 	def write(Artifact artifact) '''
 		«val EList<Attribute> atts = artifact.attributes»
@@ -33,9 +33,9 @@ class generateArtifactClass {
 		«genUti.getImportList(atts)»
 
 		/**
-		 * Auto-generated artifact class
+		 * Auto-generated artifact class.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class «artifact.name» extends Persistent {
 
@@ -43,15 +43,14 @@ class generateArtifactClass {
 			// Attributes
 			«genUti.getPrivateAttributes(atts)»
 
-			// Empty constructor
+			/**
+			 * Empty constructor.
+			 */
 			public «artifact.name»() {
 				super();
 			}
 
-			// Full constructor
 			«artifact.getConstructorArtifact»
-
-			// Getters and setters
 
 			«genUti.getGetSetAtt(atts)»
 
@@ -61,13 +60,22 @@ class generateArtifactClass {
 		}
 	'''
 
-	/*
-	 * To write the full constructor of artifact
+	/**
+	 * To write the full constructor of artifact.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */
 	def private getConstructorArtifact(Artifact artifact) '''
 		«val EList<Attribute> atts = artifact.attributes»
+		/**
+		 * Full constructor.
+		 * 
+		 * @param filename Name file. 
+		 * @param filesize File size.
+		«FOR att : atts»
+		* @param «att.name» Attribute «att.name».
+		«ENDFOR»
+		 */
 		public «artifact.name»(String filename, long filesize«FOR att:atts», «genUti.getTypeName(att)» «att.name»«ENDFOR») {
 
 			super(filename, filesize);

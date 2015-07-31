@@ -5,43 +5,47 @@ import miso.distil.bentoServices.basic.BasicBentoSpark;
 import miso.distil.bentoServices.Bento;
 
 /**
- * Auto-generated html links
+ * Auto-generated html links.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class HtmlBentoLinks {
 
 	/**
-	 * Auto-generated link to the service read one json
+	 * Auto-generated link to the service read one json.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param bento Bento to create the link.
+	 * @return the link.
 	 */
 	public static String getReadJsonLink(Bento bento) {
 		return "<a href=" + BasicBentoSpark.ReadJson + bento.getObjectid() + ">View as Json</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service read one html
+	 * Auto-generated link to the service read one html.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param bento Bento to create the link.
+	 * @return the link.
 	 */
 	public static String getReadHtmlLink(Bento bento) {
 		return "<a href=" + HtmlBentoSpark.ReadHTML + bento.getObjectid() + ">" + bento.getFilename() + "</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service download
+	 * Auto-generated link to the service download.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param bento Bento to create the link.
+	 * @return the link.
 	 */
 	public static String getDownloadJsonLink(Bento bento) {
 		return "<a href=" + BasicBentoSpark.DownloadJson + bento.getObjectid() + ">Download</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service delete
+	 * Auto-generated link to the service delete.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param bento Bento to create the link.
+	 * @return the link (form type post link).
 	 */
 	public static String getDeleteFormJsonLink(Bento bento) {
 		String form = "";
@@ -53,9 +57,10 @@ public class HtmlBentoLinks {
 	}
 
 	/**
-	 * Auto-generated link to the service update form html
+	 * Auto-generated link to the service update form html.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param bento Bento to create the link.
+	 * @return the link.
 	 */
 	public static String getUpdateHtmlLink(Bento bento) {
 		return "<a href=" + HtmlBentoSpark.UpdateFormHTML + bento.getObjectid() + ">Update</a>";

@@ -1,17 +1,17 @@
 MongoURI : "mongodb://user:password@ds053972.mongolab.com:53972/heroku_1pbz17rf" 
   
 Artifact Picture [    
-	format BINARY 
+	format BINARY  
 	services : delete, download, readAll, search, upload, read
-] {
+] { 
 	ref pictureinfo : PersonalData
 	many required peoplepictured : String
-	required place : String
-	required edited : Boolean 
+	required place : String 
+	required edited : Boolean  
 }   
  
 Artifact Document [     
-	format TEXT 
+	format TEXT  
 	services : all
 ] { 
 	ref  docinfo: PersonalData  

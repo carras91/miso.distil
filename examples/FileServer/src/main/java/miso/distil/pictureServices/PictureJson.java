@@ -15,21 +15,18 @@ import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.utils.Utils;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
 import miso.distil.pictureServices.Picture;
-import miso.distil.pictureServices.basic.BasicPictureCodes;
 import miso.distil.pictureServices.basic.BasicPictureParam;
 import miso.distil.entities.PersonalData;
 
 /**
- * Auto-generated custom json methods
+ * Auto-generated custom json methods.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class PictureJson extends BasicAbstractJson<Picture> {
 
-	/**
-	 * Auto-generated empty constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 /**
+	 * Auto-generated empty constructor.
 	 */
 	 public PictureJson() {
 	 	super(Picture.class);	
@@ -38,10 +35,12 @@ public class PictureJson extends BasicAbstractJson<Picture> {
 	/**
 	 * Auto-generated method to cusomice the upload method
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return Picture uploaded or null if error.
 	 */
 	@Override
-	public Object postUpload(Request req, Response res) {
+	public Picture postUpload(Request req, Response res) {
 		// There is a file
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement("/tmp");
 		req.raw().setAttribute("org.eclipse.multipartConfig", multipartConfigElement);
@@ -62,10 +61,10 @@ public class PictureJson extends BasicAbstractJson<Picture> {
 			Boolean edited = req.raw().getParameter(BasicPictureParam.Edited).equalsIgnoreCase("true");
 
 			if(fileContent == null || fileName == null) {
-				return BasicPictureCodes.Param_emptyfile;
+				return null;
 			}
 			if(fileName.isEmpty() ) {
-				return BasicPictureCodes.Param_emptyfile;
+				return null;
 			}
 
 			// Not required params and artifact's id
@@ -83,20 +82,20 @@ public class PictureJson extends BasicAbstractJson<Picture> {
 			Picture picture = new Picture(fileName, fileSize, pictureinfo, peoplepictured, place, edited);
 
 			if(!RecordDB.getDefault().save(picture, fileContent)) {
-				return BasicPictureCodes.DB_notuploaded;
+				return null;
 			}
 
 			return picture;
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			return BasicPictureCodes.Param_corruptfile;
+			return null;
 		} catch (ServletException e) {
 			e.printStackTrace();
-			return BasicPictureCodes.Param_corruptfile;
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return BasicPictureCodes.Param_error;
+			return null;
 		}
 	}
 }

@@ -10,7 +10,7 @@ import miso.carrascal.cloudModelServices.utils.RecordDownload;
 import spark.Request;
 import spark.Response;
 
-public abstract class BasicAbstractJson<T extends Persistent> implements BasicInterfaceJson {
+public abstract class BasicAbstractJson<T extends Persistent> implements BasicInterfaceJson<T> {
 	
 	protected Class<T> classType;
 	

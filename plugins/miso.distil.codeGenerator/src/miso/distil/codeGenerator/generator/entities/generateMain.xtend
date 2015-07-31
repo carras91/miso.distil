@@ -2,19 +2,19 @@ package miso.distil.codeGenerator.generator.entities
 
 import com.google.inject.Inject
 
-/*
- * To write Main.java
+/**
+ * To write Main.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateMain {
 	
 	@Inject miso.distil.codeGenerator.generator.Names names
 
-	/*
- 	 * To write Main.java
+	/**
+ 	 * To write Main.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @author Carlos Carrascal.
 	 */
 	def write() '''
 	package «names.RootChar»;
@@ -22,9 +22,9 @@ class generateMain {
 	import «names.Miso».CloudModelServices;
 
 	/**
-	 * Auto-generated main class
+	 * Auto-generated main class.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @author miso.distil.codeGenerator.
 	 */
 	public class Main {
 

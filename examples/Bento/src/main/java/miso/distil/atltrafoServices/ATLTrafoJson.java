@@ -13,20 +13,17 @@ import javax.servlet.http.Part;
 import miso.carrascal.cloudModelServices.abstractServices.RecordDB;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicAbstractJson;
 import miso.distil.atltrafoServices.ATLTrafo;
-import miso.distil.atltrafoServices.basic.BasicATLTrafoCodes;
 import miso.distil.atltrafoServices.basic.BasicATLTrafoParam;
 
 /**
- * Auto-generated custom json methods
+ * Auto-generated custom json methods.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class ATLTrafoJson extends BasicAbstractJson<ATLTrafo> {
 
-	/**
-	 * Auto-generated empty constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 /**
+	 * Auto-generated empty constructor.
 	 */
 	 public ATLTrafoJson() {
 	 	super(ATLTrafo.class);	
@@ -35,10 +32,12 @@ public class ATLTrafoJson extends BasicAbstractJson<ATLTrafo> {
 	/**
 	 * Auto-generated method to cusomice the upload method
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return ATLTrafo uploaded or null if error.
 	 */
 	@Override
-	public Object postUpload(Request req, Response res) {
+	public ATLTrafo postUpload(Request req, Response res) {
 		// There is a file
 		MultipartConfigElement multipartConfigElement = new MultipartConfigElement("/tmp");
 		req.raw().setAttribute("org.eclipse.multipartConfig", multipartConfigElement);
@@ -53,36 +52,36 @@ public class ATLTrafoJson extends BasicAbstractJson<ATLTrafo> {
 			// Required params
 
 			if(fileContent == null || fileName == null) {
-				return BasicATLTrafoCodes.Param_emptyfile;
+				return null;
 			}
 			if(fileName.isEmpty() || !fileName.endsWith(".atl")) {
-				return BasicATLTrafoCodes.Param_emptyfile;
+				return null;
 			}
 
 			// Not required params and artifact's id
 			// complete these params!
-			String nameATL = "nameAtl";
+			String nameatl = "nameAtl";
 
 			//Composed params
 
 			// Create new ATLTrafo
-			ATLTrafo atltrafo = new ATLTrafo(fileName, fileSize, nameATL);
+			ATLTrafo atltrafo = new ATLTrafo(fileName, fileSize, nameatl);
 
 			if(!RecordDB.getDefault().save(atltrafo, fileContent)) {
-				return BasicATLTrafoCodes.DB_notuploaded;
+				return null;
 			}
 
 			return atltrafo;
 
 		} catch (IOException e) {
 			e.printStackTrace();
-			return BasicATLTrafoCodes.Param_corruptfile;
+			return null;
 		} catch (ServletException e) {
 			e.printStackTrace();
-			return BasicATLTrafoCodes.Param_corruptfile;
+			return null;
 		} catch (Exception e) {
 			e.printStackTrace();
-			return BasicATLTrafoCodes.Param_error;
+			return null;
 		}
 	}
 }

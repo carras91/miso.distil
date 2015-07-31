@@ -9,9 +9,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
- * To write HtmlXXXJson.java
+ * To write HtmlXXXJson.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateHtmlJson {
@@ -22,9 +22,9 @@ public class generateHtmlJson {
   private Names names;
   
   /**
-   * To write Html<artifact.name>Json.java
+   * To write Html"artifact.name"Json.java.
    * 
-   * @author Carlos Carrascal
+   * @param artifact the artifact.
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
@@ -93,51 +93,27 @@ public class generateHtmlJson {
     {
       boolean _or_1 = false;
       boolean _or_2 = false;
+      boolean _or_3 = false;
       boolean _contains_3 = basicServices.contains(ServiceEnum.READ);
       if (_contains_3) {
+        _or_3 = true;
+      } else {
+        boolean _contains_4 = basicServices.contains(ServiceEnum.READ_ALL);
+        _or_3 = _contains_4;
+      }
+      if (_or_3) {
         _or_2 = true;
       } else {
-        boolean _contains_4 = basicServices.contains(ServiceEnum.SEARCH);
-        _or_2 = _contains_4;
+        boolean _contains_5 = basicServices.contains(ServiceEnum.UPDATE);
+        _or_2 = _contains_5;
       }
       if (_or_2) {
         _or_1 = true;
       } else {
-        boolean _contains_5 = basicServices.contains(ServiceEnum.UPDATE);
-        _or_1 = _contains_5;
+        boolean _contains_6 = basicServices.contains(ServiceEnum.SEARCH);
+        _or_1 = _contains_6;
       }
       if (_or_1) {
-        _builder.append("import ");
-        CharSequence _bCodesFileChar = this.names.getBCodesFileChar(artifact);
-        _builder.append(_bCodesFileChar, "");
-        _builder.append(";");
-        _builder.newLineIfNotEmpty();
-      }
-    }
-    {
-      boolean _or_3 = false;
-      boolean _or_4 = false;
-      boolean _or_5 = false;
-      boolean _contains_6 = basicServices.contains(ServiceEnum.READ);
-      if (_contains_6) {
-        _or_5 = true;
-      } else {
-        boolean _contains_7 = basicServices.contains(ServiceEnum.READ_ALL);
-        _or_5 = _contains_7;
-      }
-      if (_or_5) {
-        _or_4 = true;
-      } else {
-        boolean _contains_8 = basicServices.contains(ServiceEnum.UPDATE);
-        _or_4 = _contains_8;
-      }
-      if (_or_4) {
-        _or_3 = true;
-      } else {
-        boolean _contains_9 = basicServices.contains(ServiceEnum.SEARCH);
-        _or_3 = _contains_9;
-      }
-      if (_or_3) {
         _builder.append("import ");
         CharSequence _artifactJsonFileChar = this.names.getArtifactJsonFileChar(artifact);
         _builder.append(_artifactJsonFileChar, "");
@@ -159,13 +135,13 @@ public class generateHtmlJson {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated html methods");
+    _builder.append("* Auto-generated html methods.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -176,29 +152,29 @@ public class generateHtmlJson {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     {
+      boolean _or_4 = false;
+      boolean _or_5 = false;
       boolean _or_6 = false;
-      boolean _or_7 = false;
-      boolean _or_8 = false;
-      boolean _contains_10 = basicServices.contains(ServiceEnum.READ);
-      if (_contains_10) {
-        _or_8 = true;
-      } else {
-        boolean _contains_11 = basicServices.contains(ServiceEnum.READ_ALL);
-        _or_8 = _contains_11;
-      }
-      if (_or_8) {
-        _or_7 = true;
-      } else {
-        boolean _contains_12 = basicServices.contains(ServiceEnum.UPDATE);
-        _or_7 = _contains_12;
-      }
-      if (_or_7) {
+      boolean _contains_7 = basicServices.contains(ServiceEnum.READ);
+      if (_contains_7) {
         _or_6 = true;
       } else {
-        boolean _contains_13 = basicServices.contains(ServiceEnum.SEARCH);
-        _or_6 = _contains_13;
+        boolean _contains_8 = basicServices.contains(ServiceEnum.READ_ALL);
+        _or_6 = _contains_8;
       }
       if (_or_6) {
+        _or_5 = true;
+      } else {
+        boolean _contains_9 = basicServices.contains(ServiceEnum.UPDATE);
+        _or_5 = _contains_9;
+      }
+      if (_or_5) {
+        _or_4 = true;
+      } else {
+        boolean _contains_10 = basicServices.contains(ServiceEnum.SEARCH);
+        _or_4 = _contains_10;
+      }
+      if (_or_4) {
         _builder.append("\t");
         _builder.append("private ");
         _builder.append(name, "\t");
@@ -225,14 +201,10 @@ public class generateHtmlJson {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Auto-generated empty constructor");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* ");
-    _builder.newLine();
-    _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
-    _builder.newLine();
+    _builder.append("* Auto-generated empty constructor. To use auto-generated Html");
+    _builder.append(name, "\t ");
+    _builder.append("View.");
+    _builder.newLineIfNotEmpty();
     _builder.append("\t ");
     _builder.append("*/");
     _builder.newLine();
@@ -252,13 +224,13 @@ public class generateHtmlJson {
     _builder.append("/**");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* Auto-generated constructor with a custom view");
+    _builder.append("* Auto-generated constructor with a custom view.");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append("\t ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @param View Custom View.");
     _builder.newLine();
     _builder.append("\t ");
     _builder.append("*/");
@@ -278,14 +250,14 @@ public class generateHtmlJson {
     _builder.newLine();
     _builder.newLine();
     {
-      boolean _contains_14 = basicServices.contains(ServiceEnum.READ);
-      if (_contains_14) {
+      boolean _contains_11 = basicServices.contains(ServiceEnum.READ);
+      if (_contains_11) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to read the information from an artifact");
+        _builder.append("* Auto-generated method to read the information from an artifact.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -293,7 +265,15 @@ public class generateHtmlJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param req Spark request.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @param res Spark response.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return special structure for SPARK.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -327,9 +307,9 @@ public class generateHtmlJson {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("viewObjects.put(HtmlFreeMarker.ERROR, Basic");
+        _builder.append("viewObjects.put(HtmlFreeMarker.ERROR, \"");
         _builder.append(name, "\t\t\t");
-        _builder.append("Codes.DB_notfound);");
+        _builder.append(" not found in data base\");");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
@@ -361,14 +341,14 @@ public class generateHtmlJson {
       }
     }
     {
-      boolean _contains_15 = basicServices.contains(ServiceEnum.READ_ALL);
-      if (_contains_15) {
+      boolean _contains_12 = basicServices.contains(ServiceEnum.READ_ALL);
+      if (_contains_12) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to read the information from an artifact\'s list");
+        _builder.append("* Auto-generated method to read the information from an artifact\'s list.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -376,7 +356,15 @@ public class generateHtmlJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param req Spark request.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @param res Spark response.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return special structure for SPARK.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -436,14 +424,14 @@ public class generateHtmlJson {
       }
     }
     {
-      boolean _contains_16 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_16) {
+      boolean _contains_13 = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains_13) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to construct the search form");
+        _builder.append("* Auto-generated method to construct the search form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -451,7 +439,7 @@ public class generateHtmlJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @return special structure for SPARK.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -488,14 +476,14 @@ public class generateHtmlJson {
       }
     }
     {
-      boolean _contains_17 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_17) {
+      boolean _contains_14 = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains_14) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to read the information from the result list of a search");
+        _builder.append("* Auto-generated method to read the information from the result list of a search.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -503,7 +491,15 @@ public class generateHtmlJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param req Spark request.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @param res Spark response.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return special structure for SPARK.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -551,11 +547,9 @@ public class generateHtmlJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("viewObjects.put(HtmlFreeMarker.EMPTY, Basic");
+        _builder.append("viewObjects.put(HtmlFreeMarker.EMPTY, \"");
         _builder.append(name, "\t\t\t");
-        _builder.append("Codes.");
-        _builder.append(name, "\t\t\t");
-        _builder.append("_notfound);");
+        _builder.append(" not found in data base\");");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t");
@@ -605,14 +599,14 @@ public class generateHtmlJson {
       }
     }
     {
-      boolean _contains_18 = basicServices.contains(ServiceEnum.UPDATE);
-      if (_contains_18) {
+      boolean _contains_15 = basicServices.contains(ServiceEnum.UPDATE);
+      if (_contains_15) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to construct the update form");
+        _builder.append("* Auto-generated method to construct the update form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -620,7 +614,15 @@ public class generateHtmlJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param req Spark request.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @param res Spark response.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return special structure for SPARK.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -654,11 +656,9 @@ public class generateHtmlJson {
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t\t");
-        _builder.append("viewObjects.put(HtmlFreeMarker.ERROR, Basic");
+        _builder.append("viewObjects.put(HtmlFreeMarker.ERROR, \"");
         _builder.append(name, "\t\t\t");
-        _builder.append("Codes.");
-        _builder.append(name, "\t\t\t");
-        _builder.append("_notfound);");
+        _builder.append(" not found in data base\");");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("\t");
@@ -690,14 +690,14 @@ public class generateHtmlJson {
       }
     }
     {
-      boolean _contains_19 = basicServices.contains(ServiceEnum.UPLOAD);
-      if (_contains_19) {
+      boolean _contains_16 = basicServices.contains(ServiceEnum.UPLOAD);
+      if (_contains_16) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to construct the upload form");
+        _builder.append("* Auto-generated method to construct the upload form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -705,7 +705,15 @@ public class generateHtmlJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param req Spark request.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @param res Spark response.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return special structure for SPARK.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -723,7 +731,7 @@ public class generateHtmlJson {
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");
-        _builder.append("viewObjects = customView.constructUploadForm(req);");
+        _builder.append("viewObjects = customView.constructUploadForm();");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");

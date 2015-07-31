@@ -13,28 +13,28 @@ import java.util.Date;
 public abstract class Persistent implements Serializable {
 	
 	/**
-	 * To be serialized
+	 * To be serialized.
 	 */
 	private static final long serialVersionUID = 1L;
 	/**
-	 * Object identifier
+	 * Object identifier.
 	 */
 	private String objectid;
     /**
-     * Associated file name
+     * Associated file name.
      */
     private String filename;
     /**
-     * Creation date
+     * Creation date.
      */
     private Date createdat;
     /**
-     * Associated file size
+     * Associated file size.
      */
     private Long filesize;
  
     /**
-     * Empty constructor
+     * Empty constructor.
      */
     public Persistent() {}
     
@@ -114,5 +114,13 @@ public abstract class Persistent implements Serializable {
 	 */
 	public void setFilesize(Long fileSize) {
 		this.filesize = fileSize;
+	}
+	
+	@Override
+	public String toString() {
+		return    "(objectid : " + this.getObjectid() + " )"
+				+ "( filename : " + this.getFilename() + " )"
+				+ "( createdat : " + this.getCreatedatString() + " )"
+				+ "( filesize : " + this.getFilesize() + " )";
 	}
 }

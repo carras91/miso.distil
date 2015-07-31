@@ -33,7 +33,7 @@ import com.carrotsearch.sizeof.RamUsageEstimator;
  * It uses com.mongodb.gridfs.GridFS to store files.
  * It creates one com.mongodb.DBCollection for each {@link miso.carrascal.cloudModelServices.abstractServices.Persistent Persistent} class stored.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public class MongoDB implements InterfaceDB {
 
@@ -253,7 +253,7 @@ public class MongoDB implements InterfaceDB {
     /**
      * Go through cursorDB and transforms the search results into classType class.
      * 
-     * @param cursorDB DBCursor to get through
+     * @param cursorDB DBCursor to get through.
      * @param classType Class of the object to be converted.
      * @return ArrayList({@link miso.carrascal.cloudModelServices.abstractServices.Persistent Persistent}) with the results. Empty if NullPointerException().
      */

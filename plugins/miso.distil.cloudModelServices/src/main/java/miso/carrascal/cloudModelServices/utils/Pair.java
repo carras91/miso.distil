@@ -1,29 +1,29 @@
 package miso.carrascal.cloudModelServices.utils;
 
 /**
- * Pair class
+ * Pair class.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  *
- * @param <K> Key class
- * @param <V> Value class
+ * @param <K> Key class.
+ * @param <V> Value class.
  */
 public class Pair<K, V> {
 
 	/**
-	 * Key object
+	 * Key object.
 	 */
 	private K key;
 	/**
-	 * Value object
+	 * Value object.
 	 */
 	private V value;
 	
 	/**
-	 * Public constructor
+	 * Public constructor.
 	 * 
-	 * @param key Key object
-	 * @param value Value object
+	 * @param key Key object.
+	 * @param value Value object.
 	 */
 	public Pair(K key, V value) {
 		this.key = key;
@@ -31,36 +31,36 @@ public class Pair<K, V> {
 	}
 
 	/**
-	 * Get key
+	 * Get key.
 	 * 
-	 * @return the key
+	 * @return the key.
 	 */
 	public final K getKey() {
 		return key;
 	}
 
 	/**
-	 * Set key
+	 * Set key.
 	 * 
-	 * @param key new key
+	 * @param key new key.
 	 */
 	public final void setKey(K key) {
 		this.key = key;
 	}
 
 	/**
-	 * Get value
+	 * Get value.
 	 * 
-	 * @return the value
+	 * @return the value.
 	 */
 	public final V getValue() {
 		return value;
 	}
 
 	/**
-	 * Set value
+	 * Set value.
 	 * 
-	 * @param value new value
+	 * @param value new value.
 	 */
 	public final void setValue(V value) {
 		this.value = value;

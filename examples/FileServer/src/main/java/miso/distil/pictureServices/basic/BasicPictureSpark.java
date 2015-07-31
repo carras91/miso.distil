@@ -9,9 +9,9 @@ import miso.carrascal.cloudModelServices.abstractServices.basic.JsonTransformer;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark;
 
 /**
- * Auto-generated spark server
+ * Auto-generated spark server.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public final class BasicPictureSpark implements BasicInterfaceSpark {
 
@@ -26,9 +26,7 @@ public final class BasicPictureSpark implements BasicInterfaceSpark {
 	public static String DownloadIdJson = DownloadJson + BasicPictureParam.IdGet;
 
 	/**
-	 * Auto-generated spark service. It initializes all url's
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated spark service. It initializes all url's.
 	 */
 	@Override
 	public void runService() {

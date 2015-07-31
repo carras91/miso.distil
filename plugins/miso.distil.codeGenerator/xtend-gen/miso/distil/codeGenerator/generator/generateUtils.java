@@ -24,9 +24,9 @@ import org.eclipse.xtext.xbase.lib.Pair;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
- * Some methos used everywhere
+ * Some methos used everywhere.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateUtils {
@@ -36,9 +36,10 @@ public class generateUtils {
   private HashMap<Artifact, List<Pair<Attribute, List<String>>>> nestedTree = new HashMap<Artifact, List<Pair<Attribute, List<String>>>>();
   
   /**
-   * To write the chain ".getX().getY()..." from the attribute number "pos" in artifact
+   * To write the chain ".getX().getY()..." from the attribute number "pos" in artifact.
    * 
-   * @author Carlos Carrascal
+   * @param pos the position.
+   * @param artifact the artifact.
    */
   public String getNestedGets(final Integer pos, final Artifact artifact) {
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
@@ -80,9 +81,10 @@ public class generateUtils {
   }
   
   /**
-   * To write a string "att1, att2, att3, ..." from the attributes inside the reference number pos in artifact
+   * To write a string "att1, att2, att3, ..." from the attributes inside the reference number pos in artifact.
    * 
-   * @author Carlos Carrascal
+   * @param pos the position.
+   * @param artifact the artifact.
    */
   public String getNestedAtt(final Integer pos, final Artifact artifact) {
     String parentName = this.getNewAttName(pos, artifact);
@@ -115,9 +117,10 @@ public class generateUtils {
   }
   
   /**
-   * To get an attribute name by his position inside nestedTree (separated by _)
+   * To get an attribute name by his position inside nestedTree (separated by _).
    * 
-   * @author Carlos Carrascal
+   * @param pos the position.
+   * @param artifact the artifact.
    */
   public String getNewAttName(final Integer pos, final Artifact artifact) {
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
@@ -142,9 +145,10 @@ public class generateUtils {
   }
   
   /**
-   * To get an attribute name by his position inside nestedTree (separated by .)
+   * To get an attribute name by his position inside nestedTree (separated by .).
    * 
-   * @author Carlos Carrascal
+   * @param pos the position.
+   * @param artifact the artifact.
    */
   public String getNewAttNameByPoint(final Integer pos, final Artifact artifact) {
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
@@ -166,9 +170,10 @@ public class generateUtils {
   }
   
   /**
-   * To get an attribute name
+   * To get an attribute name.
    * 
-   * @author Carlos Carrascal
+   * @param att the attribute.
+   * @param artifact the artifact.
    */
   public String getNewAttName(final Attribute att, final Artifact artifact) {
     List<Pair<Attribute, List<String>>> _nestedTree = this.getNestedTree(artifact);
@@ -198,9 +203,9 @@ public class generateUtils {
   }
   
   /**
-   * To fill nestedTree and return artifact's attributes information
+   * To fill nestedTree and return artifact's attributes information.
    * 
-   * @author Carlos Carrascal
+   * @param artifact the artifact.
    */
   private List<Pair<Attribute, List<String>>> getNestedTree(final Artifact artifact) {
     Set<Artifact> _keySet = this.nestedTree.keySet();
@@ -228,9 +233,10 @@ public class generateUtils {
   }
   
   /**
-   * To get for each attribute his path in an ascendent way (recursive)
+   * To get for each attribute his path in an ascendent way (recursive).
    * 
-   * @author Carlos Carrascal
+   * @param att the reference.
+   * @param parent the path.
    */
   private List<Pair<Attribute, List<String>>> getNested(final Reference att, final List<String> parent) {
     final ArrayList<Pair<Attribute, List<String>>> list = new ArrayList<Pair<Attribute, List<String>>>();
@@ -252,9 +258,9 @@ public class generateUtils {
   }
   
   /**
-   * To write "import java.util.List;" if needed
+   * To write "import java.util.List;" if needed.
    * 
-   * @author Carlos Carrascal
+   * @param atts list of attributes.
    */
   public CharSequence getImportList(final EList<Attribute> atts) {
     CharSequence _xblockexpression = null;
@@ -295,9 +301,9 @@ public class generateUtils {
   }
   
   /**
-   * To write imports from atts
+   * To write entities imports from atts.
    * 
-   * @author Carlos Carrascal
+   * @param atts list of attributes.
    */
   public CharSequence getImportCompose(final EList<Attribute> atts) {
     CharSequence _xblockexpression = null;
@@ -343,9 +349,9 @@ public class generateUtils {
   }
   
   /**
-   * To get a list of nested attributes (primitive and reference) (recursive)
+   * To get a list of nested attributes (primitive and reference) (recursive).
    * 
-   * @author Carlos Carrascal
+   * @param atts list of attributes.
    */
   public EList<Attribute> getAllNestedAttributes(final EList<Attribute> atts) {
     final EList<Attribute> list = new BasicEList<Attribute>();
@@ -363,9 +369,9 @@ public class generateUtils {
   }
   
   /**
-   * To get a list of nested attributes (but not references) (recursive)
+   * To get a list of nested attributes (but not references) (recursive).
    * 
-   * @author Carlos Carrascal
+   * @param atts list of attributes.
    */
   public EList<Attribute> getNestedAttributes(final Attribute att) {
     final EList<Attribute> list = new BasicEList<Attribute>();
@@ -390,9 +396,9 @@ public class generateUtils {
   }
   
   /**
-   * To write the class name of att
+   * To write the class name of att.
    * 
-   * @author Carlos Carrascal
+   * @param att the attribute.
    */
   public CharSequence getTypeName(final Attribute att) {
     StringConcatenation _builder = new StringConcatenation();
@@ -427,9 +433,9 @@ public class generateUtils {
   }
   
   /**
-   * To write private attributes
+   * To write private attributes.
    * 
-   * @author Carlos Carrascal
+   * @param atts list of attributes.
    */
   public CharSequence getPrivateAttributes(final EList<Attribute> atts) {
     StringConcatenation _builder = new StringConcatenation();
@@ -449,42 +455,81 @@ public class generateUtils {
   }
   
   /**
-   * To write getters and setters
+   * To write getters and setters.
    * 
-   * @author Carlos Carrascal
+   * @param atts list of attributes.
    */
   public CharSequence getGetSetAtt(final EList<Attribute> atts) {
     StringConcatenation _builder = new StringConcatenation();
     {
       for(final Attribute att : atts) {
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append(" ");
+        _builder.append("* To get ");
+        String _name = att.getName();
+        _builder.append(_name, " ");
+        _builder.newLineIfNotEmpty();
+        _builder.append(" ");
+        _builder.append("*");
+        _builder.newLine();
+        _builder.append(" ");
+        _builder.append("* @return ");
+        String _name_1 = att.getName();
+        _builder.append(_name_1, " ");
+        _builder.newLineIfNotEmpty();
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("public ");
         CharSequence _typeName = this.getTypeName(att);
         _builder.append(_typeName, "");
         _builder.append(" get");
-        String _name = att.getName();
-        String _firstUpper = StringExtensions.toFirstUpper(_name);
+        String _name_2 = att.getName();
+        String _firstUpper = StringExtensions.toFirstUpper(_name_2);
         _builder.append(_firstUpper, "");
         _builder.append("() {");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
         _builder.append("return ");
-        String _name_1 = att.getName();
-        _builder.append(_name_1, "\t");
+        String _name_3 = att.getName();
+        _builder.append(_name_3, "\t");
         _builder.append(";");
         _builder.newLineIfNotEmpty();
         _builder.append("}");
         _builder.newLine();
         _builder.newLine();
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append(" ");
+        _builder.append("* To set ");
+        String _name_4 = att.getName();
+        _builder.append(_name_4, " ");
+        _builder.newLineIfNotEmpty();
+        _builder.append(" ");
+        _builder.append("*");
+        _builder.newLine();
+        _builder.append(" ");
+        _builder.append("* @param ");
+        String _name_5 = att.getName();
+        _builder.append(_name_5, " ");
+        _builder.append(" new ");
+        String _name_6 = att.getName();
+        _builder.append(_name_6, " ");
+        _builder.newLineIfNotEmpty();
+        _builder.append(" ");
+        _builder.append("*/");
+        _builder.newLine();
         _builder.append("public void set");
-        String _name_2 = att.getName();
-        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_2);
+        String _name_7 = att.getName();
+        String _firstUpper_1 = StringExtensions.toFirstUpper(_name_7);
         _builder.append(_firstUpper_1, "");
         _builder.append("(");
         CharSequence _typeName_1 = this.getTypeName(att);
         _builder.append(_typeName_1, "");
         _builder.append(" ");
-        String _name_3 = att.getName();
-        _builder.append(_name_3, "");
+        String _name_8 = att.getName();
+        _builder.append(_name_8, "");
         _builder.append(") {");
         _builder.newLineIfNotEmpty();
         {
@@ -498,27 +543,27 @@ public class generateUtils {
                   if (_isMany) {
                     _builder.append("\t");
                     _builder.append("this.");
-                    String _name_4 = ((Primitive)att).getName();
-                    _builder.append(_name_4, "\t");
+                    String _name_9 = ((Primitive)att).getName();
+                    _builder.append(_name_9, "\t");
                     _builder.append(" = ");
-                    String _name_5 = ((Primitive)att).getName();
-                    _builder.append(_name_5, "\t");
+                    String _name_10 = ((Primitive)att).getName();
+                    _builder.append(_name_10, "\t");
                     _builder.append(";");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t");
                     _builder.append("for(int i=0; i < this.");
-                    String _name_6 = ((Primitive)att).getName();
-                    _builder.append(_name_6, "\t");
+                    String _name_11 = ((Primitive)att).getName();
+                    _builder.append(_name_11, "\t");
                     _builder.append(".size(); i++) {");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t");
                     _builder.append("\t");
                     _builder.append("this.");
-                    String _name_7 = ((Primitive)att).getName();
-                    _builder.append(_name_7, "\t\t");
+                    String _name_12 = ((Primitive)att).getName();
+                    _builder.append(_name_12, "\t\t");
                     _builder.append(".set(i, this.");
-                    String _name_8 = ((Primitive)att).getName();
-                    _builder.append(_name_8, "\t\t");
+                    String _name_13 = ((Primitive)att).getName();
+                    _builder.append(_name_13, "\t\t");
                     _builder.append(".get(i).toLowerCase());");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t");
@@ -527,11 +572,11 @@ public class generateUtils {
                   } else {
                     _builder.append("\t");
                     _builder.append("this.");
-                    String _name_9 = ((Primitive)att).getName();
-                    _builder.append(_name_9, "\t");
+                    String _name_14 = ((Primitive)att).getName();
+                    _builder.append(_name_14, "\t");
                     _builder.append(" = ");
-                    String _name_10 = ((Primitive)att).getName();
-                    _builder.append(_name_10, "\t");
+                    String _name_15 = ((Primitive)att).getName();
+                    _builder.append(_name_15, "\t");
                     _builder.append(".toLowerCase();");
                     _builder.newLineIfNotEmpty();
                   }
@@ -539,11 +584,11 @@ public class generateUtils {
               } else {
                 _builder.append("\t");
                 _builder.append("this.");
-                String _name_11 = ((Primitive)att).getName();
-                _builder.append(_name_11, "\t");
+                String _name_16 = ((Primitive)att).getName();
+                _builder.append(_name_16, "\t");
                 _builder.append(" = ");
-                String _name_12 = ((Primitive)att).getName();
-                _builder.append(_name_12, "\t");
+                String _name_17 = ((Primitive)att).getName();
+                _builder.append(_name_17, "\t");
                 _builder.append(";");
                 _builder.newLineIfNotEmpty();
               }
@@ -552,11 +597,11 @@ public class generateUtils {
             if ((att instanceof Reference)) {
               _builder.append("\t");
               _builder.append("this.");
-              String _name_13 = att.getName();
-              _builder.append(_name_13, "\t");
+              String _name_18 = att.getName();
+              _builder.append(_name_18, "\t");
               _builder.append(" = ");
-              String _name_14 = att.getName();
-              _builder.append(_name_14, "\t");
+              String _name_19 = att.getName();
+              _builder.append(_name_19, "\t");
               _builder.append(";");
               _builder.newLineIfNotEmpty();
             } else {
@@ -565,27 +610,27 @@ public class generateUtils {
                 if (_isMany_1) {
                   _builder.append("\t");
                   _builder.append("this.");
-                  String _name_15 = att.getName();
-                  _builder.append(_name_15, "\t");
+                  String _name_20 = att.getName();
+                  _builder.append(_name_20, "\t");
                   _builder.append(" = ");
-                  String _name_16 = att.getName();
-                  _builder.append(_name_16, "\t");
+                  String _name_21 = att.getName();
+                  _builder.append(_name_21, "\t");
                   _builder.append(";");
                   _builder.newLineIfNotEmpty();
                   _builder.append("\t");
                   _builder.append("for(int i=0; i < this.");
-                  String _name_17 = att.getName();
-                  _builder.append(_name_17, "\t");
+                  String _name_22 = att.getName();
+                  _builder.append(_name_22, "\t");
                   _builder.append(".size(); i++) {");
                   _builder.newLineIfNotEmpty();
                   _builder.append("\t");
                   _builder.append("\t");
                   _builder.append("this.");
-                  String _name_18 = att.getName();
-                  _builder.append(_name_18, "\t\t");
+                  String _name_23 = att.getName();
+                  _builder.append(_name_23, "\t\t");
                   _builder.append(".set(i, this.");
-                  String _name_19 = att.getName();
-                  _builder.append(_name_19, "\t\t");
+                  String _name_24 = att.getName();
+                  _builder.append(_name_24, "\t\t");
                   _builder.append(".get(i).toLowerCase());");
                   _builder.newLineIfNotEmpty();
                   _builder.append("\t");
@@ -594,11 +639,11 @@ public class generateUtils {
                 } else {
                   _builder.append("\t");
                   _builder.append("this.");
-                  String _name_20 = att.getName();
-                  _builder.append(_name_20, "\t");
+                  String _name_25 = att.getName();
+                  _builder.append(_name_25, "\t");
                   _builder.append(" = ");
-                  String _name_21 = att.getName();
-                  _builder.append(_name_21, "\t");
+                  String _name_26 = att.getName();
+                  _builder.append(_name_26, "\t");
                   _builder.append(".toLowerCase();");
                   _builder.newLineIfNotEmpty();
                 }
@@ -614,9 +659,9 @@ public class generateUtils {
   }
   
   /**
-   * Process ServiceEnum.ALL
+   * Process ServiceEnum.ALL.
    * 
-   * @author Carlos Carrascal
+   * @param services the services.
    */
   public EList<ServiceEnum> processBasicServices(final EList<ServiceEnum> services) {
     boolean _contains = services.contains(ServiceEnum.ALL);
@@ -633,9 +678,9 @@ public class generateUtils {
   }
   
   /**
-   * To write toString method
+   * To write toString method.
    * 
-   * @author Carlos Carrascal
+   * @param atts list of attributes.
    */
   public CharSequence getToStringAtts(final EList<Attribute> atts) {
     StringConcatenation _builder = new StringConcatenation();
@@ -647,16 +692,16 @@ public class generateUtils {
       boolean _isEmpty = atts.isEmpty();
       if (_isEmpty) {
         _builder.append("\t");
-        _builder.append("return \"\";");
+        _builder.append("return super.toString();");
         _builder.newLine();
       } else {
         _builder.append("\t");
-        _builder.append("return ");
+        _builder.append("return super.toString() +");
         _builder.newLine();
         {
           for(final Attribute att : atts) {
             _builder.append("\t");
-            _builder.append("\"(");
+            _builder.append("\"( ");
             String _name = att.getName();
             _builder.append(_name, "\t");
             _builder.append(" : \" + ");
@@ -667,9 +712,9 @@ public class generateUtils {
               Attribute _last = IterableExtensions.<Attribute>last(atts);
               boolean _equals = _last.equals(att);
               if (_equals) {
-                _builder.append(" + \")\";");
+                _builder.append(" + \" )\";");
               } else {
-                _builder.append(" + \")\" + ");
+                _builder.append(" + \" ) \" + ");
               }
             }
             _builder.newLineIfNotEmpty();

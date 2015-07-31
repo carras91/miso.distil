@@ -5,20 +5,20 @@ import codeGeneratorModel.Artifact
 import org.eclipse.emf.common.util.EList
 import codeGeneratorModel.ServiceEnum
 
-/*
- * To write HtmlXXXLinks.java
+/**
+ * To write HtmlXXXLinks.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateHtmlLinks {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 	
-	/*
-	 * To write Html<artifact.name>Links.java
+	/**
+	 * To write Html"artifact.name"Links.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */			
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
@@ -35,26 +35,28 @@ class generateHtmlLinks {
 		import «names.getArtifactFileChar(artifact)»;
 		
 		/**
-		 * Auto-generated html links
+		 * Auto-generated html links.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class Html«name»Links {
 
 			«IF basicServices.contains(ServiceEnum.READ)»
 				/**
-				 * Auto-generated link to the service read one json
+				 * Auto-generated link to the service read one json.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to create the link.
+				 * @return the link.
 				 */
 				public static String getReadJsonLink(«name» «namelow») {
 					return "<a href=" + Basic«name»Spark.ReadJson + «namelow».getObjectid() + ">View as Json</a>";
 				}
 
 				/**
-				 * Auto-generated link to the service read one html
+				 * Auto-generated link to the service read one html.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to create the link.
+				 * @return the link.
 				 */
 				public static String getReadHtmlLink(«name» «namelow») {
 					return "<a href=" + Html«name»Spark.ReadHTML + «namelow».getObjectid() + ">" + «namelow».getFilename() + "</a>";
@@ -63,9 +65,10 @@ class generateHtmlLinks {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.DOWNLOAD)»
 				/**
-				 * Auto-generated link to the service download
+				 * Auto-generated link to the service download.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to create the link.
+				 * @return the link.
 				 */
 				public static String getDownloadJsonLink(«name» «namelow») {
 					return "<a href=" + Basic«name»Spark.DownloadJson + «namelow».getObjectid() + ">Download</a>";
@@ -74,9 +77,10 @@ class generateHtmlLinks {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.DELETE)»
 				/**
-				 * Auto-generated link to the service delete
+				 * Auto-generated link to the service delete.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to create the link.
+				 * @return the link (form type post link).
 				 */
 				public static String getDeleteFormJsonLink(«name» «namelow») {
 					String form = "";
@@ -90,9 +94,10 @@ class generateHtmlLinks {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE)»
 				/**
-				 * Auto-generated link to the service update form html
+				 * Auto-generated link to the service update form html.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to create the link.
+				 * @return the link.
 				 */
 				public static String getUpdateHtmlLink(«name» «namelow») {
 					return "<a href=" + Html«name»Spark.UpdateFormHTML + «namelow».getObjectid() + ">Update</a>";

@@ -5,25 +5,27 @@ import miso.distil.atltrafoServices.basic.BasicATLTrafoSpark;
 import miso.distil.atltrafoServices.ATLTrafo;
 
 /**
- * Auto-generated html links
+ * Auto-generated html links.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class HtmlATLTrafoLinks {
 
 	/**
-	 * Auto-generated link to the service download
+	 * Auto-generated link to the service download.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param atltrafo ATLTrafo to create the link.
+	 * @return the link.
 	 */
 	public static String getDownloadJsonLink(ATLTrafo atltrafo) {
 		return "<a href=" + BasicATLTrafoSpark.DownloadJson + atltrafo.getObjectid() + ">Download</a>";
 	}
 
 	/**
-	 * Auto-generated link to the service delete
+	 * Auto-generated link to the service delete.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param atltrafo ATLTrafo to create the link.
+	 * @return the link (form type post link).
 	 */
 	public static String getDeleteFormJsonLink(ATLTrafo atltrafo) {
 		String form = "";

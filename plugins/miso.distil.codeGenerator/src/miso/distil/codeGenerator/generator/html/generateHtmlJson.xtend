@@ -5,20 +5,20 @@ import com.google.inject.Inject
 import codeGeneratorModel.ServiceEnum
 import org.eclipse.emf.common.util.EList
 
-/*
- * To write HtmlXXXJson.java
+/**
+ * To write HtmlXXXJson.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateHtmlJson {
 
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
-	/*
-	 * To write Html<artifact.name>Json.java
+	/**
+	 * To write Html"artifact.name"Json.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */	
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
@@ -43,9 +43,6 @@ class generateHtmlJson {
 			import «names.MisoUtils».Utils;
 		«ENDIF»
 		
-		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.UPDATE)»
-			import «names.getBCodesFileChar(artifact)»;
-		«ENDIF»
 		«IF basicServices.contains(ServiceEnum.READ) || basicServices.contains(ServiceEnum.READ_ALL) ||
 		basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.SEARCH)»
 			import «names.getArtifactJsonFileChar(artifact)»;
@@ -54,9 +51,9 @@ class generateHtmlJson {
 		import «names.getArtifactFileChar(artifact)»;
 
 		/**
-		 * Auto-generated html methods
+		 * Auto-generated html methods.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class Html«name»Json implements HtmlInterfaceJson {
 
@@ -68,18 +65,16 @@ class generateHtmlJson {
 			private HtmlInterfaceView<«name»> customView;
 
 			/**
-			 * Auto-generated empty constructor
-			 * 
-			 * @author miso.distil.codeGenerator
+			 * Auto-generated empty constructor. To use auto-generated Html«name»View.
 			 */
 			public Html«name»Json() {
 				customView = View;
 			}
 
 			/**
-			 * Auto-generated constructor with a custom view
+			 * Auto-generated constructor with a custom view.
 			 * 
-			 * @author miso.distil.codeGenerator
+			 * @param View Custom View.
 			 */
 			public Html«name»Json(Custom«name»Html View) {
 				customView = View;
@@ -87,9 +82,11 @@ class generateHtmlJson {
 
 			«IF basicServices.contains(ServiceEnum.READ)»
 				/**
-				 * Auto-generated method to read the information from an artifact
+				 * Auto-generated method to read the information from an artifact.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param req Spark request.
+				 * @param res Spark response.
+				 * @return special structure for SPARK.
 				 */
 				@Override
 				public ModelAndView getRead(Request req, Response res) {
@@ -97,7 +94,7 @@ class generateHtmlJson {
 
 					«name» «namelow» = («name») Json.getRead(req, res);
 					if(«namelow» == null) {
-						viewObjects.put(HtmlFreeMarker.ERROR, Basic«name»Codes.DB_notfound);
+						viewObjects.put(HtmlFreeMarker.ERROR, "«name» not found in data base");
 					} else {
 						viewObjects.put(HtmlFreeMarker.ENTRIES, customView.constructInfoReadOne(«namelow»));
 					}
@@ -109,9 +106,11 @@ class generateHtmlJson {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL)»
 				/**
-				 * Auto-generated method to read the information from an artifact's list
+				 * Auto-generated method to read the information from an artifact's list.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param req Spark request.
+				 * @param res Spark response.
+				 * @return special structure for SPARK.
 				 */
 				@Override
 				public ModelAndView getReadAll(Request req, Response res) {
@@ -129,9 +128,9 @@ class generateHtmlJson {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH)»
 				/**
-				 * Auto-generated method to construct the search form
+				 * Auto-generated method to construct the search form.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @return special structure for SPARK.
 				 */
 				@Override
 				public ModelAndView getSearchForm() {
@@ -145,9 +144,11 @@ class generateHtmlJson {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH)»
 				/**
-				 * Auto-generated method to read the information from the result list of a search
+				 * Auto-generated method to read the information from the result list of a search.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param req Spark request.
+				 * @param res Spark response.
+				 * @return special structure for SPARK.
 				 */
 				@Override
 				public ModelAndView getSearch(Request req, Response res) {	
@@ -158,7 +159,7 @@ class generateHtmlJson {
 					if(«namelow»s.isEmpty()) {
 						viewObjects = View.constructSearchForm();
 						viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
-						viewObjects.put(HtmlFreeMarker.EMPTY, Basic«name»Codes.«name»_notfound);
+						viewObjects.put(HtmlFreeMarker.EMPTY, "«name» not found in data base");
 						viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 					} else {	
 						viewObjects = new HashMap<String, Object>();
@@ -174,9 +175,11 @@ class generateHtmlJson {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE)»
 				/**
-				 * Auto-generated method to construct the update form
+				 * Auto-generated method to construct the update form.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param req Spark request.
+				 * @param res Spark response.
+				 * @return special structure for SPARK.
 				 */
 				@Override
 				public ModelAndView getUpdateForm(Request req, Response res) {
@@ -184,7 +187,7 @@ class generateHtmlJson {
 
 					«name» «namelow» = («name») Json.getRead(req, res);
 					if(«namelow» == null) {
-						viewObjects.put(HtmlFreeMarker.ERROR, Basic«name»Codes.«name»_notfound);
+						viewObjects.put(HtmlFreeMarker.ERROR, "«name» not found in data base");
 					} else {
 						viewObjects = customView.constructUpdateForm(«namelow»);
 					}
@@ -196,14 +199,16 @@ class generateHtmlJson {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD)»
 				/**
-				 * Auto-generated method to construct the upload form
+				 * Auto-generated method to construct the upload form.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param req Spark request.
+				 * @param res Spark response.
+				 * @return special structure for SPARK.
 				 */
 				@Override
 				public ModelAndView getUploadForm(Request req, Response res) {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
-					viewObjects = customView.constructUploadForm(req);
+					viewObjects = customView.constructUploadForm();
 					viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
 
 					return HtmlFreeMarker.closeHtml(viewObjects);

@@ -3,19 +3,19 @@ package miso.distil.codeGenerator.generator.entities
 import com.google.inject.Inject
 import codeGeneratorModel.Root
 
-/*
- * To write CustomDb.java
+/**
+ * To write MongoDataBase.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateMongoDataBase {
 	
 	@Inject miso.distil.codeGenerator.generator.Names names
 	
-	/*
-	 * To write CustomDb.java
+	/**
+	 * To write MongoDataBase.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param root the root.
 	 */
 	def write(Root root) '''
 		package «names.RootChar»;
@@ -25,9 +25,9 @@ class generateMongoDataBase {
 		import «names.MisoAbstract».RecordDB;
 		
 		/**
-		 * Auto-generated data base class
+		 * Auto-generated mongo data base.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class MongoDataBase implements BasicInterfaceSpark 
 		{
@@ -38,9 +38,7 @@ class generateMongoDataBase {
 			«ENDFOR»
 
 			/**
-			 * Auto-generated spark service to find and activate some Mongo DataBases
-			 * 
-			 * @author miso.distil.codeGenerator
+			 * Auto-generated spark service to find and activate some Mongo DataBases.
 			 */
 			@Override
 			public void runService() {

@@ -9,9 +9,9 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
- * To write HtmlXXXLinks.java
+ * To write HtmlXXXLinks.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateHtmlLinks {
@@ -22,9 +22,9 @@ public class generateHtmlLinks {
   private Names names;
   
   /**
-   * To write Html<artifact.name>Links.java
+   * To write Html"artifact.name"Links.java.
    * 
-   * @author Carlos Carrascal
+   * @param artifact the artifact.
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
@@ -85,13 +85,13 @@ public class generateHtmlLinks {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated html links");
+    _builder.append("* Auto-generated html links.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -109,7 +109,7 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated link to the service read one json");
+        _builder.append("* Auto-generated link to the service read one json.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -117,7 +117,15 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param ");
+        _builder.append(namelow, "\t ");
+        _builder.append(" ");
+        _builder.append(name, "\t ");
+        _builder.append(" to create the link.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return the link.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -147,7 +155,7 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated link to the service read one html");
+        _builder.append("* Auto-generated link to the service read one html.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -155,7 +163,15 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param ");
+        _builder.append(namelow, "\t ");
+        _builder.append(" ");
+        _builder.append(name, "\t ");
+        _builder.append(" to create the link.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return the link.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -192,7 +208,7 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated link to the service download");
+        _builder.append("* Auto-generated link to the service download.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -200,7 +216,15 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param ");
+        _builder.append(namelow, "\t ");
+        _builder.append(" ");
+        _builder.append(name, "\t ");
+        _builder.append(" to create the link.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return the link.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -235,7 +259,7 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated link to the service delete");
+        _builder.append("* Auto-generated link to the service delete.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -243,7 +267,15 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param ");
+        _builder.append(namelow, "\t ");
+        _builder.append(" ");
+        _builder.append(name, "\t ");
+        _builder.append(" to create the link.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return the link (form type post link).");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -304,7 +336,7 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated link to the service update form html");
+        _builder.append("* Auto-generated link to the service update form html.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -312,7 +344,15 @@ public class generateHtmlLinks {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param ");
+        _builder.append(namelow, "\t ");
+        _builder.append(" ");
+        _builder.append(name, "\t ");
+        _builder.append(" to create the link.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return the link.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");

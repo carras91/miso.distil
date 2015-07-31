@@ -4,7 +4,7 @@ import codeGeneratorModel.Artifact
 import codeGeneratorModel.Entity
 import codeGeneratorModel.Service
 
-/*
+/**
  * Packages to generate and from cloudModelServices
  * 
  * @author Carlos Carrascal
@@ -51,12 +51,6 @@ class Names {
 	/// FILES
 	
 	// BASIC
-	
-	// BasicEjemploCodes.java
-	def private getBCodes(Artifact artifact) { return "Basic" + artifact.name + "Codes"}
-	// miso/distil/ejemploServices/basic/BasicEjemploCodes.java
-	def getBCodesFileStri(Artifact artifact) { return artifact.basicStri + "/" + artifact.BCodes }
-	def getBCodesFileChar(Artifact artifact) '''«artifact.basicChar».«artifact.BCodes»'''
 	
 	// BasicEjemploParam.java
 	def private getBParam(Artifact artifact) { return "Basic" + artifact.name + "Param"}
@@ -154,10 +148,4 @@ class Names {
 	// miso/distil/CustomDB.java
 	def getDBFileStri() { return RootStri + "/" + DB }
 	def getDBFileChar() '''«RootChar».«DB»'''
-	
-	
-	
-	
-	
-	
 }

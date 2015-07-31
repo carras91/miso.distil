@@ -14,9 +14,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 
 /**
- * To write HtmlXXXView.java
+ * To write HtmlXXXView.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateHtmlView {
@@ -27,9 +27,9 @@ public class generateHtmlView {
   private Names names;
   
   /**
-   * To write Html<artifact.name>View.java
+   * To write Html"artifact.name"View.java.
    * 
-   * @author Carlos Carrascal
+   * @param artifact the artifact.
    */
   public CharSequence write(final Artifact artifact) {
     StringConcatenation _builder = new StringConcatenation();
@@ -51,31 +51,23 @@ public class generateHtmlView {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
-    {
-      boolean _contains = basicServices.contains(ServiceEnum.UPLOAD);
-      if (_contains) {
-        _builder.append("import spark.Request;");
-        _builder.newLine();
-        _builder.newLine();
-      }
-    }
     _builder.append("import java.util.ArrayList;");
     _builder.newLine();
     {
       boolean _or = false;
       boolean _or_1 = false;
-      boolean _contains_1 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_1) {
+      boolean _contains = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains) {
         _or_1 = true;
       } else {
-        boolean _contains_2 = basicServices.contains(ServiceEnum.UPDATE);
-        _or_1 = _contains_2;
+        boolean _contains_1 = basicServices.contains(ServiceEnum.UPDATE);
+        _or_1 = _contains_1;
       }
       if (_or_1) {
         _or = true;
       } else {
-        boolean _contains_3 = basicServices.contains(ServiceEnum.UPLOAD);
-        _or = _contains_3;
+        boolean _contains_2 = basicServices.contains(ServiceEnum.UPLOAD);
+        _or = _contains_2;
       }
       if (_or) {
         _builder.append("import java.util.HashMap;");
@@ -94,18 +86,18 @@ public class generateHtmlView {
     {
       boolean _or_2 = false;
       boolean _or_3 = false;
-      boolean _contains_4 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_4) {
+      boolean _contains_3 = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains_3) {
         _or_3 = true;
       } else {
-        boolean _contains_5 = basicServices.contains(ServiceEnum.UPDATE);
-        _or_3 = _contains_5;
+        boolean _contains_4 = basicServices.contains(ServiceEnum.UPDATE);
+        _or_3 = _contains_4;
       }
       if (_or_3) {
         _or_2 = true;
       } else {
-        boolean _contains_6 = basicServices.contains(ServiceEnum.UPLOAD);
-        _or_2 = _contains_6;
+        boolean _contains_5 = basicServices.contains(ServiceEnum.UPLOAD);
+        _or_2 = _contains_5;
       }
       if (_or_2) {
         _builder.append("import ");
@@ -120,12 +112,12 @@ public class generateHtmlView {
     _builder.newLineIfNotEmpty();
     {
       boolean _or_4 = false;
-      boolean _contains_7 = basicServices.contains(ServiceEnum.READ);
-      if (_contains_7) {
+      boolean _contains_6 = basicServices.contains(ServiceEnum.READ);
+      if (_contains_6) {
         _or_4 = true;
       } else {
-        boolean _contains_8 = basicServices.contains(ServiceEnum.UPDATE);
-        _or_4 = _contains_8;
+        boolean _contains_7 = basicServices.contains(ServiceEnum.UPDATE);
+        _or_4 = _contains_7;
       }
       if (_or_4) {
         boolean util = false;
@@ -168,18 +160,18 @@ public class generateHtmlView {
     {
       boolean _or_5 = false;
       boolean _or_6 = false;
-      boolean _contains_9 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_9) {
+      boolean _contains_8 = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains_8) {
         _or_6 = true;
       } else {
-        boolean _contains_10 = basicServices.contains(ServiceEnum.UPLOAD);
-        _or_6 = _contains_10;
+        boolean _contains_9 = basicServices.contains(ServiceEnum.UPLOAD);
+        _or_6 = _contains_9;
       }
       if (_or_6) {
         _or_5 = true;
       } else {
-        boolean _contains_11 = basicServices.contains(ServiceEnum.UPDATE);
-        _or_5 = _contains_11;
+        boolean _contains_10 = basicServices.contains(ServiceEnum.UPDATE);
+        _or_5 = _contains_10;
       }
       if (_or_5) {
         _builder.append("import ");
@@ -191,12 +183,12 @@ public class generateHtmlView {
     }
     {
       boolean _or_7 = false;
-      boolean _contains_12 = basicServices.contains(ServiceEnum.UPLOAD);
-      if (_contains_12) {
+      boolean _contains_11 = basicServices.contains(ServiceEnum.UPLOAD);
+      if (_contains_11) {
         _or_7 = true;
       } else {
-        boolean _contains_13 = basicServices.contains(ServiceEnum.UPDATE);
-        _or_7 = _contains_13;
+        boolean _contains_12 = basicServices.contains(ServiceEnum.UPDATE);
+        _or_7 = _contains_12;
       }
       if (_or_7) {
         _builder.append("import ");
@@ -212,6 +204,20 @@ public class generateHtmlView {
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.newLine();
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Auto-generated html view methods.");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* @author miso.distil.codeGenerator.");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
     _builder.append("public class Html");
     _builder.append(name, "");
     _builder.append("View implements HtmlInterfaceView<");
@@ -220,14 +226,14 @@ public class generateHtmlView {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     {
-      boolean _contains_14 = basicServices.contains(ServiceEnum.READ);
-      if (_contains_14) {
+      boolean _contains_13 = basicServices.contains(ServiceEnum.READ);
+      if (_contains_13) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to construct the information from an artifact");
+        _builder.append("* Auto-generated method to construct the information from an artifact.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -235,7 +241,15 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param ");
+        _builder.append(namelow, "\t ");
+        _builder.append(" ");
+        _builder.append(name, "\t ");
+        _builder.append(" to read.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return list with entries to show in html.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -417,8 +431,8 @@ public class generateHtmlView {
           }
         }
         {
-          boolean _contains_15 = basicServices.contains(ServiceEnum.DOWNLOAD);
-          if (_contains_15) {
+          boolean _contains_14 = basicServices.contains(ServiceEnum.DOWNLOAD);
+          if (_contains_14) {
             _builder.append("\t");
             _builder.append("\t");
             _builder.append("entries.add(new HtmlEntry(Html");
@@ -430,8 +444,8 @@ public class generateHtmlView {
           }
         }
         {
-          boolean _contains_16 = basicServices.contains(ServiceEnum.UPDATE);
-          if (_contains_16) {
+          boolean _contains_15 = basicServices.contains(ServiceEnum.UPDATE);
+          if (_contains_15) {
             _builder.append("\t");
             _builder.append("\t");
             _builder.append("entries.add(new HtmlEntry(Html");
@@ -443,8 +457,8 @@ public class generateHtmlView {
           }
         }
         {
-          boolean _contains_17 = basicServices.contains(ServiceEnum.DELETE);
-          if (_contains_17) {
+          boolean _contains_16 = basicServices.contains(ServiceEnum.DELETE);
+          if (_contains_16) {
             _builder.append("\t");
             _builder.append("\t");
             _builder.append("entries.add(new HtmlEntry(Html");
@@ -467,14 +481,14 @@ public class generateHtmlView {
       }
     }
     {
-      boolean _contains_18 = basicServices.contains(ServiceEnum.READ_ALL);
-      if (_contains_18) {
+      boolean _contains_17 = basicServices.contains(ServiceEnum.READ_ALL);
+      if (_contains_17) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to construct the information from an artifact\'s list");
+        _builder.append("* Auto-generated method to construct the information from an artifact\'s list.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -482,7 +496,15 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param ");
+        _builder.append(namelow, "\t ");
+        _builder.append("s list of ");
+        _builder.append(name, "\t ");
+        _builder.append(" to read.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return list with lists of entries to show in html.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -517,8 +539,8 @@ public class generateHtmlView {
         _builder.append("List<HtmlEntry> entries = new ArrayList<HtmlEntry>();");
         _builder.newLine();
         {
-          boolean _contains_19 = basicServices.contains(ServiceEnum.READ);
-          if (_contains_19) {
+          boolean _contains_18 = basicServices.contains(ServiceEnum.READ);
+          if (_contains_18) {
             _builder.append("\t");
             _builder.append("\t\t\t");
             _builder.append("entries.add(new HtmlEntry(Html");
@@ -536,8 +558,8 @@ public class generateHtmlView {
         _builder.append(".getCreatedatString(), EntrySize.H4));");
         _builder.newLineIfNotEmpty();
         {
-          boolean _contains_20 = basicServices.contains(ServiceEnum.READ);
-          if (_contains_20) {
+          boolean _contains_19 = basicServices.contains(ServiceEnum.READ);
+          if (_contains_19) {
             _builder.append("\t");
             _builder.append("\t\t\t");
             _builder.append("entries.add(new HtmlEntry(Html");
@@ -549,8 +571,8 @@ public class generateHtmlView {
           }
         }
         {
-          boolean _contains_21 = basicServices.contains(ServiceEnum.UPDATE);
-          if (_contains_21) {
+          boolean _contains_20 = basicServices.contains(ServiceEnum.UPDATE);
+          if (_contains_20) {
             _builder.append("\t");
             _builder.append("\t\t\t");
             _builder.append("entries.add(new HtmlEntry(Html");
@@ -562,8 +584,8 @@ public class generateHtmlView {
           }
         }
         {
-          boolean _contains_22 = basicServices.contains(ServiceEnum.DELETE);
-          if (_contains_22) {
+          boolean _contains_21 = basicServices.contains(ServiceEnum.DELETE);
+          if (_contains_21) {
             _builder.append("\t");
             _builder.append("\t\t\t");
             _builder.append("entries.add(new HtmlEntry(Html");
@@ -594,14 +616,14 @@ public class generateHtmlView {
       }
     }
     {
-      boolean _contains_23 = basicServices.contains(ServiceEnum.SEARCH);
-      if (_contains_23) {
+      boolean _contains_22 = basicServices.contains(ServiceEnum.SEARCH);
+      if (_contains_22) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to construct the search form");
+        _builder.append("* Auto-generated method to construct the search form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -609,7 +631,7 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @return special map of SPARK to show objects in HTML.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -745,14 +767,14 @@ public class generateHtmlView {
       }
     }
     {
-      boolean _contains_24 = basicServices.contains(ServiceEnum.UPDATE);
-      if (_contains_24) {
+      boolean _contains_23 = basicServices.contains(ServiceEnum.UPDATE);
+      if (_contains_23) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to construct the update form");
+        _builder.append("* Auto-generated method to construct the update form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -760,7 +782,15 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @param ");
+        _builder.append(namelow, "\t ");
+        _builder.append(" ");
+        _builder.append(name, "\t ");
+        _builder.append(" to update.");
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* @return special map of SPARK to show objects in HTML.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -1047,14 +1077,14 @@ public class generateHtmlView {
       }
     }
     {
-      boolean _contains_25 = basicServices.contains(ServiceEnum.UPLOAD);
-      if (_contains_25) {
+      boolean _contains_24 = basicServices.contains(ServiceEnum.UPLOAD);
+      if (_contains_24) {
         _builder.append("\t");
         _builder.append("/**");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* Auto-generated method to construct the upload form");
+        _builder.append("* Auto-generated method to construct the upload form.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -1062,7 +1092,7 @@ public class generateHtmlView {
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
-        _builder.append("* @author miso.distil.codeGenerator");
+        _builder.append("* @return special map of SPARK to show objects in HTML.");
         _builder.newLine();
         _builder.append("\t");
         _builder.append(" ");
@@ -1072,7 +1102,7 @@ public class generateHtmlView {
         _builder.append("@Override");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("public Map<String, Object> constructUploadForm(Request req) {");
+        _builder.append("public Map<String, Object> constructUploadForm() {");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("\t");

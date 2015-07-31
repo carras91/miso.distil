@@ -15,9 +15,9 @@ import codeGeneratorModel.ServiceEnum
 import codeGeneratorModel.DataEnum
 
 /**
- * Some methos used everywhere
+ * Some methos used everywhere.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateUtils {
 
@@ -26,9 +26,10 @@ class generateUtils {
 	private var HashMap<Artifact, List<Pair<Attribute, List<String>>>> nestedTree = new HashMap<Artifact, List<Pair<Attribute, List<String>>>>()
 
 	/**
-	 * To write the chain ".getX().getY()..." from the attribute number "pos" in artifact
+	 * To write the chain ".getX().getY()..." from the attribute number "pos" in artifact.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param pos the position.
+	 * @param artifact the artifact.
 	 */
 	def getNestedGets(Integer pos, Artifact artifact) {
 		var list = artifact.nestedTree.get(pos).value
@@ -44,9 +45,10 @@ class generateUtils {
 	}
 	
 	/**
-	 * To write a string "att1, att2, att3, ..." from the attributes inside the reference number pos in artifact
+	 * To write a string "att1, att2, att3, ..." from the attributes inside the reference number pos in artifact.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param pos the position.
+	 * @param artifact the artifact.
 	 */
 	def getNestedAtt(Integer pos, Artifact artifact) {
 		var parentName = getNewAttName(pos, artifact)
@@ -63,9 +65,10 @@ class generateUtils {
 	}
 	
 	/**
-	 * To get an attribute name by his position inside nestedTree (separated by _)
+	 * To get an attribute name by his position inside nestedTree (separated by _).
 	 * 
-	 * @author Carlos Carrascal
+	 * @param pos the position.
+	 * @param artifact the artifact.
 	 */
 	def getNewAttName(Integer pos, Artifact artifact) {
 		var newName = artifact.nestedTree.get(pos).key.name
@@ -77,9 +80,10 @@ class generateUtils {
 	}
 	
 	/**
-	 * To get an attribute name by his position inside nestedTree (separated by .)
+	 * To get an attribute name by his position inside nestedTree (separated by .).
 	 * 
-	 * @author Carlos Carrascal
+	 * @param pos the position.
+	 * @param artifact the artifact.
 	 */
 	def getNewAttNameByPoint(Integer pos, Artifact artifact) {
 		var list = artifact.nestedTree.get(pos).value 
@@ -90,9 +94,10 @@ class generateUtils {
 	}
 	
 	/**
-	 * To get an attribute name
+	 * To get an attribute name.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param att the attribute.
+	 * @param artifact the artifact.
 	 */
 	def getNewAttName(Attribute att, Artifact artifact) {
 		for(pair : artifact.nestedTree) {
@@ -107,9 +112,9 @@ class generateUtils {
 	}
 	
 	/**
-	 * To fill nestedTree and return artifact's attributes information
+	 * To fill nestedTree and return artifact's attributes information.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */
 	private def List<Pair<Attribute, List<String>>> getNestedTree(Artifact artifact) {
 		if(nestedTree.keySet.contains(artifact)) {
@@ -130,9 +135,10 @@ class generateUtils {
 	}
 	
 	/**
-	 * To get for each attribute his path in an ascendent way (recursive)
+	 * To get for each attribute his path in an ascendent way (recursive).
 	 * 
-	 * @author Carlos Carrascal 
+	 * @param att the reference.
+	 * @param parent the path.
 	 */
 	private def List<Pair<Attribute, List<String>>> getNested(Reference att, List<String> parent) {
 		val list = new ArrayList<Pair<Attribute, List<String>>>
@@ -148,9 +154,9 @@ class generateUtils {
 	}
 	
 	/**
-	 * To write "import java.util.List;" if needed
+	 * To write "import java.util.List;" if needed.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param atts list of attributes.
 	 */
 	def getImportList(EList<Attribute> atts) {
 		var presentList = false 
@@ -165,9 +171,9 @@ class generateUtils {
 	}
 	
 	/**
-	 * To write imports from atts
+	 * To write entities imports from atts.
 	 * 
-	 * @author Carlos Carrascal 
+	 * @param atts list of attributes.
 	 */
 	def getImportCompose(EList<Attribute> atts) {
 		var nameList = new ArrayList() 
@@ -184,9 +190,9 @@ class generateUtils {
 	}
 	
 	/**
-	 * To get a list of nested attributes (primitive and reference) (recursive)
+	 * To get a list of nested attributes (primitive and reference) (recursive).
 	 * 
-	 * @author Carlos Carrascal
+	 * @param atts list of attributes.
 	 */
 	def EList<Attribute> getAllNestedAttributes(EList<Attribute> atts) {
 		val EList<Attribute> list = new BasicEList<Attribute>()
@@ -200,9 +206,9 @@ class generateUtils {
 	}
 	
 	/**
-	 * To get a list of nested attributes (but not references) (recursive)
+	 * To get a list of nested attributes (but not references) (recursive).
 	 * 
-	 * @author Carlos Carrascal
+	 * @param atts list of attributes.
 	 */
 	def EList<Attribute> getNestedAttributes(Attribute att) {
 		val EList<Attribute> list = new BasicEList<Attribute>()
@@ -217,16 +223,16 @@ class generateUtils {
 	}
 		
 	/**
-	 * To write the class name of att
+	 * To write the class name of att.
 	 * 
-	 * @author Carlos Carrascal 
+	 * @param att the attribute.
 	 */
 	def getTypeName(Attribute att) '''«IF att.many»List<«ENDIF»«IF att instanceof Reference»«att.type.name»«ELSEIF att instanceof Primitive»«(att as Primitive).type.toString»«ELSE»String«ENDIF»«IF att.many»>«ENDIF»'''
 
 	/**
-	 * To write private attributes
+	 * To write private attributes.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param atts list of attributes.
 	 */
 	def getPrivateAttributes(EList<Attribute> atts) '''
 		«FOR att : atts»
@@ -235,16 +241,26 @@ class generateUtils {
 	'''	
 	
 	/**
-	 * To write getters and setters
+	 * To write getters and setters.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param atts list of attributes.
 	 */	
 	def getGetSetAtt(EList<Attribute> atts) '''
 		«FOR att : atts»
+			/**
+			 * To get «att.name»
+			 *
+			 * @return «att.name»
+			 */
 			public «att.typeName» get«att.name.toFirstUpper»() {
 				return «att.name»;
 			}
 
+			/**
+			 * To set «att.name»
+			 *
+			 * @param «att.name» new «att.name»
+			 */
 			public void set«att.name.toFirstUpper»(«att.typeName» «att.name») {
 				«IF att instanceof Primitive»
 					«IF att.type.equals(DataEnum.STRING)»
@@ -276,9 +292,9 @@ class generateUtils {
 	'''
 	
 	/**
-	 * Process ServiceEnum.ALL
+	 * Process ServiceEnum.ALL.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param services the services.
 	 */
 	def processBasicServices(EList<ServiceEnum> services) {
 		if(services.contains(ServiceEnum.ALL)) {
@@ -294,19 +310,19 @@ class generateUtils {
 	}
 	
 	/**
-	 * To write toString method
+	 * To write toString method.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param atts list of attributes.
 	 */
 	def getToStringAtts(EList<Attribute> atts) '''
 			@Override
 			public String toString() {
 				«IF atts.empty»
-					return "";
+					return super.toString();
 				«ELSE»
-					return 
+					return super.toString() +
 					«FOR att : atts»
-						"(«att.name» : " + «att.name».toString()«IF atts.last.equals(att)» + ")";«ELSE» + ")" + «ENDIF»
+						"( «att.name» : " + «att.name».toString()«IF atts.last.equals(att)» + " )";«ELSE» + " ) " + «ENDIF»
 					«ENDFOR»
 				«ENDIF»
 			}

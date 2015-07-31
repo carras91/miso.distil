@@ -5,9 +5,9 @@ import miso.distil.codeGenerator.generator.Names;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 /**
- * To write Main.java
+ * To write Main.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateMain {
@@ -15,9 +15,9 @@ public class generateMain {
   private Names names;
   
   /**
-   * To write Main.java
+   * To write Main.java.
    * 
-   * @author Carlos Carrascal
+   * @author Carlos Carrascal.
    */
   public CharSequence write() {
     StringConcatenation _builder = new StringConcatenation();
@@ -34,13 +34,13 @@ public class generateMain {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated main class");
+    _builder.append("* Auto-generated main class.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");

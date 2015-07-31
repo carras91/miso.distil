@@ -6,12 +6,12 @@ import java.util.List;
 /**
  * Record to store data bases implementing {@link miso.carrascal.cloudModelServices.abstractServices.InterfaceDB InterfaceDB}.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public class RecordDB {
 		
 	/**
-	 * Record
+	 * Record.
 	 */
 	private static List<InterfaceDB> DBRecord = new ArrayList<InterfaceDB>();
 	/**

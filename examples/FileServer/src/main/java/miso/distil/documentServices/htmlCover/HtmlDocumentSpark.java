@@ -15,26 +15,47 @@ import miso.distil.documentServices.CustomDocumentHtml;
 import miso.distil.documentServices.htmlCover.HtmlDocumentJson;
 
 /**
- * Auto-generated html spark server
+ * Auto-generated html spark server.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public final class HtmlDocumentSpark implements BasicInterfaceSpark {
 
-	// URL's
+	/**
+	 * Read html url.
+	 */
 	public static String ReadHTML = "/html/document/read/";
+	/**
+	 * Read html with id url.
+	 */
 	public static String ReadIdHTML = ReadHTML + BasicDocumentParam.IdGet;
+	/**
+	 * Read all html url.
+	 */
 	public static String ReadAllHTML = "/html/document/all";
+	/**
+	 * Search html url.
+	 */
 	public static String SearchHTML = "/html/document/search";
+	/**
+	 * Get search form html url.
+	 */
 	public static String SearchFormHTML = "/html/document/search/form";
+	/**
+	 * Get update form html url.
+	 */
 	public static String UpdateFormHTML = "/html/document/update/";
+	/**
+	 * Get update form html with id url.
+	 */
 	public static String UpdateFormIdHTML = UpdateFormHTML + BasicDocumentParam.IdGet;
+	/**
+	 * Get upload form html url.
+	 */
 	public static String UploadFormHTML = "/html/document/upload";
 
 	/**
-	 * Auto-generated html spark service. It initializes all html url's
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated html spark service. It initializes all html url's.
 	 */
 	@Override
 	public void runService() {
@@ -69,9 +90,7 @@ public final class HtmlDocumentSpark implements BasicInterfaceSpark {
 	}
 
 	/**
-	 * Auto-generated layout service. It add's to the html layout some permanents links
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated layout service. It add's to the html layout some permanents links.
 	 */
 	private void addLayout() {
 		List<HtmlSelectBox> layouts = new ArrayList<HtmlSelectBox>();
@@ -81,12 +100,13 @@ public final class HtmlDocumentSpark implements BasicInterfaceSpark {
 		HtmlFreeMarker.addLayout("Document", layouts);
 	}
 
+	/**
+	 * HtmlDocumentJson with CustomDocumentHtml to overwrite html services.
+	 */
 	private static HtmlDocumentJson HTML = new HtmlDocumentJson(new CustomDocumentHtml());
 
 	/**
-	 * Auto-generated method to overwrite the information from an artifact
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated method to overwrite the information from an artifact.
 	 */
 	public static void overWriteInfoReadOne() {
 		get(ReadIdHTML,
@@ -95,9 +115,7 @@ public final class HtmlDocumentSpark implements BasicInterfaceSpark {
 	}
 
 	/**
-	 * Auto-generated method to overwrite the information from an artifact's list
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated method to overwrite the information from an artifact's list.
 	 */
 	public static void overWriteInfoReadAll() {
 		get(ReadAllHTML,
@@ -110,9 +128,7 @@ public final class HtmlDocumentSpark implements BasicInterfaceSpark {
 	}
 
 	/**
-	 * Auto-generated method to overwrite the search form
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated method to overwrite the search form.
 	 */
 	public static void overWriteSearchForm() {
 		get(SearchFormHTML,
@@ -121,9 +137,7 @@ public final class HtmlDocumentSpark implements BasicInterfaceSpark {
 	}
 
 	/**
-	 * Auto-generated method to overwrite the update form
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated method to overwrite the update form.
 	 */
 	public static void overWriteUpdateForm() {
 		get(UpdateFormIdHTML,
@@ -132,9 +146,7 @@ public final class HtmlDocumentSpark implements BasicInterfaceSpark {
 	}
 
 	/**
-	 * Auto-generated method to overwrite the upload form
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated method to overwrite the upload form.
 	 */
 	public static void overWriteUploadForm() {
 		get(UploadFormHTML,

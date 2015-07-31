@@ -6,19 +6,19 @@ import codeGeneratorModel.Attribute
 import org.eclipse.emf.common.util.EList
 import codeGeneratorModel.Primitive
 
-/*
- * To write BasicXXXParam.java
+/**
+ * To write BasicXXXParam.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateBasicParam {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
-	/*
-	 * To write Basic<artifact.name>Param.java
+	/**
+	 * To write Basic"artifact.name"Param.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */
 	def write(Artifact artifact) '''
 		«val name = artifact.name»
@@ -31,9 +31,9 @@ class generateBasicParam {
 		import «names.MisoBasic».BasicAbstractParam;
 
 		/**
-		 * Auto-generated parameters
+		 * Auto-generated parameters.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class Basic«name»Param extends BasicAbstractParam {
 			// Attributes parameters
@@ -47,12 +47,11 @@ class generateBasicParam {
 				«ENDIF»
 			«ENDFOR»
 
-			// List with all parameters
 			private static List<String> values = new ArrayList<String>();
 			/**
-			* Auto-generated list with all parameters
+			* Auto-generated list with all parameters.
 			* 
-			* @author miso.distil.codeGenerator
+			* @return list with values.
 			*/
 			public static List<String> values() {
 				if(values.isEmpty()) {

@@ -11,16 +11,14 @@ import miso.distil.metamodelServices.MetaModel;
 import miso.distil.bentoServices.Bento;
 
 /**
- * Auto-generated service class
+ * Auto-generated service class.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class ServiceSemanticSearch extends ServiceAbstractJson {
 
 	/**
-	 * Auto-generated service constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated service constructor.
 	 */
 	public ServiceSemanticSearch() {
 		// Input classes
@@ -29,15 +27,6 @@ public class ServiceSemanticSearch extends ServiceAbstractJson {
 		addOutputClass((new ArrayList<Bento>()).getClass());
 	}
 
-	/**
-	 * Method called automatically to prepare the inputs
-	 * If triggered :
-	 * - after upload, download, update, read -> artifacts.size = 1, (request, response) from these services
-	 * - after readAll, search -> the results of these services, (request, response) from these services
-	 * - on request -> artifacts.size = 0, , (request, response) sent by user
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
 	@Override
 	protected List<Object> prepareService(Request req, Response res, List<? extends Persistent> artifacts) {
 		List<Object> input = new ArrayList<Object>();
@@ -46,15 +35,10 @@ public class ServiceSemanticSearch extends ServiceAbstractJson {
 		MetaModel meta = new MetaModel("automatic metamodel name", 42, "automatic metamodel uri");
 		input.add(meta);
 		System.out.println("SemanticSearch has started");
-				
+		
 		return input;
 	}
 
-	/**
-	 * Execution method. It uses prepareService return and generates other object's list (see the constructor output order)
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
 	@Override
 	protected List<Object> exeService(List<Object> input) {
 		List<Object> output = new ArrayList<Object>();
@@ -73,6 +57,7 @@ public class ServiceSemanticSearch extends ServiceAbstractJson {
 		output.add(bentos);
 		
 		System.out.println("SemanticSearch has finished");
+
 		return output;
 	}
 }

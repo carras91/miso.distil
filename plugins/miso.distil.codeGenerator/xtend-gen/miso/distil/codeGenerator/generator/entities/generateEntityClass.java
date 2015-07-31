@@ -13,9 +13,9 @@ import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
- * To write <entity>.java
+ * To write "entity.name".java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 @SuppressWarnings("all")
 public class generateEntityClass {
@@ -26,9 +26,9 @@ public class generateEntityClass {
   private Names names;
   
   /**
-   * To write <entity.name>.java
+   * To write "entity.name".java.
    * 
-   * @author Carlos Carrascal
+   * @author Carlos Carrascal.
    */
   public CharSequence write(final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
@@ -44,13 +44,13 @@ public class generateEntityClass {
     _builder.append("/**");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* Auto-generated entity class");
+    _builder.append("* Auto-generated entity class.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("* ");
     _builder.newLine();
     _builder.append(" ");
-    _builder.append("* @author miso.distil.codeGenerator");
+    _builder.append("* @author miso.distil.codeGenerator.");
     _builder.newLine();
     _builder.append(" ");
     _builder.append("*/");
@@ -75,7 +75,15 @@ public class generateEntityClass {
       boolean _isEmpty = _attributes_2.isEmpty();
       if (_isEmpty) {
         _builder.append("\t");
-        _builder.append("// Constructor");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Empty constructor.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("public ");
@@ -85,7 +93,15 @@ public class generateEntityClass {
         _builder.newLineIfNotEmpty();
       } else {
         _builder.append("\t");
-        _builder.append("// Empty constructor");
+        _builder.append("/**");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("* Empty constructor.");
+        _builder.newLine();
+        _builder.append("\t");
+        _builder.append(" ");
+        _builder.append("*/");
         _builder.newLine();
         _builder.append("\t");
         _builder.append("public ");
@@ -96,18 +112,11 @@ public class generateEntityClass {
         _builder.append("\t");
         _builder.newLine();
         _builder.append("\t");
-        _builder.append("// Full constructor");
-        _builder.newLine();
-        _builder.append("\t");
         CharSequence _constructorEntity = this.getConstructorEntity(entity);
         _builder.append(_constructorEntity, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
-    _builder.newLine();
-    _builder.append("\t");
-    _builder.append("// Getters and setters");
-    _builder.newLine();
     _builder.newLine();
     _builder.append("\t");
     EList<Attribute> _attributes_3 = entity.getAttributes();
@@ -130,28 +139,51 @@ public class generateEntityClass {
   }
   
   /**
-   * To write the full constructor of entity
+   * To write the full constructor of entity.
    * 
-   * @author Carlos Carrascal
+   * @param artifact the artifact.
    */
   private CharSequence getConstructorEntity(final Entity entity) {
     StringConcatenation _builder = new StringConcatenation();
     final EList<Attribute> atts = entity.getAttributes();
     _builder.newLineIfNotEmpty();
-    _builder.append("public ");
-    String _name = entity.getName();
-    _builder.append(_name, "");
-    _builder.append("(");
+    _builder.append("/**");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* Full constructor.");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    _builder.newLine();
     {
       for(final Attribute att : atts) {
-        CharSequence _typeName = this.genUti.getTypeName(att);
-        _builder.append(_typeName, "");
-        _builder.append(" ");
+        _builder.append("* @param ");
+        String _name = att.getName();
+        _builder.append(_name, "");
+        _builder.append(" Attribute ");
         String _name_1 = att.getName();
         _builder.append(_name_1, "");
+        _builder.append(".");
+        _builder.newLineIfNotEmpty();
+      }
+    }
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
+    _builder.append("public ");
+    String _name_2 = entity.getName();
+    _builder.append(_name_2, "");
+    _builder.append("(");
+    {
+      for(final Attribute att_1 : atts) {
+        CharSequence _typeName = this.genUti.getTypeName(att_1);
+        _builder.append(_typeName, "");
+        _builder.append(" ");
+        String _name_3 = att_1.getName();
+        _builder.append(_name_3, "");
         {
           Attribute _last = IterableExtensions.<Attribute>last(atts);
-          boolean _equals = _last.equals(att);
+          boolean _equals = _last.equals(att_1);
           boolean _not = (!_equals);
           if (_not) {
             _builder.append(", ");
@@ -163,39 +195,39 @@ public class generateEntityClass {
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     {
-      for(final Attribute att_1 : atts) {
+      for(final Attribute att_2 : atts) {
         {
-          if ((att_1 instanceof Primitive)) {
+          if ((att_2 instanceof Primitive)) {
             {
-              DataEnum _type = ((Primitive)att_1).getType();
+              DataEnum _type = ((Primitive)att_2).getType();
               boolean _equals_1 = _type.equals(DataEnum.STRING);
               if (_equals_1) {
                 {
-                  boolean _isMany = ((Primitive)att_1).isMany();
+                  boolean _isMany = ((Primitive)att_2).isMany();
                   if (_isMany) {
                     _builder.append("\t");
                     _builder.append("this.");
-                    String _name_2 = ((Primitive)att_1).getName();
-                    _builder.append(_name_2, "\t");
+                    String _name_4 = ((Primitive)att_2).getName();
+                    _builder.append(_name_4, "\t");
                     _builder.append(" = ");
-                    String _name_3 = ((Primitive)att_1).getName();
-                    _builder.append(_name_3, "\t");
+                    String _name_5 = ((Primitive)att_2).getName();
+                    _builder.append(_name_5, "\t");
                     _builder.append(";");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t");
                     _builder.append("for(int i=0; i < this.");
-                    String _name_4 = ((Primitive)att_1).getName();
-                    _builder.append(_name_4, "\t");
+                    String _name_6 = ((Primitive)att_2).getName();
+                    _builder.append(_name_6, "\t");
                     _builder.append(".size(); i++) {");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t");
                     _builder.append("\t");
                     _builder.append("this.");
-                    String _name_5 = ((Primitive)att_1).getName();
-                    _builder.append(_name_5, "\t\t");
+                    String _name_7 = ((Primitive)att_2).getName();
+                    _builder.append(_name_7, "\t\t");
                     _builder.append(".set(i, this.");
-                    String _name_6 = ((Primitive)att_1).getName();
-                    _builder.append(_name_6, "\t\t");
+                    String _name_8 = ((Primitive)att_2).getName();
+                    _builder.append(_name_8, "\t\t");
                     _builder.append(".get(i).toLowerCase());");
                     _builder.newLineIfNotEmpty();
                     _builder.append("\t");
@@ -204,11 +236,11 @@ public class generateEntityClass {
                   } else {
                     _builder.append("\t");
                     _builder.append("this.");
-                    String _name_7 = ((Primitive)att_1).getName();
-                    _builder.append(_name_7, "\t");
+                    String _name_9 = ((Primitive)att_2).getName();
+                    _builder.append(_name_9, "\t");
                     _builder.append(" = ");
-                    String _name_8 = ((Primitive)att_1).getName();
-                    _builder.append(_name_8, "\t");
+                    String _name_10 = ((Primitive)att_2).getName();
+                    _builder.append(_name_10, "\t");
                     _builder.append(".toLowerCase();");
                     _builder.newLineIfNotEmpty();
                   }
@@ -216,53 +248,53 @@ public class generateEntityClass {
               } else {
                 _builder.append("\t");
                 _builder.append("this.");
-                String _name_9 = ((Primitive)att_1).getName();
-                _builder.append(_name_9, "\t");
+                String _name_11 = ((Primitive)att_2).getName();
+                _builder.append(_name_11, "\t");
                 _builder.append(" = ");
-                String _name_10 = ((Primitive)att_1).getName();
-                _builder.append(_name_10, "\t");
+                String _name_12 = ((Primitive)att_2).getName();
+                _builder.append(_name_12, "\t");
                 _builder.append(";");
                 _builder.newLineIfNotEmpty();
               }
             }
           } else {
-            if ((att_1 instanceof Reference)) {
+            if ((att_2 instanceof Reference)) {
               _builder.append("\t");
               _builder.append("this.");
-              String _name_11 = att_1.getName();
-              _builder.append(_name_11, "\t");
+              String _name_13 = att_2.getName();
+              _builder.append(_name_13, "\t");
               _builder.append(" = ");
-              String _name_12 = att_1.getName();
-              _builder.append(_name_12, "\t");
+              String _name_14 = att_2.getName();
+              _builder.append(_name_14, "\t");
               _builder.append(";");
               _builder.newLineIfNotEmpty();
             } else {
               {
-                boolean _isMany_1 = att_1.isMany();
+                boolean _isMany_1 = att_2.isMany();
                 if (_isMany_1) {
                   _builder.append("\t");
                   _builder.append("this.");
-                  String _name_13 = att_1.getName();
-                  _builder.append(_name_13, "\t");
+                  String _name_15 = att_2.getName();
+                  _builder.append(_name_15, "\t");
                   _builder.append(" = ");
-                  String _name_14 = att_1.getName();
-                  _builder.append(_name_14, "\t");
+                  String _name_16 = att_2.getName();
+                  _builder.append(_name_16, "\t");
                   _builder.append(";");
                   _builder.newLineIfNotEmpty();
                   _builder.append("\t");
                   _builder.append("for(int i=0; i < this.");
-                  String _name_15 = att_1.getName();
-                  _builder.append(_name_15, "\t");
+                  String _name_17 = att_2.getName();
+                  _builder.append(_name_17, "\t");
                   _builder.append(".size(); i++) {");
                   _builder.newLineIfNotEmpty();
                   _builder.append("\t");
                   _builder.append("\t");
                   _builder.append("this.");
-                  String _name_16 = att_1.getName();
-                  _builder.append(_name_16, "\t\t");
+                  String _name_18 = att_2.getName();
+                  _builder.append(_name_18, "\t\t");
                   _builder.append(".set(i, this.");
-                  String _name_17 = att_1.getName();
-                  _builder.append(_name_17, "\t\t");
+                  String _name_19 = att_2.getName();
+                  _builder.append(_name_19, "\t\t");
                   _builder.append(".get(i).toLowerCase());");
                   _builder.newLineIfNotEmpty();
                   _builder.append("\t");
@@ -271,11 +303,11 @@ public class generateEntityClass {
                 } else {
                   _builder.append("\t");
                   _builder.append("this.");
-                  String _name_18 = att_1.getName();
-                  _builder.append(_name_18, "\t");
+                  String _name_20 = att_2.getName();
+                  _builder.append(_name_20, "\t");
                   _builder.append(" = ");
-                  String _name_19 = att_1.getName();
-                  _builder.append(_name_19, "\t");
+                  String _name_21 = att_2.getName();
+                  _builder.append(_name_21, "\t");
                   _builder.append(".toLowerCase();");
                   _builder.newLineIfNotEmpty();
                 }

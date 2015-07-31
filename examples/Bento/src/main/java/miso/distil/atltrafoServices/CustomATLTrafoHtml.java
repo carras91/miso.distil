@@ -1,7 +1,5 @@
 package miso.distil.atltrafoServices;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -18,16 +16,14 @@ import miso.distil.atltrafoServices.htmlCover.HtmlATLTrafoSpark;
 import miso.distil.atltrafoServices.ATLTrafo;
 
 /**
- * Auto-generated custom html spark server
+ * Auto-generated custom html spark server.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class CustomATLTrafoHtml implements HtmlInterfaceView<ATLTrafo>, BasicInterfaceSpark
 {
 	/**
-	 * Auto-generated custom spark service. It overwrites some html URL's
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated custom spark service. It overwrites some html URL's.
 	 */
 	@Override
 	public void runService() {
@@ -41,7 +37,7 @@ public class CustomATLTrafoHtml implements HtmlInterfaceView<ATLTrafo>, BasicInt
 	/**
 	 * Auto-generated method to customice the search form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -79,10 +75,10 @@ public class CustomATLTrafoHtml implements HtmlInterfaceView<ATLTrafo>, BasicInt
 	/**
 	 * Auto-generated method to customice the upload form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		// You need to add first a Form

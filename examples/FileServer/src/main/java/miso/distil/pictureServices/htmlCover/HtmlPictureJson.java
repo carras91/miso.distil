@@ -13,15 +13,14 @@ import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMark
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfaceView;
 import miso.carrascal.cloudModelServices.utils.Utils;
 
-import miso.distil.pictureServices.basic.BasicPictureCodes;
 import miso.distil.pictureServices.PictureJson;
 import miso.distil.pictureServices.CustomPictureHtml;
 import miso.distil.pictureServices.Picture;
 
 /**
- * Auto-generated html methods
+ * Auto-generated html methods.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class HtmlPictureJson implements HtmlInterfaceJson {
 
@@ -30,27 +29,27 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 	private HtmlInterfaceView<Picture> customView;
 
 	/**
-	 * Auto-generated empty constructor
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated empty constructor. To use auto-generated HtmlPictureView.
 	 */
 	public HtmlPictureJson() {
 		customView = View;
 	}
 
 	/**
-	 * Auto-generated constructor with a custom view
+	 * Auto-generated constructor with a custom view.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param View Custom View.
 	 */
 	public HtmlPictureJson(CustomPictureHtml View) {
 		customView = View;
 	}
 
 	/**
-	 * Auto-generated method to read the information from an artifact
+	 * Auto-generated method to read the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getRead(Request req, Response res) {
@@ -58,7 +57,7 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 
 		Picture picture = (Picture) Json.getRead(req, res);
 		if(picture == null) {
-			viewObjects.put(HtmlFreeMarker.ERROR, BasicPictureCodes.DB_notfound);
+			viewObjects.put(HtmlFreeMarker.ERROR, "Picture not found in data base");
 		} else {
 			viewObjects.put(HtmlFreeMarker.ENTRIES, customView.constructInfoReadOne(picture));
 		}
@@ -68,9 +67,11 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to read the information from an artifact's list
+	 * Auto-generated method to read the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getReadAll(Request req, Response res) {
@@ -86,9 +87,9 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to construct the search form
+	 * Auto-generated method to construct the search form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getSearchForm() {
@@ -100,9 +101,11 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to read the information from the result list of a search
+	 * Auto-generated method to read the information from the result list of a search.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getSearch(Request req, Response res) {	
@@ -113,7 +116,7 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 		if(pictures.isEmpty()) {
 			viewObjects = View.constructSearchForm();
 			viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
-			viewObjects.put(HtmlFreeMarker.EMPTY, BasicPictureCodes.Picture_notfound);
+			viewObjects.put(HtmlFreeMarker.EMPTY, "Picture not found in data base");
 			viewObjects.put(HtmlFreeMarker.SYNONYMS_VALUES, Utils.listToString(Json.getSynonymsValue(req, res)));
 		} else {	
 			viewObjects = new HashMap<String, Object>();
@@ -127,14 +130,16 @@ public class HtmlPictureJson implements HtmlInterfaceJson {
 	}
 
 	/**
-	 * Auto-generated method to construct the upload form
+	 * Auto-generated method to construct the upload form.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param req Spark request.
+	 * @param res Spark response.
+	 * @return special structure for SPARK.
 	 */
 	@Override
 	public ModelAndView getUploadForm(Request req, Response res) {
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
-		viewObjects = customView.constructUploadForm(req);
+		viewObjects = customView.constructUploadForm();
 		viewObjects.put(HtmlFreeMarker.TEMPLATE, HtmlFreeMarker.FORM_HTML); 
 
 		return HtmlFreeMarker.closeHtml(viewObjects);

@@ -4,9 +4,9 @@ import miso.carrascal.cloudModelServices.abstractServices.Persistent;
 
 
 /**
- * Auto-generated artifact class
+ * Auto-generated artifact class.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class MetaModel extends Persistent {
 
@@ -14,12 +14,20 @@ public class MetaModel extends Persistent {
 	// Attributes
 	private String uri;
 
-	// Empty constructor
+	/**
+	 * Empty constructor.
+	 */
 	public MetaModel() {
 		super();
 	}
 
-	// Full constructor
+	/**
+	 * Full constructor.
+	 * 
+	 * @param filename Name file. 
+	 * @param filesize File size.
+	* @param uri Attribute uri.
+	 */
 	public MetaModel(String filename, long filesize, String uri) {
 	
 		super(filename, filesize);
@@ -27,12 +35,20 @@ public class MetaModel extends Persistent {
 		this.uri = uri.toLowerCase();
 	}
 
-	// Getters and setters
-
+	/**
+	 * To get uri
+	 *
+	 * @return uri
+	 */
 	public String getUri() {
 		return uri;
 	}
 	
+	/**
+	 * To set uri
+	 *
+	 * @param uri new uri
+	 */
 	public void setUri(String uri) {
 		this.uri = uri.toLowerCase();
 	}
@@ -41,7 +57,7 @@ public class MetaModel extends Persistent {
 
 	@Override
 	public String toString() {
-		return 
-		"(uri : " + uri.toString() + ")";
+		return super.toString() +
+		"( uri : " + uri.toString() + " )";
 	}
 }

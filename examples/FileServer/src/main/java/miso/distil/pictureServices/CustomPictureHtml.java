@@ -1,7 +1,5 @@
 package miso.distil.pictureServices;
 
-import spark.Request;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,23 +9,20 @@ import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlInterfac
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.HtmlFreeMarker;
 import miso.carrascal.cloudModelServices.abstractServices.htmlCover.htmlObjects.*;
 import miso.carrascal.cloudModelServices.abstractServices.basic.BasicInterfaceSpark;
-
 import miso.distil.pictureServices.basic.BasicPictureParam;
 import miso.distil.pictureServices.basic.BasicPictureSpark;
 import miso.distil.pictureServices.htmlCover.HtmlPictureSpark;
 import miso.distil.pictureServices.Picture;
 
 /**
- * Auto-generated custom html spark server
+ * Auto-generated custom html spark server.
  * 
- * @author miso.distil.codeGenerator
+ * @author miso.distil.codeGenerator.
  */
 public class CustomPictureHtml implements HtmlInterfaceView<Picture>, BasicInterfaceSpark
 {
 	/**
-	 * Auto-generated custom spark service. It overwrites some html URL's
-	 * 
-	 * @author miso.distil.codeGenerator
+	 * Auto-generated custom spark service. It overwrites some html URL's.
 	 */
 	@Override
 	public void runService() {
@@ -41,9 +36,10 @@ public class CustomPictureHtml implements HtmlInterfaceView<Picture>, BasicInter
 	}
 
 	/**
-	 * Auto-generated method to customice the information from an artifact
+	 * Auto-generated method to customice the information from an artifact.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param picture Picture to read.
+	 * @return list with entries to show in html.
 	 */
 	@Override
 	public List<HtmlEntry> constructInfoReadOne(Picture picture) {
@@ -55,9 +51,10 @@ public class CustomPictureHtml implements HtmlInterfaceView<Picture>, BasicInter
 	}
 
 	/**
-	 * Auto-generated method to customice the information from an artifact's list
+	 * Auto-generated method to customice the information from an artifact's list.
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @param pictures list of Picture to read.
+	 * @return list with lists of entries to show in html.
 	 */
 	@Override
 	public List<List<HtmlEntry>> constructInfoReadAll(List<Picture> pictures) {
@@ -75,7 +72,7 @@ public class CustomPictureHtml implements HtmlInterfaceView<Picture>, BasicInter
 	/**
 	 * Auto-generated method to customice the search form
 	 * 
-	 * @author miso.distil.codeGenerator
+	 * @return special map of SPARK to show objects in HTML.
 	 */
 	@Override
 	public Map<String, Object> constructSearchForm() {
@@ -110,13 +107,8 @@ public class CustomPictureHtml implements HtmlInterfaceView<Picture>, BasicInter
 		return viewObjects;
 	}
 
-	/**
-	 * Auto-generated method to customice the upload form
-	 * 
-	 * @author miso.distil.codeGenerator
-	 */
 	@Override
-	public Map<String, Object> constructUploadForm(Request req) {
+	public Map<String, Object> constructUploadForm() { 
 		Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 		// You need to add first a Form

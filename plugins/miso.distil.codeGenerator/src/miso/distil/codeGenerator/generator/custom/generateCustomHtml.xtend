@@ -5,20 +5,20 @@ import com.google.inject.Inject
 import codeGeneratorModel.ServiceEnum
 import org.eclipse.emf.common.util.EList
 
-/*
- * To write CustomXXXHtml.java
+/**
+ * To write CustomXXXHtml.java.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 class generateCustomHtml {
 	
 	@Inject miso.distil.codeGenerator.generator.generateUtils genUti
 	@Inject miso.distil.codeGenerator.generator.Names names
 
-	/*
-	 * To write Custom<artifact.name>Html.java
+	/**
+	 * To write Custom"artifact.name"Html.java.
 	 * 
-	 * @author Carlos Carrascal
+	 * @param artifact the artifact.
 	 */
 	def write(Artifact artifact) '''
 		«var EList<ServiceEnum> basicServices = genUti.processBasicServices(artifact.basicServices)»
@@ -26,10 +26,6 @@ class generateCustomHtml {
 		«val name = artifact.name»
 		package «names.getArtifactChar(artifact)»;
 
-		«IF basicServices.contains(ServiceEnum.UPLOAD)»
-			import spark.Request;
-
-		«ENDIF»
 		import java.util.ArrayList;
 		«IF basicServices.contains(ServiceEnum.SEARCH) || basicServices.contains(ServiceEnum.UPDATE) || basicServices.contains(ServiceEnum.UPLOAD)»
 			import java.util.HashMap;
@@ -56,16 +52,14 @@ class generateCustomHtml {
 		import «names.getArtifactFileChar(artifact)»;
 
 		/**
-		 * Auto-generated custom html spark server
+		 * Auto-generated custom html spark server.
 		 * 
-		 * @author miso.distil.codeGenerator
+		 * @author miso.distil.codeGenerator.
 		 */
 		public class Custom«name»Html implements HtmlInterfaceView<«name»>, BasicInterfaceSpark
 		{
 			/**
-			 * Auto-generated custom spark service. It overwrites some html URL's
-			 * 
-			 * @author miso.distil.codeGenerator
+			 * Auto-generated custom spark service. It overwrites some html URL's.
 			 */
 			@Override
 			public void runService() {
@@ -95,9 +89,10 @@ class generateCustomHtml {
 
 			«IF basicServices.contains(ServiceEnum.READ)»
 				/**
-				 * Auto-generated method to customice the information from an artifact
+				 * Auto-generated method to customize the information from an artifact.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to read.
+				 * @return list with entries to show in html.
 				 */
 				@Override
 				public List<HtmlEntry> constructInfoReadOne(«name» «namelow») {
@@ -111,9 +106,10 @@ class generateCustomHtml {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.READ_ALL)»
 				/**
-				 * Auto-generated method to customice the information from an artifact's list
+				 * Auto-generated method to customize the information from an artifact's list.
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow»s list of «name» to read.
+				 * @return list with lists of entries to show in html.
 				 */
 				@Override
 				public List<List<HtmlEntry>> constructInfoReadAll(List<«name»> «namelow»s) {
@@ -131,9 +127,9 @@ class generateCustomHtml {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.SEARCH)»
 				/**
-				 * Auto-generated method to customice the search form
+				 * Auto-generated method to customize the search form
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @return special map of SPARK to show objects in HTML.
 				 */
 				@Override
 				public Map<String, Object> constructSearchForm() {
@@ -171,9 +167,10 @@ class generateCustomHtml {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPDATE)»
 				/**
-				 * Auto-generated method to customice the update form
+				 * Auto-generated method to customize the update form
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @param «namelow» «name» to update.
+				 * @return special map of SPARK to show objects in HTML.
 				 */
 				@Override
 				public Map<String, Object> constructUpdateForm(«name» «namelow») {
@@ -210,12 +207,12 @@ class generateCustomHtml {
 			«ENDIF»
 			«IF basicServices.contains(ServiceEnum.UPLOAD)»
 				/**
-				 * Auto-generated method to customice the upload form
+				 * Auto-generated method to customize the upload form
 				 * 
-				 * @author miso.distil.codeGenerator
+				 * @return special map of SPARK to show objects in HTML.
 				 */
 				@Override
-				public Map<String, Object> constructUploadForm(Request req) {
+				public Map<String, Object> constructUploadForm() {
 					Map<String, Object> viewObjects = new HashMap<String, Object>();
 
 					// You need to add first a Form

@@ -11,7 +11,7 @@ import spark.Response;
 /**
  * Custom service.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public abstract class ServiceAbstractJson {
 
@@ -27,7 +27,7 @@ public abstract class ServiceAbstractJson {
 	/**
 	 * Get inputClass.
 	 * 
-	 * @return input classes
+	 * @return input classes.
 	 */
 	public List<Class<?>> getInputClass() {
 		return new ArrayList<>(inputClass);
@@ -36,7 +36,7 @@ public abstract class ServiceAbstractJson {
 	/**
 	 * Get outputClass.
 	 * 
-	 * @return output classes
+	 * @return output classes.
 	 */
 	public List<Class<?>> getOutputClass() {
 		return new ArrayList<>(outputClass);
@@ -45,7 +45,7 @@ public abstract class ServiceAbstractJson {
 	/**
 	 * Add a new input class in order.
 	 * 
-	 * @param inClass new input class
+	 * @param inClass new input class.
 	 */
 	public void addInputClass(Class<?> inClass) {
 		inputClass.add(inClass);
@@ -54,7 +54,7 @@ public abstract class ServiceAbstractJson {
 	/**
 	 * Add a new output class in order.
 	 * 
-	 * @param outClass new output class
+	 * @param outClass new output class.
 	 */
 	public void addOutputClass(Class<?> outClass) {
 		outputClass.add(outClass);
@@ -63,7 +63,7 @@ public abstract class ServiceAbstractJson {
 	/**
 	 * Add multiple input classes in order.
 	 * 
-	 * @param inClass new input classes
+	 * @param inClass new input classes.
 	 */
 	public void addInputClass(Collection<Class<?>> inClass) {
 		inputClass.addAll(inClass);
@@ -72,23 +72,23 @@ public abstract class ServiceAbstractJson {
 	/**
 	 * Add multiple output classes in order.
 	 * 
-	 * @param outClass new output classes
+	 * @param outClass new output classes.
 	 */
 	public void addOutputClass(Collection<Class<?>> outClass) {
 		outputClass.addAll(outClass);
 	}
 
 	/**
-	 * Public constructor
+	 * Public constructor.
 	 */
 	public ServiceAbstractJson() {}
 	
 	/**
-	 * Test if input list object's have the same classes (using isInstance) in the same order than inputClass
+	 * Test if input list object's have the same classes (using isInstance) in the same order than inputClass.
 	 * 
-	 * @param input list with input
+	 * @param input list with input.
 	 * 
-	 * @return true if list is correct, false in other case
+	 * @return true if list is correct, false in other case.
 	 */
 	public Boolean testInput(List<Object> input) {
 		if(input.size() != this.getInputClass().size()) {

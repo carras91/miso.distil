@@ -17,16 +17,16 @@ import spark.Response;
  * Utility to add files to a response to be downloaded when response returned to user.
  * If one file, download the file. If multiple, download a zip.
  * 
- * @author Carlos Carrascal
+ * @author Carlos Carrascal.
  */
 public class RecordDownload {
 	
 	/**
-	 * HashMap to store the files (inputstream and filename) associated with a response
+	 * HashMap to store the files (inputstream and filename) associated with a response.
 	 */
 	private static HashMap<Response, List<Pair<InputStream, String>>> download = new HashMap<Response, List<Pair<InputStream, String>>>();
 	/**
-	 * ZIP name
+	 * ZIP name.
 	 */
 	private static String zipName = "Foo.zip";
 
@@ -34,9 +34,9 @@ public class RecordDownload {
 	 * Method to add to a java spark Response a file to be downloaded.
 	 * It does nothing if NullPointerException().
 	 * 
-	 * @param res Response to be used
-	 * @param IS Information to be add
-	 * @param fileName Name of the file
+	 * @param res Response to be used.
+	 * @param IS Information to be add.
+	 * @param fileName Name of the file.
 	 */
 	public static void addDownload(Response res, InputStream IS, String fileName) {
 		if(res == null || IS == null || fileName == null) {
@@ -57,7 +57,7 @@ public class RecordDownload {
 	 * Method to finish a download for a response. If some files are associated, the will be packed (zip) and downloaded.
 	 * It does nothing if NullPointerException().
 	 * 
-	 * @param res Response to be used
+	 * @param res Response to be used.
 	 * @throws IOException Internal exception.
 	 */
 	public static void closeDownload(Response res) throws IOException {
@@ -97,7 +97,7 @@ public class RecordDownload {
 	 * It does nothing if NullPointerException().
 	 * 
 	 * @param OS Place to write.
-	 * @param list Pairs with files (InputStream, FileName) to be downloaded
+	 * @param list Pairs with files (InputStream, FileName) to be downloaded.
 	 * 
 	 * @exception IOException Internal exception.
 	 */
